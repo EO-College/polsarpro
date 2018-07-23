@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Placemark>
+  <name>SAPHIR</name>
+  <LookAt>
+    <longitude>-1.64112500</longitude>
+    <latitude>48.1172500</latitude>
+    <range>200.00</range>
+  </LookAt>
+  <styleUrl>root://styles#default+icon=0x307</styleUrl>
+  <Point>
+    <coordinates>-1.64112500,48.11700,200</coordinates>
+  </Point>
+</Placemark>
+</kml>

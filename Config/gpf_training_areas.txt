@@ -1,0 +1,15 @@
+NB_TRAINING_CLASSES
+1
+--------------
+TRAINING_CLASS
+Nb_Training_Areas
+1
+--------------
+Nb_Tie_Points
+1
+Tie_Point
+Row
+1
+Col
+1
+--------------

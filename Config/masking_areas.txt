@@ -1,0 +1,12 @@
+MASK_AREAS_DEFINITION
+Nb_Mask_Areas
+1
+--------------
+Nb_Tie_Points
+1
+Tie_Point
+Row
+1
+Col
+1
+--------------

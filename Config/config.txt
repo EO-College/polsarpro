@@ -1,0 +1,12 @@
+nlig
+0
+---------
+ncol
+0
+---------
+polarcase
+monostatic
+---------
+polartype
+full
+

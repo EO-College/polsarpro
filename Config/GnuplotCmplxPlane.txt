@@ -1,0 +1,18 @@
+set clip points
+unset border
+unset param
+set angle degrees
+set polar
+set grid polar 15.
+set xrange [-1:1]
+set yrange [-1:1]
+set rrange [0:1]
+set trange [-pi:pi]
+set zeroaxis
+set xtics axis nomirror
+set ytics axis nomirror
+set title 'COHERENCES - COMPLEX PLANE' textcolor lt 3
+set key left top Left reverse 
+
+
+
