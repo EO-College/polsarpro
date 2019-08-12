@@ -4,10 +4,6 @@ exec wish "$0" "$@"
 
 if {![info exists vTcl(sourcing)]} {
 
-    # Provoke name search
-    catch {package require bogus-package-name}
-    set packageNames [package names]
-
     package require Tk
     switch $tcl_platform(platform) {
 	windows {
@@ -19,29 +15,6 @@ if {![info exists vTcl(sourcing)]} {
             option add *Scrollbar.elementBorderWidth 2
             option add *Scrollbar.borderWidth 2
 	}
-    }
-    
-    # Needs Itcl
-    package require Itcl
-
-    # Needs Itk
-    package require Itk
-
-    # Needs Iwidgets
-    package require Iwidgets
-
-    switch $tcl_platform(platform) {
-	windows {
-            option add *Pushbutton.padY         0
-	}
-	default {
-	    option add *Scrolledhtml.sbWidth    10
-	    option add *Scrolledtext.sbWidth    10
-	    option add *Scrolledlistbox.sbWidth 10
-	    option add *Scrolledframe.sbWidth   10
-	    option add *Hierarchy.sbWidth       10
-            option add *Pushbutton.padY         2
-        }
     }
     
 }
@@ -254,14 +227,18 @@ proc ::vTcl:toplevel {args} {
 if {[info exists vTcl(sourcing)]} {
 
 proc vTcl:project:info {} {
-    set base .top27
+    set base .top51
     namespace eval ::widgets::$base {
         set set,origin 1
         set set,size 1
         set runvisible 1
     }
-    namespace eval ::widgets::$base.scr70 {
-        array set save {-activerelief 1 -hscrollmode 1 -relief 1 -sbwidth 1 -vscrollmode 1}
+    namespace eval ::widgets::$base.cpd79 {
+        array set save {}
+    }
+    set site_3_0 $base.cpd79
+    namespace eval ::widgets::$site_3_0.cpd80 {
+        array set save {-closeenough 1 -cursor 1 -height 1 -highlightthickness 1 -width 1}
     }
     namespace eval ::widgets_bindings {
         set tagslist {_TopLevel _vTclBalloon}
@@ -271,7 +248,7 @@ proc vTcl:project:info {} {
             init
             main
             vTclWindow.
-            vTclWindow.top27
+            vTclWindow.top51
         }
         set compounds {
         }
@@ -320,14 +297,14 @@ proc vTclWindow. {base} {
     # CREATING WIDGETS
     ###################
     wm focusmodel $top passive
-    wm geometry $top 200x200+22+23; update
-    wm maxsize $top 1284 1008
-    wm minsize $top 113 1
+    wm geometry $top 200x200+50+50; update
+    wm maxsize $top 3360 1028
+    wm minsize $top 116 1
     wm overrideredirect $top 0
     wm resizable $top 1 1
     wm withdraw $top
-    wm title $top "Vtcl 1.6"
-    bindtags $top "$top {Vtcl 1.6} all"
+    wm title $top "vtcl"
+    bindtags $top "$top Vtcl all"
     vTcl:FireEvent $top <<Create>>
     wm protocol $top WM_DELETE_WINDOW "vTcl:FireEvent $top <<>>"
 
@@ -338,9 +315,9 @@ proc vTclWindow. {base} {
     vTcl:FireEvent $base <<Ready>>
 }
 
-proc vTclWindow.top27 {base} {
+proc vTclWindow.top51 {base} {
     if {$base == ""} {
-        set base .top27
+        set base .top51
     }
     if {[winfo exists $base]} {
         wm deiconify $base; return
@@ -352,40 +329,45 @@ proc vTclWindow.top27 {base} {
     vTcl:toplevel $top -class Toplevel
     wm withdraw $top
     wm focusmodel $top passive
-    wm geometry $top 100x100+10+110; update
+    wm geometry $top 126x100+10+110; update
     wm maxsize $top 1604 1184
-    wm minsize $top 115 2
+    wm minsize $top 126 10
     wm overrideredirect $top 0
-    wm resizable $top 0 0
+    wm resizable $top 1 1
     wm title $top "View BMP Image"
-    vTcl:DefineAlias "$top" "VIEWBMP" vTcl:Toplevel:WidgetProc "" 1
+    vTcl:DefineAlias "$top" "VIEWBMPFILE" vTcl:Toplevel:WidgetProc "" 1
     bindtags $top "$top Toplevel all _TopLevel"
     vTcl:FireEvent $top <<Create>>
     wm protocol $top WM_DELETE_WINDOW "vTcl:FireEvent $top <<>>"
 
-    ::iwidgets::scrolledcanvas $top.scr70 \
-        -activerelief flat -hscrollmode dynamic -relief flat -sbwidth 10 \
-        -vscrollmode dynamic 
-    vTcl:DefineAlias "$top.scr70" "CANVASBMP" vTcl:WidgetProc "VIEWBMP" 1
-    bind [$top.scr70 component canvas] <B1-Motion> {
-        MouseButtonMotion [%W canvasx %x] [%W canvasy %y]
+    frame $top.cpd79
+    vTcl:DefineAlias "$top.cpd79" "FRAMEBMPFILE" vTcl:WidgetProc "VIEWBMPFILE" 1
+    set site_3_0 $top.cpd79
+    canvas $site_3_0.cpd80 \
+        -closeenough 1.0 -cursor {} -height 264 -highlightthickness 0 \
+        -width 378 
+    vTcl:DefineAlias "$site_3_0.cpd80" "CANVASBMPFILE" vTcl:WidgetProc "VIEWBMPFILE" 1
+    bind $site_3_0.cpd80 <B1-Motion> {
+        MouseButtonMotion %x %y
     }
-    bind [$top.scr70 component canvas] <Button-1> {
-        MouseButtonDown [%W canvasx %x] [%W canvasy %y]
+    bind $site_3_0.cpd80 <Button-1> {
+        MouseButtonDown %x %y
     }
-    bind [$top.scr70 component canvas] <Button-3> {
+    bind $site_3_0.cpd80 <Button-3> {
         MouseButtonRightDown
     }
-    bind [$top.scr70 component canvas] <ButtonRelease-1> {
-        MouseButtonRelease [%W canvasx %x] [%W canvasy %y]
+    bind $site_3_0.cpd80 <ButtonRelease-1> {
+        MouseButtonRelease %x %y
     }
-    bind [$top.scr70 component canvas] <Motion> {
-        MouseMotion [%W canvasx %x] [%W canvasy %y]
+    bind $site_3_0.cpd80 <Motion> {
+        MouseMotion %x %y
     }
+    pack $site_3_0.cpd80 \
+        -in $site_3_0 -anchor center -expand 1 -fill both -side top 
     ###################
     # SETTING GEOMETRY
     ###################
-    pack $top.scr70 \
+    pack $top.cpd79 \
         -in $top -anchor center -expand 1 -fill both -side top 
 
     vTcl:FireEvent $base <<Ready>>
@@ -415,6 +397,6 @@ if {![info exists vTcl(sourcing)]} {
 }
 
 Window show .
-Window show .top27
+Window show .top51
 
 main $argc $argv

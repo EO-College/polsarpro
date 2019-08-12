@@ -903,9 +903,9 @@ DeleteFile "$TMPCompareBinaryData.txt"
 WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
 set ProgressLine "0"
 update
-TextEditorRunTrace "Process The Function Soft/tools/read_binary_data_file_value.exe" "k"
+TextEditorRunTrace "Process The Function Soft/bin/tools/read_binary_data_file_value.exe" "k"
 TextEditorRunTrace "Arguments: -if \x22$ReadFile\x22 -ir $ReadLig -ic $ReadCol -inc $ReadSample -idf $ReadFormat -of \x22$TMPCompareBinaryData\x22" "k"
-set f [ open "| Soft/tools/read_binary_data_file_value.exe -if \x22$ReadFile\x22 -ir $ReadLig -ic $ReadCol -inc $ReadSample -idf $ReadFormat -of \x22$TMPCompareBinaryData\x22" r]
+set f [ open "| Soft/bin/tools/read_binary_data_file_value.exe -if \x22$ReadFile\x22 -ir $ReadLig -ic $ReadCol -inc $ReadSample -idf $ReadFormat -of \x22$TMPCompareBinaryData\x22" r]
 PsPprogressBar $f
 TextEditorRunTrace "Check RunTime Errors" "r"
 CheckRunTimeError

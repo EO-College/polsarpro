@@ -7,20 +7,20 @@ if {![info exists vTcl(sourcing)]} {
     package require Tk
     switch $tcl_platform(platform) {
 	windows {
-            option add *Button.padY 0
+	    option add *Button.padY 0
 	}
 	default {
-            option add *Scrollbar.width 10
-            option add *Scrollbar.highlightThickness 0
-            option add *Scrollbar.elementBorderWidth 2
-            option add *Scrollbar.borderWidth 2
+	    option add *Scrollbar.width 10
+	    option add *Scrollbar.highlightThickness 0
+	    option add *Scrollbar.elementBorderWidth 2
+	    option add *Scrollbar.borderWidth 2
 	}
     }
     
 }
 
 #############################################################################
-# Visual Tcl v1.60 Project
+# Visual Tcl v8.6.0.5 Project
 #
 
 
@@ -136,7 +136,8 @@ proc ::vTcl:image:get_creation_type {filename} {
         .ppm -
         .jpg -
         .bmp -
-        .gif    {return photo}
+        .gif -
+	.png	{return photo}
         .xbm    {return bitmap}
         default {return photo}
     }
@@ -162,7 +163,6 @@ foreach img {
         {{[file join . GUI Images logo_univ2.gif]} {user image} user {}}
         {{[file join . GUI Images logo_ietr2.gif]} {user image} user {}}
         {{[file join . GUI Images logo_saphir2.gif]} {user image} user {}}
-        {{[file join . GUI Images Logo_CNRS2.gif]} {user image} user {}}
         {{[file join . GUI Images esa2002.gif]} {user image} user {}}
 
             } {
@@ -193,24 +193,24 @@ proc ::Window {args} {
     if {$name == "."} { wm withdraw $name; return }
     set exists [winfo exists $newname]
     switch $cmd {
-        show {
-            if {$exists} {
-                wm deiconify $newname
-            } elseif {[info procs vTclWindow$name] != ""} {
-                eval "vTclWindow$name $newname $rest"
-            }
-            if {[winfo exists $newname] && [wm state $newname] == "normal"} {
-                vTcl:FireEvent $newname <<Show>>
-            }
-        }
-        hide    {
-            if {$exists} {
-                wm withdraw $newname
-                vTcl:FireEvent $newname <<Hide>>
-                return}
-        }
-        iconify { if $exists {wm iconify $newname; return} }
-        destroy { if $exists {destroy $newname; return} }
+	show {
+	    if {$exists} {
+		wm deiconify $newname
+	    } elseif {[info procs vTclWindow$name] != ""} {
+		eval "vTclWindow$name $newname $rest"
+	    }
+	    if {[winfo exists $newname] && [wm state $newname] == "normal"} {
+		vTcl:FireEvent $newname <<Show>>
+	    }
+	}
+	hide    {
+	    if {$exists} {
+		wm withdraw $newname
+		vTcl:FireEvent $newname <<Hide>>
+		return}
+	}
+	iconify { if $exists {wm iconify $newname; return} }
+	destroy { if $exists {destroy $newname; return} }
     }
 }
 #############################################################################
@@ -226,13 +226,13 @@ proc ::vTcl:DefineAlias {target alias widgetProc top_or_alias cmdalias} {
     set widget($alias) $target
     set widget(rev,$target) $alias
     if {$cmdalias} {
-        interp alias {} $alias {} $widgetProc $target
+	interp alias {} $alias {} $widgetProc $target
     }
     if {$top_or_alias != ""} {
-        set widget($top_or_alias,$alias) $target
-        if {$cmdalias} {
-            interp alias {} $top_or_alias.$alias {} $widgetProc $target
-        }
+	set widget($top_or_alias,$alias) $target
+	if {$cmdalias} {
+	    interp alias {} $top_or_alias.$alias {} $widgetProc $target
+	}
     }
 }
 #############################################################################
@@ -268,25 +268,25 @@ proc ::vTcl:FireEvent {target event {params {}}} {
     if {![winfo exists $target]} return
     ## Process each binding tag, looking for the event
     foreach bindtag [bindtags $target] {
-        set tag_events [bind $bindtag]
-        set stop_processing 0
-        foreach tag_event $tag_events {
-            if {$tag_event == $event} {
-                set bind_code [bind $bindtag $tag_event]
-                foreach rep "\{%W $target\} $params" {
-                    regsub -all [lindex $rep 0] $bind_code [lindex $rep 1] bind_code
-                }
-                set result [catch {uplevel #0 $bind_code} errortext]
-                if {$result == 3} {
-                    ## break exception, stop processing
-                    set stop_processing 1
-                } elseif {$result != 0} {
-                    bgerror $errortext
-                }
-                break
-            }
-        }
-        if {$stop_processing} {break}
+	set tag_events [bind $bindtag]
+	set stop_processing 0
+	foreach tag_event $tag_events {
+	    if {$tag_event == $event} {
+		set bind_code [bind $bindtag $tag_event]
+		foreach rep "\{%W $target\} $params" {
+		    regsub -all [lindex $rep 0] $bind_code [lindex $rep 1] bind_code
+		}
+		set result [catch {uplevel #0 $bind_code} errortext]
+		if {$result == 3} {
+		    ## break exception, stop processing
+		    set stop_processing 1
+		} elseif {$result != 0} {
+		    bgerror $errortext
+		}
+		break
+	    }
+	}
+	if {$stop_processing} {break}
     }
 }
 #############################################################################
@@ -347,8 +347,8 @@ proc ::vTcl:WidgetProc {w args} {
     ##    Please read their license agreements for details.
 
     if {[llength $args] == 0} {
-        ## If no arguments, returns the path the alias points to
-        return $w
+	## If no arguments, returns the path the alias points to
+	return $w
     }
 
     set command [lindex $args 0]
@@ -380,56 +380,15 @@ proc vTcl:project:info {} {
         set set,size 1
         set runvisible 1
     }
-    namespace eval ::widgets::$base.fra89 {
-        array set save {-background 1 -borderwidth 1 -height 1 -width 1}
-    }
     set site_3_0 $base.fra89
-    namespace eval ::widgets::$site_3_0.lab96 {
-        array set save {-background 1 -image 1 -text 1}
-    }
-    namespace eval ::widgets::$site_3_0.lab97 {
-        array set save {-background 1 -image 1 -text 1}
-    }
-    namespace eval ::widgets::$site_3_0.lab98 {
-        array set save {-background 1 -image 1 -text 1}
-    }
-    namespace eval ::widgets::$site_3_0.lab100 {
-        array set save {-background 1 -image 1 -text 1}
-    }
-    namespace eval ::widgets::$base.fra90 {
-        array set save {-background 1 -borderwidth 1 -height 1 -width 1}
-    }
     set site_3_0 $base.fra90
-    namespace eval ::widgets::$site_3_0.lab23 {
-        array set save {-activebackground 1 -background 1 -foreground 1 -relief 1 -text 1}
-    }
-    namespace eval ::widgets::$site_3_0.cpd85 {
-        array set save {-background 1 -borderwidth 1 -height 1 -relief 1 -width 1}
-    }
     set site_4_0 $site_3_0.cpd85
-    namespace eval ::widgets::$site_4_0.tex87 {
-        array set save {-background 1 -height 1 -relief 1 -width 1}
-    }
-    namespace eval ::widgets::$base.but89 {
-        array set save {-background 1 -command 1 -foreground 1 -pady 1 -text 1}
-    }
-    namespace eval ::widgets::$base.fra91 {
-        array set save {-background 1 -borderwidth 1 -height 1 -width 1}
-    }
+    set site_3_0 $base.fra44
+    set site_4_0 $site_3_0.cpd45
+    set site_4_0 $site_3_0.cpd47
+    set site_4_0 $site_3_0.cpd48
     set site_3_0 $base.fra91
-    namespace eval ::widgets::$site_3_0.cpd90 {
-        array set save {-background 1 -borderwidth 1 -height 1 -width 1}
-    }
     set site_4_0 $site_3_0.cpd90
-    namespace eval ::widgets::$site_4_0.lab103 {
-        array set save {-background 1 -text 1}
-    }
-    namespace eval ::widgets::$site_4_0.lab88 {
-        array set save {-background 1 -image 1 -text 1}
-    }
-    namespace eval ::widgets::$site_3_0.but106 {
-        array set save {-_tooltip 1 -background 1 -command 1 -padx 1 -pady 1 -text 1 -width 1}
-    }
     namespace eval ::widgets_bindings {
         set tagslist {_TopLevel _vTclBalloon}
     }
@@ -487,16 +446,16 @@ proc vTclWindow. {base} {
     # CREATING WIDGETS
     ###################
     wm focusmodel $top passive
-    wm geometry $top 200x200+44+44; update
-    wm maxsize $top 1284 785
-    wm minsize $top 104 1
+    wm geometry $top 200x200+104+104; update
+    wm maxsize $top 1924 1181
+    wm minsize $top 120 1
     wm overrideredirect $top 0
     wm resizable $top 1 1
     wm withdraw $top
     wm title $top "vtcl"
     bindtags $top "$top Vtcl all"
     vTcl:FireEvent $top <<Create>>
-    wm protocol $top WM_DELETE_WINDOW "vTcl:FireEvent $top <<>>"
+    wm protocol $top WM_DELETE_WINDOW "vTcl:FireEvent $top <<DeleteWindow>>"
 
     ###################
     # SETTING GEOMETRY
@@ -517,133 +476,190 @@ proc vTclWindow.top88 {base} {
     # CREATING WIDGETS
     ###################
     vTcl:toplevel $top -class Toplevel \
-        -background #ffffff 
+		-background {#ffffff} 
     wm withdraw $top
     wm focusmodel $top passive
-    wm geometry $top 450x320+10+110; update
+    wm geometry $top 450x500+10+110; update
     wm maxsize $top 1604 1184
-    wm minsize $top 113 1
+    wm minsize $top 120 1
     wm overrideredirect $top 0
     wm resizable $top 1 1
     wm title $top "PolSarPro Disclaimer of Warranty"
     vTcl:DefineAlias "$top" "Toplevel88" vTcl:Toplevel:WidgetProc "" 1
     bindtags $top "$top Toplevel all _TopLevel"
     vTcl:FireEvent $top <<Create>>
-    wm protocol $top WM_DELETE_WINDOW "vTcl:FireEvent $top <<>>"
+    wm protocol $top WM_DELETE_WINDOW "vTcl:FireEvent $top <<DeleteWindow>>"
 
     frame $top.fra89 \
-        -borderwidth 2 -background #ffffff -height 75 -width 125 
+		-borderwidth 2 -background {#ffffff} -height 75 -width 125 
     vTcl:DefineAlias "$top.fra89" "Frame428" vTcl:WidgetProc "Toplevel88" 1
     set site_3_0 $top.fra89
     label $site_3_0.lab96 \
-        -background #ffffff \
-        -image [vTcl:image:get_image [file join . GUI Images logo_univ2.gif]] \
-        -text label 
+		-background {#ffffff} \
+		-image [vTcl:image:get_image [file join . GUI Images logo_univ2.gif]] \
+		-text label 
     vTcl:DefineAlias "$site_3_0.lab96" "Label452" vTcl:WidgetProc "Toplevel88" 1
     label $site_3_0.lab97 \
-        -background #ffffff \
-        -image [vTcl:image:get_image [file join . GUI Images logo_ietr2.gif]] \
-        -text label 
+		-background {#ffffff} \
+		-image [vTcl:image:get_image [file join . GUI Images logo_ietr2.gif]] \
+		-text label 
     vTcl:DefineAlias "$site_3_0.lab97" "Label453" vTcl:WidgetProc "Toplevel88" 1
     label $site_3_0.lab98 \
-        -background #ffffff \
-        -image [vTcl:image:get_image [file join . GUI Images logo_saphir2.gif]] \
-        -text label 
+		-background {#ffffff} \
+		-image [vTcl:image:get_image [file join . GUI Images logo_saphir2.gif]] \
+		-text label 
     vTcl:DefineAlias "$site_3_0.lab98" "Label454" vTcl:WidgetProc "Toplevel88" 1
-    label $site_3_0.lab100 \
-        -background #ffffff \
-        -image [vTcl:image:get_image [file join . GUI Images Logo_CNRS2.gif]] \
-        -text label 
-    vTcl:DefineAlias "$site_3_0.lab100" "Label455" vTcl:WidgetProc "Toplevel88" 1
     pack $site_3_0.lab96 \
-        -in $site_3_0 -anchor center -expand 1 -fill none -side left 
+		-in $site_3_0 -anchor center -expand 1 -fill none -side left 
     pack $site_3_0.lab97 \
-        -in $site_3_0 -anchor center -expand 1 -fill none -side left 
+		-in $site_3_0 -anchor center -expand 1 -fill none -side left 
     pack $site_3_0.lab98 \
-        -in $site_3_0 -anchor center -expand 1 -fill none -side left 
-    pack $site_3_0.lab100 \
-        -in $site_3_0 -anchor center -expand 1 -fill none -side left 
+		-in $site_3_0 -anchor center -expand 1 -fill none -side left 
     frame $top.fra90 \
-        -borderwidth 2 -background #ffffff -height 75 -width 211 
+		-borderwidth 2 -background {#ffffff} -height 75 -width 211 
     vTcl:DefineAlias "$top.fra90" "Frame416" vTcl:WidgetProc "Toplevel88" 1
     set site_3_0 $top.fra90
     label $site_3_0.lab23 \
-        -activebackground #ffffff -background #ffffff -foreground #ff0000 \
-        -relief raised -text {DISCLAIMER OF WARRANTY} 
+		-activebackground {#ffffff} -background {#ffffff} \
+		-foreground {#ff0000} -relief raised -text {DISCLAIMER OF WARRANTY} 
     vTcl:DefineAlias "$site_3_0.lab23" "Label445" vTcl:WidgetProc "Toplevel88" 1
     frame $site_3_0.cpd85 \
-        -borderwidth 2 -relief raised -background #ffffff -height 75 \
-        -width 125 
+		-borderwidth 2 -relief raised -background {#ffffff} -height 75 \
+		-width 125 
     vTcl:DefineAlias "$site_3_0.cpd85" "Frame417" vTcl:WidgetProc "Toplevel88" 1
     set site_4_0 $site_3_0.cpd85
     text $site_4_0.tex87 \
-        -background white -height 10 -relief flat -width 50 
+		-background white -height 10 -relief flat -width 50 
     vTcl:DefineAlias "$site_4_0.tex87" "TextWarranty" vTcl:WidgetProc "Toplevel88" 1
     pack $site_4_0.tex87 \
-        -in $site_4_0 -anchor center -expand 1 -fill both -side top 
+		-in $site_4_0 -anchor center -expand 1 -fill both -side top 
     pack $site_3_0.lab23 \
-        -in $site_3_0 -anchor center -expand 0 -fill none -side top 
+		-in $site_3_0 -anchor center -expand 0 -fill none -side top 
     pack $site_3_0.cpd85 \
-        -in $site_3_0 -anchor center -expand 1 -fill both -side top 
-    button $top.but89 \
-        -background #ffffff \
-        -command {#UTIL
-global Load_TextEdit PSPTopLevel CONFIGDir
+		-in $site_3_0 -anchor center -expand 1 -fill both -side top 
+    frame $top.fra44 \
+		-borderwidth 2 -background {#ffffff} -height 75 -width 125 
+    vTcl:DefineAlias "$top.fra44" "Frame1" vTcl:WidgetProc "Toplevel88" 1
+    set site_3_0 $top.fra44
+    frame $site_3_0.cpd45 \
+		-borderwidth 2 -background {#ffffff} -height 75 -width 125 
+    vTcl:DefineAlias "$site_3_0.cpd45" "Frame2" vTcl:WidgetProc "Toplevel88" 1
+    set site_4_0 $site_3_0.cpd45
+    button $site_4_0.cpd46 \
+		-background {#ffffff} \
+		-command {#UTIL
+global Load_TextEdit PSPTopLevel 
 if {$Load_TextEdit == 0} {
     source "GUI/util/TextEdit.tcl"
     set Load_TextEdit 1
     WmTransient $widget(Toplevel95) $PSPTopLevel
     }
 
-TextEditorFromWidget .top88 "$CONFIGDir/gpl.txt"
+TextEditorFromWidget .top88 "License/PolSARpro_v6.0_Biomass_Edition_LICENSE.txt"
 .top95.fra97.tex100 configure -wrap word} \
-        -foreground #ff0000 -pady 0 \
-        -text {  GNU General Public License (version 2, June 1991)  } 
-    vTcl:DefineAlias "$top.but89" "Button1" vTcl:WidgetProc "Toplevel88" 1
+		-foreground {#ff0000} -pady 0 \
+		-text {EDIT PolSARpro v6.0 (Biomass Edition) : LICENSE} 
+    vTcl:DefineAlias "$site_4_0.cpd46" "Button2" vTcl:WidgetProc "Toplevel88" 1
+    pack $site_4_0.cpd46 \
+		-in $site_4_0 -anchor center -expand 0 -fill none -side left 
+    frame $site_3_0.cpd47 \
+		-borderwidth 2 -background {#ffffff} -height 75 -width 125 
+    vTcl:DefineAlias "$site_3_0.cpd47" "Frame3" vTcl:WidgetProc "Toplevel88" 1
+    set site_4_0 $site_3_0.cpd47
+    button $site_4_0.cpd46 \
+		-background {#ffffff} \
+		-command {#UTIL
+global Load_TextEdit PSPTopLevel 
+if {$Load_TextEdit == 0} {
+    source "GUI/util/TextEdit.tcl"
+    set Load_TextEdit 1
+    WmTransient $widget(Toplevel95) $PSPTopLevel
+    }
+
+TextEditorFromWidget .top88 "License/PolSARpro_v6.0_Biomass_Edition_LEGAL.txt"
+.top95.fra97.tex100 configure -wrap word} \
+		-foreground {#ff0000} -pady 0 \
+		-text {EDIT PolSARpro v6.0 (Biomass Edition) : LEGAL} 
+    vTcl:DefineAlias "$site_4_0.cpd46" "Button3" vTcl:WidgetProc "Toplevel88" 1
+    pack $site_4_0.cpd46 \
+		-in $site_4_0 -anchor center -expand 0 -fill none -side left 
+    frame $site_3_0.cpd48 \
+		-borderwidth 2 -background {#ffffff} -height 75 -width 125 
+    vTcl:DefineAlias "$site_3_0.cpd48" "Frame4" vTcl:WidgetProc "Toplevel88" 1
+    set site_4_0 $site_3_0.cpd48
+    button $site_4_0.cpd46 \
+		-background {#ffffff} \
+		-command {#UTIL
+global Load_TextEdit PSPTopLevel
+if {$Load_TextEdit == 0} {
+    source "GUI/util/TextEdit.tcl"
+    set Load_TextEdit 1
+    WmTransient $widget(Toplevel95) $PSPTopLevel
+    }
+
+TextEditorFromWidget .top88 "License/PolSARpro_v6.0_Biomass_Edition_CREDITS.txt"
+.top95.fra97.tex100 configure -wrap word} \
+		-foreground {#ff0000} -pady 0 \
+		-text {EDIT PolSARpro v6.0 (Biomass Edition) : CREDITS} 
+    vTcl:DefineAlias "$site_4_0.cpd46" "Button4" vTcl:WidgetProc "Toplevel88" 1
+    pack $site_4_0.cpd46 \
+		-in $site_4_0 -anchor center -expand 0 -fill none -side left 
+    pack $site_3_0.cpd45 \
+		-in $site_3_0 -anchor center -expand 0 -fill x -side top 
+    pack $site_3_0.cpd47 \
+		-in $site_3_0 -anchor center -expand 0 -fill x -side top 
+    pack $site_3_0.cpd48 \
+		-in $site_3_0 -anchor center -expand 0 -fill x -side top 
     frame $top.fra91 \
-        -borderwidth 2 -background #ffffff -height 75 -width 125 
+		-borderwidth 2 -background {#ffffff} -height 75 -width 125 
     vTcl:DefineAlias "$top.fra91" "Frame426" vTcl:WidgetProc "Toplevel88" 1
     set site_3_0 $top.fra91
     frame $site_3_0.cpd90 \
-        -borderwidth 2 -background #ffffff -height 75 -width 125 
+		-borderwidth 2 -background {#ffffff} -height 75 -width 125 
     vTcl:DefineAlias "$site_3_0.cpd90" "Frame427" vTcl:WidgetProc "Toplevel88" 1
     set site_4_0 $site_3_0.cpd90
     label $site_4_0.lab103 \
-        -background #ffffff -text {Copyright (c) } 
+		-background {#ffffff} -text {Copyright (c) } 
     vTcl:DefineAlias "$site_4_0.lab103" "Label437" vTcl:WidgetProc "Toplevel88" 1
     label $site_4_0.lab88 \
-        -background #ffffff \
-        -image [vTcl:image:get_image [file join . GUI Images esa2002.gif]] \
-        -text label 
+		-background {#ffffff} \
+		-image [vTcl:image:get_image [file join . GUI Images esa2002.gif]] \
+		-text label 
     vTcl:DefineAlias "$site_4_0.lab88" "Label2" vTcl:WidgetProc "Toplevel88" 1
     pack $site_4_0.lab103 \
-        -in $site_4_0 -anchor center -expand 0 -fill none -side left 
+		-in $site_4_0 -anchor center -expand 0 -fill none -side left 
     pack $site_4_0.lab88 \
-        -in $site_4_0 -anchor center -expand 0 -fill none -side left 
+		-in $site_4_0 -anchor center -expand 0 -fill none -side left 
     button $site_3_0.but106 \
-        -background #ffff00 \
-        -command {Window hide $widget(Toplevel88); TextEditorRunTrace "Close Window Warranty" "b"} \
-        -padx 4 -pady 2 -text Exit -width 4 
+		-background {#ffff00} \
+		-command {global OpenDirFile
+if {$OpenDirFile == 0} {
+.top95.fra97.tex100 delete 1.0 end
+wm title .top95 ""
+Window hide $widget(Toplevel95); TextEditorRunTrace "Close Window Text Editor" "b"
+Window hide $widget(Toplevel88); TextEditorRunTrace "Close Window Warranty" "b"
+}} \
+		-padx 4 -pady 2 -text Exit -width 4 
     vTcl:DefineAlias "$site_3_0.but106" "Button35" vTcl:WidgetProc "Toplevel88" 1
     bindtags $site_3_0.but106 "$site_3_0.but106 Button $top all _vTclBalloon"
     bind $site_3_0.but106 <<SetBalloon>> {
         set ::vTcl::balloon::%W {Exit the Function}
     }
     pack $site_3_0.cpd90 \
-        -in $site_3_0 -anchor center -expand 1 -fill none -side left 
+		-in $site_3_0 -anchor center -expand 1 -fill none -side left 
     pack $site_3_0.but106 \
-        -in $site_3_0 -anchor center -expand 1 -fill none -side left 
+		-in $site_3_0 -anchor center -expand 1 -fill none -side left 
     ###################
     # SETTING GEOMETRY
     ###################
     pack $top.fra89 \
-        -in $top -anchor center -expand 0 -fill x -side top 
+		-in $top -anchor center -expand 0 -fill x -side top 
     pack $top.fra90 \
-        -in $top -anchor center -expand 1 -fill none -side top 
-    pack $top.but89 \
-        -in $top -anchor center -expand 1 -fill none -side top 
+		-in $top -anchor center -expand 1 -fill y -pady 10 -side top 
+    pack $top.fra44 \
+		-in $top -anchor center -expand 0 -fill none -side top 
     pack $top.fra91 \
-        -in $top -anchor center -expand 1 -fill x -side top 
+		-in $top -anchor center -expand 0 -fill x -pady 5 -side top 
 
     vTcl:FireEvent $base <<Ready>>
 }

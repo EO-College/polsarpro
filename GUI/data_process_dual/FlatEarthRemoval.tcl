@@ -1061,13 +1061,13 @@ if {"$config"=="okok"} {
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
         if {$FlatEarthSymmetrisation == 1} {
-            TextEditorRunTrace "Process The Function Soft/data_process_dual/flat_earth_removal_MasterSlave.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_dual/flat_earth_removal_MasterSlave.exe" "k"
             TextEditorRunTrace "Arguments: -idm \x22$FlatEarthMasterDirInput\x22 -ids \x22$FlatEarthSlaveDirInput\x22 -odm \x22$FlatEarthMasterDirOutput\x22 -ods \x22$FlatEarthSlaveDirOutput\x22 -fe \x22$FlatEarthFile\x22 -cf $FlatEarthConjugate -fmt $FlatEarthFormat -ieee $FlatEarthIEEE -idf $DataFormatActive" "k"
-            set f [ open "| Soft/data_process_dual/flat_earth_removal_MasterSlave.exe -idm \x22$FlatEarthMasterDirInput\x22 -ids \x22$FlatEarthSlaveDirInput\x22 -odm \x22$FlatEarthMasterDirOutput\x22 -ods \x22$FlatEarthSlaveDirOutput\x22 -fe \x22$FlatEarthFile\x22 -cf $FlatEarthConjugate -fmt $FlatEarthFormat -ieee $FlatEarthIEEE -idf $DataFormatActive" r]
+            set f [ open "| Soft/bin/data_process_dual/flat_earth_removal_MasterSlave.exe -idm \x22$FlatEarthMasterDirInput\x22 -ids \x22$FlatEarthSlaveDirInput\x22 -odm \x22$FlatEarthMasterDirOutput\x22 -ods \x22$FlatEarthSlaveDirOutput\x22 -fe \x22$FlatEarthFile\x22 -cf $FlatEarthConjugate -fmt $FlatEarthFormat -ieee $FlatEarthIEEE -idf $DataFormatActive" r]
             } else {
-            TextEditorRunTrace "Process The Function Soft/data_process_dual/flat_earth_removal_Slave.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_dual/flat_earth_removal_Slave.exe" "k"
             TextEditorRunTrace "Arguments: -ids \x22$FlatEarthSlaveDirInput\x22 -ods \x22$FlatEarthSlaveDirOutput\x22 -fe \x22$FlatEarthFile\x22 -cf $FlatEarthConjugate -fmt $FlatEarthFormat -ieee $FlatEarthIEEE -idf $DataFormatActive" "k"
-            set f [ open "| Soft/data_process_dual/flat_earth_removal_Slave.exe -ids \x22$FlatEarthSlaveDirInput\x22 -ods \x22$FlatEarthSlaveDirOutput\x22 -fe \x22$FlatEarthFile\x22 -cf $FlatEarthConjugate -fmt $FlatEarthFormat -ieee $FlatEarthIEEE -idf $DataFormatActive" r]
+            set f [ open "| Soft/bin/data_process_dual/flat_earth_removal_Slave.exe -ids \x22$FlatEarthSlaveDirInput\x22 -ods \x22$FlatEarthSlaveDirOutput\x22 -fe \x22$FlatEarthFile\x22 -cf $FlatEarthConjugate -fmt $FlatEarthFormat -ieee $FlatEarthIEEE -idf $DataFormatActive" r]
             }
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"

@@ -1036,7 +1036,7 @@ $widget(Checkbutton321_6) configure -state disable} \
         -command {global HAAlpDirInput HAAlpDirOutput HAAlpOutputDir HAAlpOutputSubDir
 global Fonction Fonction2 VarFunction VarWarning WarningMessage WarningMessage2 VarError ErrorMessage ProgressLine
 global HAAlphaDecompositionFonction EquivHAAlpDecomp NwinHAAlpL NwinHAAlpC
-global BMPDirInput OpenDirFile PSPMemory TMPMemoryAllocError
+global BMPDirInput OpenDirFile TMPMemoryAllocError
 
 if {$OpenDirFile == 0} {
 
@@ -1084,9 +1084,9 @@ if {"$config"=="true"} {
             if {"$HAAlphaDecompositionFonction" == "C3"} {
                 if {$EquivHAAlpDecomp == "1"} { set HAAlphaDecompositionF "C3T3" }
                 }
-            TextEditorRunTrace "Process The Function Soft/data_process_sngl/h_a_alpha_eigenvector_set.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$HAAlpDirInput\x22 -od \x22$HAAlpDirOutput\x22 -iodf $HAAlphaDecompositionF -nwr $NwinHAAlpL -nwc $NwinHAAlpC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -fl1 $alpbetdelgam -fl2 $alpha123 -fl3 $beta123 -fl4 $delta123 -fl5 $gamma123 -fl6 0 -fl7 0 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_sngl/h_a_alpha_eigenvector_set.exe -id \x22$HAAlpDirInput\x22 -od \x22$HAAlpDirOutput\x22 -iodf $HAAlphaDecompositionF -nwr $NwinHAAlpL -nwc $NwinHAAlpC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -fl1 $alpbetdelgam -fl2 $alpha123 -fl3 $beta123 -fl4 $delta123 -fl5 $gamma123 -fl6 0 -fl7 0 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/h_a_alpha_eigenvector_set.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$HAAlpDirInput\x22 -od \x22$HAAlpDirOutput\x22 -iodf $HAAlphaDecompositionF -nwr $NwinHAAlpL -nwc $NwinHAAlpC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -fl1 $alpbetdelgam -fl2 $alpha123 -fl3 $beta123 -fl4 $delta123 -fl5 $gamma123 -fl6 0 -fl7 0  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_sngl/h_a_alpha_eigenvector_set.exe -id \x22$HAAlpDirInput\x22 -od \x22$HAAlpDirOutput\x22 -iodf $HAAlphaDecompositionF -nwr $NwinHAAlpL -nwc $NwinHAAlpC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -fl1 $alpbetdelgam -fl2 $alpha123 -fl3 $beta123 -fl4 $delta123 -fl5 $gamma123 -fl6 0 -fl7 0  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError

@@ -585,7 +585,7 @@ proc ::PlotSquint {} {
 global TMPRawSpectrumTxt TMPRawSpectrumBin TMPAvgSpectrumTxt TMPAvgSpectrumBin
 global GnuplotPipeFid GnuplotPipeSquint GnuOutputFormat GnuOutputFile 
 global GnuSpectrumChannelId GnuSpectrumChannel GnuSpectrumFile
-global ImageMagickMaker TMPGnuPlotTk1 TMPGnuPlot1Tk
+global TMPGnuPlotTk1 TMPGnuPlot1Tk
 
 set xwindow [winfo x .top389]; set ywindow [winfo y .top389]
 
@@ -597,7 +597,7 @@ if {$GnuplotPipeSquint == ""} {
     set GnuplotPipeSquint $GnuplotPipeFid
     }
     
-PlotSquintThumb
+#PlotSquintThumb
 
 set GnuOutputFile $TMPGnuPlotTk1
 set GnuOutputFormat "gif"
@@ -659,8 +659,8 @@ catch "close $GnuplotPipeSquint"
 set GnuplotPipeSquint ""
 
 WaitUntilCreated $TMPGnuPlotTk1
-
-ViewGnuPlotTK 1 .top389 "Doppler Spectrum"
+Gimp $TMPGnuPlotTk1
+#ViewGnuPlotTKThumb 1 .top389 "Doppler Spectrum"
 }
 #############################################################################
 ## Procedure:  PlotSquintThumb
@@ -669,7 +669,7 @@ proc ::PlotSquintThumb {} {
 global TMPRawSpectrumTxt TMPRawSpectrumBin TMPAvgSpectrumTxt TMPAvgSpectrumBin
 global GnuplotPipeFid GnuplotPipeSquint GnuOutputFormat GnuOutputFile 
 global GnuSpectrumChannelId GnuSpectrumChannel GnuSpectrumFile
-global ImageMagickMaker TMPGnuPlotTk1 TMPGnuPlot1Tk
+global TMPGnuPlotTk1 TMPGnuPlot1Tk
 
 set xwindow [winfo x .top389]; set ywindow [winfo y .top389]
 
@@ -968,7 +968,7 @@ $widget(Button389_5) configure -state disable
 $widget(Button389_6) configure -state disable
 $widget(Radiobutton389_1) configure -state disable
 $widget(Radiobutton389_2) configure -state disable
-set GnuSpectrumFile ""
+set GnuSpectrumFile " "
 set GnuSpectrumChannel ""
 
 DeleteFile $TMPRawSpectrumTxt
@@ -980,9 +980,9 @@ set Fonction2 ""
 set ProgressLine "0"
 WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
 update
-TextEditorRunTrace "Process The Function Soft/data_process_sngl/sub_aperture_check_spectrum.exe" "k"
+TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/sub_aperture_check_spectrum.exe" "k"
 TextEditorRunTrace "Arguments: -id \x22$SquintDirInput\x22 -azf $SquintAzimutFlag -of1 \x22$TMPRawSpectrumTxt\x22 -of2 \x22$TMPRawSpectrumBin\x22 -of3 \x22$TMPAvgSpectrumTxt\x22 -of4 \x22$TMPAvgSpectrumBin\x22" "k"
-set f [ open "| Soft/data_process_sngl/sub_aperture_check_spectrum.exe -id \x22$SquintDirInput\x22 -azf $SquintAzimutFlag -of1 \x22$TMPRawSpectrumTxt\x22 -of2 \x22$TMPRawSpectrumBin\x22 -of3 \x22$TMPAvgSpectrumTxt\x22 -of4 \x22$TMPAvgSpectrumBin\x22" r]
+set f [ open "| Soft/bin/data_process_sngl/sub_aperture_check_spectrum.exe -id \x22$SquintDirInput\x22 -azf $SquintAzimutFlag -of1 \x22$TMPRawSpectrumTxt\x22 -of2 \x22$TMPRawSpectrumBin\x22 -of3 \x22$TMPAvgSpectrumTxt\x22 -of4 \x22$TMPAvgSpectrumBin\x22" r]
 PsPprogressBar $f
 TextEditorRunTrace "Check RunTime Errors" "r"
 CheckRunTimeError

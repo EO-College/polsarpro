@@ -840,7 +840,7 @@ if {$DirName != "" } {
     button $site_3_0.but93 \
         -anchor center -background #ffff00 \
         -command {global DirBasisChange BasisDirInput BasisDirOutput
-global BasisFunction BasisFonction PSPMemory TMPMemoryAllocError
+global BasisFunction BasisFonction TMPMemoryAllocError
 global Fonction Fonction2 ProgressLine VarFunction
 global OrientationAngle EllipticityAngle
 global VarWarning WarningMessage WarningMessage2
@@ -881,13 +881,13 @@ if {$BasisOutputSubDir != ""} {append BasisDirOutput "/$BasisOutputSubDir"}
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
 
-            set PSPFunction "Soft/basis_change/basis_change.exe"
+            set PSPFunction "Soft/bin/basis_change/basis_change.exe"
             TextEditorRunTrace "Process The Function $PSPFunction" "k"
             set PSPCommand "-id \x22$BasisDirInput\x22 -od \x22$BasisDirOutput\x22 -iodf $BasisFonction "
             append PSPCommand "-ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol "
             append PSPCommand "-phi $OrientationAngle -tau $EllipticityAngle"
-            TextEditorRunTrace "Arguments: $PSPCommand -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22" "k"
-            set f [ open "| $PSPFunction $PSPCommand -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22" r]
+            TextEditorRunTrace "Arguments: $PSPCommand  -errf \x22$TMPMemoryAllocError\x22" "k"
+            set f [ open "| $PSPFunction $PSPCommand  -errf \x22$TMPMemoryAllocError\x22" r]
 
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"

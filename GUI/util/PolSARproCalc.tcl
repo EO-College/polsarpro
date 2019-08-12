@@ -1923,10 +1923,10 @@ set PSPCalcRes3FileInput ""; set PSPCalcRes3MatDirInput ""
 set PSPCalcMemName ""; set PSPCalcOperandMem ""; set PSPCalcMemType ""; set PSPCalcMemFormat ""
 set PSPCalcMemPolarCase ""; set PSPCalcMemPolarType ""; set PSPCalcMemMatDim ""
 set PSPCalcMemFileInput ""; set PSPCalcMemMatDirInput ""
-set PSPCalcNwinL ""; set PSPCalcNwinC ""; set PSPCalcNlook ""; set PSPCalcFilter ""
+set PSPCalcNwinL ""; set PSPCalcNwinC ""; set PSPCalcNlook ""; set PSPCalcFilter " "
 
 set PSPCalcOperand ""; set PSPCalcOperatorName ""
-set PSPCalcOperatorF ""; set PSPCalcOperatorS ""; set PSPCalcOperatorM ""; set PSPCalcOperatorX ""
+set PSPCalcOperatorF " "; set PSPCalcOperatorS " "; set PSPCalcOperatorM " "; set PSPCalcOperatorX " "
 
 set PSPCalcInputFile ""; set PSPCalcInputFileFormat ""; set PSPCalcInputDirMat ""; set PSPCalcInputDirMatFormat ""
 set PSPCalcOutputFile ""; set PSPCalcOutputFileFormat ""; set PSPCalcOutputDirMat ""; set PSPCalcOutputDirMatFormat ""
@@ -2010,7 +2010,7 @@ set PSPCalcOperatorFileRadio46 .top600.cpd68.tit69.f.cpd70.cpd101.cpd96.rad73
 set PSPCalcOperatorFileRadio47 .top600.cpd68.tit69.f.cpd70.cpd101.cpd97.rad73
 set PSPCalcOperatorFileRadio48 .top600.cpd68.tit69.f.cpd70.cpd101.cpd98.rad73
 
-set PSPCalcOperatorF ""
+set PSPCalcOperatorF " "
 $PSPCalcOperatorFileTitleFrame configure -state disable -background $PSPBackgroundColor
 $PSPCalcOperatorFileButtonOK configure -state disable -background $PSPBackgroundColor
 $PSPCalcOperatorFileRadio11 configure -state disable; $PSPCalcOperatorFileRadio12 configure -state disable;
@@ -2072,7 +2072,7 @@ set PSPCalcOperatorMatSRadio44 .top600.cpd68.cpd67.f.cpd70.cpd101.cpd94.rad73
 set PSPCalcOperatorMatSRadio45 .top600.cpd68.cpd67.f.cpd70.cpd101.cpd95.rad73
 set PSPCalcOperatorMatSRadio46 .top600.cpd68.cpd67.f.cpd70.cpd101.cpd96.rad73
 
-set PSPCalcOperatorS ""
+set PSPCalcOperatorS " "
 $PSPCalcOperatorMatSTitleFrame configure -state disable -background $PSPBackgroundColor
 $PSPCalcOperatorMatSButtonOK configure -state disable -background $PSPBackgroundColor
 $PSPCalcOperatorMatSRadio11 configure -state disable; $PSPCalcOperatorMatSRadio12 configure -state disable;
@@ -2126,7 +2126,7 @@ set PSPCalcOperatorMatMRadio43 .top600.cpd68.cpd68.f.cpd70.cpd101.cpd93.rad73
 set PSPCalcOperatorMatMRadio44 .top600.cpd68.cpd68.f.cpd70.cpd101.cpd94.rad73
 set PSPCalcOperatorMatMRadio45 .top600.cpd68.cpd68.f.cpd70.cpd101.cpd95.rad73
 
-set PSPCalcOperatorM ""
+set PSPCalcOperatorM " "
 $PSPCalcOperatorMatMTitleFrame configure -state disable -background $PSPBackgroundColor
 $PSPCalcOperatorMatMButtonOK configure -state disable -background $PSPBackgroundColor
 $PSPCalcOperatorMatMRadio11 configure -state disable; $PSPCalcOperatorMatMRadio12 configure -state disable;
@@ -2172,7 +2172,7 @@ set PSPCalcOperatorMatXRadio42 .top600.cpd68.cpd69.f.cpd70.cpd101.cpd91.rad73
 set PSPCalcOperatorMatXRadio43 .top600.cpd68.cpd69.f.cpd70.cpd101.cpd93.rad73
 set PSPCalcOperatorMatXRadio44 .top600.cpd68.cpd69.f.cpd70.cpd101.cpd94.rad73
 
-set PSPCalcOperatorX ""
+set PSPCalcOperatorX " "
 $PSPCalcOperatorMatXTitleFrame configure -state disable -background $PSPBackgroundColor
 $PSPCalcOperatorMatXButtonOK configure -state disable -background $PSPBackgroundColor
 $PSPCalcOperatorMatXRadio11 configure -state disable; $PSPCalcOperatorMatXRadio12 configure -state disable;
@@ -2294,7 +2294,7 @@ set PSPCalcEntryMat44r .top600.fra67.cpd66.f.cpd72.cpd77.cpd121.cpd96.ent90
 set PSPCalcLabelMat44j .top600.fra67.cpd66.f.cpd72.cpd77.cpd121.cpd96.cpd93
 set PSPCalcEntryMat44i .top600.fra67.cpd66.f.cpd72.cpd77.cpd121.cpd96.cpd91
 
-set PSPCalcCreateMatXType ""
+set PSPCalcCreateMatXType " "
 set PSPCalcCreateMat11r ""; set PSPCalcCreateMat11i ""
 set PSPCalcCreateMat21r ""; set PSPCalcCreateMat21i ""
 set PSPCalcCreateMat31r ""; set PSPCalcCreateMat31i ""
@@ -2564,7 +2564,7 @@ $PSPCalcInputValueEntryReal configure -state disable -disabledbackground $PSPBac
 $PSPCalcInputValueLabelJ configure -state disable
 $PSPCalcInputValueEntryImag configure -state disable -disabledbackground $PSPBackgroundColor
 
-set PSPCalcValueFormat ""
+set PSPCalcValueFormat " "
 set PSPCalcValueInputReal ""
 set PSPCalcValueInputImag ""
 }
@@ -2675,7 +2675,7 @@ global PSPCalcCreateMatXTitleFrame PSPCalcCreateMatXButtonOK PSPCalcCreateMatXBu
 global PSPCalcCreateMatXRadioCmplx PSPCalcCreateMatXRadioFloat PSPCalcCreateMatXRadioHerm PSPCalcCreateMatXRadioSU
 
 PSPCalcCreateMatXRAZ
-set PSPCalcCreateMatXType ""
+set PSPCalcCreateMatXType " "
 set PSPCalcCreateMat11r ""; set PSPCalcCreateMat11i ""
 set PSPCalcCreateMat21r ""; set PSPCalcCreateMat21i ""
 set PSPCalcCreateMat31r ""; set PSPCalcCreateMat31i ""
@@ -3260,7 +3260,7 @@ puts $f $PSPCalcCreateMat22r; puts $f $PSPCalcCreateMat22i
 }
 close $f
 
-set f [ open "| Soft/calculator/test_SU_matX.exe -if \x22$TMPPSPCalcMatX0\x22 -of \x22$TMPPSPCalcMatSU\x22" r]
+set f [ open "| Soft/bin/calculator/test_SU_matX.exe -if \x22$TMPPSPCalcMatX0\x22 -of \x22$TMPPSPCalcMatSU\x22" r]
 
 WaitUntilCreated $TMPPSPCalcMatSU
 set f [open $TMPPSPCalcMatSU "r"]
@@ -3290,7 +3290,7 @@ global PSPCalcOperatorFileRadio35 PSPCalcOperatorFileRadio36 PSPCalcOperatorFile
 global PSPCalcOperatorFileRadio41 PSPCalcOperatorFileRadio42 PSPCalcOperatorFileRadio43 PSPCalcOperatorFileRadio44
 global PSPCalcOperatorFileRadio45 PSPCalcOperatorFileRadio46 PSPCalcOperatorFileRadio47 PSPCalcOperatorFileRadio48
 
-set PSPCalcOperatorF ""
+set PSPCalcOperatorF " "
 set PSPCalcOperator ""
 
 set PSPCalcOperatorName "Select Operator"
@@ -3330,7 +3330,7 @@ global PSPCalcOperatorMatMRadio35
 global PSPCalcOperatorMatMRadio41 PSPCalcOperatorMatMRadio42 PSPCalcOperatorMatMRadio43 PSPCalcOperatorMatMRadio44
 global PSPCalcOperatorMatMRadio45 
 
-set PSPCalcOperatorM ""
+set PSPCalcOperatorM " "
 set PSPCalcOperator ""
 
 set PSPCalcOperatorName "Select Operator"
@@ -3374,7 +3374,7 @@ global PSPCalcOperatorMatSRadio35 PSPCalcOperatorMatSRadio36
 global PSPCalcOperatorMatSRadio41 PSPCalcOperatorMatSRadio42 PSPCalcOperatorMatSRadio43 PSPCalcOperatorMatSRadio44
 global PSPCalcOperatorMatSRadio45 PSPCalcOperatorMatSRadio46 
 
-set PSPCalcOperatorS ""
+set PSPCalcOperatorS " "
 set PSPCalcOperator ""
 
 set PSPCalcOperatorName "Select Operator"
@@ -3406,7 +3406,7 @@ global PSPCalcOperatorMatXRadio21 PSPCalcOperatorMatXRadio22 PSPCalcOperatorMatX
 global PSPCalcOperatorMatXRadio31 PSPCalcOperatorMatXRadio32 PSPCalcOperatorMatXRadio33 PSPCalcOperatorMatXRadio34
 global PSPCalcOperatorMatXRadio41 PSPCalcOperatorMatXRadio42 PSPCalcOperatorMatXRadio43 PSPCalcOperatorMatXRadio44
 
-set PSPCalcOperatorS ""
+set PSPCalcOperatorS " "
 set PSPCalcOperator ""
 
 set PSPCalcOperatorName "Select Operator"
@@ -3480,7 +3480,7 @@ set PSPCalcInputFile ""; set PSPCalcInputFileFormat "";
 set NligInitFile ""; set NligEndFile ""; set NcolInitFile ""; set NcolEndFile ""
 set PSPCalcInputDirMat ""; set PSPCalcInputDirMatFormat ""
 set NligInitMat ""; set NligEndMat ""; set NcolInitMat ""; set NcolEndMat ""
-set PSPCalcNwinL ""; set PSPCalcNwinC ""; set PSPCalcNlook ""; set PSPCalcFilter ""
+set PSPCalcNwinL ""; set PSPCalcNwinC ""; set PSPCalcNlook ""; set PSPCalcFilter " "
 
 if {$PSPCalcOp2Type == "value"} {
     set PSPCalcValueInputReal "?"; set PSPCalcValueInputImag ""
@@ -3521,7 +3521,7 @@ if {$PSPCalcOp2Type == "filter"} {
     .top603.fra79.cpd80 configure -state disable
     .top603.fra79.cpd82 configure -state disable
     .top603.fra79.cpd82 configure -disabledbackground $PSPBackgroundColor
-    Window show .top603
+    WidgetShow .top603
     }
 
 if {$PSPCalcOp2Type == "matM" || $PSPCalcOp2Type == "matS"} {
@@ -3530,7 +3530,7 @@ if {$PSPCalcOp2Type == "matM" || $PSPCalcOp2Type == "matS"} {
 
 
 if {$PSPCalcOp2Type == "matX" || $PSPCalcOp2Type == "matXSU" || $PSPCalcOp2Type == "matXherm"} {
-    set PSPCalcCreateMatXType ""
+    set PSPCalcCreateMatXType " "
     set PSPCalcOp2MatDim $PSPCalcOp1MatDim
     PSPCalcCreateMatXRAZ
     if {$PSPCalcOp2Type == "matX"} {
@@ -3565,7 +3565,7 @@ global PSPCalcOutputResultDir PSPCalcOutputResultFile
 global PSPCalcOutputResultFileCmplx PSPCalcOutputResultFileFloat PSPCalcOutputResultFileInt
 global NligInitOp1 NligEndOp1 NcolInitOp1 NcolEndOp1
 global NligInitOp2 NligEndOp2 NcolInitOp2 NcolEndOp2
-global VarError ErrorMessage PSPMemory TMPMemoryAllocError
+global VarError ErrorMessage TMPMemoryAllocError
 global TMPPSPCalcInputDirMatConfig TMPPSPCalcInputDirMatMapInfo TMPPSPCalcInputDirMatMaskFile
 
 if {$DirNum == 1} {set PSPCalcOutputResultDir $TMPPSPCalcDirResult1}
@@ -3611,9 +3611,9 @@ if {$PSPCalcOp2Type == "" } {
     set ProgressLine "0"
     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
     update
-    TextEditorRunTrace "Process The Function Soft/calculator/file_operand.exe" "k"
-    TextEditorRunTrace "Arguments: -if \x22$PSPCalcOp1FileInput\x22 -it $PSPCalcOp1Format -of \x22$PSPCalcOutputResultFile\x22 -ot $PSPCalcOutputFormat -op $PSPCalcOperatorF -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-    set f [ open "| Soft/calculator/file_operand.exe -if \x22$PSPCalcOp1FileInput\x22 -it $PSPCalcOp1Format -of \x22$PSPCalcOutputResultFile\x22 -ot $PSPCalcOutputFormat -op $PSPCalcOperatorF -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+    TextEditorRunTrace "Process The Function Soft/bin/calculator/file_operand.exe" "k"
+    TextEditorRunTrace "Arguments: -if \x22$PSPCalcOp1FileInput\x22 -it $PSPCalcOp1Format -of \x22$PSPCalcOutputResultFile\x22 -ot $PSPCalcOutputFormat -op $PSPCalcOperatorF -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+    set f [ open "| Soft/bin/calculator/file_operand.exe -if \x22$PSPCalcOp1FileInput\x22 -it $PSPCalcOp1Format -of \x22$PSPCalcOutputResultFile\x22 -ot $PSPCalcOutputFormat -op $PSPCalcOperatorF -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError
@@ -3636,23 +3636,23 @@ if {$PSPCalcOp2Type == "filter" } {
     update
     if {$PSPCalcFilter == "boxcar"} {
         set PSPCalcOperatorName ".boxcar(?x?)"
-        set PSPCalcFilterExe "Soft/calculator/file_boxcar.exe"
-        set PSPCalcFilterArg "-if \x22$PSPCalcOp1FileInput\x22 -of \x22$PSPCalcOutputResultFile\x22 -nwr $PSPCalcNwinL -nwc $PSPCalcNwinC -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd"
+        set PSPCalcFilterExe "Soft/bin/calculator/file_boxcar.exe"
+        set PSPCalcFilterArg "-if \x22$PSPCalcOp1FileInput\x22 -of \x22$PSPCalcOutputResultFile\x22 -nwr $PSPCalcNwinL -nwc $PSPCalcNwinC -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd"
         }
     if {$PSPCalcFilter == "lee"} {
         set PSPCalcOperatorName ".lee refined(?x?)"
-        set PSPCalcFilterExe "Soft/calculator/file_lee_refined.exe"
-        set PSPCalcFilterArg "-if \x22$PSPCalcOp1FileInput\x22 -of \x22$PSPCalcOutputResultFile\x22 -nw $PSPCalcNwinL -nlk $PSPCalcNlook -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd"
+        set PSPCalcFilterExe "Soft/bin/calculator/file_lee_refined.exe"
+        set PSPCalcFilterArg "-if \x22$PSPCalcOp1FileInput\x22 -of \x22$PSPCalcOutputResultFile\x22 -nw $PSPCalcNwinL -nlk $PSPCalcNlook -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd"
         }
     if {$PSPCalcFilter == "median"} {
         set PSPCalcOperatorName ".median(?x?)"
-        set PSPCalcFilterExe "Soft/calculator/file_median.exe"
-        set PSPCalcFilterArg "-if \x22$PSPCalcOp1FileInput\x22 -of \x22$PSPCalcOutputResultFile\x22 -nwr $PSPCalcNwinL -nwc $PSPCalcNwinC -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd"
+        set PSPCalcFilterExe "Soft/bin/calculator/file_median.exe"
+        set PSPCalcFilterArg "-if \x22$PSPCalcOp1FileInput\x22 -of \x22$PSPCalcOutputResultFile\x22 -nwr $PSPCalcNwinL -nwc $PSPCalcNwinC -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd"
         }
     if {$PSPCalcFilter == "nagao"} {
         set PSPCalcOperatorName ".nagao(?x?)"
-        set PSPCalcFilterExe "Soft/calculator/file_nagao.exe"
-        set PSPCalcFilterArg "-if \x22$PSPCalcOp1FileInput\x22 -of \x22$PSPCalcOutputResultFile\x22 -nwr $PSPCalcNwinL -nwc $PSPCalcNwinC -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd"
+        set PSPCalcFilterExe "Soft/bin/calculator/file_nagao.exe"
+        set PSPCalcFilterArg "-if \x22$PSPCalcOp1FileInput\x22 -of \x22$PSPCalcOutputResultFile\x22 -nwr $PSPCalcNwinL -nwc $PSPCalcNwinC -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd"
         }
     TextEditorRunTrace "Process The Function $PSPCalcFilterExe" "k"
     TextEditorRunTrace "Arguments: $PSPCalcFilterArg" "k"
@@ -3686,9 +3686,9 @@ if {$PSPCalcOp2Type == "value" || $PSPCalcOp2Type == "valuefloat"} {
     set ProgressLine "0"
     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
     update
-    TextEditorRunTrace "Process The Function Soft/calculator/file_operand_value.exe" "k"
-    TextEditorRunTrace "Arguments: -if \x22$PSPCalcOp1FileInput\x22 -it $PSPCalcOp1Format -ivr $PSPCalcOp2ValueInputReal -ivi $PSPCalcOp2ValueInputIm -it2 $PSPCalcOp2Format -of \x22$PSPCalcOutputResultFile\x22 -ot $PSPCalcOutputFormat -op $PSPCalcOperatorF -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-    set f [ open "| Soft/calculator/file_operand_value.exe -if \x22$PSPCalcOp1FileInput\x22 -it $PSPCalcOp1Format -ivr $PSPCalcOp2ValueInputReal -ivi $PSPCalcOp2ValueInputIm -it2 $PSPCalcOp2Format -of \x22$PSPCalcOutputResultFile\x22 -ot $PSPCalcOutputFormat -op $PSPCalcOperatorF -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+    TextEditorRunTrace "Process The Function Soft/bin/calculator/file_operand_value.exe" "k"
+    TextEditorRunTrace "Arguments: -if \x22$PSPCalcOp1FileInput\x22 -it $PSPCalcOp1Format -ivr $PSPCalcOp2ValueInputReal -ivi $PSPCalcOp2ValueInputIm -it2 $PSPCalcOp2Format -of \x22$PSPCalcOutputResultFile\x22 -ot $PSPCalcOutputFormat -op $PSPCalcOperatorF -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+    set f [ open "| Soft/bin/calculator/file_operand_value.exe -if \x22$PSPCalcOp1FileInput\x22 -it $PSPCalcOp1Format -ivr $PSPCalcOp2ValueInputReal -ivi $PSPCalcOp2ValueInputIm -it2 $PSPCalcOp2Format -of \x22$PSPCalcOutputResultFile\x22 -ot $PSPCalcOutputFormat -op $PSPCalcOperatorF -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError
@@ -3720,9 +3720,9 @@ if {$PSPCalcOp2Type == "file" } {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/calculator/file_operand_file.exe" "k"
-        TextEditorRunTrace "Arguments: -if1 \x22$PSPCalcOp1FileInput\x22 -it1 $PSPCalcOp1Format -if2 \x22$PSPCalcOp2FileInput\x22 -it2 $PSPCalcOp2Format -of \x22$PSPCalcOutputResultFile\x22 -ot $PSPCalcOutputFormat -op $PSPCalcOperatorF -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-        set f [ open "| Soft/calculator/file_operand_file.exe -if1 \x22$PSPCalcOp1FileInput\x22 -it1 $PSPCalcOp1Format -if2 \x22$PSPCalcOp2FileInput\x22 -it2 $PSPCalcOp2Format -of \x22$PSPCalcOutputResultFile\x22 -ot $PSPCalcOutputFormat -op $PSPCalcOperatorF -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+        TextEditorRunTrace "Process The Function Soft/bin/calculator/file_operand_file.exe" "k"
+        TextEditorRunTrace "Arguments: -if1 \x22$PSPCalcOp1FileInput\x22 -it1 $PSPCalcOp1Format -if2 \x22$PSPCalcOp2FileInput\x22 -it2 $PSPCalcOp2Format -of \x22$PSPCalcOutputResultFile\x22 -ot $PSPCalcOutputFormat -op $PSPCalcOperatorF -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+        set f [ open "| Soft/bin/calculator/file_operand_file.exe -if1 \x22$PSPCalcOp1FileInput\x22 -it1 $PSPCalcOp1Format -if2 \x22$PSPCalcOp2FileInput\x22 -it2 $PSPCalcOp2Format -of \x22$PSPCalcOutputResultFile\x22 -ot $PSPCalcOutputFormat -op $PSPCalcOperatorF -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError
@@ -3767,7 +3767,7 @@ global PSPCalcOutputResultDir PSPCalcOutputResultFile
 global PSPCalcOutputResultFileCmplx PSPCalcOutputResultFileFloat PSPCalcOutputResultFileInt
 global NligInitOp1 NligEndOp1 NcolInitOp1 NcolEndOp1
 global NligInitOp2 NligEndOp2 NcolInitOp2 NcolEndOp2
-global VarError ErrorMessage PSPMemory TMPMemoryAllocError
+global VarError ErrorMessage TMPMemoryAllocError
 global TMPPSPCalcInputDirMatConfig TMPPSPCalcInputDirMatMapInfo TMPPSPCalcInputDirMatMaskFile
 
 if {$DirNum == 1} {set PSPCalcOutputResultDir $TMPPSPCalcDirResult1}
@@ -3794,9 +3794,9 @@ if {$PSPCalcOp2Type == "matM" } {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/calculator/matM_operand_matM.exe" "k"
-        TextEditorRunTrace "Arguments: -id1 \x22$PSPCalcOp1MatDirInput\x22 -id2 \x22$PSPCalcOp2MatDirInput\x22 -iodf $PSPCalcOp1Format -od \x22$PSPCalcOutputResultDir\x22 -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-        set f [ open "| Soft/calculator/matM_operand_matM.exe -id1 \x22$PSPCalcOp1MatDirInput\x22 -id2 \x22$PSPCalcOp2MatDirInput\x22 -iodf $PSPCalcOp1Format -od \x22$PSPCalcOutputResultDir\x22 -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+        TextEditorRunTrace "Process The Function Soft/bin/calculator/matM_operand_matM.exe" "k"
+        TextEditorRunTrace "Arguments: -id1 \x22$PSPCalcOp1MatDirInput\x22 -id2 \x22$PSPCalcOp2MatDirInput\x22 -iodf $PSPCalcOp1Format -od \x22$PSPCalcOutputResultDir\x22 -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+        set f [ open "| Soft/bin/calculator/matM_operand_matM.exe -id1 \x22$PSPCalcOp1MatDirInput\x22 -id2 \x22$PSPCalcOp2MatDirInput\x22 -iodf $PSPCalcOp1Format -od \x22$PSPCalcOutputResultDir\x22 -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError
@@ -3824,9 +3824,9 @@ if {$PSPCalcOp2Type == "matXherm" } {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/calculator/matM_operand_matX_add.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$PSPCalcOp1MatDirInput\x22 -if \x22$PSPCalcOp2FileInput\x22 -iodf $PSPCalcOp1Format -od \x22$PSPCalcOutputResultDir\x22 -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/calculator/matM_operand_matX_add.exe -id \x22$PSPCalcOp1MatDirInput\x22 -if \x22$PSPCalcOp2FileInput\x22 -iodf $PSPCalcOp1Format -od \x22$PSPCalcOutputResultDir\x22 -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/calculator/matM_operand_matX_add.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$PSPCalcOp1MatDirInput\x22 -if \x22$PSPCalcOp2FileInput\x22 -iodf $PSPCalcOp1Format -od \x22$PSPCalcOutputResultDir\x22 -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/calculator/matM_operand_matX_add.exe -id \x22$PSPCalcOp1MatDirInput\x22 -if \x22$PSPCalcOp2FileInput\x22 -iodf $PSPCalcOp1Format -od \x22$PSPCalcOutputResultDir\x22 -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             } else {
             set PSPCalcOutputFormat "float"
             set PSPCalcOutputType "file"
@@ -3834,9 +3834,9 @@ if {$PSPCalcOp2Type == "matXherm" } {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/calculator/matM_operand_matX_dist.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$PSPCalcOp1MatDirInput\x22 -if \x22$PSPCalcOp2FileInput\x22 -iodf $PSPCalcOp1Format -of \x22$PSPCalcOutputResultFileFloat\x22 -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/calculator/matM_operand_matX_dist.exe -id \x22$PSPCalcOp1MatDirInput\x22 -if \x22$PSPCalcOp2FileInput\x22 -iodf $PSPCalcOp1Format -of \x22$PSPCalcOutputResultFileFloat\x22 -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/calculator/matM_operand_matX_dist.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$PSPCalcOp1MatDirInput\x22 -if \x22$PSPCalcOp2FileInput\x22 -iodf $PSPCalcOp1Format -of \x22$PSPCalcOutputResultFileFloat\x22 -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/calculator/matM_operand_matX_dist.exe -id \x22$PSPCalcOp1MatDirInput\x22 -if \x22$PSPCalcOp2FileInput\x22 -iodf $PSPCalcOp1Format -of \x22$PSPCalcOutputResultFileFloat\x22 -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             }
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
@@ -3864,9 +3864,9 @@ if {$PSPCalcOp2Type == "matXSU" } {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/calculator/matM_operand_matXSU.exe" "k"
-        TextEditorRunTrace "Arguments: -id \x22$PSPCalcOp1MatDirInput\x22 -if \x22$PSPCalcOp2FileInput\x22 -iodf $PSPCalcOp1Format -od \x22$PSPCalcOutputResultDir\x22 -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-        set f [ open "| Soft/calculator/matM_operand_matXSU.exe -id \x22$PSPCalcOp1MatDirInput\x22 -if \x22$PSPCalcOp2FileInput\x22 -iodf $PSPCalcOp1Format -od \x22$PSPCalcOutputResultDir\x22 -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+        TextEditorRunTrace "Process The Function Soft/bin/calculator/matM_operand_matXSU.exe" "k"
+        TextEditorRunTrace "Arguments: -id \x22$PSPCalcOp1MatDirInput\x22 -if \x22$PSPCalcOp2FileInput\x22 -iodf $PSPCalcOp1Format -od \x22$PSPCalcOutputResultDir\x22 -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+        set f [ open "| Soft/bin/calculator/matM_operand_matXSU.exe -id \x22$PSPCalcOp1MatDirInput\x22 -if \x22$PSPCalcOp2FileInput\x22 -iodf $PSPCalcOp1Format -od \x22$PSPCalcOutputResultDir\x22 -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError
@@ -3894,9 +3894,9 @@ if {$PSPCalcOp2Type == "file" } {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/calculator/matM_operand_file.exe" "k"
-        TextEditorRunTrace "Arguments: -id \x22$PSPCalcOp1MatDirInput\x22 -if \x22$PSPCalcOp2FileInput\x22 -iodf $PSPCalcOp1Format -od \x22$PSPCalcOutputResultDir\x22 -op $PSPCalcOperatorM -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-        set f [ open "| Soft/calculator/matM_operand_file.exe -id \x22$PSPCalcOp1MatDirInput\x22 -if \x22$PSPCalcOp2FileInput\x22 -iodf $PSPCalcOp1Format -od \x22$PSPCalcOutputResultDir\x22 -op $PSPCalcOperatorM -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+        TextEditorRunTrace "Process The Function Soft/bin/calculator/matM_operand_file.exe" "k"
+        TextEditorRunTrace "Arguments: -id \x22$PSPCalcOp1MatDirInput\x22 -if \x22$PSPCalcOp2FileInput\x22 -iodf $PSPCalcOp1Format -od \x22$PSPCalcOutputResultDir\x22 -op $PSPCalcOperatorM -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+        set f [ open "| Soft/bin/calculator/matM_operand_file.exe -id \x22$PSPCalcOp1MatDirInput\x22 -if \x22$PSPCalcOp2FileInput\x22 -iodf $PSPCalcOp1Format -od \x22$PSPCalcOutputResultDir\x22 -op $PSPCalcOperatorM -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError
@@ -3921,9 +3921,9 @@ if {$PSPCalcOp2Type == "valuefloat"} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/calculator/matM_operand_value.exe" "k"
-        TextEditorRunTrace "Arguments: -id \x22$PSPCalcOp1MatDirInput\x22 -iv \x22$PSPCalcOp2ValueInputReal\x22 -iodf $PSPCalcOp1Format -od \x22$PSPCalcOutputResultDir\x22 -op $PSPCalcOperatorM -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-        set f [ open "| Soft/calculator/matM_operand_value.exe -id \x22$PSPCalcOp1MatDirInput\x22 -iv \x22$PSPCalcOp2ValueInputReal\x22 -iodf $PSPCalcOp1Format -od \x22$PSPCalcOutputResultDir\x22 -op $PSPCalcOperatorM -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+        TextEditorRunTrace "Process The Function Soft/bin/calculator/matM_operand_value.exe" "k"
+        TextEditorRunTrace "Arguments: -id \x22$PSPCalcOp1MatDirInput\x22 -iv \x22$PSPCalcOp2ValueInputReal\x22 -iodf $PSPCalcOp1Format -od \x22$PSPCalcOutputResultDir\x22 -op $PSPCalcOperatorM -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+        set f [ open "| Soft/bin/calculator/matM_operand_value.exe -id \x22$PSPCalcOp1MatDirInput\x22 -iv \x22$PSPCalcOp2ValueInputReal\x22 -iodf $PSPCalcOp1Format -od \x22$PSPCalcOutputResultDir\x22 -op $PSPCalcOperatorM -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError
@@ -3947,9 +3947,9 @@ if {$PSPCalcOp2Type == "out_matM" } {
     set ProgressLine "0"
     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
     update
-    TextEditorRunTrace "Process The Function Soft/calculator/matM_operand_out_matM.exe" "k"
-    TextEditorRunTrace "Arguments: -id \x22$PSPCalcOp1MatDirInput\x22 -iodf $PSPCalcOp1Format -od \x22$PSPCalcOutputResultDir\x22 -op $PSPCalcOperatorM -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-    set f [ open "| Soft/calculator/matM_operand_out_matM.exe -id \x22$PSPCalcOp1MatDirInput\x22 -iodf $PSPCalcOp1Format -od \x22$PSPCalcOutputResultDir\x22 -op $PSPCalcOperatorM -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+    TextEditorRunTrace "Process The Function Soft/bin/calculator/matM_operand_out_matM.exe" "k"
+    TextEditorRunTrace "Arguments: -id \x22$PSPCalcOp1MatDirInput\x22 -iodf $PSPCalcOp1Format -od \x22$PSPCalcOutputResultDir\x22 -op $PSPCalcOperatorM -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+    set f [ open "| Soft/bin/calculator/matM_operand_out_matM.exe -id \x22$PSPCalcOp1MatDirInput\x22 -iodf $PSPCalcOp1Format -od \x22$PSPCalcOutputResultDir\x22 -op $PSPCalcOperatorM -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError
@@ -3968,9 +3968,9 @@ if {$PSPCalcOp2Type == "out_file" } {
     set ProgressLine "0"
     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
     update
-    TextEditorRunTrace "Process The Function Soft/calculator/matM_operand_out_file.exe" "k"
-    TextEditorRunTrace "Arguments: -id \x22$PSPCalcOp1MatDirInput\x22 -it $PSPCalcOp1Format -of \x22$PSPCalcOutputResultFileFloat\x22 -op $PSPCalcOperatorM -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-    set f [ open "| Soft/calculator/matM_operand_out_file.exe -id \x22$PSPCalcOp1MatDirInput\x22 -it $PSPCalcOp1Format -of \x22$PSPCalcOutputResultFileFloat\x22 -op $PSPCalcOperatorM -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+    TextEditorRunTrace "Process The Function Soft/bin/calculator/matM_operand_out_file.exe" "k"
+    TextEditorRunTrace "Arguments: -id \x22$PSPCalcOp1MatDirInput\x22 -it $PSPCalcOp1Format -of \x22$PSPCalcOutputResultFileFloat\x22 -op $PSPCalcOperatorM -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+    set f [ open "| Soft/bin/calculator/matM_operand_out_file.exe -id \x22$PSPCalcOp1MatDirInput\x22 -it $PSPCalcOp1Format -of \x22$PSPCalcOutputResultFileFloat\x22 -op $PSPCalcOperatorM -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError
@@ -3989,9 +3989,9 @@ if {$PSPCalcOp2Type == "out_eig" } {
     set ProgressLine "0"
     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
     update
-    TextEditorRunTrace "Process The Function Soft/calculator/matM_operand_out_eig.exe" "k"
-    TextEditorRunTrace "Arguments: -id \x22$PSPCalcOp1MatDirInput\x22 -it $PSPCalcOp1Format -of \x22$PSPCalcOutputResultFileFloat\x22 -op $PSPCalcOperatorM -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-    set f [ open "| Soft/calculator/matM_operand_out_eig.exe -id \x22$PSPCalcOp1MatDirInput\x22 -it $PSPCalcOp1Format -of \x22$PSPCalcOutputResultFileFloat\x22 -op $PSPCalcOperatorM -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+    TextEditorRunTrace "Process The Function Soft/bin/calculator/matM_operand_out_eig.exe" "k"
+    TextEditorRunTrace "Arguments: -id \x22$PSPCalcOp1MatDirInput\x22 -it $PSPCalcOp1Format -of \x22$PSPCalcOutputResultFileFloat\x22 -op $PSPCalcOperatorM -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+    set f [ open "| Soft/bin/calculator/matM_operand_out_eig.exe -id \x22$PSPCalcOp1MatDirInput\x22 -it $PSPCalcOp1Format -of \x22$PSPCalcOutputResultFileFloat\x22 -op $PSPCalcOperatorM -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError
@@ -4046,7 +4046,7 @@ global PSPCalcOutputResultDir PSPCalcOutputResultFile
 global PSPCalcOutputResultFileCmplx PSPCalcOutputResultFileFloat PSPCalcOutputResultFileInt
 global NligInitOp1 NligEndOp1 NcolInitOp1 NcolEndOp1
 global NligInitOp2 NligEndOp2 NcolInitOp2 NcolEndOp2
-global VarError ErrorMessage PSPMemory TMPMemoryAllocError
+global VarError ErrorMessage TMPMemoryAllocError
 global TMPPSPCalcInputDirMatConfig TMPPSPCalcInputDirMatMapInfo TMPPSPCalcInputDirMatMaskFile
 
 if {$DirNum == 1} {set PSPCalcOutputResultDir $TMPPSPCalcDirResult1}
@@ -4072,9 +4072,9 @@ if {$PSPCalcOp2Type == "matS" } {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/calculator/matS_operand_matS.exe" "k"
-        TextEditorRunTrace "Arguments: -id1 \x22$PSPCalcOp1MatDirInput\x22 -id2 \x22$PSPCalcOp2MatDirInput\x22 -od \x22$PSPCalcOutputResultDir\x22 -op $PSPCalcOperatorS -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-        set f [ open "| Soft/calculator/matS_operand_matS.exe -id1 \x22$PSPCalcOp1MatDirInput\x22 -id2 \x22$PSPCalcOp2MatDirInput\x22 -od \x22$PSPCalcOutputResultDir\x22 -op $PSPCalcOperatorS -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+        TextEditorRunTrace "Process The Function Soft/bin/calculator/matS_operand_matS.exe" "k"
+        TextEditorRunTrace "Arguments: -id1 \x22$PSPCalcOp1MatDirInput\x22 -id2 \x22$PSPCalcOp2MatDirInput\x22 -od \x22$PSPCalcOutputResultDir\x22 -op $PSPCalcOperatorS -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+        set f [ open "| Soft/bin/calculator/matS_operand_matS.exe -id1 \x22$PSPCalcOp1MatDirInput\x22 -id2 \x22$PSPCalcOp2MatDirInput\x22 -od \x22$PSPCalcOutputResultDir\x22 -op $PSPCalcOperatorS -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError
@@ -4101,9 +4101,9 @@ if {$PSPCalcOp2Type == "matX" } {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/calculator/matS_operand_matX.exe" "k"
-        TextEditorRunTrace "Arguments: -id \x22$PSPCalcOp1MatDirInput\x22 -if \x22$PSPCalcOp2FileInput\x22 -od \x22$PSPCalcOutputResultDir\x22 -op $PSPCalcOperatorS -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-        set f [ open "| Soft/calculator/matS_operand_matX.exe -id \x22$PSPCalcOp1MatDirInput\x22 -if \x22$PSPCalcOp2FileInput\x22 -od \x22$PSPCalcOutputResultDir\x22 -op $PSPCalcOperatorS -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+        TextEditorRunTrace "Process The Function Soft/bin/calculator/matS_operand_matX.exe" "k"
+        TextEditorRunTrace "Arguments: -id \x22$PSPCalcOp1MatDirInput\x22 -if \x22$PSPCalcOp2FileInput\x22 -od \x22$PSPCalcOutputResultDir\x22 -op $PSPCalcOperatorS -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+        set f [ open "| Soft/bin/calculator/matS_operand_matX.exe -id \x22$PSPCalcOp1MatDirInput\x22 -if \x22$PSPCalcOp2FileInput\x22 -od \x22$PSPCalcOutputResultDir\x22 -op $PSPCalcOperatorS -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError
@@ -4130,9 +4130,9 @@ if {$PSPCalcOp2Type == "matXSU" } {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/calculator/matS_operand_matXSU.exe" "k"
-        TextEditorRunTrace "Arguments: -id \x22$PSPCalcOp1MatDirInput\x22 -if \x22$PSPCalcOp2FileInput\x22 -od \x22$PSPCalcOutputResultDir\x22 -op $PSPCalcOperatorS -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-        set f [ open "| Soft/calculator/matS_operand_matXSU.exe -id \x22$PSPCalcOp1MatDirInput\x22 -if \x22$PSPCalcOp2FileInput\x22 -od \x22$PSPCalcOutputResultDir\x22 -op $PSPCalcOperatorS -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+        TextEditorRunTrace "Process The Function Soft/bin/calculator/matS_operand_matXSU.exe" "k"
+        TextEditorRunTrace "Arguments: -id \x22$PSPCalcOp1MatDirInput\x22 -if \x22$PSPCalcOp2FileInput\x22 -od \x22$PSPCalcOutputResultDir\x22 -op $PSPCalcOperatorS -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+        set f [ open "| Soft/bin/calculator/matS_operand_matXSU.exe -id \x22$PSPCalcOp1MatDirInput\x22 -if \x22$PSPCalcOp2FileInput\x22 -od \x22$PSPCalcOutputResultDir\x22 -op $PSPCalcOperatorS -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError
@@ -4160,9 +4160,9 @@ if {$PSPCalcOp2Type == "file" } {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/calculator/matS_operand_file.exe" "k"
-        TextEditorRunTrace "Arguments: -id \x22$PSPCalcOp1MatDirInput\x22 -if \x22$PSPCalcOp2FileInput\x22 -it $PSPCalcOp2Format -od \x22$PSPCalcOutputResultDir\x22 -op $PSPCalcOperatorS -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-        set f [ open "| Soft/calculator/matS_operand_file.exe -id \x22$PSPCalcOp1MatDirInput\x22 -if \x22$PSPCalcOp2FileInput\x22 -it $PSPCalcOp2Format -od \x22$PSPCalcOutputResultDir\x22 -op $PSPCalcOperatorS -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+        TextEditorRunTrace "Process The Function Soft/bin/calculator/matS_operand_file.exe" "k"
+        TextEditorRunTrace "Arguments: -id \x22$PSPCalcOp1MatDirInput\x22 -if \x22$PSPCalcOp2FileInput\x22 -it $PSPCalcOp2Format -od \x22$PSPCalcOutputResultDir\x22 -op $PSPCalcOperatorS -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+        set f [ open "| Soft/bin/calculator/matS_operand_file.exe -id \x22$PSPCalcOp1MatDirInput\x22 -if \x22$PSPCalcOp2FileInput\x22 -it $PSPCalcOp2Format -od \x22$PSPCalcOutputResultDir\x22 -op $PSPCalcOperatorS -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError
@@ -4188,9 +4188,9 @@ if {$PSPCalcOp2Type == "value"} {
     set ProgressLine "0"
     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
     update
-    TextEditorRunTrace "Process The Function Soft/calculator/matS_operand_value.exe" "k"
-    TextEditorRunTrace "Arguments: -id \x22$PSPCalcOp1MatDirInput\x22 -ivr \x22$PSPCalcOp2ValueInputReal\x22 -ivi \x22$PSPCalcOp2ValueInputIm\x22 -od \x22$PSPCalcOutputResultDir\x22 -op $PSPCalcOperatorS -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-    set f [ open "| Soft/calculator/matS_operand_value.exe -id \x22$PSPCalcOp1MatDirInput\x22 -ivr \x22$PSPCalcOp2ValueInputReal\x22 -ivi \x22$PSPCalcOp2ValueInputIm\x22 -od \x22$PSPCalcOutputResultDir\x22 -op $PSPCalcOperatorS -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+    TextEditorRunTrace "Process The Function Soft/bin/calculator/matS_operand_value.exe" "k"
+    TextEditorRunTrace "Arguments: -id \x22$PSPCalcOp1MatDirInput\x22 -ivr \x22$PSPCalcOp2ValueInputReal\x22 -ivi \x22$PSPCalcOp2ValueInputIm\x22 -od \x22$PSPCalcOutputResultDir\x22 -op $PSPCalcOperatorS -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+    set f [ open "| Soft/bin/calculator/matS_operand_value.exe -id \x22$PSPCalcOp1MatDirInput\x22 -ivr \x22$PSPCalcOp2ValueInputReal\x22 -ivi \x22$PSPCalcOp2ValueInputIm\x22 -od \x22$PSPCalcOutputResultDir\x22 -op $PSPCalcOperatorS -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError
@@ -4208,9 +4208,9 @@ if {$PSPCalcOp2Type == "out_matS" } {
     set ProgressLine "0"
     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
     update
-    TextEditorRunTrace "Process The Function Soft/calculator/matS_operand_out_matS.exe" "k"
-    TextEditorRunTrace "Arguments: -id \x22$PSPCalcOp1MatDirInput\x22 -od \x22$PSPCalcOutputResultDir\x22 -op $PSPCalcOperatorS -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-    set f [ open "| Soft/calculator/matS_operand_out_matS.exe -id \x22$PSPCalcOp1MatDirInput\x22 -od \x22$PSPCalcOutputResultDir\x22 -op $PSPCalcOperatorS -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+    TextEditorRunTrace "Process The Function Soft/bin/calculator/matS_operand_out_matS.exe" "k"
+    TextEditorRunTrace "Arguments: -id \x22$PSPCalcOp1MatDirInput\x22 -od \x22$PSPCalcOutputResultDir\x22 -op $PSPCalcOperatorS -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+    set f [ open "| Soft/bin/calculator/matS_operand_out_matS.exe -id \x22$PSPCalcOp1MatDirInput\x22 -od \x22$PSPCalcOutputResultDir\x22 -op $PSPCalcOperatorS -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError
@@ -4229,9 +4229,9 @@ if {$PSPCalcOp2Type == "out_file" } {
     set ProgressLine "0"
     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
     update
-    TextEditorRunTrace "Process The Function Soft/calculator/matS_operand_out_file.exe" "k"
-    TextEditorRunTrace "Arguments: -id \x22$PSPCalcOp1MatDirInput\x22 -of \x22$PSPCalcOutputResultFile\x22 -op $PSPCalcOperatorS -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-    set f [ open "| Soft/calculator/matS_operand_out_file.exe -id \x22$PSPCalcOp1MatDirInput\x22 -of \x22$PSPCalcOutputResultFileCmplx\x22 -op $PSPCalcOperatorS -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+    TextEditorRunTrace "Process The Function Soft/bin/calculator/matS_operand_out_file.exe" "k"
+    TextEditorRunTrace "Arguments: -id \x22$PSPCalcOp1MatDirInput\x22 -of \x22$PSPCalcOutputResultFile\x22 -op $PSPCalcOperatorS -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+    set f [ open "| Soft/bin/calculator/matS_operand_out_file.exe -id \x22$PSPCalcOp1MatDirInput\x22 -of \x22$PSPCalcOutputResultFileCmplx\x22 -op $PSPCalcOperatorS -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError
@@ -4256,9 +4256,9 @@ if {$PSPCalcOp2Type == "out_eig" } {
     set ProgressLine "0"
     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
     update
-    TextEditorRunTrace "Process The Function Soft/calculator/matS_operand_out_eig.exe" "k"
-    TextEditorRunTrace "Arguments: -id \x22$PSPCalcOp1MatDirInput\x22 -of \x22$PSPCalcOutputResultFile\x22 -op $PSPCalcOperatorS -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-    set f [ open "| Soft/calculator/matS_operand_out_eig.exe -id \x22$PSPCalcOp1MatDirInput\x22 -of \x22$PSPCalcOutputResultFile\x22 -op $PSPCalcOperatorS -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+    TextEditorRunTrace "Process The Function Soft/bin/calculator/matS_operand_out_eig.exe" "k"
+    TextEditorRunTrace "Arguments: -id \x22$PSPCalcOp1MatDirInput\x22 -of \x22$PSPCalcOutputResultFile\x22 -op $PSPCalcOperatorS -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+    set f [ open "| Soft/bin/calculator/matS_operand_out_eig.exe -id \x22$PSPCalcOp1MatDirInput\x22 -of \x22$PSPCalcOutputResultFile\x22 -op $PSPCalcOperatorS -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError
@@ -4445,7 +4445,7 @@ if {$ENVIConfigFile == 1} {
             update
             TextEditorRunTrace "Process The Function apply_mask_valid_pixels.exe" "k"
             TextEditorRunTrace "Arguments: -bf \x22$PSPCalcEnviFile\x22 -mf \x22$MaskFile\x22 -iodf $PSPCalcEnviType -fnr $PSPCalcEnviNlig -fnc $PSPCalcEnviNcol" "k"
-            set f [ open "| Soft/tools/apply_mask_valid_pixels.exe -bf \x22$PSPCalcEnviFile\x22 -mf \x22$MaskFile\x22 -iodf $PSPCalcEnviType -fnr $PSPCalcEnviNlig -fnc $PSPCalcEnviNcol" r]
+            set f [ open "| Soft/bin/tools/apply_mask_valid_pixels.exe -bf \x22$PSPCalcEnviFile\x22 -mf \x22$MaskFile\x22 -iodf $PSPCalcEnviType -fnr $PSPCalcEnviNlig -fnc $PSPCalcEnviNcol" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -4489,7 +4489,7 @@ if {$ENVIConfigFile ==1} {
         update
         TextEditorRunTrace "Process The Function create_mask_valid_pixels.exe" "k"
         TextEditorRunTrace "Arguments: -id \x22$PSPCalcEnviDir\x22 -od \x22$PSPCalcEnviDir\x22 -idf $MaskPolFormat -ofr 0 -ofc 0 -fnr $PSPCalcEnviNlig -fnc $PSPCalcEnviNcol" "k"
-        set f [ open "| Soft/tools/create_mask_valid_pixels.exe -id \x22$PSPCalcEnviDir\x22 -od \x22$PSPCalcEnviDir\x22 -idf $MaskPolFormat -ofr 0 -ofc 0 -fnr $PSPCalcEnviNlig -fnc $PSPCalcEnviNcol" r]
+        set f [ open "| Soft/bin/tools/create_mask_valid_pixels.exe -id \x22$PSPCalcEnviDir\x22 -od \x22$PSPCalcEnviDir\x22 -idf $MaskPolFormat -ofr 0 -ofc 0 -fnr $PSPCalcEnviNlig -fnc $PSPCalcEnviNcol" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError
@@ -4533,7 +4533,7 @@ if {$ENVIConfigFile ==1} {
         update
         TextEditorRunTrace "Process The Function create_mask_valid_pixels.exe" "k"
         TextEditorRunTrace "Arguments: -id \x22$PSPCalcEnviDir\x22 -od \x22$PSPCalcEnviDir\x22 -idf $MaskPolFormat -ofr 0 -ofc 0 -fnr $PSPCalcEnviNlig -fnc $PSPCalcEnviNcol" "k"
-        set f [ open "| Soft/tools/create_mask_valid_pixels.exe -id \x22$PSPCalcEnviDir\x22 -od \x22$PSPCalcEnviDir\x22 -idf $MaskPolFormat -ofr 0 -ofc 0 -fnr $PSPCalcEnviNlig -fnc $PSPCalcEnviNcol" r]
+        set f [ open "| Soft/bin/tools/create_mask_valid_pixels.exe -id \x22$PSPCalcEnviDir\x22 -od \x22$PSPCalcEnviDir\x22 -idf $MaskPolFormat -ofr 0 -ofc 0 -fnr $PSPCalcEnviNlig -fnc $PSPCalcEnviNcol" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError
@@ -4603,7 +4603,7 @@ if {$ENVIConfigFile ==1} {
         update
         TextEditorRunTrace "Process The Function create_mask_valid_pixels.exe" "k"
         TextEditorRunTrace "Arguments: -id \x22$PSPCalcEnviDir\x22 -od \x22$PSPCalcEnviDir\x22 -idf $MaskPolFormat -ofr 0 -ofc 0 -fnr $PSPCalcEnviNlig -fnc $PSPCalcEnviNcol" "k"
-        set f [ open "| Soft/tools/create_mask_valid_pixels.exe -id \x22$PSPCalcEnviDir\x22 -od \x22$PSPCalcEnviDir\x22 -idf $MaskPolFormat -ofr 0 -ofc 0 -fnr $PSPCalcEnviNlig -fnc $PSPCalcEnviNcol" r]
+        set f [ open "| Soft/bin/tools/create_mask_valid_pixels.exe -id \x22$PSPCalcEnviDir\x22 -od \x22$PSPCalcEnviDir\x22 -idf $MaskPolFormat -ofr 0 -ofc 0 -fnr $PSPCalcEnviNlig -fnc $PSPCalcEnviNcol" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError
@@ -4766,7 +4766,7 @@ global PSPCalcOp1Name PSPCalcOperand1 PSPCalcOp1Type PSPCalcOp1Format PSPCalcOp1
 global PSPCalcOp2Name PSPCalcOperand2 PSPCalcOp2Type PSPCalcOp2Format PSPCalcOp2PolarCase PSPCalcOp2PolarType PSPCalcOp2MatDim PSPCalcOp2FileInput PSPCalcOp2MatDirInput
 global PSPCalcOp2ValueInputReal PSPCalcOp2ValueInputImag
 global PSPCalcOutputFormat PSPCalcOutputType PSPCalcOperatorX
-global VarError ErrorMessage PSPMemory TMPMemoryAllocError TMPPSPCalcMatX0
+global VarError ErrorMessage TMPMemoryAllocError TMPPSPCalcMatX0
 global PSPCalcValueOutputReal PSPCalcValueOutputImag PSPCalcCreateMatXType
 global PSPCalcOutputResultDir PSPCalcOutputResultFile PSPCalcCreateMatXTitleFrame
 global PSPCalcCreateMat11r PSPCalcCreateMat11i PSPCalcCreateMat12r PSPCalcCreateMat12i
@@ -4785,9 +4785,9 @@ if {$PSPCalcOp2Type == "" } {
     set ProgressLine "0"
     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
     update
-    TextEditorRunTrace "Process The Function Soft/calculator/matX_operand_out_value.exe" "k"
+    TextEditorRunTrace "Process The Function Soft/bin/calculator/matX_operand_out_value.exe" "k"
     TextEditorRunTrace "Arguments: -if \x22$PSPCalcOp1FileInput\x22 -of \x22$TMPPSPCalcMatX0\x22 -op $PSPCalcOperatorX" "k"
-    set f [ open "| Soft/calculator/matX_operand_out_value.exe -if \x22$PSPCalcOp1FileInput\x22 -of \x22$TMPPSPCalcMatX0\x22 -op $PSPCalcOperatorX" r]
+    set f [ open "| Soft/bin/calculator/matX_operand_out_value.exe -if \x22$PSPCalcOp1FileInput\x22 -of \x22$TMPPSPCalcMatX0\x22 -op $PSPCalcOperatorX" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError
@@ -4799,9 +4799,9 @@ if {$PSPCalcOp2Type == "out_matX" } {
     set ProgressLine "0"
     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
     update
-    TextEditorRunTrace "Process The Function Soft/calculator/matX_operand_out_matX.exe" "k"
+    TextEditorRunTrace "Process The Function Soft/bin/calculator/matX_operand_out_matX.exe" "k"
     TextEditorRunTrace "Arguments: -if \x22$PSPCalcOp1FileInput\x22 -of \x22$TMPPSPCalcMatX0\x22 -op $PSPCalcOperatorX" "k"
-    set f [ open "| Soft/calculator/matX_operand_out_matX.exe -if \x22$PSPCalcOp1FileInput\x22 -of \x22$TMPPSPCalcMatX0\x22 -op $PSPCalcOperatorX" r]
+    set f [ open "| Soft/bin/calculator/matX_operand_out_matX.exe -if \x22$PSPCalcOp1FileInput\x22 -of \x22$TMPPSPCalcMatX0\x22 -op $PSPCalcOperatorX" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError
@@ -4814,9 +4814,9 @@ if {$PSPCalcOp2Type == "value" } {
     set ProgressLine "0"
     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
     update
-    TextEditorRunTrace "Process The Function Soft/calculator/matX_operand_value.exe" "k"
+    TextEditorRunTrace "Process The Function Soft/bin/calculator/matX_operand_value.exe" "k"
     TextEditorRunTrace "Arguments: -if \x22$PSPCalcOp1FileInput\x22 -of \x22$TMPPSPCalcMatX0\x22 -ivr $PSPCalcOp2ValueInputReal -ivi $PSPCalcOp2ValueInputIm -it $PSPCalcOp2Format -op $PSPCalcOperatorX" "k"
-    set f [ open "| Soft/calculator/matX_operand_value.exe -if \x22$PSPCalcOp1FileInput\x22 -of \x22$TMPPSPCalcMatX0\x22 -ivr $PSPCalcOp2ValueInputReal -ivi $PSPCalcOp2ValueInputIm -it $PSPCalcOp2Format -op $PSPCalcOperatorX" r]
+    set f [ open "| Soft/bin/calculator/matX_operand_value.exe -if \x22$PSPCalcOp1FileInput\x22 -of \x22$TMPPSPCalcMatX0\x22 -ivr $PSPCalcOp2ValueInputReal -ivi $PSPCalcOp2ValueInputIm -it $PSPCalcOp2Format -op $PSPCalcOperatorX" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError
@@ -4827,9 +4827,9 @@ if {$PSPCalcOp2Type == "matX" } {
     set ProgressLine "0"
     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
     update
-    TextEditorRunTrace "Process The Function Soft/calculator/matX_operand_matX.exe" "k"
+    TextEditorRunTrace "Process The Function Soft/bin/calculator/matX_operand_matX.exe" "k"
     TextEditorRunTrace "Arguments: -if1 \x22$PSPCalcOp1FileInput\x22 -if2 \x22$PSPCalcOp2FileInput\x22 -of \x22$TMPPSPCalcMatX0\x22 -op $PSPCalcOperatorX" "k"
-    set f [ open "| Soft/calculator/matX_operand_matX.exe -if1 \x22$PSPCalcOp1FileInput\x22 -if2 \x22$PSPCalcOp2FileInput\x22 -of \x22$TMPPSPCalcMatX0\x22 -op $PSPCalcOperatorX" r]
+    set f [ open "| Soft/bin/calculator/matX_operand_matX.exe -if1 \x22$PSPCalcOp1FileInput\x22 -if2 \x22$PSPCalcOp2FileInput\x22 -of \x22$TMPPSPCalcMatX0\x22 -op $PSPCalcOperatorX" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError
@@ -4996,7 +4996,7 @@ proc ::PSPCalcOperatorFileRAZ {} {
 global PSPCalcOperatorF PSPCalcOperatorName PSPCalcOp2Type PSPCalcOp2Name PSPCalcOperand2
 global PSPCalcOp2NameEntry PSPCalcOperand2Entry PSPCalcOp2SelectButton PSPCalcRunButton
 global PSPCalcOp1Format PSPBackgroundColor
-global VarError ErrorMessage PSPMemory TMPMemoryAllocError
+global VarError ErrorMessage TMPMemoryAllocError
 
 set PSPCalcOp2Name ""
 set PSPCalcOp2Type ""
@@ -5019,6 +5019,7 @@ if {$PSPCalcOperatorF == "divval"} {set PSPCalcOperatorName "(file) / value"; se
 if {$PSPCalcOperatorF == "xy"} {set PSPCalcOperatorName ".(.)^(?)"; set PSPCalcOp2Type "valuefloat"}
 if {$PSPCalcOperatorF == "inf"} {set PSPCalcOperatorName ".(.) < (?)"; set PSPCalcOp2Type "valuefloat"}
 if {$PSPCalcOperatorF == "sup"} {set PSPCalcOperatorName ".(.) > (?)"; set PSPCalcOp2Type "valuefloat"}
+if {$PSPCalcOperatorF == "eq"} {set PSPCalcOperatorName ".(.) == (?)"; set PSPCalcOp2Type "valuefloat"}
 
 if {$PSPCalcOperatorF == "filter"} {set PSPCalcOperatorName ".filter(?x?)"; set PSPCalcOp2Type "valueint"}
 
@@ -5055,6 +5056,7 @@ if {$PSPCalcOp1Format == "cmplx"} {
   if {$PSPCalcOperatorF == "atan" } { set config "false" }
   if {$PSPCalcOperatorF == "xy" } { set config "false" }
   if {$PSPCalcOperatorF == "inf" } { set config "false" }
+  if {$PSPCalcOperatorF == "eq" } { set config "false" }
   if {$PSPCalcOperatorF == "sup" } { set config "false" }
   if {$PSPCalcOperatorF == "filter" } { set config "false" }
   }
@@ -5210,7 +5212,7 @@ proc ::PSPCalcOperatorMatXRAZ {} {
 global PSPCalcOperatorX PSPCalcOperatorName PSPCalcOp2Type PSPCalcOp2Name PSPCalcOperand2
 global PSPCalcOp2NameEntry PSPCalcOperand2Entry PSPCalcOp2SelectButton PSPCalcRunButton
 global PSPCalcOp1Format PSPCalcOp1MatDim
-global VarError ErrorMessage PSPMemory TMPMemoryAllocError
+global VarError ErrorMessage TMPMemoryAllocError
 global PSPBackgroundColor
 
 set PSPCalcOp2Name ""
@@ -5288,7 +5290,7 @@ proc vTclWindow. {base} {
     ###################
     wm focusmodel $top passive
     wm geometry $top 200x200+150+150; update
-    wm maxsize $top 1684 1032
+    wm maxsize $top 3364 1032
     wm minsize $top 116 1
     wm overrideredirect $top 0
     wm resizable $top 1 1
@@ -7874,7 +7876,7 @@ Window hide $widget(Toplevel600); TextEditorRunTrace "Close Window PolSARpro Cal
     set site_8_0 $site_7_0.cpd98
     radiobutton $site_8_0.rad73 \
         -borderwidth 0 -command PSPCalcOperatorFileRAZ -takefocus 0 \
-        -text {. 20log ( | . | )} -value 20log -variable PSPCalcOperatorF 
+        -text {. ( . ) < ( ? )} -value inf -variable PSPCalcOperatorF 
     vTcl:DefineAlias "$site_8_0.rad73" "Radiobutton48" vTcl:WidgetProc "Toplevel600" 1
     pack $site_8_0.rad73 \
         -in $site_8_0 -anchor center -expand 0 -fill none -side left 
@@ -7974,7 +7976,7 @@ Window hide $widget(Toplevel600); TextEditorRunTrace "Close Window PolSARpro Cal
     set site_8_0 $site_7_0.cpd98
     radiobutton $site_8_0.rad73 \
         -borderwidth 0 -command PSPCalcOperatorFileRAZ -takefocus 0 \
-        -text {. ( . ) < ( ? )} -value inf -variable PSPCalcOperatorF 
+        -text {. ( . ) == ( ? )} -value eq -variable PSPCalcOperatorF 
     vTcl:DefineAlias "$site_8_0.rad73" "Radiobutton56" vTcl:WidgetProc "Toplevel600" 1
     pack $site_8_0.rad73 \
         -in $site_8_0 -anchor center -expand 0 -fill none -side left 
@@ -8111,7 +8113,7 @@ Window hide $widget(Toplevel600); TextEditorRunTrace "Close Window PolSARpro Cal
         -command {global PSPCalcOperatorF PSPCalcOperatorName PSPCalcOp2Type PSPCalcOp2Name PSPCalcOperand2
 global PSPCalcOp2NameEntry PSPCalcOperand2Entry PSPCalcOp2SelectButton PSPCalcRunButton
 global PSPCalcOp1Format
-global VarError ErrorMessage PSPMemory TMPMemoryAllocError
+global VarError ErrorMessage TMPMemoryAllocError
 
 set PSPCalcOp2Name ""
 set PSPCalcOp2Type ""
@@ -8124,6 +8126,7 @@ if {$PSPCalcOperatorF == "divval"} {set PSPCalcOperatorName "(file) / value"; se
 
 if {$PSPCalcOperatorF == "xy"} {set PSPCalcOperatorName ".(.)^(?)"; set PSPCalcOp2Type "valuefloat"}
 if {$PSPCalcOperatorF == "inf"} {set PSPCalcOperatorName ".(.) < (?)"; set PSPCalcOp2Type "valuefloat"}
+if {$PSPCalcOperatorF == "eq"} {set PSPCalcOperatorName ".(.) == (?)"; set PSPCalcOp2Type "valuefloat"}
 if {$PSPCalcOperatorF == "sup"} {set PSPCalcOperatorName ".(.) > (?)"; set PSPCalcOp2Type "valuefloat"}
 
 if {$PSPCalcOperatorF == "filter"} {set PSPCalcOperatorName ".filter(?x?)"; set PSPCalcOp2Type "filter"}
@@ -9161,7 +9164,7 @@ if {$PSPCalcOperatorName != ""} {
         -command {global PSPCalcOperatorX PSPCalcOperatorName PSPCalcOp2Type PSPCalcOp2Name PSPCalcOperand2
 global PSPCalcOp2NameEntry PSPCalcOperand2Entry PSPCalcOp2SelectButton PSPCalcRunButton
 global PSPCalcOp1Format PSPCalcOp1MatDim
-global VarError ErrorMessage PSPMemory TMPMemoryAllocError
+global VarError ErrorMessage TMPMemoryAllocError
 
 set PSPCalcOp2Name ""
 set PSPCalcOp2Type ""

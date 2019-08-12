@@ -487,130 +487,165 @@ proc vTcl:project:info {} {
     namespace eval ::widgets::$site_3_0.ent64 {
         array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -justify 1 -textvariable 1 -width 1}
     }
-    namespace eval ::widgets::$base.tit73 {
+    namespace eval ::widgets::$base.tit66 {
         array set save {-text 1}
     }
-    set site_4_0 [$base.tit73 getframe]
+    set site_4_0 [$base.tit66 getframe]
     namespace eval ::widgets::$site_4_0 {
         array set save {}
     }
     set site_4_0 $site_4_0
-    namespace eval ::widgets::$site_4_0.fra83 {
-        array set save {-height 1 -width 1}
-    }
-    set site_5_0 $site_4_0.fra83
-    namespace eval ::widgets::$site_5_0.cpd86 {
-        array set save {}
-    }
-    set site_6_0 $site_5_0.cpd86
-    namespace eval ::widgets::$site_6_0.lab88 {
+    namespace eval ::widgets::$site_4_0.cpd67 {
         array set save {-text 1}
     }
-    namespace eval ::widgets::$site_6_0.cpd89 {
-        array set save {-text 1}
-    }
-    namespace eval ::widgets::$site_5_0.cpd90 {
+    set site_6_0 [$site_4_0.cpd67 getframe]
+    namespace eval ::widgets::$site_6_0 {
         array set save {}
     }
-    set site_6_0 $site_5_0.cpd90
-    namespace eval ::widgets::$site_6_0.cpd91 {
+    set site_6_0 $site_6_0
+    namespace eval ::widgets::$site_6_0.cpd71 {
         array set save {}
     }
-    set site_7_0 $site_6_0.cpd91
+    set site_7_0 $site_6_0.cpd71
     namespace eval ::widgets::$site_7_0.che74 {
         array set save {-command 1 -text 1 -variable 1}
     }
-    namespace eval ::widgets::$site_6_0.cpd92 {
+    namespace eval ::widgets::$site_6_0.cpd72 {
         array set save {}
     }
-    set site_7_0 $site_6_0.cpd92
-    namespace eval ::widgets::$site_7_0.cpd75 {
-        array set save {-command 1 -text 1 -variable 1}
-    }
-    namespace eval ::widgets::$site_5_0.cpd93 {
-        array set save {}
-    }
-    set site_6_0 $site_5_0.cpd93
-    namespace eval ::widgets::$site_6_0.cpd91 {
-        array set save {}
-    }
-    set site_7_0 $site_6_0.cpd91
+    set site_7_0 $site_6_0.cpd72
     namespace eval ::widgets::$site_7_0.che74 {
         array set save {-command 1 -text 1 -variable 1}
     }
-    namespace eval ::widgets::$site_6_0.cpd92 {
+    namespace eval ::widgets::$site_6_0.cpd73 {
         array set save {}
     }
-    set site_7_0 $site_6_0.cpd92
-    namespace eval ::widgets::$site_7_0.cpd75 {
-        array set save {-command 1 -text 1 -variable 1}
-    }
-    namespace eval ::widgets::$site_5_0.cpd94 {
-        array set save {}
-    }
-    set site_6_0 $site_5_0.cpd94
-    namespace eval ::widgets::$site_6_0.cpd91 {
-        array set save {}
-    }
-    set site_7_0 $site_6_0.cpd91
+    set site_7_0 $site_6_0.cpd73
     namespace eval ::widgets::$site_7_0.che74 {
         array set save {-command 1 -text 1 -variable 1}
     }
-    namespace eval ::widgets::$site_6_0.cpd92 {
+    namespace eval ::widgets::$site_4_0.cpd68 {
+        array set save {-text 1}
+    }
+    set site_6_0 [$site_4_0.cpd68 getframe]
+    namespace eval ::widgets::$site_6_0 {
         array set save {}
     }
-    set site_7_0 $site_6_0.cpd92
+    set site_6_0 $site_6_0
+    namespace eval ::widgets::$site_6_0.cpd74 {
+        array set save {}
+    }
+    set site_7_0 $site_6_0.cpd74
     namespace eval ::widgets::$site_7_0.cpd75 {
         array set save {-command 1 -text 1 -variable 1}
     }
-    namespace eval ::widgets::$site_4_0.cpd95 {
-        array set save {-height 1 -width 1}
-    }
-    set site_5_0 $site_4_0.cpd95
-    namespace eval ::widgets::$site_5_0.cpd86 {
+    namespace eval ::widgets::$site_6_0.cpd75 {
         array set save {}
     }
-    set site_6_0 $site_5_0.cpd86
-    namespace eval ::widgets::$site_6_0.lab88 {
-        array set save {-text 1}
-    }
-    namespace eval ::widgets::$site_6_0.cpd89 {
-        array set save {-text 1}
-    }
-    namespace eval ::widgets::$site_5_0.cpd77 {
-        array set save {}
-    }
-    set site_6_0 $site_5_0.cpd77
-    namespace eval ::widgets::$site_6_0.cpd92 {
-        array set save {}
-    }
-    set site_7_0 $site_6_0.cpd92
-    namespace eval ::widgets::$site_7_0.cpd73 {
-        array set save {-command 1 -text 1 -variable 1}
-    }
-    namespace eval ::widgets::$site_7_0.cpd74 {
-        array set save {-command 1 -text 1 -variable 1}
-    }
+    set site_7_0 $site_6_0.cpd75
     namespace eval ::widgets::$site_7_0.cpd75 {
         array set save {-command 1 -text 1 -variable 1}
     }
-    namespace eval ::widgets::$site_6_0.cpd91 {
+    namespace eval ::widgets::$site_6_0.cpd76 {
         array set save {}
     }
-    set site_7_0 $site_6_0.cpd91
-    namespace eval ::widgets::$site_7_0.cpd76 {
+    set site_7_0 $site_6_0.cpd76
+    namespace eval ::widgets::$site_7_0.cpd75 {
         array set save {-command 1 -text 1 -variable 1}
     }
-    namespace eval ::widgets::$site_7_0.cpd77 {
+    namespace eval ::widgets::$site_4_0.cpd69 {
+        array set save {-text 1}
+    }
+    set site_6_0 [$site_4_0.cpd69 getframe]
+    namespace eval ::widgets::$site_6_0 {
+        array set save {}
+    }
+    set site_6_0 $site_6_0
+    namespace eval ::widgets::$site_6_0.cpd77 {
+        array set save {}
+    }
+    set site_7_0 $site_6_0.cpd77
+    namespace eval ::widgets::$site_7_0.cpd92 {
+        array set save {}
+    }
+    set site_8_0 $site_7_0.cpd92
+    namespace eval ::widgets::$site_8_0.cpd73 {
         array set save {-command 1 -text 1 -variable 1}
     }
     namespace eval ::widgets::$site_7_0.cpd78 {
+        array set save {}
+    }
+    set site_8_0 $site_7_0.cpd78
+    namespace eval ::widgets::$site_8_0.cpd74 {
         array set save {-command 1 -text 1 -variable 1}
     }
-    namespace eval ::widgets::$site_7_0.cpd79 {
+    namespace eval ::widgets::$site_6_0.cpd79 {
+        array set save {}
+    }
+    set site_7_0 $site_6_0.cpd79
+    namespace eval ::widgets::$site_7_0.cpd92 {
+        array set save {}
+    }
+    set site_8_0 $site_7_0.cpd92
+    namespace eval ::widgets::$site_8_0.cpd75 {
         array set save {-command 1 -text 1 -variable 1}
     }
-    namespace eval ::widgets::$site_7_0.cpd80 {
+    namespace eval ::widgets::$site_7_0.cpd78 {
+        array set save {}
+    }
+    set site_8_0 $site_7_0.cpd78
+    namespace eval ::widgets::$site_8_0.cpd66 {
+        array set save {-command 1 -text 1 -variable 1}
+    }
+    namespace eval ::widgets::$site_4_0.cpd80 {
+        array set save {-text 1}
+    }
+    set site_6_0 [$site_4_0.cpd80 getframe]
+    namespace eval ::widgets::$site_6_0 {
+        array set save {}
+    }
+    set site_6_0 $site_6_0
+    namespace eval ::widgets::$site_6_0.cpd84 {
+        array set save {}
+    }
+    set site_7_0 $site_6_0.cpd84
+    namespace eval ::widgets::$site_7_0.cpd91 {
+        array set save {}
+    }
+    set site_8_0 $site_7_0.cpd91
+    namespace eval ::widgets::$site_8_0.cpd76 {
+        array set save {-command 1 -text 1 -variable 1}
+    }
+    namespace eval ::widgets::$site_7_0.cpd85 {
+        array set save {}
+    }
+    set site_8_0 $site_7_0.cpd85
+    namespace eval ::widgets::$site_8_0.cpd77 {
+        array set save {-command 1 -text 1 -variable 1}
+    }
+    namespace eval ::widgets::$site_7_0.cpd87 {
+        array set save {}
+    }
+    set site_8_0 $site_7_0.cpd87
+    namespace eval ::widgets::$site_8_0.cpd78 {
+        array set save {-command 1 -text 1 -variable 1}
+    }
+    namespace eval ::widgets::$site_6_0.cpd86 {
+        array set save {}
+    }
+    set site_7_0 $site_6_0.cpd86
+    namespace eval ::widgets::$site_7_0.cpd91 {
+        array set save {}
+    }
+    set site_8_0 $site_7_0.cpd91
+    namespace eval ::widgets::$site_8_0.cpd79 {
+        array set save {-command 1 -text 1 -variable 1}
+    }
+    namespace eval ::widgets::$site_7_0.cpd85 {
+        array set save {}
+    }
+    set site_8_0 $site_7_0.cpd85
+    namespace eval ::widgets::$site_8_0.cpd80 {
         array set save {-command 1 -text 1 -variable 1}
     }
     namespace eval ::widgets::$base.fra66 {
@@ -868,9 +903,9 @@ proc vTclWindow. {base} {
     # CREATING WIDGETS
     ###################
     wm focusmodel $top passive
-    wm geometry $top 200x200+150+150; update
-    wm maxsize $top 1924 1062
-    wm minsize $top 116 1
+    wm geometry $top 200x200+234+234; update
+    wm maxsize $top 1924 1061
+    wm minsize $top 120 1
     wm overrideredirect $top 0
     wm resizable $top 1 1
     wm withdraw $top
@@ -900,9 +935,9 @@ proc vTclWindow.top307 {base} {
     vTcl:toplevel $top -class Toplevel
     wm withdraw $top
     wm focusmodel $top passive
-    wm geometry $top 500x410+10+110; update
+    wm geometry $top 500x470+10+110; update
     wm maxsize $top 1604 1184
-    wm minsize $top 116 1
+    wm minsize $top 120 1
     wm overrideredirect $top 0
     wm resizable $top 1 1
     wm title $top "Complex Coherence Estimation"
@@ -1087,33 +1122,22 @@ if {$DirName != ""} {
         -side left 
     pack $site_3_0.ent64 \
         -in $site_3_0 -anchor center -expand 1 -fill none -side left 
-    TitleFrame $top.tit73 \
+    TitleFrame $top.tit66 \
         -text {Complex Coherences} 
-    vTcl:DefineAlias "$top.tit73" "TitleFrame3" vTcl:WidgetProc "Toplevel307" 1
-    bind $top.tit73 <Destroy> {
+    vTcl:DefineAlias "$top.tit66" "TitleFrame2" vTcl:WidgetProc "Toplevel307" 1
+    bind $top.tit66 <Destroy> {
         Widget::destroy %W; rename %W {}
     }
-    set site_4_0 [$top.tit73 getframe]
-    frame $site_4_0.fra83 \
-        -height 75 -width 125 
-    vTcl:DefineAlias "$site_4_0.fra83" "Frame3" vTcl:WidgetProc "Toplevel307" 1
-    set site_5_0 $site_4_0.fra83
-    frame $site_5_0.cpd86
-    set site_6_0 $site_5_0.cpd86
-    label $site_6_0.lab88 \
+    set site_4_0 [$top.tit66 getframe]
+    TitleFrame $site_4_0.cpd67 \
         -text Linear 
-    vTcl:DefineAlias "$site_6_0.lab88" "Label1" vTcl:WidgetProc "Toplevel307" 1
-    label $site_6_0.cpd89 \
-        -text Circular 
-    vTcl:DefineAlias "$site_6_0.cpd89" "Label2" vTcl:WidgetProc "Toplevel307" 1
-    pack $site_6_0.lab88 \
-        -in $site_6_0 -anchor center -expand 0 -fill none -side top 
-    pack $site_6_0.cpd89 \
-        -in $site_6_0 -anchor center -expand 0 -fill none -side top 
-    frame $site_5_0.cpd90
-    set site_6_0 $site_5_0.cpd90
-    frame $site_6_0.cpd91
-    set site_7_0 $site_6_0.cpd91
+    vTcl:DefineAlias "$site_4_0.cpd67" "TitleFrame4" vTcl:WidgetProc "Toplevel307" 1
+    bind $site_4_0.cpd67 <Destroy> {
+        Widget::destroy %W; rename %W {}
+    }
+    set site_6_0 [$site_4_0.cpd67 getframe]
+    frame $site_6_0.cpd71
+    set site_7_0 $site_6_0.cpd71
     checkbutton $site_7_0.che74 \
         \
         -command {global CohLinHH CohLinHV CohLinVV CohCirLL CohCirLR CohCirRR
@@ -1144,52 +1168,11 @@ if {$CohLinHH == 1} {
         }
     }} \
         -text HH -variable CohLinHH 
-    vTcl:DefineAlias "$site_7_0.che74" "Checkbutton23" vTcl:WidgetProc "Toplevel307" 1
+    vTcl:DefineAlias "$site_7_0.che74" "Checkbutton30" vTcl:WidgetProc "Toplevel307" 1
     pack $site_7_0.che74 \
         -in $site_7_0 -anchor center -expand 0 -fill none -side left 
-    frame $site_6_0.cpd92
-    set site_7_0 $site_6_0.cpd92
-    checkbutton $site_7_0.cpd75 \
-        \
-        -command {global CohLinHH CohLinHV CohLinVV CohCirLL CohCirLR CohCirRR
-global CohPauliHHpVV CohPauliHHmVV CohPauliHVpVH CohOpt CohBMP
-global CohOptSVD CohOptPD CohOptNR CohOptMM CohOptDF
-
-if {$CohCirLL == 1} {
-    $widget(Checkbutton307_1) configure -state normal
-    } else {
-    set config "false"
-    if {$CohLinHH == 1} {set config "true"}
-    if {$CohLinHV == 1} {set config "true"}
-    if {$CohLinVV == 1} {set config "true"}
-    if {$CohCirLL == 1} {set config "true"}
-    if {$CohCirLR == 1} {set config "true"}
-    if {$CohCirRR == 1} {set config "true"}
-    if {$CohPauliHHpVV == 1} {set config "true"}
-    if {$CohPauliHHmVV == 1} {set config "true"}
-    if {$CohPauliHVpVH == 1} {set config "true"}
-    if {$CohOptSVD == 1} {set config "true"}
-    if {$CohOptPD == 1} {set config "true"}
-    if {$CohOptNR == 1} {set config "true"}
-    if {$CohOptMM == 1} {set config "true"}
-    if {$CohOptDF == 1} {set config "true"}
-    if {$config == "false" } {
-        $widget(Checkbutton307_1) configure -state disable
-        set CohBMP "0"
-        }
-    }} \
-        -text LL -variable CohCirLL 
-    vTcl:DefineAlias "$site_7_0.cpd75" "Checkbutton27" vTcl:WidgetProc "Toplevel307" 1
-    pack $site_7_0.cpd75 \
-        -in $site_7_0 -anchor center -expand 0 -fill none -side left 
-    pack $site_6_0.cpd91 \
-        -in $site_6_0 -anchor center -expand 1 -fill x -side top 
-    pack $site_6_0.cpd92 \
-        -in $site_6_0 -anchor center -expand 1 -fill x -side top 
-    frame $site_5_0.cpd93
-    set site_6_0 $site_5_0.cpd93
-    frame $site_6_0.cpd91
-    set site_7_0 $site_6_0.cpd91
+    frame $site_6_0.cpd72
+    set site_7_0 $site_6_0.cpd72
     checkbutton $site_7_0.che74 \
         \
         -command {global CohLinHH CohLinHV CohLinVV CohCirLL CohCirLR CohCirRR
@@ -1220,52 +1203,11 @@ if {$CohLinHV == 1} {
         }
     }} \
         -text HV -variable CohLinHV 
-    vTcl:DefineAlias "$site_7_0.che74" "Checkbutton24" vTcl:WidgetProc "Toplevel307" 1
+    vTcl:DefineAlias "$site_7_0.che74" "Checkbutton39" vTcl:WidgetProc "Toplevel307" 1
     pack $site_7_0.che74 \
         -in $site_7_0 -anchor center -expand 0 -fill none -side left 
-    frame $site_6_0.cpd92
-    set site_7_0 $site_6_0.cpd92
-    checkbutton $site_7_0.cpd75 \
-        \
-        -command {global CohLinHH CohLinHV CohLinVV CohCirLL CohCirLR CohCirRR
-global CohPauliHHpVV CohPauliHHmVV CohPauliHVpVH CohOpt CohBMP
-global CohOptSVD CohOptPD CohOptNR CohOptMM CohOptDF
-
-if {$CohCirLR == 1} {
-    $widget(Checkbutton307_1) configure -state normal
-    } else {
-    set config "false"
-    if {$CohLinHH == 1} {set config "true"}
-    if {$CohLinHV == 1} {set config "true"}
-    if {$CohLinVV == 1} {set config "true"}
-    if {$CohCirLL == 1} {set config "true"}
-    if {$CohCirLR == 1} {set config "true"}
-    if {$CohCirRR == 1} {set config "true"}
-    if {$CohPauliHHpVV == 1} {set config "true"}
-    if {$CohPauliHHmVV == 1} {set config "true"}
-    if {$CohPauliHVpVH == 1} {set config "true"}
-    if {$CohOptSVD == 1} {set config "true"}
-    if {$CohOptPD == 1} {set config "true"}
-    if {$CohOptNR == 1} {set config "true"}
-    if {$CohOptMM == 1} {set config "true"}
-    if {$CohOptDF == 1} {set config "true"}
-    if {$config == "false" } {
-        $widget(Checkbutton307_1) configure -state disable
-        set CohBMP "0"
-        }
-    }} \
-        -text LR -variable CohCirLR 
-    vTcl:DefineAlias "$site_7_0.cpd75" "Checkbutton28" vTcl:WidgetProc "Toplevel307" 1
-    pack $site_7_0.cpd75 \
-        -in $site_7_0 -anchor center -expand 0 -fill none -side left 
-    pack $site_6_0.cpd91 \
-        -in $site_6_0 -anchor center -expand 1 -fill x -side top 
-    pack $site_6_0.cpd92 \
-        -in $site_6_0 -anchor center -expand 1 -fill x -side top 
-    frame $site_5_0.cpd94
-    set site_6_0 $site_5_0.cpd94
-    frame $site_6_0.cpd91
-    set site_7_0 $site_6_0.cpd91
+    frame $site_6_0.cpd73
+    set site_7_0 $site_6_0.cpd73
     checkbutton $site_7_0.che74 \
         \
         -command {global CohLinHH CohLinHV CohLinVV CohCirLL CohCirLR CohCirRR
@@ -1296,11 +1238,94 @@ if {$CohLinVV == 1} {
         }
     }} \
         -text VV -variable CohLinVV 
-    vTcl:DefineAlias "$site_7_0.che74" "Checkbutton25" vTcl:WidgetProc "Toplevel307" 1
+    vTcl:DefineAlias "$site_7_0.che74" "Checkbutton40" vTcl:WidgetProc "Toplevel307" 1
     pack $site_7_0.che74 \
         -in $site_7_0 -anchor center -expand 0 -fill none -side left 
-    frame $site_6_0.cpd92
-    set site_7_0 $site_6_0.cpd92
+    pack $site_6_0.cpd71 \
+        -in $site_6_0 -anchor center -expand 0 -fill x -side top 
+    pack $site_6_0.cpd72 \
+        -in $site_6_0 -anchor center -expand 0 -fill x -side top 
+    pack $site_6_0.cpd73 \
+        -in $site_6_0 -anchor center -expand 0 -fill x -side top 
+    TitleFrame $site_4_0.cpd68 \
+        -text Circular 
+    vTcl:DefineAlias "$site_4_0.cpd68" "TitleFrame5" vTcl:WidgetProc "Toplevel307" 1
+    bind $site_4_0.cpd68 <Destroy> {
+        Widget::destroy %W; rename %W {}
+    }
+    set site_6_0 [$site_4_0.cpd68 getframe]
+    frame $site_6_0.cpd74
+    set site_7_0 $site_6_0.cpd74
+    checkbutton $site_7_0.cpd75 \
+        \
+        -command {global CohLinHH CohLinHV CohLinVV CohCirLL CohCirLR CohCirRR
+global CohPauliHHpVV CohPauliHHmVV CohPauliHVpVH CohOpt CohBMP
+global CohOptSVD CohOptPD CohOptNR CohOptMM CohOptDF
+
+if {$CohCirLL == 1} {
+    $widget(Checkbutton307_1) configure -state normal
+    } else {
+    set config "false"
+    if {$CohLinHH == 1} {set config "true"}
+    if {$CohLinHV == 1} {set config "true"}
+    if {$CohLinVV == 1} {set config "true"}
+    if {$CohCirLL == 1} {set config "true"}
+    if {$CohCirLR == 1} {set config "true"}
+    if {$CohCirRR == 1} {set config "true"}
+    if {$CohPauliHHpVV == 1} {set config "true"}
+    if {$CohPauliHHmVV == 1} {set config "true"}
+    if {$CohPauliHVpVH == 1} {set config "true"}
+    if {$CohOptSVD == 1} {set config "true"}
+    if {$CohOptPD == 1} {set config "true"}
+    if {$CohOptNR == 1} {set config "true"}
+    if {$CohOptMM == 1} {set config "true"}
+    if {$CohOptDF == 1} {set config "true"}
+    if {$config == "false" } {
+        $widget(Checkbutton307_1) configure -state disable
+        set CohBMP "0"
+        }
+    }} \
+        -text LL -variable CohCirLL 
+    vTcl:DefineAlias "$site_7_0.cpd75" "Checkbutton41" vTcl:WidgetProc "Toplevel307" 1
+    pack $site_7_0.cpd75 \
+        -in $site_7_0 -anchor center -expand 0 -fill none -side left 
+    frame $site_6_0.cpd75
+    set site_7_0 $site_6_0.cpd75
+    checkbutton $site_7_0.cpd75 \
+        \
+        -command {global CohLinHH CohLinHV CohLinVV CohCirLL CohCirLR CohCirRR
+global CohPauliHHpVV CohPauliHHmVV CohPauliHVpVH CohOpt CohBMP
+global CohOptSVD CohOptPD CohOptNR CohOptMM CohOptDF
+
+if {$CohCirLR == 1} {
+    $widget(Checkbutton307_1) configure -state normal
+    } else {
+    set config "false"
+    if {$CohLinHH == 1} {set config "true"}
+    if {$CohLinHV == 1} {set config "true"}
+    if {$CohLinVV == 1} {set config "true"}
+    if {$CohCirLL == 1} {set config "true"}
+    if {$CohCirLR == 1} {set config "true"}
+    if {$CohCirRR == 1} {set config "true"}
+    if {$CohPauliHHpVV == 1} {set config "true"}
+    if {$CohPauliHHmVV == 1} {set config "true"}
+    if {$CohPauliHVpVH == 1} {set config "true"}
+    if {$CohOptSVD == 1} {set config "true"}
+    if {$CohOptPD == 1} {set config "true"}
+    if {$CohOptNR == 1} {set config "true"}
+    if {$CohOptMM == 1} {set config "true"}
+    if {$CohOptDF == 1} {set config "true"}
+    if {$config == "false" } {
+        $widget(Checkbutton307_1) configure -state disable
+        set CohBMP "0"
+        }
+    }} \
+        -text LR -variable CohCirLR 
+    vTcl:DefineAlias "$site_7_0.cpd75" "Checkbutton42" vTcl:WidgetProc "Toplevel307" 1
+    pack $site_7_0.cpd75 \
+        -in $site_7_0 -anchor center -expand 0 -fill none -side left 
+    frame $site_6_0.cpd76
+    set site_7_0 $site_6_0.cpd76
     checkbutton $site_7_0.cpd75 \
         \
         -command {global CohLinHH CohLinHV CohLinVV CohCirLL CohCirLR CohCirRR
@@ -1331,42 +1356,27 @@ if {$CohCirRR == 1} {
         }
     }} \
         -text RR -variable CohCirRR 
-    vTcl:DefineAlias "$site_7_0.cpd75" "Checkbutton29" vTcl:WidgetProc "Toplevel307" 1
+    vTcl:DefineAlias "$site_7_0.cpd75" "Checkbutton43" vTcl:WidgetProc "Toplevel307" 1
     pack $site_7_0.cpd75 \
         -in $site_7_0 -anchor center -expand 0 -fill none -side left 
-    pack $site_6_0.cpd91 \
-        -in $site_6_0 -anchor center -expand 1 -fill x -side top 
-    pack $site_6_0.cpd92 \
-        -in $site_6_0 -anchor center -expand 1 -fill x -side top 
-    pack $site_5_0.cpd86 \
-        -in $site_5_0 -anchor center -expand 1 -fill none -side left 
-    pack $site_5_0.cpd90 \
-        -in $site_5_0 -anchor center -expand 1 -fill none -side left 
-    pack $site_5_0.cpd93 \
-        -in $site_5_0 -anchor center -expand 1 -fill none -side left 
-    pack $site_5_0.cpd94 \
-        -in $site_5_0 -anchor center -expand 1 -fill none -side left 
-    frame $site_4_0.cpd95 \
-        -height 75 -width 125 
-    vTcl:DefineAlias "$site_4_0.cpd95" "Frame4" vTcl:WidgetProc "Toplevel307" 1
-    set site_5_0 $site_4_0.cpd95
-    frame $site_5_0.cpd86
-    set site_6_0 $site_5_0.cpd86
-    label $site_6_0.lab88 \
+    pack $site_6_0.cpd74 \
+        -in $site_6_0 -anchor center -expand 0 -fill x -side top 
+    pack $site_6_0.cpd75 \
+        -in $site_6_0 -anchor center -expand 0 -fill x -side top 
+    pack $site_6_0.cpd76 \
+        -in $site_6_0 -anchor center -expand 0 -fill x -side top 
+    TitleFrame $site_4_0.cpd69 \
         -text Pauli 
-    vTcl:DefineAlias "$site_6_0.lab88" "Label3" vTcl:WidgetProc "Toplevel307" 1
-    label $site_6_0.cpd89 \
-        -text Optimal 
-    vTcl:DefineAlias "$site_6_0.cpd89" "Label4" vTcl:WidgetProc "Toplevel307" 1
-    pack $site_6_0.lab88 \
-        -in $site_6_0 -anchor center -expand 0 -fill none -side top 
-    pack $site_6_0.cpd89 \
-        -in $site_6_0 -anchor center -expand 0 -fill none -side top 
-    frame $site_5_0.cpd77
-    set site_6_0 $site_5_0.cpd77
-    frame $site_6_0.cpd92
-    set site_7_0 $site_6_0.cpd92
-    checkbutton $site_7_0.cpd73 \
+    vTcl:DefineAlias "$site_4_0.cpd69" "TitleFrame6" vTcl:WidgetProc "Toplevel307" 1
+    bind $site_4_0.cpd69 <Destroy> {
+        Widget::destroy %W; rename %W {}
+    }
+    set site_6_0 [$site_4_0.cpd69 getframe]
+    frame $site_6_0.cpd77
+    set site_7_0 $site_6_0.cpd77
+    frame $site_7_0.cpd92
+    set site_8_0 $site_7_0.cpd92
+    checkbutton $site_8_0.cpd73 \
         \
         -command {global CohLinHH CohLinHV CohLinVV CohCirLL CohCirLR CohCirRR
 global CohPauliHHpVV CohPauliHHmVV CohPauliHVpVH CohOpt CohBMP
@@ -1396,8 +1406,12 @@ if {$CohPauliHHpVV == 1} {
         }
     }} \
         -text {HH + VV} -variable CohPauliHHpVV 
-    vTcl:DefineAlias "$site_7_0.cpd73" "Checkbutton26" vTcl:WidgetProc "Toplevel307" 1
-    checkbutton $site_7_0.cpd74 \
+    vTcl:DefineAlias "$site_8_0.cpd73" "Checkbutton44" vTcl:WidgetProc "Toplevel307" 1
+    pack $site_8_0.cpd73 \
+        -in $site_8_0 -anchor center -expand 0 -fill none -side left 
+    frame $site_7_0.cpd78
+    set site_8_0 $site_7_0.cpd78
+    checkbutton $site_8_0.cpd74 \
         \
         -command {global CohLinHH CohLinHV CohLinVV CohCirLL CohCirLR CohCirRR
 global CohPauliHHpVV CohPauliHHmVV CohPauliHVpVH CohOpt CohBMP
@@ -1427,8 +1441,18 @@ if {$CohPauliHHmVV == 1} {
         }
     }} \
         -text {HH - VV} -variable CohPauliHHmVV 
-    vTcl:DefineAlias "$site_7_0.cpd74" "Checkbutton34" vTcl:WidgetProc "Toplevel307" 1
-    checkbutton $site_7_0.cpd75 \
+    vTcl:DefineAlias "$site_8_0.cpd74" "Checkbutton49" vTcl:WidgetProc "Toplevel307" 1
+    pack $site_8_0.cpd74 \
+        -in $site_8_0 -anchor center -expand 0 -fill none -side left 
+    pack $site_7_0.cpd92 \
+        -in $site_7_0 -anchor center -expand 0 -fill x -side top 
+    pack $site_7_0.cpd78 \
+        -in $site_7_0 -anchor center -expand 0 -fill x -side top 
+    frame $site_6_0.cpd79
+    set site_7_0 $site_6_0.cpd79
+    frame $site_7_0.cpd92
+    set site_8_0 $site_7_0.cpd92
+    checkbutton $site_8_0.cpd75 \
         \
         -command {global CohLinHH CohLinHV CohLinVV CohCirLL CohCirLR CohCirRR
 global CohPauliHHpVV CohPauliHHmVV CohPauliHVpVH CohOpt CohBMP
@@ -1458,16 +1482,64 @@ if {$CohPauliHVpVH == 1} {
         }
     }} \
         -text {HV + VH} -variable CohPauliHVpVH 
-    vTcl:DefineAlias "$site_7_0.cpd75" "Checkbutton36" vTcl:WidgetProc "Toplevel307" 1
-    pack $site_7_0.cpd73 \
-        -in $site_7_0 -anchor center -expand 0 -fill none -side left 
-    pack $site_7_0.cpd74 \
-        -in $site_7_0 -anchor center -expand 0 -fill none -side left 
-    pack $site_7_0.cpd75 \
-        -in $site_7_0 -anchor center -expand 0 -fill none -side left 
-    frame $site_6_0.cpd91
-    set site_7_0 $site_6_0.cpd91
-    checkbutton $site_7_0.cpd76 \
+    vTcl:DefineAlias "$site_8_0.cpd75" "Checkbutton54" vTcl:WidgetProc "Toplevel307" 1
+    pack $site_8_0.cpd75 \
+        -in $site_8_0 -anchor center -expand 0 -fill none -side left 
+    frame $site_7_0.cpd78
+    set site_8_0 $site_7_0.cpd78
+    checkbutton $site_8_0.cpd66 \
+        \
+        -command {global CohLinHH CohLinHV CohLinVV CohCirLL CohCirLR CohCirRR
+global CohPauliHHpVV CohPauliHHmVV CohPauliHVpVH CohOpt CohBMP
+global CohOptSVD CohOptPD CohOptNR CohOptMM CohOptDF
+
+if {$CohPauliHVpVH == 1} {
+    $widget(Checkbutton307_1) configure -state normal
+    } else {
+    set config "false"
+    if {$CohLinHH == 1} {set config "true"}
+    if {$CohLinHV == 1} {set config "true"}
+    if {$CohLinVV == 1} {set config "true"}
+    if {$CohCirLL == 1} {set config "true"}
+    if {$CohCirLR == 1} {set config "true"}
+    if {$CohCirRR == 1} {set config "true"}
+    if {$CohPauliHHpVV == 1} {set config "true"}
+    if {$CohPauliHHmVV == 1} {set config "true"}
+    if {$CohPauliHVpVH == 1} {set config "true"}
+    if {$CohOptSVD == 1} {set config "true"}
+    if {$CohOptPD == 1} {set config "true"}
+    if {$CohOptNR == 1} {set config "true"}
+    if {$CohOptMM == 1} {set config "true"}
+    if {$CohOptDF == 1} {set config "true"}
+    if {$config == "false" } {
+        $widget(Checkbutton307_1) configure -state disable
+        set CohBMP "0"
+        }
+    }} \
+        -text HH.VV* -variable CohLinHHVV 
+    vTcl:DefineAlias "$site_8_0.cpd66" "Checkbutton59" vTcl:WidgetProc "Toplevel307" 1
+    pack $site_8_0.cpd66 \
+        -in $site_8_0 -anchor center -expand 0 -fill none -side left 
+    pack $site_7_0.cpd92 \
+        -in $site_7_0 -anchor center -expand 0 -fill x -side top 
+    pack $site_7_0.cpd78 \
+        -in $site_7_0 -anchor center -expand 0 -fill x -side top 
+    pack $site_6_0.cpd77 \
+        -in $site_6_0 -anchor center -expand 1 -fill both -side left 
+    pack $site_6_0.cpd79 \
+        -in $site_6_0 -anchor center -expand 1 -fill both -side left 
+    TitleFrame $site_4_0.cpd80 \
+        -text Optimal 
+    vTcl:DefineAlias "$site_4_0.cpd80" "TitleFrame7" vTcl:WidgetProc "Toplevel307" 1
+    bind $site_4_0.cpd80 <Destroy> {
+        Widget::destroy %W; rename %W {}
+    }
+    set site_6_0 [$site_4_0.cpd80 getframe]
+    frame $site_6_0.cpd84
+    set site_7_0 $site_6_0.cpd84
+    frame $site_7_0.cpd91
+    set site_8_0 $site_7_0.cpd91
+    checkbutton $site_8_0.cpd76 \
         \
         -command {global CohLinHH CohLinHV CohLinVV CohCirLL CohCirLR CohCirRR
 global CohPauliHHpVV CohPauliHHmVV CohPauliHVpVH CohBMP
@@ -1497,8 +1569,12 @@ if {$CohOptSVD == 1} {
         }
     }} \
         -text SVD -variable CohOptSVD 
-    vTcl:DefineAlias "$site_7_0.cpd76" "Checkbutton31" vTcl:WidgetProc "Toplevel307" 1
-    checkbutton $site_7_0.cpd77 \
+    vTcl:DefineAlias "$site_8_0.cpd76" "Checkbutton50" vTcl:WidgetProc "Toplevel307" 1
+    pack $site_8_0.cpd76 \
+        -in $site_8_0 -anchor center -expand 0 -fill none -side left 
+    frame $site_7_0.cpd85
+    set site_8_0 $site_7_0.cpd85
+    checkbutton $site_8_0.cpd77 \
         \
         -command {global CohLinHH CohLinHV CohLinVV CohCirLL CohCirLR CohCirRR
 global CohPauliHHpVV CohPauliHHmVV CohPauliHVpVH CohBMP
@@ -1528,8 +1604,12 @@ if {$CohOptPD == 1} {
         }
     }} \
         -text PD -variable CohOptPD 
-    vTcl:DefineAlias "$site_7_0.cpd77" "Checkbutton32" vTcl:WidgetProc "Toplevel307" 1
-    checkbutton $site_7_0.cpd78 \
+    vTcl:DefineAlias "$site_8_0.cpd77" "Checkbutton57" vTcl:WidgetProc "Toplevel307" 1
+    pack $site_8_0.cpd77 \
+        -in $site_8_0 -anchor center -expand 0 -fill none -side left 
+    frame $site_7_0.cpd87
+    set site_8_0 $site_7_0.cpd87
+    checkbutton $site_8_0.cpd78 \
         \
         -command {global CohLinHH CohLinHV CohLinVV CohCirLL CohCirLR CohCirRR
 global CohPauliHHpVV CohPauliHHmVV CohPauliHVpVH CohBMP
@@ -1568,8 +1648,20 @@ if {$CohOptNR == 1} {
     $widget(Entry307_NR2) configure -state disable; $widget(Entry307_NR2) configure -disabledbackground $PSPBackgroundColor; $widget(Label307_NR2) configure -state disable 
     }} \
         -text NR -variable CohOptNR 
-    vTcl:DefineAlias "$site_7_0.cpd78" "Checkbutton33" vTcl:WidgetProc "Toplevel307" 1
-    checkbutton $site_7_0.cpd79 \
+    vTcl:DefineAlias "$site_8_0.cpd78" "Checkbutton74" vTcl:WidgetProc "Toplevel307" 1
+    pack $site_8_0.cpd78 \
+        -in $site_8_0 -anchor center -expand 0 -fill none -side left 
+    pack $site_7_0.cpd91 \
+        -in $site_7_0 -anchor center -expand 0 -fill x -side top 
+    pack $site_7_0.cpd85 \
+        -in $site_7_0 -anchor center -expand 0 -fill x -side top 
+    pack $site_7_0.cpd87 \
+        -in $site_7_0 -anchor center -expand 0 -fill x -side top 
+    frame $site_6_0.cpd86
+    set site_7_0 $site_6_0.cpd86
+    frame $site_7_0.cpd91
+    set site_8_0 $site_7_0.cpd91
+    checkbutton $site_8_0.cpd79 \
         \
         -command {global CohLinHH CohLinHV CohLinVV CohCirLL CohCirLR CohCirRR
 global CohPauliHHpVV CohPauliHHmVV CohPauliHVpVH CohBMP
@@ -1608,8 +1700,12 @@ if {$CohOptMM == 1} {
     $widget(Entry307_MM) configure -state disable; $widget(Entry307_MM) configure -disabledbackground $PSPBackgroundColor; $widget(Label307_MM) configure -state disable 
     }} \
         -text {L. MinMax} -variable CohOptMM 
-    vTcl:DefineAlias "$site_7_0.cpd79" "Checkbutton35" vTcl:WidgetProc "Toplevel307" 1
-    checkbutton $site_7_0.cpd80 \
+    vTcl:DefineAlias "$site_8_0.cpd79" "Checkbutton65" vTcl:WidgetProc "Toplevel307" 1
+    pack $site_8_0.cpd79 \
+        -in $site_8_0 -anchor center -expand 0 -fill none -side left 
+    frame $site_7_0.cpd85
+    set site_8_0 $site_7_0.cpd85
+    checkbutton $site_8_0.cpd80 \
         \
         -command {global CohLinHH CohLinHV CohLinVV CohCirLL CohCirLR CohCirRR
 global CohPauliHHpVV CohPauliHHmVV CohPauliHVpVH CohBMP
@@ -1648,29 +1744,25 @@ if {$CohOptDF == 1} {
     $widget(Entry307_DF) configure -state disable; $widget(Entry307_DF) configure -disabledbackground $PSPBackgroundColor; $widget(Label307_DF) configure -state disable 
     }} \
         -text {L. Diff} -variable CohOptDF 
-    vTcl:DefineAlias "$site_7_0.cpd80" "Checkbutton37" vTcl:WidgetProc "Toplevel307" 1
-    pack $site_7_0.cpd76 \
-        -in $site_7_0 -anchor center -expand 0 -fill none -side left 
-    pack $site_7_0.cpd77 \
-        -in $site_7_0 -anchor center -expand 1 -fill none -side left 
-    pack $site_7_0.cpd78 \
-        -in $site_7_0 -anchor center -expand 1 -fill none -side left 
-    pack $site_7_0.cpd79 \
-        -in $site_7_0 -anchor center -expand 1 -fill none -side left 
-    pack $site_7_0.cpd80 \
-        -in $site_7_0 -anchor center -expand 1 -fill none -side left 
-    pack $site_6_0.cpd92 \
-        -in $site_6_0 -anchor center -expand 1 -fill x -side top 
-    pack $site_6_0.cpd91 \
-        -in $site_6_0 -anchor center -expand 0 -fill x -side bottom 
-    pack $site_5_0.cpd86 \
-        -in $site_5_0 -anchor center -expand 1 -fill none -side left 
-    pack $site_5_0.cpd77 \
-        -in $site_5_0 -anchor center -expand 1 -fill x -side left 
-    pack $site_4_0.fra83 \
-        -in $site_4_0 -anchor center -expand 0 -fill none -side left 
-    pack $site_4_0.cpd95 \
-        -in $site_4_0 -anchor center -expand 1 -fill x -side left 
+    vTcl:DefineAlias "$site_8_0.cpd80" "Checkbutton71" vTcl:WidgetProc "Toplevel307" 1
+    pack $site_8_0.cpd80 \
+        -in $site_8_0 -anchor center -expand 0 -fill none -side left 
+    pack $site_7_0.cpd91 \
+        -in $site_7_0 -anchor center -expand 0 -fill x -side top 
+    pack $site_7_0.cpd85 \
+        -in $site_7_0 -anchor center -expand 0 -fill x -side top 
+    pack $site_6_0.cpd84 \
+        -in $site_6_0 -anchor center -expand 1 -fill both -side left 
+    pack $site_6_0.cpd86 \
+        -in $site_6_0 -anchor center -expand 1 -fill both -side left 
+    pack $site_4_0.cpd67 \
+        -in $site_4_0 -anchor center -expand 1 -fill y -side left 
+    pack $site_4_0.cpd68 \
+        -in $site_4_0 -anchor center -expand 1 -fill y -side left 
+    pack $site_4_0.cpd69 \
+        -in $site_4_0 -anchor center -expand 1 -fill y -side left 
+    pack $site_4_0.cpd80 \
+        -in $site_4_0 -anchor center -expand 1 -fill y -side left 
     frame $top.fra66 \
         -height 75 -width 125 
     vTcl:DefineAlias "$top.fra66" "Frame16" vTcl:WidgetProc "Toplevel307" 1
@@ -1925,11 +2017,11 @@ if {$CohAvg == "1" } {
         -command {global DataDirChannel1 DataDirChannel2 DirName
 global CmplxCohMasterDirInput CmplxCohSlaveDirInput CmplxCohDirOutput CmplxCohOutputDir CmplxCohOutputSubDir
 global Fonction2 ProgressLine VarFunction VarWarning WarningMessage WarningMessage2
-global CmplxCohFonc CohLinHH CohLinHV CohLinVV CohCirLL CohCirLR CohCirRR
+global CmplxCohFonc CohLinHH CohLinHV CohLinVV CohCirLL CohCirLR CohCirRR CohLinHHVV
 global CohPauliHHpVV CohPauliHHmVV CohPauliHVpVH
 global CohOptSVD CohOptPD CohOptNR CohOptMM CohOptDF CohBMP BMPCmplxCohConfig
 global NwinRow NwinCol FiltRow FiltCol CohAvg
-global NRTheta1 NRTheta3 NptsMM NptsDF  PSPMemory TMPMemoryAllocError
+global NRTheta1 NRTheta3 NptsMM NptsDF  TMPMemoryAllocError
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
 global OpenDirFile ConfigFile FinalNlig FinalNcol PolarCase PolarType 
 
@@ -1942,6 +2034,7 @@ if {$CohLinVV =="1"} {set config "true"}
 if {$CohCirLL =="1"} {set config "true"}
 if {$CohCirLR =="1"} {set config "true"}
 if {$CohCirRR =="1"} {set config "true"}
+if {$CohLinHHVV =="1"} {set config "true"}
 if {$CohPauliHHpVV =="1"} {set config "true"}
 if {$CohPauliHHmVV =="1"} {set config "true"}
 if {$CohPauliHVpVH =="1"} {set config "true"}
@@ -2031,9 +2124,9 @@ if {"$VarWarning"=="ok"} {
                     set ProgressLine "0"
                     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                     update
-                    TextEditorRunTrace "Process The Function Soft/calculator/file_operand_file.exe" "k"
+                    TextEditorRunTrace "Process The Function Soft/bin/calculator/file_operand_file.exe" "k"
                     TextEditorRunTrace "Arguments: -if1 \x22$MaskFile1\x22 -it1 float -if2 \x22$MaskFile2\x22 -it2 float -of \x22$MaskFileOut\x22 -ot float -op mulfile -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
-                    set f [ open "| Soft/calculator/file_operand_file.exe -if1 \x22$MaskFile1\x22 -it1 float -if2 \x22$MaskFile2\x22 -it2 float -of \x22$MaskFileOut\x22 -ot float -op mulfile -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
+                    set f [ open "| Soft/bin/calculator/file_operand_file.exe -if1 \x22$MaskFile1\x22 -it1 float -if2 \x22$MaskFile2\x22 -it2 float -of \x22$MaskFileOut\x22 -ot float -op mulfile -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
                     PsPprogressBar $f
                     TextEditorRunTrace "Check RunTime Errors" "r"
                     CheckRunTimeError
@@ -2056,14 +2149,14 @@ if {"$VarWarning"=="ok"} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/data_process_dual/complex_coherence_estimation.exe" "k"
+        TextEditorRunTrace "Process The Function Soft/bin/data_process_dual/complex_coherence_estimation.exe" "k"
         if {$CmplxCohFonc == "S2"} {
-            TextEditorRunTrace "Arguments: -idm \x22$CmplxCohMasterDirInput\x22 -ids \x22$CmplxCohSlaveDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf S2T6 -type HH -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_dual/complex_coherence_estimation.exe -idm \x22$CmplxCohMasterDirInput\x22 -ids \x22$CmplxCohSlaveDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf S2T6 -type HH -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Arguments: -idm \x22$CmplxCohMasterDirInput\x22 -ids \x22$CmplxCohSlaveDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf S2T6 -type HH -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol   -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_dual/complex_coherence_estimation.exe -idm \x22$CmplxCohMasterDirInput\x22 -ids \x22$CmplxCohSlaveDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf S2T6 -type HH -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol   -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             }
         if {$CmplxCohFonc == "T6"} {
-            TextEditorRunTrace "Arguments: -id \x22$CmplxCohMasterDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf T6 -type HH -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_dual/complex_coherence_estimation.exe -id \x22$CmplxCohMasterDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf T6 -type HH -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Arguments: -id \x22$CmplxCohMasterDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf T6 -type HH -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol   -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_dual/complex_coherence_estimation.exe -id \x22$CmplxCohMasterDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf T6 -type HH -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol   -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             }
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
@@ -2077,9 +2170,9 @@ if {"$VarWarning"=="ok"} {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/calculator/file_boxcar.exe" "k"
-            TextEditorRunTrace "Arguments: -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/calculator/file_boxcar.exe -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/calculator/file_boxcar.exe" "k"
+            TextEditorRunTrace "Arguments: -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/calculator/file_boxcar.exe -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -2101,14 +2194,14 @@ if {"$VarWarning"=="ok"} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/data_process_dual/complex_coherence_estimation.exe" "k"
+        TextEditorRunTrace "Process The Function Soft/bin/data_process_dual/complex_coherence_estimation.exe" "k"
         if {$CmplxCohFonc == "S2"} {
-            TextEditorRunTrace "Arguments: -idm \x22$CmplxCohMasterDirInput\x22 -ids \x22$CmplxCohSlaveDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf S2T6 -type HV -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_dual/complex_coherence_estimation.exe -idm \x22$CmplxCohMasterDirInput\x22 -ids \x22$CmplxCohSlaveDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf S2T6 -type HV -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Arguments: -idm \x22$CmplxCohMasterDirInput\x22 -ids \x22$CmplxCohSlaveDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf S2T6 -type HV -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol   -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_dual/complex_coherence_estimation.exe -idm \x22$CmplxCohMasterDirInput\x22 -ids \x22$CmplxCohSlaveDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf S2T6 -type HV -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol   -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             }
         if {$CmplxCohFonc == "T6"} {
-            TextEditorRunTrace "Arguments: -id \x22$CmplxCohMasterDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf T6 -type HV -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_dual/complex_coherence_estimation.exe -id \x22$CmplxCohMasterDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf T6 -type HV -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Arguments: -id \x22$CmplxCohMasterDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf T6 -type HV -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol   -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_dual/complex_coherence_estimation.exe -id \x22$CmplxCohMasterDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf T6 -type HV -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol   -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             }
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
@@ -2122,9 +2215,9 @@ if {"$VarWarning"=="ok"} {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/calculator/file_boxcar.exe" "k"
-            TextEditorRunTrace "Arguments: -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/calculator/file_boxcar.exe -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/calculator/file_boxcar.exe" "k"
+            TextEditorRunTrace "Arguments: -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/calculator/file_boxcar.exe -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -2146,14 +2239,14 @@ if {"$VarWarning"=="ok"} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/data_process_dual/complex_coherence_estimation.exe" "k"
+        TextEditorRunTrace "Process The Function Soft/bin/data_process_dual/complex_coherence_estimation.exe" "k"
         if {$CmplxCohFonc == "S2"} {
-            TextEditorRunTrace "Arguments: -idm \x22$CmplxCohMasterDirInput\x22 -ids \x22$CmplxCohSlaveDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf S2T6 -type VV -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_dual/complex_coherence_estimation.exe -idm \x22$CmplxCohMasterDirInput\x22 -ids \x22$CmplxCohSlaveDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf S2T6 -type VV -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Arguments: -idm \x22$CmplxCohMasterDirInput\x22 -ids \x22$CmplxCohSlaveDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf S2T6 -type VV -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol   -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_dual/complex_coherence_estimation.exe -idm \x22$CmplxCohMasterDirInput\x22 -ids \x22$CmplxCohSlaveDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf S2T6 -type VV -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol   -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             }
         if {$CmplxCohFonc == "T6"} {
-            TextEditorRunTrace "Arguments: -id \x22$CmplxCohMasterDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf T6 -type VV -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_dual/complex_coherence_estimation.exe -id \x22$CmplxCohMasterDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf T6 -type VV -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Arguments: -id \x22$CmplxCohMasterDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf T6 -type VV -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol   -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_dual/complex_coherence_estimation.exe -id \x22$CmplxCohMasterDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf T6 -type VV -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol   -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             }
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
@@ -2167,9 +2260,9 @@ if {"$VarWarning"=="ok"} {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/calculator/file_boxcar.exe" "k"
-            TextEditorRunTrace "Arguments: -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/calculator/file_boxcar.exe -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/calculator/file_boxcar.exe" "k"
+            TextEditorRunTrace "Arguments: -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/calculator/file_boxcar.exe -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -2192,14 +2285,14 @@ if {"$VarWarning"=="ok"} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/data_process_dual/complex_coherence_estimation.exe" "k"
+        TextEditorRunTrace "Process The Function Soft/bin/data_process_dual/complex_coherence_estimation.exe" "k"
         if {$CmplxCohFonc == "S2"} {
-            TextEditorRunTrace "Arguments: -idm \x22$CmplxCohMasterDirInput\x22 -ids \x22$CmplxCohSlaveDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf S2T6 -type LL -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_dual/complex_coherence_estimation.exe -idm \x22$CmplxCohMasterDirInput\x22 -ids \x22$CmplxCohSlaveDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf S2T6 -type LL -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Arguments: -idm \x22$CmplxCohMasterDirInput\x22 -ids \x22$CmplxCohSlaveDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf S2T6 -type LL -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol   -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_dual/complex_coherence_estimation.exe -idm \x22$CmplxCohMasterDirInput\x22 -ids \x22$CmplxCohSlaveDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf S2T6 -type LL -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol   -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             }
         if {$CmplxCohFonc == "T6"} {
-            TextEditorRunTrace "Arguments: -id \x22$CmplxCohMasterDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf T6 -type LL -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_dual/complex_coherence_estimation.exe -id \x22$CmplxCohMasterDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf T6 -type LL -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Arguments: -id \x22$CmplxCohMasterDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf T6 -type LL -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol   -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_dual/complex_coherence_estimation.exe -id \x22$CmplxCohMasterDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf T6 -type LL -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol   -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             }
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
@@ -2213,9 +2306,9 @@ if {"$VarWarning"=="ok"} {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/calculator/file_boxcar.exe" "k"
-            TextEditorRunTrace "Arguments: -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/calculator/file_boxcar.exe -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/calculator/file_boxcar.exe" "k"
+            TextEditorRunTrace "Arguments: -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/calculator/file_boxcar.exe -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -2237,14 +2330,14 @@ if {"$VarWarning"=="ok"} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/data_process_dual/complex_coherence_estimation.exe" "k"
+        TextEditorRunTrace "Process The Function Soft/bin/data_process_dual/complex_coherence_estimation.exe" "k"
         if {$CmplxCohFonc == "S2"} {
-            TextEditorRunTrace "Arguments: -idm \x22$CmplxCohMasterDirInput\x22 -ids \x22$CmplxCohSlaveDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf S2T6 -type LR -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_dual/complex_coherence_estimation.exe -idm \x22$CmplxCohMasterDirInput\x22 -ids \x22$CmplxCohSlaveDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf S2T6 -type LR -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Arguments: -idm \x22$CmplxCohMasterDirInput\x22 -ids \x22$CmplxCohSlaveDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf S2T6 -type LR -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol   -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_dual/complex_coherence_estimation.exe -idm \x22$CmplxCohMasterDirInput\x22 -ids \x22$CmplxCohSlaveDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf S2T6 -type LR -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol   -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             }
         if {$CmplxCohFonc == "T6"} {
-            TextEditorRunTrace "Arguments: -id \x22$CmplxCohMasterDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf T6 -type LR -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_dual/complex_coherence_estimation.exe -id \x22$CmplxCohMasterDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf T6 -type LR -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Arguments: -id \x22$CmplxCohMasterDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf T6 -type LR -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol   -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_dual/complex_coherence_estimation.exe -id \x22$CmplxCohMasterDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf T6 -type LR -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol   -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             }
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
@@ -2258,9 +2351,9 @@ if {"$VarWarning"=="ok"} {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/calculator/file_boxcar.exe" "k"
-            TextEditorRunTrace "Arguments: -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/calculator/file_boxcar.exe -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/calculator/file_boxcar.exe" "k"
+            TextEditorRunTrace "Arguments: -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/calculator/file_boxcar.exe -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -2282,14 +2375,14 @@ if {"$VarWarning"=="ok"} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/data_process_dual/complex_coherence_estimation.exe" "k"
+        TextEditorRunTrace "Process The Function Soft/bin/data_process_dual/complex_coherence_estimation.exe" "k"
         if {$CmplxCohFonc == "S2"} {
-            TextEditorRunTrace "Arguments: -idm \x22$CmplxCohMasterDirInput\x22 -ids \x22$CmplxCohSlaveDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf S2T6 -type RR -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_dual/complex_coherence_estimation.exe -idm \x22$CmplxCohMasterDirInput\x22 -ids \x22$CmplxCohSlaveDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf S2T6 -type RR -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Arguments: -idm \x22$CmplxCohMasterDirInput\x22 -ids \x22$CmplxCohSlaveDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf S2T6 -type RR -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol   -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_dual/complex_coherence_estimation.exe -idm \x22$CmplxCohMasterDirInput\x22 -ids \x22$CmplxCohSlaveDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf S2T6 -type RR -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol   -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             }
         if {$CmplxCohFonc == "T6"} {
-            TextEditorRunTrace "Arguments: -id \x22$CmplxCohMasterDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf T6 -type RR -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_dual/complex_coherence_estimation.exe -id \x22$CmplxCohMasterDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf T6 -type RR -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Arguments: -id \x22$CmplxCohMasterDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf T6 -type RR -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol   -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_dual/complex_coherence_estimation.exe -id \x22$CmplxCohMasterDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf T6 -type RR -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol   -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             }
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
@@ -2303,9 +2396,9 @@ if {"$VarWarning"=="ok"} {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/calculator/file_boxcar.exe" "k"
-            TextEditorRunTrace "Arguments: -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/calculator/file_boxcar.exe -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/calculator/file_boxcar.exe" "k"
+            TextEditorRunTrace "Arguments: -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/calculator/file_boxcar.exe -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -2328,14 +2421,14 @@ if {"$VarWarning"=="ok"} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/data_process_dual/complex_coherence_estimation.exe" "k"
+        TextEditorRunTrace "Process The Function Soft/bin/data_process_dual/complex_coherence_estimation.exe" "k"
         if {$CmplxCohFonc == "S2"} {
-            TextEditorRunTrace "Arguments: -idm \x22$CmplxCohMasterDirInput\x22 -ids \x22$CmplxCohSlaveDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf S2T6 -type HHpVV -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_dual/complex_coherence_estimation.exe -idm \x22$CmplxCohMasterDirInput\x22 -ids \x22$CmplxCohSlaveDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf S2T6 -type HHpVV -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Arguments: -idm \x22$CmplxCohMasterDirInput\x22 -ids \x22$CmplxCohSlaveDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf S2T6 -type HHpVV -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol   -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_dual/complex_coherence_estimation.exe -idm \x22$CmplxCohMasterDirInput\x22 -ids \x22$CmplxCohSlaveDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf S2T6 -type HHpVV -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol   -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             }
         if {$CmplxCohFonc == "T6"} {
-            TextEditorRunTrace "Arguments: -id \x22$CmplxCohMasterDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf T6 -type HHpVV -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_dual/complex_coherence_estimation.exe -id \x22$CmplxCohMasterDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf T6 -type HHpVV -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Arguments: -id \x22$CmplxCohMasterDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf T6 -type HHpVV -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol   -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_dual/complex_coherence_estimation.exe -id \x22$CmplxCohMasterDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf T6 -type HHpVV -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol   -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             }
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
@@ -2349,9 +2442,9 @@ if {"$VarWarning"=="ok"} {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/calculator/file_boxcar.exe" "k"
-            TextEditorRunTrace "Arguments: -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/calculator/file_boxcar.exe -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/calculator/file_boxcar.exe" "k"
+            TextEditorRunTrace "Arguments: -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/calculator/file_boxcar.exe -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -2373,14 +2466,14 @@ if {"$VarWarning"=="ok"} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/data_process_dual/complex_coherence_estimation.exe" "k"
+        TextEditorRunTrace "Process The Function Soft/bin/data_process_dual/complex_coherence_estimation.exe" "k"
         if {$CmplxCohFonc == "S2"} {
-            TextEditorRunTrace "Arguments: -idm \x22$CmplxCohMasterDirInput\x22 -ids \x22$CmplxCohSlaveDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf S2T6 -type HHmVV -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_dual/complex_coherence_estimation.exe -idm \x22$CmplxCohMasterDirInput\x22 -ids \x22$CmplxCohSlaveDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf S2T6 -type HHmVV -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Arguments: -idm \x22$CmplxCohMasterDirInput\x22 -ids \x22$CmplxCohSlaveDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf S2T6 -type HHmVV -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol   -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_dual/complex_coherence_estimation.exe -idm \x22$CmplxCohMasterDirInput\x22 -ids \x22$CmplxCohSlaveDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf S2T6 -type HHmVV -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol   -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             }
         if {$CmplxCohFonc == "T6"} {
-            TextEditorRunTrace "Arguments: -id \x22$CmplxCohMasterDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf T6 -type HHmVV -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_dual/complex_coherence_estimation.exe -id \x22$CmplxCohMasterDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf T6 -type HHmVV -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Arguments: -id \x22$CmplxCohMasterDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf T6 -type HHmVV -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol   -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_dual/complex_coherence_estimation.exe -id \x22$CmplxCohMasterDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf T6 -type HHmVV -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol   -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             }
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
@@ -2394,9 +2487,9 @@ if {"$VarWarning"=="ok"} {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/calculator/file_boxcar.exe" "k"
-            TextEditorRunTrace "Arguments: -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/calculator/file_boxcar.exe -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/calculator/file_boxcar.exe" "k"
+            TextEditorRunTrace "Arguments: -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/calculator/file_boxcar.exe -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -2418,14 +2511,14 @@ if {"$VarWarning"=="ok"} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/data_process_dual/complex_coherence_estimation.exe" "k"
+        TextEditorRunTrace "Process The Function Soft/bin/data_process_dual/complex_coherence_estimation.exe" "k"
         if {$CmplxCohFonc == "S2"} {
-            TextEditorRunTrace "Arguments: -idm \x22$CmplxCohMasterDirInput\x22 -ids \x22$CmplxCohSlaveDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf S2T6 -type HVpVH -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_dual/complex_coherence_estimation.exe -idm \x22$CmplxCohMasterDirInput\x22 -ids \x22$CmplxCohSlaveDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf S2T6 -type HVpVH -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Arguments: -idm \x22$CmplxCohMasterDirInput\x22 -ids \x22$CmplxCohSlaveDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf S2T6 -type HVpVH -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol   -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_dual/complex_coherence_estimation.exe -idm \x22$CmplxCohMasterDirInput\x22 -ids \x22$CmplxCohSlaveDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf S2T6 -type HVpVH -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol   -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             }
         if {$CmplxCohFonc == "T6"} {
-            TextEditorRunTrace "Arguments: -id \x22$CmplxCohMasterDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf T6 -type HVpVH -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_dual/complex_coherence_estimation.exe -id \x22$CmplxCohMasterDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf T6 -type HVpVH -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Arguments: -id \x22$CmplxCohMasterDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf T6 -type HVpVH -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol   -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_dual/complex_coherence_estimation.exe -id \x22$CmplxCohMasterDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf T6 -type HVpVH -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol   -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             }
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
@@ -2439,9 +2532,9 @@ if {"$VarWarning"=="ok"} {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/calculator/file_boxcar.exe" "k"
-            TextEditorRunTrace "Arguments: -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/calculator/file_boxcar.exe -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/calculator/file_boxcar.exe" "k"
+            TextEditorRunTrace "Arguments: -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/calculator/file_boxcar.exe -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -2465,14 +2558,14 @@ if {"$VarWarning"=="ok"} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/data_process_dual/complex_coherence_opt_estimation.exe" "k"
+        TextEditorRunTrace "Process The Function Soft/bin/data_process_dual/complex_coherence_opt_estimation.exe" "k"
         if {$CmplxCohFonc == "S2"} {
-            TextEditorRunTrace "Arguments: -idm \x22$CmplxCohMasterDirInput\x22 -ids \x22$CmplxCohSlaveDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf S2T6 -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_dual/complex_coherence_opt_estimation.exe -idm \x22$CmplxCohMasterDirInput\x22 -ids \x22$CmplxCohSlaveDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf S2T6 -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Arguments: -idm \x22$CmplxCohMasterDirInput\x22 -ids \x22$CmplxCohSlaveDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf S2T6 -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol   -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_dual/complex_coherence_opt_estimation.exe -idm \x22$CmplxCohMasterDirInput\x22 -ids \x22$CmplxCohSlaveDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf S2T6 -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol   -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             }
         if {$CmplxCohFonc == "T6"} {
-            TextEditorRunTrace "Arguments: -id \x22$CmplxCohMasterDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf T6 -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_dual/complex_coherence_opt_estimation.exe -id \x22$CmplxCohMasterDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf T6 -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Arguments: -id \x22$CmplxCohMasterDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf T6 -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol   -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_dual/complex_coherence_opt_estimation.exe -id \x22$CmplxCohMasterDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf T6 -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol   -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             }
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
@@ -2488,9 +2581,9 @@ if {"$VarWarning"=="ok"} {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/calculator/file_boxcar.exe" "k"
-            TextEditorRunTrace "Arguments: -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/calculator/file_boxcar.exe -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/calculator/file_boxcar.exe" "k"
+            TextEditorRunTrace "Arguments: -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/calculator/file_boxcar.exe -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -2498,9 +2591,9 @@ if {"$VarWarning"=="ok"} {
             set CmplxFileOut "$CmplxCohDirOutput/cmplx_coh_avg_Opt2.bin"
             set ProgressLine "0"
             update
-            TextEditorRunTrace "Process The Function Soft/calculator/file_boxcar.exe" "k"
-            TextEditorRunTrace "Arguments: -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/calculator/file_boxcar.exe -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/calculator/file_boxcar.exe" "k"
+            TextEditorRunTrace "Arguments: -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/calculator/file_boxcar.exe -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -2508,9 +2601,9 @@ if {"$VarWarning"=="ok"} {
             set CmplxFileOut "$CmplxCohDirOutput/cmplx_coh_avg_Opt3.bin"
             set ProgressLine "0"
             update
-            TextEditorRunTrace "Process The Function Soft/calculator/file_boxcar.exe" "k"
-            TextEditorRunTrace "Arguments: -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/calculator/file_boxcar.exe -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/calculator/file_boxcar.exe" "k"
+            TextEditorRunTrace "Arguments: -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/calculator/file_boxcar.exe -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -2545,14 +2638,14 @@ if {"$VarWarning"=="ok"} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/data_process_dual/complex_coherence_opt_PD.exe" "k"
+        TextEditorRunTrace "Process The Function Soft/bin/data_process_dual/complex_coherence_opt_PD.exe" "k"
         if {$CmplxCohFonc == "S2"} {
-            TextEditorRunTrace "Arguments: -idm \x22$CmplxCohMasterDirInput\x22 -ids \x22$CmplxCohSlaveDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf S2T6 -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_dual/complex_coherence_opt_PD.exe -idm \x22$CmplxCohMasterDirInput\x22 -ids \x22$CmplxCohSlaveDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf S2T6 -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Arguments: -idm \x22$CmplxCohMasterDirInput\x22 -ids \x22$CmplxCohSlaveDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf S2T6 -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol   -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_dual/complex_coherence_opt_PD.exe -idm \x22$CmplxCohMasterDirInput\x22 -ids \x22$CmplxCohSlaveDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf S2T6 -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol   -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             }
         if {$CmplxCohFonc == "T6"} {
-            TextEditorRunTrace "Arguments: -id \x22$CmplxCohMasterDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf T6 -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_dual/complex_coherence_opt_PD.exe -id \x22$CmplxCohMasterDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf T6 -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Arguments: -id \x22$CmplxCohMasterDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf T6 -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol   -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_dual/complex_coherence_opt_PD.exe -id \x22$CmplxCohMasterDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf T6 -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol   -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             }
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
@@ -2567,9 +2660,9 @@ if {"$VarWarning"=="ok"} {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/calculator/file_boxcar.exe" "k"
-            TextEditorRunTrace "Arguments: -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/calculator/file_boxcar.exe -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/calculator/file_boxcar.exe" "k"
+            TextEditorRunTrace "Arguments: -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/calculator/file_boxcar.exe -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -2577,9 +2670,9 @@ if {"$VarWarning"=="ok"} {
             set CmplxFileOut "$CmplxCohDirOutput/cmplx_coh_avg_PDLow.bin"
             set ProgressLine "0"
             update
-            TextEditorRunTrace "Process The Function Soft/calculator/file_boxcar.exe" "k"
-            TextEditorRunTrace "Arguments: -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/calculator/file_boxcar.exe -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/calculator/file_boxcar.exe" "k"
+            TextEditorRunTrace "Arguments: -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/calculator/file_boxcar.exe -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -2615,14 +2708,14 @@ if {"$VarWarning"=="ok"} {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/data_process_dual/complex_coherence_opt_NR.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_dual/complex_coherence_opt_NR.exe" "k"
             if {$CmplxCohFonc == "S2"} {
-                TextEditorRunTrace "Arguments: -idm \x22$CmplxCohMasterDirInput\x22 -ids \x22$CmplxCohSlaveDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf S2T6 -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -teth $NRTheta1 -tetl $NRTheta3 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                set f [ open "| Soft/data_process_dual/complex_coherence_opt_NR.exe -idm \x22$CmplxCohMasterDirInput\x22 -ids \x22$CmplxCohSlaveDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf S2T6 -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -teth $NRTheta1 -tetl $NRTheta3 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                TextEditorRunTrace "Arguments: -idm \x22$CmplxCohMasterDirInput\x22 -ids \x22$CmplxCohSlaveDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf S2T6 -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -teth $NRTheta1 -tetl $NRTheta3  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                set f [ open "| Soft/bin/data_process_dual/complex_coherence_opt_NR.exe -idm \x22$CmplxCohMasterDirInput\x22 -ids \x22$CmplxCohSlaveDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf S2T6 -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -teth $NRTheta1 -tetl $NRTheta3  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                 }
             if {$CmplxCohFonc == "T6"} {
-                TextEditorRunTrace "Arguments: -id \x22$CmplxCohMasterDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf T6 -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -teth $NRTheta1 -tetl $NRTheta3 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                set f [ open "| Soft/data_process_dual/complex_coherence_opt_NR.exe -id \x22$CmplxCohMasterDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf T6 -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -teth $NRTheta1 -tetl $NRTheta3 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                TextEditorRunTrace "Arguments: -id \x22$CmplxCohMasterDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf T6 -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -teth $NRTheta1 -tetl $NRTheta3  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                set f [ open "| Soft/bin/data_process_dual/complex_coherence_opt_NR.exe -id \x22$CmplxCohMasterDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf T6 -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -teth $NRTheta1 -tetl $NRTheta3  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                 }
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
@@ -2638,9 +2731,9 @@ if {"$VarWarning"=="ok"} {
                 set ProgressLine "0"
                 WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                 update
-                TextEditorRunTrace "Process The Function Soft/calculator/file_boxcar.exe" "k"
-                TextEditorRunTrace "Arguments: -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                set f [ open "| Soft/calculator/file_boxcar.exe -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                TextEditorRunTrace "Process The Function Soft/bin/calculator/file_boxcar.exe" "k"
+                TextEditorRunTrace "Arguments: -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                set f [ open "| Soft/bin/calculator/file_boxcar.exe -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                 PsPprogressBar $f
                 TextEditorRunTrace "Check RunTime Errors" "r"
                 CheckRunTimeError
@@ -2648,9 +2741,9 @@ if {"$VarWarning"=="ok"} {
                 set CmplxFileOut "$CmplxCohDirOutput/cmplx_coh_avg_Opt_NR2.bin"
                 set ProgressLine "0"
                 update
-                TextEditorRunTrace "Process The Function Soft/calculator/file_boxcar.exe" "k"
-                TextEditorRunTrace "Arguments: -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                set f [ open "| Soft/calculator/file_boxcar.exe -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                TextEditorRunTrace "Process The Function Soft/bin/calculator/file_boxcar.exe" "k"
+                TextEditorRunTrace "Arguments: -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                set f [ open "| Soft/bin/calculator/file_boxcar.exe -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                 PsPprogressBar $f
                 TextEditorRunTrace "Check RunTime Errors" "r"
                 CheckRunTimeError
@@ -2658,9 +2751,9 @@ if {"$VarWarning"=="ok"} {
                 set CmplxFileOut "$CmplxCohDirOutput/cmplx_coh_avg_Opt_NR3.bin"
                 set ProgressLine "0"
                 update
-                TextEditorRunTrace "Process The Function Soft/calculator/file_boxcar.exe" "k"
-                TextEditorRunTrace "Arguments: -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                set f [ open "| Soft/calculator/file_boxcar.exe -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                TextEditorRunTrace "Process The Function Soft/bin/calculator/file_boxcar.exe" "k"
+                TextEditorRunTrace "Arguments: -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                set f [ open "| Soft/bin/calculator/file_boxcar.exe -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                 PsPprogressBar $f
                 TextEditorRunTrace "Check RunTime Errors" "r"
                 CheckRunTimeError
@@ -2699,14 +2792,14 @@ if {"$VarWarning"=="ok"} {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/data_process_dual/complex_coherence_loci_minmax.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_dual/complex_coherence_loci_minmax.exe" "k"
             if {$CmplxCohFonc == "S2"} {
-                TextEditorRunTrace "Arguments: -idm \x22$CmplxCohMasterDirInput\x22 -ids \x22$CmplxCohSlaveDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf S2T6 -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -p $NptsMM -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                set f [ open "| Soft/data_process_dual/complex_coherence_loci_minmax.exe -idm \x22$CmplxCohMasterDirInput\x22 -ids \x22$CmplxCohSlaveDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf S2T6 -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -p $NptsMM -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                TextEditorRunTrace "Arguments: -idm \x22$CmplxCohMasterDirInput\x22 -ids \x22$CmplxCohSlaveDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf S2T6 -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -p $NptsMM  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                set f [ open "| Soft/bin/data_process_dual/complex_coherence_loci_minmax.exe -idm \x22$CmplxCohMasterDirInput\x22 -ids \x22$CmplxCohSlaveDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf S2T6 -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -p $NptsMM  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                 }
             if {$CmplxCohFonc == "T6"} {
-                TextEditorRunTrace "Arguments: -id \x22$CmplxCohMasterDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf T6 -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -p $NptsMM -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                set f [ open "| Soft/data_process_dual/complex_coherence_loci_minmax.exe -id \x22$CmplxCohMasterDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf T6 -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -p $NptsMM -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                TextEditorRunTrace "Arguments: -id \x22$CmplxCohMasterDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf T6 -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -p $NptsMM  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                set f [ open "| Soft/bin/data_process_dual/complex_coherence_loci_minmax.exe -id \x22$CmplxCohMasterDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf T6 -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -p $NptsMM  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                 }
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
@@ -2723,9 +2816,9 @@ if {"$VarWarning"=="ok"} {
                 set ProgressLine "0"
                 WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                 update
-                TextEditorRunTrace "Process The Function Soft/calculator/file_boxcar.exe" "k"
-                TextEditorRunTrace "Arguments: -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                set f [ open "| Soft/calculator/file_boxcar.exe -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                TextEditorRunTrace "Process The Function Soft/bin/calculator/file_boxcar.exe" "k"
+                TextEditorRunTrace "Arguments: -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                set f [ open "| Soft/bin/calculator/file_boxcar.exe -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                 PsPprogressBar $f
                 TextEditorRunTrace "Check RunTime Errors" "r"
                 CheckRunTimeError
@@ -2733,9 +2826,9 @@ if {"$VarWarning"=="ok"} {
                 set CmplxFileOut "$CmplxCohDirOutput/cmplx_coh_avg_MinMag.bin"
                 set ProgressLine "0"
                 update
-                TextEditorRunTrace "Process The Function Soft/calculator/file_boxcar.exe" "k"
-                TextEditorRunTrace "Arguments: -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                set f [ open "| Soft/calculator/file_boxcar.exe -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                TextEditorRunTrace "Process The Function Soft/bin/calculator/file_boxcar.exe" "k"
+                TextEditorRunTrace "Arguments: -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                set f [ open "| Soft/bin/calculator/file_boxcar.exe -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                 PsPprogressBar $f
                 TextEditorRunTrace "Check RunTime Errors" "r"
                 CheckRunTimeError
@@ -2743,9 +2836,9 @@ if {"$VarWarning"=="ok"} {
                 set CmplxFileOut "$CmplxCohDirOutput/cmplx_coh_avg_MaxPha.bin"
                 set ProgressLine "0"
                 update
-                TextEditorRunTrace "Process The Function Soft/calculator/file_boxcar.exe" "k"
-                TextEditorRunTrace "Arguments: -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                set f [ open "| Soft/calculator/file_boxcar.exe -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                TextEditorRunTrace "Process The Function Soft/bin/calculator/file_boxcar.exe" "k"
+                TextEditorRunTrace "Arguments: -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                set f [ open "| Soft/bin/calculator/file_boxcar.exe -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                 PsPprogressBar $f
                 TextEditorRunTrace "Check RunTime Errors" "r"
                 CheckRunTimeError
@@ -2753,9 +2846,9 @@ if {"$VarWarning"=="ok"} {
                 set CmplxFileOut "$CmplxCohDirOutput/cmplx_coh_avg_MinPha.bin"
                 set ProgressLine "0"
                 update
-                TextEditorRunTrace "Process The Function Soft/calculator/file_boxcar.exe" "k"
-                TextEditorRunTrace "Arguments: -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                set f [ open "| Soft/calculator/file_boxcar.exe -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                TextEditorRunTrace "Process The Function Soft/bin/calculator/file_boxcar.exe" "k"
+                TextEditorRunTrace "Arguments: -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                set f [ open "| Soft/bin/calculator/file_boxcar.exe -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                 PsPprogressBar $f
                 TextEditorRunTrace "Check RunTime Errors" "r"
                 CheckRunTimeError
@@ -2799,14 +2892,14 @@ if {"$VarWarning"=="ok"} {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/data_process_dual/complex_coherence_loci_difference.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_dual/complex_coherence_loci_difference.exe" "k"
             if {$CmplxCohFonc == "S2"} {
-                TextEditorRunTrace "Arguments: -idm \x22$CmplxCohMasterDirInput\x22 -ids \x22$CmplxCohSlaveDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf S2T6 -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -p $NptsDF -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                set f [ open "| Soft/data_process_dual/complex_coherence_loci_difference.exe -idm \x22$CmplxCohMasterDirInput\x22 -ids \x22$CmplxCohSlaveDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf S2T6 -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -p $NptsDF -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                TextEditorRunTrace "Arguments: -idm \x22$CmplxCohMasterDirInput\x22 -ids \x22$CmplxCohSlaveDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf S2T6 -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -p $NptsDF  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                set f [ open "| Soft/bin/data_process_dual/complex_coherence_loci_difference.exe -idm \x22$CmplxCohMasterDirInput\x22 -ids \x22$CmplxCohSlaveDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf S2T6 -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -p $NptsDF  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                 }
             if {$CmplxCohFonc == "T6"} {
-                TextEditorRunTrace "Arguments: -id \x22$CmplxCohMasterDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf T6 -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -p $NptsDF -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                set f [ open "| Soft/data_process_dual/complex_coherence_loci_difference.exe -id \x22$CmplxCohMasterDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf T6 -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -p $NptsDF -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                TextEditorRunTrace "Arguments: -id \x22$CmplxCohMasterDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf T6 -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -p $NptsDF  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                set f [ open "| Soft/bin/data_process_dual/complex_coherence_loci_difference.exe -id \x22$CmplxCohMasterDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf T6 -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -p $NptsDF  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                 }
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
@@ -2823,9 +2916,9 @@ if {"$VarWarning"=="ok"} {
                 set ProgressLine "0"
                 WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                 update
-                TextEditorRunTrace "Process The Function Soft/calculator/file_boxcar.exe" "k"
-                TextEditorRunTrace "Arguments: -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                set f [ open "| Soft/calculator/file_boxcar.exe -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                TextEditorRunTrace "Process The Function Soft/bin/calculator/file_boxcar.exe" "k"
+                TextEditorRunTrace "Arguments: -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                set f [ open "| Soft/bin/calculator/file_boxcar.exe -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                 PsPprogressBar $f
                 TextEditorRunTrace "Check RunTime Errors" "r"
                 CheckRunTimeError
@@ -2833,9 +2926,9 @@ if {"$VarWarning"=="ok"} {
                 set CmplxFileOut "$CmplxCohDirOutput/cmplx_coh_avg_maxdiff_PhaHigh.bin"
                 set ProgressLine "0"
                 update
-                TextEditorRunTrace "Process The Function Soft/calculator/file_boxcar.exe" "k"
-                TextEditorRunTrace "Arguments: -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                set f [ open "| Soft/calculator/file_boxcar.exe -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                TextEditorRunTrace "Process The Function Soft/bin/calculator/file_boxcar.exe" "k"
+                TextEditorRunTrace "Arguments: -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                set f [ open "| Soft/bin/calculator/file_boxcar.exe -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                 PsPprogressBar $f
                 TextEditorRunTrace "Check RunTime Errors" "r"
                 CheckRunTimeError
@@ -2843,9 +2936,9 @@ if {"$VarWarning"=="ok"} {
                 set CmplxFileOut "$CmplxCohDirOutput/cmplx_coh_avg_maxdiff_MagLow.bin"
                 set ProgressLine "0"
                 update
-                TextEditorRunTrace "Process The Function Soft/calculator/file_boxcar.exe" "k"
-                TextEditorRunTrace "Arguments: -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                set f [ open "| Soft/calculator/file_boxcar.exe -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                TextEditorRunTrace "Process The Function Soft/bin/calculator/file_boxcar.exe" "k"
+                TextEditorRunTrace "Arguments: -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                set f [ open "| Soft/bin/calculator/file_boxcar.exe -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                 PsPprogressBar $f
                 TextEditorRunTrace "Check RunTime Errors" "r"
                 CheckRunTimeError
@@ -2853,9 +2946,9 @@ if {"$VarWarning"=="ok"} {
                 set CmplxFileOut "$CmplxCohDirOutput/cmplx_coh_avg_maxdiff_MagHigh.bin"
                 set ProgressLine "0"
                 update
-                TextEditorRunTrace "Process The Function Soft/calculator/file_boxcar.exe" "k"
-                TextEditorRunTrace "Arguments: -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                set f [ open "| Soft/calculator/file_boxcar.exe -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                TextEditorRunTrace "Process The Function Soft/bin/calculator/file_boxcar.exe" "k"
+                TextEditorRunTrace "Arguments: -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                set f [ open "| Soft/bin/calculator/file_boxcar.exe -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                 PsPprogressBar $f
                 TextEditorRunTrace "Check RunTime Errors" "r"
                 CheckRunTimeError
@@ -2885,6 +2978,52 @@ if {"$VarWarning"=="ok"} {
                     BMPCmplxCoh $FinalNlig $FinalNcol "$CmplxCohDirOutput/cmplx_coh_avg_maxdiff_MagHigh"  
                     if { $BMPCmplxCohConfig == "false" } { set configBMP "false" }
                     }
+                }
+            }
+        }
+
+    if {$CohLinHHVV == "1"} {
+        set Fonction "Creation of the Binary Data Files:"
+        set Fonction2 "Complex Linear Coherences"
+        set ProgressLine "0"
+        WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
+        update
+        TextEditorRunTrace "Process The Function Soft/bin/data_process_dual/complex_coherence_estimation.exe" "k"
+        if {$CmplxCohFonc == "S2"} {
+            TextEditorRunTrace "Arguments: -idm \x22$CmplxCohMasterDirInput\x22 -ids \x22$CmplxCohSlaveDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf S2T6 -type HHVV -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol   -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_dual/complex_coherence_estimation.exe -idm \x22$CmplxCohMasterDirInput\x22 -ids \x22$CmplxCohSlaveDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf S2T6 -type HHVV -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol   -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            }
+        if {$CmplxCohFonc == "T6"} {
+            TextEditorRunTrace "Arguments: -id \x22$CmplxCohMasterDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf T6 -type HHVV -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol   -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_dual/complex_coherence_estimation.exe -id \x22$CmplxCohMasterDirInput\x22 -od \x22$CmplxCohDirOutput\x22 -iodf T6 -type HHVV -nwr $NwinRow -nwc $NwinCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol   -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            }
+        PsPprogressBar $f
+        TextEditorRunTrace "Check RunTime Errors" "r"
+        CheckRunTimeError
+        WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
+
+        EnviWriteConfig "$CmplxCohDirOutput/cmplx_coh_HHVV.bin" $FinalNlig $FinalNcol 6
+        if {$CohAvg == "1"} {
+            set CmplxFileIn "$CmplxCohDirOutput/cmplx_coh_HHVV.bin"
+            set CmplxFileOut "$CmplxCohDirOutput/cmplx_coh_avg_HHVV.bin"
+            set ProgressLine "0"
+            WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
+            update
+            TextEditorRunTrace "Process The Function Soft/bin/calculator/file_boxcar.exe" "k"
+            TextEditorRunTrace "Arguments: -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/calculator/file_boxcar.exe -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            PsPprogressBar $f
+            TextEditorRunTrace "Check RunTime Errors" "r"
+            CheckRunTimeError
+            WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"          
+            EnviWriteConfig "$CmplxCohDirOutput/cmplx_coh_avg_HHVV.bin" $FinalNlig $FinalNcol 6
+            }
+        if {$CohBMP =="1"} {
+            BMPCmplxCoh $FinalNlig $FinalNcol "$CmplxCohDirOutput/cmplx_coh_HHVV"
+            if { $BMPCmplxCohConfig == "false" } { set configBMP "false" }
+            if {$CohAvg == "1"} {
+                BMPCmplxCoh $FinalNlig $FinalNcol "$CmplxCohDirOutput/cmplx_coh_avg_HHVV"  
+                if { $BMPCmplxCohConfig == "false" } { set configBMP "false" }
                 }
             }
         }
@@ -2927,7 +3066,7 @@ global ZoomBMP BMPImage ImageSource BMPCanvas
 global TrainingAreaToolLine rect_color VarHistoSave VarStatToolLine                    
 
 #DATA PROCESS SNGL
-global Load_Histograms
+global Load_HistogramsDual
 #BMP PROCESS
 global Load_ViewBMPLens PSPTopLevel
 
@@ -2964,18 +3103,21 @@ if [file exists "$CmplxCohDirOutput/config.txt"] {
 
             if {$VarWarning == "ok"} {
                 ClosePSPViewer;
-                Window hide $widget(Toplevel64); TextEditorRunTrace "Close Window PolSARpro Viewer" "b"
-                LoadPSPViewer
-                Window show $widget(Toplevel64); TextEditorRunTrace "Open Window PolSARpro Viewer" "b"
-
-                if {$Load_Histograms == 0} {
-                    source "GUI/data_process_sngl/Histograms.tcl"
-                    set Load_Histograms 1
-                    WmTransient $widget(Toplevel260) $PSPTopLevel
+                set types {
+                {{BMP Files}        {.bmp}        }
+                }
+                set filename ""
+                set filename [tk_getOpenFile -initialdir $HistoDirInput -filetypes $types -title "INPUT BMP FILE"]
+                if {$filename != ""} {
+                    set MapAlgebraBMPFile $filename
                     }
-                set line_color "white"
-                set b .top260.fra73.fra74.but77
-                $b configure -background $line_color -foreground $line_color
+
+                if {$Load_HistogramsDual == 0} {
+                    source "GUI/data_process_dual/HistogramsDual.tcl"
+                    set Load_HistogramsDual 1
+                    WmTransient $widget(Toplevel260a) $PSPTopLevel
+                    }
+
                 set GnuOutputFormat "SCREEN"
                 set GnuOutputFile ""; set HistoOutputFile ""
                 set NTrainingArea(0) 0; set AreaPoint(0) 0; set AreaPointLig(0) 0; set AreaPointCol(0) 0
@@ -2992,33 +3134,50 @@ if [file exists "$CmplxCohDirOutput/config.txt"] {
                         }
                     }           
                 set AreaClassN 1; set NTrainingAreaClass 1; set AreaN 1; set NTrainingArea(1) 1; set AreaPointN ""
-                set TrainingAreaToolLine "false"; set rect_color "white"; set VarHistoSave "no"; set VarStatToolLine "stop"                    
-                set MouseInitX ""; set MouseInitY ""; set MouseEndX ""; set MouseEndY ""; set MouseNlig ""; set MouseNcol ""
-                $widget(Button260_2) configure -state disable
-                $widget(Button260_3) configure -state disable
-                $widget(Button260_4) configure -state disable
-                $widget(Button260_5) configure -state disable
-                $widget(Radiobutton260_1) configure -state disable
-                $widget(Radiobutton260_2) configure -state disable
+                set TrainingAreaToolLine "false"; set rect_color "white"; set VarStatToolLine "stop"                    
+                $widget(Button260a_1) configure -state disable
+                $widget(Button260a_2) configure -state disable
+                $widget(Button260a_3) configure -state disable
+                $widget(Button260a_4) configure -state disable
+                $widget(Button260a_5) configure -state disable
+                $widget(Button260a_6) configure -state disable
+                $widget(Button260a_7) configure -state disable
+                $widget(Radiobutton260a_1) configure -state disable
+                $widget(Radiobutton260a_2) configure -state disable
                 DeleteFile $TMPStatisticsTxt
                 DeleteFile $TMPStatisticsBin
                 DeleteFile $TMPStatResultsTxt
-                TextEditorRunTrace "Launch The Process Soft/data_process_sngl/statistics_histogram_extract.exe" "k"
+
+                set MapAlgebraSession [ MapAlgebra_session ]
+                set MapAlgebraConfigFileStatHistoROI "$TMPDir/$MapAlgebraSession"; append MapAlgebraConfigFileStatHistoROI "_mapalgebrapaths.txt"
+                set StatHistoROIFileTrainingArea $TMPStatisticsTxt
+                DeleteFile $StatHistoROIFileTrainingArea
+                MapAlgebra_init "StatHistoROI" $MapAlgebraSession $StatHistoROIFileTrainingArea
+                MapAlgebra_launch $MapAlgebraConfigFileStatHistoROI $MapAlgebraBMPFile
+
+                TextEditorRunTrace "Launch The Process Soft/bin/data_process_dual/statistics_histogram_extract.exe" "k"
                 TextEditorRunTrace "Arguments: \x22$TMPStatisticsTxt\x22 \x22$TMPStatisticsBin\x22" "k"
-                set HistoExecFid [ open "| Soft/data_process_sngl/statistics_histogram_extract.exe \x22$TMPStatisticsTxt\x22 \x22$TMPStatisticsBin\x22" r+]
-                set GnuplotPipeStat "";  set HistoFileInput ""; set HistoFileOpen 0
+                set HistoExecFid [ open "| Soft/bin/data_process_dual/statistics_histogram_extract.exe \x22$TMPStatisticsTxt\x22 \x22$TMPStatisticsBin\x22" r+]
+
+                set GnuplotPipeSave ""; set GnuplotPipeStat "";  set HistoFileInput ""; set HistoFileOpen 0
                 set GnuHistoTitle "HISTOGRAM"; set GnuHistoLabel "Label"; set GnuHistoStyle "lines"
                 set HistoInputFormat "float"; set HistoOutputFormat "real"
-                $widget(Radiobutton260_3) configure -state disable; $widget(Radiobutton260_4) configure -state disable
+                $widget(Radiobutton260a_3) configure -state disable; $widget(Radiobutton260a_4) configure -state disable
                 set MinMaxAutoHisto 1; set MinHisto "Auto"; set MaxHisto "Auto"
-                $widget(TitleFrame260_1) configure -state disable; $widget(Checkbutton260_1) configure -state disable
-                $widget(Label260_1) configure -state disable; $widget(Entry260_1) configure -state disable
-                $widget(Label260_2) configure -state disable; $widget(Entry260_2) configure -state disable
-                $widget(Button260_1) configure -state disable
-                #set xwindow [winfo x $widget(Toplevel307)]; set ywindow [winfo y $widget(Toplevel307)]
-                #set geometrie "500x300+"; append geometrie $xwindow; append geometrie "+"; append geometrie [expr $ywindow + 350]
-                #wm geometry $widget(Toplevel260) $geometrie; update
-                WidgetShowFromWidget $widget(Toplevel307) $widget(Toplevel260); TextEditorRunTrace "Open Window Histograms" "b"
+                $widget(TitleFrame260a_1) configure -state disable; $widget(Checkbutton260a_1) configure -state disable
+                $widget(Label260a_1) configure -state disable; $widget(Entry260a_1) configure -state disable
+                $widget(Label260a_2) configure -state disable; $widget(Entry260a_2) configure -state disable
+
+                WidgetShowFromWidget $widget(Toplevel307) $widget(Toplevel260a); TextEditorRunTrace "Open Window Histograms" "b"
+
+                set VarHistoSave "no"
+                WaitUntilCreated $TMPStatisticsTxt
+                if [file exists $TMPStatisticsTxt] {
+                    set VarHistoSave "ok"
+                    $widget(Button260a_2) configure -state normal
+                    $widget(Button260a_7) configure -state normal
+                    }
+                tkwait variable VarHistoSave
                 }
             }
         } else {
@@ -3045,14 +3204,16 @@ if [file exists "$CmplxCohDirOutput/config.txt"] {
     }
     button $site_3_0.but24 \
         -background #ffff00 \
-        -command {global OpenDirFile
+        -command {global OpenDirFile MapAlgebraConfigFileStatHistoROI
 global HistoExecFid GnuplotPipeFid GnuplotPipeHisto
-global Load_SaveHisto Load_Histograms
+global Load_SaveHisto Load_HistogramsDual Load_SaveDisplay1
+
 
 if {$OpenDirFile == 0} {
 
-if {$Load_Histograms == 1} {
-    if {$Load_SaveHisto == 1} {Window hide $widget(Toplevel261); TextEditorRunTrace "Close Window Save Histograms" "b"}
+if {$Load_HistogramsDual == 1} {
+    if {$Load_SaveDisplay1 == 1} {Window hide $widget(Toplevel456); TextEditorRunTrace "Close Window Save Display 1" "b"}
+
     if {$HistoExecFid != ""} {
         puts $HistoExecFid "exit\n"
         flush $HistoExecFid
@@ -3064,11 +3225,11 @@ if {$Load_Histograms == 1} {
         catch "close $HistoExecFid"
         set HistoExecFid ""
 
-        PlotHistoRAZ   
-        PlotHistoClose 
+        DualPlotHistoRAZ   
+        DualPlotHistoClose 
         ClosePSPViewer
-        Window hide $widget(Toplevel64); TextEditorRunTrace "Close Window PolSARpro Viewer" "b"
-        Window hide $widget(Toplevel260); TextEditorRunTrace "Close Window Histograms" "b"
+        if {$MapAlgebraConfigFileStatHistoROI != ""} { set MapAlgebraConfigFileStatHistoROI [MapAlgebra_command $MapAlgebraConfigFileStatHistoROI "quit" ""] }
+        Window hide $widget(Toplevel260a); TextEditorRunTrace "Close Window Histograms" "b"
         }
     }
 Window hide $widget(Toplevel307); TextEditorRunTrace "Close Window Complex Coherence Estimation" "b"
@@ -3095,14 +3256,14 @@ set ProgressLine "0"; update
         -in $top -anchor center -expand 0 -fill x -side top 
     pack $top.fra29 \
         -in $top -anchor center -expand 0 -fill x -side top 
-    pack $top.tit73 \
-        -in $top -anchor center -expand 1 -fill x -side top 
+    pack $top.tit66 \
+        -in $top -anchor center -expand 0 -fill x -pady 5 -side top 
     pack $top.fra66 \
-        -in $top -anchor center -expand 1 -fill x -side top 
+        -in $top -anchor center -expand 0 -fill x -pady 5 -side top 
     pack $top.fra30 \
-        -in $top -anchor center -expand 1 -fill x -side top 
+        -in $top -anchor center -expand 0 -fill x -pady 5 -side top 
     pack $top.fra36 \
-        -in $top -anchor center -expand 1 -fill x -side top 
+        -in $top -anchor center -expand 0 -fill x -pady 10 -side top 
 
     vTcl:FireEvent $base <<Ready>>
 }

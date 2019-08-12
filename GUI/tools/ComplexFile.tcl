@@ -606,7 +606,7 @@ set FileNameOutput1 ""
 set FileNameOutput2 ""
 set NligCmplx ""
 set NcolCmplx ""
-set CmplxOutputFormat ""
+set CmplxOutputFormat " "
 
 set types {
 {{BIN Files}        {.bin}        }
@@ -776,7 +776,7 @@ append FileNameOutput2 "_pha.bin"} \
         -background #ffff00 \
         -command {global FileNameInput FileNameOutput1 FileNameOutput2
 global Fonction Fonction2 ProgressLine CmplxOutputFormat
-global NligCmplx NcolCmplx PSPMemory TMPMemoryAllocError
+global NligCmplx NcolCmplx TMPMemoryAllocError
 
 if {$OpenDirFile == 0} {
     set FileDirInput [file dirname $FileNameInput]
@@ -789,28 +789,28 @@ if {$OpenDirFile == 0} {
     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
     update
     if {$CmplxOutputFormat == "realimag"} {
-        TextEditorRunTrace "Process The Function Soft/calculator/file_operand.exe" "k"
+        TextEditorRunTrace "Process The Function Soft/bin/calculator/file_operand.exe" "k"
         TextEditorRunTrace "Arguments: -if \x22$FileNameInput\x22 -it cmplx -of \x22$FileNameOutput1\x22 -ot float -op real -ofr 0 -ofc 0 -fnr $NligCmplx -fnc $NcolCmplx -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-        set f [ open "| Soft/calculator/file_operand.exe -if \x22$FileNameInput\x22 -it cmplx -of \x22$FileNameOutput1\x22 -ot float -op real -ofr 0 -ofc 0 -fnr $NligCmplx -fnc $NcolCmplx -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
-        TextEditorRunTrace "Process The Function Soft/calculator/file_operand.exe" "k"
+        set f [ open "| Soft/bin/calculator/file_operand.exe -if \x22$FileNameInput\x22 -it cmplx -of \x22$FileNameOutput1\x22 -ot float -op real -ofr 0 -ofc 0 -fnr $NligCmplx -fnc $NcolCmplx -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+        TextEditorRunTrace "Process The Function Soft/bin/calculator/file_operand.exe" "k"
         TextEditorRunTrace "Arguments: -if \x22$FileNameInput\x22 -it cmplx -of \x22$FileNameOutput2\x22 -ot float -op imag -ofr 0 -ofc 0 -fnr $NligCmplx -fnc $NcolCmplx -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-        set f [ open "| Soft/calculator/file_operand.exe -if \x22$FileNameInput\x22 -it cmplx -of \x22$FileNameOutput2\x22 -ot float -op imag -ofr 0 -ofc 0 -fnr $NligCmplx -fnc $NcolCmplx -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+        set f [ open "| Soft/bin/calculator/file_operand.exe -if \x22$FileNameInput\x22 -it cmplx -of \x22$FileNameOutput2\x22 -ot float -op imag -ofr 0 -ofc 0 -fnr $NligCmplx -fnc $NcolCmplx -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
         }
     if {$CmplxOutputFormat == "modargdeg"} {
-        TextEditorRunTrace "Process The Function Soft/calculator/file_operand.exe" "k"
+        TextEditorRunTrace "Process The Function Soft/bin/calculator/file_operand.exe" "k"
         TextEditorRunTrace "Arguments: -if \x22$FileNameInput\x22 -it cmplx -of \x22$FileNameOutput1\x22 -ot float -op abs -ofr 0 -ofc 0 -fnr $NligCmplx -fnc $NcolCmplx -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-        set f [ open "| Soft/calculator/file_operand.exe -if \x22$FileNameInput\x22 -it cmplx -of \x22$FileNameOutput1\x22 -ot float -op abs -ofr 0 -ofc 0 -fnr $NligCmplx -fnc $NcolCmplx -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
-        TextEditorRunTrace "Process The Function Soft/calculator/file_operand.exe" "k"
+        set f [ open "| Soft/bin/calculator/file_operand.exe -if \x22$FileNameInput\x22 -it cmplx -of \x22$FileNameOutput1\x22 -ot float -op abs -ofr 0 -ofc 0 -fnr $NligCmplx -fnc $NcolCmplx -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+        TextEditorRunTrace "Process The Function Soft/bin/calculator/file_operand.exe" "k"
         TextEditorRunTrace "Arguments: -if \x22$FileNameInput\x22 -it cmplx -of \x22$FileNameOutput2\x22 -ot float -op arg -ofr 0 -ofc 0 -fnr $NligCmplx -fnc $NcolCmplx -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-        set f [ open "| Soft/calculator/file_operand.exe -if \x22$FileNameInput\x22 -it cmplx -of \x22$FileNameOutput2\x22 -ot float -op arg -ofr 0 -ofc 0 -fnr $NligCmplx -fnc $NcolCmplx -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+        set f [ open "| Soft/bin/calculator/file_operand.exe -if \x22$FileNameInput\x22 -it cmplx -of \x22$FileNameOutput2\x22 -ot float -op arg -ofr 0 -ofc 0 -fnr $NligCmplx -fnc $NcolCmplx -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
         }
     if {$CmplxOutputFormat == "modargrad"} {
-        TextEditorRunTrace "Process The Function Soft/calculator/file_operand.exe" "k"
+        TextEditorRunTrace "Process The Function Soft/bin/calculator/file_operand.exe" "k"
         TextEditorRunTrace "Arguments: -if \x22$FileNameInput\x22 -it cmplx -of \x22$FileNameOutput1\x22 -ot float -op abs -ofr 0 -ofc 0 -fnr $NligCmplx -fnc $NcolCmplx -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-        set f [ open "| Soft/calculator/file_operand.exe -if \x22$FileNameInput\x22 -it cmplx -of \x22$FileNameOutput1\x22 -ot float -op abs -ofr 0 -ofc 0 -fnr $NligCmplx -fnc $NcolCmplx -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
-        TextEditorRunTrace "Process The Function Soft/calculator/file_operand.exe" "k"
+        set f [ open "| Soft/bin/calculator/file_operand.exe -if \x22$FileNameInput\x22 -it cmplx -of \x22$FileNameOutput1\x22 -ot float -op abs -ofr 0 -ofc 0 -fnr $NligCmplx -fnc $NcolCmplx -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+        TextEditorRunTrace "Process The Function Soft/bin/calculator/file_operand.exe" "k"
         TextEditorRunTrace "Arguments: -if \x22$FileNameInput\x22 -it cmplx -of \x22$FileNameOutput2\x22 -ot float -op argrad -ofr 0 -ofc 0 -fnr $NligCmplx -fnc $NcolCmplx -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-        set f [ open "| Soft/calculator/file_operand.exe -if \x22$FileNameInput\x22 -it cmplx -of \x22$FileNameOutput2\x22 -ot float -op argrad -ofr 0 -ofc 0 -fnr $NligCmplx -fnc $NcolCmplx -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+        set f [ open "| Soft/bin/calculator/file_operand.exe -if \x22$FileNameInput\x22 -it cmplx -of \x22$FileNameOutput2\x22 -ot float -op argrad -ofr 0 -ofc 0 -fnr $NligCmplx -fnc $NcolCmplx -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
         }
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"

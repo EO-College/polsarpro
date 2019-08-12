@@ -1698,7 +1698,7 @@ if {$ColorMapWishartCoded == "1"} {
         -command {global DataDirMult NDataDirMult TMPClusterCenter8 TMPClusterCenter16
 global WishartDirInput WishartDirOutput WishartOutputDir WishartOutputSubDir
 global WishartNwinL WishartNwinC WishartPourcentage WishartIteration BMPWishart
-global WishartHAAlpha WishartHAAlphaClassifFonction PSPMemory TMPMemoryAllocError
+global WishartHAAlpha WishartHAAlphaClassifFonction TMPMemoryAllocError
 global WishartEntropyFile WishartAnisotropyFile WishartAlphaFile
 global ColorMapWishart8 ColorMapWishart16 ColorMapWishartCoded ColorMapWishartCodedPauli ColorMapWishartCodedSinclair
 global Fonction Fonction2 ProgressLine VarWarning WarningMessage WarningMessage2 OpenDirFile
@@ -1770,9 +1770,9 @@ if {"$VarWarning"=="ok"} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/data_process_mult/wishart_h_a_alpha_classifierSPPC2_mult.exe" "k"
-        TextEditorRunTrace "Arguments: -id \x22$WishartDirInput\x22 -od \x22$WishartDirOutput\x22 -iodf $WishartHAAlphaClassifFonction -nwr $WishartNwinL -nwc $WishartNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -pct $WishartPourcentage -nit $WishartIteration -bmp $BMPWishart -co8 \x22$ColorMapWishart8\x22 -co16 \x22$ColorMapWishart16\x22 -hf \x22$WishartEntropyFile\x22 -af \x22$WishartAnisotropyFile\x22 -alf \x22$WishartAlphaFile\x22 -tmp8 \x22$TMPClusterCenter8\x22 -tmp16 \x22$TMPClusterCenter16\x22 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-        set f [ open "| Soft/data_process_mult/wishart_h_a_alpha_classifierSPPC2_mult.exe -id \x22$WishartDirInput\x22 -od \x22$WishartDirOutput\x22 -iodf $WishartHAAlphaClassifFonction -nwr $WishartNwinL -nwc $WishartNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -pct $WishartPourcentage -nit $WishartIteration -bmp $BMPWishart -co8 \x22$ColorMapWishart8\x22 -co16 \x22$ColorMapWishart16\x22 -hf \x22$WishartEntropyFile\x22 -af \x22$WishartAnisotropyFile\x22 -alf \x22$WishartAlphaFile\x22 -tmp8 \x22$TMPClusterCenter8\x22 -tmp16 \x22$TMPClusterCenter16\x22 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+        TextEditorRunTrace "Process The Function Soft/bin/data_process_mult/wishart_h_a_alpha_classifierSPPC2_mult.exe" "k"
+        TextEditorRunTrace "Arguments: -id \x22$WishartDirInput\x22 -od \x22$WishartDirOutput\x22 -iodf $WishartHAAlphaClassifFonction -nwr $WishartNwinL -nwc $WishartNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -pct $WishartPourcentage -nit $WishartIteration -bmp $BMPWishart -co8 \x22$ColorMapWishart8\x22 -co16 \x22$ColorMapWishart16\x22 -hf \x22$WishartEntropyFile\x22 -af \x22$WishartAnisotropyFile\x22 -alf \x22$WishartAlphaFile\x22 -tmp8 \x22$TMPClusterCenter8\x22 -tmp16 \x22$TMPClusterCenter16\x22  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+        set f [ open "| Soft/bin/data_process_mult/wishart_h_a_alpha_classifierSPPC2_mult.exe -id \x22$WishartDirInput\x22 -od \x22$WishartDirOutput\x22 -iodf $WishartHAAlphaClassifFonction -nwr $WishartNwinL -nwc $WishartNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -pct $WishartPourcentage -nit $WishartIteration -bmp $BMPWishart -co8 \x22$ColorMapWishart8\x22 -co16 \x22$ColorMapWishart16\x22 -hf \x22$WishartEntropyFile\x22 -af \x22$WishartAnisotropyFile\x22 -alf \x22$WishartAlphaFile\x22 -tmp8 \x22$TMPClusterCenter8\x22 -tmp16 \x22$TMPClusterCenter16\x22  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError
@@ -1803,9 +1803,9 @@ if {"$VarWarning"=="ok"} {
                     set ProgressLine "0"
                     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                     update
-                    TextEditorRunTrace "Process The Function Soft/bmp_process/classification_colormap_SPPIPPC2.exe" "k"
-                    TextEditorRunTrace "Arguments: -id \x22$WishartDirInput\x22 -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -iodf $WishartHAAlphaClassifFonction -rgbf RGB1 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                    set f [ open "| Soft/bmp_process/classification_colormap_SPPIPPC2.exe -id \x22$WishartDirInput\x22 -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -iodf $WishartHAAlphaClassifFonction -rgbf RGB1 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/classification_colormap_SPPIPPC2.exe" "k"
+                    TextEditorRunTrace "Arguments: -id \x22$WishartDirInput\x22 -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -iodf $WishartHAAlphaClassifFonction -rgbf RGB1 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                    set f [ open "| Soft/bin/bmp_process/classification_colormap_SPPIPPC2.exe -id \x22$WishartDirInput\x22 -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -iodf $WishartHAAlphaClassifFonction -rgbf RGB1 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                     PsPprogressBar $f
                     TextEditorRunTrace "Check RunTime Errors" "r"
                     CheckRunTimeError
@@ -1822,9 +1822,9 @@ if {"$VarWarning"=="ok"} {
                     set ProgressLine "0"
                     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                     update
-                    TextEditorRunTrace "Process The Function Soft/bmp_process/classification_colormap_SPPIPPC2.exe" "k"
-                    TextEditorRunTrace "Arguments: -id \x22$WishartDirInput\x22 -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -iodf $WishartHAAlphaClassifFonction -rgbf RGB2 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                    set f [ open "| Soft/bmp_process/classification_colormap_SPPIPPC2.exe -id \x22$WishartDirInput\x22 -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -iodf $WishartHAAlphaClassifFonction -rgbf RGB2 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/classification_colormap_SPPIPPC2.exe" "k"
+                    TextEditorRunTrace "Arguments: -id \x22$WishartDirInput\x22 -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -iodf $WishartHAAlphaClassifFonction -rgbf RGB2 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                    set f [ open "| Soft/bin/bmp_process/classification_colormap_SPPIPPC2.exe -id \x22$WishartDirInput\x22 -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -iodf $WishartHAAlphaClassifFonction -rgbf RGB2 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                     PsPprogressBar $f
                     TextEditorRunTrace "Check RunTime Errors" "r"
                     CheckRunTimeError
@@ -1851,9 +1851,9 @@ if {"$VarWarning"=="ok"} {
                     set ProgressLine "0"
                     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                     update
-                    TextEditorRunTrace "Process The Function Soft/bmp_process/classification_colormap_SPPIPPC2.exe" "k"
-                    TextEditorRunTrace "Arguments: -id \x22$WishartDirInput\x22 -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -iodf $WishartHAAlphaClassifFonction -rgbf RGB1 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                    set f [ open "| Soft/bmp_process/classification_colormap_SPPIPPC2.exe -id \x22$WishartDirInput\x22 -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -iodf $WishartHAAlphaClassifFonction -rgbf RGB1 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/classification_colormap_SPPIPPC2.exe" "k"
+                    TextEditorRunTrace "Arguments: -id \x22$WishartDirInput\x22 -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -iodf $WishartHAAlphaClassifFonction -rgbf RGB1 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                    set f [ open "| Soft/bin/bmp_process/classification_colormap_SPPIPPC2.exe -id \x22$WishartDirInput\x22 -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -iodf $WishartHAAlphaClassifFonction -rgbf RGB1 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                     PsPprogressBar $f
                     TextEditorRunTrace "Check RunTime Errors" "r"
                     CheckRunTimeError
@@ -1870,9 +1870,9 @@ if {"$VarWarning"=="ok"} {
                     set ProgressLine "0"
                     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                     update
-                    TextEditorRunTrace "Process The Function Soft/bmp_process/classification_colormap_SPPIPPC2.exe" "k"
-                    TextEditorRunTrace "Arguments: -id \x22$WishartDirInput\x22 -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -iodf $WishartHAAlphaClassifFonction -rgbf RGB2 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                    set f [ open "| Soft/bmp_process/classification_colormap_SPPIPPC2.exe -id \x22$WishartDirInput\x22 -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -iodf $WishartHAAlphaClassifFonction -rgbf RGB2 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/classification_colormap_SPPIPPC2.exe" "k"
+                    TextEditorRunTrace "Arguments: -id \x22$WishartDirInput\x22 -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -iodf $WishartHAAlphaClassifFonction -rgbf RGB2 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                    set f [ open "| Soft/bin/bmp_process/classification_colormap_SPPIPPC2.exe -id \x22$WishartDirInput\x22 -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -iodf $WishartHAAlphaClassifFonction -rgbf RGB2 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                     PsPprogressBar $f
                     TextEditorRunTrace "Check RunTime Errors" "r"
                     CheckRunTimeError
@@ -1920,9 +1920,9 @@ if {"$VarWarning"=="ok"} {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/data_process_mult/mult_wishart_h_a_alpha_classifierSPPC2.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$WishDirInput\x22 -od \x22$WishDirOutput\x22 -iodf $WishartHAAlphaClassifFonction -nwr $WishartNwinL -nwc $WishartNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -bmp $BMPWishart -co8 \x22$ColorMapWishart8\x22 -co16 \x22$ColorMapWishart16\x22 -tmp8 \x22$TMPClusterCenter8\x22 -tmp16 \x22$TMPClusterCenter16\x22 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_mult/mult_wishart_h_a_alpha_classifierSPPC2.exe -id \x22$WishDirInput\x22 -od \x22$WishDirOutput\x22 -iodf $WishartHAAlphaClassifFonction -nwr $WishartNwinL -nwc $WishartNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -bmp $BMPWishart -co8 \x22$ColorMapWishart8\x22 -co16 \x22$ColorMapWishart16\x22 -tmp8 \x22$TMPClusterCenter8\x22 -tmp16 \x22$TMPClusterCenter16\x22 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_mult/mult_wishart_h_a_alpha_classifierSPPC2.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$WishDirInput\x22 -od \x22$WishDirOutput\x22 -iodf $WishartHAAlphaClassifFonction -nwr $WishartNwinL -nwc $WishartNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -bmp $BMPWishart -co8 \x22$ColorMapWishart8\x22 -co16 \x22$ColorMapWishart16\x22 -tmp8 \x22$TMPClusterCenter8\x22 -tmp16 \x22$TMPClusterCenter16\x22  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_mult/mult_wishart_h_a_alpha_classifierSPPC2.exe -id \x22$WishDirInput\x22 -od \x22$WishDirOutput\x22 -iodf $WishartHAAlphaClassifFonction -nwr $WishartNwinL -nwc $WishartNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -bmp $BMPWishart -co8 \x22$ColorMapWishart8\x22 -co16 \x22$ColorMapWishart16\x22 -tmp8 \x22$TMPClusterCenter8\x22 -tmp16 \x22$TMPClusterCenter16\x22  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1953,9 +1953,9 @@ if {"$VarWarning"=="ok"} {
                         set ProgressLine "0"
                         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                         update
-                        TextEditorRunTrace "Process The Function Soft/bmp_process/classification_colormap_SPPIPPC2.exe" "k"
-                        TextEditorRunTrace "Arguments: -id \x22$WishartDirInput\x22 -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -iodf $WishartHAAlphaClassifFonction -rgbf RGB1 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                        set f [ open "| Soft/bmp_process/classification_colormap_SPPIPPC2.exe -id \x22$WishartDirInput\x22 -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -iodf $WishartHAAlphaClassifFonction -rgbf RGB1 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                        TextEditorRunTrace "Process The Function Soft/bin/bmp_process/classification_colormap_SPPIPPC2.exe" "k"
+                        TextEditorRunTrace "Arguments: -id \x22$WishartDirInput\x22 -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -iodf $WishartHAAlphaClassifFonction -rgbf RGB1 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                        set f [ open "| Soft/bin/bmp_process/classification_colormap_SPPIPPC2.exe -id \x22$WishartDirInput\x22 -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -iodf $WishartHAAlphaClassifFonction -rgbf RGB1 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                         PsPprogressBar $f
                         TextEditorRunTrace "Check RunTime Errors" "r"
                         CheckRunTimeError
@@ -1972,9 +1972,9 @@ if {"$VarWarning"=="ok"} {
                         set ProgressLine "0"
                         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                         update
-                        TextEditorRunTrace "Process The Function Soft/bmp_process/classification_colormap_SPPIPPC2.exe" "k"
-                        TextEditorRunTrace "Arguments: -id \x22$WishartDirInput\x22 -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -iodf $WishartHAAlphaClassifFonction -rgbf RGB2 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                        set f [ open "| Soft/bmp_process/classification_colormap_SPPIPPC2.exe -id \x22$WishartDirInput\x22 -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -iodf $WishartHAAlphaClassifFonction -rgbf RGB2 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                        TextEditorRunTrace "Process The Function Soft/bin/bmp_process/classification_colormap_SPPIPPC2.exe" "k"
+                        TextEditorRunTrace "Arguments: -id \x22$WishartDirInput\x22 -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -iodf $WishartHAAlphaClassifFonction -rgbf RGB2 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                        set f [ open "| Soft/bin/bmp_process/classification_colormap_SPPIPPC2.exe -id \x22$WishartDirInput\x22 -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -iodf $WishartHAAlphaClassifFonction -rgbf RGB2 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                         PsPprogressBar $f
                         TextEditorRunTrace "Check RunTime Errors" "r"
                         CheckRunTimeError
@@ -2001,9 +2001,9 @@ if {"$VarWarning"=="ok"} {
                         set ProgressLine "0"
                         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                         update
-                        TextEditorRunTrace "Process The Function Soft/bmp_process/classification_colormap_SPPIPPC2.exe" "k"
-                        TextEditorRunTrace "Arguments: -id \x22$WishartDirInput\x22 -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -iodf $WishartHAAlphaClassifFonction -rgbf RGB1 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                        set f [ open "| Soft/bmp_process/classification_colormap_SPPIPPC2.exe -id \x22$WishartDirInput\x22 -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -iodf $WishartHAAlphaClassifFonction -rgbf RGB1 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                        TextEditorRunTrace "Process The Function Soft/bin/bmp_process/classification_colormap_SPPIPPC2.exe" "k"
+                        TextEditorRunTrace "Arguments: -id \x22$WishartDirInput\x22 -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -iodf $WishartHAAlphaClassifFonction -rgbf RGB1 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                        set f [ open "| Soft/bin/bmp_process/classification_colormap_SPPIPPC2.exe -id \x22$WishartDirInput\x22 -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -iodf $WishartHAAlphaClassifFonction -rgbf RGB1 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                         PsPprogressBar $f
                         TextEditorRunTrace "Check RunTime Errors" "r"
                         CheckRunTimeError
@@ -2020,9 +2020,9 @@ if {"$VarWarning"=="ok"} {
                         set ProgressLine "0"
                         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                         update
-                        TextEditorRunTrace "Process The Function Soft/bmp_process/classification_colormap_SPPIPPC2.exe" "k"
-                        TextEditorRunTrace "Arguments: -id \x22$WishartDirInput\x22 -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -iodf $WishartHAAlphaClassifFonction -rgbf RGB2 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                        set f [ open "| Soft/bmp_process/classification_colormap_SPPIPPC2.exe -id \x22$WishartDirInput\x22 -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -iodf $WishartHAAlphaClassifFonction -rgbf RGB2 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                        TextEditorRunTrace "Process The Function Soft/bin/bmp_process/classification_colormap_SPPIPPC2.exe" "k"
+                        TextEditorRunTrace "Arguments: -id \x22$WishartDirInput\x22 -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -iodf $WishartHAAlphaClassifFonction -rgbf RGB2 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                        set f [ open "| Soft/bin/bmp_process/classification_colormap_SPPIPPC2.exe -id \x22$WishartDirInput\x22 -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -iodf $WishartHAAlphaClassifFonction -rgbf RGB2 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                         PsPprogressBar $f
                         TextEditorRunTrace "Check RunTime Errors" "r"
                         CheckRunTimeError

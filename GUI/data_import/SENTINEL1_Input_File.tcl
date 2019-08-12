@@ -521,26 +521,6 @@ proc vTcl:project:info {} {
     namespace eval ::widgets::$site_5_0.cpd81 {
         array set save {-background 1 -command 1 -padx 1 -pady 1 -text 1}
     }
-    namespace eval ::widgets::$site_3_0.cpd82 {
-        array set save {-text 1}
-    }
-    set site_5_0 [$site_3_0.cpd82 getframe]
-    namespace eval ::widgets::$site_5_0 {
-        array set save {}
-    }
-    set site_5_0 $site_5_0
-    namespace eval ::widgets::$site_5_0.ent78 {
-        array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -justify 1 -state 1 -textvariable 1 -width 1}
-    }
-    namespace eval ::widgets::$site_5_0.cpd80 {
-        array set save {-command 1 -image 1 -pady 1 -text 1}
-    }
-    namespace eval ::widgets::$site_5_0.but79 {
-        array set save {-command 1 -image 1 -pady 1 -text 1}
-    }
-    namespace eval ::widgets::$site_5_0.cpd81 {
-        array set save {-background 1 -command 1 -padx 1 -pady 1 -text 1}
-    }
     namespace eval ::widgets::$site_3_0.cpd83 {
         array set save {-_tooltip 1 -background 1 -command 1 -image 1 -padx 1 -pady 1 -text 1}
     }
@@ -622,30 +602,6 @@ proc vTcl:project:info {} {
         array set save {-borderwidth 1 -height 1 -width 1}
     }
     set site_3_0 $base.fra87
-    namespace eval ::widgets::$site_3_0.cpd88 {
-        array set save {-borderwidth 1 -height 1 -width 1}
-    }
-    set site_4_0 $site_3_0.cpd88
-    namespace eval ::widgets::$site_4_0.cpd84 {
-        array set save {-borderwidth 1 -height 1 -width 1}
-    }
-    set site_5_0 $site_4_0.cpd84
-    namespace eval ::widgets::$site_5_0.lab77 {
-        array set save {-text 1}
-    }
-    namespace eval ::widgets::$site_5_0.ent78 {
-        array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -justify 1 -state 1 -textvariable 1 -width 1}
-    }
-    namespace eval ::widgets::$site_4_0.cpd85 {
-        array set save {-borderwidth 1 -height 1 -width 1}
-    }
-    set site_5_0 $site_4_0.cpd85
-    namespace eval ::widgets::$site_5_0.lab79 {
-        array set save {-text 1}
-    }
-    namespace eval ::widgets::$site_5_0.ent80 {
-        array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -justify 1 -state 1 -textvariable 1 -width 1}
-    }
     namespace eval ::widgets::$site_3_0.cpd89 {
         array set save {-borderwidth 1 -height 1 -width 1}
     }
@@ -669,16 +625,6 @@ proc vTcl:project:info {} {
     }
     namespace eval ::widgets::$site_5_0.ent80 {
         array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -justify 1 -state 1 -textvariable 1 -width 1}
-    }
-    namespace eval ::widgets::$site_3_0.fra66 {
-        array set save {-borderwidth 1 -height 1 -relief 1 -width 1}
-    }
-    set site_4_0 $site_3_0.fra66
-    namespace eval ::widgets::$site_4_0.ent68 {
-        array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -justify 1 -relief 1 -state 1 -textvariable 1 -width 1}
-    }
-    namespace eval ::widgets::$site_4_0.cpd67 {
-        array set save {-text 1 -variable 1}
     }
     namespace eval ::widgets::$base.fra71 {
         array set save {-height 1 -relief 1 -width 1}
@@ -750,8 +696,8 @@ proc vTclWindow. {base} {
     # CREATING WIDGETS
     ###################
     wm focusmodel $top passive
-    wm geometry $top 200x200+175+175; update
-    wm maxsize $top 3360 1028
+    wm geometry $top 200x200+100+100; update
+    wm maxsize $top 3356 1024
     wm minsize $top 116 1
     wm overrideredirect $top 0
     wm resizable $top 1 1
@@ -782,7 +728,7 @@ proc vTclWindow.top453 {base} {
     vTcl:toplevel $top -class Toplevel
     wm withdraw $top
     wm focusmodel $top passive
-    wm geometry $top 500x500+10+110; update
+    wm geometry $top 500x475+10+110; update
     wm maxsize $top 1604 1184
     wm minsize $top 116 1
     wm overrideredirect $top 0
@@ -1019,26 +965,20 @@ $widget(TitleFrame453_1) configure  -state disable
 $widget(Entry453_1) configure -disabledbackground $PSPBackgroundColor; $widget(Button453_1) configure -state disable
 $widget(TitleFrame453_2) configure  -state disable
 $widget(Entry453_2) configure -disabledbackground $PSPBackgroundColor; $widget(Button453_2) configure -state disable
-$widget(TitleFrame453_01) configure  -state disable
-$widget(Entry453_01) configure -disabledbackground $PSPBackgroundColor
-$widget(Button453_01) configure -state disable; $widget(Button453_02) configure -state disable; $widget(Button453_03) configure -state disable
 $widget(Button453_04) configure -state disable
-$widget(Checkbutton453_01) configure -state disable; set SENTINEL1FUD 0
 $widget(Entry453_02) configure -disabledbackground $PSPBackgroundColor; $widget(Label453_02) configure -state disable
 $widget(Entry453_03) configure -disabledbackground $PSPBackgroundColor; $widget(Label453_03) configure -state disable
 $widget(Entry453_04) configure -disabledbackground $PSPBackgroundColor; $widget(Label453_04) configure -state disable
-$widget(Entry453_05) configure -disabledbackground $PSPBackgroundColor; $widget(Label453_05) configure -state disable
-$widget(Entry453_06) configure -disabledbackground $PSPBackgroundColor; $widget(Label453_06) configure -state disable
 $widget(Entry453_07) configure -disabledbackground $PSPBackgroundColor; $widget(Label453_07) configure -state disable
 $widget(Entry453_08) configure -disabledbackground $PSPBackgroundColor; $widget(Label453_08) configure -state disable
-$widget(Entry453_09) configure -disabledbackground $PSPBackgroundColor; set SENTINEL1Acq ""
-$widget(Checkbutton453_01) configure -state disable; set SENTINEL1FUD 0
+set SENTINEL1Acq ""
+set SENTINEL1FUD 0
 $widget(Button453_6) configure -state disable
         
 set SENTINEL1Swath [expr $SENTINEL1Swath + 1]
 if {$SENTINEL1Swath > $SENTINEL1SwathMax} { set SENTINEL1Swath 1 }} \
-        -image [vTcl:image:get_image [file join . GUI Images up.gif]] \
-        -pady 0 -text button 
+        -image [vTcl:image:get_image [file join . GUI Images up.gif]] -pady 0 \
+        -text button 
     vTcl:DefineAlias "$site_5_0.cpd80" "Button3" vTcl:WidgetProc "Toplevel453" 1
     button $site_5_0.but79 \
         \
@@ -1057,19 +997,14 @@ $widget(TitleFrame453_1) configure  -state disable
 $widget(Entry453_1) configure -disabledbackground $PSPBackgroundColor; $widget(Button453_1) configure -state disable
 $widget(TitleFrame453_2) configure  -state disable
 $widget(Entry453_2) configure -disabledbackground $PSPBackgroundColor; $widget(Button453_2) configure -state disable
-$widget(TitleFrame453_01) configure  -state disable
-$widget(Entry453_01) configure -disabledbackground $PSPBackgroundColor
-$widget(Button453_01) configure -state disable; $widget(Button453_02) configure -state disable; $widget(Button453_03) configure -state disable
 $widget(Button453_04) configure -state disable
 $widget(Entry453_02) configure -disabledbackground $PSPBackgroundColor; $widget(Label453_02) configure -state disable
 $widget(Entry453_03) configure -disabledbackground $PSPBackgroundColor; $widget(Label453_03) configure -state disable
 $widget(Entry453_04) configure -disabledbackground $PSPBackgroundColor; $widget(Label453_04) configure -state disable
-$widget(Entry453_05) configure -disabledbackground $PSPBackgroundColor; $widget(Label453_05) configure -state disable
-$widget(Entry453_06) configure -disabledbackground $PSPBackgroundColor; $widget(Label453_06) configure -state disable
 $widget(Entry453_07) configure -disabledbackground $PSPBackgroundColor; $widget(Label453_07) configure -state disable
 $widget(Entry453_08) configure -disabledbackground $PSPBackgroundColor; $widget(Label453_08) configure -state disable
-$widget(Entry453_09) configure -disabledbackground $PSPBackgroundColor; set SENTINEL1Acq ""
-$widget(Checkbutton453_01) configure -state disable; set SENTINEL1FUD 0
+set SENTINEL1Acq ""
+set SENTINEL1FUD 0
 $widget(Button453_6) configure -state disable
 
 set SENTINEL1Swath [expr $SENTINEL1Swath - 1]
@@ -1083,10 +1018,17 @@ if {$SENTINEL1Swath == 0} { set SENTINEL1Swath $SENTINEL1SwathMax }} \
 global SENTINEL1DataFormat SENTINEL1ProductFile SENTINEL1Mode SENTINEL1Swath
 global SENTINEL1Burst SENTINEL1BurstMax
 global SENTINEL1Acq SENTINEL1FUD
+global SENTINEL1PixRg SENTINEL1PixAz SENTINEL1IncAngle
+global SENTINEL1NcolInit SENTINEL1NligInit
+global SENTINEL1LigInit SENTINEL1LigFinal SENTINEL1NligFinal
+global SENTINEL1ColInit SENTINEL1ColFinal SENTINEL1NcolFinal
+global SENTINEL1Acq SENTINEL1FUD
 global FileInput1 FileInput2
 global VarWarning VarAdvice WarningMessage WarningMessage2 ErrorMessage VarError
 global NligInit NligEnd NligFullSize NcolInit NcolEnd NcolFullSize
-global TMPSentinel1Config OpenDirFile PolarType
+global TMPSentinel1Config TMPGoogle OpenDirFile PolarType
+global GoogleLatCenter GoogleLongCenter GoogleLat00 GoogleLong00 GoogleLat0N GoogleLong0N
+global GoogleLatN0 GoogleLongN0 GoogleLatNN GoogleLongNN
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
 global VarAdvice WarningMessage WarningMessage2 WarningMessage3 WarningMessage4
 
@@ -1120,144 +1062,14 @@ if [file exists $SENTINEL1FileProduct] {
         close $f
         set SENTINEL1BurstMax [expr $NumLinesImg / $NumLinesBurst]
         set SENTINEL1Burst "ALL"
-        $widget(TitleFrame453_01) configure  -state normal
-        $widget(Entry453_01) configure -disabledbackground #FFFFFF
-        $widget(Button453_01) configure -state normal; $widget(Button453_02) configure -state normal
-        $widget(Button453_03) configure -state normal;
-        } else {
-        set ErrorMessage "PRODUCT FILE IS NOT AN XML FILE"
-        Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
-        tkwait variable VarError
-        }
-        #TMPSentinel1Config Exists
-    } else {
-    set ErrorMessage "ENTER THE XML - PRODUCT FILE NAME"
-    Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
-    tkwait variable VarError
-    set SENTINEL1FileInputFlag 0
-    }
-    #ProductFile Exists
-}
-#OpenDirFile} \
-        -padx 4 -pady 2 -text OK 
-    vTcl:DefineAlias "$site_5_0.cpd81" "Button4" vTcl:WidgetProc "Toplevel453" 1
-    pack $site_5_0.ent78 \
-        -in $site_5_0 -anchor center -expand 0 -fill none -padx 5 -side left 
-    pack $site_5_0.cpd80 \
-        -in $site_5_0 -anchor center -expand 0 -fill none -padx 1 -side left 
-    pack $site_5_0.but79 \
-        -in $site_5_0 -anchor center -expand 0 -fill none -padx 1 -side left 
-    pack $site_5_0.cpd81 \
-        -in $site_5_0 -anchor center -expand 0 -fill none -padx 5 -side left 
-    TitleFrame $site_3_0.cpd82 \
-        -text Burst 
-    vTcl:DefineAlias "$site_3_0.cpd82" "TitleFrame453_01" vTcl:WidgetProc "Toplevel453" 1
-    bind $site_3_0.cpd82 <Destroy> {
-        Widget::destroy %W; rename %W {}
-    }
-    set site_5_0 [$site_3_0.cpd82 getframe]
-    entry $site_5_0.ent78 \
-        -background white -disabledbackground #ffffff \
-        -disabledforeground #0000ff -justify center -state disabled \
-        -textvariable SENTINEL1Burst -width 5 
-    vTcl:DefineAlias "$site_5_0.ent78" "Entry453_01" vTcl:WidgetProc "Toplevel453" 1
-    button $site_5_0.cpd80 \
-        \
-        -command {global SENTINEL1Burst SENTINEL1BurstMax
-global SENTINEL1PixAz SENTINEL1PixRg SENTINEL1IncAngle
-global SENTINEL1Acq SENTINEL1FUD
-global SENTINEL1NligInit SENTINEL1NcolInit SENTINEL1NligFinal SENTINEL1NcolFinal
-global FileInput1 FileInput2
 
-set SENTINEL1PixAz ""; set SENTINEL1PixRg ""; set SENTINEL1IncAngle ""
-set SENTINEL1NligInit ""; set SENTINEL1NcolInit ""; set SENTINEL1NligFinal ""; set SENTINEL1NcolFinal ""
-set FileInput1 ""; set FileInput2 ""
-$widget(TitleFrame453_1) configure  -state disable
-$widget(Entry453_1) configure -disabledbackground $PSPBackgroundColor; $widget(Button453_1) configure -state disable
-$widget(TitleFrame453_2) configure  -state disable
-$widget(Entry453_2) configure -disabledbackground $PSPBackgroundColor; $widget(Button453_2) configure -state disable
-$widget(Button453_04) configure -state disable
-$widget(Entry453_02) configure -disabledbackground $PSPBackgroundColor; $widget(Label453_02) configure -state disable
-$widget(Entry453_03) configure -disabledbackground $PSPBackgroundColor; $widget(Label453_03) configure -state disable
-$widget(Entry453_04) configure -disabledbackground $PSPBackgroundColor; $widget(Label453_04) configure -state disable
-$widget(Entry453_05) configure -disabledbackground $PSPBackgroundColor; $widget(Label453_05) configure -state disable
-$widget(Entry453_06) configure -disabledbackground $PSPBackgroundColor; $widget(Label453_06) configure -state disable
-$widget(Entry453_07) configure -disabledbackground $PSPBackgroundColor; $widget(Label453_07) configure -state disable
-$widget(Entry453_08) configure -disabledbackground $PSPBackgroundColor; $widget(Label453_08) configure -state disable
-$widget(Entry453_09) configure -disabledbackground $PSPBackgroundColor; set SENTINEL1Acq ""
-$widget(Checkbutton453_01) configure -state disable; set SENTINEL1FUD 0
-$widget(Button453_6) configure -state disable
+#####################################################################
+#####################################################################
 
-if {$SENTINEL1Burst == "ALL"} {
-  set SENTINEL1Burst 1
-  } else {
-  set SENTINEL1Burst [expr $SENTINEL1Burst + 1]
-  if {$SENTINEL1Burst > $SENTINEL1BurstMax} { set SENTINEL1Burst "ALL" }
-  }} \
-        -image [vTcl:image:get_image [file join . GUI Images up.gif]] \
-        -pady 0 -text button 
-    vTcl:DefineAlias "$site_5_0.cpd80" "Button453_02" vTcl:WidgetProc "Toplevel453" 1
-    button $site_5_0.but79 \
-        \
-        -command {global SENTINEL1Burst SENTINEL1BurstMax
-global SENTINEL1PixAz SENTINEL1PixRg SENTINEL1IncAngle
-global SENTINEL1Acq SENTINEL1FUD
-global SENTINEL1NligInit SENTINEL1NcolInit SENTINEL1NligFinal SENTINEL1NcolFinal
-global FileInput1 FileInput2
-
-set SENTINEL1PixAz ""; set SENTINEL1PixRg ""; set SENTINEL1IncAngle ""
-set SENTINEL1NligInit ""; set SENTINEL1NcolInit ""; set SENTINEL1NligFinal ""; set SENTINEL1NcolFinal ""
-set FileInput1 ""; set FileInput2 ""
-$widget(TitleFrame453_1) configure  -state disable
-$widget(Entry453_1) configure -disabledbackground $PSPBackgroundColor; $widget(Button453_1) configure -state disable
-$widget(TitleFrame453_2) configure  -state disable
-$widget(Entry453_2) configure -disabledbackground $PSPBackgroundColor; $widget(Button453_2) configure -state disable
-$widget(Button453_04) configure -state disable
-$widget(Entry453_02) configure -disabledbackground $PSPBackgroundColor; $widget(Label453_02) configure -state disable
-$widget(Entry453_03) configure -disabledbackground $PSPBackgroundColor; $widget(Label453_03) configure -state disable
-$widget(Entry453_04) configure -disabledbackground $PSPBackgroundColor; $widget(Label453_04) configure -state disable
-$widget(Entry453_05) configure -disabledbackground $PSPBackgroundColor; $widget(Label453_05) configure -state disable
-$widget(Entry453_06) configure -disabledbackground $PSPBackgroundColor; $widget(Label453_06) configure -state disable
-$widget(Entry453_07) configure -disabledbackground $PSPBackgroundColor; $widget(Label453_07) configure -state disable
-$widget(Entry453_08) configure -disabledbackground $PSPBackgroundColor; $widget(Label453_08) configure -state disable
-$widget(Entry453_09) configure -disabledbackground $PSPBackgroundColor; set SENTINEL1Acq ""
-$widget(Checkbutton453_01) configure -state disable; set SENTINEL1FUD 0
-$widget(Button453_6) configure -state disable
-
-if {$SENTINEL1Burst == "ALL"} {
-  set SENTINEL1Burst $SENTINEL1BurstMax
-  } else {
-  set SENTINEL1Burst [expr $SENTINEL1Burst - 1]
-  if {$SENTINEL1Burst == 0} { set SENTINEL1Burst "ALL" }
-  }} \
-        -image [vTcl:image:get_image [file join . GUI Images down.gif]] \
-        -pady 0 -text button 
-    vTcl:DefineAlias "$site_5_0.but79" "Button453_01" vTcl:WidgetProc "Toplevel453" 1
-    button $site_5_0.cpd81 \
-        -background #ffff00 \
-        -command {global SENTINEL1DirInput SENTINEL1DirOutput SENTINEL1FileInputFlag
-global SENTINEL1DataFormat SENTINEL1ProductFile SENTINEL1Mode
-global SENTINEL1Swath SENTINEL1Burst
-global SENTINEL1PixRg SENTINEL1PixAz SENTINEL1IncAngle
-global SENTINEL1NcolInit SENTINEL1NligInit
-global SENTINEL1LigInit SENTINEL1LigFinal SENTINEL1NligFinal
-global SENTINEL1ColInit SENTINEL1ColFinal SENTINEL1NcolFinal
-global SENTINEL1Acq SENTINEL1FUD
-global FileInput1 FileInput2
-global VarWarning VarAdvice WarningMessage WarningMessage2 ErrorMessage VarError
-global NligInit NligEnd NligFullSize NcolInit NcolEnd NcolFullSize
-global TMPSentinel1Config TMPGoogle OpenDirFile PolarType
-global GoogleLatCenter GoogleLongCenter GoogleLat00 GoogleLong00 GoogleLat0N GoogleLong0N
-global GoogleLatN0 GoogleLongN0 GoogleLatNN GoogleLongNN
-global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
-global VarAdvice WarningMessage WarningMessage2 WarningMessage3 WarningMessage4
-
-if {$OpenDirFile == 0} {
-
-set SENTINEL1DirOutput $SENTINEL1DirInput
+#set SENTINEL1DirOutput $SENTINEL1DirInput
 append SENTINEL1DirOutput "/$SENTINEL1Mode"
 append SENTINEL1DirOutput "$SENTINEL1Swath"
-append SENTINEL1DirOutput "_$SENTINEL1Burst"
+#append SENTINEL1DirOutput "_$SENTINEL1Burst"
 
 #####################################################################
 #Create Directory
@@ -1274,9 +1086,9 @@ set SENTINELBurstOut $SENTINEL1Burst
 if {$SENTINEL1Burst == "ALL"} { set SENTINELBurstOut 0 }
 
 if [file exists $SENTINEL1File] {
-    TextEditorRunTrace "Process The Function Soft/data_import/sentinel1_header.exe" "k"
+    TextEditorRunTrace "Process The Function Soft/bin/data_import/sentinel1_header.exe" "k"
     TextEditorRunTrace "Arguments: -if \x22$SENTINEL1File\x22 -of \x22$TMPSentinel1Config\x22 -bn $SENTINELBurstOut" "k"
-    set f [ open "| Soft/data_import/sentinel1_header.exe -if \x22$SENTINEL1File\x22 -of \x22$TMPSentinel1Config\x22 -bn $SENTINELBurstOut" r]
+    set f [ open "| Soft/bin/data_import/sentinel1_header.exe -if \x22$SENTINEL1File\x22 -of \x22$TMPSentinel1Config\x22 -bn $SENTINELBurstOut" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError
@@ -1299,13 +1111,17 @@ if [file exists $SENTINEL1File] {
         $widget(Label453_02) configure -state normal; $widget(Entry453_02) configure -disabledbackground #FFFFFF
         $widget(Label453_03) configure -state normal; $widget(Entry453_03) configure -disabledbackground #FFFFFF
         $widget(Label453_04) configure -state normal; $widget(Entry453_04) configure -disabledbackground #FFFFFF
-        $widget(Label453_05) configure -state normal; $widget(Entry453_05) configure -disabledbackground #FFFFFF
-        $widget(Label453_06) configure -state normal; $widget(Entry453_06) configure -disabledbackground #FFFFFF
         $widget(Label453_07) configure -state normal; $widget(Entry453_07) configure -disabledbackground #FFFFFF
         $widget(Label453_08) configure -state normal; $widget(Entry453_08) configure -disabledbackground #FFFFFF
-        $widget(Entry453_09) configure -disabledbackground #FFFFFF
-        $widget(Checkbutton453_01) configure -state normal;
         if {$SENTINEL1Acq == "Asc"} {set SENTINEL1FUD 1}
+        if {$SENTINEL1Acq == "Asc"} {set SENTINEL1AntennaPass "AR"} else {set SENTINEL1AntennaPass "DR"} 
+        set f [open "$SENTINEL1DirOutput/config_acquisition.txt" w]
+        puts $f $SENTINEL1AntennaPass
+        puts $f $SENTINEL1IncAngle
+        puts $f $SENTINEL1PixRg
+        puts $f $SENTINEL1PixAz
+        close $f
+
         if {$SENTINEL1Mode == "IW"} {
             set NumSwath "iw"; append NumSwath $SENTINEL1Swath
             for {set i 1} {$i <= 6} {incr i} { 
@@ -1374,9 +1190,9 @@ if [file exists $SENTINEL1File] {
         }
         #TMPSentinel1Config Exists
 
-    TextEditorRunTrace "Process The Function Soft/data_import/sentinel1_google.exe" "k"
+    TextEditorRunTrace "Process The Function Soft/bin/data_import/sentinel1_google.exe" "k"
     TextEditorRunTrace "Arguments: -if \x22$SENTINEL1File\x22 -of \x22$TMPGoogle\x22 -od \x22$SENTINEL1DirOutput\x22 -bn $SENTINELBurstOut" "k"
-    set f [ open "| Soft/data_import/sentinel1_google.exe -if \x22$SENTINEL1File\x22 -of \x22$TMPGoogle\x22 -od \x22$SENTINEL1DirOutput\x22 -bn $SENTINELBurstOut" r]
+    set f [ open "| Soft/bin/data_import/sentinel1_google.exe -if \x22$SENTINEL1File\x22 -of \x22$TMPGoogle\x22 -od \x22$SENTINEL1DirOutput\x22 -bn $SENTINELBurstOut" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError
@@ -1401,10 +1217,27 @@ if [file exists $SENTINEL1File] {
     #ProductFile Exists
   }
   #Warning
+
+#####################################################################
+#####################################################################
+
+        } else {
+        set ErrorMessage "PRODUCT FILE IS NOT AN XML FILE"
+        Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
+        tkwait variable VarError
+        }
+        #TMPSentinel1Config Exists
+    } else {
+    set ErrorMessage "ENTER THE XML - PRODUCT FILE NAME"
+    Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
+    tkwait variable VarError
+    set SENTINEL1FileInputFlag 0
+    }
+    #ProductFile Exists
 }
 #OpenDirFile} \
         -padx 4 -pady 2 -text OK 
-    vTcl:DefineAlias "$site_5_0.cpd81" "Button453_03" vTcl:WidgetProc "Toplevel453" 1
+    vTcl:DefineAlias "$site_5_0.cpd81" "Button4" vTcl:WidgetProc "Toplevel453" 1
     pack $site_5_0.ent78 \
         -in $site_5_0 -anchor center -expand 0 -fill none -padx 5 -side left 
     pack $site_5_0.cpd80 \
@@ -1414,6 +1247,7 @@ if [file exists $SENTINEL1File] {
     pack $site_5_0.cpd81 \
         -in $site_5_0 -anchor center -expand 0 -fill none -padx 5 -side left 
     button $site_3_0.cpd83 \
+        \
         -command {global FileName VarError ErrorMessage SENTINEL1DirOutput
 
 set SENTINEL1File "$SENTINEL1DirOutput/GEARTH_POLY.kml"
@@ -1428,8 +1262,6 @@ if [file exists $SENTINEL1File] {
         set ::vTcl::balloon::%W {Google Earth}
     }
     pack $site_3_0.tit77 \
-        -in $site_3_0 -anchor center -expand 1 -fill none -side left 
-    pack $site_3_0.cpd82 \
         -in $site_3_0 -anchor center -expand 1 -fill none -side left 
     pack $site_3_0.cpd83 \
         -in $site_3_0 -anchor center -expand 1 -fill none -side left 
@@ -1552,7 +1384,14 @@ set FileInput1 $FileName} \
     set site_6_0 $site_5_0.cpd91
     button $site_6_0.cpd120 \
         \
-        -command global\ FileName\ SENTINEL1DirInput\ SENTINEL1DataFormat\ FileInput2\n\nset\ types\ \{\n\ \ \ \ \{\{All\ Files\}\ \ \ \ \ \ \ \ *\ \ \ \ \ \ \ \ \}\n\ \ \ \ \}\nset\ FileName\ \"\"\nOpenFile\ \$SENTINEL1DirInput\ \$types\ \"INPUT\ FILE\ (\ X-Pol\ )\"\}\nset\ FileInput2\ \$FileName \
+        -command {global FileName SENTINEL1DirInput SENTINEL1DataFormat FileInput2
+
+set types {
+    {{All Files}        *        }
+    }
+set FileName ""
+OpenFile $SENTINEL1DirInput $types "INPUT FILE ( X-Pol )"
+set FileInput2 $FileName} \
         -image [vTcl:image:get_image [file join . GUI Images OpenFile.gif]] \
         -pady 0 -text button 
     vTcl:DefineAlias "$site_6_0.cpd120" "Button453_2" vTcl:WidgetProc "Toplevel453" 1
@@ -1574,46 +1413,6 @@ set FileInput1 $FileName} \
         -borderwidth 2 -height 75 -width 125 
     vTcl:DefineAlias "$top.fra87" "Frame4" vTcl:WidgetProc "Toplevel453" 1
     set site_3_0 $top.fra87
-    frame $site_3_0.cpd88 \
-        -borderwidth 2 -height 75 -width 125 
-    vTcl:DefineAlias "$site_3_0.cpd88" "Frame21" vTcl:WidgetProc "Toplevel453" 1
-    set site_4_0 $site_3_0.cpd88
-    frame $site_4_0.cpd84 \
-        -borderwidth 2 -height 75 -width 125 
-    vTcl:DefineAlias "$site_4_0.cpd84" "Frame22" vTcl:WidgetProc "Toplevel453" 1
-    set site_5_0 $site_4_0.cpd84
-    label $site_5_0.lab77 \
-        -text {Initial Number of Rows} 
-    vTcl:DefineAlias "$site_5_0.lab77" "Label453_05" vTcl:WidgetProc "Toplevel453" 1
-    entry $site_5_0.ent78 \
-        -background white -disabledbackground #ffffff \
-        -disabledforeground #0000ff -foreground #0000ff -justify center \
-        -state disabled -textvariable SENTINEL1NligInit -width 7 
-    vTcl:DefineAlias "$site_5_0.ent78" "Entry453_05" vTcl:WidgetProc "Toplevel453" 1
-    pack $site_5_0.lab77 \
-        -in $site_5_0 -anchor center -expand 0 -fill none -padx 10 -side left 
-    pack $site_5_0.ent78 \
-        -in $site_5_0 -anchor center -expand 0 -fill none -padx 3 -side right 
-    frame $site_4_0.cpd85 \
-        -borderwidth 2 -height 75 -width 125 
-    vTcl:DefineAlias "$site_4_0.cpd85" "Frame23" vTcl:WidgetProc "Toplevel453" 1
-    set site_5_0 $site_4_0.cpd85
-    label $site_5_0.lab79 \
-        -text {Initial Number of Cols} 
-    vTcl:DefineAlias "$site_5_0.lab79" "Label453_06" vTcl:WidgetProc "Toplevel453" 1
-    entry $site_5_0.ent80 \
-        -background white -disabledbackground #ffffff \
-        -disabledforeground #0000ff -foreground #0000ff -justify center \
-        -state disabled -textvariable SENTINEL1NcolInit -width 7 
-    vTcl:DefineAlias "$site_5_0.ent80" "Entry453_06" vTcl:WidgetProc "Toplevel453" 1
-    pack $site_5_0.lab79 \
-        -in $site_5_0 -anchor center -expand 0 -fill none -padx 10 -side left 
-    pack $site_5_0.ent80 \
-        -in $site_5_0 -anchor center -expand 0 -fill none -padx 3 -side right 
-    pack $site_4_0.cpd84 \
-        -in $site_4_0 -anchor center -expand 0 -fill x -side top 
-    pack $site_4_0.cpd85 \
-        -in $site_4_0 -anchor center -expand 0 -fill x -side top 
     frame $site_3_0.cpd89 \
         -borderwidth 2 -height 75 -width 125 
     vTcl:DefineAlias "$site_3_0.cpd89" "Frame24" vTcl:WidgetProc "Toplevel453" 1
@@ -1623,7 +1422,7 @@ set FileInput1 $FileName} \
     vTcl:DefineAlias "$site_4_0.cpd84" "Frame27" vTcl:WidgetProc "Toplevel453" 1
     set site_5_0 $site_4_0.cpd84
     label $site_5_0.lab77 \
-        -text {Final Number of Rows} 
+        -text {Number of Rows} 
     vTcl:DefineAlias "$site_5_0.lab77" "Label453_07" vTcl:WidgetProc "Toplevel453" 1
     entry $site_5_0.ent78 \
         -background white -disabledbackground #ffffff \
@@ -1639,7 +1438,7 @@ set FileInput1 $FileName} \
     vTcl:DefineAlias "$site_4_0.cpd85" "Frame28" vTcl:WidgetProc "Toplevel453" 1
     set site_5_0 $site_4_0.cpd85
     label $site_5_0.lab79 \
-        -text {Final Number of Cols} 
+        -text {Number of Cols} 
     vTcl:DefineAlias "$site_5_0.lab79" "Label453_08" vTcl:WidgetProc "Toplevel453" 1
     entry $site_5_0.ent80 \
         -background white -disabledbackground #ffffff \
@@ -1651,31 +1450,11 @@ set FileInput1 $FileName} \
     pack $site_5_0.ent80 \
         -in $site_5_0 -anchor center -expand 0 -fill none -padx 3 -side right 
     pack $site_4_0.cpd84 \
-        -in $site_4_0 -anchor center -expand 0 -fill x -side top 
+        -in $site_4_0 -anchor center -expand 1 -fill none -side left 
     pack $site_4_0.cpd85 \
-        -in $site_4_0 -anchor center -expand 0 -fill x -side top 
-    frame $site_3_0.fra66 \
-        -borderwidth 2 -relief ridge -height 75 -width 125 
-    vTcl:DefineAlias "$site_3_0.fra66" "Frame12" vTcl:WidgetProc "Toplevel453" 1
-    set site_4_0 $site_3_0.fra66
-    entry $site_4_0.ent68 \
-        -background white -disabledbackground #ffffff \
-        -disabledforeground #0000ff -foreground #0000ff -justify center \
-        -relief ridge -state disabled -textvariable SENTINEL1Acq -width 5 
-    vTcl:DefineAlias "$site_4_0.ent68" "Entry453_09" vTcl:WidgetProc "Toplevel453" 1
-    checkbutton $site_4_0.cpd67 \
-        -text FUD -variable SENTINEL1FUD 
-    vTcl:DefineAlias "$site_4_0.cpd67" "Checkbutton453_01" vTcl:WidgetProc "Toplevel453" 1
-    pack $site_4_0.ent68 \
-        -in $site_4_0 -anchor center -expand 1 -fill none -pady 2 -side top 
-    pack $site_4_0.cpd67 \
-        -in $site_4_0 -anchor center -expand 1 -fill none -side top 
-    pack $site_3_0.cpd88 \
-        -in $site_3_0 -anchor center -expand 1 -fill none -side left 
+        -in $site_4_0 -anchor center -expand 1 -fill none -side left 
     pack $site_3_0.cpd89 \
-        -in $site_3_0 -anchor center -expand 1 -fill none -side left 
-    pack $site_3_0.fra66 \
-        -in $site_3_0 -anchor center -expand 1 -fill none -side left 
+        -in $site_3_0 -anchor center -expand 1 -fill x -side left 
     frame $top.fra71 \
         -relief groove -height 35 -width 125 
     vTcl:DefineAlias "$top.fra71" "Frame20" vTcl:WidgetProc "Toplevel453" 1
@@ -1683,6 +1462,7 @@ set FileInput1 $FileName} \
     button $site_3_0.but93 \
         -background #ffff00 \
         -command {global SENTINEL1DirOutput SENTINEL1FileInputFlag SENTINEL1DataFormat
+global SENTINEL1Mode SENTINEL1Swath SENTINEL1ModeSwath
 global OpenDirFile TMPSentinel1Config
 global FileInput1 FileInput2
 global VarWarning VarAdvice WarningMessage WarningMessage2 ErrorMessage VarError
@@ -1698,6 +1478,7 @@ if {$SENTINEL1DataFormat == "dual"} {
     if {$SENTINEL1FileFlag == 2} {set SENTINEL1FileInputFlag 1}
     }
 if {$SENTINEL1FileInputFlag == 1} {
+    set SENTINEL1ModeSwath $SENTINEL1Mode; append SENTINEL1ModeSwath $SENTINEL1Swath
     set NligFullSize $SENTINEL1NligInit
     set NcolFullSize $SENTINEL1NcolInit
     set NligInit 1

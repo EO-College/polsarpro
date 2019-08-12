@@ -809,7 +809,7 @@ proc ::ConvertRGBS2_T3 {} {
 global ConvertDirOutput BMPDirInput
 global VarError ErrorMessage Fonction Fonction2
 global NligFullSize NcolFullSize PSPViewGimpBMP
-global ProgressLine PSPMemory TMPMemoryAllocError 
+global ProgressLine TMPMemoryAllocError 
    
 set RGBDirInput $ConvertDirOutput
 set RGBDirOutput $ConvertDirOutput
@@ -853,15 +853,15 @@ if {"$config"=="true"} {
     set ProgressLine "0"
     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
     update
-    TextEditorRunTrace "Process The Function Soft/bmp_process/create_pauli_rgb_file.exe" "k"
-    TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf T3 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
-    set f [ open "| Soft/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf T3 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
+    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_pauli_rgb_file.exe" "k"
+    TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf T3 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
+    set f [ open "| Soft/bin/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf T3 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError
     set BMPDirInput $RGBDirOutput
     WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-    if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+    if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
     }
 }
 #############################################################################
@@ -871,7 +871,7 @@ proc ::ConvertRGBS2_S2 {} {
 global ConvertDirOutput BMPDirInput
 global VarError ErrorMessage Fonction Fonction2
 global NligFullSize NcolFullSize PSPViewGimpBMP
-global ProgressLine PSPMemory TMPMemoryAllocError 
+global ProgressLine TMPMemoryAllocError 
    
 set RGBDirInput $ConvertDirOutput
 set RGBDirOutput $ConvertDirOutput
@@ -924,15 +924,15 @@ if {"$config"=="true"} {
     set ProgressLine "0"
     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
     update
-    TextEditorRunTrace "Process The Function Soft/bmp_process/create_pauli_rgb_file.exe" "k"
-    TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf S2 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
-    set f [ open "| Soft/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf S2 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
+    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_pauli_rgb_file.exe" "k"
+    TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf S2 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
+    set f [ open "| Soft/bin/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf S2 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError
     set BMPDirInput $RGBDirOutput
     WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-    if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+    if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
     }
 }
 #############################################################################
@@ -942,7 +942,7 @@ proc ::ConvertRGBS2_T4 {} {
 global ConvertDirOutput BMPDirInput
 global VarError ErrorMessage Fonction Fonction2
 global NligFullSize NcolFullSize PSPViewGimpBMP
-global ProgressLine PSPMemory TMPMemoryAllocError 
+global ProgressLine TMPMemoryAllocError 
    
 set RGBDirInput $ConvertDirOutput
 set RGBDirOutput $ConvertDirOutput
@@ -986,15 +986,15 @@ if {"$config"=="true"} {
     set ProgressLine "0"
     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
     update
-    TextEditorRunTrace "Process The Function Soft/bmp_process/create_pauli_rgb_file.exe" "k"
-    TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf T4 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
-    set f [ open "| Soft/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf T4 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
+    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_pauli_rgb_file.exe" "k"
+    TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf T4 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
+    set f [ open "| Soft/bin/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf T4 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError
     set BMPDirInput $RGBDirOutput
     WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-    if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+    if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
     }
 }
 #############################################################################
@@ -1004,7 +1004,7 @@ proc ::ConvertRGBS2_C3 {} {
 global ConvertDirOutput BMPDirInput
 global VarError ErrorMessage Fonction Fonction2
 global NligFullSize NcolFullSize PSPViewGimpBMP
-global ProgressLine PSPMemory TMPMemoryAllocError 
+global ProgressLine TMPMemoryAllocError 
    
 set RGBDirInput $ConvertDirOutput
 set RGBDirOutput $ConvertDirOutput
@@ -1057,15 +1057,15 @@ if {"$config"=="true"} {
     set ProgressLine "0"
     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
     update
-    TextEditorRunTrace "Process The Function Soft/bmp_process/create_pauli_rgb_file.exe" "k"
-    TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf C3 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
-    set f [ open "| Soft/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf C3 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
+    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_pauli_rgb_file.exe" "k"
+    TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf C3 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
+    set f [ open "| Soft/bin/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf C3 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError
     set BMPDirInput $RGBDirOutput
     WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-    if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+    if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
     }
 }
 #############################################################################
@@ -1075,7 +1075,7 @@ proc ::ConvertRGBS2_C4 {} {
 global ConvertDirOutput BMPDirInput
 global VarError ErrorMessage Fonction Fonction2
 global NligFullSize NcolFullSize PSPViewGimpBMP
-global ProgressLine PSPMemory TMPMemoryAllocError 
+global ProgressLine TMPMemoryAllocError 
     
 set RGBDirInput $ConvertDirOutput
 set RGBDirOutput $ConvertDirOutput
@@ -1146,15 +1146,15 @@ if {"$config"=="true"} {
     set ProgressLine "0"
     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
     update
-    TextEditorRunTrace "Process The Function Soft/bmp_process/create_pauli_rgb_file.exe" "k"
-    TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf C4 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
-    set f [ open "| Soft/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf C4 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
+    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_pauli_rgb_file.exe" "k"
+    TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf C4 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
+    set f [ open "| Soft/bin/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf C4 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError
     set BMPDirInput $RGBDirOutput
     WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-    if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+    if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
     }
 }
 #############################################################################
@@ -1164,7 +1164,7 @@ proc ::ConvertRGBS2_C2 {} {
 global ConvertDirOutput BMPDirInput
 global VarError ErrorMessage Fonction Fonction2
 global NligFullSize NcolFullSize PSPViewGimpBMP
-global ProgressLine PSPMemory TMPMemoryAllocError 
+global ProgressLine TMPMemoryAllocError 
    
 set RGBDirInput $ConvertDirOutput
 set RGBDirOutput $ConvertDirOutput
@@ -1208,15 +1208,15 @@ if {"$config"=="true"} {
     set ProgressLine "0"
     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
     update
-    TextEditorRunTrace "Process The Function Soft/bmp_process/create_rgb_file_SPPIPPC2.exe" "k"
-    TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf C2 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -rgbf RGB1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
-    set f [ open "| Soft/bmp_process/create_rgb_file_SPPIPPC2.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf C2 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -rgbf RGB1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
+    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_rgb_file_SPPIPPC2.exe" "k"
+    TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf C2 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -rgbf RGB1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
+    set f [ open "| Soft/bin/bmp_process/create_rgb_file_SPPIPPC2.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf C2 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -rgbf RGB1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError
     set BMPDirInput $RGBDirOutput
     WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-    if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+    if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
     }
 }
 #############################################################################
@@ -1226,7 +1226,7 @@ proc ::ConvertRGBS2_SPP {} {
 global ConvertDirOutput BMPDirInput PolarType
 global VarError ErrorMessage Fonction Fonction2
 global NligFullSize NcolFullSize PSPViewGimpBMP
-global ProgressLine PSPMemory TMPMemoryAllocError 
+global ProgressLine TMPMemoryAllocError 
    
 set RGBDirInput $ConvertDirOutput
 set RGBDirOutput $ConvertDirOutput
@@ -1268,15 +1268,15 @@ if {"$config"=="true"} {
     set ProgressLine "0"
     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
     update
-    TextEditorRunTrace "Process The Function Soft/bmp_process/create_rgb_file_SPPIPPC2.exe" "k"
-    TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf SPP -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -rgbf RGB1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
-    set f [ open "| Soft/bmp_process/create_rgb_file_SPPIPPC2.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf SPP -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -rgbf RGB1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
+    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_rgb_file_SPPIPPC2.exe" "k"
+    TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf SPP -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -rgbf RGB1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
+    set f [ open "| Soft/bin/bmp_process/create_rgb_file_SPPIPPC2.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf SPP -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -rgbf RGB1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError
     set BMPDirInput $RGBDirOutput
     WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-    if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+    if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
     }
 }
 #############################################################################
@@ -1286,7 +1286,7 @@ proc ::ConvertRGBS2_IPP {} {
 global ConvertDirOutput BMPDirInput PolarType
 global VarError ErrorMessage Fonction Fonction2
 global NligFullSize NcolFullSize PSPViewGimpBMP
-global ProgressLine PSPMemory TMPMemoryAllocError 
+global ProgressLine TMPMemoryAllocError 
    
 set RGBDirInput $ConvertDirOutput
 set RGBDirOutput $ConvertDirOutput
@@ -1326,15 +1326,15 @@ if {"$config"=="true"} {
     set ProgressLine "0"
     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
     update
-    TextEditorRunTrace "Process The Function Soft/bmp_process/create_rgb_file_SPPIPPC2.exe" "k"
-    TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf IPP -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -rgbf RGB1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
-    set f [ open "| Soft/bmp_process/create_rgb_file_SPPIPPC2.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf IPP -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -rgbf RGB1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
+    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_rgb_file_SPPIPPC2.exe" "k"
+    TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf IPP -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -rgbf RGB1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
+    set f [ open "| Soft/bin/bmp_process/create_rgb_file_SPPIPPC2.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf IPP -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -rgbf RGB1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError
     set BMPDirInput $RGBDirOutput
     WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-    if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+    if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
     }
 }
 #############################################################################
@@ -1347,9 +1347,9 @@ global ConvertExtractFonction ConvertOutputFormat ConvertSymmetrisation
 global NcolFullSize
 global MultiLookRow MultiLookCol SubSampRow SubSampCol
 global OffsetLig OffsetCol FinalNlig FinalNcol 
-global ProgressLine PSPMemory TMPMemoryAllocError
+global ProgressLine TMPMemoryAllocError
 
-set ExtractFunction "Soft/data_convert/data_convert.exe"
+set ExtractFunction "Soft/bin/data_convert/data_convert.exe"
 
 TextEditorRunTrace "Process The Function $ExtractFunction" "k"
 
@@ -1363,8 +1363,8 @@ if {$ConvertExtractFonction == "Full"} {append ExtractCommand "-nlr 1 -nlc 1 -ss
 if {$ConvertExtractFonction == "SubSamp"} {append ExtractCommand "-nlr 1 -nlc 1 -ssr $SubSampRow -ssc $SubSampCol"}
 if {$ConvertExtractFonction == "MultiLook"} {append ExtractCommand "-nlr $MultiLookRow -nlc $MultiLookCol -ssr 1 -ssc 1"}
 
-TextEditorRunTrace "Arguments: $ExtractCommand -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22" "k"
-set f [ open "| $ExtractFunction $ExtractCommand -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22" r]
+TextEditorRunTrace "Arguments: $ExtractCommand  -errf \x22$TMPMemoryAllocError\x22" "k"
+set f [ open "| $ExtractFunction $ExtractCommand  -errf \x22$TMPMemoryAllocError\x22" r]
 PsPprogressBar $f
 }
 
@@ -1520,10 +1520,10 @@ if {$DirName != "" } {
     if {"$VarWarning"=="ok"} {
         set ConvertOutputDir $DirName
         set ConvertExtractFonction "Full"
-        set MultiLookRow ""
-        set MultiLookCol ""
-        set SubSampRow ""
-        set SubSampCol ""
+        set MultiLookRow " "
+        set MultiLookCol " "
+        set SubSampRow " "
+        set SubSampCol " "
         $widget(Label410_1) configure -state disable
         $widget(Label410_2) configure -state disable
         $widget(Label410_3) configure -state disable
@@ -1651,10 +1651,10 @@ if {$ConvertSymmetrisation == 0} {
         \
         -command {global MultiLookRow MultiLookCol SubSampRow SubSampCol
 
-set MultiLookRow ""
-set MultiLookCol ""
-set SubSampRow ""
-set SubSampCol ""
+set MultiLookRow " "
+set MultiLookCol " "
+set SubSampRow " "
+set SubSampCol " "
 $widget(Label410_1) configure -state disable
 $widget(Label410_2) configure -state disable
 $widget(Label410_3) configure -state disable
@@ -1682,8 +1682,8 @@ $widget(Radiobutton410_7) configure -state normal} \
         \
         -command {global MultiLookRow MultiLookCol SubSampRow SubSampCol
 
-set MultiLookRow ""
-set MultiLookCol ""
+set MultiLookRow " "
+set MultiLookCol " "
 set SubSampRow " ? "
 set SubSampCol " ? "
 $widget(Label410_1) configure -state normal
@@ -1715,8 +1715,8 @@ $widget(Radiobutton410_7) configure -state normal} \
 
 set MultiLookRow " ? "
 set MultiLookCol " ? "
-set SubSampRow ""
-set SubSampCol ""
+set SubSampRow " "
+set SubSampCol " "
 $widget(Label410_1) configure -state disable
 $widget(Label410_2) configure -state disable
 $widget(Label410_3) configure -state normal
@@ -1862,7 +1862,7 @@ $widget(Radiobutton410_7) configure -state disable} \
         -command {global ConvertOutputSubDir ConvertOutputFormatPP
 
 set ConvertOutputSubDir ""
-set ConvertOutputFormatPP ""} \
+set ConvertOutputFormatPP " "} \
         -text {[ S2 ] >> [ S2 ]} -value S2 -variable ConvertOutputFormat 
     vTcl:DefineAlias "$site_7_0.cpd83" "Radiobutton410_1" vTcl:WidgetProc "Toplevel410" 1
     pack $site_7_0.cpd83 \
@@ -1951,7 +1951,7 @@ set ConvertOutputFormatPP "lhv"} \
         -command {global ConvertOutputSubDir ConvertOutputFormatPP ConvertSymmetrisation
 
 set ConvertOutputSubDir "C3"
-set ConvertOutputFormatPP ""
+set ConvertOutputFormatPP " "
 set ConvertSymmetrisation 1} \
         -text {[ S2 ] >> [ C3 ]} -value S2C3 -variable ConvertOutputFormat 
     vTcl:DefineAlias "$site_7_0.cpd84" "Radiobutton4104" vTcl:WidgetProc "Toplevel410" 1
@@ -1966,7 +1966,7 @@ set ConvertSymmetrisation 1} \
         -command {global ConvertOutputSubDir ConvertOutputFormatPP ConvertSymmetrisation
 
 set ConvertOutputSubDir "T3"
-set ConvertOutputFormatPP ""
+set ConvertOutputFormatPP " "
 set ConvertSymmetrisation 1} \
         -text {[ S2 ] >> [ T3 ]} -value S2T3 -variable ConvertOutputFormat 
     vTcl:DefineAlias "$site_7_0.cpd84" "Radiobutton239" vTcl:WidgetProc "Toplevel410" 1
@@ -2091,7 +2091,7 @@ set ConvertOutputFormatPP "rhv"} \
         -command {global ConvertOutputSubDir ConvertOutputFormatPP ConvertSymmetrisation
 
 set ConvertOutputSubDir "C4"
-set ConvertOutputFormatPP ""
+set ConvertOutputFormatPP " "
 set ConvertSymmetrisation 0} \
         -text {[ S2 ] >> [ C4 ]} -value S2C4 -variable ConvertOutputFormat 
     vTcl:DefineAlias "$site_7_0.cpd97" "Radiobutton410_9" vTcl:WidgetProc "Toplevel410" 1
@@ -2106,7 +2106,7 @@ set ConvertSymmetrisation 0} \
         -command {global ConvertOutputSubDir ConvertOutputFormatPP ConvertSymmetrisation
 
 set ConvertOutputSubDir "T4"
-set ConvertOutputFormatPP ""
+set ConvertOutputFormatPP " "
 set ConvertSymmetrisation 0} \
         -text {[ S2 ] >> [ T4 ]} -value S2T4 -variable ConvertOutputFormat 
     vTcl:DefineAlias "$site_7_0.cpd96" "Radiobutton410_10" vTcl:WidgetProc "Toplevel410" 1

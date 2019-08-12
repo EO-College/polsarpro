@@ -683,7 +683,7 @@ proc vTclWindow.top309 {base} {
         \
         -command {global DirName DataDirChannel1 BMPDirInput RGBFunction RGBDirInput RGBDirOutput ConfigFile VarError ErrorMessage
 
-set RGBFormat ""
+set RGBFormat " "
 set RGBFunction ""
 set RGBDirInput ""
 set VarError ""
@@ -978,7 +978,7 @@ set RGBFileOutputT2 "$RGBDirOutput/SinclairRGB_T2.bmp"} \
     button $site_3_0.but93 \
         -background #ffff00 \
         -command {global RGBDirInput RGBFunction RGBDirOutput RGBFileOutputT1 RGBFileOutputT2 RGBFormat BMPDirInput
-global VarError ErrorMessage Fonction Fonction2 ProgressLine OpenDirFile PSPMemory TMPMemoryAllocError PSPViewGimpBMP
+global VarError ErrorMessage Fonction Fonction2 ProgressLine OpenDirFile TMPMemoryAllocError PSPViewGimpBMP
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax NcolFullSize NligFullSize
 
 if {$OpenDirFile == 0} {
@@ -1056,24 +1056,24 @@ if {"$RGBDirInput"!=""} {
                         if [file exists $MaskFile] { set MaskCmd "-mask \x22$MaskFile\x22" }
 
                         if {"$RGBFormat"=="pauli"} {
-                            TextEditorRunTrace "Process The Function Soft/bmp_process/create_pauli_rgb_file_T6.exe" "k"
-                            TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutputT1\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -ch 1 $MaskCmd -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22" "k"
-                            set f [ open "| Soft/bmp_process/create_pauli_rgb_file_T6.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutputT1\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -ch 1 $MaskCmd -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22" r]
+                            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_pauli_rgb_file_T6.exe" "k"
+                            TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutputT1\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -ch 1 $MaskCmd  -errf \x22$TMPMemoryAllocError\x22" "k"
+                            set f [ open "| Soft/bin/bmp_process/create_pauli_rgb_file_T6.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutputT1\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -ch 1 $MaskCmd  -errf \x22$TMPMemoryAllocError\x22" r]
                             PsPprogressBar $f
                             TextEditorRunTrace "Check RunTime Errors" "r"
                             CheckRunTimeError
                             set BMPDirInput $RGBDirOutput
-                            if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutputT1 }
+                            if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutputT1 }
                             }
                         if {"$RGBFormat"=="sinclair"} {
-                            TextEditorRunTrace "Process The Function Soft/bmp_process/create_sinclair_rgb_file_T6.exe" "k"
-                            TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutputT1\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -ch 1 $MaskCmd -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22" "k"
-                            set f [ open "| Soft/bmp_process/create_sinclair_rgb_file_T6.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutputT1\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -ch 1 $MaskCmd -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22" r]
+                            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_sinclair_rgb_file_T6.exe" "k"
+                            TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutputT1\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -ch 1 $MaskCmd  -errf \x22$TMPMemoryAllocError\x22" "k"
+                            set f [ open "| Soft/bin/bmp_process/create_sinclair_rgb_file_T6.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutputT1\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -ch 1 $MaskCmd  -errf \x22$TMPMemoryAllocError\x22" r]
                             PsPprogressBar $f
                             TextEditorRunTrace "Check RunTime Errors" "r"
                             CheckRunTimeError
                             set BMPDirInput $RGBDirOutput
-                            if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutputT1 }
+                            if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutputT1 }
                             }
                         }                 
                     set Fonction "Creation of the RGB BMP File :"
@@ -1127,28 +1127,28 @@ if {"$RGBDirInput"!=""} {
                         if [file exists $MaskFile] { set MaskCmd "-mask \x22$MaskFile\x22" }
 
                         if {"$RGBFormat"=="pauli"} {
-                            TextEditorRunTrace "Process The Function Soft/bmp_process/create_pauli_rgb_file_T6.exe" "k"
-                            TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutputT2\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -ch 2 $MaskCmd -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22" "k"
-                            set f [ open "| Soft/bmp_process/create_pauli_rgb_file_T6.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutputT2\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -ch 2 $MaskCmd -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22" r]
+                            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_pauli_rgb_file_T6.exe" "k"
+                            TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutputT2\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -ch 2 $MaskCmd  -errf \x22$TMPMemoryAllocError\x22" "k"
+                            set f [ open "| Soft/bin/bmp_process/create_pauli_rgb_file_T6.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutputT2\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -ch 2 $MaskCmd  -errf \x22$TMPMemoryAllocError\x22" r]
                             PsPprogressBar $f
                             TextEditorRunTrace "Check RunTime Errors" "r"
                             CheckRunTimeError
                             set BMPDirInput $RGBDirOutput
-                            if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutputT2 }
+                            if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutputT2 }
                             }
                         if {"$RGBFormat"=="sinclair"} {
-                            TextEditorRunTrace "Process The Function Soft/bmp_process/create_sinclair_rgb_file_T6.exe" "k"
-                            TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutputT2\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -ch 2 $MaskCmd -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22" "k"
-                            set f [ open "| Soft/bmp_process/create_sinclair_rgb_file_T6.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutputT2\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -ch 2 $MaskCmd -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22" r]
+                            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_sinclair_rgb_file_T6.exe" "k"
+                            TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutputT2\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -ch 2 $MaskCmd  -errf \x22$TMPMemoryAllocError\x22" "k"
+                            set f [ open "| Soft/bin/bmp_process/create_sinclair_rgb_file_T6.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutputT2\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -ch 2 $MaskCmd  -errf \x22$TMPMemoryAllocError\x22" r]
                             PsPprogressBar $f
                             TextEditorRunTrace "Check RunTime Errors" "r"
                             CheckRunTimeError
                             set BMPDirInput $RGBDirOutput
-                            if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutputT2 }
+                            if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutputT2 }
                             }
                         }                 
                     }                                  
-                set RGBFormat ""
+                set RGBFormat " "
                 WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
                 }
             }
@@ -1156,7 +1156,7 @@ if {"$RGBDirInput"!=""} {
         if {"$VarWarning"=="no"} {Window hide $widget(Toplevel309); TextEditorRunTrace "Close Window Create RGB Dual Files" "b"}
         }
     } else {
-    set RGBFormat ""
+    set RGBFormat " "
     set VarError ""
     set ErrorMessage "ENTER A VALID DIRECTORY"
     Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"

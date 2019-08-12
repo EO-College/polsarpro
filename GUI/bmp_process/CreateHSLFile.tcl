@@ -1347,7 +1347,7 @@ if {"$MinMaxAutoHSV"=="1"} {
         -background #ffff00 \
         -command {global TMPFileNull HSVDirInput HSVDirOutput HSVFileOutput HSVFormat HSVCCCE BMPDirInput
 global FileInputHue FileInputSat FileInputVal MinMaxAutoHSV TMPMinMaxBmp
-global VarError ErrorMessage Fonction Fonction2 ProgressLine OpenDirFile PSPMemory TMPMemoryAllocError
+global VarError ErrorMessage Fonction Fonction2 ProgressLine OpenDirFile TMPMemoryAllocError
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
 global HSVMinHue HSVMaxHue HSVMinSat HSVMaxSat HSVMinVal HSVMaxVal NcolFullSize NligFullSize
 
@@ -1397,9 +1397,9 @@ if {$OpenDirFile == 0} {
                     if {"$FileInputSat"=="$TMPFileNull"} {set config "true"}
                     if {"$FileInputVal"=="$TMPFileNull"} {set config "true"}
                     if {"$config"=="true"} {
-                        TextEditorRunTrace "Process The Function Soft/bmp_process/create_null_file.exe" "k"
+                        TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_null_file.exe" "k"
                         TextEditorRunTrace "Arguments: -of \x22$TMPFileNull\x22 -fnr $FinalNlig -fnc $FinalNcol" "k"
-                        set f [ open "| Soft/bmp_process/create_null_file.exe -of \x22$TMPFileNull\x22 -fnr $FinalNlig -fnc $FinalNcol" r]
+                        set f [ open "| Soft/bin/bmp_process/create_null_file.exe -of \x22$TMPFileNull\x22 -fnr $FinalNlig -fnc $FinalNcol" r]
                         }
 
                     set MaskCmd ""; set MaskDir ""
@@ -1409,16 +1409,16 @@ if {$OpenDirFile == 0} {
                     set MaskFile "$MaskDir/mask_valid_pixels.bin"
                     if [file exists $MaskFile] { set MaskCmd "-mask \x22$MaskFile\x22" }
 
-                    set Argument "-ifh \x22$FileInputHue\x22 -ifs \x22$FileInputSat\x22 -ifv \x22$FileInputVal\x22 -of \x22$TMPMinMaxBmp\x22 -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd"
+                    set Argument "-ifh \x22$FileInputHue\x22 -ifs \x22$FileInputSat\x22 -ifv \x22$FileInputVal\x22 -of \x22$TMPMinMaxBmp\x22 -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd"
                     if {"$HSVCCCE"=="independant"} {
-                        TextEditorRunTrace "Process The Function Soft/bmp_process/minmax_hsv_file.exe" "k"
+                        TextEditorRunTrace "Process The Function Soft/bin/bmp_process/minmax_hsv_file.exe" "k"
                         TextEditorRunTrace "Arguments: $Argument" "k"
-                        set f [ open "| Soft/bmp_process/minmax_hsv_file.exe $Argument" r]
+                        set f [ open "| Soft/bin/bmp_process/minmax_hsv_file.exe $Argument" r]
                         }
                     if {"$HSVCCCE"=="common"} {
-                        TextEditorRunTrace "Process The Function Soft/bmp_process/minmax_hsv_cce_file.exe" "k"
+                        TextEditorRunTrace "Process The Function Soft/bin/bmp_process/minmax_hsv_cce_file.exe" "k"
                         TextEditorRunTrace "Arguments: $Argument" "k"
-                        set f [ open "| Soft/bmp_process/minmax_hsv_cce_file.exe $Argument" r]
+                        set f [ open "| Soft/bin/bmp_process/minmax_hsv_cce_file.exe $Argument" r]
                         }
                     PsPprogressBar $f
                     TextEditorRunTrace "Check RunTime Errors" "r"
@@ -1455,7 +1455,7 @@ if {$OpenDirFile == 0} {
                 }
             }
         } else {
-        set HSVFormat ""
+        set HSVFormat " "
         set VarError ""
         set ErrorMessage "ENTER A VALID DIRECTORY"
         Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
@@ -1659,7 +1659,7 @@ if {$OpenDirFile == 0} {
         -background #ffff00 \
         -command {global TMPFileNull HSVDirInput HSVDirOutput HSVFileOutput HSVFormat HSVCCCE BMPDirInput
 global FileInputHue FileInputSat FileInputVal MinMaxAutoHSV PSPViewGimpBMP
-global VarError ErrorMessage Fonction Fonction2 ProgressLine OpenDirFile PSPMemory TMPMemoryAllocError
+global VarError ErrorMessage Fonction Fonction2 ProgressLine OpenDirFile TMPMemoryAllocError
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
 global HSVMinHue HSVMaxHue HSVMinSat HSVMaxSat HSVMinVal HSVMaxVal NcolFullSize NligFullSize
 
@@ -1709,9 +1709,9 @@ if {"$HSVDirInput"!=""} {
                     if {"$FileInputSat"=="$TMPFileNull"} {set config "true"}
                     if {"$FileInputVal"=="$TMPFileNull"} {set config "true"}
                     if {"$config"=="true"} {
-                        TextEditorRunTrace "Process The Function Soft/bmp_process/create_null_file.exe" "k"
+                        TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_null_file.exe" "k"
                         TextEditorRunTrace "Arguments: -of \x22$TMPFileNull\x22 -fnr $FinalNlig -fnc $FinalNcol" "k"
-                        set f [ open "| Soft/bmp_process/create_null_file.exe -of \x22$TMPFileNull\x22 -fnr $FinalNlig -fnc $FinalNcol" r]
+                        set f [ open "| Soft/bin/bmp_process/create_null_file.exe -of \x22$TMPFileNull\x22 -fnr $FinalNlig -fnc $FinalNcol" r]
                         }
                         
                     set MaskCmd ""; set MaskDir ""
@@ -1721,23 +1721,23 @@ if {"$HSVDirInput"!=""} {
                     set MaskFile "$MaskDir/mask_valid_pixels.bin"
                     if [file exists $MaskFile] { set MaskCmd "-mask \x22$MaskFile\x22" }
                     
-                    if {$MinMaxAutoHSV == 1} { set Argument "-ifh \x22$FileInputHue\x22 -ifs \x22$FileInputSat\x22 -ifv \x22$FileInputVal\x22 -of \x22$HSVFileOutput\x22 -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto $MinMaxAutoHSV"}
-                    if {$MinMaxAutoHSV == 0} { set Argument "-ifh \x22$FileInputHue\x22 -ifs \x22$FileInputSat\x22 -ifv \x22$FileInputVal\x22 -of \x22$HSVFileOutput\x22 -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto $MinMaxAutoHSV -minh $HSVMinHue -maxh $HSVMaxHue -mins $HSVMinSat -maxs $HSVMaxSat -minv $HSVMinVal -maxv $HSVMaxVal"}
+                    if {$MinMaxAutoHSV == 1} { set Argument "-ifh \x22$FileInputHue\x22 -ifs \x22$FileInputSat\x22 -ifv \x22$FileInputVal\x22 -of \x22$HSVFileOutput\x22 -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto $MinMaxAutoHSV"}
+                    if {$MinMaxAutoHSV == 0} { set Argument "-ifh \x22$FileInputHue\x22 -ifs \x22$FileInputSat\x22 -ifv \x22$FileInputVal\x22 -of \x22$HSVFileOutput\x22 -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto $MinMaxAutoHSV -minh $HSVMinHue -maxh $HSVMaxHue -mins $HSVMinSat -maxs $HSVMaxSat -minv $HSVMinVal -maxv $HSVMaxVal"}
                     if {"$HSVCCCE"=="independant"} {
-                        TextEditorRunTrace "Process The Function Soft/bmp_process/create_hsv_file.exe" "k"
+                        TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_hsv_file.exe" "k"
                         TextEditorRunTrace "Arguments: $Argument" "k"
-                        set f [ open "| Soft/bmp_process/create_hsv_file.exe $Argument" r]
+                        set f [ open "| Soft/bin/bmp_process/create_hsv_file.exe $Argument" r]
                         }
                     if {"$HSVCCCE"=="common"} {
-                        TextEditorRunTrace "Process The Function Soft/bmp_process/create_hsv_cce_file.exe" "k"
+                        TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_hsv_cce_file.exe" "k"
                         TextEditorRunTrace "Arguments: $Argument" "k"
-                        set f [ open "| Soft/bmp_process/create_hsv_cce_file.exe $Argument" r]
+                        set f [ open "| Soft/bin/bmp_process/create_hsv_cce_file.exe $Argument" r]
                         }
                     PsPprogressBar $f
                     TextEditorRunTrace "Check RunTime Errors" "r"
                     CheckRunTimeError
                     set BMPDirInput $HSVDirOutput
-                    if {$PSPViewGimpBMP == 1} { Gimp $HSVFileOutput }
+                    if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $HSVFileOutput }
                     }
                 if {"$HSVFormat"=="polar1"} {
                     set config "true"
@@ -1773,14 +1773,14 @@ if {"$HSVDirInput"!=""} {
                         set MaskDir $HSVDirInput
                         set MaskFile "$MaskDir/mask_valid_pixels.bin"
                         if [file exists $MaskFile] { set MaskCmd "-mask \x22$MaskFile\x22" }
-                        TextEditorRunTrace "Process The Function Soft/bmp_process/create_polar1_hsv_file.exe" "k"
-                        TextEditorRunTrace "Arguments: -id \x22$HSVDirInput\x22 -of \x22$HSVFileOutput\x22 -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                        set f [ open "| Soft/bmp_process/create_polar1_hsv_file.exe -id \x22$HSVDirInput\x22 -of \x22$HSVFileOutput\x22 -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                        TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_polar1_hsv_file.exe" "k"
+                        TextEditorRunTrace "Arguments: -id \x22$HSVDirInput\x22 -of \x22$HSVFileOutput\x22 -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                        set f [ open "| Soft/bin/bmp_process/create_polar1_hsv_file.exe -id \x22$HSVDirInput\x22 -of \x22$HSVFileOutput\x22 -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                         PsPprogressBar $f
                         TextEditorRunTrace "Check RunTime Errors" "r"
                         CheckRunTimeError
                         set BMPDirInput $HSVDirOutput
-                       if {$PSPViewGimpBMP == 1} { Gimp $HSVFileOutput }
+                       if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $HSVFileOutput }
                         }
                     }
                 if {"$HSVFormat"=="polar2"} {
@@ -1817,17 +1817,17 @@ if {"$HSVDirInput"!=""} {
                         set MaskDir $HSVDirInput
                         set MaskFile "$MaskDir/mask_valid_pixels.bin"
                         if [file exists $MaskFile] { set MaskCmd "-mask \x22$MaskFile\x22" }
-                        TextEditorRunTrace "Process The Function Soft/bmp_process/create_polar2_hsv_file.exe" "k"
-                        TextEditorRunTrace "Arguments: -id \x22$HSVDirInput\x22 -of \x22$HSVFileOutput\x22 -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                        set f [ open "| Soft/bmp_process/create_polar2_hsv_file.exe -id \x22$HSVDirInput\x22 -of \x22$HSVFileOutput\x22 -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                        TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_polar2_hsv_file.exe" "k"
+                        TextEditorRunTrace "Arguments: -id \x22$HSVDirInput\x22 -of \x22$HSVFileOutput\x22 -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                        set f [ open "| Soft/bin/bmp_process/create_polar2_hsv_file.exe -id \x22$HSVDirInput\x22 -of \x22$HSVFileOutput\x22 -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                         PsPprogressBar $f
                         TextEditorRunTrace "Check RunTime Errors" "r"
                         CheckRunTimeError
                         set BMPDirInput $HSVDirOutput
-                        if {$PSPViewGimpBMP == 1} { Gimp $HSVFileOutput }
+                        if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $HSVFileOutput }
                         }
                     }
-                set HSVFormat ""
+                set HSVFormat " "
                 set FileInputHue ""
                 set FileInputSat ""
                 set FileInputVal ""
@@ -1839,7 +1839,7 @@ if {"$HSVDirInput"!=""} {
         if {"$VarWarning"=="no"} {Window hide $widget(Toplevel69); TextEditorRunTrace "Close Window Create HSL File" "b"}
         }
     } else {
-    set HSVFormat ""
+    set HSVFormat " "
     set VarError ""
     set ErrorMessage "ENTER A VALID DIRECTORY"
     Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"

@@ -829,7 +829,7 @@ if {$DirName != ""} {
 global MultAvgOutputSubDir MultAvgFonction MultAvgFunction 
 global Fonction2 ProgressLine VarFunction VarWarning WarningMessage WarningMessage2
 global ConfigFile FinalNlig FinalNcol PolarCase PolarType BestHVMultAvg
-global NligFullSize NcolFullSize OpenDirFile MultAvgFonc PSPMemory TMPMemoryAllocError
+global NligFullSize NcolFullSize OpenDirFile MultAvgFonc TMPMemoryAllocError
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
 
 if {$OpenDirFile == 0} {
@@ -870,9 +870,9 @@ if {"$VarWarning"=="ok"} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/data_process_mult/data_averaging_mult.exe" "k"
+        TextEditorRunTrace "Process The Function Soft/bin/data_process_mult/data_averaging_mult.exe" "k"
         TextEditorRunTrace "Arguments: -id \x22$DataDirMult(1)\x22 -od \x22$MultAvgDirOutput\x22 -iodf $MultAvgFonc -nwr $NwinMultAvgL -nwc $NwinMultAvgC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd" "k"
-        set f [ open "| Soft/data_process_mult/data_averaging_mult.exe -id \x22$DataDirMult(1)\x22 -od \x22$MultAvgDirOutput\x22 -iodf $MultAvgFonc -nwr $NwinMultAvgL -nwc $NwinMultAvgC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd" r]
+        set f [ open "| Soft/bin/data_process_mult/data_averaging_mult.exe -id \x22$DataDirMult(1)\x22 -od \x22$MultAvgDirOutput\x22 -iodf $MultAvgFonc -nwr $NwinMultAvgL -nwc $NwinMultAvgC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError

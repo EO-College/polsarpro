@@ -172,7 +172,6 @@ catch {package require Img}
 
 foreach img {
 
-        {{[file join . GUI Images help.gif]} {user image} user {}}
         {{[file join . GUI Images ColorMapGray.gif]} {user image} user {}}
         {{[file join . GUI Images ColorMapGrayRev.gif]} {user image} user {}}
         {{[file join . GUI Images ColorMapJet.gif]} {user image} user {}}
@@ -477,12 +476,6 @@ proc vTcl:project:info {} {
         array set save {-height 1 -relief 1 -width 1}
     }
     set site_3_0 $base.fra51
-    namespace eval ::widgets::$site_3_0.but93 {
-        array set save {-_tooltip 1 -background 1 -command 1 -padx 1 -pady 1 -text 1}
-    }
-    namespace eval ::widgets::$site_3_0.but23 {
-        array set save {-_tooltip 1 -background 1 -command 1 -image 1 -pady 1 -width 1}
-    }
     namespace eval ::widgets::$site_3_0.but24 {
         array set save {-_tooltip 1 -background 1 -command 1 -padx 1 -pady 1 -text 1}
     }
@@ -495,6 +488,7 @@ proc vTcl:project:info {} {
             main
             vTclWindow.
             vTclWindow.top208
+            ColorMapGrayJetHsvProcess
         }
         set compounds {
         }
@@ -512,6 +506,68 @@ proc vTcl:project:info {} {
 proc ::main {argc argv} {
 ## This will clean up and call exit properly on Windows.
 #vTcl:WindowsCleanup
+}
+#############################################################################
+## Procedure:  ColorMapGrayJetHsvProcess
+
+proc ::ColorMapGrayJetHsvProcess {ColorMapGJH} {
+global ColorMapOut RedPalette GreenPalette BluePalette
+global BMPChange BMPImageOpen BMPDropperFlag BMPColorMapDisplay ColorNumber ColorNumberUtil
+global ImageSource BMPImage BMPCanvas BMPWidth BMPHeight ZoomBMP CONFIGDir
+global BMPImageLens SourceWidth SourceHeight BMPSampleSource BMPColorBar MapAlgebraConfigFileProcess
+global TMPBmpTmpHeader TMPBmpTmpData TMPBmpTmp TMPBmpTmpColormap TMPBmpColorBar
+
+#read colormap
+if [file exists $ColorMapGJH] {
+    for {set i 0} {$i <= 256} {incr i} {
+        set RedPalette($i) 1
+        set GreenPalette($i) 1
+        set BluePalette($i) 1
+        }
+    set f [open $ColorMapGJH r]
+    gets $f tmp
+    gets $f tmp
+    gets $f tmp
+    for {set i 1} {$i <= 256} {incr i} {
+        gets $f newcouleur
+        set RedPalette($i) [lindex $newcouleur 0]
+        set GreenPalette($i) [lindex $newcouleur 1]
+        set BluePalette($i) [lindex $newcouleur 2]
+        }
+    close $f
+    set BMPChange "1"
+    set f [ open $TMPBmpTmpColormap w]
+    puts $f "JASC-PAL"
+    puts $f "0100"
+    puts $f "256"
+    for {set i 1} {$i <= 256} {incr i} {
+        set couleur "$RedPalette($i) $GreenPalette($i) $BluePalette($i)"
+        puts $f $couleur
+        }
+    close $f
+
+    DeleteFile $TMPBmpTmp
+    set Fonction "IMAGE PROCESSING"
+    set Fonction2 "CHANGE COLORMAP"
+    WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
+    set ProgressLine "0"
+    update
+    set f [ open "| Soft/bin/bmp_process/recreate_bmp.exe -ifh \x22$TMPBmpTmpHeader\x22 -ifd \x22$TMPBmpTmpData\x22 -oft \x22$TMPBmpTmp\x22 -ifcm \x22$TMPBmpTmpColormap\x22 -ofcb \x22$TMPBmpColorBar\x22" r]
+    PsPprogressBar $f
+    TextEditorRunTrace "Check RunTime Errors" "r"
+    CheckRunTimeError
+    WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
+    WaitUntilCreated $TMPBmpTmp
+
+    set MapAlgebraConfigFileProcess [MapAlgebra_command $MapAlgebraConfigFileProcess "quit" ""]
+    set MapAlgebraConfigFileProcess ""
+
+    load_bmp_caracteristics $TMPBmpTmp
+    image delete BMPColorBar
+    image create photo BMPColorBar -file $TMPBmpColorBar
+    .top64p.cpd104.f.cpd105 create image 0 0 -anchor nw -image BMPColorBar
+    MapAlgebra_load_bmp_file $TMPBmpTmp "process"
+    }
 }
 
 #############################################################################
@@ -543,9 +599,9 @@ proc vTclWindow. {base} {
     # CREATING WIDGETS
     ###################
     wm focusmodel $top passive
-    wm geometry $top 200x200+66+66; update
-    wm maxsize $top 1604 1185
-    wm minsize $top 104 1
+    wm geometry $top 200x200+175+175; update
+    wm maxsize $top 3364 1032
+    wm minsize $top 116 1
     wm overrideredirect $top 0
     wm resizable $top 1 1
     wm withdraw $top
@@ -575,9 +631,9 @@ proc vTclWindow.top208 {base} {
     vTcl:toplevel $top -class Toplevel
     wm withdraw $top
     wm focusmodel $top passive
-    wm geometry $top 150x180+10+110; update
+    wm geometry $top 150x170+10+110; update
     wm maxsize $top 1284 1009
-    wm minsize $top 113 1
+    wm minsize $top 116 1
     wm overrideredirect $top 0
     wm resizable $top 1 1
     wm title $top "Color Map"
@@ -597,91 +653,9 @@ proc vTclWindow.top208 {base} {
     set site_5_0 $site_4_0.cpd81
     button $site_5_0.cpd72 \
         \
-        -command {global ColorMapOut RedPalette GreenPalette BluePalette
-global BMPChange BMPImageOpen BMPDropperFlag BMPColorMapDisplay ColorNumber ColorNumberUtil
-global ImageSource BMPImage BMPCanvas BMPWidth BMPHeight ZoomBMP CONFIGDir
-global BMPImageLens SourceWidth SourceHeight BMPSampleSource BMPColorBar
-global TMPBmpTmpHeader TMPBmpTmpData TMPBmpTmp TMPBmpTmpColormap TMPBmpColorBar
-
-#read colormap
+        -command {#read colormap
 if [file exists "$CONFIGDir/ColorMapJET.pal"] {
-    for {set i 0} {$i <= 256} {incr i} {
-        set RedPalette($i) 1
-        set GreenPalette($i) 1
-        set BluePalette($i) 1
-        }
-    set f [open "$CONFIGDir/ColorMapJET.pal" r]
-    gets $f tmp
-    gets $f tmp
-    gets $f tmp
-    for {set i 1} {$i <= 256} {incr i} {
-        gets $f newcouleur
-        set RedPalette($i) [lindex $newcouleur 0]
-        set GreenPalette($i) [lindex $newcouleur 1]
-        set BluePalette($i) [lindex $newcouleur 2]
-        }
-    close $f
-    set BMPChange "1"
-    set f [ open $TMPBmpTmpColormap w]
-    puts $f "JASC-PAL"
-    puts $f "0100"
-    puts $f "256"
-    for {set i 1} {$i <= 256} {incr i} {
-        set couleur "$RedPalette($i) $GreenPalette($i) $BluePalette($i)"
-        puts $f $couleur
-        }
-    close $f
-    set f [ open "| Soft/bmp_process/recreate_bmp.exe -ifh \x22$TMPBmpTmpHeader\x22 -ifd \x22$TMPBmpTmpData\x22 -oft \x22$TMPBmpTmp\x22 -ifcm \x22$TMPBmpTmpColormap\x22 -ofcb \x22$TMPBmpColorBar\x22" r]
-    PsPprogressBar $f
-        
-    image delete ImageSource
-    image create photo ImageSource -file $TMPBmpTmp
-
-    image delete BMPColorBar
-    image create photo BMPColorBar -file $TMPBmpColorBar
-    $widget(CANVASCOLORBAR) create image 0 0 -anchor nw -image BMPColorBar
-        
-    set Num1 ""
-    set Num2 ""
-    set Num1 [string index $ZoomBMP 0]
-    set Num2 [string index $ZoomBMP 1]
-    if {$Num2 == ":"} {
-        set Num $Num1
-        set Den1 ""
-        set Den2 ""
-        set Den1 [string index $ZoomBMP 2]
-        set Den2 [string index $ZoomBMP 3]
-        if {$Den2 == ""} {
-            set Den $Den1
-            } else {
-            set Den [expr 10*$Den1 + $Den2]
-            }
-        } else {
-        set Num [expr 10*$Num1 + $Num2]
-        set Den1 ""
-        set Den2 ""
-        set Den1 [string index $ZoomBMP 3]
-        set Den2 [string index $ZoomBMP 4]
-        if {$Den2 == ""} {
-            set Den $Den1
-            } else {
-            set Den [expr 10*$Den1 + $Den2]
-            }
-        }
-
-    if {$Den >= $Num} {
-        set BMPSample $Den
-        set Xmax [expr round($BMPWidth * $BMPSample)]
-        set Ymax [expr round($BMPHeight * $BMPSample)]
-        BMPImage copy ImageSource -from 0 0 $Xmax $Ymax -subsample $BMPSample $BMPSample
-        }
-    if {$Den < $Num} {
-        set BMPZoom $Num
-        set Xmax [expr round($BMPWidth / $BMPZoom)]
-        set Ymax [expr round($BMPHeight / $BMPZoom)]
-        BMPImage copy ImageSource -from 0 0 $Xmax $Ymax -zoom $BMPZoom $BMPZoom
-        }        
-    $widget($BMPCanvas) itemconfigure current -image BMPImage 
+    ColorMapGrayJetHsvProcess "$CONFIGDir/ColorMapJET.pal"
     }} \
         -image [vTcl:image:get_image [file join . GUI Images ColorMapJet.gif]] \
         -padx 1 -pady 0 -relief groove -text {    } 
@@ -692,91 +666,9 @@ if [file exists "$CONFIGDir/ColorMapJET.pal"] {
     }
     button $site_5_0.cpd73 \
         \
-        -command {global ColorMapOut RedPalette GreenPalette BluePalette
-global BMPChange BMPImageOpen BMPDropperFlag BMPColorMapDisplay ColorNumber ColorNumberUtil
-global ImageSource BMPImage BMPCanvas BMPWidth BMPHeight ZoomBMP CONFIGDir
-global BMPImageLens SourceWidth SourceHeight BMPSampleSource BMPColorBar
-global TMPBmpTmpHeader TMPBmpTmpData TMPBmpTmp TMPBmpTmpColormap TMPBmpColorBar
-
-#read colormap
+        -command {#read colormap
 if [file exists "$CONFIGDir/ColorMapJETinv.pal"] {
-    for {set i 0} {$i <= 256} {incr i} {
-        set RedPalette($i) 1
-        set GreenPalette($i) 1
-        set BluePalette($i) 1
-        }
-    set f [open "$CONFIGDir/ColorMapJETinv.pal" r]
-    gets $f tmp
-    gets $f tmp
-    gets $f tmp
-    for {set i 1} {$i <= 256} {incr i} {
-        gets $f newcouleur
-        set RedPalette($i) [lindex $newcouleur 0]
-        set GreenPalette($i) [lindex $newcouleur 1]
-        set BluePalette($i) [lindex $newcouleur 2]
-        }
-    close $f
-    set BMPChange "1"
-    set f [ open $TMPBmpTmpColormap w]
-    puts $f "JASC-PAL"
-    puts $f "0100"
-    puts $f "256"
-    for {set i 1} {$i <= 256} {incr i} {
-        set couleur "$RedPalette($i) $GreenPalette($i) $BluePalette($i)"
-        puts $f $couleur
-        }
-    close $f
-    set f [ open "| Soft/bmp_process/recreate_bmp.exe -ifh \x22$TMPBmpTmpHeader\x22 -ifd \x22$TMPBmpTmpData\x22 -oft \x22$TMPBmpTmp\x22 -ifcm \x22$TMPBmpTmpColormap\x22 -ofcb \x22$TMPBmpColorBar\x22" r]
-    PsPprogressBar $f
-        
-    image delete ImageSource
-    image create photo ImageSource -file $TMPBmpTmp
-
-    image delete BMPColorBar
-    image create photo BMPColorBar -file $TMPBmpColorBar
-    $widget(CANVASCOLORBAR) create image 0 0 -anchor nw -image BMPColorBar
-        
-    set Num1 ""
-    set Num2 ""
-    set Num1 [string index $ZoomBMP 0]
-    set Num2 [string index $ZoomBMP 1]
-    if {$Num2 == ":"} {
-        set Num $Num1
-        set Den1 ""
-        set Den2 ""
-        set Den1 [string index $ZoomBMP 2]
-        set Den2 [string index $ZoomBMP 3]
-        if {$Den2 == ""} {
-            set Den $Den1
-            } else {
-            set Den [expr 10*$Den1 + $Den2]
-            }
-        } else {
-        set Num [expr 10*$Num1 + $Num2]
-        set Den1 ""
-        set Den2 ""
-        set Den1 [string index $ZoomBMP 3]
-        set Den2 [string index $ZoomBMP 4]
-        if {$Den2 == ""} {
-            set Den $Den1
-            } else {
-            set Den [expr 10*$Den1 + $Den2]
-            }
-        }
-
-    if {$Den >= $Num} {
-        set BMPSample $Den
-        set Xmax [expr round($BMPWidth * $BMPSample)]
-        set Ymax [expr round($BMPHeight * $BMPSample)]
-        BMPImage copy ImageSource -from 0 0 $Xmax $Ymax -subsample $BMPSample $BMPSample
-        }
-    if {$Den < $Num} {
-        set BMPZoom $Num
-        set Xmax [expr round($BMPWidth / $BMPZoom)]
-        set Ymax [expr round($BMPHeight / $BMPZoom)]
-        BMPImage copy ImageSource -from 0 0 $Xmax $Ymax -zoom $BMPZoom $BMPZoom
-        }        
-    $widget($BMPCanvas) itemconfigure current -image BMPImage 
+    ColorMapGrayJetHsvProcess "$CONFIGDir/ColorMapJETinv.pal"
     }} \
         -image [vTcl:image:get_image [file join . GUI Images ColorMapJetInv.gif]] \
         -padx 1 -pady 0 -relief groove -text {    } 
@@ -793,91 +685,9 @@ if [file exists "$CONFIGDir/ColorMapJETinv.pal"] {
     set site_5_0 $site_4_0.cpd82
     button $site_5_0.cpd72 \
         \
-        -command {global ColorMapOut RedPalette GreenPalette BluePalette
-global BMPChange BMPImageOpen BMPDropperFlag BMPColorMapDisplay ColorNumber ColorNumberUtil
-global ImageSource BMPImage BMPCanvas BMPWidth BMPHeight ZoomBMP CONFIGDir
-global BMPImageLens SourceWidth SourceHeight BMPSampleSource BMPColorBar
-global TMPBmpTmpHeader TMPBmpTmpData TMPBmpTmp TMPBmpTmpColormap TMPBmpColorBar
-
-#read colormap
+        -command {#read colormap
 if [file exists "$CONFIGDir/ColorMapJETrev.pal"] {
-    for {set i 0} {$i <= 256} {incr i} {
-        set RedPalette($i) 1
-        set GreenPalette($i) 1
-        set BluePalette($i) 1
-        }
-    set f [open "$CONFIGDir/ColorMapJETrev.pal" r]
-    gets $f tmp
-    gets $f tmp
-    gets $f tmp
-    for {set i 1} {$i <= 256} {incr i} {
-        gets $f newcouleur
-        set RedPalette($i) [lindex $newcouleur 0]
-        set GreenPalette($i) [lindex $newcouleur 1]
-        set BluePalette($i) [lindex $newcouleur 2]
-        }
-    close $f
-    set BMPChange "1"
-    set f [ open $TMPBmpTmpColormap w]
-    puts $f "JASC-PAL"
-    puts $f "0100"
-    puts $f "256"
-    for {set i 1} {$i <= 256} {incr i} {
-        set couleur "$RedPalette($i) $GreenPalette($i) $BluePalette($i)"
-        puts $f $couleur
-        }
-    close $f
-    set f [ open "| Soft/bmp_process/recreate_bmp.exe -ifh \x22$TMPBmpTmpHeader\x22 -ifd \x22$TMPBmpTmpData\x22 -oft \x22$TMPBmpTmp\x22 -ifcm \x22$TMPBmpTmpColormap\x22 -ofcb \x22$TMPBmpColorBar\x22" r]
-    PsPprogressBar $f
-        
-    image delete ImageSource
-    image create photo ImageSource -file $TMPBmpTmp
-
-    image delete BMPColorBar
-    image create photo BMPColorBar -file $TMPBmpColorBar
-    $widget(CANVASCOLORBAR) create image 0 0 -anchor nw -image BMPColorBar
-        
-    set Num1 ""
-    set Num2 ""
-    set Num1 [string index $ZoomBMP 0]
-    set Num2 [string index $ZoomBMP 1]
-    if {$Num2 == ":"} {
-        set Num $Num1
-        set Den1 ""
-        set Den2 ""
-        set Den1 [string index $ZoomBMP 2]
-        set Den2 [string index $ZoomBMP 3]
-        if {$Den2 == ""} {
-            set Den $Den1
-            } else {
-            set Den [expr 10*$Den1 + $Den2]
-            }
-        } else {
-        set Num [expr 10*$Num1 + $Num2]
-        set Den1 ""
-        set Den2 ""
-        set Den1 [string index $ZoomBMP 3]
-        set Den2 [string index $ZoomBMP 4]
-        if {$Den2 == ""} {
-            set Den $Den1
-            } else {
-            set Den [expr 10*$Den1 + $Den2]
-            }
-        }
-
-    if {$Den >= $Num} {
-        set BMPSample $Den
-        set Xmax [expr round($BMPWidth * $BMPSample)]
-        set Ymax [expr round($BMPHeight * $BMPSample)]
-        BMPImage copy ImageSource -from 0 0 $Xmax $Ymax -subsample $BMPSample $BMPSample
-        }
-    if {$Den < $Num} {
-        set BMPZoom $Num
-        set Xmax [expr round($BMPWidth / $BMPZoom)]
-        set Ymax [expr round($BMPHeight / $BMPZoom)]
-        BMPImage copy ImageSource -from 0 0 $Xmax $Ymax -zoom $BMPZoom $BMPZoom
-        }        
-    $widget($BMPCanvas) itemconfigure current -image BMPImage 
+    ColorMapGrayJetHsvProcess "$CONFIGDir/ColorMapJETrev.pal"
     }} \
         -image [vTcl:image:get_image [file join . GUI Images ColorMapJetRev.gif]] \
         -padx 1 -pady 0 -relief groove -text {    } 
@@ -888,91 +698,9 @@ if [file exists "$CONFIGDir/ColorMapJETrev.pal"] {
     }
     button $site_5_0.cpd73 \
         \
-        -command {global ColorMapOut RedPalette GreenPalette BluePalette
-global BMPChange BMPImageOpen BMPDropperFlag BMPColorMapDisplay ColorNumber ColorNumberUtil
-global ImageSource BMPImage BMPCanvas BMPWidth BMPHeight ZoomBMP CONFIGDir
-global BMPImageLens SourceWidth SourceHeight BMPSampleSource BMPColorBar
-global TMPBmpTmpHeader TMPBmpTmpData TMPBmpTmp TMPBmpTmpColormap TMPBmpColorBar
-
-#read colormap
+        -command {#read colormap
 if [file exists "$CONFIGDir/ColorMapJETrevinv.pal"] {
-    for {set i 0} {$i <= 256} {incr i} {
-        set RedPalette($i) 1
-        set GreenPalette($i) 1
-        set BluePalette($i) 1
-        }
-    set f [open "$CONFIGDir/ColorMapJETrevinv.pal" r]
-    gets $f tmp
-    gets $f tmp
-    gets $f tmp
-    for {set i 1} {$i <= 256} {incr i} {
-        gets $f newcouleur
-        set RedPalette($i) [lindex $newcouleur 0]
-        set GreenPalette($i) [lindex $newcouleur 1]
-        set BluePalette($i) [lindex $newcouleur 2]
-        }
-    close $f
-    set BMPChange "1"
-    set f [ open $TMPBmpTmpColormap w]
-    puts $f "JASC-PAL"
-    puts $f "0100"
-    puts $f "256"
-    for {set i 1} {$i <= 256} {incr i} {
-        set couleur "$RedPalette($i) $GreenPalette($i) $BluePalette($i)"
-        puts $f $couleur
-        }
-    close $f
-    set f [ open "| Soft/bmp_process/recreate_bmp.exe -ifh \x22$TMPBmpTmpHeader\x22 -ifd \x22$TMPBmpTmpData\x22 -oft \x22$TMPBmpTmp\x22 -ifcm \x22$TMPBmpTmpColormap\x22 -ofcb \x22$TMPBmpColorBar\x22" r]
-    PsPprogressBar $f
-        
-    image delete ImageSource
-    image create photo ImageSource -file $TMPBmpTmp
-
-    image delete BMPColorBar
-    image create photo BMPColorBar -file $TMPBmpColorBar
-    $widget(CANVASCOLORBAR) create image 0 0 -anchor nw -image BMPColorBar
-        
-    set Num1 ""
-    set Num2 ""
-    set Num1 [string index $ZoomBMP 0]
-    set Num2 [string index $ZoomBMP 1]
-    if {$Num2 == ":"} {
-        set Num $Num1
-        set Den1 ""
-        set Den2 ""
-        set Den1 [string index $ZoomBMP 2]
-        set Den2 [string index $ZoomBMP 3]
-        if {$Den2 == ""} {
-            set Den $Den1
-            } else {
-            set Den [expr 10*$Den1 + $Den2]
-            }
-        } else {
-        set Num [expr 10*$Num1 + $Num2]
-        set Den1 ""
-        set Den2 ""
-        set Den1 [string index $ZoomBMP 3]
-        set Den2 [string index $ZoomBMP 4]
-        if {$Den2 == ""} {
-            set Den $Den1
-            } else {
-            set Den [expr 10*$Den1 + $Den2]
-            }
-        }
-
-    if {$Den >= $Num} {
-        set BMPSample $Den
-        set Xmax [expr round($BMPWidth * $BMPSample)]
-        set Ymax [expr round($BMPHeight * $BMPSample)]
-        BMPImage copy ImageSource -from 0 0 $Xmax $Ymax -subsample $BMPSample $BMPSample
-        }
-    if {$Den < $Num} {
-        set BMPZoom $Num
-        set Xmax [expr round($BMPWidth / $BMPZoom)]
-        set Ymax [expr round($BMPHeight / $BMPZoom)]
-        BMPImage copy ImageSource -from 0 0 $Xmax $Ymax -zoom $BMPZoom $BMPZoom
-        }        
-    $widget($BMPCanvas) itemconfigure current -image BMPImage 
+    ColorMapGrayJetHsvProcess "$CONFIGDir/ColorMapJETrevinv.pal"
     }} \
         -image [vTcl:image:get_image [file join . GUI Images ColorMapJetRevInv.gif]] \
         -padx 1 -pady 0 -relief groove -text {    } 
@@ -1000,91 +728,9 @@ if [file exists "$CONFIGDir/ColorMapJETrevinv.pal"] {
     set site_5_0 $site_4_0.cpd83
     button $site_5_0.cpd72 \
         \
-        -command {global ColorMapOut RedPalette GreenPalette BluePalette
-global BMPChange BMPImageOpen BMPDropperFlag BMPColorMapDisplay ColorNumber ColorNumberUtil
-global ImageSource BMPImage BMPCanvas BMPWidth BMPHeight ZoomBMP CONFIGDir
-global BMPImageLens SourceWidth SourceHeight BMPSampleSource BMPColorBar
-global TMPBmpTmpHeader TMPBmpTmpData TMPBmpTmp TMPBmpTmpColormap TMPBmpColorBar
-
-#read colormap
+        -command {#read colormap
 if [file exists "$CONFIGDir/ColorMapGRAY.pal"] {
-    for {set i 0} {$i <= 256} {incr i} {
-        set RedPalette($i) 1
-        set GreenPalette($i) 1
-        set BluePalette($i) 1
-        }
-    set f [open "$CONFIGDir/ColorMapGRAY.pal" r]
-    gets $f tmp
-    gets $f tmp
-    gets $f tmp
-    for {set i 1} {$i <= 256} {incr i} {
-        gets $f newcouleur
-        set RedPalette($i) [lindex $newcouleur 0]
-        set GreenPalette($i) [lindex $newcouleur 1]
-        set BluePalette($i) [lindex $newcouleur 2]
-        }
-    close $f
-    set BMPChange "1"
-    set f [ open $TMPBmpTmpColormap w]
-    puts $f "JASC-PAL"
-    puts $f "0100"
-    puts $f "256"
-    for {set i 1} {$i <= 256} {incr i} {
-        set couleur "$RedPalette($i) $GreenPalette($i) $BluePalette($i)"
-        puts $f $couleur
-        }
-    close $f
-    set f [ open "| Soft/bmp_process/recreate_bmp.exe -ifh \x22$TMPBmpTmpHeader\x22 -ifd \x22$TMPBmpTmpData\x22 -oft \x22$TMPBmpTmp\x22 -ifcm \x22$TMPBmpTmpColormap\x22 -ofcb \x22$TMPBmpColorBar\x22" r]
-    PsPprogressBar $f
-        
-    image delete ImageSource
-    image create photo ImageSource -file $TMPBmpTmp
-
-    image delete BMPColorBar
-    image create photo BMPColorBar -file $TMPBmpColorBar
-    $widget(CANVASCOLORBAR) create image 0 0 -anchor nw -image BMPColorBar
-        
-    set Num1 ""
-    set Num2 ""
-    set Num1 [string index $ZoomBMP 0]
-    set Num2 [string index $ZoomBMP 1]
-    if {$Num2 == ":"} {
-        set Num $Num1
-        set Den1 ""
-        set Den2 ""
-        set Den1 [string index $ZoomBMP 2]
-        set Den2 [string index $ZoomBMP 3]
-        if {$Den2 == ""} {
-            set Den $Den1
-            } else {
-            set Den [expr 10*$Den1 + $Den2]
-            }
-        } else {
-        set Num [expr 10*$Num1 + $Num2]
-        set Den1 ""
-        set Den2 ""
-        set Den1 [string index $ZoomBMP 3]
-        set Den2 [string index $ZoomBMP 4]
-        if {$Den2 == ""} {
-            set Den $Den1
-            } else {
-            set Den [expr 10*$Den1 + $Den2]
-            }
-        }
-
-    if {$Den >= $Num} {
-        set BMPSample $Den
-        set Xmax [expr round($BMPWidth * $BMPSample)]
-        set Ymax [expr round($BMPHeight * $BMPSample)]
-        BMPImage copy ImageSource -from 0 0 $Xmax $Ymax -subsample $BMPSample $BMPSample
-        }
-    if {$Den < $Num} {
-        set BMPZoom $Num
-        set Xmax [expr round($BMPWidth / $BMPZoom)]
-        set Ymax [expr round($BMPHeight / $BMPZoom)]
-        BMPImage copy ImageSource -from 0 0 $Xmax $Ymax -zoom $BMPZoom $BMPZoom
-        }        
-    $widget($BMPCanvas) itemconfigure current -image BMPImage 
+    ColorMapGrayJetHsvProcess "$CONFIGDir/ColorMapGRAY.pal"
     }} \
         -image [vTcl:image:get_image [file join . GUI Images ColorMapGray.gif]] \
         -padx 1 -pady 0 -relief groove -text {    } 
@@ -1095,91 +741,9 @@ if [file exists "$CONFIGDir/ColorMapGRAY.pal"] {
     }
     button $site_5_0.cpd73 \
         \
-        -command {global ColorMapOut RedPalette GreenPalette BluePalette
-global BMPChange BMPImageOpen BMPDropperFlag BMPColorMapDisplay ColorNumber ColorNumberUtil
-global ImageSource BMPImage BMPCanvas BMPWidth BMPHeight ZoomBMP CONFIGDir
-global BMPImageLens SourceWidth SourceHeight BMPSampleSource BMPColorBar
-global TMPBmpTmpHeader TMPBmpTmpData TMPBmpTmp TMPBmpTmpColormap TMPBmpColorBar
-
-#read colormap
+        -command {#read colormap
 if [file exists "$CONFIGDir/ColorMapGRAYrev.pal"] {
-    for {set i 0} {$i <= 256} {incr i} {
-        set RedPalette($i) 1
-        set GreenPalette($i) 1
-        set BluePalette($i) 1
-        }
-    set f [open "$CONFIGDir/ColorMapGRAYrev.pal" r]
-    gets $f tmp
-    gets $f tmp
-    gets $f tmp
-    for {set i 1} {$i <= 256} {incr i} {
-        gets $f newcouleur
-        set RedPalette($i) [lindex $newcouleur 0]
-        set GreenPalette($i) [lindex $newcouleur 1]
-        set BluePalette($i) [lindex $newcouleur 2]
-        }
-    close $f
-    set BMPChange "1"
-    set f [ open $TMPBmpTmpColormap w]
-    puts $f "JASC-PAL"
-    puts $f "0100"
-    puts $f "256"
-    for {set i 1} {$i <= 256} {incr i} {
-        set couleur "$RedPalette($i) $GreenPalette($i) $BluePalette($i)"
-        puts $f $couleur
-        }
-    close $f
-    set f [ open "| Soft/bmp_process/recreate_bmp.exe -ifh \x22$TMPBmpTmpHeader\x22 -ifd \x22$TMPBmpTmpData\x22 -oft \x22$TMPBmpTmp\x22 -ifcm \x22$TMPBmpTmpColormap\x22 -ofcb \x22$TMPBmpColorBar\x22" r]
-    PsPprogressBar $f
-        
-    image delete ImageSource
-    image create photo ImageSource -file $TMPBmpTmp
-
-    image delete BMPColorBar
-    image create photo BMPColorBar -file $TMPBmpColorBar
-    $widget(CANVASCOLORBAR) create image 0 0 -anchor nw -image BMPColorBar
-        
-    set Num1 ""
-    set Num2 ""
-    set Num1 [string index $ZoomBMP 0]
-    set Num2 [string index $ZoomBMP 1]
-    if {$Num2 == ":"} {
-        set Num $Num1
-        set Den1 ""
-        set Den2 ""
-        set Den1 [string index $ZoomBMP 2]
-        set Den2 [string index $ZoomBMP 3]
-        if {$Den2 == ""} {
-            set Den $Den1
-            } else {
-            set Den [expr 10*$Den1 + $Den2]
-            }
-        } else {
-        set Num [expr 10*$Num1 + $Num2]
-        set Den1 ""
-        set Den2 ""
-        set Den1 [string index $ZoomBMP 3]
-        set Den2 [string index $ZoomBMP 4]
-        if {$Den2 == ""} {
-            set Den $Den1
-            } else {
-            set Den [expr 10*$Den1 + $Den2]
-            }
-        }
-
-    if {$Den >= $Num} {
-        set BMPSample $Den
-        set Xmax [expr round($BMPWidth * $BMPSample)]
-        set Ymax [expr round($BMPHeight * $BMPSample)]
-        BMPImage copy ImageSource -from 0 0 $Xmax $Ymax -subsample $BMPSample $BMPSample
-        }
-    if {$Den < $Num} {
-        set BMPZoom $Num
-        set Xmax [expr round($BMPWidth / $BMPZoom)]
-        set Ymax [expr round($BMPHeight / $BMPZoom)]
-        BMPImage copy ImageSource -from 0 0 $Xmax $Ymax -zoom $BMPZoom $BMPZoom
-        }        
-    $widget($BMPCanvas) itemconfigure current -image BMPImage 
+    ColorMapGrayJetHsvProcess "$CONFIGDir/ColorMapGRAYrev.pal"
     }} \
         -image [vTcl:image:get_image [file join . GUI Images ColorMapGrayRev.gif]] \
         -padx 1 -pady 0 -relief groove -text {    } 
@@ -1205,91 +769,9 @@ if [file exists "$CONFIGDir/ColorMapGRAYrev.pal"] {
     set site_5_0 $site_4_0.cpd78
     button $site_5_0.cpd72 \
         \
-        -command {global ColorMapOut RedPalette GreenPalette BluePalette
-global BMPChange BMPImageOpen BMPDropperFlag BMPColorMapDisplay ColorNumber ColorNumberUtil
-global ImageSource BMPImage BMPCanvas BMPWidth BMPHeight ZoomBMP CONFIGDir
-global BMPImageLens SourceWidth SourceHeight BMPSampleSource BMPColorBar
-global TMPBmpTmpHeader TMPBmpTmpData TMPBmpTmp TMPBmpTmpColormap TMPBmpColorBar
-
-#read colormap
+        -command {#read colormap
 if [file exists "$CONFIGDir/ColorMapHSV.pal"] {
-    for {set i 0} {$i <= 256} {incr i} {
-        set RedPalette($i) 1
-        set GreenPalette($i) 1
-        set BluePalette($i) 1
-        }
-    set f [open "$CONFIGDir/ColorMapHSV.pal" r]
-    gets $f tmp
-    gets $f tmp
-    gets $f tmp
-    for {set i 1} {$i <= 256} {incr i} {
-        gets $f newcouleur
-        set RedPalette($i) [lindex $newcouleur 0]
-        set GreenPalette($i) [lindex $newcouleur 1]
-        set BluePalette($i) [lindex $newcouleur 2]
-        }
-    close $f
-    set BMPChange "1"
-    set f [ open $TMPBmpTmpColormap w]
-    puts $f "JASC-PAL"
-    puts $f "0100"
-    puts $f "256"
-    for {set i 1} {$i <= 256} {incr i} {
-        set couleur "$RedPalette($i) $GreenPalette($i) $BluePalette($i)"
-        puts $f $couleur
-        }
-    close $f
-    set f [ open "| Soft/bmp_process/recreate_bmp.exe -ifh \x22$TMPBmpTmpHeader\x22 -ifd \x22$TMPBmpTmpData\x22 -oft \x22$TMPBmpTmp\x22 -ifcm \x22$TMPBmpTmpColormap\x22 -ofcb \x22$TMPBmpColorBar\x22" r]
-    PsPprogressBar $f
-        
-    image delete ImageSource
-    image create photo ImageSource -file $TMPBmpTmp
-
-    image delete BMPColorBar
-    image create photo BMPColorBar -file $TMPBmpColorBar
-    $widget(CANVASCOLORBAR) create image 0 0 -anchor nw -image BMPColorBar
-        
-    set Num1 ""
-    set Num2 ""
-    set Num1 [string index $ZoomBMP 0]
-    set Num2 [string index $ZoomBMP 1]
-    if {$Num2 == ":"} {
-        set Num $Num1
-        set Den1 ""
-        set Den2 ""
-        set Den1 [string index $ZoomBMP 2]
-        set Den2 [string index $ZoomBMP 3]
-        if {$Den2 == ""} {
-            set Den $Den1
-            } else {
-            set Den [expr 10*$Den1 + $Den2]
-            }
-        } else {
-        set Num [expr 10*$Num1 + $Num2]
-        set Den1 ""
-        set Den2 ""
-        set Den1 [string index $ZoomBMP 3]
-        set Den2 [string index $ZoomBMP 4]
-        if {$Den2 == ""} {
-            set Den $Den1
-            } else {
-            set Den [expr 10*$Den1 + $Den2]
-            }
-        }
-
-    if {$Den >= $Num} {
-        set BMPSample $Den
-        set Xmax [expr round($BMPWidth * $BMPSample)]
-        set Ymax [expr round($BMPHeight * $BMPSample)]
-        BMPImage copy ImageSource -from 0 0 $Xmax $Ymax -subsample $BMPSample $BMPSample
-        }
-    if {$Den < $Num} {
-        set BMPZoom $Num
-        set Xmax [expr round($BMPWidth / $BMPZoom)]
-        set Ymax [expr round($BMPHeight / $BMPZoom)]
-        BMPImage copy ImageSource -from 0 0 $Xmax $Ymax -zoom $BMPZoom $BMPZoom
-        }        
-    $widget($BMPCanvas) itemconfigure current -image BMPImage 
+    ColorMapGrayJetHsvProcess "$CONFIGDir/ColorMapHSV.pal"
     }} \
         -image [vTcl:image:get_image [file join . GUI Images ColorMapHsv.gif]] \
         -padx 1 -pady 0 -relief groove -text {    } 
@@ -1300,91 +782,9 @@ if [file exists "$CONFIGDir/ColorMapHSV.pal"] {
     }
     button $site_5_0.cpd73 \
         \
-        -command {global ColorMapOut RedPalette GreenPalette BluePalette
-global BMPChange BMPImageOpen BMPDropperFlag BMPColorMapDisplay ColorNumber ColorNumberUtil
-global ImageSource BMPImage BMPCanvas BMPWidth BMPHeight ZoomBMP CONFIGDir
-global BMPImageLens SourceWidth SourceHeight BMPSampleSource BMPColorBar
-global TMPBmpTmpHeader TMPBmpTmpData TMPBmpTmp TMPBmpTmpColormap TMPBmpColorBar
-
-#read colormap
+        -command {#read colormap
 if [file exists "$CONFIGDir/ColorMapHSVinv.pal"] {
-    for {set i 0} {$i <= 256} {incr i} {
-        set RedPalette($i) 1
-        set GreenPalette($i) 1
-        set BluePalette($i) 1
-        }
-    set f [open "$CONFIGDir/ColorMapHSVinv.pal" r]
-    gets $f tmp
-    gets $f tmp
-    gets $f tmp
-    for {set i 1} {$i <= 256} {incr i} {
-        gets $f newcouleur
-        set RedPalette($i) [lindex $newcouleur 0]
-        set GreenPalette($i) [lindex $newcouleur 1]
-        set BluePalette($i) [lindex $newcouleur 2]
-        }
-    close $f
-    set BMPChange "1"
-    set f [ open $TMPBmpTmpColormap w]
-    puts $f "JASC-PAL"
-    puts $f "0100"
-    puts $f "256"
-    for {set i 1} {$i <= 256} {incr i} {
-        set couleur "$RedPalette($i) $GreenPalette($i) $BluePalette($i)"
-        puts $f $couleur
-        }
-    close $f
-    set f [ open "| Soft/bmp_process/recreate_bmp.exe -ifh \x22$TMPBmpTmpHeader\x22 -ifd \x22$TMPBmpTmpData\x22 -oft \x22$TMPBmpTmp\x22 -ifcm \x22$TMPBmpTmpColormap\x22 -ofcb \x22$TMPBmpColorBar\x22" r]
-    PsPprogressBar $f
-        
-    image delete ImageSource
-    image create photo ImageSource -file $TMPBmpTmp
-
-    image delete BMPColorBar
-    image create photo BMPColorBar -file $TMPBmpColorBar
-    $widget(CANVASCOLORBAR) create image 0 0 -anchor nw -image BMPColorBar
-        
-    set Num1 ""
-    set Num2 ""
-    set Num1 [string index $ZoomBMP 0]
-    set Num2 [string index $ZoomBMP 1]
-    if {$Num2 == ":"} {
-        set Num $Num1
-        set Den1 ""
-        set Den2 ""
-        set Den1 [string index $ZoomBMP 2]
-        set Den2 [string index $ZoomBMP 3]
-        if {$Den2 == ""} {
-            set Den $Den1
-            } else {
-            set Den [expr 10*$Den1 + $Den2]
-            }
-        } else {
-        set Num [expr 10*$Num1 + $Num2]
-        set Den1 ""
-        set Den2 ""
-        set Den1 [string index $ZoomBMP 3]
-        set Den2 [string index $ZoomBMP 4]
-        if {$Den2 == ""} {
-            set Den $Den1
-            } else {
-            set Den [expr 10*$Den1 + $Den2]
-            }
-        }
-
-    if {$Den >= $Num} {
-        set BMPSample $Den
-        set Xmax [expr round($BMPWidth * $BMPSample)]
-        set Ymax [expr round($BMPHeight * $BMPSample)]
-        BMPImage copy ImageSource -from 0 0 $Xmax $Ymax -subsample $BMPSample $BMPSample
-        }
-    if {$Den < $Num} {
-        set BMPZoom $Num
-        set Xmax [expr round($BMPWidth / $BMPZoom)]
-        set Ymax [expr round($BMPHeight / $BMPZoom)]
-        BMPImage copy ImageSource -from 0 0 $Xmax $Ymax -zoom $BMPZoom $BMPZoom
-        }        
-    $widget($BMPCanvas) itemconfigure current -image BMPImage 
+    ColorMapGrayJetHsvProcess "$CONFIGDir/ColorMapHSVinv.pal"
     }} \
         -image [vTcl:image:get_image [file join . GUI Images ColorMapHsvInv.gif]] \
         -padx 1 -pady 0 -relief groove -text {    } 
@@ -1401,91 +801,9 @@ if [file exists "$CONFIGDir/ColorMapHSVinv.pal"] {
     set site_5_0 $site_4_0.cpd80
     button $site_5_0.cpd72 \
         \
-        -command {global ColorMapOut RedPalette GreenPalette BluePalette
-global BMPChange BMPImageOpen BMPDropperFlag BMPColorMapDisplay ColorNumber ColorNumberUtil
-global ImageSource BMPImage BMPCanvas BMPWidth BMPHeight ZoomBMP CONFIGDir
-global BMPImageLens SourceWidth SourceHeight BMPSampleSource BMPColorBar
-global TMPBmpTmpHeader TMPBmpTmpData TMPBmpTmp TMPBmpTmpColormap TMPBmpColorBar
-
-#read colormap
+        -command {#read colormap
 if [file exists "$CONFIGDir/ColorMapHSVrev.pal"] {
-    for {set i 0} {$i <= 256} {incr i} {
-        set RedPalette($i) 1
-        set GreenPalette($i) 1
-        set BluePalette($i) 1
-        }
-    set f [open "$CONFIGDir/ColorMapHSVrev.pal" r]
-    gets $f tmp
-    gets $f tmp
-    gets $f tmp
-    for {set i 1} {$i <= 256} {incr i} {
-        gets $f newcouleur
-        set RedPalette($i) [lindex $newcouleur 0]
-        set GreenPalette($i) [lindex $newcouleur 1]
-        set BluePalette($i) [lindex $newcouleur 2]
-        }
-    close $f
-    set BMPChange "1"
-    set f [ open $TMPBmpTmpColormap w]
-    puts $f "JASC-PAL"
-    puts $f "0100"
-    puts $f "256"
-    for {set i 1} {$i <= 256} {incr i} {
-        set couleur "$RedPalette($i) $GreenPalette($i) $BluePalette($i)"
-        puts $f $couleur
-        }
-    close $f
-    set f [ open "| Soft/bmp_process/recreate_bmp.exe -ifh \x22$TMPBmpTmpHeader\x22 -ifd \x22$TMPBmpTmpData\x22 -oft \x22$TMPBmpTmp\x22 -ifcm \x22$TMPBmpTmpColormap\x22 -ofcb \x22$TMPBmpColorBar\x22" r]
-    PsPprogressBar $f
-        
-    image delete ImageSource
-    image create photo ImageSource -file $TMPBmpTmp
-
-    image delete BMPColorBar
-    image create photo BMPColorBar -file $TMPBmpColorBar
-    $widget(CANVASCOLORBAR) create image 0 0 -anchor nw -image BMPColorBar
-        
-    set Num1 ""
-    set Num2 ""
-    set Num1 [string index $ZoomBMP 0]
-    set Num2 [string index $ZoomBMP 1]
-    if {$Num2 == ":"} {
-        set Num $Num1
-        set Den1 ""
-        set Den2 ""
-        set Den1 [string index $ZoomBMP 2]
-        set Den2 [string index $ZoomBMP 3]
-        if {$Den2 == ""} {
-            set Den $Den1
-            } else {
-            set Den [expr 10*$Den1 + $Den2]
-            }
-        } else {
-        set Num [expr 10*$Num1 + $Num2]
-        set Den1 ""
-        set Den2 ""
-        set Den1 [string index $ZoomBMP 3]
-        set Den2 [string index $ZoomBMP 4]
-        if {$Den2 == ""} {
-            set Den $Den1
-            } else {
-            set Den [expr 10*$Den1 + $Den2]
-            }
-        }
-
-    if {$Den >= $Num} {
-        set BMPSample $Den
-        set Xmax [expr round($BMPWidth * $BMPSample)]
-        set Ymax [expr round($BMPHeight * $BMPSample)]
-        BMPImage copy ImageSource -from 0 0 $Xmax $Ymax -subsample $BMPSample $BMPSample
-        }
-    if {$Den < $Num} {
-        set BMPZoom $Num
-        set Xmax [expr round($BMPWidth / $BMPZoom)]
-        set Ymax [expr round($BMPHeight / $BMPZoom)]
-        BMPImage copy ImageSource -from 0 0 $Xmax $Ymax -zoom $BMPZoom $BMPZoom
-        }        
-    $widget($BMPCanvas) itemconfigure current -image BMPImage 
+    ColorMapGrayJetHsvProcess "$CONFIGDir/ColorMapHSVrev.pal"
     }} \
         -image [vTcl:image:get_image [file join . GUI Images ColorMapHsvRev.gif]] \
         -padx 1 -pady 0 -relief groove -text {    } 
@@ -1496,91 +814,9 @@ if [file exists "$CONFIGDir/ColorMapHSVrev.pal"] {
     }
     button $site_5_0.cpd73 \
         \
-        -command {global ColorMapOut RedPalette GreenPalette BluePalette
-global BMPChange BMPImageOpen BMPDropperFlag BMPColorMapDisplay ColorNumber ColorNumberUtil
-global ImageSource BMPImage BMPCanvas BMPWidth BMPHeight ZoomBMP CONFIGDir
-global BMPImageLens SourceWidth SourceHeight BMPSampleSource BMPColorBar
-global TMPBmpTmpHeader TMPBmpTmpData TMPBmpTmp TMPBmpTmpColormap TMPBmpColorBar
-
-#read colormap
+        -command {#read colormap
 if [file exists "$CONFIGDir/ColorMapHSVrevinv.pal"] {
-    for {set i 0} {$i <= 256} {incr i} {
-        set RedPalette($i) 1
-        set GreenPalette($i) 1
-        set BluePalette($i) 1
-        }
-    set f [open "$CONFIGDir/ColorMapHSVrevinv.pal" r]
-    gets $f tmp
-    gets $f tmp
-    gets $f tmp
-    for {set i 1} {$i <= 256} {incr i} {
-        gets $f newcouleur
-        set RedPalette($i) [lindex $newcouleur 0]
-        set GreenPalette($i) [lindex $newcouleur 1]
-        set BluePalette($i) [lindex $newcouleur 2]
-        }
-    close $f
-    set BMPChange "1"
-    set f [ open $TMPBmpTmpColormap w]
-    puts $f "JASC-PAL"
-    puts $f "0100"
-    puts $f "256"
-    for {set i 1} {$i <= 256} {incr i} {
-        set couleur "$RedPalette($i) $GreenPalette($i) $BluePalette($i)"
-        puts $f $couleur
-        }
-    close $f
-    set f [ open "| Soft/bmp_process/recreate_bmp.exe -ifh \x22$TMPBmpTmpHeader\x22 -ifd \x22$TMPBmpTmpData\x22 -oft \x22$TMPBmpTmp\x22 -ifcm \x22$TMPBmpTmpColormap\x22 -ofcb \x22$TMPBmpColorBar\x22" r]
-    PsPprogressBar $f
-        
-    image delete ImageSource
-    image create photo ImageSource -file $TMPBmpTmp
-
-    image delete BMPColorBar
-    image create photo BMPColorBar -file $TMPBmpColorBar
-    $widget(CANVASCOLORBAR) create image 0 0 -anchor nw -image BMPColorBar
-        
-    set Num1 ""
-    set Num2 ""
-    set Num1 [string index $ZoomBMP 0]
-    set Num2 [string index $ZoomBMP 1]
-    if {$Num2 == ":"} {
-        set Num $Num1
-        set Den1 ""
-        set Den2 ""
-        set Den1 [string index $ZoomBMP 2]
-        set Den2 [string index $ZoomBMP 3]
-        if {$Den2 == ""} {
-            set Den $Den1
-            } else {
-            set Den [expr 10*$Den1 + $Den2]
-            }
-        } else {
-        set Num [expr 10*$Num1 + $Num2]
-        set Den1 ""
-        set Den2 ""
-        set Den1 [string index $ZoomBMP 3]
-        set Den2 [string index $ZoomBMP 4]
-        if {$Den2 == ""} {
-            set Den $Den1
-            } else {
-            set Den [expr 10*$Den1 + $Den2]
-            }
-        }
-
-    if {$Den >= $Num} {
-        set BMPSample $Den
-        set Xmax [expr round($BMPWidth * $BMPSample)]
-        set Ymax [expr round($BMPHeight * $BMPSample)]
-        BMPImage copy ImageSource -from 0 0 $Xmax $Ymax -subsample $BMPSample $BMPSample
-        }
-    if {$Den < $Num} {
-        set BMPZoom $Num
-        set Xmax [expr round($BMPWidth / $BMPZoom)]
-        set Ymax [expr round($BMPHeight / $BMPZoom)]
-        BMPImage copy ImageSource -from 0 0 $Xmax $Ymax -zoom $BMPZoom $BMPZoom
-        }        
-    $widget($BMPCanvas) itemconfigure current -image BMPImage 
+    ColorMapGrayJetHsvProcess "$CONFIGDir/ColorMapHSVrevinv.pal"
     }} \
         -image [vTcl:image:get_image [file join . GUI Images ColorMapHsvRevInv.gif]] \
         -padx 1 -pady 0 -relief groove -text {    } 
@@ -1601,99 +837,6 @@ if [file exists "$CONFIGDir/ColorMapHSVrevinv.pal"] {
         -relief groove -height 35 -width 125 
     vTcl:DefineAlias "$top.fra51" "Frame20" vTcl:WidgetProc "Toplevel208" 1
     set site_3_0 $top.fra51
-    button $site_3_0.but93 \
-        -background #ffff00 \
-        -command {global ColorMapOut RedPalette GreenPalette BluePalette
-global ColorMapOut InitRedPalette InitGreenPalette InitBluePalette
-global BMPChange BMPImageOpen BMPDropperFlag BMPColorMapDisplay ColorNumber ColorNumberUtil
-global ImageSource BMPImage BMPCanvas BMPWidth BMPHeight ZoomBMP
-global BMPImageLens SourceWidth SourceHeight BMPSampleSource BMPColorBar
-global TMPBmpTmpHeader TMPBmpTmpData TMPBmpTmp TMPBmpTmpColormap TMPBmpColorBar
-
-    set BMPChange "1"
-
-    for {set i 0} {$i <= 256} {incr i} {
-        set RedPalette($i) $InitRedPalette($i)
-        set GreenPalette($i) $InitGreenPalette($i)
-        set BluePalette($i) $InitBluePalette($i)
-        }
-        
-    set f [ open $TMPBmpTmpColormap w]
-    puts $f "JASC-PAL"
-    puts $f "0100"
-    puts $f "256"
-    for {set i 1} {$i <= 256} {incr i} {
-        set couleur "$InitRedPalette($i) $InitGreenPalette($i) $InitBluePalette($i)"
-        puts $f $couleur
-        }
-    close $f
-    set f [ open "| Soft/bmp_process/recreate_bmp.exe -ifh \x22$TMPBmpTmpHeader\x22 -ifd \x22$TMPBmpTmpData\x22 -oft \x22$TMPBmpTmp\x22 -ifcm \x22$TMPBmpTmpColormap\x22 -ofcb \x22$TMPBmpColorBar\x22" r]
-    PsPprogressBar $f
-
-    image delete ImageSource
-    image create photo ImageSource -file $TMPBmpTmp
-
-    image delete BMPColorBar
-    image create photo BMPColorBar -file $TMPBmpColorBar
-    $widget(CANVASCOLORBAR) create image 0 0 -anchor nw -image BMPColorBar
-        
-    set Num1 ""
-    set Num2 ""
-    set Num1 [string index $ZoomBMP 0]
-    set Num2 [string index $ZoomBMP 1]
-    if {$Num2 == ":"} {
-        set Num $Num1
-        set Den1 ""
-        set Den2 ""
-        set Den1 [string index $ZoomBMP 2]
-        set Den2 [string index $ZoomBMP 3]
-        if {$Den2 == ""} {
-            set Den $Den1
-            } else {
-            set Den [expr 10*$Den1 + $Den2]
-            }
-        } else {
-        set Num [expr 10*$Num1 + $Num2]
-        set Den1 ""
-        set Den2 ""
-        set Den1 [string index $ZoomBMP 3]
-        set Den2 [string index $ZoomBMP 4]
-        if {$Den2 == ""} {
-            set Den $Den1
-            } else {
-            set Den [expr 10*$Den1 + $Den2]
-            }
-        }
-
-    if {$Den >= $Num} {
-        set BMPSample $Den
-        set Xmax [expr round($BMPWidth * $BMPSample)]
-        set Ymax [expr round($BMPHeight * $BMPSample)]
-        BMPImage copy ImageSource -from 0 0 $Xmax $Ymax -subsample $BMPSample $BMPSample
-        }
-    if {$Den < $Num} {
-        set BMPZoom $Num
-        set Xmax [expr round($BMPWidth / $BMPZoom)]
-        set Ymax [expr round($BMPHeight / $BMPZoom)]
-        BMPImage copy ImageSource -from 0 0 $Xmax $Ymax -zoom $BMPZoom $BMPZoom
-        }        
-    $widget($BMPCanvas) itemconfigure current -image BMPImage} \
-        -padx 4 -pady 2 -text Cancel 
-    vTcl:DefineAlias "$site_3_0.but93" "Button13" vTcl:WidgetProc "Toplevel208" 1
-    bindtags $site_3_0.but93 "$site_3_0.but93 Button $top all _vTclBalloon"
-    bind $site_3_0.but93 <<SetBalloon>> {
-        set ::vTcl::balloon::%W {Cancel}
-    }
-    button $site_3_0.but23 \
-        -background #ff8000 \
-        -command {HelpPdfEdit "Help/ColorMapGrayJetHsv.pdf"} \
-        -image [vTcl:image:get_image [file join . GUI Images help.gif]] \
-        -pady 0 -width 20 
-    vTcl:DefineAlias "$site_3_0.but23" "Button15" vTcl:WidgetProc "Toplevel208" 1
-    bindtags $site_3_0.but23 "$site_3_0.but23 Button $top all _vTclBalloon"
-    bind $site_3_0.but23 <<SetBalloon>> {
-        set ::vTcl::balloon::%W {Help File}
-    }
     button $site_3_0.but24 \
         -background #ffff00 \
         -command {global BMPColorMapGrayJetHsv
@@ -1706,10 +849,6 @@ Window hide $widget(Toplevel208); TextEditorRunTrace "Close Window ColorMap Gray
     bind $site_3_0.but24 <<SetBalloon>> {
         set ::vTcl::balloon::%W {Exit the Function}
     }
-    pack $site_3_0.but93 \
-        -in $site_3_0 -anchor center -expand 1 -fill none -side left 
-    pack $site_3_0.but23 \
-        -in $site_3_0 -anchor center -expand 1 -fill none -side left 
     pack $site_3_0.but24 \
         -in $site_3_0 -anchor center -expand 1 -fill none -side left 
     ###################

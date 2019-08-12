@@ -687,6 +687,7 @@ proc vTcl:project:info {} {
             ExtractUAVSAR
             ExtractRISAT
             ExtractSENTINEL1
+            ExtractGF3
         }
         set compounds {
         }
@@ -721,13 +722,13 @@ global TMPAirsarConfig IEEEFormat MultiLookSubSamp
 
 if {$AIRSARDataFormat == "SLC"} {
     if {$AIRSARProcessor == "old"} {
-        set ExtractFunction "Soft/data_import/airsar_convert_SLC.exe"
+        set ExtractFunction "Soft/bin/data_import/airsar_convert_SLC.exe"
         TextEditorRunTrace "Process The Function $ExtractFunction" "k"
         TextEditorRunTrace "Arguments: -if \x22$FileInputSTK\x22 -od \x22$PSPImportDirOutput\x22 -odf $PSPImportOutputFormat -nr $NligFullSize -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -cf \x22$TMPAirsarConfig\x22 $MultiLookSubSamp" "k"
         set f [ open "| $ExtractFunction -if \x22$FileInputSTK\x22 -od \x22$PSPImportDirOutput\x22 -odf $PSPImportOutputFormat -nr $NligFullSize -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -cf \x22$TMPAirsarConfig\x22 $MultiLookSubSamp" r]
         }            
     if {$AIRSARProcessor == "new"} {
-        set ExtractFunction "Soft/data_import/airsar_convert_V6_SLC.exe"
+        set ExtractFunction "Soft/bin/data_import/airsar_convert_V6_SLC.exe"
         TextEditorRunTrace "Process The Function $ExtractFunction" "k"
         TextEditorRunTrace "Arguments: -if1 \x22$FileInputSTK\x22 -if2 \x22$FileInputSTK1\x22 -if3 \x22$FileInputSTK2\x22 -if4 \x22$FileInputSTK3\x22 -od \x22$PSPImportDirOutput\x22 -odf $PSPImportOutputFormat -nr $NligFullSize -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -cf \x22$TMPAirsarConfig\x22 -iee $IEEEFormat -sym $PSPSymmetrisation $MultiLookSubSamp" "k"
         set f [ open "| $ExtractFunction -if1 \x22$FileInputSTK\x22 -if2 \x22$FileInputSTK1\x22 -if3 \x22$FileInputSTK2\x22 -if4 \x22$FileInputSTK3\x22 -od \x22$PSPImportDirOutput\x22 -odf $PSPImportOutputFormat -nr $NligFullSize -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -cf \x22$TMPAirsarConfig\x22 -iee $IEEEFormat -sym $PSPSymmetrisation $MultiLookSubSamp" r]
@@ -735,7 +736,7 @@ if {$AIRSARDataFormat == "SLC"} {
     }
     
 if {$AIRSARDataFormat == "MLC"} {
-    set ExtractFunction "Soft/data_import/airsar_convert.exe"
+    set ExtractFunction "Soft/bin/data_import/airsar_convert.exe"
     TextEditorRunTrace "Process The Function $ExtractFunction" "k"
     TextEditorRunTrace "Arguments: -if \x22$FileInputSTK\x22 -od \x22$PSPImportDirOutput\x22 -odf $PSPImportOutputFormat -nr $NligFullSize -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -cf \x22$TMPAirsarConfig\x22 $MultiLookSubSamp" "k"
     set f [ open "| $ExtractFunction -if \x22$FileInputSTK\x22 -od \x22$PSPImportDirOutput\x22 -odf $PSPImportOutputFormat -nr $NligFullSize -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -cf \x22$TMPAirsarConfig\x22 $MultiLookSubSamp" r]
@@ -756,7 +757,7 @@ global ProgressLine
 global FileInputHH FileInputHV FileInputVH FileInputVV
 global IEEEFormat MultiLookSubSamp
 
-set ExtractFunction "Soft/data_import/convair_convert.exe"
+set ExtractFunction "Soft/bin/data_import/convair_convert.exe"
 TextEditorRunTrace "Process The Function $ExtractFunction" "k"
 TextEditorRunTrace "Arguments: -if1 \x22$FileInputHH\x22 -if2 \x22$FileInputHV\x22 -if3 \x22$FileInputVH\x22 -if4 \x22$FileInputVV\x22 -od \x22$PSPImportDirOutput\x22 -odf $PSPImportOutputFormat -nr $NligFullSize -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -iee $IEEEFormat -sym $PSPSymmetrisation $MultiLookSubSamp" "k"
 set f [ open "| $ExtractFunction -if1 \x22$FileInputHH\x22 -if2 \x22$FileInputHV\x22 -if3 \x22$FileInputVH\x22 -if4 \x22$FileInputVV\x22 -od \x22$PSPImportDirOutput\x22 -odf $PSPImportOutputFormat -nr $NligFullSize -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -iee $IEEEFormat -sym $PSPSymmetrisation $MultiLookSubSamp" r]
@@ -777,10 +778,10 @@ global FileInputHH FileInputHV FileInputVH FileInputVV
 global IEEEFormat EsarHeader MultiLookSubSamp
 
 if {$ESARDataFormat == "RGI"} {
-    set ExtractFunction "Soft/data_import/esar_convert.exe"
+    set ExtractFunction "Soft/bin/data_import/esar_convert.exe"
     }
 if {$ESARDataFormat == "GTC"} {
-    set ExtractFunction "Soft/data_import/esar_convert_gtc.exe"
+    set ExtractFunction "Soft/bin/data_import/esar_convert_gtc.exe"
     }
 TextEditorRunTrace "Process The Function $ExtractFunction" "k"
 TextEditorRunTrace "Arguments: -if1 \x22$FileInputHH\x22 -if2 \x22$FileInputHV\x22 -if3 \x22$FileInputVH\x22 -if4 \x22$FileInputVV\x22 -od \x22$PSPImportDirOutput\x22 -odf $PSPImportOutputFormat -nr $NligFullSize -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -iee $IEEEFormat -sym $PSPSymmetrisation -hdr $EsarHeader $MultiLookSubSamp" "k"
@@ -802,7 +803,7 @@ global FileInputHH FileInputHV FileInputVH FileInputVV
 global IEEEFormat FsarHeader MultiLookSubSamp
 global FSARMaskFile FSARIncAngFile
 
-set ExtractFunction "Soft/data_import/fsar_convert.exe"
+set ExtractFunction "Soft/bin/data_import/fsar_convert.exe"
 TextEditorRunTrace "Process The Function $ExtractFunction" "k"
 TextEditorRunTrace "Arguments: -if1 \x22$FileInputHH\x22 -if2 \x22$FileInputHV\x22 -if3 \x22$FileInputVH\x22 -if4 \x22$FileInputVV\x22 -msk \x22$FSARMaskFile\x22 -inc \x22$FSARIncAngFile\x22 -od \x22$PSPImportDirOutput\x22 -odf $PSPImportOutputFormat -nr $NligFullSize -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -sym $PSPSymmetrisation -hdr $FsarHeader $MultiLookSubSamp" "k"
 set f [ open "| $ExtractFunction -if1 \x22$FileInputHH\x22 -if2 \x22$FileInputHV\x22 -if3 \x22$FileInputVH\x22 -if4 \x22$FileInputVV\x22 -msk \x22$FSARMaskFile\x22 -inc \x22$FSARIncAngFile\x22 -od \x22$PSPImportDirOutput\x22 -odf $PSPImportOutputFormat -nr $NligFullSize -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -sym $PSPSymmetrisation -hdr $FsarHeader $MultiLookSubSamp" r]
@@ -813,7 +814,7 @@ PsPprogressBar $f
 ## Procedure:  ExtractSETHI
 
 proc ::ExtractSETHI {} {
-global PSPImportDirInput PSPImportDirOutput
+global PSPImportDirInput PSPImportDirOutput TMPSethiConfig 
 global PSPImportExtractFonction PSPImportOutputFormat PSPSymmetrisation
 global NcolFullSize NligFullSize 
 global MultiLookSubSamp
@@ -822,10 +823,10 @@ global ProgressLine
 global FileInputHH FileInputHV FileInputVH FileInputVV
 global IEEEFormat MultiLookSubSamp
 
-set ExtractFunction "Soft/data_import/sethi_convert.exe"
+set ExtractFunction "Soft/bin/data_import/sethi_convert.exe"
 TextEditorRunTrace "Process The Function $ExtractFunction" "k"
-TextEditorRunTrace "Arguments: -if1 \x22$FileInputHH\x22 -if2 \x22$FileInputHV\x22 -if3 \x22$FileInputVH\x22 -if4 \x22$FileInputVV\x22 -od \x22$PSPImportDirOutput\x22 -odf $PSPImportOutputFormat -nr $NligFullSize -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -iee $IEEEFormat -sym $PSPSymmetrisation $MultiLookSubSamp" "k"
-set f [ open "| $ExtractFunction -if1 \x22$FileInputHH\x22 -if2 \x22$FileInputHV\x22 -if3 \x22$FileInputVH\x22 -if4 \x22$FileInputVV\x22 -od \x22$PSPImportDirOutput\x22 -odf $PSPImportOutputFormat -nr $NligFullSize -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -iee $IEEEFormat -sym $PSPSymmetrisation $MultiLookSubSamp" r]
+TextEditorRunTrace "Arguments: -if1 \x22$FileInputHH\x22 -if2 \x22$FileInputHV\x22 -if3 \x22$FileInputVH\x22 -if4 \x22$FileInputVV\x22 -od \x22$PSPImportDirOutput\x22 -odf $PSPImportOutputFormat -nr $NligFullSize -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -iee $IEEEFormat -sym $PSPSymmetrisation -cfg $TMPSethiConfig $MultiLookSubSamp" "k"
+set f [ open "| $ExtractFunction -if1 \x22$FileInputHH\x22 -if2 \x22$FileInputHV\x22 -if3 \x22$FileInputVH\x22 -if4 \x22$FileInputVV\x22 -od \x22$PSPImportDirOutput\x22 -odf $PSPImportOutputFormat -nr $NligFullSize -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -iee $IEEEFormat -sym $PSPSymmetrisation -cfg $TMPSethiConfig $MultiLookSubSamp" r]
 
 PsPprogressBar $f
 }
@@ -843,14 +844,14 @@ global FileInput1 FileInput2 FileInput3 FileInput4 FileInput5 FileInput6
 global IEEEFormat EMISARDataFormat MultiLookSubSamp
 
 if {$EMISARDataFormat == "S2"} {
-    set ExtractFunction "Soft/data_import/emisar_convert_SLC.exe"
+    set ExtractFunction "Soft/bin/data_import/emisar_convert_SLC.exe"
     TextEditorRunTrace "Process The Function $ExtractFunction" "k"
     TextEditorRunTrace "Arguments: -if1 \x22$FileInput1\x22 -if2 \x22$FileInput2\x22 -if3 \x22$FileInput3\x22 -if4 \x22$FileInput4\x22 -od \x22$PSPImportDirOutput\x22 -odf $PSPImportOutputFormat -nr $NligFullSize -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -iee $IEEEFormat -sym $PSPSymmetrisation $MultiLookSubSamp" "k"
     set f [ open "| $ExtractFunction -if1 \x22$FileInput1\x22 -if2 \x22$FileInput2\x22 -if3 \x22$FileInput3\x22 -if4 \x22$FileInput4\x22 -od \x22$PSPImportDirOutput\x22 -odf $PSPImportOutputFormat -nr $NligFullSize -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -iee $IEEEFormat -sym $PSPSymmetrisation $MultiLookSubSamp" r]
     }
 
 if {$EMISARDataFormat == "C3"} {
-    set ExtractFunction "Soft/data_import/emisar_convert_MLK.exe"
+    set ExtractFunction "Soft/bin/data_import/emisar_convert_MLK.exe"
     TextEditorRunTrace "Process The Function $ExtractFunction" "k"
     TextEditorRunTrace "Arguments: -if1 \x22$FileInput1\x22 -if2 \x22$FileInput2\x22 -if3 \x22$FileInput3\x22 -if4 \x22$FileInput4\x22 -if5 \x22$FileInput5\x22 -if6 \x22$FileInput6\x22 -od \x22$PSPImportDirOutput\x22 -odf $PSPImportOutputFormat -nr $NligFullSize -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -iee $IEEEFormat $MultiLookSubSamp" "k"
     set f [ open "| $ExtractFunction -if1 \x22$FileInput1\x22 -if2 \x22$FileInput2\x22 -if3 \x22$FileInput3\x22 -if4 \x22$FileInput4\x22 -if5 \x22$FileInput5\x22 -if6 \x22$FileInput6\x22 -od \x22$PSPImportDirOutput\x22 -odf $PSPImportOutputFormat -nr $NligFullSize -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -iee $IEEEFormat $MultiLookSubSamp" r]
@@ -872,13 +873,13 @@ global FileInputHH FileInputHV FileInputVH FileInputVV FileInputPISAR
 global IEEEFormat PISARDataFormat PISAROffset MultiLookSubSamp
 
 if {$PISARDataFormat == "MGPC"} {
-    set ExtractFunction "Soft/data_import/pisar_convert_MGPC.exe"
+    set ExtractFunction "Soft/bin/data_import/pisar_convert_MGPC.exe"
     TextEditorRunTrace "Process The Function $ExtractFunction" "k"
     TextEditorRunTrace "Arguments: -if \x22$FileInputPISAR\x22 -od \x22$PSPImportDirOutput\x22 -odf $PSPImportOutputFormat -nr $NligFullSize -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -iee $IEEEFormat -sym $PSPSymmetrisation $MultiLookSubSamp" "k"
     set f [ open "| $ExtractFunction -if \x22$FileInputPISAR\x22 -od \x22$PSPImportDirOutput\x22 -odf $PSPImportOutputFormat -nr $NligFullSize -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -iee $IEEEFormat -sym $PSPSymmetrisation $MultiLookSubSamp" r]
     }
 if {$PISARDataFormat == "MGPSSC"} {
-    set ExtractFunction "Soft/data_import/pisar_convert_MGPSSC.exe"
+    set ExtractFunction "Soft/bin/data_import/pisar_convert_MGPSSC.exe"
     TextEditorRunTrace "Process The Function $ExtractFunction" "k"
     TextEditorRunTrace "Arguments: -if1 \x22$FileInputHH\x22 -if2 \x22$FileInputHV\x22 -if3 \x22$FileInputVH\x22 -if4 \x22$FileInputVV\x22 -od \x22$PSPImportDirOutput\x22 -odf $PSPImportOutputFormat -nr $NligFullSize -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -iee $IEEEFormat -sym $PSPSymmetrisation -off $PISAROffset $MultiLookSubSamp" "k"
     set f [ open "| $ExtractFunction -if1 \x22$FileInputHH\x22 -if2 \x22$FileInputHV\x22 -if3 \x22$FileInputVH\x22 -if4 \x22$FileInputVV\x22 -od \x22$PSPImportDirOutput\x22 -odf $PSPImportOutputFormat -nr $NligFullSize -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -iee $IEEEFormat -sym $PSPSymmetrisation -off $PISAROffset $MultiLookSubSamp" r]
@@ -893,7 +894,7 @@ proc ::RGB_T3 {} {
 global PSPImportDirOutput BMPDirInput
 global VarError ErrorMessage Fonction Fonction2
 global NligFullSize NcolFullSize PSPViewGimpBMP
-global ProgressLine PSPMemory TMPMemoryAllocError MaskCmd
+global ProgressLine TMPMemoryAllocError MaskCmd
    
 set RGBDirInput $PSPImportDirOutput
 set RGBDirOutput $PSPImportDirOutput
@@ -932,15 +933,15 @@ if {"$config"=="true"} {
     set ProgressLine "0"
     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
     update
-    TextEditorRunTrace "Process The Function Soft/bmp_process/create_pauli_rgb_file.exe" "k"
-    TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf T3 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
-    set f [ open "| Soft/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf T3 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
+    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_pauli_rgb_file.exe" "k"
+    TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf T3 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
+    set f [ open "| Soft/bin/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf T3 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError
     set BMPDirInput $RGBDirOutput
     WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-    if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+    if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
     }
 }
 #############################################################################
@@ -950,7 +951,7 @@ proc ::RGB_S2 {} {
 global PSPImportDirOutput BMPDirInput
 global VarError ErrorMessage Fonction Fonction2
 global NligFullSize NcolFullSize PSPViewGimpBMP
-global ProgressLine PSPMemory TMPMemoryAllocError MaskCmd
+global ProgressLine TMPMemoryAllocError MaskCmd
    
 set RGBDirInput $PSPImportDirOutput
 set RGBDirOutput $PSPImportDirOutput
@@ -998,15 +999,15 @@ if {"$config"=="true"} {
     set ProgressLine "0"
     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
     update
-    TextEditorRunTrace "Process The Function Soft/bmp_process/create_pauli_rgb_file.exe" "k"
-    TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf S2 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
-    set f [ open "| Soft/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf S2 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
+    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_pauli_rgb_file.exe" "k"
+    TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf S2 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
+    set f [ open "| Soft/bin/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf S2 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError
     set BMPDirInput $RGBDirOutput
     WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-    if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+    if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
     }
 }
 #############################################################################
@@ -1016,7 +1017,7 @@ proc ::RGB_T4 {} {
 global PSPImportDirOutput BMPDirInput
 global VarError ErrorMessage Fonction Fonction2
 global NligFullSize NcolFullSize PSPViewGimpBMP
-global ProgressLine PSPMemory TMPMemoryAllocError MaskCmd
+global ProgressLine TMPMemoryAllocError MaskCmd
    
 set RGBDirInput $PSPImportDirOutput
 set RGBDirOutput $PSPImportDirOutput
@@ -1055,15 +1056,15 @@ if {"$config"=="true"} {
     set ProgressLine "0"
     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
     update
-    TextEditorRunTrace "Process The Function Soft/bmp_process/create_pauli_rgb_file.exe" "k"
-    TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf T3 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
-    set f [ open "| Soft/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf T3 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
+    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_pauli_rgb_file.exe" "k"
+    TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf T3 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
+    set f [ open "| Soft/bin/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf T3 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError
     set BMPDirInput $RGBDirOutput
     WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-    if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+    if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
     }
 }
 #############################################################################
@@ -1073,7 +1074,7 @@ proc ::RGB_C3 {} {
 global PSPImportDirOutput BMPDirInput
 global VarError ErrorMessage Fonction Fonction2
 global NligFullSize NcolFullSize PSPViewGimpBMP
-global ProgressLine PSPMemory TMPMemoryAllocError MaskCmd
+global ProgressLine TMPMemoryAllocError MaskCmd
    
 set RGBDirInput $PSPImportDirOutput
 set RGBDirOutput $PSPImportDirOutput
@@ -1121,15 +1122,15 @@ if {"$config"=="true"} {
     set ProgressLine "0"
     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
     update
-    TextEditorRunTrace "Process The Function Soft/bmp_process/create_pauli_rgb_file.exe" "k"
-    TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf C3 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
-    set f [ open "| Soft/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf C3 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
+    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_pauli_rgb_file.exe" "k"
+    TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf C3 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
+    set f [ open "| Soft/bin/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf C3 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError
     set BMPDirInput $RGBDirOutput
     WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-    if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+    if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
     }
 }
 #############################################################################
@@ -1139,7 +1140,7 @@ proc ::RGB_C4 {} {
 global PSPImportDirOutput BMPDirInput
 global VarError ErrorMessage Fonction Fonction2
 global NligFullSize NcolFullSize PSPViewGimpBMP
-global ProgressLine PSPMemory TMPMemoryAllocError MaskCmd
+global ProgressLine TMPMemoryAllocError MaskCmd
    
 set RGBDirInput $PSPImportDirOutput
 set RGBDirOutput $PSPImportDirOutput
@@ -1205,15 +1206,15 @@ if {"$config"=="true"} {
     set ProgressLine "0"
     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
     update
-    TextEditorRunTrace "Process The Function Soft/bmp_process/create_pauli_rgb_file.exe" "k"
-    TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf C4 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
-    set f [ open "| Soft/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf C4 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
+    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_pauli_rgb_file.exe" "k"
+    TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf C4 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
+    set f [ open "| Soft/bin/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf C4 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError
     set BMPDirInput $RGBDirOutput
     WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-    if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+    if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
     }
 }
 #############################################################################
@@ -1223,7 +1224,7 @@ proc ::RGB_C2 {} {
 global PSPImportDirOutput BMPDirInput
 global VarError ErrorMessage Fonction Fonction2
 global NligFullSize NcolFullSize PSPViewGimpBMP
-global ProgressLine PSPMemory TMPMemoryAllocError MaskCmd
+global ProgressLine TMPMemoryAllocError MaskCmd
    
 set RGBDirInput $PSPImportDirOutput
 set RGBDirOutput $PSPImportDirOutput
@@ -1262,15 +1263,15 @@ if {"$config"=="true"} {
     set ProgressLine "0"
     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
     update
-    TextEditorRunTrace "Process The Function Soft/bmp_process/create_rgb_file_SPPIPPC2.exe" "k"
-    TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf C2 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -rgbf RGB1 -auto 1" "k"
-    set f [ open "| Soft/bmp_process/create_rgb_file_SPPIPPC2.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf C2 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -rgbf RGB1 -auto 1" r]
+    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_rgb_file_SPPIPPC2.exe" "k"
+    TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf C2 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -rgbf RGB1 -auto 1" "k"
+    set f [ open "| Soft/bin/bmp_process/create_rgb_file_SPPIPPC2.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf C2 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -rgbf RGB1 -auto 1" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError
     set BMPDirInput $RGBDirOutput
     WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-    if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+    if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
     }
 }
 #############################################################################
@@ -1280,7 +1281,7 @@ proc ::RGB_SPP {} {
 global PSPImportDirOutput BMPDirInput ActiveImportData RawBinaryDataFormatPP
 global VarError ErrorMessage Fonction Fonction2
 global NligFullSize NcolFullSize PSPViewGimpBMP
-global ProgressLine PolarType PSPMemory TMPMemoryAllocError MaskCmd
+global ProgressLine PolarType TMPMemoryAllocError MaskCmd
    
 set RGBDirInput $PSPImportDirOutput
 set RGBDirOutput $PSPImportDirOutput
@@ -1326,15 +1327,15 @@ if {"$config"=="true"} {
     set ProgressLine "0"
     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
     update
-    TextEditorRunTrace "Process The Function Soft/bmp_process/create_rgb_file_SPPIPPC2.exe" "k"
-    TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf SPP -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -rgbf RGB1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
-    set f [ open "| Soft/bmp_process/create_rgb_file_SPPIPPC2.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf SPP -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -rgbf RGB1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
+    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_rgb_file_SPPIPPC2.exe" "k"
+    TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf SPP -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -rgbf RGB1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
+    set f [ open "| Soft/bin/bmp_process/create_rgb_file_SPPIPPC2.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf SPP -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -rgbf RGB1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError
     set BMPDirInput $RGBDirOutput
     WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-    if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+    if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
     }
 }
 #############################################################################
@@ -1344,7 +1345,7 @@ proc ::RGB_IPP {} {
 global PSPImportDirOutput BMPDirInput ActiveImportData RawBinaryDataFormatPP
 global VarError ErrorMessage Fonction Fonction2
 global NligFullSize NcolFullSize PSPViewGimpBMP
-global ProgressLine PolarType PSPMemory TMPMemoryAllocError MaskCmd
+global ProgressLine PolarType TMPMemoryAllocError MaskCmd
    
 set RGBDirInput $PSPImportDirOutput
 set RGBDirOutput $PSPImportDirOutput
@@ -1385,15 +1386,15 @@ if {"$config"=="true"} {
     set ProgressLine "0"
     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
     update
-    TextEditorRunTrace "Process The Function Soft/bmp_process/create_rgb_file_SPPIPPC2.exe" "k"
-    TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf IPP -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -rgbf RGB1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
-    set f [ open "| Soft/bmp_process/create_rgb_file_SPPIPPC2.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf IPP -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -rgbf RGB1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
+    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_rgb_file_SPPIPPC2.exe" "k"
+    TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf IPP -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -rgbf RGB1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
+    set f [ open "| Soft/bin/bmp_process/create_rgb_file_SPPIPPC2.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf IPP -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -rgbf RGB1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError
     set BMPDirInput $RGBDirOutput
     WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-    if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+    if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
     }
 }
 #############################################################################
@@ -1411,7 +1412,7 @@ global FileInput1 FileInput2 FileInput3 FileInput4 FileInput5 FileInput6 FileInp
 global FileInput9 FileInput10 FileInput11 FileInput12 FileInput13 FileInput14 FileInput15 FileInput16
 global IEEEFormat
 
-set ExtractFunction "Soft/data_import/rawbinary_convert_"
+set ExtractFunction "Soft/bin/data_import/rawbinary_convert_"
 append ExtractFunction "$RawBinaryDataInput"
 append ExtractFunction "_"
 if {$PSPImportExtractFonction == "MultiLook"} {append ExtractFunction "MLK_"}
@@ -1474,6 +1475,17 @@ if {$RawBinaryDataFormat == "T4"} {
         set ExtractFile "\x22$FileInput1\x22 \x22$FileInput2\x22 \x22$FileInput3\x22 \x22$FileInput4\x22 \x22$FileInput5\x22 \x22$FileInput6\x22 \x22$FileInput7\x22 \x22$FileInput8\x22 \x22$FileInput9\x22 \x22$FileInput10\x22 \x22$FileInput11\x22 \x22$FileInput12\x22 \x22$FileInput13\x22 \x22$FileInput14\x22 \x22$FileInput15\x22 \x22$FileInput16\x22"
         }
     }
+if {$RawBinaryDataFormat == "C2"} {
+    if {$RawBinaryDataInput == "Cmplx"} {
+        set ExtractFile "\x22$FileInput1\x22 \x22$FileInput2\x22 \x22$FileInput3\x22"
+        }
+    if {$RawBinaryDataInput == "RealImag"} {
+        set ExtractFile "\x22$FileInput1\x22 \x22$FileInput2\x22 \x22$FileInput3\x22 \x22$FileInput4\x22"
+        }
+    if {$RawBinaryDataInput == "ModPha"} {
+        set ExtractFile "\x22$FileInput1\x22 \x22$FileInput2\x22 \x22$FileInput3\x22 \x22$FileInput4\x22"
+        }
+    }
 if {$RawBinaryDataFormat == "C3"} {
     if {$RawBinaryDataInput == "Cmplx"} {
         set ExtractFile "\x22$FileInput1\x22 \x22$FileInput2\x22 \x22$FileInput3\x22 \x22$FileInput4\x22 \x22$FileInput5\x22 \x22$FileInput6\x22"
@@ -1513,7 +1525,7 @@ global AIRSARDataFormat EMISARDataFormat PISARDataFormat
 global AIRSARProcessor SIRCDataFormat UAVSARDataFormat
 global RADARSAT2DataFormat ALOSDataFormat CSKDataFormat
 global TERRASARXDataFormat TERRASARXDataLevel RISATDataFormat
-global SENTINEL1DataFormat
+global SENTINEL1DataFormat GF3DataFormat
 
 set Radiobutton233_1 .top233.tit80.f.fra83.fra93.cpd96
 set Radiobutton233_2 .top233.tit80.f.fra83.fra93.cpd97
@@ -1651,6 +1663,15 @@ if {$PSPImportExtractFonction != ""} {
             set PSPSymmetrisation 0; $Checkbutton233_1 configure -state disable
             $Radiobutton233_4 configure -state disable; $Radiobutton233_5 configure -state disable
             $Radiobutton233_6 configure -state normal; $Radiobutton233_7 configure -state disable; $Radiobutton233_8 configure -state disable
+            }
+	}
+    if {$ActiveImportData == "GF3"} {
+	if {$GF3DataFormat == "quad"} {
+            set PSPImportOutputFormat "S2";  set PSPImportOutputSubDir ""
+            set PSPSymmetrisation 1; $Checkbutton233_1 configure -state normal
+            $Radiobutton233_1 configure -state normal; $Radiobutton233_2 configure -state disable; $Radiobutton233_3 configure -state disable
+            $Radiobutton233_4 configure -state normal; $Radiobutton233_5 configure -state normal
+            $Radiobutton233_6 configure -state disable; $Radiobutton233_7 configure -state normal; $Radiobutton233_8 configure -state normal
             }
 	}
     if {$ActiveImportData == "RADARSAT2"} {
@@ -1872,7 +1893,7 @@ global AIRSARDataFormat EMISARDataFormat PISARDataFormat
 global AIRSARProcessor SIRCDataFormat UAVSARDataFormat
 global RADARSAT2DataFormat ALOSDataFormat CSKDataFormat
 global TERRASARXDataFormat TERRASARXDataLevel RISATDataFormat
-global SENTINEL1DataFormat
+global SENTINEL1DataFormat GF3DataFormat
 
 set Radiobutton233_1 .top233.tit80.f.fra83.fra93.cpd96
 set Radiobutton233_2 .top233.tit80.f.fra83.fra93.cpd97
@@ -2010,6 +2031,15 @@ if {$PSPImportExtractFonction != ""} {
             set PSPSymmetrisation 0; $Checkbutton233_1 configure -state disable
             $Radiobutton233_4 configure -state disable; $Radiobutton233_5 configure -state disable
             $Radiobutton233_6 configure -state normal; $Radiobutton233_7 configure -state disable; $Radiobutton233_8 configure -state disable
+            }
+	}
+    if {$ActiveImportData == "GF3"} {
+	if {$GF3DataFormat == "quad"} {
+            set PSPImportOutputFormat "T3";  set PSPImportOutputSubDir "T3"
+            set PSPSymmetrisation 1; $Checkbutton233_1 configure -state normal
+            $Radiobutton233_1 configure -state disable; $Radiobutton233_2 configure -state disable; $Radiobutton233_3 configure -state disable
+            $Radiobutton233_4 configure -state normal; $Radiobutton233_5 configure -state normal
+            $Radiobutton233_6 configure -state disable; $Radiobutton233_7 configure -state normal; $Radiobutton233_8 configure -state normal
             }
 	}
     if {$ActiveImportData == "RADARSAT2"} {
@@ -2234,7 +2264,7 @@ global FileInput1 FileInput2 FileInput3 FileInput4 FileInput5 FileInput6
 global IEEEFormat RADARSAT2DataFormat RADARSAT2LutFile
 
 if {$RADARSAT2DataFormat == "dual"} {
-    set ExtractFunction "Soft/data_import/radarsat2_convert_dual.exe"
+    set ExtractFunction "Soft/bin/data_import/radarsat2_convert_dual.exe"
     if {$PSPImportOutputFormat == "SPP"} { set PolType "SPP" }
     if {$PSPImportOutputFormat == "IPP"} { set PolType "SPPIPP" }
     if {$PSPImportOutputFormat == "C2"} { set PolType "SPPC2" }
@@ -2244,7 +2274,7 @@ if {$RADARSAT2DataFormat == "dual"} {
     }
 
 if {$RADARSAT2DataFormat == "quad"} {
-    set ExtractFunction "Soft/data_import/radarsat2_convert.exe"
+    set ExtractFunction "Soft/bin/data_import/radarsat2_convert.exe"
     TextEditorRunTrace "Process The Function $ExtractFunction" "k"
     TextEditorRunTrace "Arguments: -if1 \x22$FileInput1\x22 -if2 \x22$FileInput2\x22 -if3 \x22$FileInput3\x22 -if4 \x22$FileInput4\x22 -od \x22$PSPImportDirOutput\x22 -odf $PSPImportOutputFormat -nr $NligFullSize -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -iee $IEEEFormat -sym $PSPSymmetrisation -lut \x22$RADARSAT2LutFile\x22 $MultiLookSubSamp" "k"
     set f [ open "| $ExtractFunction -if1 \x22$FileInput1\x22 -if2 \x22$FileInput2\x22 -if3 \x22$FileInput3\x22 -if4 \x22$FileInput4\x22 -od \x22$PSPImportDirOutput\x22 -odf $PSPImportOutputFormat -nr $NligFullSize -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -iee $IEEEFormat -sym $PSPSymmetrisation -lut \x22$RADARSAT2LutFile\x22 $MultiLookSubSamp" r]
@@ -2266,7 +2296,7 @@ global FileInputSIRC SIRCDataFormat
 global TMPSIRCConfig MultiLookSubSamp
 
 if {$SIRCDataFormat == "SLCdual"} {
-    set ExtractFunction "Soft/data_import/sirc_convert_SLC_dual.exe"
+    set ExtractFunction "Soft/bin/data_import/sirc_convert_SLC_dual.exe"
     TextEditorRunTrace "Process The Function $ExtractFunction" "k"
     if {$PSPImportOutputFormat == "SPP"} { set PolType "SPP" }
     if {$PSPImportOutputFormat == "IPP"} { set PolType "SPPIPP" }
@@ -2276,21 +2306,21 @@ if {$SIRCDataFormat == "SLCdual"} {
     }
  
 if {$SIRCDataFormat == "SLCquad"} {
-    set ExtractFunction "Soft/data_import/sirc_convert_SLC.exe"
+    set ExtractFunction "Soft/bin/data_import/sirc_convert_SLC.exe"
     TextEditorRunTrace "Process The Function $ExtractFunction" "k"
     TextEditorRunTrace "Arguments: -if \x22$FileInputSIRC\x22 -od \x22$PSPImportDirOutput\x22 -odf $PSPImportOutputFormat -nr $NligFullSize -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -sym $PSPSymmetrisation -cf \x22$TMPSIRCConfig\x22 $MultiLookSubSamp" "k"
     set f [ open "| $ExtractFunction -if \x22$FileInputSIRC\x22 -od \x22$PSPImportDirOutput\x22 -odf $PSPImportOutputFormat -nr $NligFullSize -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -sym $PSPSymmetrisation -cf \x22$TMPSIRCConfig\x22 $MultiLookSubSamp" r]
     }
 
 if {$SIRCDataFormat == "MLCdual"} {
-    set ExtractFunction "Soft/data_import/sirc_convert_dual.exe"
+    set ExtractFunction "Soft/bin/data_import/sirc_convert_dual.exe"
     TextEditorRunTrace "Process The Function $ExtractFunction" "k"
     TextEditorRunTrace "Arguments: -if \x22$FileInputSIRC\x22 -od \x22$PSPImportDirOutput\x22 -odf $PSPImportOutputFormat -nr $NligFullSize -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -sym $PSPSymmetrisation -cf \x22$TMPSIRCConfig\x22 $MultiLookSubSamp" "k"
     set f [ open "| $ExtractFunction -if \x22$FileInputSIRC\x22 -od \x22$PSPImportDirOutput\x22 -odf $PSPImportOutputFormat -nr $NligFullSize -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -sym $PSPSymmetrisation -cf \x22$TMPSIRCConfig\x22 $MultiLookSubSamp" r]
     }
             
 if {$SIRCDataFormat == "MLCquad"} {
-    set ExtractFunction "Soft/data_import/sirc_convert.exe"
+    set ExtractFunction "Soft/bin/data_import/sirc_convert.exe"
     TextEditorRunTrace "Process The Function $ExtractFunction" "k"
     TextEditorRunTrace "Arguments: -if \x22$FileInputSIRC\x22 -od \x22$PSPImportDirOutput\x22 -odf $PSPImportOutputFormat -nr $NligFullSize -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -sym $PSPSymmetrisation -cf \x22$TMPSIRCConfig\x22 $MultiLookSubSamp" "k"
     set f [ open "| $ExtractFunction -if \x22$FileInputSIRC\x22 -od \x22$PSPImportDirOutput\x22 -odf $PSPImportOutputFormat -nr $NligFullSize -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -sym $PSPSymmetrisation -cf \x22$TMPSIRCConfig\x22 $MultiLookSubSamp" r]
@@ -2313,7 +2343,7 @@ global TMPALOSConfig ALOSDataFormat ALOSUnCalibration
 global IEEEFormat MultiLookSubSamp
 
 if {$ALOSDataFormat == "dual1.1"} {
-    set ExtractFunction "Soft/data_import/alos_convert_11_dual.exe"
+    set ExtractFunction "Soft/bin/data_import/alos_convert_11_dual.exe"
     TextEditorRunTrace "Process The Function $ExtractFunction" "k"
     if {$PSPImportOutputFormat == "SPP"} { set PolType "SPP" }
     if {$PSPImportOutputFormat == "IPP"} { set PolType "SPPIPP" }
@@ -2323,29 +2353,29 @@ if {$ALOSDataFormat == "dual1.1"} {
     }
 
 if {$ALOSDataFormat == "dual1.5"} {
-    set ExtractFunction "Soft/data_import/alos_convert_15_dual.exe"
+    set ExtractFunction "Soft/bin/data_import/alos_convert_15_dual.exe"
     TextEditorRunTrace "Process The Function $ExtractFunction" "k"
     TextEditorRunTrace "Arguments: -if1 \x22$FileInput1\x22 -if2 \x22$FileInput2\x22 -od \x22$PSPImportDirOutput\x22 -nr $NligFullSize -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -cf \x22$TMPALOSConfig\x22 -pp $PolarType $MultiLookSubSamp" "k"
     set f [ open "| $ExtractFunction -if1 \x22$FileInput1\x22 -if2 \x22$FileInput2\x22 -od \x22$PSPImportDirOutput\x22 -nr $NligFullSize -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -cf \x22$TMPALOSConfig\x22 -pp $PolarType $MultiLookSubSamp" r]
     }
 
 if {$ALOSDataFormat == "quad1.1"} {
-    set ExtractFunction "Soft/data_import/alos_convert_11.exe"
-    if {$ALOSUnCalibration == 1} { set ExtractFunction "Soft/data_import/alos_convert_11_uncal.exe" }
+    set ExtractFunction "Soft/bin/data_import/alos_convert_11.exe"
+    if {$ALOSUnCalibration == 1} { set ExtractFunction "Soft/bin/data_import/alos_convert_11_uncal.exe" }
     TextEditorRunTrace "Process The Function $ExtractFunction" "k"
     TextEditorRunTrace "Arguments: -if1 \x22$FileInput1\x22 -if2 \x22$FileInput2\x22 -if3 \x22$FileInput3\x22 -if4 \x22$FileInput4\x22 -od \x22$PSPImportDirOutput\x22 -odf $PSPImportOutputFormat -nr $NligFullSize -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -sym $PSPSymmetrisation -cf \x22$TMPALOSConfig\x22 $MultiLookSubSamp" "k"
     set f [ open "| $ExtractFunction -if1 \x22$FileInput1\x22 -if2 \x22$FileInput2\x22 -if3 \x22$FileInput3\x22 -if4 \x22$FileInput4\x22 -od \x22$PSPImportDirOutput\x22 -odf $PSPImportOutputFormat -nr $NligFullSize -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -sym $PSPSymmetrisation -cf \x22$TMPALOSConfig\x22 $MultiLookSubSamp" r]
     }
 
 if {$ALOSDataFormat == "quad1.5"} {
-    set ExtractFunction "Soft/data_import/alos_convert_15.exe"
+    set ExtractFunction "Soft/bin/data_import/alos_convert_15.exe"
     TextEditorRunTrace "Process The Function $ExtractFunction" "k"
     TextEditorRunTrace "Arguments: -if1 \x22$FileInput1\x22 -if2 \x22$FileInput2\x22 -if3 \x22$FileInput3\x22 -if4 \x22$FileInput4\x22 -od \x22$PSPImportDirOutput\x22 -nr $NligFullSize -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -cf \x22$TMPALOSConfig\x22 $MultiLookSubSamp" "k"
     set f [ open "| $ExtractFunction -if1 \x22$FileInput1\x22 -if2 \x22$FileInput2\x22 -if3 \x22$FileInput3\x22 -if4 \x22$FileInput4\x22 -od \x22$PSPImportDirOutput\x22 -nr $NligFullSize -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -cf \x22$TMPALOSConfig\x22 $MultiLookSubSamp" r]
     }
 
 if {$ALOSDataFormat == "dual1.1vex"} {
-    set ExtractFunction "Soft/data_import/alos_vex_convert_dual.exe"
+    set ExtractFunction "Soft/bin/data_import/alos_vex_convert_dual.exe"
     if {$PSPImportOutputFormat == "SPP"} { set PolType "SPP" }
     if {$PSPImportOutputFormat == "IPP"} { set PolType "SPPIPP" }
     if {$PSPImportOutputFormat == "C2"} { set PolType "SPPC2" }
@@ -2355,7 +2385,7 @@ if {$ALOSDataFormat == "dual1.1vex"} {
     }
 
 if {$ALOSDataFormat == "quad1.1vex"} {
-    set ExtractFunction "Soft/data_import/alos_vex_convert.exe"
+    set ExtractFunction "Soft/bin/data_import/alos_vex_convert.exe"
     TextEditorRunTrace "Process The Function $ExtractFunction" "k"
     TextEditorRunTrace "Arguments: -if1 \x22$FileInput1\x22 -if2 \x22$FileInput2\x22 -if3 \x22$FileInput3\x22 -if4 \x22$FileInput4\x22 -od \x22$PSPImportDirOutput\x22 -odf $PSPImportOutputFormat -nr $NligFullSize -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -iee $IEEEFormat -sym $PSPSymmetrisation $MultiLookSubSamp" "k"
     set f [ open "| $ExtractFunction -if1 \x22$FileInput1\x22 -if2 \x22$FileInput2\x22 -if3 \x22$FileInput3\x22 -if4 \x22$FileInput4\x22 -od \x22$PSPImportDirOutput\x22 -odf $PSPImportOutputFormat -nr $NligFullSize -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -iee $IEEEFormat -sym $PSPSymmetrisation $MultiLookSubSamp" r]
@@ -2378,7 +2408,7 @@ global TMPALOSConfig ALOSDataFormat ALOSUnCalibration
 global IEEEFormat MultiLookSubSamp
 
 if {$ALOSDataFormat == "dual1.1"} {
-    set ExtractFunction "Soft/data_import/alos_convert_11_dual.exe"
+    set ExtractFunction "Soft/bin/data_import/alos_convert_11_dual.exe"
     TextEditorRunTrace "Process The Function $ExtractFunction" "k"
     if {$PSPImportOutputFormat == "SPP"} { set PolType "SPP" }
     if {$PSPImportOutputFormat == "IPP"} { set PolType "SPPIPP" }
@@ -2388,8 +2418,8 @@ if {$ALOSDataFormat == "dual1.1"} {
     }
 
 if {$ALOSDataFormat == "quad1.1"} {
-    set ExtractFunction "Soft/data_import/alos_convert_11.exe"
-    if {$ALOSUnCalibration == 1} { set ExtractFunction "Soft/data_import/alos2_convert_11_uncal.exe" }
+    set ExtractFunction "Soft/bin/data_import/alos_convert_11.exe"
+    if {$ALOSUnCalibration == 1} { set ExtractFunction "Soft/bin/data_import/alos2_convert_11_uncal.exe" }
     TextEditorRunTrace "Process The Function $ExtractFunction" "k"
     TextEditorRunTrace "Arguments: -if1 \x22$FileInput1\x22 -if2 \x22$FileInput2\x22 -if3 \x22$FileInput3\x22 -if4 \x22$FileInput4\x22 -od \x22$PSPImportDirOutput\x22 -odf $PSPImportOutputFormat -nr $NligFullSize -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -sym $PSPSymmetrisation -cf \x22$TMPALOSConfig\x22 $MultiLookSubSamp" "k"
     set f [ open "| $ExtractFunction -if1 \x22$FileInput1\x22 -if2 \x22$FileInput2\x22 -if3 \x22$FileInput3\x22 -if4 \x22$FileInput4\x22 -od \x22$PSPImportDirOutput\x22 -odf $PSPImportOutputFormat -nr $NligFullSize -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -sym $PSPSymmetrisation -cf \x22$TMPALOSConfig\x22 $MultiLookSubSamp" r]
@@ -2411,7 +2441,7 @@ global FileInput1 FileInput2 FileInput3 FileInput4 FileInput5 FileInput6
 global IEEEFormat CSKDataFormat
 
 if {$CSKDataFormat == "dual"} {
-    set ExtractFunction "Soft/data_import/csk_convert_dual.exe"
+    set ExtractFunction "Soft/bin/data_import/csk_convert_dual.exe"
     if {$PSPImportOutputFormat == "SPP"} { set PolType "SPP" }
     if {$PSPImportOutputFormat == "IPP"} { set PolType "SPPIPP" }
     if {$PSPImportOutputFormat == "C2"} { set PolType "SPPC2" }
@@ -2429,7 +2459,7 @@ proc ::RGB_I2 {} {
 global PSPImportDirOutput BMPDirInput
 global VarError ErrorMessage Fonction Fonction2
 global NligFullSize NcolFullSize PSPViewGimpBMP
-global ProgressLine PSPMemory TMPMemoryAllocError MaskCmd
+global ProgressLine TMPMemoryAllocError MaskCmd
    
 set RGBDirInput $PSPImportDirOutput
 set RGBDirOutput $PSPImportDirOutput
@@ -2477,15 +2507,15 @@ if {"$config"=="true"} {
     set ProgressLine "0"
     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
     update
-    TextEditorRunTrace "Process The Function Soft/bmp_process/create_rgb_file_SPPIPPC2.exe" "k"
-    TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf IPP -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -rgbf RGB1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
-    set f [ open "| Soft/bmp_process/create_rgb_file_SPPIPPC2.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf IPP -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -rgbf RGB1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
+    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_rgb_file_SPPIPPC2.exe" "k"
+    TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf IPP -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -rgbf RGB1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
+    set f [ open "| Soft/bin/bmp_process/create_rgb_file_SPPIPPC2.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf IPP -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -rgbf RGB1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError
     set BMPDirInput $RGBDirOutput
     WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-    if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+    if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
     }
 }
 #############################################################################
@@ -2506,12 +2536,12 @@ if {$TERRASARXDataFormat == "dual"} {
     if {$PSPImportOutputFormat == "IPP"} { set PolType "SPPIPP" }
     if {$PSPImportOutputFormat == "C2"} { set PolType "SPPC2" }
     if {$TERRASARXDataLevel == "SSC"} {
-        set ExtractFunction "Soft/data_import/terrasarx_convert_ssc_dual.exe"
+        set ExtractFunction "Soft/bin/data_import/terrasarx_convert_ssc_dual.exe"
         TextEditorRunTrace "Process The Function $ExtractFunction" "k"
         TextEditorRunTrace "Arguments: -if1 \x22$FileInput1\x22 -if2 \x22$FileInput2\x22 -od \x22$PSPImportDirOutput\x22 -odf $PolType -nr $NligFullSize -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -cf \x22$TMPTerrasarxConfig\x22 -pp $PolarType $MultiLookSubSamp" "k"
         set f [ open "| $ExtractFunction -if1 \x22$FileInput1\x22 -if2 \x22$FileInput2\x22 -od \x22$PSPImportDirOutput\x22 -odf $PolType -nr $NligFullSize -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -cf \x22$TMPTerrasarxConfig\x22 -pp $PolarType $MultiLookSubSamp" r]
         } else {
-        set ExtractFunction "Soft/data_import/terrasarx_convert_mgd_gec_eec_dual.exe"
+        set ExtractFunction "Soft/bin/data_import/terrasarx_convert_mgd_gec_eec_dual.exe"
         TextEditorRunTrace "Process The Function $ExtractFunction" "k"
         TextEditorRunTrace "Arguments: -if1 \x22$FileInput1\x22 -if2 \x22$FileInput2\x22 -od \x22$PSPImportDirOutput\x22 -nr $NligFullSize -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -cf \x22$TMPTerrasarxConfig\x22 -pp $PolarType $MultiLookSubSamp" "k"
         set f [ open "| $ExtractFunction -if1 \x22$FileInput1\x22 -if2 \x22$FileInput2\x22 -od \x22$PSPImportDirOutput\x22 -nr $NligFullSize -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -cf \x22$TMPTerrasarxConfig\x22 -pp $PolarType $MultiLookSubSamp" r]
@@ -2519,7 +2549,7 @@ if {$TERRASARXDataFormat == "dual"} {
     }        
 
 if {$TERRASARXDataFormat == "quad"} {
-    set ExtractFunction "Soft/data_import/terrasarx_convert_ssc_quad.exe"
+    set ExtractFunction "Soft/bin/data_import/terrasarx_convert_ssc_quad.exe"
     TextEditorRunTrace "Process The Function $ExtractFunction" "k"
     TextEditorRunTrace "Arguments: -if1 \x22$FileInput1\x22 -if2 \x22$FileInput2\x22 -if3 \x22$FileInput3\x22 -if4 \x22$FileInput4\x22 -od \x22$PSPImportDirOutput\x22 -odf $PSPImportOutputFormat -nr $NligFullSize -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -sym $PSPSymmetrisation -cf \x22$TMPTerrasarxConfig\x22 $MultiLookSubSamp" "k"
     set f [ open "| $ExtractFunction -if1 \x22$FileInput1\x22 -if2 \x22$FileInput2\x22 -if3 \x22$FileInput3\x22 -if4 \x22$FileInput4\x22 -od \x22$PSPImportDirOutput\x22 -odf $PSPImportOutputFormat -nr $NligFullSize -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -sym $PSPSymmetrisation -cf \x22$TMPTerrasarxConfig\x22 $MultiLookSubSamp" r]
@@ -2541,12 +2571,12 @@ global UAVSARDataFormat UAVSARAnnotationFile
 global UAVSARMapInfoMapInfo UAVSARMapInfoLat UAVSARMapInfoLon UAVSARMapInfoLatDeg UAVSARMapInfoLonDeg
 
 if {$UAVSARDataFormat == "SLC"} {
-    set ExtractFunction "Soft/data_import/uavsar_convert_SLC.exe"
+    set ExtractFunction "Soft/bin/data_import/uavsar_convert_SLC.exe"
     TextEditorRunTrace "Process The Function $ExtractFunction" "k"
-    TextEditorRunTrace "Arguments: -hf \x22$UAVSARAnnotationFile\x22 -if1 \x22$FileInput1\x22 -if2 \x22$FileInput2\x22 -if3 \x22$FileInput3\x22 -if4 \x22$FileInput4\x22 -od \x22$PSPImportDirOutput\x22 -odf $PSPImportOutputFormat -nr $NligFullSize -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -sym $PSPSymmetrisation $MultiLookSubSamp" "k"
-    set f [ open "| $ExtractFunction -hf \x22$UAVSARAnnotationFile\x22 -if1 \x22$FileInput1\x22 -if2 \x22$FileInput2\x22 -if3 \x22$FileInput3\x22 -if4 \x22$FileInput4\x22 -od \x22$PSPImportDirOutput\x22 -odf $PSPImportOutputFormat -nr $NligFullSize -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -sym $PSPSymmetrisation $MultiLookSubSamp" r]
+    TextEditorRunTrace "Arguments: -hf \x22$UAVSARAnnotationFile\x22 -if1 \x22$FileInput1\x22 -if2 \x22$FileInput2\x22 -if3 \x22$FileInput3\x22 -if4 \x22$FileInput4\x22 -od \x22$PSPImportDirOutput\x22 -odf $PSPImportOutputFormat -inr $NligFullSize -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -sym $PSPSymmetrisation $MultiLookSubSamp" "k"
+    set f [ open "| $ExtractFunction -hf \x22$UAVSARAnnotationFile\x22 -if1 \x22$FileInput1\x22 -if2 \x22$FileInput2\x22 -if3 \x22$FileInput3\x22 -if4 \x22$FileInput4\x22 -od \x22$PSPImportDirOutput\x22 -odf $PSPImportOutputFormat -inr $NligFullSize -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -sym $PSPSymmetrisation $MultiLookSubSamp" r]
     } else {
-    set ExtractFunction "Soft/data_import/uavsar_convert_MLC.exe"
+    set ExtractFunction "Soft/bin/data_import/uavsar_convert_MLC.exe"
     TextEditorRunTrace "Process The Function $ExtractFunction" "k"
     TextEditorRunTrace "Arguments: -hf \x22$UAVSARAnnotationFile\x22 -if1 \x22$FileInput1\x22 -if2 \x22$FileInput2\x22 -if3 \x22$FileInput3\x22 -if4 \x22$FileInput4\x22 -if5 \x22$FileInput5\x22 -if6 \x22$FileInput6\x22 -od \x22$PSPImportDirOutput\x22 -odf $PSPImportOutputFormat -inr $NligFullSize -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MultiLookSubSamp" "k"
     set f [ open "| $ExtractFunction -hf \x22$UAVSARAnnotationFile\x22 -if1 \x22$FileInput1\x22 -if2 \x22$FileInput2\x22 -if3 \x22$FileInput3\x22 -if4 \x22$FileInput4\x22 -if5 \x22$FileInput5\x22 -if6 \x22$FileInput6\x22 -od \x22$PSPImportDirOutput\x22 -odf $PSPImportOutputFormat -inr $NligFullSize -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MultiLookSubSamp" r]
@@ -2588,7 +2618,7 @@ global TMPRISATConfig RISATDataFormat RISATIncAngFile
 global IEEEFormat MultiLookSubSamp
 
 if {$RISATDataFormat == "dual1.1"} {
-    set ExtractFunction "Soft/data_import/risat_convert_11_dual.exe"
+    set ExtractFunction "Soft/bin/data_import/risat_convert_11_dual.exe"
     TextEditorRunTrace "Process The Function $ExtractFunction" "k"
     if {$PSPImportOutputFormat == "SPP"} { set PolType "SPP" }
     if {$PSPImportOutputFormat == "IPP"} { set PolType "SPPIPP" }
@@ -2598,7 +2628,7 @@ if {$RISATDataFormat == "dual1.1"} {
     }
 
 if {$RISATDataFormat == "quad1.1"} {
-    set ExtractFunction "Soft/data_import/risat_convert_11.exe"
+    set ExtractFunction "Soft/bin/data_import/risat_convert_11.exe"
     TextEditorRunTrace "Process The Function $ExtractFunction" "k"
     TextEditorRunTrace "Arguments: -if1 \x22$FileInput1\x22 -if2 \x22$FileInput2\x22 -if3 \x22$FileInput3\x22 -if4 \x22$FileInput4\x22 -ifa \x22$RISATIncAngFile\x22 -od \x22$PSPImportDirOutput\x22 -odf $PSPImportOutputFormat -nr $NligFullSize -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -sym $PSPSymmetrisation -cf \x22$TMPRISATConfig\x22 $MultiLookSubSamp" "k"
     set f [ open "| $ExtractFunction -if1 \x22$FileInput1\x22 -if2 \x22$FileInput2\x22 -if3 \x22$FileInput3\x22 -if4 \x22$FileInput4\x22 -ifa \x22$RISATIncAngFile\x22 -od \x22$PSPImportDirOutput\x22 -odf $PSPImportOutputFormat -nr $NligFullSize -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -sym $PSPSymmetrisation -cf \x22$TMPRISATConfig\x22 $MultiLookSubSamp" r]
@@ -2623,17 +2653,39 @@ if {$SENTINEL1DataFormat == "dual"} {
     if {$PSPImportOutputFormat == "SPP"} { set PolType "SPP" }
     if {$PSPImportOutputFormat == "IPP"} { set PolType "SPPIPP" }
     if {$PSPImportOutputFormat == "C2"} { set PolType "SPPC2" }
-    if {$SENTINEL1FUD == 1} { set DirOutputPSPImport $PSPImportDirOutput; set PSPImportDirOutput $TMPDirectory }
     if {$SENTINEL1Burst == "ALL"} {
         set SENTINEL1File "$SENTINEL1DirInput/product_header.txt"
-        TextEditorRunTrace "Process The Function Soft/data_import/sentinel1_convert_dual_all.exe" "k"
+        TextEditorRunTrace "Process The Function Soft/bin/data_import/sentinel1_convert_dual_all.exe" "k"
         TextEditorRunTrace "Arguments: -if $SENTINEL1File -td \x22$TMPDirectory\x22 -if1 \x22$FileInput1\x22 -if2 \x22$FileInput2\x22 -od \x22$PSPImportDirOutput\x22 -odf $PolType -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -iee $IEEEFormat -pp $PolarType $MultiLookSubSamp" "k"
-        set f [ open "| Soft/data_import/sentinel1_convert_dual_all.exe -if $SENTINEL1File -td \x22$TMPDirectory\x22 -if1 \x22$FileInput1\x22 -if2 \x22$FileInput2\x22 -od \x22$PSPImportDirOutput\x22 -odf $PolType -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -iee $IEEEFormat -pp $PolarType $MultiLookSubSamp" r]
+        set f [ open "| Soft/bin/data_import/sentinel1_convert_dual_all.exe -if $SENTINEL1File -td \x22$TMPDirectory\x22 -if1 \x22$FileInput1\x22 -if2 \x22$FileInput2\x22 -od \x22$PSPImportDirOutput\x22 -odf $PolType -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -iee $IEEEFormat -pp $PolarType $MultiLookSubSamp" r]
         } else {
-        TextEditorRunTrace "Process The Function Soft/data_import/sentinel1_convert_dual.exe" "k"
+        if {$SENTINEL1FUD == 1} { set DirOutputPSPImport $PSPImportDirOutput; set PSPImportDirOutput $TMPDirectory }
+        TextEditorRunTrace "Process The Function Soft/bin/data_import/sentinel1_convert_dual.exe" "k"
         TextEditorRunTrace "Arguments: -if1 \x22$FileInput1\x22 -if2 \x22$FileInput2\x22 -od \x22$PSPImportDirOutput\x22 -odf $PolType -nr $NligFullSize -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -iee $IEEEFormat -pp $PolarType $MultiLookSubSamp" "k"
-        set f [ open "| Soft/data_import/sentinel1_convert_dual.exe -if1 \x22$FileInput1\x22 -if2 \x22$FileInput2\x22 -od \x22$PSPImportDirOutput\x22 -odf $PolType -nr $NligFullSize -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -iee $IEEEFormat -pp $PolarType $MultiLookSubSamp" r]
+        set f [ open "| Soft/bin/data_import/sentinel1_convert_dual.exe -if1 \x22$FileInput1\x22 -if2 \x22$FileInput2\x22 -od \x22$PSPImportDirOutput\x22 -odf $PolType -nr $NligFullSize -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -iee $IEEEFormat -pp $PolarType $MultiLookSubSamp" r]
         }
+    }
+
+PsPprogressBar $f
+}
+#############################################################################
+## Procedure:  ExtractGF3
+
+proc ::ExtractGF3 {} {
+global PSPImportDirInput PSPImportDirOutput
+global PSPImportExtractFonction PSPImportOutputFormat PSPSymmetrisation
+global NcolFullSize PolarType NligFullSize 
+global MultiLookSubSamp
+global OffsetLig OffsetCol FinalNlig FinalNcol 
+global ProgressLine PolarType
+global FileInput1 FileInput2 FileInput3 FileInput4 FileInput5 FileInput6
+global IEEEFormat GF3DataFormat GF3QualifyValueHH GF3QualifyValueHV GF3QualifyValueVH GF3QualifyValueVV 
+
+if {$GF3DataFormat == "quad"} {
+    set ExtractFunction "Soft/bin/data_import/gf3_convert.exe"
+    TextEditorRunTrace "Process The Function $ExtractFunction" "k"
+    TextEditorRunTrace "Arguments: -if1 \x22$FileInput1\x22 -if2 \x22$FileInput2\x22 -if3 \x22$FileInput3\x22 -if4 \x22$FileInput4\x22 -od \x22$PSPImportDirOutput\x22 -odf $PSPImportOutputFormat -nr $NligFullSize -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -iee $IEEEFormat -sym $PSPSymmetrisation -qv1 $GF3QualifyValueHH -qv2 $GF3QualifyValueHV -qv3 $GF3QualifyValueVH -qv4 $GF3QualifyValueVV $MultiLookSubSamp" "k"
+    set f [ open "| $ExtractFunction -if1 \x22$FileInput1\x22 -if2 \x22$FileInput2\x22 -if3 \x22$FileInput3\x22 -if4 \x22$FileInput4\x22 -od \x22$PSPImportDirOutput\x22 -odf $PSPImportOutputFormat -nr $NligFullSize -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -iee $IEEEFormat -sym $PSPSymmetrisation -qv1 $GF3QualifyValueHH -qv2 $GF3QualifyValueHV -qv3 $GF3QualifyValueVH -qv4 $GF3QualifyValueVV $MultiLookSubSamp" r]
     }
 
 PsPprogressBar $f
@@ -2797,10 +2849,10 @@ if {$DirName != "" } {
         set PSPImportOutputDirBis $PSPImportOutputDir
         set PSPImportExtractFonction "Full"
         set PSPImportConvertMLKName 0
-        set MultiLookCol ""
-        set MultiLookRow ""
-        set SubSampCol ""
-        set SubSampRow ""
+        set MultiLookCol " "
+        set MultiLookRow " "
+        set SubSampCol " "
+        set SubSampRow " "
         $widget(Label233_1) configure -state disable
         $widget(Label233_2) configure -state disable
         $widget(Label233_3) configure -state disable
@@ -2904,10 +2956,10 @@ if {$DirName != "" } {
         \
         -command {global MultiLookCol MultiLookRow SubSampCol SubSampRow
 
-set MultiLookCol ""
-set MultiLookRow ""
-set SubSampCol ""
-set SubSampRow ""
+set MultiLookCol " "
+set MultiLookRow " "
+set SubSampCol " "
+set SubSampRow " "
 $widget(Label233_1) configure -state disable
 $widget(Label233_2) configure -state disable
 $widget(Label233_3) configure -state disable
@@ -2930,8 +2982,8 @@ OutputDataFormat_ON} \
         \
         -command {global MultiLookCol MultiLookRow SubSampCol SubSampRow
 
-set MultiLookCol ""
-set MultiLookRow ""
+set MultiLookCol " "
+set MultiLookRow " "
 set SubSampCol " ? "
 set SubSampRow " ? "
 $widget(Label233_1) configure -state normal
@@ -2958,8 +3010,8 @@ OutputDataFormat_ON} \
 
 set MultiLookCol " ? "
 set MultiLookRow " ? "
-set SubSampCol ""
-set SubSampRow ""
+set SubSampCol " "
+set SubSampRow " "
 $widget(Label233_1) configure -state disable
 $widget(Label233_2) configure -state disable
 $widget(Label233_3) configure -state normal
@@ -3195,7 +3247,7 @@ global RawBinaryDataFormat RawBinaryDataType
 global EMISARDataFormat PISARDataFormat
 global AIRSARDataFormat AIRSARProcessor UAVSARDataFormat
 global RADARSAT2DataFormat SIRCDataFormat ALOSDataFormat CSKDataFormat
-global TERRASARXDataFormat TERRASARXDataLevel RISATDataFormat
+global TERRASARXDataFormat TERRASARXDataLevel RISATDataFormat GF3DataFormat
 
 set PSPImportOutputSubDir "T3"
 
@@ -3204,6 +3256,9 @@ if {$ActiveImportData == "RAWBINARYDATA"} {
     if {$RawBinaryDataFormat == "S2"} { set config "true" }
     if {$RawBinaryDataFormat == "T4"} { set config "true" }
     if {$RawBinaryDataFormat == "C4"} { set config "true" }
+    }
+if {$ActiveImportData == "GF3"} {
+    if {$GF3DataFormat == "quad"} {  set config "true" }
     }
 if {$ActiveImportData == "RADARSAT2"} {
     if {$RADARSAT2DataFormat == "quad"} {  set config "true" }
@@ -3256,7 +3311,7 @@ global RawBinaryDataFormat RawBinaryDataType
 global EMISARDataFormat PISARDataFormat
 global AIRSARDataFormat AIRSARProcessor UAVSARDataForma
 global RADARSAT2DataFormat SIRCDataFormat ALOSDataFormat CSKDataFormat
-global TERRASARXDataFormat TERRASARXDataLevel RISATDataFormat
+global TERRASARXDataFormat TERRASARXDataLevel RISATDataFormat GF3DataFormat
 
 set PSPImportOutputSubDir "T4"
 
@@ -3265,6 +3320,9 @@ if {$ActiveImportData == "RAWBINARYDATA"} {
     if {$RawBinaryDataFormat == "S2"} { set config "true" }
     if {$RawBinaryDataFormat == "T4"} { set config "true" }
     if {$RawBinaryDataFormat == "C4"} { set config "true" }
+    }
+if {$ActiveImportData == "GF3"} {
+    if {$GF3DataFormat == "quad"} {  set config "true" }
     }
 if {$ActiveImportData == "RADARSAT2"} {
     if {$RADARSAT2DataFormat == "quad"} {  set config "true" }
@@ -3334,7 +3392,7 @@ global RawBinaryDataFormat RawBinaryDataType
 global EMISARDataFormat PISARDataFormat
 global AIRSARDataFormat AIRSARProcessor UAVSARDataFormat
 global RADARSAT2DataFormat SIRCDataFormat ALOSDataFormat CSKDataFormat
-global TERRASARXDataFormat TERRASARXDataLevel RISATDataFormat
+global TERRASARXDataFormat TERRASARXDataLevel RISATDataFormat GF3DataFormat
 
 set PSPImportOutputSubDir "C3"
 
@@ -3343,6 +3401,9 @@ if {$ActiveImportData == "RAWBINARYDATA"} {
     if {$RawBinaryDataFormat == "S2"} { set config "true" }
     if {$RawBinaryDataFormat == "T4"} { set config "true" }
     if {$RawBinaryDataFormat == "C4"} { set config "true" }
+    }
+if {$ActiveImportData == "GF3"} {
+    if {$GF3DataFormat == "quad"} {  set config "true" }
     }
 if {$ActiveImportData == "RADARSAT2"} {
     if {$RADARSAT2DataFormat == "quad"} {  set config "true" }
@@ -3395,7 +3456,7 @@ global RawBinaryDataFormat RawBinaryDataType
 global EMISARDataFormat PISARDataFormat
 global AIRSARDataFormat AIRSARProcessor UAVSARDataFormat
 global RADARSAT2DataFormat SIRCDataFormat ALOSDataFormat CSKDataFormat
-global TERRASARXDataFormat TERRASARXDataLevel RISATDataFormat
+global TERRASARXDataFormat TERRASARXDataLevel RISATDataFormat GF3DataFormat
 
 set PSPImportOutputSubDir "C4"
 
@@ -3404,6 +3465,9 @@ if {$ActiveImportData == "RAWBINARYDATA"} {
     if {$RawBinaryDataFormat == "S2"} { set config "true" }
     if {$RawBinaryDataFormat == "T4"} { set config "true" }
     if {$RawBinaryDataFormat == "C4"} { set config "true" }
+    }
+if {$ActiveImportData == "GF3"} {
+    if {$GF3DataFormat == "quad"} {  set config "true" }
     }
 if {$ActiveImportData == "RADARSAT2"} {
     if {$RADARSAT2DataFormat == "quad"} {  set config "true" }
@@ -3480,7 +3544,7 @@ global VarError ErrorMessage VarWarning WarningMessage WarningMessage2
 global NligInit NligEnd NligFullSize NcolInit NcolEnd NcolFullSize
 global MultiLookCol MultiLookRow SubSampCol SubSampRow MultiLookSubSamp
 global OffsetLig OffsetCol FinalNlig FinalNcol TMPDirectory DirOutputPSPImport
-global ProgressLine ConfigFile PolarCase PolarType PSPMemory TMPMemoryAllocError MaskCmd PSPViewGimpBMP
+global ProgressLine ConfigFile PolarCase PolarType TMPMemoryAllocError MaskCmd PSPViewGimpBMP
 
 global FileInputHH FileInputHV FileInputVH FileInputVV FileInputPISAR FileInputSIRC
 global FileInputSTK FileInputSTK1 FileInputSTK2 FileInputSTK3
@@ -3542,12 +3606,14 @@ if {$PSPImportOutputSubDir != ""} {append PSPImportDirOutput "/$PSPImportOutputS
             if {$PSPImportExtractFonction == "SubSamp"} { set MultiLookSubSamp " -nlr 1 -nlc 1 -ssr $SubSampRow -ssc $SubSampCol " }
             if {$PSPImportExtractFonction == "MultiLook"} { set MultiLookSubSamp " -nlr $MultiLookRow -nlc $MultiLookCol -ssr 1 -ssc 1 " }
 
-            append MultiLookSubSamp "-mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 "
+            append MultiLookSubSamp "-mem 2000 -errf \x22$TMPMemoryAllocError\x22 "
+            #append MultiLookSubSamp " -errf \x22$TMPMemoryAllocError\x22 "
 
             if {$ActiveImportData == "RAWBINARYDATA"} { ExtractRAWBINARYDATA } 
             if {$ActiveImportData == "ALOS"} { ExtractALOS } 
             if {$ActiveImportData == "ALOS2"} { ExtractALOS2 } 
             if {$ActiveImportData == "CSK"} { ExtractCSK } 
+            if {$ActiveImportData == "GF3"} { ExtractGF3 } 
             if {$ActiveImportData == "RADARSAT2"} { ExtractRADARSAT2 } 
             if {$ActiveImportData == "RISAT"} { ExtractRISAT } 
             if {$ActiveImportData == "SENTINEL1"} { ExtractSENTINEL1 } 
@@ -3575,9 +3641,9 @@ if {$PSPImportOutputSubDir != ""} {append PSPImportDirOutput "/$PSPImportOutputS
                         set ProgressLine "0"
                         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                         update
-                        TextEditorRunTrace "Process The Function Soft/data_import/uavsar_convert_dem.exe" "k"
+                        TextEditorRunTrace "Process The Function Soft/bin/data_import/uavsar_convert_dem.exe" "k"
                         TextEditorRunTrace "Arguments: -hf \x22$UAVSARAnnotationFile\x22 -if \x22$UAVSARFileDEM\x22 -od \x22$PSPImportDirOutput\x22 -inr $NligFullSize -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MultiLookSubSamp" "k"
-                        set f [ open "| Soft/data_import/uavsar_convert_dem.exe -hf \x22$UAVSARAnnotationFile\x22 -if \x22$UAVSARFileDEM\x22 -od \x22$PSPImportDirOutput\x22 -inr $NligFullSize -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MultiLookSubSamp" r]
+                        set f [ open "| Soft/bin/data_import/uavsar_convert_dem.exe -hf \x22$UAVSARAnnotationFile\x22 -if \x22$UAVSARFileDEM\x22 -od \x22$PSPImportDirOutput\x22 -inr $NligFullSize -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MultiLookSubSamp" r]
                         PsPprogressBar $f
                         TextEditorRunTrace "Check RunTime Errors" "r"
                         CheckRunTimeError
@@ -3591,9 +3657,11 @@ if {$PSPImportOutputSubDir != ""} {append PSPImportDirOutput "/$PSPImportOutputS
             LoadConfig
             if {"$ErrorMessage" == ""} {
                 if {$ActiveImportData == "SENTINEL1"} {
-                    if {$SENTINEL1FUD == 1} {
-                        set PSPImportDirOutput $DirOutputPSPImport
-                        Sentinel1_FlipUpDown $TMPDirectory $PSPImportDirOutput $PSPImportOutputFormat $NligFullSize $NcolFullSize
+                    if {$SENTINEL1Burst != "ALL"} {
+                        if {$SENTINEL1FUD == 1} {
+                            set PSPImportDirOutput $DirOutputPSPImport
+                            Sentinel1_FlipUpDown $TMPDirectory $PSPImportDirOutput $PSPImportOutputFormat $NligFullSize $NcolFullSize
+                            }
                         }
                     }          
             
@@ -3651,14 +3719,14 @@ if {$PSPImportOutputSubDir != ""} {append PSPImportDirOutput "/$PSPImportOutputS
                         set ProgressLine "0"
                         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                         update
-                        TextEditorRunTrace "Process The Function Soft/bmp_process/create_bmp_file.exe" "k"
+                        TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_bmp_file.exe" "k"
                         TextEditorRunTrace "Arguments: -if \x22$fichier\x22 -of \x22$fichierbmp\x22 -ift float -oft real -clm gray -nc $NcolFullSize -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mm 1 -min 0 -max 0 $MaskCmd" "k"
-                        set f [ open "| Soft/bmp_process/create_bmp_file.exe -if \x22$fichier\x22 -of \x22$fichierbmp\x22 -ift float -oft real -clm gray -nc $NcolFullSize -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mm 1 -min 0 -max 0 $MaskCmd" r]
+                        set f [ open "| Soft/bin/bmp_process/create_bmp_file.exe -if \x22$fichier\x22 -of \x22$fichierbmp\x22 -ift float -oft real -clm gray -nc $NcolFullSize -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mm 1 -min 0 -max 0 $MaskCmd" r]
                         PsPprogressBar $f
                         TextEditorRunTrace "Check RunTime Errors" "r"
                         CheckRunTimeError
                         WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-                        if {$PSPViewGimpBMP == 1} { Gimp $fichierbmp }
+                        if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $fichierbmp }
                         }
                     } 
 
@@ -3671,11 +3739,6 @@ if {$PSPImportOutputSubDir != ""} {append PSPImportDirOutput "/$PSPImportOutputS
 
                 set DataDir $PSPImportOutputDir
                 MenuOn
-                #$widget(MenubuttonMapReady) configure -state normal
-                .top2.fra71.fra67.men68 configure -state normal
-                #$widget(MenubuttonNest) configure -state normal
-                .top2.fra71.fra67.men69 configure -state normal
-
                 } else {
                 append ErrorMessage " -> An ERROR occured during the Data Extraction"
                 set VarError ""

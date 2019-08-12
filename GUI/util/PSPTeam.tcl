@@ -566,7 +566,7 @@ proc vTclWindow.top239 {base} {
     wm minsize $top 116 1
     wm overrideredirect $top 0
     wm resizable $top 1 1
-    wm title $top "PolSarPro v.5 Team"
+    wm title $top "PolSARpro Software Team"
     vTcl:DefineAlias "$top" "Toplevel239" vTcl:Toplevel:WidgetProc "" 1
     bindtags $top "$top Toplevel all _TopLevel"
     vTcl:FireEvent $top <<Create>>
@@ -607,7 +607,7 @@ proc vTclWindow.top239 {base} {
     vTcl:DefineAlias "$site_5_0.cpd71" "Label10" vTcl:WidgetProc "Toplevel239" 1
     label $site_5_0.cpd70 \
         -activebackground #ffffff -background #ffffff -foreground #0000ff \
-        -text {C. Stewart - M. Foumelis (PolSARpro v.5.1)} 
+        -text {C. Stewart - M. Foumelis (PolSARpro Software.1)} 
     vTcl:DefineAlias "$site_5_0.cpd70" "Label9" vTcl:WidgetProc "Toplevel239" 1
     pack $site_5_0.cpd67 \
         -in $site_5_0 -anchor center -expand 0 -fill none -side top 
@@ -696,7 +696,7 @@ proc vTclWindow.top239 {base} {
     vTcl:DefineAlias "$site_3_0.lab103" "Label436" vTcl:WidgetProc "Toplevel239" 1
     button $site_3_0.but106 \
         -background #ffff00 \
-        -command {Window hide $widget(Toplevel239); TextEditorRunTrace "Close Window PolSARpro v5.0 Team" "b"} \
+        -command {Window hide $widget(Toplevel239); TextEditorRunTrace "Close Window PolSARpro Software Team" "b"} \
         -padx 4 -pady 2 -text Exit -width 4 
     vTcl:DefineAlias "$site_3_0.but106" "Button35" vTcl:WidgetProc "Toplevel239" 1
     bindtags $site_3_0.but106 "$site_3_0.but106 Button $top all _vTclBalloon"
@@ -712,10 +712,10 @@ if {$Load_PSPContributors == 0} {
     set Load_PSPContributors 1
     WmTransient $widget(Toplevel256) $PSPTopLevel
     }
-Window hide $widget(Toplevel239); TextEditorRunTrace "Close Window PolSARpro v5.0 Team" "b"
-WidgetShow $widget(Toplevel256); TextEditorRunTrace "Open Window PolSARpro v5.0 Contributors" "b"} \
+Window hide $widget(Toplevel239); TextEditorRunTrace "Close Window PolSARpro Software Team" "b"
+WidgetShow $widget(Toplevel256); TextEditorRunTrace "Open Window PolSARpro Software Contributors" "b"} \
         -foreground #0000ff -pady 0 \
-        -text {See the PolSARpro v.5 Contributors} 
+        -text {See the PolSARpro Software Contributors} 
     vTcl:DefineAlias "$site_3_0.but73" "Button1" vTcl:WidgetProc "Toplevel239" 1
     pack $site_3_0.lab103 \
         -in $site_3_0 -anchor center -expand 0 -fill none -side left 

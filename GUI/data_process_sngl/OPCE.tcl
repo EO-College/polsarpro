@@ -470,9 +470,6 @@ proc vTcl:project:info {} {
     namespace eval ::widgets::$site_3_0.ent64 {
         array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -justify 1 -state 1 -textvariable 1 -width 1}
     }
-    namespace eval ::widgets::$base.ent101 {
-        array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -justify 1 -state 1 -textvariable 1 -width 1}
-    }
     namespace eval ::widgets::$base.tit92 {
         array set save {-ipad 1 -text 1}
     }
@@ -503,9 +500,6 @@ proc vTcl:project:info {} {
     }
     set site_5_0 $site_4_0.cpd96
     namespace eval ::widgets::$site_5_0.but67 {
-        array set save {-_tooltip 1 -background 1 -command 1 -padx 1 -pady 1 -text 1}
-    }
-    namespace eval ::widgets::$site_5_0.but68 {
         array set save {-_tooltip 1 -background 1 -command 1 -padx 1 -pady 1 -text 1}
     }
     namespace eval ::widgets::$site_5_0.but22 {
@@ -608,8 +602,8 @@ proc vTclWindow. {base} {
     # CREATING WIDGETS
     ###################
     wm focusmodel $top passive
-    wm geometry $top 200x200+25+25; update
-    wm maxsize $top 3360 1028
+    wm geometry $top 200x200+175+175; update
+    wm maxsize $top 3364 1032
     wm minsize $top 116 1
     wm overrideredirect $top 0
     wm resizable $top 1 1
@@ -641,7 +635,7 @@ proc vTclWindow.top98 {base} {
         -menu "$top.m22" 
     wm withdraw $top
     wm focusmodel $top passive
-    wm geometry $top 500x290+10+110; update
+    wm geometry $top 500x260+10+110; update
     wm maxsize $top 1604 1184
     wm minsize $top 116 1
     wm overrideredirect $top 0
@@ -840,11 +834,6 @@ set AreaN 1} \
         -side left 
     pack $site_3_0.ent64 \
         -in $site_3_0 -anchor center -expand 1 -fill none -side left 
-    entry $top.ent101 \
-        -background white -disabledbackground #ffffff \
-        -disabledforeground #0000ff -foreground #0000ff -justify center \
-        -state disabled -textvariable Fonction -width 44 
-    vTcl:DefineAlias "$top.ent101" "Entry138" vTcl:WidgetProc "Toplevel98" 1
     TitleFrame $top.tit92 \
         -ipad 0 -text {Target / Clutter Areas} 
     vTcl:DefineAlias "$top.tit92" "TitleFrame1" vTcl:WidgetProc "Toplevel98" 1
@@ -944,12 +933,10 @@ if [file exists $OPCEFileTrainingArea] {
     button $site_5_0.but67 \
         -background #ffff00 \
         -command {global VarOPCEArea NTrainingAreaClass AreaClassN NTrainingArea AreaN AreaPointLig AreaPointCol AreaPoint AreaPointN
-global BMPDirInput rect_color OpenDirFile
-global MouseInitX MouseInitY MouseEndX MouseEndY MouseNlig MouseNcol TrainingAreaToolLine
+global OPCEDirInput OPCEDirOutput OpenDirFile TMPDir OPCEFileTrainingArea
+global MapAlgebraBMPFile MapAlgebraConfigFileOPCE
 
 if {$OpenDirFile == 0} {
-
-ClosePSPViewer
 
 set WarningMessage "OPEN A BMP FILE TO SELECT"
 set WarningMessage2 "THE TARGET / CLUTTER AREAS"
@@ -959,7 +946,14 @@ tkwait variable VarWarning
 
 if {$VarWarning == "ok"} {
 
-LoadPSPViewer
+set types {
+{{BMP Files}        {.bmp}        }
+}
+set filename ""
+set filename [tk_getOpenFile -initialdir $OPCEDirInput -filetypes $types -title "INPUT BMP FILE"]
+if {$filename != ""} {
+    set MapAlgebraBMPFile $filename
+    }
 
 set NTrainingAreaClassTmp $NTrainingAreaClass
 for {set i 1} {$i <= $NTrainingAreaClass} {incr i} {
@@ -975,25 +969,25 @@ for {set i 1} {$i <= $NTrainingAreaClass} {incr i} {
             }
         }
     }
-
-set BMPDirInput $OPCEDirInput
-Window show $widget(Toplevel64); TextEditorRunTrace "Open Window PolSARpro Viewer" "b"
-
-set MouseInitX $AreaPointCol(10101)
-set MouseInitY $AreaPointLig(10101)
-set MouseEndX [expr $AreaPointCol(10101) + $MouseInitX -1]
-set MouseEndY [expr $AreaPointLig(10101) + $MouseInitY -1]
-set MouseNlig [expr abs($MouseEndY - $MouseInitY) +1]
-set MouseNcol [expr abs($MouseEndX - $MouseInitX) +1]
 set AreaClassN 1
 set AreaN 1
 set AreaPointN ""
 set TrainingAreaToolLine "false"
 
-set rect_color "white"
-
 set VarOPCEArea "no"
-WidgetShowFromWidget $widget(Toplevel98) $widget(Toplevel96); TextEditorRunTrace "Open Window O.P.C.E Graphic Editor" "b"
+set MapAlgebraSession [ MapAlgebra_session ]
+set MapAlgebraConfigFileOPCE "$TMPDir/$MapAlgebraSession"; append MapAlgebraConfigFileOPCE "_mapalgebrapaths.txt"
+set OPCEFileTrainingArea "$OPCEDirInput/$MapAlgebraSession"; append OPCEFileTrainingArea "_OPCE_areas.txt"
+DeleteFile $OPCEFileTrainingArea
+$widget(Button98_1) configure -state disable
+MapAlgebra_init "OPCE" $MapAlgebraSession $OPCEFileTrainingArea
+MapAlgebra_launch $MapAlgebraConfigFileOPCE $MapAlgebraBMPFile
+WaitUntilCreated $OPCEFileTrainingArea
+if [file exists $OPCEFileTrainingArea] {
+    set VarOPCEArea "ok"
+    set MapAlgebraConfigFileOPCE [MapAlgebra_command $MapAlgebraConfigFileOPCE "quit" ""]
+    set MapAlgebraConfigFileOPCE ""
+    }
 tkwait variable VarOPCEArea
 
 #Return after Graphic Editor Exit
@@ -1015,39 +1009,13 @@ if {"$VarOPCEArea"=="no"} {
     set AreaClassN 1
     set AreaN 1
     }
-
-set BMPTrainingRect "0"
-MouseActiveFunction ""
-
-}
+  }
 }} \
         -padx 4 -pady 2 -text {Graphic Editor} 
     vTcl:DefineAlias "$site_5_0.but67" "Button642" vTcl:WidgetProc "Toplevel98" 1
     bindtags $site_5_0.but67 "$site_5_0.but67 Button $top all _vTclBalloon"
     bind $site_5_0.but67 <<SetBalloon>> {
         set ::vTcl::balloon::%W {Target / Clutter Areas Graphic Editor}
-    }
-    button $site_5_0.but68 \
-        -background #ffff00 \
-        -command {global OPCEFileTrainingArea OpenDirFile
-#UTIL
-global Load_TextEdit PSPTopLevel
-
-if {$OpenDirFile == 0} {
-
-if {$Load_TextEdit == 0} {
-    source "GUI/util/TextEdit.tcl"
-    set Load_TextEdit 1
-    WmTransient $widget(Toplevel95) $PSPTopLevel
-    }
-
-TextEditorFromWidget .top98 $OPCEFileTrainingArea
-}} \
-        -padx 4 -pady 2 -text {Text Editor} 
-    vTcl:DefineAlias "$site_5_0.but68" "Button643" vTcl:WidgetProc "Toplevel98" 1
-    bindtags $site_5_0.but68 "$site_5_0.but68 Button $top all _vTclBalloon"
-    bind $site_5_0.but68 <<SetBalloon>> {
-        set ::vTcl::balloon::%W {Target / Clutter Areas Text Editor}
     }
     button $site_5_0.but22 \
         -background #ffff00 \
@@ -1072,8 +1040,6 @@ TextEditorFromWidget .top98 $OPCEFileResults
         set ::vTcl::balloon::%W {Edit OPCE Results}
     }
     pack $site_5_0.but67 \
-        -in $site_5_0 -anchor center -expand 1 -fill none -side left 
-    pack $site_5_0.but68 \
         -in $site_5_0 -anchor center -expand 1 -fill none -side left 
     pack $site_5_0.but22 \
         -in $site_5_0 -anchor center -expand 1 -fill none -side left 
@@ -1128,7 +1094,7 @@ TextEditorFromWidget .top98 $OPCEFileResults
         -command {global OPCEDirInput OPCEDirOutput OPCEOutputDir OPCEOutputSubDir
 global OPCEFonction OPCEFunction OPCEFileTrainingArea OPCEFileResults
 global Fonction Fonction2 ProgressLine VarWarning WarningMessage WarningMessage2
-global OpenDirFile PSPMemory TMPMemoryAllocError
+global OpenDirFile TMPMemoryAllocError
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
 
 if {$OpenDirFile == 0} {
@@ -1181,9 +1147,9 @@ if {"$VarWarning"=="ok"} {
     set ProgressLine "0"
     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
     update
-    TextEditorRunTrace "Process The Function Soft/data_process_sngl/OPCE.exe" "k"
-    TextEditorRunTrace "Arguments: -id \x22$OPCEDirInput\x22 -od \x22$OPCEDirOutput\x22 -iodf $OPCEFonction -af \x22$OPCEFileTrainingArea\x22 -nwr $NwinOPCEL -nwc $NwinOPCEC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-    set f [ open "| Soft/data_process_sngl/OPCE.exe -id \x22$OPCEDirInput\x22 -od \x22$OPCEDirOutput\x22 -iodf $OPCEFonction -af \x22$OPCEFileTrainingArea\x22 -nwr $NwinOPCEL -nwc $NwinOPCEC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+    TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/OPCE.exe" "k"
+    TextEditorRunTrace "Arguments: -id \x22$OPCEDirInput\x22 -od \x22$OPCEDirOutput\x22 -iodf $OPCEFonction -af \x22$OPCEFileTrainingArea\x22 -nwr $NwinOPCEL -nwc $NwinOPCEC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+    set f [ open "| Soft/bin/data_process_sngl/OPCE.exe -id \x22$OPCEDirInput\x22 -od \x22$OPCEDirOutput\x22 -iodf $OPCEFonction -af \x22$OPCEFileTrainingArea\x22 -nwr $NwinOPCEL -nwc $NwinOPCEC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError
@@ -1211,8 +1177,7 @@ if {"$VarWarning"=="ok"} {
         set ::vTcl::balloon::%W {Run the Function}
     }
     button $site_3_0.but23 \
-        -background #ff8000 \
-        -command {HelpPdfEdit "Help/OPCE.pdf"} \
+        -background #ff8000 -command {HelpPdfEdit "Help/OPCE.pdf"} \
         -image [vTcl:image:get_image [file join . GUI Images help.gif]] \
         -pady 0 -width 20 
     vTcl:DefineAlias "$site_3_0.but23" "Button15" vTcl:WidgetProc "Toplevel98" 1
@@ -1222,18 +1187,11 @@ if {"$VarWarning"=="ok"} {
     }
     button $site_3_0.but24 \
         -background #ffff00 \
-        -command {global BMPImageOpen OpenDirFile
+        -command {global OpenDirFile MapAlgebraConfigFileOPCE
 
 if {$OpenDirFile == 0} {
-
-if {$BMPImageOpen == 1} {
-    ClosePSPViewer
-    Window hide $widget(Toplevel64); TextEditorRunTrace "Close Window PolSARpro Viewer" "b"
-    }
-if {$BMPImageOpen == 0} {
-    Window hide $widget(Toplevel96); TextEditorRunTrace "Close Window O.P.C.E Graphic Editor" "b"
+    if {$MapAlgebraConfigFileOPCE != ""} { set MapAlgebraConfigFileOPCE [MapAlgebra_command $MapAlgebraConfigFileOPCE "quit" ""] }
     Window hide $widget(Toplevel98); TextEditorRunTrace "Close Window O.P.C.E" "b"
-    }
 }} \
         -padx 4 -pady 2 -text Exit 
     vTcl:DefineAlias "$site_3_0.but24" "Button16" vTcl:WidgetProc "Toplevel98" 1
@@ -1256,8 +1214,6 @@ if {$BMPImageOpen == 0} {
         -in $top -anchor center -expand 0 -fill x -side top 
     pack $top.fra100 \
         -in $top -anchor center -expand 0 -fill x -pady 2 -side top 
-    pack $top.ent101 \
-        -in $top -anchor center -expand 0 -fill none -pady 5 -side top 
     pack $top.tit92 \
         -in $top -anchor center -expand 0 -fill x -side top 
     pack $top.fra66 \

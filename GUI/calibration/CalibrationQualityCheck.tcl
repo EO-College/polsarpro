@@ -973,7 +973,7 @@ $widget(Checkbutton455_6) configure -state disable} \
         -background #ffff00 \
         -command {global CalibDirInput CalibDirOutput CalibOutputDir CalibOutputSubDir NwinCalibL NwinCalibC
 global Fonction Fonction2 ProgressLine VarWarning WarningMessage WarningMessage2
-global BMPDirInput OpenDirFile PSPMemory TMPMemoryAllocError
+global BMPDirInput OpenDirFile TMPMemoryAllocError
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
 global NwinCalibL NwinCalibC Calib12 CalibL1L2 Calibp1p2 BMPmodCalib12 BMPmodCalib12b BMPphaCalib12 BMPL1L2 BMPp1p2
 
@@ -1011,9 +1011,9 @@ if {"$VarWarning"=="ok"} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/calibration/calibration_corr_HVVH.exe" "k"
-        TextEditorRunTrace "Arguments: -id \x22$CalibDirInput\x22 -od \x22$CalibDirOutput\x22 -nwr $NwinCalibL -nwc $NwinCalibC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-        set f [ open "| Soft/calibration/calibration_corr_HVVH.exe -id \x22$CalibDirInput\x22 -od \x22$CalibDirOutput\x22 -nwr $NwinCalibL -nwc $NwinCalibC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+        TextEditorRunTrace "Process The Function Soft/bin/calibration/calibration_corr_HVVH.exe" "k"
+        TextEditorRunTrace "Arguments: -id \x22$CalibDirInput\x22 -od \x22$CalibDirOutput\x22 -nwr $NwinCalibL -nwc $NwinCalibC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+        set f [ open "| Soft/bin/calibration/calibration_corr_HVVH.exe -id \x22$CalibDirInput\x22 -od \x22$CalibDirOutput\x22 -nwr $NwinCalibL -nwc $NwinCalibC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError
@@ -1050,9 +1050,9 @@ if {"$VarWarning"=="ok"} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/calibration/calibration_decomp_HVVH.exe" "k"
-        TextEditorRunTrace "Arguments: -id \x22$CalibDirInput\x22 -od \x22$CalibDirOutput\x22 -nwr $NwinCalibL -nwc $NwinCalibC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -fl1 $CalibL1L2 -fl2 $Calibp1p2 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-        set f [ open "| Soft/calibration/calibration_decomp_HVVH.exe -id \x22$CalibDirInput\x22 -od \x22$CalibDirOutput\x22 -nwr $NwinCalibL -nwc $NwinCalibC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -fl1 $CalibL1L2 -fl2 $Calibp1p2 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+        TextEditorRunTrace "Process The Function Soft/bin/calibration/calibration_decomp_HVVH.exe" "k"
+        TextEditorRunTrace "Arguments: -id \x22$CalibDirInput\x22 -od \x22$CalibDirOutput\x22 -nwr $NwinCalibL -nwc $NwinCalibC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -fl1 $CalibL1L2 -fl2 $Calibp1p2  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+        set f [ open "| Soft/bin/calibration/calibration_decomp_HVVH.exe -id \x22$CalibDirInput\x22 -od \x22$CalibDirOutput\x22 -nwr $NwinCalibL -nwc $NwinCalibC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -fl1 $CalibL1L2 -fl2 $Calibp1p2  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError

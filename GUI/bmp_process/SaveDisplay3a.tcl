@@ -650,6 +650,7 @@ Window hide $widget(Toplevel458); TextEditorRunTrace "Close Window Save Display 
         -command {global SaveDisplayDirOutput  
 global SaveDisplayFileOutput SaveDisplayOutputFile1 SaveDisplayOutputFile2 SaveDisplayOutputFile3
 global VarSaveGnuPlotFile TMPGnuPlotTk1 TMPGnuPlotTk2 TMPGnuPlotTk3
+global TMPGnuPlotTk11 TMPGnuPlotTk12 TMPGnuPlotTk13
 
 set SaveDisplayFileOutput "$SaveDisplayDirOutput/$SaveDisplayOutputFile1"
 append SaveDisplayFileOutput ".gif"
@@ -662,6 +663,18 @@ CopyFile $TMPGnuPlotTk2 $SaveDisplayFileOutput
 set SaveDisplayFileOutput "$SaveDisplayDirOutput/$SaveDisplayOutputFile3"
 append SaveDisplayFileOutput ".gif"
 CopyFile $TMPGnuPlotTk3 $SaveDisplayFileOutput
+
+set SaveDisplayFileOutput "$SaveDisplayDirOutput/$SaveDisplayOutputFile1"
+append SaveDisplayFileOutput "_color.gif"
+if [file exists $TMPGnuPlotTk11] {CopyFile $TMPGnuPlotTk11 $SaveDisplayFileOutput}
+
+set SaveDisplayFileOutput "$SaveDisplayDirOutput/$SaveDisplayOutputFile2"
+append SaveDisplayFileOutput "_color.gif"
+if [file exists $TMPGnuPlotTk12] {CopyFile $TMPGnuPlotTk12 $SaveDisplayFileOutput}
+
+set SaveDisplayFileOutput "$SaveDisplayDirOutput/$SaveDisplayOutputFile3"
+append SaveDisplayFileOutput "_color.gif"
+if [file exists $TMPGnuPlotTk13] {CopyFile $TMPGnuPlotTk13 $SaveDisplayFileOutput}
 
 set VarSaveGnuPlotFile "ok"
 

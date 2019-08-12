@@ -792,7 +792,7 @@ global TMPFileNull RGBDirInput RGBFunction RGBDirOutput RGBFileOutput RGBFormat 
 global FileInputBlue FileInputGreen FileInputRed RGBCCCE MinMaxAutoRGB
 global RGBMinBlue RGBMaxBlue RGBMinRed RGBMaxRed RGBMinGreen RGBMaxGreen
 global OffsetLig OffsetCol FinalNlig FinalNcol NcolFullSize PSPViewGimpBMP
-global VarError ErrorMessage Fonction Fonction2 ProgressLine OpenDirFile MaskCmd PSPMemory TMPMemoryAllocError
+global VarError ErrorMessage Fonction Fonction2 ProgressLine OpenDirFile MaskCmd TMPMemoryAllocError
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
 
 set config "false"
@@ -800,27 +800,27 @@ if {"$FileInputBlue"=="$TMPFileNull"} {set config "true"}
 if {"$FileInputRed"=="$TMPFileNull"} {set config "true"}
 if {"$FileInputGreen"=="$TMPFileNull"} {set config "true"}
 if {"$config"=="true"} {
-    TextEditorRunTrace "Process The Function Soft/bmp_process/create_null_file.exe" "k"
+    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_null_file.exe" "k"
     TextEditorRunTrace "Arguments: -of \x22$TMPFileNull\x22 -fnr $FinalNlig -fnc $FinalNcol" "k"
-    set f [ open "| Soft/bmp_process/create_null_file.exe -of \x22$TMPFileNull\x22 -fnr $FinalNlig -fnc $FinalNcol" r]
+    set f [ open "| Soft/bin/bmp_process/create_null_file.exe -of \x22$TMPFileNull\x22 -fnr $FinalNlig -fnc $FinalNcol" r]
     }
-if {$MinMaxAutoRGB == 1} { set ArgumentRGB "-ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$RGBFileOutput\x22 -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 -auto $MinMaxAutoRGB"}
-if {$MinMaxAutoRGB == 0} { set ArgumentRGB "-ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$RGBFileOutput\x22 -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 -auto $MinMaxAutoRGB -minb $RGBMinBlue -maxb $RGBMaxBlue -minr $RGBMinRed -maxr $RGBMaxRed -ming $RGBMinGreen -maxg $RGBMaxGreen"}
+if {$MinMaxAutoRGB == 1} { set ArgumentRGB "-ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$RGBFileOutput\x22 -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd  -errf \x22$TMPMemoryAllocError\x22 -auto $MinMaxAutoRGB"}
+if {$MinMaxAutoRGB == 0} { set ArgumentRGB "-ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$RGBFileOutput\x22 -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd  -errf \x22$TMPMemoryAllocError\x22 -auto $MinMaxAutoRGB -minb $RGBMinBlue -maxb $RGBMaxBlue -minr $RGBMinRed -maxr $RGBMaxRed -ming $RGBMinGreen -maxg $RGBMaxGreen"}
 if {"$RGBCCCE"=="independant"} {
-    TextEditorRunTrace "Process The Function Soft/bmp_process/create_rgb_file.exe" "k"
+    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_rgb_file.exe" "k"
     TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-    set f [ open "| Soft/bmp_process/create_rgb_file.exe $ArgumentRGB" r]
+    set f [ open "| Soft/bin/bmp_process/create_rgb_file.exe $ArgumentRGB" r]
     }
 if {"$RGBCCCE"=="common"} {
-    TextEditorRunTrace "Process The Function Soft/bmp_process/create_rgb_cce_file.exe" "k"
+    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_rgb_cce_file.exe" "k"
     TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-    set f [ open "| Soft/bmp_process/create_rgb_cce_file.exe $ArgumentRGB" r]
+    set f [ open "| Soft/bin/bmp_process/create_rgb_cce_file.exe $ArgumentRGB" r]
     }
 PsPprogressBar $f
 TextEditorRunTrace "Check RunTime Errors" "r"
 CheckRunTimeError
 set BMPDirInput $RGBDirOutput
-if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
 }
 #############################################################################
 ## Procedure:  CreateRGBS2
@@ -830,7 +830,7 @@ global TMPFileNull RGBDirInput RGBFunction RGBDirOutput RGBFileOutput RGBFormat 
 global FileInputBlue FileInputGreen FileInputRed RGBCCCE MinMaxAutoRGB
 global RGBMinBlue RGBMaxBlue RGBMinRed RGBMaxRed RGBMinGreen RGBMaxGreen
 global OffsetLig OffsetCol FinalNlig FinalNcol PSPViewGimpBMP
-global VarError ErrorMessage Fonction Fonction2 ProgressLine OpenDirFile MaskCmd PSPMemory TMPMemoryAllocError
+global VarError ErrorMessage Fonction Fonction2 ProgressLine OpenDirFile MaskCmd TMPMemoryAllocError
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
 
 set config "true"
@@ -871,50 +871,50 @@ if [file exists $fichier] {
     tkwait variable VarError
     }
 if {"$config"=="true"} {
-    if {$MinMaxAutoRGB == 1} { set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf S2 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 -auto $MinMaxAutoRGB" }
-    if {$MinMaxAutoRGB == 0} { set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf S2 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 -auto $MinMaxAutoRGB -minb $RGBMinBlue -maxb $RGBMaxBlue -minr $RGBMinRed -maxr $RGBMaxRed -ming $RGBMinGreen -maxg $RGBMaxGreen"}
+    if {$MinMaxAutoRGB == 1} { set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf S2 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd  -errf \x22$TMPMemoryAllocError\x22 -auto $MinMaxAutoRGB" }
+    if {$MinMaxAutoRGB == 0} { set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf S2 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd  -errf \x22$TMPMemoryAllocError\x22 -auto $MinMaxAutoRGB -minb $RGBMinBlue -maxb $RGBMaxBlue -minr $RGBMinRed -maxr $RGBMaxRed -ming $RGBMinGreen -maxg $RGBMaxGreen"}
     if {"$RGBCCCE"=="independant"} {
         if {"$RGBFormat"=="pauli"} {
-            TextEditorRunTrace "Process The Function Soft/bmp_process/create_pauli_rgb_file.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_pauli_rgb_file.exe" "k"
             TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-            set f [ open "| Soft/bmp_process/create_pauli_rgb_file.exe $ArgumentRGB" r]
+            set f [ open "| Soft/bin/bmp_process/create_pauli_rgb_file.exe $ArgumentRGB" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
             set BMPDirInput $RGBDirOutput
-            if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+            if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
             }
         if {"$RGBFormat"=="sinclair"} {
-            TextEditorRunTrace "Process The Function Soft/bmp_process/create_sinclair_rgb_file.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_sinclair_rgb_file.exe" "k"
             TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-            set f [ open "| Soft/bmp_process/create_sinclair_rgb_file.exe $ArgumentRGB" r]
+            set f [ open "| Soft/bin/bmp_process/create_sinclair_rgb_file.exe $ArgumentRGB" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
             set BMPDirInput $RGBDirOutput
-            if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+            if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
             }
         }
     if {"$RGBCCCE"=="common"} {
         if {"$RGBFormat"=="pauli"} {
-            TextEditorRunTrace "Process The Function Soft/bmp_process/create_pauli_rgb_cce_file.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_pauli_rgb_cce_file.exe" "k"
             TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-            set f [ open "| Soft/bmp_process/create_pauli_rgb_cce_file.exe $ArgumentRGB" r]
+            set f [ open "| Soft/bin/bmp_process/create_pauli_rgb_cce_file.exe $ArgumentRGB" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
             set BMPDirInput $RGBDirOutput
-            if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+            if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
             }
         if {"$RGBFormat"=="sinclair"} {
-            TextEditorRunTrace "Process The Function Soft/bmp_process/create_sinclair_rgb_cce_file.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_sinclair_rgb_cce_file.exe" "k"
             TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-            set f [ open "| Soft/bmp_process/create_sinclair_rgb_cce_file.exe $ArgumentRGB" r]
+            set f [ open "| Soft/bin/bmp_process/create_sinclair_rgb_cce_file.exe $ArgumentRGB" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
             set BMPDirInput $RGBDirOutput
-            if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+            if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
             }
         }
     }                                        
@@ -927,7 +927,7 @@ global TMPFileNull RGBDirInput RGBFunction RGBDirOutput RGBFileOutput RGBFormat 
 global FileInputBlue FileInputGreen FileInputRed RGBCCCE MinMaxAutoRGB
 global RGBMinBlue RGBMaxBlue RGBMinRed RGBMaxRed RGBMinGreen RGBMaxGreen
 global OffsetLig OffsetCol FinalNlig FinalNcol PSPViewGimpBMP 
-global VarError ErrorMessage Fonction Fonction2 ProgressLine OpenDirFile MaskCmd PSPMemory TMPMemoryAllocError
+global VarError ErrorMessage Fonction Fonction2 ProgressLine OpenDirFile MaskCmd TMPMemoryAllocError
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
 
 set config "true"
@@ -968,23 +968,23 @@ if [file exists $fichier] {
     tkwait variable VarError
     }
 if {"$config"=="true"} {
-    if {$MinMaxAutoRGB == 1} { set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf IPP -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 -auto $MinMaxAutoRGB -rgbf RGB1"}
-    if {$MinMaxAutoRGB == 0} { set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf IPP -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 -auto $MinMaxAutoRGB -rgbf RGB1 -minb $RGBMinBlue -maxb $RGBMaxBlue -minr $RGBMinRed -maxr $RGBMaxRed -ming $RGBMinGreen -maxg $RGBMaxGreen"}
+    if {$MinMaxAutoRGB == 1} { set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf IPP -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd  -errf \x22$TMPMemoryAllocError\x22 -auto $MinMaxAutoRGB -rgbf RGB1"}
+    if {$MinMaxAutoRGB == 0} { set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf IPP -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd  -errf \x22$TMPMemoryAllocError\x22 -auto $MinMaxAutoRGB -rgbf RGB1 -minb $RGBMinBlue -maxb $RGBMaxBlue -minr $RGBMinRed -maxr $RGBMaxRed -ming $RGBMinGreen -maxg $RGBMaxGreen"}
     if {"$RGBCCCE"=="independant"} {
-        TextEditorRunTrace "Process The Function Soft/bmp_process/create_rgb_file_SPPIPPC2.exe" "k"
+        TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_rgb_file_SPPIPPC2.exe" "k"
         TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-        set f [ open "| Soft/bmp_process/create_rgb_file_SPPIPPC2 $ArgumentRGB" r]
+        set f [ open "| Soft/bin/bmp_process/create_rgb_file_SPPIPPC2 $ArgumentRGB" r]
         }
     if {"$RGBCCCE"=="common"} {
-        TextEditorRunTrace "Process The Function Soft/bmp_process/create_rgb_cce_file_SPPIPPC2.exe" "k"
+        TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_rgb_cce_file_SPPIPPC2.exe" "k"
         TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-        set f [ open "| Soft/bmp_process/create_rgb_cce_file_SPPIPPC2 $ArgumentRGB" r]
+        set f [ open "| Soft/bin/bmp_process/create_rgb_cce_file_SPPIPPC2 $ArgumentRGB" r]
         }
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError
     set BMPDirInput $RGBDirOutput
-    if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+    if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
     }                    
 }
 #############################################################################
@@ -995,7 +995,7 @@ global TMPFileNull RGBDirInput RGBFunction RGBDirOutput RGBFileOutput RGBFormat 
 global FileInputBlue FileInputGreen FileInputRed RGBCCCE MinMaxAutoRGB
 global RGBMinBlue RGBMaxBlue RGBMinRed RGBMaxRed RGBMinGreen RGBMaxGreen
 global OffsetLig OffsetCol FinalNlig FinalNcol PSPViewGimpBMP 
-global VarError ErrorMessage Fonction Fonction2 ProgressLine OpenDirFile MaskCmd PSPMemory TMPMemoryAllocError
+global VarError ErrorMessage Fonction Fonction2 ProgressLine OpenDirFile MaskCmd TMPMemoryAllocError
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
 
 set config "true"
@@ -1027,23 +1027,23 @@ if [file exists $fichier] {
     tkwait variable VarError
     }
 if {"$config"=="true"} {
-    if {$MinMaxAutoRGB == 1} { set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf IPP -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 -auto $MinMaxAutoRGB -rgbf RGB1"}
-    if {$MinMaxAutoRGB == 0} { set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf IPP -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 -auto $MinMaxAutoRGB -rgbf RGB1 -minb $RGBMinBlue -maxb $RGBMaxBlue -minr $RGBMinRed -maxr $RGBMaxRed -ming $RGBMinGreen -maxg $RGBMaxGreen"}
+    if {$MinMaxAutoRGB == 1} { set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf IPP -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd  -errf \x22$TMPMemoryAllocError\x22 -auto $MinMaxAutoRGB -rgbf RGB1"}
+    if {$MinMaxAutoRGB == 0} { set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf IPP -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd  -errf \x22$TMPMemoryAllocError\x22 -auto $MinMaxAutoRGB -rgbf RGB1 -minb $RGBMinBlue -maxb $RGBMaxBlue -minr $RGBMinRed -maxr $RGBMaxRed -ming $RGBMinGreen -maxg $RGBMaxGreen"}
     if {"$RGBCCCE"=="independant"} {
-        TextEditorRunTrace "Process The Function Soft/bmp_process/create_rgb_file_SPPIPPC2.exe" "k"
+        TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_rgb_file_SPPIPPC2.exe" "k"
         TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-        set f [ open "| Soft/bmp_process/create_rgb_file_SPPIPPC2 $ArgumentRGB" r]
+        set f [ open "| Soft/bin/bmp_process/create_rgb_file_SPPIPPC2 $ArgumentRGB" r]
         }
     if {"$RGBCCCE"=="common"} {
-        TextEditorRunTrace "Process The Function Soft/bmp_process/create_rgb_cce_file_SPPIPPC2.exe" "k"
+        TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_rgb_cce_file_SPPIPPC2.exe" "k"
         TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-        set f [ open "| Soft/bmp_process/create_rgb_cce_file_SPPIPPC2 $ArgumentRGB" r]
+        set f [ open "| Soft/bin/bmp_process/create_rgb_cce_file_SPPIPPC2 $ArgumentRGB" r]
         }
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError
     set BMPDirInput $RGBDirOutput
-    if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+    if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
     }                    
 }
 #############################################################################
@@ -1054,7 +1054,7 @@ global TMPFileNull RGBDirInput RGBFunction RGBDirOutput RGBFileOutput RGBFormat 
 global FileInputBlue FileInputGreen FileInputRed RGBCCCE MinMaxAutoRGB
 global RGBMinBlue RGBMaxBlue RGBMinRed RGBMaxRed RGBMinGreen RGBMaxGreen
 global OffsetLig OffsetCol FinalNlig FinalNcol PSPViewGimpBMP
-global VarError ErrorMessage Fonction Fonction2 ProgressLine OpenDirFile MaskCmd PSPMemory TMPMemoryAllocError
+global VarError ErrorMessage Fonction Fonction2 ProgressLine OpenDirFile MaskCmd TMPMemoryAllocError
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
 
 set config "true"
@@ -1097,50 +1097,50 @@ if {"$RGBFormat"=="pauli"} {
         }
     }
 if {"$config"=="true"} {
-    if {$MinMaxAutoRGB == 1} { set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf C3 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 -auto $MinMaxAutoRGB" }
-    if {$MinMaxAutoRGB == 0} { set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf C3 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 -auto $MinMaxAutoRGB -minb $RGBMinBlue -maxb $RGBMaxBlue -minr $RGBMinRed -maxr $RGBMaxRed -ming $RGBMinGreen -maxg $RGBMaxGreen"}
+    if {$MinMaxAutoRGB == 1} { set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf C3 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd  -errf \x22$TMPMemoryAllocError\x22 -auto $MinMaxAutoRGB" }
+    if {$MinMaxAutoRGB == 0} { set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf C3 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd  -errf \x22$TMPMemoryAllocError\x22 -auto $MinMaxAutoRGB -minb $RGBMinBlue -maxb $RGBMaxBlue -minr $RGBMinRed -maxr $RGBMaxRed -ming $RGBMinGreen -maxg $RGBMaxGreen"}
     if {"$RGBCCCE"=="independant"} {
         if {"$RGBFormat"=="pauli"} {
-            TextEditorRunTrace "Process The Function Soft/bmp_process/create_pauli_rgb_file.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_pauli_rgb_file.exe" "k"
             TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-            set f [ open "| Soft/bmp_process/create_pauli_rgb_file.exe $ArgumentRGB" r]
+            set f [ open "| Soft/bin/bmp_process/create_pauli_rgb_file.exe $ArgumentRGB" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
             set BMPDirInput $RGBDirOutput
-            if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+            if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
             }
         if {"$RGBFormat"=="sinclair"} {
-            TextEditorRunTrace "Process The Function Soft/bmp_process/create_sinclair_rgb_file.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_sinclair_rgb_file.exe" "k"
             TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-            set f [ open "| Soft/bmp_process/create_sinclair_rgb_file.exe $ArgumentRGB" r]
+            set f [ open "| Soft/bin/bmp_process/create_sinclair_rgb_file.exe $ArgumentRGB" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
             set BMPDirInput $RGBDirOutput
-            if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+            if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
             }
         }
     if {"$RGBCCCE"=="common"} {
         if {"$RGBFormat"=="pauli"} {
-            TextEditorRunTrace "Process The Function Soft/bmp_process/create_pauli_rgb_cce_file.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_pauli_rgb_cce_file.exe" "k"
             TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-            set f [ open "| Soft/bmp_process/create_pauli_rgb_cce_file.exe $ArgumentRGB" r]
+            set f [ open "| Soft/bin/bmp_process/create_pauli_rgb_cce_file.exe $ArgumentRGB" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
             set BMPDirInput $RGBDirOutput
-            if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+            if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
             }
         if {"$RGBFormat"=="sinclair"} {
-            TextEditorRunTrace "Process The Function Soft/bmp_process/create_sinclair_rgb_cce_file.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_sinclair_rgb_cce_file.exe" "k"
             TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-            set f [ open "| Soft/bmp_process/create_sinclair_rgb_cce_file.exe $ArgumentRGB" r]
+            set f [ open "| Soft/bin/bmp_process/create_sinclair_rgb_cce_file.exe $ArgumentRGB" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
             set BMPDirInput $RGBDirOutput
-            if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+            if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
             }
         }
     }                    
@@ -1153,7 +1153,7 @@ global TMPFileNull RGBDirInput RGBFunction RGBDirOutput RGBFileOutput RGBFormat 
 global FileInputBlue FileInputGreen FileInputRed RGBCCCE MinMaxAutoRGB
 global RGBMinBlue RGBMaxBlue RGBMinRed RGBMaxRed RGBMinGreen RGBMaxGreen
 global OffsetLig OffsetCol FinalNlig FinalNcol PSPViewGimpBMP
-global VarError ErrorMessage Fonction Fonction2 ProgressLine OpenDirFile MaskCmd PSPMemory TMPMemoryAllocError
+global VarError ErrorMessage Fonction Fonction2 ProgressLine OpenDirFile MaskCmd TMPMemoryAllocError
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
 
 set config "true"
@@ -1205,50 +1205,50 @@ if {"$RGBFormat"=="pauli"} {
         }
     }
 if {"$config"=="true"} {
-    if {$MinMaxAutoRGB == 1} { set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf C4 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 -auto $MinMaxAutoRGB" }
-    if {$MinMaxAutoRGB == 0} { set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf C4 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 -auto $MinMaxAutoRGB -minb $RGBMinBlue -maxb $RGBMaxBlue -minr $RGBMinRed -maxr $RGBMaxRed -ming $RGBMinGreen -maxg $RGBMaxGreen"}
+    if {$MinMaxAutoRGB == 1} { set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf C4 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd  -errf \x22$TMPMemoryAllocError\x22 -auto $MinMaxAutoRGB" }
+    if {$MinMaxAutoRGB == 0} { set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf C4 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd  -errf \x22$TMPMemoryAllocError\x22 -auto $MinMaxAutoRGB -minb $RGBMinBlue -maxb $RGBMaxBlue -minr $RGBMinRed -maxr $RGBMaxRed -ming $RGBMinGreen -maxg $RGBMaxGreen"}
     if {"$RGBCCCE"=="independant"} {
         if {"$RGBFormat"=="pauli"} {
-            TextEditorRunTrace "Process The Function Soft/bmp_process/create_pauli_rgb_file.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_pauli_rgb_file.exe" "k"
             TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-            set f [ open "| Soft/bmp_process/create_pauli_rgb_file.exe $ArgumentRGB" r]
+            set f [ open "| Soft/bin/bmp_process/create_pauli_rgb_file.exe $ArgumentRGB" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
             set BMPDirInput $RGBDirOutput
-            if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+            if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
             }
         if {"$RGBFormat"=="sinclair"} {
-            TextEditorRunTrace "Process The Function Soft/bmp_process/create_sinclair_rgb_file.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_sinclair_rgb_file.exe" "k"
             TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-            set f [ open "| Soft/bmp_process/create_sinclair_rgb_file.exe $ArgumentRGB" r]
+            set f [ open "| Soft/bin/bmp_process/create_sinclair_rgb_file.exe $ArgumentRGB" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
             set BMPDirInput $RGBDirOutput
-            if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+            if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
             }
         }
     if {"$RGBCCCE"=="common"} {
         if {"$RGBFormat"=="pauli"} {
-            TextEditorRunTrace "Process The Function Soft/bmp_process/create_pauli_rgb_cce_file.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_pauli_rgb_cce_file.exe" "k"
             TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-            set f [ open "| Soft/bmp_process/create_pauli_rgb_cce_file.exe $ArgumentRGB" r]
+            set f [ open "| Soft/bin/bmp_process/create_pauli_rgb_cce_file.exe $ArgumentRGB" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
             set BMPDirInput $RGBDirOutput
-            if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+            if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
             }
         if {"$RGBFormat"=="sinclair"} {
-            TextEditorRunTrace "Process The Function Soft/bmp_process/create_sinclair_rgb_cce_file.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_sinclair_rgb_cce_file.exe" "k"
             TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-            set f [ open "| Soft/bmp_process/create_sinclair_rgb_cce_file.exe $ArgumentRGB" r]
+            set f [ open "| Soft/bin/bmp_process/create_sinclair_rgb_cce_file.exe $ArgumentRGB" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
             set BMPDirInput $RGBDirOutput
-            if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+            if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
             }
         }
     }                    
@@ -1261,7 +1261,7 @@ global TMPFileNull RGBDirInput RGBFunction RGBDirOutput RGBFileOutput RGBFormat 
 global FileInputBlue FileInputGreen FileInputRed RGBCCCE MinMaxAutoRGB
 global RGBMinBlue RGBMaxBlue RGBMinRed RGBMaxRed RGBMinGreen RGBMaxGreen
 global OffsetLig OffsetCol FinalNlig FinalNcol PSPViewGimpBMP
-global VarError ErrorMessage Fonction Fonction2 ProgressLine OpenDirFile MaskCmd PSPMemory TMPMemoryAllocError
+global VarError ErrorMessage Fonction Fonction2 ProgressLine OpenDirFile MaskCmd TMPMemoryAllocError
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
 
 set config "true"
@@ -1304,50 +1304,50 @@ if {"$RGBFormat"=="sinclair"} {
         }
     }
 if {"$config"=="true"} {
-    if {$MinMaxAutoRGB == 1} { set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf T3 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 -auto $MinMaxAutoRGB" }
-    if {$MinMaxAutoRGB == 0} { set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf T3 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 -auto $MinMaxAutoRGB -minb $RGBMinBlue -maxb $RGBMaxBlue -minr $RGBMinRed -maxr $RGBMaxRed -ming $RGBMinGreen -maxg $RGBMaxGreen"}
+    if {$MinMaxAutoRGB == 1} { set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf T3 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd  -errf \x22$TMPMemoryAllocError\x22 -auto $MinMaxAutoRGB" }
+    if {$MinMaxAutoRGB == 0} { set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf T3 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd  -errf \x22$TMPMemoryAllocError\x22 -auto $MinMaxAutoRGB -minb $RGBMinBlue -maxb $RGBMaxBlue -minr $RGBMinRed -maxr $RGBMaxRed -ming $RGBMinGreen -maxg $RGBMaxGreen"}
     if {"$RGBCCCE"=="independant"} {
         if {"$RGBFormat"=="pauli"} {
-            TextEditorRunTrace "Process The Function Soft/bmp_process/create_pauli_rgb_file.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_pauli_rgb_file.exe" "k"
             TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-            set f [ open "| Soft/bmp_process/create_pauli_rgb_file.exe $ArgumentRGB" r]
+            set f [ open "| Soft/bin/bmp_process/create_pauli_rgb_file.exe $ArgumentRGB" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
             set BMPDirInput $RGBDirOutput
-            if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+            if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
             }
         if {"$RGBFormat"=="sinclair"} {
-            TextEditorRunTrace "Process The Function Soft/bmp_process/create_sinclair_rgb_file.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_sinclair_rgb_file.exe" "k"
             TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-            set f [ open "| Soft/bmp_process/create_sinclair_rgb_file.exe $ArgumentRGB" r]
+            set f [ open "| Soft/bin/bmp_process/create_sinclair_rgb_file.exe $ArgumentRGB" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
             set BMPDirInput $RGBDirOutput
-            if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+            if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
             }
         }
     if {"$RGBCCCE"=="common"} {
         if {"$RGBFormat"=="pauli"} {
-            TextEditorRunTrace "Process The Function Soft/bmp_process/create_pauli_rgb_cce_file.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_pauli_rgb_cce_file.exe" "k"
             TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-            set f [ open "| Soft/bmp_process/create_pauli_rgb_cce_file.exe $ArgumentRGB" r]
+            set f [ open "| Soft/bin/bmp_process/create_pauli_rgb_cce_file.exe $ArgumentRGB" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
             set BMPDirInput $RGBDirOutput
-            if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+            if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
             }
         if {"$RGBFormat"=="sinclair"} {
-            TextEditorRunTrace "Process The Function Soft/bmp_process/create_sinclair_rgb_cce_file.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_sinclair_rgb_cce_file.exe" "k"
             TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-            set f [ open "| Soft/bmp_process/create_sinclair_rgb_cce_file.exe $ArgumentRGB" r]
+            set f [ open "| Soft/bin/bmp_process/create_sinclair_rgb_cce_file.exe $ArgumentRGB" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
             set BMPDirInput $RGBDirOutput
-            if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+            if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
             }
         }
     }                    
@@ -1360,7 +1360,7 @@ global TMPFileNull RGBDirInput RGBFunction RGBDirOutput RGBFileOutput RGBFormat 
 global FileInputBlue FileInputGreen FileInputRed RGBCCCE MinMaxAutoRGB
 global RGBMinBlue RGBMaxBlue RGBMinRed RGBMaxRed RGBMinGreen RGBMaxGreen
 global OffsetLig OffsetCol FinalNlig FinalNcol PSPViewGimpBMP
-global VarError ErrorMessage Fonction Fonction2 ProgressLine OpenDirFile MaskCmd PSPMemory TMPMemoryAllocError
+global VarError ErrorMessage Fonction Fonction2 ProgressLine OpenDirFile MaskCmd TMPMemoryAllocError
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
 
 set config "true"
@@ -1403,50 +1403,50 @@ if {"$RGBFormat"=="sinclair"} {
         }
     }
 if {"$config"=="true"} {
-    if {$MinMaxAutoRGB == 1} { set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf T4 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 -auto $MinMaxAutoRGB" }
-    if {$MinMaxAutoRGB == 0} { set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf T4 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 -auto $MinMaxAutoRGB -minb $RGBMinBlue -maxb $RGBMaxBlue -minr $RGBMinRed -maxr $RGBMaxRed -ming $RGBMinGreen -maxg $RGBMaxGreen"}
+    if {$MinMaxAutoRGB == 1} { set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf T4 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd  -errf \x22$TMPMemoryAllocError\x22 -auto $MinMaxAutoRGB" }
+    if {$MinMaxAutoRGB == 0} { set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf T4 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd  -errf \x22$TMPMemoryAllocError\x22 -auto $MinMaxAutoRGB -minb $RGBMinBlue -maxb $RGBMaxBlue -minr $RGBMinRed -maxr $RGBMaxRed -ming $RGBMinGreen -maxg $RGBMaxGreen"}
     if {"$RGBCCCE"=="independant"} {
         if {"$RGBFormat"=="pauli"} {
-            TextEditorRunTrace "Process The Function Soft/bmp_process/create_pauli_rgb_file.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_pauli_rgb_file.exe" "k"
             TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-            set f [ open "| Soft/bmp_process/create_pauli_rgb_file.exe $ArgumentRGB" r]
+            set f [ open "| Soft/bin/bmp_process/create_pauli_rgb_file.exe $ArgumentRGB" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
             set BMPDirInput $RGBDirOutput
-            if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+            if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
             }
         if {"$RGBFormat"=="sinclair"} {
-            TextEditorRunTrace "Process The Function Soft/bmp_process/create_sinclair_rgb_file.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_sinclair_rgb_file.exe" "k"
             TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-            set f [ open "| Soft/bmp_process/create_sinclair_rgb_file.exe $ArgumentRGB" r]
+            set f [ open "| Soft/bin/bmp_process/create_sinclair_rgb_file.exe $ArgumentRGB" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
             set BMPDirInput $RGBDirOutput
-            if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+            if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
             }
         }
     if {"$RGBCCCE"=="common"} {
         if {"$RGBFormat"=="pauli"} {
-            TextEditorRunTrace "Process The Function Soft/bmp_process/create_pauli_rgb_cce_file.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_pauli_rgb_cce_file.exe" "k"
             TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-            set f [ open "| Soft/bmp_process/create_pauli_rgb_cce_file.exe $ArgumentRGB" r]
+            set f [ open "| Soft/bin/bmp_process/create_pauli_rgb_cce_file.exe $ArgumentRGB" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
             set BMPDirInput $RGBDirOutput
-            if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+            if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
             }
         if {"$RGBFormat"=="sinclair"} {
-            TextEditorRunTrace "Process The Function Soft/bmp_process/create_sinclair_rgb_cce_file.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_sinclair_rgb_cce_file.exe" "k"
             TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-            set f [ open "| Soft/bmp_process/create_sinclair_rgb_cce_file.exe $ArgumentRGB" r]
+            set f [ open "| Soft/bin/bmp_process/create_sinclair_rgb_cce_file.exe $ArgumentRGB" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
             set BMPDirInput $RGBDirOutput
-            if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+            if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
             }
         }
     }                                        
@@ -1459,7 +1459,7 @@ global TMPFileNull RGBDirInput RGBFunction RGBDirOutput RGBFileOutput RGBFormat 
 global FileInputBlue FileInputGreen FileInputRed RGBCCCE MinMaxAutoRGB TMPMinMaxBmp
 global RGBMinBlue RGBMaxBlue RGBMinRed RGBMaxRed RGBMinGreen RGBMaxGreen
 global OffsetLig OffsetCol FinalNlig FinalNcol
-global VarError ErrorMessage Fonction Fonction2 ProgressLine OpenDirFile MaskCmd PSPMemory TMPMemoryAllocError
+global VarError ErrorMessage Fonction Fonction2 ProgressLine OpenDirFile MaskCmd TMPMemoryAllocError
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
 
 set config "true"
@@ -1502,20 +1502,20 @@ if {"$RGBFormat"=="pauli"} {
         }
     }
 if {"$config"=="true"} {
-    set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$TMPMinMaxBmp\x22 -iodf C3 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22"
+    set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$TMPMinMaxBmp\x22 -iodf C3 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd  -errf \x22$TMPMemoryAllocError\x22"
     if {"$RGBCCCE"=="independant"} {
         if {"$RGBFormat"=="pauli"} {
-            TextEditorRunTrace "Process The Function Soft/bmp_process/minmax_pauli_rgb_file.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/minmax_pauli_rgb_file.exe" "k"
             TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-            set f [ open "| Soft/bmp_process/minmax_pauli_rgb_file.exe $ArgumentRGB" r]
+            set f [ open "| Soft/bin/bmp_process/minmax_pauli_rgb_file.exe $ArgumentRGB" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
             }
         if {"$RGBFormat"=="sinclair"} {
-            TextEditorRunTrace "Process The Function Soft/bmp_process/minmax_sinclair_rgb_file.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/minmax_sinclair_rgb_file.exe" "k"
             TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-            set f [ open "| Soft/bmp_process/minmax_sinclair_rgb_file.exe $ArgumentRGB" r]
+            set f [ open "| Soft/bin/bmp_process/minmax_sinclair_rgb_file.exe $ArgumentRGB" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1523,17 +1523,17 @@ if {"$config"=="true"} {
         }
     if {"$RGBCCCE"=="common"} {
         if {"$RGBFormat"=="pauli"} {
-            TextEditorRunTrace "Process The Function Soft/bmp_process/minmax_pauli_rgb_cce_file.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/minmax_pauli_rgb_cce_file.exe" "k"
             TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-            set f [ open "| Soft/bmp_process/minmax_pauli_rgb_cce_file.exe $ArgumentRGB" r]
+            set f [ open "| Soft/bin/bmp_process/minmax_pauli_rgb_cce_file.exe $ArgumentRGB" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
             }
         if {"$RGBFormat"=="sinclair"} {
-            TextEditorRunTrace "Process The Function Soft/bmp_process/minmax_sinclair_rgb_cce_file.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/minmax_sinclair_rgb_cce_file.exe" "k"
             TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-            set f [ open "| Soft/bmp_process/minmax_sinclair_rgb_cce_file.exe $ArgumentRGB" r]
+            set f [ open "| Soft/bin/bmp_process/minmax_sinclair_rgb_cce_file.exe $ArgumentRGB" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1549,7 +1549,7 @@ global TMPFileNull RGBDirInput RGBFunction RGBDirOutput RGBFileOutput RGBFormat 
 global FileInputBlue FileInputGreen FileInputRed RGBCCCE MinMaxAutoRGB TMPMinMaxBmp
 global RGBMinBlue RGBMaxBlue RGBMinRed RGBMaxRed RGBMinGreen RGBMaxGreen
 global OffsetLig OffsetCol FinalNlig FinalNcol
-global VarError ErrorMessage Fonction Fonction2 ProgressLine OpenDirFile MaskCmd PSPMemory TMPMemoryAllocError
+global VarError ErrorMessage Fonction Fonction2 ProgressLine OpenDirFile MaskCmd TMPMemoryAllocError
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
 
 set config "true"
@@ -1601,20 +1601,20 @@ if {"$RGBFormat"=="pauli"} {
         }
     }
 if {"$config"=="true"} {
-    set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$TMPMinMaxBmp\x22 -iodf C4 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22"
+    set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$TMPMinMaxBmp\x22 -iodf C4 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd  -errf \x22$TMPMemoryAllocError\x22"
     if {"$RGBCCCE"=="independant"} {
         if {"$RGBFormat"=="pauli"} {
-            TextEditorRunTrace "Process The Function Soft/bmp_process/minmax_pauli_rgb_file.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/minmax_pauli_rgb_file.exe" "k"
             TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-            set f [ open "| Soft/bmp_process/minmax_pauli_rgb_file.exe $ArgumentRGB" r]
+            set f [ open "| Soft/bin/bmp_process/minmax_pauli_rgb_file.exe $ArgumentRGB" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
             }
         if {"$RGBFormat"=="sinclair"} {
-            TextEditorRunTrace "Process The Function Soft/bmp_process/minmax_sinclair_rgb_file.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/minmax_sinclair_rgb_file.exe" "k"
             TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-            set f [ open "| Soft/bmp_process/minmax_sinclair_rgb_file.exe $ArgumentRGB" r]
+            set f [ open "| Soft/bin/bmp_process/minmax_sinclair_rgb_file.exe $ArgumentRGB" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1622,17 +1622,17 @@ if {"$config"=="true"} {
         }
     if {"$RGBCCCE"=="common"} {
         if {"$RGBFormat"=="pauli"} {
-            TextEditorRunTrace "Process The Function Soft/bmp_process/minmax_pauli_rgb_cce_file.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/minmax_pauli_rgb_cce_file.exe" "k"
             TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-            set f [ open "| Soft/bmp_process/minmax_pauli_rgb_cce_file.exe $ArgumentRGB" r]
+            set f [ open "| Soft/bin/bmp_process/minmax_pauli_rgb_cce_file.exe $ArgumentRGB" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
             }
         if {"$RGBFormat"=="sinclair"} {
-            TextEditorRunTrace "Process The Function Soft/bmp_process/minmax_sinclair_rgb_cce_file.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/minmax_sinclair_rgb_cce_file.exe" "k"
             TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-            set f [ open "| Soft/bmp_process/minmax_sinclair_rgb_cce_file.exe $ArgumentRGB" r]
+            set f [ open "| Soft/bin/bmp_process/minmax_sinclair_rgb_cce_file.exe $ArgumentRGB" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1648,7 +1648,7 @@ global TMPFileNull RGBDirInput RGBFunction RGBDirOutput RGBFileOutput RGBFormat 
 global FileInputBlue FileInputGreen FileInputRed RGBCCCE MinMaxAutoRGB TMPMinMaxBmp
 global RGBMinBlue RGBMaxBlue RGBMinRed RGBMaxRed RGBMinGreen RGBMaxGreen
 global OffsetLig OffsetCol FinalNlig FinalNcol NcolFullSize
-global VarError ErrorMessage Fonction Fonction2 ProgressLine OpenDirFile MaskCmd PSPMemory TMPMemoryAllocError
+global VarError ErrorMessage Fonction Fonction2 ProgressLine OpenDirFile MaskCmd TMPMemoryAllocError
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
 
 set config "false"
@@ -1656,19 +1656,19 @@ if {"$FileInputBlue"=="$TMPFileNull"} {set config "true"}
 if {"$FileInputRed"=="$TMPFileNull"} {set config "true"}
 if {"$FileInputGreen"=="$TMPFileNull"} {set config "true"}
 if {"$config"=="true"} {
-    TextEditorRunTrace "Process The Function Soft/bmp_process/create_null_file.exe" "k"
+    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_null_file.exe" "k"
     TextEditorRunTrace "Arguments: -of \x22$TMPFileNull\x22 -fnr $FinalNlig -fnc $FinalNcol" "k"
-    set f [ open "| Soft/bmp_process/create_null_file.exe -of \x22$TMPFileNull\x22 -fnr $FinalNlig -fnc $FinalNcol" r]
+    set f [ open "| Soft/bin/bmp_process/create_null_file.exe -of \x22$TMPFileNull\x22 -fnr $FinalNlig -fnc $FinalNcol" r]
     }
 if {"$RGBCCCE"=="independant"} {
-    TextEditorRunTrace "Process The Function Soft/bmp_process/minmax_rgb_file.exe" "k"
-    TextEditorRunTrace "Arguments: -ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$TMPMinMaxBmp\x22 -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22" "k"
-    set f [ open "| Soft/bmp_process/minmax_rgb_file.exe -ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$TMPMinMaxBmp\x22 -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22" r]
+    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/minmax_rgb_file.exe" "k"
+    TextEditorRunTrace "Arguments: -ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$TMPMinMaxBmp\x22 -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd  -errf \x22$TMPMemoryAllocError\x22" "k"
+    set f [ open "| Soft/bin/bmp_process/minmax_rgb_file.exe -ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$TMPMinMaxBmp\x22 -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd  -errf \x22$TMPMemoryAllocError\x22" r]
     }
 if {"$RGBCCCE"=="common"} {
-    TextEditorRunTrace "Process The Function Soft/bmp_process/minmax_rgb_cce_file.exe" "k"
-    TextEditorRunTrace "Arguments: -ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$TMPMinMaxBmp\x22 -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22" "k"
-    set f [ open "| Soft/bmp_process/minmax_rgb_cce_file.exe -ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$TMPMinMaxBmp\x22 -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22" r]
+    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/minmax_rgb_cce_file.exe" "k"
+    TextEditorRunTrace "Arguments: -ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$TMPMinMaxBmp\x22 -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd  -errf \x22$TMPMemoryAllocError\x22" "k"
+    set f [ open "| Soft/bin/bmp_process/minmax_rgb_cce_file.exe -ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$TMPMinMaxBmp\x22 -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd  -errf \x22$TMPMemoryAllocError\x22" r]
     }
 PsPprogressBar $f
 TextEditorRunTrace "Check RunTime Errors" "r"
@@ -1682,7 +1682,7 @@ global TMPFileNull RGBDirInput RGBFunction RGBDirOutput RGBFileOutput RGBFormat 
 global FileInputBlue FileInputGreen FileInputRed RGBCCCE MinMaxAutoRGB TMPMinMaxBmp
 global RGBMinBlue RGBMaxBlue RGBMinRed RGBMaxRed RGBMinGreen RGBMaxGreen
 global OffsetLig OffsetCol FinalNlig FinalNcol
-global VarError ErrorMessage Fonction Fonction2 ProgressLine OpenDirFile MaskCmd PSPMemory TMPMemoryAllocError
+global VarError ErrorMessage Fonction Fonction2 ProgressLine OpenDirFile MaskCmd TMPMemoryAllocError
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
 
 set config "true"
@@ -1723,16 +1723,16 @@ if [file exists $fichier] {
     tkwait variable VarError
     }
 if {"$config"=="true"} {
-    set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$TMPMinMaxBmp\x22 -iodf IPP -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 -rgbf RGB1"
+    set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$TMPMinMaxBmp\x22 -iodf IPP -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd  -errf \x22$TMPMemoryAllocError\x22 -rgbf RGB1"
     if {"$RGBCCCE"=="independant"} {
-        TextEditorRunTrace "Process The Function Soft/bmp_process/minmax_rgb_file_SPPIPPC2.exe" "k"
+        TextEditorRunTrace "Process The Function Soft/bin/bmp_process/minmax_rgb_file_SPPIPPC2.exe" "k"
         TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-        set f [ open "| Soft/bmp_process/minmax_rgb_file_SPPIPPC2 $ArgumentRGB" r]
+        set f [ open "| Soft/bin/bmp_process/minmax_rgb_file_SPPIPPC2 $ArgumentRGB" r]
         }
     if {"$RGBCCCE"=="common"} {
-        TextEditorRunTrace "Process The Function Soft/bmp_process/minmax_rgb_cce_file_SPPIPPC2.exe" "k"
+        TextEditorRunTrace "Process The Function Soft/bin/bmp_process/minmax_rgb_cce_file_SPPIPPC2.exe" "k"
         TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-        set f [ open "| Soft/bmp_process/minmax_rgb_cce_file_SPPIPPC2 $ArgumentRGB" r]
+        set f [ open "| Soft/bin/bmp_process/minmax_rgb_cce_file_SPPIPPC2 $ArgumentRGB" r]
         }
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
@@ -1747,7 +1747,7 @@ global TMPFileNull RGBDirInput RGBFunction RGBDirOutput RGBFileOutput RGBFormat 
 global FileInputBlue FileInputGreen FileInputRed RGBCCCE MinMaxAutoRGB TMPMinMaxBmp
 global RGBMinBlue RGBMaxBlue RGBMinRed RGBMaxRed RGBMinGreen RGBMaxGreen
 global OffsetLig OffsetCol FinalNlig FinalNcol
-global VarError ErrorMessage Fonction Fonction2 ProgressLine OpenDirFile MaskCmd PSPMemory TMPMemoryAllocError
+global VarError ErrorMessage Fonction Fonction2 ProgressLine OpenDirFile MaskCmd TMPMemoryAllocError
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
 
 set config "true"
@@ -1779,16 +1779,16 @@ if [file exists $fichier] {
     tkwait variable VarError
     }
 if {"$config"=="true"} {
-    set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$TMPMinMaxBmp\x22 -iodf IPP -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 -rgbf RGB1"
+    set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$TMPMinMaxBmp\x22 -iodf IPP -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd  -errf \x22$TMPMemoryAllocError\x22 -rgbf RGB1"
     if {"$RGBCCCE"=="independant"} {
-        TextEditorRunTrace "Process The Function Soft/bmp_process/minmax_rgb_file_SPPIPPC2.exe" "k"
+        TextEditorRunTrace "Process The Function Soft/bin/bmp_process/minmax_rgb_file_SPPIPPC2.exe" "k"
         TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-        set f [ open "| Soft/bmp_process/minmax_rgb_file_SPPIPPC2 $ArgumentRGB" r]
+        set f [ open "| Soft/bin/bmp_process/minmax_rgb_file_SPPIPPC2 $ArgumentRGB" r]
         }
     if {"$RGBCCCE"=="common"} {
-        TextEditorRunTrace "Process The Function Soft/bmp_process/minmax_rgb_cce_file_SPPIPPC2.exe" "k"
+        TextEditorRunTrace "Process The Function Soft/bin/bmp_process/minmax_rgb_cce_file_SPPIPPC2.exe" "k"
         TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-        set f [ open "| Soft/bmp_process/minmax_rgb_cce_file_SPPIPPC2 $ArgumentRGB" r]
+        set f [ open "| Soft/bin/bmp_process/minmax_rgb_cce_file_SPPIPPC2 $ArgumentRGB" r]
         }
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
@@ -1803,7 +1803,7 @@ global TMPFileNull RGBDirInput RGBFunction RGBDirOutput RGBFileOutput RGBFormat 
 global FileInputBlue FileInputGreen FileInputRed RGBCCCE MinMaxAutoRGB TMPMinMaxBmp
 global RGBMinBlue RGBMaxBlue RGBMinRed RGBMaxRed RGBMinGreen RGBMaxGreen
 global OffsetLig OffsetCol FinalNlig FinalNcol
-global VarError ErrorMessage Fonction Fonction2 ProgressLine OpenDirFile MaskCmd PSPMemory TMPMemoryAllocError
+global VarError ErrorMessage Fonction Fonction2 ProgressLine OpenDirFile MaskCmd TMPMemoryAllocError
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
 
 set config "true"
@@ -1844,20 +1844,20 @@ if [file exists $fichier] {
     tkwait variable VarError
     }
 if {"$config"=="true"} {
-    set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$TMPMinMaxBmp\x22 -iodf S2 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22"
+    set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$TMPMinMaxBmp\x22 -iodf S2 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd  -errf \x22$TMPMemoryAllocError\x22"
     if {"$RGBCCCE"=="independant"} {
         if {"$RGBFormat"=="pauli"} {
-            TextEditorRunTrace "Process The Function Soft/bmp_process/minmax_pauli_rgb_file.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/minmax_pauli_rgb_file.exe" "k"
             TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-            set f [ open "| Soft/bmp_process/minmax_pauli_rgb_file.exe $ArgumentRGB" r]
+            set f [ open "| Soft/bin/bmp_process/minmax_pauli_rgb_file.exe $ArgumentRGB" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
             }
         if {"$RGBFormat"=="sinclair"} {
-            TextEditorRunTrace "Process The Function Soft/bmp_process/minmax_sinclair_rgb_file.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/minmax_sinclair_rgb_file.exe" "k"
             TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-            set f [ open "| Soft/bmp_process/minmax_sinclair_rgb_file.exe $ArgumentRGB" r]
+            set f [ open "| Soft/bin/bmp_process/minmax_sinclair_rgb_file.exe $ArgumentRGB" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1865,17 +1865,17 @@ if {"$config"=="true"} {
         }
     if {"$RGBCCCE"=="common"} {
         if {"$RGBFormat"=="pauli"} {
-            TextEditorRunTrace "Process The Function Soft/bmp_process/minmax_pauli_rgb_cce_file.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/minmax_pauli_rgb_cce_file.exe" "k"
             TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-            set f [ open "| Soft/bmp_process/minmax_pauli_rgb_cce_file.exe $ArgumentRGB" r]
+            set f [ open "| Soft/bin/bmp_process/minmax_pauli_rgb_cce_file.exe $ArgumentRGB" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
             }
         if {"$RGBFormat"=="sinclair"} {
-            TextEditorRunTrace "Process The Function Soft/bmp_process/minmax_sinclair_rgb_cce_file.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/minmax_sinclair_rgb_cce_file.exe" "k"
             TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-            set f [ open "| Soft/bmp_process/minmax_sinclair_rgb_cce_file.exe $ArgumentRGB" r]
+            set f [ open "| Soft/bin/bmp_process/minmax_sinclair_rgb_cce_file.exe $ArgumentRGB" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1891,7 +1891,7 @@ global TMPFileNull RGBDirInput RGBFunction RGBDirOutput RGBFileOutput RGBFormat 
 global FileInputBlue FileInputGreen FileInputRed RGBCCCE MinMaxAutoRGB TMPMinMaxBmp
 global RGBMinBlue RGBMaxBlue RGBMinRed RGBMaxRed RGBMinGreen RGBMaxGreen
 global OffsetLig OffsetCol FinalNlig FinalNcol
-global VarError ErrorMessage Fonction Fonction2 ProgressLine OpenDirFile MaskCmd PSPMemory TMPMemoryAllocError
+global VarError ErrorMessage Fonction Fonction2 ProgressLine OpenDirFile MaskCmd TMPMemoryAllocError
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
 
 set config "true"
@@ -1934,20 +1934,20 @@ if {"$RGBFormat"=="sinclair"} {
         }
     }
 if {"$config"=="true"} {
-    set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$TMPMinMaxBmp\x22 -iodf T3 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22"
+    set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$TMPMinMaxBmp\x22 -iodf T3 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd  -errf \x22$TMPMemoryAllocError\x22"
     if {"$RGBCCCE"=="independant"} {
         if {"$RGBFormat"=="pauli"} {
-            TextEditorRunTrace "Process The Function Soft/bmp_process/minmax_pauli_rgb_file.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/minmax_pauli_rgb_file.exe" "k"
             TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-            set f [ open "| Soft/bmp_process/minmax_pauli_rgb_file.exe $ArgumentRGB" r]
+            set f [ open "| Soft/bin/bmp_process/minmax_pauli_rgb_file.exe $ArgumentRGB" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
             }
         if {"$RGBFormat"=="sinclair"} {
-            TextEditorRunTrace "Process The Function Soft/bmp_process/minmax_sinclair_rgb_file.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/minmax_sinclair_rgb_file.exe" "k"
             TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-            set f [ open "| Soft/bmp_process/minmax_sinclair_rgb_file.exe $ArgumentRGB" r]
+            set f [ open "| Soft/bin/bmp_process/minmax_sinclair_rgb_file.exe $ArgumentRGB" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1955,17 +1955,17 @@ if {"$config"=="true"} {
         }
     if {"$RGBCCCE"=="common"} {
         if {"$RGBFormat"=="pauli"} {
-            TextEditorRunTrace "Process The Function Soft/bmp_process/minmax_pauli_rgb_cce_file.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/minmax_pauli_rgb_cce_file.exe" "k"
             TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-            set f [ open "| Soft/bmp_process/minmax_pauli_rgb_cce_file.exe $ArgumentRGB" r]
+            set f [ open "| Soft/bin/bmp_process/minmax_pauli_rgb_cce_file.exe $ArgumentRGB" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
             }
         if {"$RGBFormat"=="sinclair"} {
-            TextEditorRunTrace "Process The Function Soft/bmp_process/minmax_sinclair_rgb_cce_file.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/minmax_sinclair_rgb_cce_file.exe" "k"
             TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-            set f [ open "| Soft/bmp_process/minmax_sinclair_rgb_cce_file.exe $ArgumentRGB" r]
+            set f [ open "| Soft/bin/bmp_process/minmax_sinclair_rgb_cce_file.exe $ArgumentRGB" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1981,7 +1981,7 @@ global TMPFileNull RGBDirInput RGBFunction RGBDirOutput RGBFileOutput RGBFormat 
 global FileInputBlue FileInputGreen FileInputRed RGBCCCE MinMaxAutoRGB TMPMinMaxBmp
 global RGBMinBlue RGBMaxBlue RGBMinRed RGBMaxRed RGBMinGreen RGBMaxGreen
 global OffsetLig OffsetCol FinalNlig FinalNcol
-global VarError ErrorMessage Fonction Fonction2 ProgressLine OpenDirFile MaskCmd PSPMemory TMPMemoryAllocError
+global VarError ErrorMessage Fonction Fonction2 ProgressLine OpenDirFile MaskCmd TMPMemoryAllocError
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
 
 set config "true"
@@ -2024,20 +2024,20 @@ if {"$RGBFormat"=="sinclair"} {
         }
     }
 if {"$config"=="true"} {
-    set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$TMPMinMaxBmp\x22 -iodf T4 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22"
+    set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$TMPMinMaxBmp\x22 -iodf T4 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd  -errf \x22$TMPMemoryAllocError\x22"
     if {"$RGBCCCE"=="independant"} {
         if {"$RGBFormat"=="pauli"} {
-            TextEditorRunTrace "Process The Function Soft/bmp_process/minmax_pauli_rgb_file.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/minmax_pauli_rgb_file.exe" "k"
             TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-            set f [ open "| Soft/bmp_process/minmax_pauli_rgb_file.exe $ArgumentRGB" r]
+            set f [ open "| Soft/bin/bmp_process/minmax_pauli_rgb_file.exe $ArgumentRGB" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
             }
         if {"$RGBFormat"=="sinclair"} {
-            TextEditorRunTrace "Process The Function Soft/bmp_process/minmax_sinclair_rgb_file.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/minmax_sinclair_rgb_file.exe" "k"
             TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-            set f [ open "| Soft/bmp_process/minmax_sinclair_rgb_file.exe $ArgumentRGB" r]
+            set f [ open "| Soft/bin/bmp_process/minmax_sinclair_rgb_file.exe $ArgumentRGB" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -2045,17 +2045,17 @@ if {"$config"=="true"} {
         }
     if {"$RGBCCCE"=="common"} {
         if {"$RGBFormat"=="pauli"} {
-            TextEditorRunTrace "Process The Function Soft/bmp_process/minmax_pauli_rgb_cce_file.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/minmax_pauli_rgb_cce_file.exe" "k"
             TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-            set f [ open "| Soft/bmp_process/minmax_pauli_rgb_cce_file.exe $ArgumentRGB" r]
+            set f [ open "| Soft/bin/bmp_process/minmax_pauli_rgb_cce_file.exe $ArgumentRGB" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
             }
         if {"$RGBFormat"=="sinclair"} {
-            TextEditorRunTrace "Process The Function Soft/bmp_process/minmax_sinclair_rgb_cce_file.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/minmax_sinclair_rgb_cce_file.exe" "k"
             TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-            set f [ open "| Soft/bmp_process/minmax_sinclair_rgb_cce_file.exe $ArgumentRGB" r]
+            set f [ open "| Soft/bin/bmp_process/minmax_sinclair_rgb_cce_file.exe $ArgumentRGB" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -2799,7 +2799,7 @@ if {"$MinMaxAutoRGB"=="1"} {
 global FileInputBlue FileInputGreen FileInputRed RGBCCCE MinMaxAutoRGB TMPMinMaxBmp
 global RGBMinBlue RGBMaxBlue RGBMinRed RGBMaxRed RGBMinGreen RGBMaxGreen
 global OffsetLig OffsetCol FinalNlig FinalNcol NligFullSize NcolFullSize
-global VarError ErrorMessage Fonction Fonction2 ProgressLine OpenDirFile MaskCmd PSPMemory TMPMemoryAllocError
+global VarError ErrorMessage Fonction Fonction2 ProgressLine OpenDirFile MaskCmd TMPMemoryAllocError
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
 
 $widget(Button39_2) configure -state disable
@@ -2895,7 +2895,7 @@ if {$OpenDirFile == 0} {
                 }
             }
         } else {
-        set RGBFormat ""
+        set RGBFormat " "
         set VarError ""
         set ErrorMessage "ENTER A VALID DIRECTORY"
         Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
@@ -3086,7 +3086,7 @@ if {$OpenDirFile == 0} {
 global FileInputBlue FileInputGreen FileInputRed RGBCCCE MinMaxAutoRGB
 global RGBMinBlue RGBMaxBlue RGBMinRed RGBMaxRed RGBMinGreen RGBMaxGreen
 global OffsetLig OffsetCol FinalNlig FinalNcol NligFullSize NcolFullSize
-global VarError ErrorMessage Fonction Fonction2 ProgressLine OpenDirFile MaskCmd PSPMemory TMPMemoryAllocError
+global VarError ErrorMessage Fonction Fonction2 ProgressLine OpenDirFile MaskCmd TMPMemoryAllocError
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
 
 if {$OpenDirFile == 0} {
@@ -3154,7 +3154,7 @@ if {"$RGBDirInput"!=""} {
                     if {"$RGBFunction"=="C3"} { CreateRGBC3 }    
                     if {"$RGBFunction"=="C4"} { CreateRGBC4 }                 
                     }
-                set RGBFormat ""
+                set RGBFormat " "
                 WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
                 Window hide $widget(Toplevel39); TextEditorRunTrace "Close Window Create RGB File" "b"                }
             }
@@ -3162,7 +3162,7 @@ if {"$RGBDirInput"!=""} {
         if {"$VarWarning"=="no"} {Window hide $widget(Toplevel39); TextEditorRunTrace "Close Window Create RGB File" "b"}
         }
     } else {
-    set RGBFormat ""
+    set RGBFormat " "
     set VarError ""
     set ErrorMessage "ENTER A VALID DIRECTORY"
     Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"

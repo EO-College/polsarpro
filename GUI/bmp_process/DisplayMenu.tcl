@@ -389,14 +389,11 @@ proc vTcl:project:info {} {
     namespace eval ::widgets::$base.cpd68 {
         array set save {-command 1 -pady 1 -text 1}
     }
-    namespace eval ::widgets::$base.men73 {
-        array set save {-menu 1 -padx 1 -pady 1 -relief 1 -text 1}
+    namespace eval ::widgets::$base.cpd44 {
+        array set save {-command 1 -pady 1 -text 1}
     }
-    namespace eval ::widgets::$base.men73.m {
-        array set save {-activeborderwidth 1 -borderwidth 1 -tearoff 1}
-        namespace eval subOptions {
-            array set save {-command 1 -label 1}
-        }
+    namespace eval ::widgets::$base.cpd73 {
+        array set save {-command 1 -pady 1 -text 1}
     }
     namespace eval ::widgets::$base.cpd66 {
         array set save {-command 1 -pady 1 -text 1}
@@ -424,11 +421,31 @@ proc vTcl:project:info {} {
         array set save {-borderwidth 1 -height 1 -padx 1 -relief 1 -width 1}
     }
     set site_3_0 $base.fra71
-    namespace eval ::widgets::$site_3_0.but72 {
-        array set save {-_tooltip 1 -command 1 -image 1 -pady 1 -relief 1 -text 1}
-    }
     namespace eval ::widgets::$site_3_0.but73 {
         array set save {-_tooltip 1 -command 1 -pady 1 -relief 1 -text 1}
+    }
+    namespace eval ::widgets::$site_3_0.lab66 {
+        array set save {-borderwidth 1 -image 1 -text 1}
+    }
+    namespace eval ::widgets::$base.cpd74 {
+        array set save {-borderwidth 1 -height 1 -padx 1 -relief 1 -width 1}
+    }
+    set site_3_0 $base.cpd74
+    namespace eval ::widgets::$site_3_0.but73 {
+        array set save {-_tooltip 1 -command 1 -pady 1 -relief 1 -text 1}
+    }
+    namespace eval ::widgets::$site_3_0.lab66 {
+        array set save {-borderwidth 1 -image 1 -text 1}
+    }
+    namespace eval ::widgets::$base.cpd75 {
+        array set save {-borderwidth 1 -height 1 -padx 1 -relief 1 -width 1}
+    }
+    set site_3_0 $base.cpd75
+    namespace eval ::widgets::$site_3_0.but73 {
+        array set save {-_tooltip 1 -command 1 -pady 1 -relief 1 -text 1}
+    }
+    namespace eval ::widgets::$site_3_0.lab66 {
+        array set save {-borderwidth 1 -image 1 -text 1}
     }
     namespace eval ::widgets::$base.fra26 {
         array set save {-borderwidth 1 -height 1 -width 1}
@@ -490,9 +507,9 @@ proc vTclWindow. {base} {
     # CREATING WIDGETS
     ###################
     wm focusmodel $top passive
-    wm geometry $top 200x200+50+50; update
-    wm maxsize $top 3360 1028
-    wm minsize $top 116 1
+    wm geometry $top 200x200+44+44; update
+    wm maxsize $top 3844 1065
+    wm minsize $top 104 1
     wm overrideredirect $top 0
     wm resizable $top 1 1
     wm withdraw $top
@@ -522,7 +539,7 @@ proc vTclWindow.top214 {base} {
     vTcl:toplevel $top -class Toplevel
     wm withdraw $top
     wm focusmodel $top passive
-    wm geometry $top 140x375+10+110; update
+    wm geometry $top 150x460+10+110; update
     wm maxsize $top 1604 1184
     wm minsize $top 116 1
     wm overrideredirect $top 0
@@ -575,9 +592,9 @@ if {$configformat == "true"} {
     set InputFormat "float"
     set OutputFormat "real"
     set BMPOutputFormat "bmp8"
-    set BMPFileInput ""
-    set BMPFileOutput ""
-    set BMPFileOutputTmp ""
+    set BMPFileInput " "
+    set BMPFileOutput " "
+    set BMPFileOutputTmp " "
     set ValidMaskFile ""; set ValidMaskColor "black"
     $widget(Entry43_5) configure -state disable
     $widget(Entry43_5) configure -disabledbackground #FFFFFF
@@ -598,7 +615,7 @@ if {$configformat == "true"} {
     $widget(Entry43_4) configure -disabledbackground $PSPBackgroundColor
     $widget(Button43_1) configure -state disable
     set MinBMP "Auto"; set MaxBMP "Auto"
-    set MinCBMP ""; set MaxCBMP ""
+    set MinCBMP " "; set MaxCBMP " "
     $widget(Checkbutton43_1) configure -state normal
     $widget(Checkbutton43_2) configure -state normal
     set ConfigFile ""
@@ -679,13 +696,13 @@ if {$DataFormatActive == "S2" || $DataFormatActive == "C3" || $DataFormatActive 
         WmTransient $widget(Toplevel39) $PSPTopLevel
         }
 
-    set RGBFileInput ""
-    set RGBFileOutput ""
-    set FileInputBlue ""
-    set FileInputGreen ""
-    set FileInputRed ""
-    set FileOutput ""
-    set RGBFormat ""
+    set RGBFileInput " "
+    set RGBFileOutput " "
+    set FileInputBlue " "
+    set FileInputGreen " "
+    set FileInputRed " "
+    set FileOutput " "
+    set RGBFormat " "
     set RGBCCCE "independant"
     set ConfigFile ""
 
@@ -755,13 +772,13 @@ if {$DataFormatActive == "C2" || $DataFormatActive == "SPP"} {
         WmTransient $widget(Toplevel201) $PSPTopLevel
         }
 
-    set RGBFileInput ""
-    set RGBFileOutput ""
-    set FileInputBlue ""
-    set FileInputGreen ""
-    set FileInputRed ""
-    set FileOutput ""
-    set RGBFormat ""
+    set RGBFileInput " "
+    set RGBFileOutput " "
+    set FileInputBlue " "
+    set FileInputGreen " "
+    set FileInputRed " "
+    set FileOutput " "
+    set RGBFormat " "
     set RGBCCCE "independant"
     $widget(Radiobutton201_1) configure -state normal
     $widget(Radiobutton201_2) configure -state normal
@@ -876,13 +893,13 @@ if {$DataFormatActive == "IPP"} {
                 set Channel1 "I11"
                 set Channel2 "I22"
                 }
-            set RGBFileInput ""
-            set RGBFileOutput ""
-            set FileInputBlue ""
-            set FileInputGreen ""
-            set FileInputRed ""
-            set FileOutput ""
-            set RGBFormat ""
+            set RGBFileInput " "
+            set RGBFileOutput " "
+            set FileInputBlue " "
+            set FileInputGreen " "
+            set FileInputRed " "
+            set FileOutput " "
+            set RGBFormat " "
             set RGBCCCE "independant"
             $widget(Radiobutton201_1) configure -state disable
             $widget(Radiobutton201_2) configure -state disable
@@ -994,13 +1011,13 @@ if {$configformat == "true"} {
         WmTransient $widget(Toplevel69) $PSPTopLevel
         }
 
-    set HSVFileInput ""
-    set HSVFileOutput ""
-    set FileInputHue ""
-    set FileInputSat ""
-    set FileInputVal ""
-    set FileOutput ""
-    set HSVFormat ""
+    set HSVFileInput " "
+    set HSVFileOutput " "
+    set FileInputHue " "
+    set FileInputSat " "
+    set FileInputVal " "
+    set FileOutput " "
+    set HSVFormat " "
     set HSVCCCE "independant"
     set ConfigFile ""
 
@@ -1062,22 +1079,122 @@ if {$configformat == "true"} {
 }} \
         -pady 0 -text {Create HSL File} 
     vTcl:DefineAlias "$top.cpd68" "Button6" vTcl:WidgetProc "Toplevel214" 1
-    menubutton $top.men73 \
-        -menu "$top.men73.m" -padx 1 -pady 2 -relief raised \
-        -text {Create KML File} 
-    vTcl:DefineAlias "$top.men73" "Menubutton1" vTcl:WidgetProc "Toplevel214" 1
-    menu $top.men73.m \
-        -activeborderwidth 1 -borderwidth 1 -tearoff 0 
-    $top.men73.m add command \
+    button $top.cpd44 \
+        \
+        -command {global DataDir DataDirMult FileName DataFormatActive
+global VarError ErrorMessage VarWarning WarningMessage WarningMessage2
+global ConfigFile Fonction Fonction2
+global ActiveProgram DataDir DataDirMult 
+global RGBFileInput RGBFileOutput FileInputOdd FileInputDbl FileInputVol FileInputHlx
+global FileOutput RGBFormat RGBDirOutput RGBDirInput
+global RGBvl RGBlv RGBlab RGBbin
+
+#BMP PROCESS
+global Load_CreateCIEFile PSPTopLevel
+
+set configformat "true"
+
+if {$DataFormatActive == "---"} {
+    set ErrorMessage "INPUT POLARIMETRIC DATA FORMAT NOT DEFINED"
+    Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
+    tkwait variable VarError
+    set ErrorMessage ""
+    set configformat "false"
+    } else {
+
+    if {$Load_CreateCIEFile == 0} {
+        source "GUI/bmp_process/CreateCIEFile.tcl"
+        set Load_CreateCIEFile 1
+        WmTransient $widget(Toplevel30) $PSPTopLevel
+        }
+
+    set RGBFileOutput " "
+    set FileInputOdd " "
+    set FileInputDbl " "
+    set FileInputVol " "
+    set FileInputHlx " "
+    set RGBFormat " "
+    set ConfigFile ""
+    set RGBvl " "; set RGBlv " "
+    set RGBlab " "; set RGBbin " "
+
+    $widget(Button30_0) configure -state disable
+    $widget(TitleFrame30_1) configure -state disable
+    $widget(Entry30_1) configure -state disable
+    $widget(Button30_1) configure -state disable
+    $widget(TitleFrame30_2) configure -state disable
+    $widget(Entry30_2) configure -state disable
+    $widget(Button30_2) configure -state disable
+    $widget(TitleFrame30_3) configure -state disable
+    $widget(Entry30_3) configure -state disable
+    $widget(Button30_3) configure -state disable
+    $widget(TitleFrame30_4) configure -state disable
+    $widget(Entry30_4) configure -state disable
+    $widget(Button30_4) configure -state disable
+    $widget(TitleFrame30_5) configure -state disable
+    $widget(Entry30_5) configure -state disable
+    $widget(Button30_5) configure -state disable
+    $widget(Button30_6) configure -state disable
+    $widget(Label30_6) configure -state disable
+    $widget(Entry30_6) configure -state disable
+    $widget(Label30_7) configure -state disable
+    $widget(Entry30_7) configure -state disable
+    $widget(Label30_8) configure -state disable
+    $widget(Entry30_8) configure -state disable
+
+    set RGBDirInput $DataDir
+    if {$DataFormatActive == "S2"} {
+        set RGBDirInput $DataDir
+        if {$ActiveProgram == "POLMULT"} { set RGBDirInput "$DataDirMult(1)" }
+        }
+    if {$DataFormatActive == "C3"} {
+        set RGBDirInput "$DataDir/C3"
+        }
+    if {$DataFormatActive == "T3"} {
+        set RGBDirInput "$DataDir/T3"
+        if {$ActiveProgram == "POLMULT"} { set RGBDirInput "$DataDirMult(1)/T3" }
+        }
+    if {$DataFormatActive == "C4"} {
+        set RGBDirInput "$DataDir/C4"
+        }
+    if {$DataFormatActive == "T4"} {
+        set RGBDirInput "$DataDir/T4"
+        }
+    if {$DataFormatActive == "C2"} {
+        set RGBDirInput "$DataDir/C2"
+        if {$ActiveProgram == "POLMULT"} { set RGBDirInput "$DataDirMult(1)/C2" }
+        }
+    if {$DataFormatActive == "SPP"} {
+        set RGBDirInput "$DataDir"
+        if {$ActiveProgram == "POLMULT"} { set RGBDirInput "$DataDirMult(1)" }
+        }
+    set RGBDirOutput $RGBDirInput
+
+    set ConfigFile "$RGBDirInput/config.txt"
+    set ErrorMessage ""
+    LoadConfig
+    if {"$ErrorMessage" == ""} {   
+        WidgetShowFromMenuFix $widget(Toplevel214) $widget(Toplevel30); TextEditorRunTrace "Open Window Create CIE-Lab RGB File" "b"
+        } else {
+        Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
+        tkwait variable VarError
+        }
+
+    # Config Format
+    }} \
+        -pady 0 -text {Create CIE-Lab RGB File} 
+    vTcl:DefineAlias "$top.cpd44" "Button15" vTcl:WidgetProc "Toplevel214" 1
+    button $top.cpd73 \
         \
         -command {global DataDir DataDirMult FileName DataFormatActive
 global VarError ErrorMessage VarWarning WarningMessage WarningMessage2
 global ConfigFile Fonction Fonction2
 global ActiveProgram DataDir DataDirMult ColorMap ColorMapFile CONFIGDir
-global ReducFactor Transparency
-global InputFormat OutputFormat BMPOutputFormat BMPFileInput BMPFileOutput BMPFileOutputTmp
-global MinMaxAutoBMP MinMaxContrastBMP MinBMP MaxBMP MinCBMP MaxCBMP
+global ReducFactor TranspColor DisplayGoogleEarth
+global BMPFileInput BMPFileOutput BMPFileOutputTmp
 global BMPDirInput BMPDirOutput MapInfoGeocoding BMPGearthPolyFile
+global NLigBMPColor NColBMPColor NColorBMPColor
+
 #BMP PROCESS
 global Load_CreateBMPKMLFile PSPTopLevel
 
@@ -1099,47 +1216,19 @@ if {$configformat == "true"} {
         WmTransient $widget(Toplevel397) $PSPTopLevel
         }
 
-    set BMPDirInput ""
-    set BMPDirOutput ""
-    set InputFormat "float"
-    set OutputFormat "real"
-    set BMPOutputFormat "bmp8"
-    set BMPFileInput ""
-    set BMPFileOutput ""
-    set BMPFileOutputTmp ""
-    set ColorMapFile "$CONFIGDir/ColorMapJET.pal"
-    set ColorMap "jet"
-    set MinMaxAutoBMP 1
-    set MinMaxContrastBMP 0
-    set ReducFactor 2
-    set Transparency 0
-    $widget(Label397_1) configure -state disable
-    $widget(Entry397_1) configure -state disable
-    $widget(Label397_2) configure -state disable
-    $widget(Entry397_2) configure -state disable
-    $widget(Label397_3) configure -state disable
-    $widget(Entry397_3) configure -state disable
-    $widget(Entry397_3) configure -disabledbackground $PSPBackgroundColor
-    $widget(Label397_4) configure -state disable
-    $widget(Entry397_4) configure -state disable
-    $widget(Entry397_4) configure -disabledbackground $PSPBackgroundColor
-    $widget(Button397_1) configure -state disable
-    set MinBMP "Auto"; set MaxBMP "Auto"
-    set MinCBMP ""; set MaxCBMP ""
-    $widget(Checkbutton397_1) configure -state normal
-    $widget(Checkbutton397_2) configure -state normal
-    $widget(TitleFrame397_5) configure -state disable
-    $widget(Entry397_5) configure -state disable
-    $widget(Entry397_5) configure -disabledbackground $PSPBackgroundColor
-    $widget(Button397_5) configure -state disable
-    set BMPGearthPolyFile ""
+    set BMPDirInput " "
+    set BMPDirOutput " "
+    set BMPFileInput " "
+    set BMPFileOutput " "
+    set BMPFileOutputTmp " "
+    set ReducFactor 2; set TranspColor 2; set DisplayGoogleEarth 0
+    set BMPGearthPolyFile " "
+    set NLigBMPColor " "; set NColBMPColor " "; set NColorBMPColor " "
     set ConfigFile ""
 
     if {$DataFormatActive == "S2" || $DataFormatActive == "SPP"} {
         set BMPDirInput $DataDir
         if {$ActiveProgram == "POLMULT"} { set BMPDirInput "$DataDirMult(1)" }
-        set InputFormat "cmplx"
-        set OutputFormat "mod"
         }
     if {$DataFormatActive == "C2"} {
         set BMPDirInput "$DataDir/C2"
@@ -1165,13 +1254,7 @@ if {$configformat == "true"} {
     set BMPDirOutput $BMPDirInput
 
     if [file exists "$BMPDirInput/config_mapinfo.txt"] {
-        if {$MapInfoGeocoding != "UTM"} {
-            $widget(TitleFrame397_5) configure -state normal
-            $widget(Entry397_5) configure -state disable
-            $widget(Entry397_5) configure -disabledbackground #FFFFFF
-            $widget(Button397_5) configure -state normal
-            set BMPGearthPolyFile "ENTER THE GEARTH_POLY.kml FILE"
-            }
+        set BMPGearthPolyFile "ENTER THE GEARTH_POLY.kml FILE"
         set ConfigFile "$BMPDirInput/config.txt"
         set ErrorMessage ""
         LoadConfig
@@ -1186,165 +1269,15 @@ if {$configformat == "true"} {
         Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
         tkwait variable VarError
         set ErrorMessage ""
-        set BMPDirInput ""
-        set BMPDirOutput ""
+        set BMPDirInput " "
+        set BMPDirOutput " "
         }
 
 # Config Format
 }
 }} \
-        -label {BMP to KML} 
-    $top.men73.m add separator \
-        
-    $top.men73.m add command \
-        \
-        -command {global DataDir DataDirMult FileName DataFormatActive
-global VarError ErrorMessage VarWarning WarningMessage WarningMessage2
-global ConfigFile Fonction Fonction2
-global ActiveProgram DataDir DataDirMult ColorMap ColorMapFile CONFIGDir
-global ReducFactor Transparency
-global RGBFileInput RGBFileOutput FileInputBlue FileInputGreen FileInputRed FileOutput
-global RGBFormat RGBDirInput RGBDirOutput RGBFunction MapInfoGeocoding RGBGearthPolyFile
-#RGB PROCESS
-global Load_CreateRGBKMLFile PSPTopLevel
-
-set configformat "true"
-
-if {$DataFormatActive == "---"} {
-    set ErrorMessage "INPUT POLARIMETRIC DATA FORMAT NOT DEFINED"
-    Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
-    tkwait variable VarError
-    set ErrorMessage ""
-    set configformat "false"
-    } else {
-
-if {$configformat == "true"} {
-
-    if {$Load_CreateRGBKMLFile == 0} {
-        source "GUI/bmp_process/CreateRGBKMLFile.tcl"
-        set Load_CreateRGBKMLFile 1
-        WmTransient $widget(Toplevel398) $PSPTopLevel
-        }
-
-    set RGBDirInput ""
-    set RGBDirOutput ""
-    set RGBFileInput ""
-    set RGBFileOutput ""
-    set FileInputBlue ""
-    set FileInputGreen ""
-    set FileInputRed ""
-    set FileOutput ""
-    set RGBFormat ""
-    set ReducFactor 2
-    set Transparency 0
-    $widget(Radiobutton398_1) configure -state normal
-    $widget(Radiobutton398_2) configure -state normal
-    $widget(Label398_1) configure -state normal
-    $widget(Label398_2) configure -state normal
-    $widget(Label398_3) configure -state normal
-    $widget(Label398_4) configure -state normal
-    $widget(Label398_5) configure -state normal
-    $widget(Label398_6) configure -state normal
-    $widget(TitleFrame398_1) configure -state disable
-    $widget(Entry398_1) configure -state disable
-    $widget(Entry398_1) configure -disabledbackground $PSPBackgroundColor
-    $widget(Button398_1) configure -state disable
-    set RGBGearthPolyFile ""
-    set ConfigFile ""
-
-    if {$DataFormatActive == "S2"} {
-        set RGBFunction "S2"
-        set RGBDirInput $DataDir
-        if {$ActiveProgram == "POLMULT"} { set RGBDirInput "$DataDirMult(1)" }
-        }
-    if {$DataFormatActive == "SPP"} {
-        set RGBFunction "SPP"
-        set RGBDirInput $DataDir
-        if {$ActiveProgram == "POLMULT"} { set RGBDirInput "$DataDirMult(1)" }
-        $widget(Radiobutton398_1) configure -state disable
-        $widget(Radiobutton398_2) configure -state disable
-        $widget(Label398_1) configure -state disable
-        $widget(Label398_2) configure -state disable
-        $widget(Label398_3) configure -state disable
-        $widget(Label398_4) configure -state disable
-        $widget(Label398_5) configure -state disable
-        $widget(Label398_6) configure -state disable
-        }
-    if {$DataFormatActive == "C2"} {
-        set RGBFunction "C2"
-        set RGBDirInput "$DataDir/C2"
-        if {$ActiveProgram == "POLMULT"} { set RGBDirInput "$DataDirMult(1)/C2" }
-        $widget(Radiobutton398_1) configure -state disable
-        $widget(Radiobutton398_2) configure -state disable
-        $widget(Label398_1) configure -state disable
-        $widget(Label398_2) configure -state disable
-        $widget(Label398_3) configure -state disable
-        $widget(Label398_4) configure -state disable
-        $widget(Label398_5) configure -state disable
-        $widget(Label398_6) configure -state disable
-        }
-    if {$DataFormatActive == "C3"} {
-        set RGBFunction "C3"
-        set RGBDirInput "$DataDir/C3"
-        }
-    if {$DataFormatActive == "T3"} {
-        set RGBFunction "T3"
-        set RGBDirInput "$DataDir/T3"
-        if {$ActiveProgram == "POLMULT"} { set RGBDirInput "$DataDirMult(1)/T3" }
-        }
-    if {$DataFormatActive == "C4"} {
-        set RGBFunction "C4"
-        set RGBDirInput "$DataDir/C4"
-        }
-    if {$DataFormatActive == "T4"} {
-        set RGBFunction "T4"
-        set RGBDirInput "$DataDir/T4"
-        }
-    if {$DataFormatActive == "IPP"} {
-        set RGBFunction "IPP"
-        set RGBDirInput $DataDir
-        $widget(Radiobutton398_1) configure -state disable
-        $widget(Radiobutton398_2) configure -state disable
-        $widget(Label398_1) configure -state disable
-        $widget(Label398_2) configure -state disable
-        $widget(Label398_3) configure -state disable
-        $widget(Label398_4) configure -state disable
-        $widget(Label398_5) configure -state disable
-        $widget(Label398_6) configure -state disable
-        }
-
-    set RGBDirOutput $RGBDirInput
-
-    if [file exists "$RGBDirInput/config_mapinfo.txt"] {
-        if {$MapInfoGeocoding != "UTM"} {
-            $widget(TitleFrame398_1) configure -state normal
-            $widget(Entry398_1) configure -state disable
-            $widget(Entry398_1) configure -disabledbackground #FFFFFF
-            $widget(Button398_1) configure -state normal
-            set RGBGearthPolyFile "ENTER THE GEARTH_POLY.kml FILE"
-            }
-        set ConfigFile "$RGBDirInput/config.txt"
-        set ErrorMessage ""
-        LoadConfig
-        if {"$ErrorMessage" == ""} {   
-            WidgetShowFromMenuFix $widget(Toplevel214) $widget(Toplevel398); TextEditorRunTrace "Open Window Create RGB - KML File" "b"
-            } else {
-            Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
-            tkwait variable VarError
-            }
-        } else {
-        set ErrorMessage "DATA MUST BE GEOCODED FIRST"
-        Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
-        tkwait variable VarError
-        set ErrorMessage ""
-        set RGBDirInput ""
-        set RGBDirOutput ""
-        }
-
-# Config Format
-}
-}} \
-        -label {RGB to KML} 
+        -pady 0 -text {Create KML File} 
+    vTcl:DefineAlias "$top.cpd73" "Button13" vTcl:WidgetProc "Toplevel214" 1
     button $top.cpd66 \
         \
         -command {global DataDir DataDirMult FileName DataFormatActive
@@ -1375,8 +1308,8 @@ if {$configformat == "true"} {
         WmTransient $widget(Toplevel405) $PSPTopLevel
         }
 
-    set GIFAnimBMPFile ""
-    set GIFAnimGIFFile ""
+    set GIFAnimBMPFile " "
+    set GIFAnimGIFFile " "
 
     set ConfigFile ""
     if {$DataFormatActive == "S2" || $DataFormatActive == "SPP"} {
@@ -1463,9 +1396,9 @@ if {$configformat == "true"} {
         WmTransient $widget(Toplevel384) $PSPTopLevel
         }
 
-    set NColorBMPGray ""; set NColorBMPColor ""; set BMPOutputFile ""
-    set NLigBMPGray ""; set NLigBMPColor ""; set NLigBMPMask ""; set NColBMPGray ""; set NColBMPColor ""; set NColBMPMask ""
-    set BMPFileInputGray ""; set BMPFileInputColor ""; set BMPFileInputMask ""; set BMPInvertMask 0
+    set NColorBMPGray " "; set NColorBMPColor " "; set BMPOutputFile " "
+    set NLigBMPGray " "; set NLigBMPColor " "; set NLigBMPMask " "; set NColBMPGray " "; set NColBMPColor " "; set NColBMPMask " "
+    set BMPFileInputGray " "; set BMPFileInputColor " "; set BMPFileInputMask " "; set BMPInvertMask 0
     $widget(Button384_1) configure -state disable
     set ConfigFile ""
 
@@ -1543,9 +1476,9 @@ if {$configformat == "true"} {
         WmTransient $widget(Toplevel384) $PSPTopLevel
         }
 
-    set NColorBMPGray ""; set NColorBMPColor ""; set BMPOutputFile ""
-    set NLigBMPGray ""; set NLigBMPColor ""; set NLigBMPMask ""; set NColBMPGray ""; set NColBMPColor ""; set NColBMPMask ""
-    set BMPFileInputGray ""; set BMPFileInputColor ""; set BMPFileInputMask ""; set BMPInvertMask 0
+    set NColorBMPGray " "; set NColorBMPColor " "; set BMPOutputFile " "
+    set NLigBMPGray " "; set NLigBMPColor " "; set NLigBMPMask " "; set NColBMPGray " "; set NColBMPColor " "; set NColBMPMask " "
+    set BMPFileInputGray " "; set BMPFileInputColor " "; set BMPFileInputMask " "; set BMPInvertMask 0
     $widget(Button384_1) configure -state disable
     set ConfigFile ""
 
@@ -1636,12 +1569,12 @@ if {$configformat == "true"} {
     set MinMaxAutoScatterPlotX 1; set MinMaxContrastScatterPlotX 0
     set MinMaxAutoScatterPlotY 1; set MinMaxContrastScatterPlotY 0
     set MinScatterPlotX "Auto"; set MaxScatterPlotX "Auto"
-    set MinCScatterPlotX ""; set MaxCScatterPlotX ""
+    set MinCScatterPlotX " "; set MaxCScatterPlotX " "
     set MinScatterPlotY "Auto"; set MaxScatterPlotY "Auto"
-    set MinCScatterPlotY ""; set MaxCScatterPlotY ""
+    set MinCScatterPlotY " "; set MaxCScatterPlotY " "
 
-    set ScatterPlotFileInputX ""; set ScatterPlotFileInputY ""
-    set ScatterPlotFileOutput ""
+    set ScatterPlotFileInputX " "; set ScatterPlotFileInputY " "
+    set ScatterPlotFileOutput " "
 
     set ScatterPlotLabelX "Label X"
     set ScatterPlotLabelY "Label Y"
@@ -1701,7 +1634,7 @@ if {$configformat == "true"} {
         }
 
     set ScatterPlotDirOutput $ScatterPlotDirInput
-    set ScatterPlotFileOutput ""
+    set ScatterPlotFileOutput " "
 
     set ConfigFile "$ScatterPlotDirInput/config.txt"
     set ErrorMessage ""
@@ -1732,6 +1665,7 @@ global PTOMNligInit PTOMNligEnd PTOMNcolInit PTOMNcolEnd PTOMNcolFullSize PTOMNl
 global PTOMzdim PTOMxdim PTOMzmin PTOMzmax PTOMxmin PTOMxmax 
 global PTOMDisplayDirOutput PTOMDisplayDirInput PTOMDisplayZGroundFile PTOMDisplayZTopFile
 global PTOMDisplayLabelX PTOMDisplayLabelY PTOMDisplayTitle
+global PTOMProcessDirInput PTOMProcessDirOutput
 global PTOMGifCol PTOMGifLig
 
 #PTOMDisplay PROCESS
@@ -1752,49 +1686,48 @@ if {$configformat == "true"} {
     if {$Load_CreatePolTomoDisplay == 0} {
         source "GUI/bmp_process/CreatePolTomoDisplay.tcl"
         set Load_CreatePolTomoDisplay 1
-        WmTransient $widget(Toplevel524) $PSPTopLevel
+        WmTransient $widget(Toplevel528) $PSPTopLevel
         }
 
-    set InputFormat ""; set OutputFormat ""
+    set InputFormat "float"; set OutputFormat "real"
     set MinMaxAutoPTOMDisplay 1; set MinMaxContrastPTOMDisplay 0
     set MinMaxNormalisationPTOMDisplay 0
     set MinPTOMDisplay "Auto"; set MaxPTOMDisplay "Auto"
-    set MinCPTOMDisplay ""; set MaxCPTOMDisplay ""
+    set MinCPTOMDisplay " "; set MaxCPTOMDisplay " "
 
-    set PTOMNligInit ""; set PTOMNligEnd ""
-    set PTOMNcolInit ""; set PTOMNcolEnd ""
-    set PTOMNcolFullSize ""; set PTOMNligFullSize ""
-    set PTOMzdim ""; set PTOMxdim ""
-    set PTOMzmin ""; set PTOMzmax ""
-    set PTOMxmin ""; set PTOMxmax ""
+    set PTOMNligInit " "; set PTOMNligEnd " "
+    set PTOMNcolInit " "; set PTOMNcolEnd " "
+    set PTOMNcolFullSize " "; set PTOMNligFullSize " "
+    set PTOMzdim " "; set PTOMxdim " "
+    set PTOMzmin "?"; set PTOMzmax "?"
+    set PTOMxmin "?"; set PTOMxmax "?"
 
-    set PTOMDisplayFileInput ""; set PTOMDisplayFileOutput ""
-    set PTOMDisplayZGroundFile ""; set PTOMDisplayZTopFile ""
+    set PTOMDisplayFileInput " "; set PTOMDisplayFileOutput " "
+    set PTOMDisplayZGroundFile " "; set PTOMDisplayZTopFile " "
 
     set PTOMDisplayLabelX "X axis label"
     set PTOMDisplayLabelY "Y axis label"
     set PTOMDisplayTitle "Title of the Tomogram"
 
-    set PTOMGifCol 1280
-    set PTOMGifLig 480
+    set PTOMGifCol 1280; set PTOMGifLig 480
     
-    $widget(Label524_1) configure -state disable
-    $widget(Entry524_1) configure -state disable
-    $widget(Label524_2) configure -state disable
-    $widget(Entry524_2) configure -state disable
-    $widget(Label524_3) configure -state disable
-    $widget(Entry524_3) configure -state disable
-    $widget(Entry524_3) configure -disabledbackground $PSPBackgroundColor
-    $widget(Label524_4) configure -state disable
-    $widget(Entry524_4) configure -state disable
-    $widget(Entry524_4) configure -disabledbackground $PSPBackgroundColor
-    $widget(Button524_1) configure -state disable
-    $widget(Button524_3) configure -state disable
-    $widget(Button524_4) configure -state disable
-    $widget(Checkbutton524_1) configure -state normal
-    $widget(Checkbutton524_2) configure -state normal
+    $widget(Label528_1) configure -state disable
+    $widget(Entry528_1) configure -state disable
+    $widget(Label528_2) configure -state disable
+    $widget(Entry528_2) configure -state disable
+    $widget(Label528_3) configure -state disable
+    $widget(Entry528_3) configure -state disable
+    $widget(Entry528_3) configure -disabledbackground $PSPBackgroundColor
+    $widget(Label528_4) configure -state disable
+    $widget(Entry528_4) configure -state disable
+    $widget(Entry528_4) configure -disabledbackground $PSPBackgroundColor
+    $widget(Button528_1) configure -state disable
+    $widget(Button528_3) configure -state disable
+    $widget(Button528_4) configure -state disable
+    $widget(Checkbutton528_1) configure -state normal
+    $widget(Checkbutton528_2) configure -state normal
 
-    set ConfigFile ""
+    set ConfigFile " "
     if {$DataFormatActive == "S2" || $DataFormatActive == "SPP"} {
         set PTOMDisplayDirInput $DataDir
         if {$ActiveProgram == "POLMULT"} { set PTOMDisplayDirInput "$DataDirMult(1)" }
@@ -1821,13 +1754,13 @@ if {$configformat == "true"} {
         }
 
     set PTOMDisplayDirOutput $PTOMDisplayDirInput
-    set PTOMDisplayFileOutput ""
+    set PTOMDisplayFileOutput " "
 
     set ConfigFile "$PTOMDisplayDirInput/config.txt"
-    set ErrorMessage ""
+    set ErrorMessage " "
     LoadConfig
     if {"$ErrorMessage" == ""} {   
-        WidgetShowFromMenuFix $widget(Toplevel214) $widget(Toplevel524); TextEditorRunTrace "Open Window Create Tomogram Display File" "b"
+        WidgetShowFromMenuFix $widget(Toplevel214) $widget(Toplevel528); TextEditorRunTrace "Open Window Create Tomogram Display File" "b"
         } else {
         Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
         tkwait variable VarError
@@ -1845,11 +1778,14 @@ if {$configformat == "true"} {
 global VarError ErrorMessage VarWarning WarningMessage WarningMessage2
 global ConfigFile Fonction Fonction2
 global ActiveProgram DataDir DataDirMult 
-global BMPDirInput BMPDirOutput BMPOutputFile
-global NColorBMPColor NLigBMPColor NColBMPColor 
+global BMPDirInput BMPDirOutput BMPFileInput BMPFileOutput BMPFileOutputTmp
+global NColorBMPColor NLigBMPColor NColBMPColor BMPOutputFormat
 global BMPFileInputColor BMPFileOutputColorBIN BMPFileOutputColorPAL BMPFileOutputColorBMP
+global BMPWorldFile BMPFileOutput BMPFileOutputWF BMPGearthPolyFile BMPConfAcqFile
+global ReducFactor TranspColor DisplayGoogleEarth
+
 #BMP PROCESS
-global Load_RGB24toBMP8 PSPTopLevel
+global Load_ConvertBMPFile PSPTopLevel
 
 set configformat "true"
 
@@ -1863,15 +1799,21 @@ if {$DataFormatActive == "---"} {
 
 if {$configformat == "true"} {
 
-    if {$Load_RGB24toBMP8  == 0} {
-        source "GUI/bmp_process/RGB24toBMP8.tcl"
-        set Load_RGB24toBMP8 1
+    if {$Load_ConvertBMPFile  == 0} {
+        source "GUI/bmp_process/ConvertBMPFile.tcl"
+        set Load_ConvertBMPFile 1
         WmTransient $widget(Toplevel450) $PSPTopLevel
         }
 
-    set NColorBMPColor ""; set NLigBMPColor ""; set NColBMPColor ""; 
-    set BMPFileInputColor ""; set BMPFileOutputColorBIN ""; set BMPFileOutputColorPAL ""; set BMPFileOutputColorBMP ""
-    $widget(Button450_1) configure -state disable
+    set BMPDirInput " "
+    set BMPDirOutput " "
+    set BMPFileInput " "
+    set BMPFileOutput " "
+    set BMPFileOutputTmp " "; set BMPOutputFormat " "
+    set ReducFactor " "; set TranspColor " "; 
+    set NLigBMPColor " "; set NColBMPColor " "; set NColorBMPColor " "
+    set BMPFileOutputWF " "; set BMPGearthPolyFile " "; set BMPConfAcqFile " "; set BMPWorldFile 0    
+    set BMPFileInputColor " "; set BMPFileOutputColorBIN " "; set BMPFileOutputColorPAL " "; set BMPFileOutputColorBMP " "
     set ConfigFile ""
 
     if {$DataFormatActive == "S2" || $DataFormatActive == "SPP"} {
@@ -1905,7 +1847,27 @@ if {$configformat == "true"} {
     set ErrorMessage ""
     LoadConfig
     if {"$ErrorMessage" == ""} {   
-        WidgetShowFromMenuFix $widget(Toplevel214) $widget(Toplevel450); TextEditorRunTrace "Open Window Transform 24-bits RGB File to 8-bits BMP File" "b"
+        $widget(Label450_1) configure -state disable
+        $widget(Radiobutton450_2) configure -state disable
+        $widget(Radiobutton450_3) configure -state disable
+        $widget(Radiobutton450_4) configure -state disable
+        $widget(Label450_2) configure -state disable
+        $widget(Button450_1) configure -state disable
+        $widget(Button450_2) configure -state disable
+        $widget(Entry450_1) configure -state disable
+        $widget(Entry450_1) configure -disabledbackground $PSPBackgroundColor
+        $widget(TitleFrame450_1) configure -state disable
+        $widget(TitleFrame450_2) configure -state disable
+        $widget(TitleFrame450_3) configure -state disable
+        $widget(Button450_3) configure -state disable
+        $widget(Button450_4) configure -state disable
+        $widget(Entry450_2) configure -state disable
+        $widget(Entry450_2) configure -disabledbackground $PSPBackgroundColor
+        $widget(Entry450_3) configure -state disable
+        $widget(Entry450_3) configure -disabledbackground $PSPBackgroundColor
+        $widget(Entry450_4) configure -state disable
+        $widget(Entry450_4) configure -disabledbackground $PSPBackgroundColor
+        WidgetShowFromMenuFix $widget(Toplevel214) $widget(Toplevel450); TextEditorRunTrace "Open Window Convert BMP File" "b"
         } else {
         Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
         tkwait variable VarError
@@ -1915,77 +1877,153 @@ if {$configformat == "true"} {
 # Config Format
 }
 }} \
-        -pady 0 -text {RGB 24bits to BMP 8bits} 
+        -pady 0 -text {Convert BMP File} 
     vTcl:DefineAlias "$top.cpd71" "Button11" vTcl:WidgetProc "Toplevel214" 1
     frame $top.fra71 \
-        -borderwidth 2 -relief raised -height 75 -padx 7 -width 125 
+        -borderwidth 2 -relief raised -height 75 -padx 2 -width 125 
     vTcl:DefineAlias "$top.fra71" "Frame4" vTcl:WidgetProc "Toplevel214" 1
     set site_3_0 $top.fra71
-    button $site_3_0.but72 \
-        \
-        -command {global PVShortcut
-
-if {$PVShortcut == 0} {
-    set PVShortcut 1
-    LoadPSPViewer
-    Window show $widget(Toplevel64); TextEditorRunTrace "Open Window PolSARpro Viewer" "b"
-    } else {
-    set PVShortcut 0
-    ClosePSPViewer
-    Window hide $widget(Toplevel64); TextEditorRunTrace "Close Window PolSARpro Viewer" "b"
-    }} \
-        -image [vTcl:image:get_image [file join . GUI Images PVv3shortcut.gif]] \
-        -pady 0 -relief flat -text button 
-    vTcl:DefineAlias "$site_3_0.but72" "Button2" vTcl:WidgetProc "Toplevel214" 1
-    bindtags $site_3_0.but72 "$site_3_0.but72 Button $top all _vTclBalloon"
-    bind $site_3_0.but72 <<SetBalloon>> {
-        set ::vTcl::balloon::%W {PSP Viewer3.0}
-    }
     button $site_3_0.but73 \
         \
-        -command {global PVShortcut
+        -command {global PVProcessShortcut
 
-if {$PVShortcut == 0} {
-    set PVShortcut 1
-    LoadPSPViewer
-    Window show $widget(Toplevel64); TextEditorRunTrace "Open Window PolSARpro Viewer" "b"
+if {$PVProcessShortcut == 0} {
+    set PVProcessShortcut 1
+    LoadPSPViewerProcess
+    Window show $widget(Toplevel64p); TextEditorRunTrace "Open Window PolSARpro Viewer - Process" "b"
     } else {
-    set PVShortcut 0
-    ClosePSPViewer
-    Window hide $widget(Toplevel64); TextEditorRunTrace "Close Window PolSARpro Viewer" "b"
+    set PVProcessShortcut 0
+    ClosePSPViewerProcess
+    Window hide $widget(Toplevel64p); TextEditorRunTrace "Close Window PolSARpro Viewer - Process" "b"
     }} \
-        -pady 0 -relief flat -text {BMP Viewer} 
+        -pady 0 -relief flat -text {Process 1 BMP File} 
     vTcl:DefineAlias "$site_3_0.but73" "Button3" vTcl:WidgetProc "Toplevel214" 1
     bindtags $site_3_0.but73 "$site_3_0.but73 Button $top all _vTclBalloon"
     bind $site_3_0.but73 <<SetBalloon>> {
         set ::vTcl::balloon::%W {PSP Viewer3.0}
     }
-    pack $site_3_0.but72 \
-        -in $site_3_0 -anchor center -expand 0 -fill none -side left 
+    label $site_3_0.lab66 \
+        -borderwidth 0 \
+        -image [vTcl:image:get_image [file join . GUI Images PVv3shortcut.gif]] \
+        -text label 
+    vTcl:DefineAlias "$site_3_0.lab66" "Label1" vTcl:WidgetProc "Toplevel214" 1
     pack $site_3_0.but73 \
-        -in $site_3_0 -anchor center -expand 1 -fill x -side left 
+        -in $site_3_0 -anchor center -expand 1 -fill none -side right 
+    pack $site_3_0.lab66 \
+        -in $site_3_0 -anchor center -expand 0 -fill none -side left 
+    frame $top.cpd74 \
+        -borderwidth 2 -relief raised -height 75 -padx 2 -width 125 
+    vTcl:DefineAlias "$top.cpd74" "Frame6" vTcl:WidgetProc "Toplevel214" 1
+    set site_3_0 $top.cpd74
+    button $site_3_0.but73 \
+        \
+        -command {global PVDisplayShortcut
+
+if {$PVDisplayShortcut == 0} {
+    set PVDisplayShortcut 1
+    LoadPSPViewerDisplay
+    Window show $widget(Toplevel64d); TextEditorRunTrace "Open Window PolSARpro Viewer - Display" "b"
+    } else {
+    set PVDisplayShortcut 0
+    ClosePSPViewerDisplay
+    Window hide $widget(Toplevel64d); TextEditorRunTrace "Close Window PolSARpro Viewer - Display" "b"
+    }} \
+        -pady 0 -relief flat -text {Display N BMP Files} 
+    vTcl:DefineAlias "$site_3_0.but73" "Button14" vTcl:WidgetProc "Toplevel214" 1
+    bindtags $site_3_0.but73 "$site_3_0.but73 Button $top all _vTclBalloon"
+    bind $site_3_0.but73 <<SetBalloon>> {
+        set ::vTcl::balloon::%W {PSP Viewer3.0}
+    }
+    label $site_3_0.lab66 \
+        -borderwidth 0 \
+        -image [vTcl:image:get_image [file join . GUI Images PVv3shortcut.gif]] \
+        -text label 
+    vTcl:DefineAlias "$site_3_0.lab66" "Label2" vTcl:WidgetProc "Toplevel214" 1
+    pack $site_3_0.but73 \
+        -in $site_3_0 -anchor center -expand 1 -fill none -side right 
+    pack $site_3_0.lab66 \
+        -in $site_3_0 -anchor center -expand 0 -fill none -side left 
+    frame $top.cpd75 \
+        -borderwidth 2 -relief raised -height 75 -padx 2 -width 125 
+    vTcl:DefineAlias "$top.cpd75" "Frame8" vTcl:WidgetProc "Toplevel214" 1
+    set site_3_0 $top.cpd75
+    button $site_3_0.but73 \
+        \
+        -command {global MapAlgebraSatimFullPath PlatForm
+
+set MapAlgebraSatimFullPath [pwd]
+if {$PlatForm == "windows"} {
+    append MapAlgebraSatimFullPath "/Soft/bin/map_algebra/win32/map_algebra_satim.exe"
+    }
+if {$PlatForm == "unix"} {
+    append MapAlgebraSatimFullPath "/Soft/bin/map_algebra/linux/map_algebra_satim.exe"
+    }
+set MA_ID [ open "| \x22$MapAlgebraSatimFullPath\x22" r]
+} \
+        -pady 0 -relief flat -text {SATIM Map Algebra} 
+    vTcl:DefineAlias "$site_3_0.but73" "Button16" vTcl:WidgetProc "Toplevel214" 1
+    bindtags $site_3_0.but73 "$site_3_0.but73 Button $top all _vTclBalloon"
+    bind $site_3_0.but73 <<SetBalloon>> {
+        set ::vTcl::balloon::%W {PSP Viewer3.0}
+    }
+    label $site_3_0.lab66 \
+        -borderwidth 0 \
+        -image [vTcl:image:get_image [file join . GUI Images PVv3shortcut.gif]] \
+        -text label 
+    vTcl:DefineAlias "$site_3_0.lab66" "Label4" vTcl:WidgetProc "Toplevel214" 1
+    pack $site_3_0.but73 \
+        -in $site_3_0 -anchor center -expand 1 -fill none -side right 
+    pack $site_3_0.lab66 \
+        -in $site_3_0 -anchor center -expand 0 -fill none -side left 
     frame $top.fra26 \
         -borderwidth 2 -height 75 -width 125 
     vTcl:DefineAlias "$top.fra26" "Frame413" vTcl:WidgetProc "Toplevel214" 1
     set site_3_0 $top.fra26
     button $site_3_0.but27 \
         -background #ffff00 \
-        -command {global Load_CreateBMPFile Load_CreateHSLFile Load_CreateRGBFile Load_CreateRGBFile_PP
-global Load_CreateBMPKMLFile Load_CreateRGBKMLFile Load_CreateGrayColorBMPFile 
-global Load_CreateAnimGIF Load_CreateScatterPlot Load_RGB24toBMP8 Load_CreatePolTomoDisplay 
+        -command {global Load_CreateBMPFile Load_CreateHSLFile Load_CreateRGBFile Load_CreateRGBFile_PP Load_CreateCIEFile
+global Load_CreateBMPKMLFile Load_CreateGrayColorBMPFile 
+global Load_CreateAnimGIF Load_CreateScatterPlot Load_ConvertBMPFile Load_CreatePolTomoDisplay 
+global PVMainMenu PVDisplayShortcut PVProcessShortcut BMPImageOpen OpenDirFile
+
 global GnuplotPipeFid
 
 if {$Load_CreateBMPFile == 1} { Window hide $widget(Toplevel43) }
 if {$Load_CreateHSLFile == 1} { Window hide $widget(Toplevel69) }
 if {$Load_CreateRGBFile == 1} { Window hide $widget(Toplevel39) }
+if {$Load_CreateCIEFile == 1} { Window hide $widget(Toplevel30) }
 if {$Load_CreateRGBFile_PP == 1} { Window hide $widget(Toplevel201) }
 if {$Load_CreateBMPKMLFile == 1} { Window hide $widget(Toplevel397) }
-if {$Load_CreateRGBKMLFile == 1} { Window hide $widget(Toplevel398) }
 if {$Load_CreateGrayColorBMPFile == 1} { Window hide $widget(Toplevel384) }
 if {$Load_CreateAnimGIF == 1} { Window hide $widget(Toplevel405) }
 if {$Load_CreateScatterPlot == 1} { set GnuplotPipeFid ""; Window hide .top401; Window hide $widget(Toplevel407) }
 if {$Load_CreatePolTomoDisplay == 1} { set GnuplotPipeFid ""; Window hide .top401tomo; Window hide $widget(Toplevel524) }
-if {$Load_RGB24toBMP8 == 1} { Window hide $widget(Toplevel450) }
+if {$Load_ConvertBMPFile == 1} { Window hide $widget(Toplevel450) }
+
+if {$OpenDirFile == 0} {
+    if {$PVProcessShortcut == 1} {
+        set PVProcessShortcut 0
+        ClosePSPViewerProcess
+        if {$BMPImageOpen == 0} {
+            Window hide $widget(Toplevel64p); TextEditorRunTrace "Close Window PolSARpro Viewer - Process" "b"
+            if {$PVMainMenu == 1} {
+                set PVMainMenu 0
+                Window show $widget(Toplevel2)
+                }
+            }
+        }
+    if {$PVDisplayShortcut == 1} {
+        set PVDisplayShortcut 0
+        ClosePSPViewerDisplay
+        if {$BMPImageOpen == 0} {
+            Window hide $widget(Toplevel64d); TextEditorRunTrace "Close Window PolSARpro Viewer - Display" "b"
+            if {$PVMainMenu == 1} {
+                set PVMainMenu 0
+                Window show $widget(Toplevel2)
+                }
+            }
+        }
+    }
 
 Window hide $widget(Toplevel214); TextEditorRunTrace "Close Window Display Menu" "b"} \
         -padx 4 -pady 2 -text Exit -width 4 
@@ -2007,20 +2045,26 @@ Window hide $widget(Toplevel214); TextEditorRunTrace "Close Window Display Menu"
         -in $top -anchor center -expand 0 -fill x -side top 
     pack $top.cpd68 \
         -in $top -anchor center -expand 0 -fill x -pady 5 -side top 
-    pack $top.men73 \
+    pack $top.cpd44 \
         -in $top -anchor center -expand 0 -fill x -side top 
+    pack $top.cpd73 \
+        -in $top -anchor center -expand 0 -fill x -pady 5 -side top 
     pack $top.cpd66 \
-        -in $top -anchor center -expand 0 -fill x -pady 5 -side top 
+        -in $top -anchor center -expand 0 -fill x -side top 
     pack $top.cpd70 \
-        -in $top -anchor center -expand 0 -fill x -side top 
+        -in $top -anchor center -expand 0 -fill x -pady 5 -side top 
     pack $top.cpd69 \
-        -in $top -anchor center -expand 0 -fill x -pady 5 -side top 
+        -in $top -anchor center -expand 0 -fill x -side top 
     pack $top.cpd72 \
-        -in $top -anchor center -expand 0 -fill x -side top 
-    pack $top.cpd71 \
         -in $top -anchor center -expand 0 -fill x -pady 5 -side top 
-    pack $top.fra71 \
+    pack $top.cpd71 \
         -in $top -anchor center -expand 0 -fill x -side top 
+    pack $top.fra71 \
+        -in $top -anchor center -expand 0 -fill x -pady 5 -side top 
+    pack $top.cpd74 \
+        -in $top -anchor center -expand 0 -fill x -side top 
+    pack $top.cpd75 \
+        -in $top -anchor center -expand 0 -fill x -pady 5 -side top 
     pack $top.fra26 \
         -in $top -anchor center -expand 1 -fill x -side top 
 
@@ -2048,64 +2092,6 @@ bind "_TopLevel" <Destroy> {
 
 
 if {![info exists vTcl(sourcing)]} {
-bind "_vTclBalloon" <<KillBalloon>> {
-    namespace eval ::vTcl::balloon {
-        after cancel $id
-        if {[winfo exists .vTcl.balloon]} {
-            destroy .vTcl.balloon
-        }
-        set set 0
-    }
-}
-bind "_vTclBalloon" <<vTclBalloon>> {
-    if {$::vTcl::balloon::first != 1} {break}
-
-    namespace eval ::vTcl::balloon {
-        set first 2
-        if {![winfo exists .vTcl]} {
-            toplevel .vTcl; wm withdraw .vTcl
-        }
-        if {![winfo exists .vTcl.balloon]} {
-            toplevel .vTcl.balloon -bg black
-        }
-        wm overrideredirect .vTcl.balloon 1
-        label .vTcl.balloon.l  -text ${%W} -relief flat  -bg #ffffaa -fg black -padx 2 -pady 0 -anchor w
-        pack .vTcl.balloon.l -side left -padx 1 -pady 1
-        wm geometry  .vTcl.balloon  +[expr {[winfo rootx %W]+[winfo width %W]/2}]+[expr {[winfo rooty %W]+[winfo height %W]+4}]
-        set set 1
-    }
-}
-bind "_vTclBalloon" <Button> {
-    namespace eval ::vTcl::balloon {
-        set first 0
-    }
-    vTcl:FireEvent %W <<KillBalloon>>
-}
-bind "_vTclBalloon" <Enter> {
-    namespace eval ::vTcl::balloon {
-        ## self defining balloon?
-        if {![info exists %W]} {
-            vTcl:FireEvent %W <<SetBalloon>>
-        }
-        set set 0
-        set first 1
-        set id [after 500 {vTcl:FireEvent %W <<vTclBalloon>>}]
-    }
-}
-bind "_vTclBalloon" <Leave> {
-    namespace eval ::vTcl::balloon {
-        set first 0
-    }
-    vTcl:FireEvent %W <<KillBalloon>>
-}
-bind "_vTclBalloon" <Motion> {
-    namespace eval ::vTcl::balloon {
-        if {!$set} {
-            after cancel $id
-            set id [after 500 {vTcl:FireEvent %W <<vTclBalloon>>}]
-        }
-    }
-}
 }
 
 Window show .

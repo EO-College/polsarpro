@@ -1575,7 +1575,7 @@ set VarColorMap "ok"
     button $site_3_0.but93 \
         -background #ffff00 \
         -command {global CompactDirInput CompactDirOutput CompactOutputDir CompactOutputSubDir 
-global ColorMapCompact VarColorMap OpenDirFile PSPMemory TMPMemoryAllocError
+global ColorMapCompact VarColorMap OpenDirFile TMPMemoryAllocError
 global Fonction Fonction2 ProgressLine VarWarning WarningMessage WarningMessage2
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
 global hybrid NwinCompactL NwinCompactC DataFormatActive
@@ -1625,9 +1625,9 @@ if {"$VarWarning"=="ok"} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/data_process_sngl/compact_classification.exe" "k"
-        TextEditorRunTrace "Arguments: -id \x22$CompactDirInput\x22 -od \x22$CompactDirOutput\x22 -iodf $DataFormatActive -hyb $hybrid -nwr $NwinCompactL -nwc $NwinCompactC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -g0 $CompactG0dB -mv1 $CompactMv1 -mv2 $CompactMv2 -as1 $CompactAs1 -as2 $CompactAs2 -dp1 $CompactDP1 -dp2 $CompactDP2 -col \x22$ColorMapCompact\x22 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-        set f [ open "| Soft/data_process_sngl/compact_classification.exe -id \x22$CompactDirInput\x22 -od \x22$CompactDirOutput\x22 -iodf $DataFormatActive -hyb $hybrid -nwr $NwinCompactL -nwc $NwinCompactC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -g0 $CompactG0dB -mv1 $CompactMv1 -mv2 $CompactMv2 -as1 $CompactAs1 -as2 $CompactAs2 -dp1 $CompactDP1 -dp2 $CompactDP2 -col \x22$ColorMapCompact\x22 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+        TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/compact_classification.exe" "k"
+        TextEditorRunTrace "Arguments: -id \x22$CompactDirInput\x22 -od \x22$CompactDirOutput\x22 -iodf $DataFormatActive -hyb $hybrid -nwr $NwinCompactL -nwc $NwinCompactC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -g0 $CompactG0dB -mv1 $CompactMv1 -mv2 $CompactMv2 -as1 $CompactAs1 -as2 $CompactAs2 -dp1 $CompactDP1 -dp2 $CompactDP2 -col \x22$ColorMapCompact\x22  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+        set f [ open "| Soft/bin/data_process_sngl/compact_classification.exe -id \x22$CompactDirInput\x22 -od \x22$CompactDirOutput\x22 -iodf $DataFormatActive -hyb $hybrid -nwr $NwinCompactL -nwc $NwinCompactC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -g0 $CompactG0dB -mv1 $CompactMv1 -mv2 $CompactMv2 -as1 $CompactAs1 -as2 $CompactAs2 -dp1 $CompactDP1 -dp2 $CompactDP2 -col \x22$ColorMapCompact\x22  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError

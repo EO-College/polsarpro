@@ -553,8 +553,8 @@ if {$Load_CheckBinaryData == 0} {
     set CheckDirInput $DataDir
     set CheckInputDir $DataDir
     set CheckInputSubDir ""
-    set CheckData ""
-    set CheckType ""
+    set CheckData " "
+    set CheckType " "
     set CheckFile ""
     set CheckFileName ""
     set CheckResult ""
@@ -606,7 +606,7 @@ set CompareOffLig ""; set CompareOffCol ""; set CompareSubNlig ""; set CompareSu
 set CompareResult ""; set CompareFormat ""
 
 for {set i 0} {$i <= 40} {incr i} { set FileCompare($i) ""}
-set CompareSubDir ""; set CompareDataSubDir ""
+set CompareSubDir " "; set CompareDataSubDir ""
 
 WidgetShowFromMenuFix $widget(Toplevel213) $widget(Toplevel416); TextEditorRunTrace "Open Window Compare Data Directory" "b"} \
         -label {Compare Data Directory} 
@@ -708,7 +708,7 @@ if {$configformat == "true"} {
         update
         TextEditorRunTrace "Process The Function create_mask_valid_pixels.exe" "k"
         TextEditorRunTrace "Arguments: -id \x22$ToolsDirInput\x22 -od \x22$ToolsDirInput\x22 -idf $ToolsFormat -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol" "k"
-        set f [ open "| Soft/tools/create_mask_valid_pixels.exe -id \x22$ToolsDirInput\x22 -od \x22$ToolsDirInput\x22 -idf $ToolsFormat -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol" r]
+        set f [ open "| Soft/bin/tools/create_mask_valid_pixels.exe -id \x22$ToolsDirInput\x22 -od \x22$ToolsDirInput\x22 -idf $ToolsFormat -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError
@@ -770,56 +770,56 @@ if {$configformat == "true"} {
         set ToolsDirInput "$DataDir"
         set ToolsOutputSubDir ""
         set ToolsFonction "S2 IEEE FORMAT CONVERT"
-        set ToolsFunction "Soft/tools/cmplx_tools.exe"
+        set ToolsFunction "Soft/bin/tools/cmplx_tools.exe"
         set ToolsFormat "S2"
         }
     if {$DataFormatActive == "SPP"} {
         set ToolsDirInput "$DataDir"
         set ToolsOutputSubDir ""
         set ToolsFonction "SPP IEEE FORMAT CONVERT"
-        set ToolsFunction "Soft/tools/cmplx_tools.exe"
+        set ToolsFunction "Soft/bin/tools/cmplx_tools.exe"
         set ToolsFormat "SPP"
         }
     if {$DataFormatActive == "C2"} {
         set ToolsDirInput "$DataDir/C2"
         set ToolsOutputSubDir "C2"
         set ToolsFonction "C2 IEEE FORMAT CONVERT"
-        set ToolsFunction "Soft/tools/float_tools.exe"
+        set ToolsFunction "Soft/bin/tools/float_tools.exe"
         set ToolsFormat "C2"
         }
     if {$DataFormatActive == "C3"} {
         set ToolsDirInput "$DataDir/C3"
         set ToolsOutputSubDir "C3"
         set ToolsFonction "C3 IEEE FORMAT CONVERT"
-        set ToolsFunction "Soft/tools/float_tools.exe"
+        set ToolsFunction "Soft/bin/tools/float_tools.exe"
         set ToolsFormat "C3"
         }
     if {$DataFormatActive == "T3"} {
         set ToolsDirInput "$DataDir/T3"
         set ToolsOutputSubDir "T3"
         set ToolsFonction "T3 IEEE FORMAT CONVERT"
-        set ToolsFunction "Soft/tools/float_tools.exe"
+        set ToolsFunction "Soft/bin/tools/float_tools.exe"
         set ToolsFormat "T3"
         }
     if {$DataFormatActive == "C4"} {
         set ToolsDirInput "$DataDir/C4"
         set ToolsOutputSubDir "C4"
         set ToolsFonction "C4 IEEE FORMAT CONVERT"
-        set ToolsFunction "Soft/tools/float_tools.exe"
+        set ToolsFunction "Soft/bin/tools/float_tools.exe"
         set ToolsFormat "C4"
         }
     if {$DataFormatActive == "T4"} {
         set ToolsDirInput "$DataDir/T4"
         set ToolsOutputSubDir "T4"
         set ToolsFonction "T4 IEEE FORMAT CONVERT"
-        set ToolsFunction "Soft/tools/float_tools.exe"
+        set ToolsFunction "Soft/bin/tools/float_tools.exe"
         set ToolsFormat "T4"
         }
     if {$DataFormatActive == "IPP"} {
         set ToolsDirInput "$DataDir"
         set ToolsOutputSubDir ""
         set ToolsFonction "IPP IEEE FORMAT CONVERT"
-        set ToolsFunction "Soft/tools/float_tools.exe"
+        set ToolsFunction "Soft/bin/tools/float_tools.exe"
         set ToolsFormat "IPP"
         }
 
@@ -891,56 +891,56 @@ if {$configformat == "true"} {
         set ToolsDirInput "$DataDir"
         set ToolsOutputSubDir ""
         set ToolsFonction "S2 SUB DATA EXTRACTION"
-        set ToolsFunction "Soft/tools/cmplx_tools.exe"
+        set ToolsFunction "Soft/bin/tools/cmplx_tools.exe"
         set ToolsFormat "S2"
         }
     if {$DataFormatActive == "SPP"} {
         set ToolsDirInput "$DataDir"
         set ToolsOutputSubDir ""
         set ToolsFonction "SPP SUB DATA EXTRACTION"
-        set ToolsFunction "Soft/tools/cmplx_tools.exe"
+        set ToolsFunction "Soft/bin/tools/cmplx_tools.exe"
         set ToolsFormat "SPP"
         }
     if {$DataFormatActive == "C2"} {
         set ToolsDirInput "$DataDir/C2"
         set ToolsOutputSubDir "C2"
         set ToolsFonction "C2 SUB DATA EXTRACTION"
-        set ToolsFunction "Soft/tools/float_tools.exe"
+        set ToolsFunction "Soft/bin/tools/float_tools.exe"
         set ToolsFormat "C2"
         }
     if {$DataFormatActive == "C3"} {
         set ToolsDirInput "$DataDir/C3"
         set ToolsOutputSubDir "C3"
         set ToolsFonction "C3 SUB DATA EXTRACTION"
-        set ToolsFunction "Soft/tools/float_tools.exe"
+        set ToolsFunction "Soft/bin/tools/float_tools.exe"
         set ToolsFormat "C3"
         }
     if {$DataFormatActive == "T3"} {
         set ToolsDirInput "$DataDir/T3"
         set ToolsOutputSubDir "T3"
         set ToolsFonction "T3 SUB DATA EXTRACTION"
-        set ToolsFunction "Soft/tools/float_tools.exe"
+        set ToolsFunction "Soft/bin/tools/float_tools.exe"
         set ToolsFormat "T3"
         }
     if {$DataFormatActive == "C4"} {
         set ToolsDirInput "$DataDir/C4"
         set ToolsOutputSubDir "C4"
         set ToolsFonction "C4 SUB DATA EXTRACTION"
-        set ToolsFunction "Soft/tools/float_tools.exe"
+        set ToolsFunction "Soft/bin/tools/float_tools.exe"
         set ToolsFormat "C4"
         }
     if {$DataFormatActive == "T4"} {
         set ToolsDirInput "$DataDir/T4"
         set ToolsOutputSubDir "T4"
         set ToolsFonction "T4 SUB DATA EXTRACTION"
-        set ToolsFunction "Soft/tools/float_tools.exe"
+        set ToolsFunction "Soft/bin/tools/float_tools.exe"
         set ToolsFormat "T4"
         }
     if {$DataFormatActive == "IPP"} {
         set ToolsDirInput "$DataDir"
         set ToolsOutputSubDir ""
         set ToolsFonction "IPP SUB DATA EXTRACTION"
-        set ToolsFunction "Soft/tools/float_tools.exe"
+        set ToolsFunction "Soft/bin/tools/float_tools.exe"
         set ToolsFormat "IPP"
         }
 
@@ -969,13 +969,13 @@ if {$configformat == "true"} {
         -command {global DataDir DataDirMult FileName DataFormatActive
 global VarError ErrorMessage VarWarning WarningMessage WarningMessage2
 global ConfigFile Fonction Fonction2
-global NcolFullSize
+global NcolFullSize MapAlgebraConfigFileStatHistoROI
 global SupervisedDirInput SupervisedDirOutput SupervisedOutputDir SupervisedOutputSubDir 
 global NTrainingAreaClass AreaClassN NTrainingArea AreaN AreaPoint AreaPointLig AreaPointCol
 global ToolsFunction ToolsFormat CONFIGDir
 global FileTrainingSet FileTrainingArea Fonction VarTrainingArea MaskFonction
 #DATA PROCESS SNGL
-global Load_ROI_GraphicEditor Load_CreateROI PSPTopLevel
+global Load_CreateROI PSPTopLevel
 
 set configformat "true"
 
@@ -988,12 +988,6 @@ if {$DataFormatActive == "---"} {
     } else {
 
 if {$configformat == "true"} {
-
-    if {$Load_ROI_GraphicEditor == 0} {
-        source "GUI/data_process_sngl/ROI_GraphicEditor.tcl"
-        set Load_ROI_GraphicEditor 1
-        WmTransient $widget(Toplevel393) $PSPTopLevel
-        }
 
     if {$Load_CreateROI == 0} {
         source "GUI/tools/CreateROI.tcl"
@@ -1025,6 +1019,8 @@ if {$configformat == "true"} {
     
     set FileTrainingSet ""
     set FileTrainingArea ""
+
+    set MapAlgebraConfigFileStatHistoROI ""
 
     DeleteFile $TMPMaskROIarea
     DeleteFile $TMPMaskROItxt
@@ -1062,48 +1058,48 @@ if {$configformat == "true"} {
         set SupervisedDirInput "$DataDir"
         set SupervisedOutputSubDir ""
         set ToolsFonction "S2 - R.O.I EXTRACTION"
-        set ToolsFunction "Soft/tools/cmplx_extract_roi.exe"
+        set ToolsFunction "Soft/bin/tools/cmplx_extract_roi.exe"
         set ToolsFormat "S2"
         }
     if {$DataFormatActive == "SPP"} {
         set SupervisedDirInput "$DataDir"
         set SupervisedOutputSubDir ""
         set ToolsFonction "SPP - R.O.I EXTRACTION"
-        set ToolsFunction "Soft/tools/cmplx_extract_roi.exe"
+        set ToolsFunction "Soft/bin/tools/cmplx_extract_roi.exe"
         set ToolsFormat "SPP"
         }
     if {$DataFormatActive == "C2"} {
         set SupervisedDirInput "$DataDir/C2"
         set SupervisedOutputSubDir "C2"
-        set ToolsFunction "Soft/tools/float_extract_roi.exe"
+        set ToolsFunction "Soft/bin/tools/float_extract_roi.exe"
         set ToolsFonction "C2 COVARIANCE - R.O.I EXTRACTION"
         set ToolsFormat "C2"
         }
     if {$DataFormatActive == "C3"} {
         set SupervisedDirInput "$DataDir/C3"
         set SupervisedOutputSubDir "C3"
-        set ToolsFunction "Soft/tools/float_extract_roi.exe"
+        set ToolsFunction "Soft/bin/tools/float_extract_roi.exe"
         set ToolsFonction "C3 COVARIANCE - R.O.I EXTRACTION"
         set ToolsFormat "C3"
         }
     if {$DataFormatActive == "T3"} {
         set SupervisedDirInput "$DataDir/T3"
         set SupervisedOutputSubDir "T3"
-        set ToolsFunction "Soft/tools/float_extract_roi.exe"
+        set ToolsFunction "Soft/bin/tools/float_extract_roi.exe"
         set ToolsFonction "T3 COHERENCY - R.O.I EXTRACTION"
         set ToolsFormat "T3"
         }
     if {$DataFormatActive == "C4"} {
         set SupervisedDirInput "$DataDir/C4"
         set SupervisedOutputSubDir "C4"
-        set ToolsFunction "Soft/tools/float_extract_roi.exe"
+        set ToolsFunction "Soft/bin/tools/float_extract_roi.exe"
         set ToolsFonction "C4 COVARIANCE - R.O.I EXTRACTION"
         set ToolsFormat "C4"
         }
     if {$DataFormatActive == "T4"} {
         set SupervisedDirInput "$DataDir/T4"
         set SupervisedOutputSubDir "T4"
-        set ToolsFunction "Soft/tools/float_extract_roi.exe"
+        set ToolsFunction "Soft/bin/tools/float_extract_roi.exe"
         set ToolsFonction "T4 COHERENCY - R.O.I EXTRACTION"
         set ToolsFormat "T4"
         }
@@ -1111,7 +1107,7 @@ if {$configformat == "true"} {
         set SupervisedDirInput "$DataDir"
         set SupervisedOutputSubDir ""
         set ToolsFonction "IPP - R.O.I EXTRACTION"
-        set ToolsFunction "Soft/tools/float_extract_roi.exe"
+        set ToolsFunction "Soft/bin/tools/float_extract_roi.exe"
         set ToolsFormat "IPP"
         }
 
@@ -1278,56 +1274,56 @@ if {$configformat == "true"} {
         set ToolsDirInput "$DataDir"
         set ToolsOutputSubDir ""
         set ToolsFonction "S2 ROTATION 90 LEFT"
-        set ToolsFunction "Soft/tools/cmplx_tools.exe"
+        set ToolsFunction "Soft/bin/tools/cmplx_tools.exe"
         set ToolsFormat "S2"
         }
     if {$DataFormatActive == "SPP"} {
         set ToolsDirInput "$DataDir"
         set ToolsOutputSubDir ""
         set ToolsFonction "SPP ROTATION 90 LEFT"
-        set ToolsFunction "Soft/tools/cmplx_tools.exe"
+        set ToolsFunction "Soft/bin/tools/cmplx_tools.exe"
         set ToolsFormat "SPP"
         }
     if {$DataFormatActive == "C2"} {
         set ToolsDirInput "$DataDir/C2"
         set ToolsOutputSubDir "C2"
         set ToolsFonction "C2 ROTATION 90 LEFT"
-        set ToolsFunction "Soft/tools/float_tools.exe"
+        set ToolsFunction "Soft/bin/tools/float_tools.exe"
         set ToolsFormat "C2"
         }
     if {$DataFormatActive == "C3"} {
         set ToolsDirInput "$DataDir/C3"
         set ToolsOutputSubDir "C3"
         set ToolsFonction "C3 ROTATION 90 LEFT"
-        set ToolsFunction "Soft/tools/float_tools.exe"
+        set ToolsFunction "Soft/bin/tools/float_tools.exe"
         set ToolsFormat "C3"
         }
     if {$DataFormatActive == "T3"} {
         set ToolsDirInput "$DataDir/T3"
         set ToolsOutputSubDir "T3"
         set ToolsFonction "T3 ROTATION 90 LEFT"
-        set ToolsFunction "Soft/tools/float_tools.exe"
+        set ToolsFunction "Soft/bin/tools/float_tools.exe"
         set ToolsFormat "T3"
         }
     if {$DataFormatActive == "C4"} {
         set ToolsDirInput "$DataDir/C4"
         set ToolsOutputSubDir "C4"
         set ToolsFonction "C4 ROTATION 90 LEFT"
-        set ToolsFunction "Soft/tools/float_tools.exe"
+        set ToolsFunction "Soft/bin/tools/float_tools.exe"
         set ToolsFormat "C4"
         }
     if {$DataFormatActive == "T4"} {
         set ToolsDirInput "$DataDir/T4"
         set ToolsOutputSubDir "T4"
         set ToolsFonction "T4 ROTATION 90 LEFT"
-        set ToolsFunction "Soft/tools/float_tools.exe"
+        set ToolsFunction "Soft/bin/tools/float_tools.exe"
         set ToolsFormat "T4"
         }
     if {$DataFormatActive == "IPP"} {
         set ToolsDirInput "$DataDir"
         set ToolsOutputSubDir ""
         set ToolsFonction "IPP ROTATION 90 LEFT"
-        set ToolsFunction "Soft/tools/float_tools.exe"
+        set ToolsFunction "Soft/bin/tools/float_tools.exe"
         set ToolsFormat "IPP"
         }
 
@@ -1397,56 +1393,56 @@ if {$configformat == "true"} {
         set ToolsDirInput "$DataDir"
         set ToolsOutputSubDir ""
         set ToolsFonction "S2 ROTATION 90 RIGHT"
-        set ToolsFunction "Soft/tools/cmplx_tools.exe"
+        set ToolsFunction "Soft/bin/tools/cmplx_tools.exe"
         set ToolsFormat "S2"
         }
     if {$DataFormatActive == "SPP"} {
         set ToolsDirInput "$DataDir"
         set ToolsOutputSubDir ""
         set ToolsFonction "SPP ROTATION 90 RIGHT"
-        set ToolsFunction "Soft/tools/cmplx_tools.exe"
+        set ToolsFunction "Soft/bin/tools/cmplx_tools.exe"
         set ToolsFormat "SPP"
         }
     if {$DataFormatActive == "C2"} {
         set ToolsDirInput "$DataDir/C2"
         set ToolsOutputSubDir "C2"
         set ToolsFonction "C2 ROTATION 90 RIGHT"
-        set ToolsFunction "Soft/tools/float_tools.exe"
+        set ToolsFunction "Soft/bin/tools/float_tools.exe"
         set ToolsFormat "C2"
         }
     if {$DataFormatActive == "C3"} {
         set ToolsDirInput "$DataDir/C3"
         set ToolsOutputSubDir "C3"
         set ToolsFonction "C3 ROTATION 90 RIGHT"
-        set ToolsFunction "Soft/tools/float_tools.exe"
+        set ToolsFunction "Soft/bin/tools/float_tools.exe"
         set ToolsFormat "C3"
         }
     if {$DataFormatActive == "T3"} {
         set ToolsDirInput "$DataDir/T3"
         set ToolsOutputSubDir "T3"
         set ToolsFonction "T3 ROTATION 90 RIGHT"
-        set ToolsFunction "Soft/tools/float_tools.exe"
+        set ToolsFunction "Soft/bin/tools/float_tools.exe"
         set ToolsFormat "T3"
         }
     if {$DataFormatActive == "C4"} {
         set ToolsDirInput "$DataDir/C4"
         set ToolsOutputSubDir "C4"
         set ToolsFonction "C4 ROTATION 90 RIGHT"
-        set ToolsFunction "Soft/tools/float_tools.exe"
+        set ToolsFunction "Soft/bin/tools/float_tools.exe"
         set ToolsFormat "C4"
         }
     if {$DataFormatActive == "T4"} {
         set ToolsDirInput "$DataDir/T4"
         set ToolsOutputSubDir "T4"
         set ToolsFonction "T4 ROTATION 90 RIGHT"
-        set ToolsFunction "Soft/tools/float_tools.exe"
+        set ToolsFunction "Soft/bin/tools/float_tools.exe"
         set ToolsFormat "T4"
         }
     if {$DataFormatActive == "IPP"} {
         set ToolsDirInput "$DataDir"
         set ToolsOutputSubDir ""
         set ToolsFonction "IPP ROTATION 90 RIGHT"
-        set ToolsFunction "Soft/tools/float_tools.exe"
+        set ToolsFunction "Soft/bin/tools/float_tools.exe"
         set ToolsFormat "IPP"
         }
 
@@ -1516,56 +1512,56 @@ if {$configformat == "true"} {
         set ToolsDirInput "$DataDir"
         set ToolsOutputSubDir ""
         set ToolsFonction "S2 ROTATION 180"
-        set ToolsFunction "Soft/tools/cmplx_tools.exe"
+        set ToolsFunction "Soft/bin/tools/cmplx_tools.exe"
         set ToolsFormat "S2"
         }
     if {$DataFormatActive == "SPP"} {
         set ToolsDirInput "$DataDir"
         set ToolsOutputSubDir ""
         set ToolsFonction "SPP ROTATION 180"
-        set ToolsFunction "Soft/tools/cmplx_tools.exe"
+        set ToolsFunction "Soft/bin/tools/cmplx_tools.exe"
         set ToolsFormat "SPP"
         }
     if {$DataFormatActive == "C2"} {
         set ToolsDirInput "$DataDir/C2"
         set ToolsOutputSubDir "C2"
         set ToolsFonction "C2 ROTATION 180"
-        set ToolsFunction "Soft/tools/float_tools.exe"
+        set ToolsFunction "Soft/bin/tools/float_tools.exe"
         set ToolsFormat "C2"
         }
     if {$DataFormatActive == "C3"} {
         set ToolsDirInput "$DataDir/C3"
         set ToolsOutputSubDir "C3"
         set ToolsFonction "C3 ROTATION 180"
-        set ToolsFunction "Soft/tools/float_tools.exe"
+        set ToolsFunction "Soft/bin/tools/float_tools.exe"
         set ToolsFormat "C3"
         }
     if {$DataFormatActive == "T3"} {
         set ToolsDirInput "$DataDir/T3"
         set ToolsOutputSubDir "T3"
         set ToolsFonction "T3 ROTATION 180"
-        set ToolsFunction "Soft/tools/float_tools.exe"
+        set ToolsFunction "Soft/bin/tools/float_tools.exe"
         set ToolsFormat "T3"
         }
     if {$DataFormatActive == "C4"} {
         set ToolsDirInput "$DataDir/C4"
         set ToolsOutputSubDir "C4"
         set ToolsFonction "C4 ROTATION 180"
-        set ToolsFunction "Soft/tools/float_tools.exe"
+        set ToolsFunction "Soft/bin/tools/float_tools.exe"
         set ToolsFormat "C4"
         }
     if {$DataFormatActive == "T4"} {
         set ToolsDirInput "$DataDir/T4"
         set ToolsOutputSubDir "T4"
         set ToolsFonction "T4 ROTATION 180"
-        set ToolsFunction "Soft/tools/float_tools.exe"
+        set ToolsFunction "Soft/bin/tools/float_tools.exe"
         set ToolsFormat "T4"
         }
     if {$DataFormatActive == "IPP"} {
         set ToolsDirInput "$DataDir"
         set ToolsOutputSubDir ""
         set ToolsFonction "IPP ROTATION 180"
-        set ToolsFunction "Soft/tools/float_tools.exe"
+        set ToolsFunction "Soft/bin/tools/float_tools.exe"
         set ToolsFormat "IPP"
         }
 
@@ -1635,56 +1631,56 @@ if {$configformat == "true"} {
         set ToolsDirInput "$DataDir"
         set ToolsOutputSubDir ""
         set ToolsFonction "S2 FLIP UP DOWN"
-        set ToolsFunction "Soft/tools/cmplx_tools.exe"
+        set ToolsFunction "Soft/bin/tools/cmplx_tools.exe"
         set ToolsFormat "S2"
         }
     if {$DataFormatActive == "SPP"} {
         set ToolsDirInput "$DataDir"
         set ToolsOutputSubDir ""
         set ToolsFonction "SPP FLIP UP DOWN"
-        set ToolsFunction "Soft/tools/cmplx_tools.exe"
+        set ToolsFunction "Soft/bin/tools/cmplx_tools.exe"
         set ToolsFormat "SPP"
         }
     if {$DataFormatActive == "C2"} {
         set ToolsDirInput "$DataDir/C2"
         set ToolsOutputSubDir "C2"
         set ToolsFonction "C2 FLIP UP DOWN"
-        set ToolsFunction "Soft/tools/float_tools.exe"
+        set ToolsFunction "Soft/bin/tools/float_tools.exe"
         set ToolsFormat "C2"
         }
     if {$DataFormatActive == "C3"} {
         set ToolsDirInput "$DataDir/C3"
         set ToolsOutputSubDir "C3"
         set ToolsFonction "C3 FLIP UP DOWN"
-        set ToolsFunction "Soft/tools/float_tools.exe"
+        set ToolsFunction "Soft/bin/tools/float_tools.exe"
         set ToolsFormat "C3"
         }
     if {$DataFormatActive == "T3"} {
         set ToolsDirInput "$DataDir/T3"
         set ToolsOutputSubDir "T3"
         set ToolsFonction "T3 FLIP UP DOWN"
-        set ToolsFunction "Soft/tools/float_tools.exe"
+        set ToolsFunction "Soft/bin/tools/float_tools.exe"
         set ToolsFormat "T3"
         }
     if {$DataFormatActive == "C4"} {
         set ToolsDirInput "$DataDir/C4"
         set ToolsOutputSubDir "C4"
         set ToolsFonction "C4 FLIP UP DOWN"
-        set ToolsFunction "Soft/tools/float_tools.exe"
+        set ToolsFunction "Soft/bin/tools/float_tools.exe"
         set ToolsFormat "C4"
         }
     if {$DataFormatActive == "T4"} {
         set ToolsDirInput "$DataDir/T4"
         set ToolsOutputSubDir "T4"
         set ToolsFonction "T4 FLIP UP DOWN"
-        set ToolsFunction "Soft/tools/float_tools.exe"
+        set ToolsFunction "Soft/bin/tools/float_tools.exe"
         set ToolsFormat "T4"
         }
     if {$DataFormatActive == "IPP"} {
         set ToolsDirInput "$DataDir"
         set ToolsOutputSubDir ""
         set ToolsFonction "IPP FLIP UP DOWN"
-        set ToolsFunction "Soft/tools/float_tools.exe"
+        set ToolsFunction "Soft/bin/tools/float_tools.exe"
         set ToolsFormat "IPP"
         }
 
@@ -1754,56 +1750,56 @@ if {$configformat == "true"} {
         set ToolsDirInput "$DataDir"
         set ToolsOutputSubDir ""
         set ToolsFonction "S2 FLIP LEFT RIGHT"
-        set ToolsFunction "Soft/tools/cmplx_tools.exe"
+        set ToolsFunction "Soft/bin/tools/cmplx_tools.exe"
         set ToolsFormat "S2"
         }
     if {$DataFormatActive == "SPP"} {
         set ToolsDirInput "$DataDir"
         set ToolsOutputSubDir ""
         set ToolsFonction "SPP FLIP LEFT RIGHT"
-        set ToolsFunction "Soft/tools/cmplx_tools.exe"
+        set ToolsFunction "Soft/bin/tools/cmplx_tools.exe"
         set ToolsFormat "SPP"
         }
     if {$DataFormatActive == "C2"} {
         set ToolsDirInput "$DataDir/C2"
         set ToolsOutputSubDir "C2"
         set ToolsFonction "C2 FLIP LEFT RIGHT"
-        set ToolsFunction "Soft/tools/float_tools.exe"
+        set ToolsFunction "Soft/bin/tools/float_tools.exe"
         set ToolsFormat "C2"
         }
     if {$DataFormatActive == "C3"} {
         set ToolsDirInput "$DataDir/C3"
         set ToolsOutputSubDir "C3"
         set ToolsFonction "C3 FLIP LEFT RIGHT"
-        set ToolsFunction "Soft/tools/float_tools.exe"
+        set ToolsFunction "Soft/bin/tools/float_tools.exe"
         set ToolsFormat "C3"
         }
     if {$DataFormatActive == "T3"} {
         set ToolsDirInput "$DataDir/T3"
         set ToolsOutputSubDir "T3"
         set ToolsFonction "T3 FLIP LEFT RIGHT"
-        set ToolsFunction "Soft/tools/float_tools.exe"
+        set ToolsFunction "Soft/bin/tools/float_tools.exe"
         set ToolsFormat "T3"
         }
     if {$DataFormatActive == "C4"} {
         set ToolsDirInput "$DataDir/C4"
         set ToolsOutputSubDir "C4"
         set ToolsFonction "C4 FLIP LEFT RIGHT"
-        set ToolsFunction "Soft/tools/float_tools.exe"
+        set ToolsFunction "Soft/bin/tools/float_tools.exe"
         set ToolsFormat "C4"
         }
     if {$DataFormatActive == "T4"} {
         set ToolsDirInput "$DataDir/T4"
         set ToolsOutputSubDir "T4"
         set ToolsFonction "T4 FLIP LEFT RIGHT"
-        set ToolsFunction "Soft/tools/float_tools.exe"
+        set ToolsFunction "Soft/bin/tools/float_tools.exe"
         set ToolsFormat "T4"
         }
     if {$DataFormatActive == "IPP"} {
         set ToolsDirInput "$DataDir"
         set ToolsOutputSubDir ""
         set ToolsFonction "IPP FLIP LEFT RIGHT"
-        set ToolsFunction "Soft/tools/float_tools.exe"
+        set ToolsFunction "Soft/bin/tools/float_tools.exe"
         set ToolsFormat "IPP"
         }
 
@@ -1873,56 +1869,56 @@ if {$configformat == "true"} {
         set ToolsDirInput "$DataDir"
         set ToolsOutputSubDir ""
         set ToolsFonction "S2 TRANSPOSE"
-        set ToolsFunction "Soft/tools/cmplx_tools.exe"
+        set ToolsFunction "Soft/bin/tools/cmplx_tools.exe"
         set ToolsFormat "S2"
         }
     if {$DataFormatActive == "SPP"} {
         set ToolsDirInput "$DataDir"
         set ToolsOutputSubDir ""
         set ToolsFonction "SPP TRANSPOSE"
-        set ToolsFunction "Soft/tools/cmplx_tools.exe"
+        set ToolsFunction "Soft/bin/tools/cmplx_tools.exe"
         set ToolsFormat "SPP"
         }
     if {$DataFormatActive == "C2"} {
         set ToolsDirInput "$DataDir/C2"
         set ToolsOutputSubDir "C2"
         set ToolsFonction "C2 TRANSPOSE"
-        set ToolsFunction "Soft/tools/float_tools.exe"
+        set ToolsFunction "Soft/bin/tools/float_tools.exe"
         set ToolsFormat "C2"
         }
     if {$DataFormatActive == "C3"} {
         set ToolsDirInput "$DataDir/C3"
         set ToolsOutputSubDir "C3"
         set ToolsFonction "C3 TRANSPOSE"
-        set ToolsFunction "Soft/tools/float_tools.exe"
+        set ToolsFunction "Soft/bin/tools/float_tools.exe"
         set ToolsFormat "C3"
         }
     if {$DataFormatActive == "T3"} {
         set ToolsDirInput "$DataDir/T3"
         set ToolsOutputSubDir "T3"
         set ToolsFonction "T3 TRANSPOSE"
-        set ToolsFunction "Soft/tools/float_tools.exe"
+        set ToolsFunction "Soft/bin/tools/float_tools.exe"
         set ToolsFormat "T3"
         }
     if {$DataFormatActive == "C4"} {
         set ToolsDirInput "$DataDir/C4"
         set ToolsOutputSubDir "C4"
         set ToolsFonction "C4 TRANSPOSE"
-        set ToolsFunction "Soft/tools/float_tools.exe"
+        set ToolsFunction "Soft/bin/tools/float_tools.exe"
         set ToolsFormat "C4"
         }
     if {$DataFormatActive == "T4"} {
         set ToolsDirInput "$DataDir/T4"
         set ToolsOutputSubDir "T4"
         set ToolsFonction "T4 TRANSPOSE"
-        set ToolsFunction "Soft/tools/float_tools.exe"
+        set ToolsFunction "Soft/bin/tools/float_tools.exe"
         set ToolsFormat "T4"
         }
     if {$DataFormatActive == "IPP"} {
         set ToolsDirInput "$DataDir"
         set ToolsOutputSubDir ""
         set ToolsFonction "IPP TRANSPOSE"
-        set ToolsFunction "Soft/tools/float_tools.exe"
+        set ToolsFunction "Soft/bin/tools/float_tools.exe"
         set ToolsFormat "IPP"
         }
 
@@ -2009,14 +2005,14 @@ if {$configformat == "true"} {
         set ToolsDirInput "$DataDir"
         set ToolsOutputSubDir ""
         set ToolsFonction "S2 APPLY FFT (lines)"
-        set ToolsFunction "Soft/tools/cmplx_tools_fft.exe"
+        set ToolsFunction "Soft/bin/tools/cmplx_tools_fft.exe"
         set ToolsFormat "S2"
         }
     if {$DataFormatActive == "SPP"} {
         set ToolsDirInput "$DataDir"
         set ToolsOutputSubDir ""
         set ToolsFonction "SPP APPLY FFT (lines)"
-        set ToolsFunction "Soft/tools/cmplx_tools_fft.exe"
+        set ToolsFunction "Soft/bin/tools/cmplx_tools_fft.exe"
         set ToolsFormat "SPP"
         }
 
@@ -2091,56 +2087,56 @@ if {$configformat == "true"} {
         set ToolsDirInput "$DataDir"
         set ToolsOutputSubDir ""
         set ToolsFonction "S2 APPLY MASK"
-        set ToolsFunction "Soft/tools/cmplx_tools_mask.exe"
+        set ToolsFunction "Soft/bin/tools/cmplx_tools_mask.exe"
         set ToolsFormat "S2"
         }
     if {$DataFormatActive == "SPP"} {
         set ToolsDirInput "$DataDir"
         set ToolsOutputSubDir ""
         set ToolsFonction "SPP APPLY MASK"
-        set ToolsFunction "Soft/tools/cmplx_tools_mask.exe"
+        set ToolsFunction "Soft/bin/tools/cmplx_tools_mask.exe"
         set ToolsFormat "SPP"
         }
     if {$DataFormatActive == "C2"} {
         set ToolsDirInput "$DataDir/C2"
         set ToolsOutputSubDir "C2"
         set ToolsFonction "C2 APPLY MASK"
-        set ToolsFunction "Soft/tools/float_tools_mask.exe"
+        set ToolsFunction "Soft/bin/tools/float_tools_mask.exe"
         set ToolsFormat "C2"
         }
     if {$DataFormatActive == "C3"} {
         set ToolsDirInput "$DataDir/C3"
         set ToolsOutputSubDir "C3"
         set ToolsFonction "C3 APPLY MASK"
-        set ToolsFunction "Soft/tools/float_tools_mask.exe"
+        set ToolsFunction "Soft/bin/tools/float_tools_mask.exe"
         set ToolsFormat "C3"
         }
     if {$DataFormatActive == "T3"} {
         set ToolsDirInput "$DataDir/T3"
         set ToolsOutputSubDir "T3"
         set ToolsFonction "T3 APPLY MASK"
-        set ToolsFunction "Soft/tools/float_tools_mask.exe"
+        set ToolsFunction "Soft/bin/tools/float_tools_mask.exe"
         set ToolsFormat "T3"
         }
     if {$DataFormatActive == "C4"} {
         set ToolsDirInput "$DataDir/C4"
         set ToolsOutputSubDir "C4"
         set ToolsFonction "C4 APPLY MASK"
-        set ToolsFunction "Soft/tools/float_tools_mask.exe"
+        set ToolsFunction "Soft/bin/tools/float_tools_mask.exe"
         set ToolsFormat "C4"
         }
     if {$DataFormatActive == "T4"} {
         set ToolsDirInput "$DataDir/T4"
         set ToolsOutputSubDir "T4"
         set ToolsFonction "T4 APPLY MASK"
-        set ToolsFunction "Soft/tools/float_tools_mask.exe"
+        set ToolsFunction "Soft/bin/tools/float_tools_mask.exe"
         set ToolsFormat "T4"
         }
     if {$DataFormatActive == "IPP"} {
         set ToolsDirInput "$DataDir"
         set ToolsOutputSubDir ""
         set ToolsFonction "IPP APPLY MASK"
-        set ToolsFunction "Soft/tools/float_tools_mask.exe"
+        set ToolsFunction "Soft/bin/tools/float_tools_mask.exe"
         set ToolsFormat "IPP"
         }
 
@@ -2191,8 +2187,8 @@ if {$Load_CheckBinaryData == 0} {
     set CheckDirInput $DataDir
     set CheckInputDir $DataDir
     set CheckInputSubDir ""
-    set CheckData ""
-    set CheckType ""
+    set CheckData " "
+    set CheckType " "
     set CheckFile ""
     set CheckFileName ""
     set CheckResult ""
@@ -2336,6 +2332,7 @@ WidgetShowFromMenuFix $widget(Toplevel213) $widget(Toplevel59); TextEditorRunTra
         -command {global DataFileSourceName DataFileTargetName
 global DataFileSourceDir DataFileTargetDir 
 global DataFileFormat DataFileOperation DataFileFunction
+global NligEndTools NligInitTools NcolEndTools NcolInitTools
 
 #TOOLS
 global Load_DataFileManagement PSPTopLevel
@@ -2353,6 +2350,9 @@ set DataFileTargetName ""
 set DataFileFunction "IEEE DATA FORMAT CONVERT"
 set DataFileOperation "ieee"
 set DataFileFormat "float"
+set NligInitTools "?"; set NcolInitTools "?"
+set NligEndTools "?"; set NcolEndTools "?"
+
 WidgetShowFromMenuFix $widget(Toplevel213) $widget(Toplevel371); TextEditorRunTrace "Open Window Data File Management" "b"} \
         -label {IEEE Format Convert} 
     $top.men77.m add command \
@@ -2360,6 +2360,7 @@ WidgetShowFromMenuFix $widget(Toplevel213) $widget(Toplevel371); TextEditorRunTr
         -command {global DataFileSourceName DataFileTargetName
 global DataFileSourceDir DataFileTargetDir 
 global DataFileFormat DataFileOperation DataFileFunction
+global NligEndTools NligInitTools NcolEndTools NcolInitTools
 
 #TOOLS
 global Load_DataFileManagement PSPTopLevel
@@ -2377,6 +2378,9 @@ set DataFileTargetName ""
 set DataFileFunction "SUB DATA EXTRACTION"
 set DataFileOperation "extract"
 set DataFileFormat "float"
+set NligInitTools "?"; set NcolInitTools "?"
+set NligEndTools "?"; set NcolEndTools "?"
+
 WidgetShowFromMenuFix $widget(Toplevel213) $widget(Toplevel371); TextEditorRunTrace "Open Window Data File Management" "b"} \
         -label {Sub Data Extraction} 
     $top.men77.m add command \
@@ -2384,6 +2388,7 @@ WidgetShowFromMenuFix $widget(Toplevel213) $widget(Toplevel371); TextEditorRunTr
         -command {global DataFileSourceName DataFileTargetName
 global DataFileSourceDir DataFileTargetDir 
 global DataFileFormat DataFileOperation DataFileFunction
+global NligEndTools NligInitTools NcolEndTools NcolInitTools
 
 #TOOLS
 global Load_DataFileManagement PSPTopLevel
@@ -2401,6 +2406,9 @@ set DataFileTargetName ""
 set DataFileFunction "DATA ROTATION 90 LEFT"
 set DataFileOperation "rot90l"
 set DataFileFormat "float"
+set NligInitTools "?"; set NcolInitTools "?"
+set NligEndTools "?"; set NcolEndTools "?"
+
 WidgetShowFromMenuFix $widget(Toplevel213) $widget(Toplevel371); TextEditorRunTrace "Open Window Data File Management" "b"} \
         -label {Rotation 90 left} 
     $top.men77.m add command \
@@ -2408,6 +2416,7 @@ WidgetShowFromMenuFix $widget(Toplevel213) $widget(Toplevel371); TextEditorRunTr
         -command {global DataFileSourceName DataFileTargetName
 global DataFileSourceDir DataFileTargetDir 
 global DataFileFormat DataFileOperation DataFileFunction
+global NligEndTools NligInitTools NcolEndTools NcolInitTools
 
 #TOOLS
 global Load_DataFileManagement PSPTopLevel
@@ -2425,6 +2434,9 @@ set DataFileTargetName ""
 set DataFileFunction "DATA ROTATION 90 RIGHT"
 set DataFileOperation "rot90r"
 set DataFileFormat "float"
+set NligInitTools "?"; set NcolInitTools "?"
+set NligEndTools "?"; set NcolEndTools "?"
+
 WidgetShowFromMenuFix $widget(Toplevel213) $widget(Toplevel371); TextEditorRunTrace "Open Window Data File Management" "b"} \
         -label {Rotation 90 right} 
     $top.men77.m add command \
@@ -2432,6 +2444,7 @@ WidgetShowFromMenuFix $widget(Toplevel213) $widget(Toplevel371); TextEditorRunTr
         -command {global DataFileSourceName DataFileTargetName
 global DataFileSourceDir DataFileTargetDir 
 global DataFileFormat DataFileOperation DataFileFunction
+global NligEndTools NligInitTools NcolEndTools NcolInitTools
 
 #TOOLS
 global Load_DataFileManagement PSPTopLevel
@@ -2449,6 +2462,9 @@ set DataFileTargetName ""
 set DataFileFunction "DATA ROTATION 180"
 set DataFileOperation "rot180"
 set DataFileFormat "float"
+set NligInitTools "?"; set NcolInitTools "?"
+set NligEndTools "?"; set NcolEndTools "?"
+
 WidgetShowFromMenuFix $widget(Toplevel213) $widget(Toplevel371); TextEditorRunTrace "Open Window Data File Management" "b"} \
         -label {Rotation 180} 
     $top.men77.m add command \
@@ -2456,6 +2472,7 @@ WidgetShowFromMenuFix $widget(Toplevel213) $widget(Toplevel371); TextEditorRunTr
         -command {global DataFileSourceName DataFileTargetName
 global DataFileSourceDir DataFileTargetDir 
 global DataFileFormat DataFileOperation DataFileFunction
+global NligEndTools NligInitTools NcolEndTools NcolInitTools
 
 #TOOLS
 global Load_DataFileManagement PSPTopLevel
@@ -2473,6 +2490,9 @@ set DataFileTargetName ""
 set DataFileFunction "DATA FLIP UP - DOWN"
 set DataFileOperation "flipud"
 set DataFileFormat "float"
+set NligInitTools "?"; set NcolInitTools "?"
+set NligEndTools "?"; set NcolEndTools "?"
+
 WidgetShowFromMenuFix $widget(Toplevel213) $widget(Toplevel371); TextEditorRunTrace "Open Window Data File Management" "b"} \
         -label {Flip Up-Down} 
     $top.men77.m add command \
@@ -2480,6 +2500,7 @@ WidgetShowFromMenuFix $widget(Toplevel213) $widget(Toplevel371); TextEditorRunTr
         -command {global DataFileSourceName DataFileTargetName
 global DataFileSourceDir DataFileTargetDir 
 global DataFileFormat DataFileOperation DataFileFunction
+global NligEndTools NligInitTools NcolEndTools NcolInitTools
 
 #TOOLS
 global Load_DataFileManagement PSPTopLevel
@@ -2497,6 +2518,9 @@ set DataFileTargetName ""
 set DataFileFunction "DATA FLIP LEFT - RIGHT"
 set DataFileOperation "fliplr"
 set DataFileFormat "float"
+set NligInitTools "?"; set NcolInitTools "?"
+set NligEndTools "?"; set NcolEndTools "?"
+
 WidgetShowFromMenuFix $widget(Toplevel213) $widget(Toplevel371); TextEditorRunTrace "Open Window Data File Management" "b"} \
         -label {Flip Left-Right} 
     $top.men77.m add command \
@@ -2504,6 +2528,7 @@ WidgetShowFromMenuFix $widget(Toplevel213) $widget(Toplevel371); TextEditorRunTr
         -command {global DataFileSourceName DataFileTargetName
 global DataFileSourceDir DataFileTargetDir 
 global DataFileFormat DataFileOperation DataFileFunction
+global NligEndTools NligInitTools NcolEndTools NcolInitTools
 
 #TOOLS
 global Load_DataFileManagement PSPTopLevel
@@ -2521,6 +2546,9 @@ set DataFileTargetName ""
 set DataFileFunction "DATA TRANSPOSE"
 set DataFileOperation "transp"
 set DataFileFormat "float"
+set NligInitTools "?"; set NcolInitTools "?"
+set NligEndTools "?"; set NcolEndTools "?"
+
 WidgetShowFromMenuFix $widget(Toplevel213) $widget(Toplevel371); TextEditorRunTrace "Open Window Data File Management" "b"} \
         -label Transpose 
     $top.men77.m add separator \
@@ -2543,7 +2571,7 @@ set FileNameOutput1 ""
 set FileNameOutput2 ""
 set NligCmplx ""
 set NcolCmplx ""
-set CmplxOutputFormat ""
+set CmplxOutputFormat " "
 
 WidgetShowFromMenuFix $widget(Toplevel213) $widget(Toplevel417); TextEditorRunTrace "Open Window Complex Data File" "b"} \
         -label {Complex Data File} 
@@ -2553,16 +2581,10 @@ WidgetShowFromMenuFix $widget(Toplevel213) $widget(Toplevel417); TextEditorRunTr
         \
         -command {global DataDir SupervisedDirInput SupervisedDirOutput SupervisedOutputDir SupervisedOutputSubDir 
 global ConfigFile VarError ErrorMessage NTrainingAreaClass AreaClassN NTrainingArea AreaN AreaPoint AreaPointLig AreaPointCol
-global FileTrainingSet FileTrainingArea Fonction VarTrainingArea MaskFonction
+global FileTrainingSet FileTrainingArea Fonction VarTrainingArea MaskFonction MapAlgebraConfigFileMASK
 
 #DATA PROCESS SNGL
-global Load_MaskAreas_GraphicEditor Load_CreateMask PSPTopLevel
-
-if {$Load_MaskAreas_GraphicEditor == 0} {
-    source "GUI/data_process_sngl/MaskAreas_GraphicEditor.tcl"
-    set Load_MaskAreas_GraphicEditor 1
-    WmTransient $widget(Toplevel391) $PSPTopLevel
-    }
+global Load_CreateMask PSPTopLevel
 
 if {$Load_CreateMask == 0} {
     source "GUI/tools/CreateMask.tcl"
@@ -2593,6 +2615,7 @@ set SupervisedOutputDir ""
 set SupervisedOutputSubDir ""
 
 set MaskFonction "1"
+set MapAlgebraConfigFileMASK ""
 
 set FileTrainingSet ""
 set FileTrainingArea ""
@@ -2794,7 +2817,7 @@ set MyFunctionPath ""
 set MyFunctionVar ""
 set MyFunctionVarN ""
 set VarName ""
-set VarType ""
+set VarType " "
 set VarValue1 ""
 set VarValue2 ""
 for {set i 0} {$i <= 20} {incr i} {
@@ -2844,9 +2867,9 @@ WidgetShowFromMenuFix $widget(Toplevel213) $widget(Toplevel130); TextEditorRunTr
 global Load_CopyDirectory Load_CopyFile Load_CreateDirectory Load_CreateFunction Load_DeleteDirectory
 global Load_DeleteFile Load_DeleteFunction Load_ExecuteFunction Load_RenameDirectory Load_RenameFile
 global Load_Tools Load_ToolsFFT Load_ExportENVI
-global Load_CheckBinaryData Load_CompareDir Load_ROI_GraphicEditor Load_CreateROI
+global Load_CheckBinaryData Load_CompareDir Load_CreateROI
 global Load_MapInfoUpdate Load_ToolsMask Load_CompareFile Load_ReadBinaryDataFileValue 
-global Load_DataFileManagement Load_ComplexFile Load_MaskAreas_GraphicEditor 
+global Load_DataFileManagement Load_ComplexFile 
 global Load_CreateMask Load_CreateHDRFile 
 
 if {$OpenDirFile == 0} {
@@ -2866,7 +2889,6 @@ if {$Load_ToolsFFT == 1} { Window hide $widget(Toplevel58) }
 if {$Load_ExportENVI == 1} { Window hide $widget(Toplevel217) }
 if {$Load_CheckBinaryData == 1} { Window hide $widget(Toplevel316) }
 if {$Load_CompareDir == 1} { Window hide $widget(Toplevel416) }
-if {$Load_ROI_GraphicEditor == 1} { Window hide $widget(Toplevel393) }
 if {$Load_CreateROI == 1} { Window hide $widget(Toplevel392) }
 if {$Load_MapInfoUpdate == 1} { Window hide $widget(Toplevel409) }
 if {$Load_ToolsMask == 1} { Window hide $widget(Toplevel383) }
@@ -2874,7 +2896,6 @@ if {$Load_CompareFile == 1} { Window hide $widget(Toplevel406) }
 if {$Load_ReadBinaryDataFileValue == 1} { Window hide $widget(Toplevel418) }
 if {$Load_DataFileManagement == 1} { Window hide $widget(Toplevel371) }
 if {$Load_ComplexFile == 1} { Window hide $widget(Toplevel417) }
-if {$Load_MaskAreas_GraphicEditor == 1} { Window hide $widget(Toplevel391) }
 if {$Load_CreateMask == 1} { Window hide $widget(Toplevel379) }
 if {$Load_CreateHDRFile == 1} { Window hide $widget(Toplevel372) }
 

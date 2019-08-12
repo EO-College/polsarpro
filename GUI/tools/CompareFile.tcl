@@ -1075,9 +1075,9 @@ if {$config == "true"} {
     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
     set ProgressLine "0"
     update
-    TextEditorRunTrace "Process The Function Soft/tools/compare_binary_data_file.exe" "k"
+    TextEditorRunTrace "Process The Function Soft/bin/tools/compare_binary_data_file.exe" "k"
     TextEditorRunTrace "Arguments: -if1 \x22$CompareFile1\x22 -if2 \x22$CompareFile2\x22 -ofr $CompareOffLig -ofc $CompareOffCol -fnr $CompareSubNlig -fnc $CompareSubNcol -inc $CompareSample1 -idf $CompareFormat1 -of \x22$TMPCompareBinaryData\x22" "k"
-    set f [ open "| Soft/tools/compare_binary_data_file.exe -if1 \x22$CompareFile1\x22 -if2 \x22$CompareFile2\x22 -ofr $CompareOffLig -ofc $CompareOffCol -fnr $CompareSubNlig -fnc $CompareSubNcol -inc $CompareSample1 -idf $CompareFormat1 -of \x22$TMPCompareBinaryData\x22" r]
+    set f [ open "| Soft/bin/tools/compare_binary_data_file.exe -if1 \x22$CompareFile1\x22 -if2 \x22$CompareFile2\x22 -ofr $CompareOffLig -ofc $CompareOffCol -fnr $CompareSubNlig -fnc $CompareSubNcol -inc $CompareSample1 -idf $CompareFormat1 -of \x22$TMPCompareBinaryData\x22" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError

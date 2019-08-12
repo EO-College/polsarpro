@@ -811,7 +811,7 @@ proc vTclWindow.top312 {base} {
     wm minsize $top 116 1
     wm overrideredirect $top 0
     wm resizable $top 1 1
-    wm title $top "Data Processing: POLinSAR - Unsurpervised Classification"
+    wm title $top "Data Processing: Pol-InSAR - Unsurpervised Classification"
     vTcl:DefineAlias "$top" "Toplevel312" vTcl:Toplevel:WidgetProc "" 1
     bindtags $top "$top Toplevel all _TopLevel"
     vTcl:FireEvent $top <<Create>>
@@ -2208,11 +2208,11 @@ if {"$VarWarning"=="ok"} {
                 set ProgressLine "0"
                 WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                 update
-                TextEditorRunTrace "Process The Function Soft/data_process_dual/opt_coh_classifier.exe" "k"
+                TextEditorRunTrace "Process The Function Soft/bin/data_process_dual/opt_coh_classifier.exe" "k"
                 #TextEditorRunTrace "Arguments: -id \x22$POLinSARMasterDirInput\x22 -od \x22$POLinSARDirOutput\x22 -ifc1 \x22$Opt1CohFile\x22 -ifc2 \x22$Opt2CohFile\x22 -ifc3 \x22$Opt3CohFile\x22 -col $OptCohColorMap -avg $OptCohAvg" "k"
                 TextEditorRunTrace "Arguments: \x22$POLinSARMasterDirInput\x22 \x22$POLinSARDirOutput\x22 \x22$Opt1CohFile\x22 \x22$Opt2CohFile\x22 \x22$Opt3CohFile\x22 $OptCohColorMap $OptCohAvg" "k"
-                #set f [ open "| Soft/data_process_dual/opt_coh_classifier.exe -id \x22$POLinSARMasterDirInput\x22 -od \x22$POLinSARDirOutput\x22 -ifc1 \x22$Opt1CohFile\x22 -ifc2 \x22$Opt2CohFile\x22 -ifc3 \x22$Opt3CohFile\x22 -col $OptCohColorMap -avg $OptCohAvg" r]
-                set f [ open "| Soft/data_process_dual/opt_coh_classifier.exe \x22$POLinSARMasterDirInput\x22 \x22$POLinSARDirOutput\x22 \x22$Opt1CohFile\x22 \x22$Opt2CohFile\x22 \x22$Opt3CohFile\x22 $OptCohColorMap $OptCohAvg" r]
+                #set f [ open "| Soft/bin/data_process_dual/opt_coh_classifier.exe -id \x22$POLinSARMasterDirInput\x22 -od \x22$POLinSARDirOutput\x22 -ifc1 \x22$Opt1CohFile\x22 -ifc2 \x22$Opt2CohFile\x22 -ifc3 \x22$Opt3CohFile\x22 -col $OptCohColorMap -avg $OptCohAvg" r]
+                set f [ open "| Soft/bin/data_process_dual/opt_coh_classifier.exe \x22$POLinSARMasterDirInput\x22 \x22$POLinSARDirOutput\x22 \x22$Opt1CohFile\x22 \x22$Opt2CohFile\x22 \x22$Opt3CohFile\x22 $OptCohColorMap $OptCohAvg" r]
                 PsPprogressBar $f
                 TextEditorRunTrace "Check RunTime Errors" "r"
                 CheckRunTimeError
@@ -2274,9 +2274,9 @@ if {"$VarWarning"=="ok"} {
                         set ProgressLine "0"
                         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                         update
-                        TextEditorRunTrace "Process The Function Soft/data_process_dual/wishart_opt_coh_classifier_all.exe" "k"
+                        TextEditorRunTrace "Process The Function Soft/bin/data_process_dual/wishart_opt_coh_classifier_all.exe" "k"
                         TextEditorRunTrace "Arguments: -id \x22$POLinSARMasterDirInput\x22 -od \x22$POLinSARDirOutput\x22 -ms \x22$WishartMaskFileSgl\x22 -md \x22$WishartMaskFileDbl\x22 -mv \x22$WishartMaskFileVol\x22 -cs \x22$WishartClassFileSgl\x22 -cd \x22$WishartClassFileDbl\x22 -cv \x22$WishartClassFileVol\x22 -fnr $FinalNlig -fnc $FinalNcol -co27 $WishartColorMap -avg $WishartOptCohAvg" "k"
-                        set f [ open "| Soft/data_process_dual/wishart_opt_coh_classifier_all.exe -id \x22$POLinSARMasterDirInput\x22 -od \x22$POLinSARDirOutput\x22 -ms \x22$WishartMaskFileSgl\x22 -md \x22$WishartMaskFileDbl\x22 -mv \x22$WishartMaskFileVol\x22 -cs \x22$WishartClassFileSgl\x22 -cd \x22$WishartClassFileDbl\x22 -cv \x22$WishartClassFileVol\x22 -fnr $FinalNlig -fnc $FinalNcol -co27 $WishartColorMap -avg $WishartOptCohAvg" r]
+                        set f [ open "| Soft/bin/data_process_dual/wishart_opt_coh_classifier_all.exe -id \x22$POLinSARMasterDirInput\x22 -od \x22$POLinSARDirOutput\x22 -ms \x22$WishartMaskFileSgl\x22 -md \x22$WishartMaskFileDbl\x22 -mv \x22$WishartMaskFileVol\x22 -cs \x22$WishartClassFileSgl\x22 -cd \x22$WishartClassFileDbl\x22 -cv \x22$WishartClassFileVol\x22 -fnr $FinalNlig -fnc $FinalNcol -co27 $WishartColorMap -avg $WishartOptCohAvg" r]
                         PsPprogressBar $f
                         TextEditorRunTrace "Check RunTime Errors" "r"
                         CheckRunTimeError
@@ -2301,14 +2301,14 @@ if {"$VarWarning"=="ok"} {
                     set ProgressLine "0"
                     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                     update
-                    TextEditorRunTrace "Process The Function Soft/data_process_dual/wishart_opt_coh_classifier.exe" "k"
+                    TextEditorRunTrace "Process The Function Soft/bin/data_process_dual/wishart_opt_coh_classifier.exe" "k"
                     if {$POLinSAROutputSubDir == ""} {
                         TextEditorRunTrace "Arguments: -idm \x22$POLinSARMasterDirInput\x22 -ids \x22$POLinSARSlaveDirInput\x22 -od \x22$POLinSARDirOutput\x22 -iodf S2T6 -msk \x22$WishartMaskFile\x22 -cls \x22$WishartOptCohClassFile\x22 -fnr $FinalNlig -fnc $FinalNcol -nit $WishartIteration -pct $WishartPourcentage -col $WishartColorMap -mt $WishartTypeMask -avg $WishartOptCohAvg" "k"
-                        set f [ open "| Soft/data_process_dual/wishart_opt_coh_classifier.exe -idm \x22$POLinSARMasterDirInput\x22 -ids \x22$POLinSARSlaveDirInput\x22 -od \x22$POLinSARDirOutput\x22 -iodf S2T6 -msk \x22$WishartMaskFile\x22 -cls \x22$WishartOptCohClassFile\x22 -fnr $FinalNlig -fnc $FinalNcol -nit $WishartIteration -pct $WishartPourcentage -col $WishartColorMap -mt $WishartTypeMask -avg $WishartOptCohAvg" r]
+                        set f [ open "| Soft/bin/data_process_dual/wishart_opt_coh_classifier.exe -idm \x22$POLinSARMasterDirInput\x22 -ids \x22$POLinSARSlaveDirInput\x22 -od \x22$POLinSARDirOutput\x22 -iodf S2T6 -msk \x22$WishartMaskFile\x22 -cls \x22$WishartOptCohClassFile\x22 -fnr $FinalNlig -fnc $FinalNcol -nit $WishartIteration -pct $WishartPourcentage -col $WishartColorMap -mt $WishartTypeMask -avg $WishartOptCohAvg" r]
                          }
                     if {$POLinSAROutputSubDir == "T6"} {
                         TextEditorRunTrace "Arguments: -id \x22$POLinSARMasterDirInput\x22 -od \x22$POLinSARDirOutput\x22 -iodf T6 -msk \x22$WishartMaskFile\x22 -cls \x22$WishartOptCohClassFile\x22 -fnr $FinalNlig -fnc $FinalNcol -nit $WishartIteration -pct $WishartPourcentage -col $WishartColorMap -mt $WishartTypeMask -avg $WishartOptCohAvg" "k"
-                        set f [ open "| Soft/data_process_dual/wishart_opt_coh_classifier.exe -id \x22$POLinSARMasterDirInput\x22 -od \x22$POLinSARDirOutput\x22 -iodf T6 -msk \x22$WishartMaskFile\x22 -cls \x22$WishartOptCohClassFile\x22 -fnr $FinalNlig -fnc $FinalNcol -nit $WishartIteration -pct $WishartPourcentage -col $WishartColorMap -mt $WishartTypeMask -avg $WishartOptCohAvg" r]
+                        set f [ open "| Soft/bin/data_process_dual/wishart_opt_coh_classifier.exe -id \x22$POLinSARMasterDirInput\x22 -od \x22$POLinSARDirOutput\x22 -iodf T6 -msk \x22$WishartMaskFile\x22 -cls \x22$WishartOptCohClassFile\x22 -fnr $FinalNlig -fnc $FinalNcol -nit $WishartIteration -pct $WishartPourcentage -col $WishartColorMap -mt $WishartTypeMask -avg $WishartOptCohAvg" r]
                         }
                     PsPprogressBar $f
                     TextEditorRunTrace "Check RunTime Errors" "r"
@@ -2343,7 +2343,7 @@ if {"$VarWarning"=="ok"} {
         }
         #TestVar
         } else {
-        if {"$VarWarning"=="no"} {Window hide $widget(Toplevel312); TextEditorRunTrace "Close Window POLinSAR - Unsupervised Classification" "b"}
+        if {"$VarWarning"=="no"} {Window hide $widget(Toplevel312); TextEditorRunTrace "Close Window Pol-InSAR - Unsupervised Classification" "b"}
         } 
     }
     # config
@@ -2369,7 +2369,7 @@ if {"$VarWarning"=="ok"} {
         -background #ffff00 \
         -command {global OpenDirFile
 if {$OpenDirFile == 0} {
-Window hide $widget(Toplevel312); TextEditorRunTrace "Close Window POLinSAR - Unsupervised Classification" "b"
+Window hide $widget(Toplevel312); TextEditorRunTrace "Close Window Pol-InSAR - Unsupervised Classification" "b"
 }} \
         -padx 4 -pady 2 -text Exit 
     vTcl:DefineAlias "$site_3_0.but24" "Button16" vTcl:WidgetProc "Toplevel312" 1

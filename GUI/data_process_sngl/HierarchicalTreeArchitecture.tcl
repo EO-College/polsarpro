@@ -2650,9 +2650,9 @@ set TreeNodeType(1) "node"
 set TreeNodeType(2) "class"        
 set TreeNodeType(3) "class"    
 
-set NodeType ""
+set NodeType " "
 set NodeCoeff1 ""; set NodeCoeff2 ""; set NodeCoeff3 ""
-set NodeOperator ""; set NodeClass ""
+set NodeOperator " "; set NodeClass ""
 set TreePara1 ""; set TreePara2 ""
 .top263.fra118.cpd119.fra114.lab115 configure -state disable
 .top263.fra118.cpd119.fra114.ent116 configure -state disable
@@ -2687,9 +2687,9 @@ if {$TreeNodeType($NumNodeActive) == "node" } {$But263($NumNodeActive) configure
 if {$TreeNodeType($NumNodeActive) == "class" } {$But263($NumNodeActive) configure -image ImageSymbolClass}
 if {$NumNodeActive == $NumNode} {
     set NumNodeActive 0
-    set NodeType ""
+    set NodeType " "
     set NodeCoeff1 ""; set NodeCoeff2 ""; set NodeCoeff3 ""
-    set NodeOperator ""; set NodeClass ""
+    set NodeOperator " "; set NodeClass ""
     set TreePara1 ""; set TreePara2 ""
     .top263.fra118.cpd119.fra114.lab115 configure -state disable
     .top263.fra118.cpd119.fra114.ent116 configure -state disable
@@ -2782,7 +2782,7 @@ set TreeNodeCoeff1($NodeNumber) "XX"
 set TreeNodeCoeff2($NodeNumber) "XX"
 set TreeNodeCoeff3($NodeNumber) "XX"
 set TreeNodeOperator($NodeNumber) "XX"
-set NodeCoeff1 ""; set NodeCoeff2 ""; set NodeCoeff3 ""; set NodeOperator ""
+set NodeCoeff1 ""; set NodeCoeff2 ""; set NodeCoeff3 ""; set NodeOperator " "
 set TreePara1 ""; set TreePara2 ""
 if {$TreeNodeClass($NodeNumber) != "XX"} { set NodeClass $TreeNodeClass($NodeNumber) } else { set NodeClass "?" }
 
@@ -3035,9 +3035,9 @@ if {$NumNode == 31} {
 
 set NumNodeActive 0; TreeActiveNode $NumNodeActive
 
-set NodeType ""
+set NodeType " "
 set NodeCoeff1 ""; set NodeCoeff2 ""; set NodeCoeff3 ""
-set NodeOperator ""; set NodeClass ""
+set NodeOperator " "; set NodeClass ""
 set TreePara1 ""; set TreePara2 ""
 .top263.fra118.cpd119.fra114.lab115 configure -state disable
 .top263.fra118.cpd119.fra114.ent116 configure -state disable

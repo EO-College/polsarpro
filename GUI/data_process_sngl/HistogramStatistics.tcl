@@ -812,9 +812,9 @@ if {$OpenDirFile == 0} {
 set HistStatFileInput ""
 set HistStatFileOutput ""
 set HistStatFileOutputTmp ""
-set InputFormat ""
-set OutputFormat ""
-set HistStatFonc ""
+set InputFormat "float"
+set OutputFormat "real"
+set HistStatFonc " "
 $widget(Radiobutton335_1) configure -state disable
 $widget(Radiobutton335_2) configure -state disable
 $widget(Radiobutton335_3) configure -state disable
@@ -829,7 +829,43 @@ set types {
 set FileName ""
 OpenFile $HistStatDirInput $types "INPUT FILE"
 if {$FileName != ""} {
-    set HistStatFileInput $FileName
+    set FileNameHdr "$FileName.hdr"
+    if [file exists $FileNameHdr] {
+        set f [open $FileNameHdr "r"]
+        gets $f tmp
+        gets $f tmp
+        gets $f tmp
+        if {[string first "PolSARpro" $tmp] != "-1"} {
+            gets $f tmp; gets $f tmp
+            gets $f tmp; gets $f tmp
+            gets $f tmp; gets $f tmp
+            if {$tmp == "data type = 2"} {set InputFormat "int"; set OutputFormat "real"}
+            if {$tmp == "data type = 4"} {set InputFormat "float"; set OutputFormat "real"}
+            if {$tmp == "data type = 6"} {set InputFormat "cmplx"; set OutputFormat "mod"}
+            set HistStatDirInput [file dirname $FileName]
+            set ConfigFile "$HistStatDirInput/config.txt"
+            set ErrorMessage ""
+            LoadConfig
+            if {"$ErrorMessage" == ""} {
+                set HistStatFileInput $FileName
+                } else {
+                Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
+                tkwait variable VarError
+                if {$VarError == "cancel"} {Window hide $widget(Toplevel335); TextEditorRunTrace "Close Window Histogram Based Statistics" "b"}
+                }    
+            } else {
+            set ErrorMessage "NOT A PolSARpro BINARY DATA FILE TYPE"
+            Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
+            tkwait variable VarError
+            if {$VarError == "cancel"} {Window hide $widget(Toplevel335); TextEditorRunTrace "Close Window Histogram Based Statistics" "b"}
+            }    
+        close $f
+        } else {
+        set ErrorMessage "THE HDR FILE $FileNameHdr DOES NOT EXIST"
+        Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
+        tkwait variable VarError
+        if {$VarError == "cancel"} {Window hide $widget(Toplevel335); TextEditorRunTrace "Close Window Histogram Based Statistics" "b"}
+        }    
     }
 }} \
         -image [vTcl:image:get_image [file join . GUI Images OpenFile.gif]] \
@@ -1436,7 +1472,7 @@ Gimp $TMPGnuPlotTk1} \
     button $site_3_0.but93 \
         -background #ffff00 \
         -command {global HistStatDirOutput HistStatFileInput HistStatFileOutput InputFormat OutputFormat HistStatOutputFormat
-global VarError ErrorMessage Fonction Fonction2 ProgressLine HistStatFonc PSPMemory TMPMemoryAllocError
+global VarError ErrorMessage Fonction Fonction2 ProgressLine HistStatFonc TMPMemoryAllocError
 global OpenDirFile NwinHistStatL NwinHistStatC BMPHistStat BMPFileInput BMPFileOutput BMPDirInput
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
 
@@ -1518,9 +1554,9 @@ if {"$NligInit"!="0"} {
                     set ProgressLine "0"
                     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                     update
-                    TextEditorRunTrace "Process The Function Soft/data_process_sngl/histogram_statistics.exe" "k"
-                    TextEditorRunTrace "Arguments: -if \x22$HistStatFileInput\x22 -of \x22$HistStatFileOutput\x22 -hs $HistStatFonc -idf $InputFormat -odf $OutputFormat -nwr $NwinHistStatL -nwc $NwinHistStatC -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                    set f [ open "| Soft/data_process_sngl/histogram_statistics.exe -if \x22$HistStatFileInput\x22 -of \x22$HistStatFileOutput\x22 -hs $HistStatFonc -idf $InputFormat -odf $OutputFormat -nwr $NwinHistStatL -nwc $NwinHistStatC -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                    TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/histogram_statistics.exe" "k"
+                    TextEditorRunTrace "Arguments: -if \x22$HistStatFileInput\x22 -of \x22$HistStatFileOutput\x22 -hs $HistStatFonc -idf $InputFormat -odf $OutputFormat -nwr $NwinHistStatL -nwc $NwinHistStatC -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                    set f [ open "| Soft/bin/data_process_sngl/histogram_statistics.exe -if \x22$HistStatFileInput\x22 -of \x22$HistStatFileOutput\x22 -hs $HistStatFonc -idf $InputFormat -odf $OutputFormat -nwr $NwinHistStatL -nwc $NwinHistStatC -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                     PsPprogressBar $f
                     TextEditorRunTrace "Check RunTime Errors" "r"
                     CheckRunTimeError
@@ -1549,9 +1585,9 @@ if {"$NligInit"!="0"} {
                         set ProgressLine "0"
                         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                         update
-                        TextEditorRunTrace "Process The Function Soft/data_process_sngl/histogram_statistics.exe" "k"
-                        TextEditorRunTrace "Arguments: -if \x22$HistStatFileInput\x22 -of \x22$HistStatFileOutput\x22 -hs $HistStatFoncX -idf $InputFormat -odf $OutputFormat -nwr $NwinHistStatL -nwc $NwinHistStatC -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                        set f [ open "| Soft/data_process_sngl/histogram_statistics.exe -if \x22$HistStatFileInput\x22 -of \x22$HistStatFileOutput\x22 -hs $HistStatFoncX -idf $InputFormat -odf $OutputFormat -nwr $NwinHistStatL -nwc $NwinHistStatC -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                        TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/histogram_statistics.exe" "k"
+                        TextEditorRunTrace "Arguments: -if \x22$HistStatFileInput\x22 -of \x22$HistStatFileOutput\x22 -hs $HistStatFoncX -idf $InputFormat -odf $OutputFormat -nwr $NwinHistStatL -nwc $NwinHistStatC -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                        set f [ open "| Soft/bin/data_process_sngl/histogram_statistics.exe -if \x22$HistStatFileInput\x22 -of \x22$HistStatFileOutput\x22 -hs $HistStatFoncX -idf $InputFormat -odf $OutputFormat -nwr $NwinHistStatL -nwc $NwinHistStatC -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                         PsPprogressBar $f
                         TextEditorRunTrace "Check RunTime Errors" "r"
                         CheckRunTimeError

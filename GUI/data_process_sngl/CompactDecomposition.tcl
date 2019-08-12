@@ -1368,7 +1368,7 @@ $widget(Checkbutton442_16) configure -state disable} \
         -command {global CompactDirInput CompactDirOutput CompactOutputDir CompactOutputSubDir
 global Fonction Fonction2 VarFunction VarWarning WarningMessage WarningMessage2 VarError ErrorMessage
 global ProgressLine CompactDecompositionFonction PSPViewGimpBMP
-global BMPDirInput OpenDirFile NwinCompactL NwinCompactC PSPMemory TMPMemoryAllocError
+global BMPDirInput OpenDirFile NwinCompactL NwinCompactC TMPMemoryAllocError
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
 
 if {$OpenDirFile == 0} {
@@ -1421,9 +1421,9 @@ if {"$config"=="true"} {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/data_process_sngl/compact_decomposition.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$CompactDirInput\x22 -od \x22$CompactDirOutput\x22 -iodf $CompactDecompositionFonction -hyb $hybrid -nwr $NwinCompactL -nwc $NwinCompactC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -fl1 $eigenvalues -fl2 $probabilities -fl3 $entropy -fl4 $anisotropy -fl5 $mv -fl6 $ms -fl7 $alphas -fl8 $phi -fl9 $PsPdPv -fl10 $sigmahv -fl11 $stvr -fl12 $CPR -fl13 $alpha -fl14 $tau -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_sngl/compact_decomposition.exe -id \x22$CompactDirInput\x22 -od \x22$CompactDirOutput\x22 -iodf $CompactDecompositionFonction -hyb $hybrid -nwr $NwinCompactL -nwc $NwinCompactC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -fl1 $eigenvalues -fl2 $probabilities -fl3 $entropy -fl4 $anisotropy -fl5 $mv -fl6 $ms -fl7 $alphas -fl8 $phi -fl9 $PsPdPv -fl10 $sigmahv -fl11 $stvr -fl12 $CPR -fl13 $alpha -fl14 $tau -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/compact_decomposition.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$CompactDirInput\x22 -od \x22$CompactDirOutput\x22 -iodf $CompactDecompositionFonction -hyb $hybrid -nwr $NwinCompactL -nwc $NwinCompactC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -fl1 $eigenvalues -fl2 $probabilities -fl3 $entropy -fl4 $anisotropy -fl5 $mv -fl6 $ms -fl7 $alphas -fl8 $phi -fl9 $PsPdPv -fl10 $sigmahv -fl11 $stvr -fl12 $CPR -fl13 $alpha -fl14 $tau  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_sngl/compact_decomposition.exe -id \x22$CompactDirInput\x22 -od \x22$CompactDirOutput\x22 -iodf $CompactDecompositionFonction -hyb $hybrid -nwr $NwinCompactL -nwc $NwinCompactC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -fl1 $eigenvalues -fl2 $probabilities -fl3 $entropy -fl4 $anisotropy -fl5 $mv -fl6 $ms -fl7 $alphas -fl8 $phi -fl9 $PsPdPv -fl10 $sigmahv -fl11 $stvr -fl12 $CPR -fl13 $alpha -fl14 $tau  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1631,14 +1631,14 @@ if {"$config"=="true"} {
                 set ProgressLine "0"
                 WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                 update
-                TextEditorRunTrace "Process The Function Soft/bmp_process/create_rgb_file.exe" "k"
-                TextEditorRunTrace "Arguments: -ifb $FileInputBlue -ifg $FileInputGreen -ifr $FileInputRed -of $RGBFileOutput -inc $FinalNcol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
-                set f [ open "| Soft/bmp_process/create_rgb_file.exe -ifb $FileInputBlue -ifg $FileInputGreen -ifr $FileInputRed -of $RGBFileOutput -inc $FinalNcol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
+                TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_rgb_file.exe" "k"
+                TextEditorRunTrace "Arguments: -ifb $FileInputBlue -ifg $FileInputGreen -ifr $FileInputRed -of $RGBFileOutput -inc $FinalNcol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
+                set f [ open "| Soft/bin/bmp_process/create_rgb_file.exe -ifb $FileInputBlue -ifg $FileInputGreen -ifr $FileInputRed -of $RGBFileOutput -inc $FinalNcol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
                 PsPprogressBar $f
                 TextEditorRunTrace "Check RunTime Errors" "r"
                 CheckRunTimeError
                 WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-                if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+                if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
                 }
             }
 

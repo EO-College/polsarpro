@@ -588,13 +588,19 @@ proc vTclWindow.top341 {base} {
     set site_7_0 $site_6_0.cpd69
     button $site_7_0.but70 \
         \
-        -command {global FileName DataDirInit ConfigFileNamePath
+        -command {global FileName DataDirInit ConfigFileNamePath PlatForm
 
 set ConfigFileNamePathTmp $ConfigFileNamePath
 
-set types {
-{{EXE Files}        {.exe}        }
-}
+if {$PlatForm == "windows"} {
+    set types {
+        {{EXE Files}        {.exe}   }
+        }
+    } else {
+    set types {
+        {{All Files}        *        }
+        }
+    }
 set FileName ""
 OpenFile $DataDirInit $types "EXE FILE"
     
@@ -625,7 +631,7 @@ if {$FileName != ""} {
     button $site_3_0.but74 \
         -background #ffff00 \
         -command {global OpenDirFile ConfigFileNameSearch ConfigFileNamePath  VarConfigFileName 
-global PDFReader GoogleEarthReader GimpReader SnapReader S1tbxReader MapReadyReader ImageMagickMaker
+global PDFReader GoogleEarthReader GimpReader SnapReader SnapGpt S1tbxReader MapReadyReader ImageMagickMaker
 
 if {$OpenDirFile == 0} {
 
@@ -703,6 +709,9 @@ if {$OpenDirFile == 0} {
 
     if {$ConfigFileNameSearch == "SNAP"} {
         set SnapReader $ConfigFileNamePath
+        set SnapGpt ""
+        set SnapGpt [file dirname $SnapReader]
+        append SnapGpt "/gpt"
         if {$PlatForm == "windows"} {
             if {$SnapReader != ""} {
                 set f [open "$CONFIGDir/SnapWindows.txt" w]

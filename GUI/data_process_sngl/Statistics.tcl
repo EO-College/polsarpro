@@ -174,8 +174,6 @@ foreach img {
 
         {{[file join . GUI Images SaveFile.gif]} {user image} user {}}
         {{[file join . GUI Images help.gif]} {user image} user {}}
-        {{[file join . GUI Images lines.gif]} {user image} user {}}
-        {{[file join . GUI Images rectangle.gif]} {user image} user {}}
         {{[file join . GUI Images OpenFile.gif]} {user image} user {}}
         {{[file join . GUI Images CloseFile.gif]} {user image} user {}}
         {{[file join . GUI Images GIMPshortcut.gif]} {user image} user {}}
@@ -440,27 +438,11 @@ proc vTcl:project:info {} {
         array set save {-borderwidth 1 -height 1 -relief 1 -width 1}
     }
     set site_5_0 $site_4_0.cpd71
-    namespace eval ::widgets::$site_5_0.fra87 {
-        array set save {-borderwidth 1 -height 1 -width 1}
-    }
-    set site_6_0 $site_5_0.fra87
-    namespace eval ::widgets::$site_6_0.cpd89 {
-        array set save {-command 1 -pady 1 -relief 1 -text 1}
-    }
-    namespace eval ::widgets::$site_6_0.cpd113 {
-        array set save {-command 1 -image 1 -pady 1}
-    }
-    namespace eval ::widgets::$site_6_0.cpd114 {
-        array set save {-command 1 -image 1 -pady 1}
-    }
     namespace eval ::widgets::$site_5_0.fra83 {
         array set save {-borderwidth 1 -height 1 -width 1}
     }
     set site_6_0 $site_5_0.fra83
     namespace eval ::widgets::$site_6_0.cpd84 {
-        array set save {-background 1 -command 1 -padx 1 -pady 1 -text 1}
-    }
-    namespace eval ::widgets::$site_6_0.cpd85 {
         array set save {-background 1 -command 1 -padx 1 -pady 1 -text 1}
     }
     namespace eval ::widgets::$site_6_0.cpd86 {
@@ -592,13 +574,10 @@ proc ::main {argc argv} {
 
 proc ::ClearStatBmp {} {
 global NTrainingAreaClass AreaClassN NTrainingArea AreaN AreaPointLig AreaPointCol AreaPoint
-global MouseInitX MouseInitY MouseEndX MouseEndY MouseNlig MouseNcol
-global widget SourceWidth SourceHeight WidthBMP HeightBMP BMPWidth BMPHeight
-global ZoomBMP BMPImage ImageSource BMPCanvas VarStatSave
-global TMPStatisticsTxt TMPStatisticsBin TMPStatResultsTxt
+global VarStatSave TMPStatisticsTxt TMPStatisticsBin TMPStatResultsTxt
 
 set VarStatSave "no"
-$widget(Button247_2) configure -state normal
+$widget(Button247_1) configure -state disable
 $widget(Button247_3) configure -state disable
 $widget(Button247_4) configure -state disable
 $widget(Button247_5) configure -state disable
@@ -633,58 +612,6 @@ set AreaClassN 1
 set NTrainingAreaClass 1
 set AreaN 1
 set NTrainingArea(1) 1
-
-set MouseInitX ""
-set MouseInitY ""
-set MouseEndX ""
-set MouseEndY ""
-set MouseNlig ""
-set MouseNcol ""
-
-set Num1 ""
-set Num2 ""
-set Num1 [string index $ZoomBMP 0]
-set Num2 [string index $ZoomBMP 1]
-if {$Num2 == ":"} {
-    set Num $Num1
-    set Den1 ""
-    set Den2 ""
-    set Den1 [string index $ZoomBMP 2]
-    set Den2 [string index $ZoomBMP 3]
-    if {$Den2 == ""} {
-        set Den $Den1
-        } else {
-        set Den [expr 10*$Den1 + $Den2]
-        }
-    } else {
-    set Num [expr 10*$Num1 + $Num2]
-    set Den1 ""
-    set Den2 ""
-    set Den1 [string index $ZoomBMP 3]
-    set Den2 [string index $ZoomBMP 4]
-    if {$Den2 == ""} {
-        set Den $Den1
-        } else {
-        set Den [expr 10*$Den1 + $Den2]
-        }
-    }
-
-if {$Den >= $Num} {
-    set BMPSample $Den
-    set Xmax [expr round($BMPWidth * $BMPSample)]
-    set Ymax [expr round($BMPHeight * $BMPSample)]
-    BMPImage copy ImageSource -from 0 0 $Xmax $Ymax -subsample $BMPSample $BMPSample
-    $widget($BMPCanvas) configure -width $BMPWidth -height $BMPHeight
-    $widget($BMPCanvas) create image 0 0 -anchor nw -image BMPImage
-    }
-if {$Den < $Num} {
-    set BMPZoom $Num
-    set Xmax [expr round($BMPWidth / $BMPZoom)]
-    set Ymax [expr round($BMPHeight / $BMPZoom)]
-    BMPImage copy ImageSource -from 0 0 $Xmax $Ymax -zoom $BMPZoom $BMPZoom
-    $widget($BMPCanvas) configure -width $BMPWidth -height $BMPHeight
-    $widget($BMPCanvas) create image 0 0 -anchor nw -image BMPImage
-    }
 }
 #############################################################################
 ## Procedure:  PlotStat1D
@@ -695,7 +622,7 @@ global GnuplotPipeFid GnuplotPipeStat GnuOutputFormat GnuOutputFile
 global GnuStatHistoLabel GnuStatHistoId
 global GnuStatPdfNum GnuStatPdfLabel GnuStatPdfId GnuStatPdfFlag
 global GnuStatHistoIdLabel GnuStatHistoIdData
-global ImageMagickMaker TMPGnuPlotTk1 TMPGnuPlot1Tk
+global TMPGnuPlotTk1 TMPGnuPlot1Tk
 
 set xwindow [winfo x .top247]; set ywindow [winfo y .top247]
 
@@ -708,7 +635,7 @@ if {$GnuplotPipeStat == ""} {
     set GnuplotPipeStat $GnuplotPipeFid
     }
     
-PlotStat1DThumb
+#PlotStat1DThumb
 
 set GnuOutputFile $TMPGnuPlotTk1
 set GnuOutputFormat "gif"
@@ -747,7 +674,8 @@ catch "close $GnuplotPipeStat"
 set GnuplotPipeStat ""
 
 WaitUntilCreated $TMPGnuPlotTk1
-ViewGnuPlotTK 1 .top247 "Statistics"
+Gimp $TMPGnuPlotTk1
+#ViewGnuPlotTKThumb 1 .top247 "Statistics"
 }
 #############################################################################
 ## Procedure:  PlotStatInit
@@ -895,7 +823,7 @@ global GnuplotPipeFid GnuplotPipeStat GnuOutputFormat GnuOutputFile
 global GnuStatHistoLabel GnuStatHistoId
 global GnuStatPdfNum GnuStatPdfLabel GnuStatPdfId GnuStatPdfFlag
 global GnuStatHistoIdLabel GnuStatHistoIdData
-global ImageMagickMaker TMPGnuPlotTk1 TMPGnuPlot1Tk
+global TMPGnuPlotTk1 TMPGnuPlot1Tk
 
 set xwindow [winfo x .top247]; set ywindow [winfo y .top247]
 
@@ -962,8 +890,8 @@ proc vTclWindow. {base} {
     # CREATING WIDGETS
     ###################
     wm focusmodel $top passive
-    wm geometry $top 200x200+175+175; update
-    wm maxsize $top 3360 1028
+    wm geometry $top 200x200+150+150; update
+    wm maxsize $top 3364 1032
     wm minsize $top 116 1
     wm overrideredirect $top 0
     wm resizable $top 1 1
@@ -1141,164 +1069,62 @@ if {$WrapVar == 0} {$widget(TextStat) configure -wrap none}} \
         -borderwidth 2 -relief sunken -height 75 -width 120 
     vTcl:DefineAlias "$site_4_0.cpd71" "Frame6" vTcl:WidgetProc "Toplevel247" 1
     set site_5_0 $site_4_0.cpd71
-    frame $site_5_0.fra87 \
-        -borderwidth 2 -height 75 -width 125 
-    vTcl:DefineAlias "$site_5_0.fra87" "Frame9" vTcl:WidgetProc "Toplevel247" 1
-    set site_6_0 $site_5_0.fra87
-    button $site_6_0.cpd89 \
-        \
-        -command {global rect_color
-
-if {$rect_color == "white"} {
-    set rect_color "black"
-    } else {
-    set rect_color "white"
-    }
-
-set b .top247.fra71.cpd78.cpd71.fra87.cpd89
-$b configure -background $rect_color -foreground $rect_color} \
-        -pady 0 -relief ridge -text {   } 
-    vTcl:DefineAlias "$site_6_0.cpd89" "Button8" vTcl:WidgetProc "Toplevel247" 1
-    button $site_6_0.cpd113 \
-        \
-        -command {global TrainingAreaTool TrainingAreaToolLine AreaTiePointN
-global BMPImageOpen BMPView RectLensCenter Lens BMPSampleLens ZoomBMP ZoomBMPTmp
-global MouseActiveButton OpenDirFile
-
-if {$OpenDirFile == 0} {
-ClearStatBmp
-PlotStatRAZ
-PlotStatClose
-$widget(TextStat) delete 1.0 end
-$widget(Button247_2) configure -state normal
-
-if {"$BMPImageOpen" == "1"} {
-    if {$MouseActiveButton != "Training"} {
-        if {$MouseActiveButton == "Lens"} {
-            set Lens ""
-            set BMPSampleLens ""
-            $widget(CANVASBMPLENS) dtag RectLensCenter
-            Window hide $widget(VIEWBMPLENS); TextEditorRunTrace "Close Window View BMP Lens" "b"
-            Window hide $widget(VIEWLENS); TextEditorRunTrace "Close Window Zoom" "b"
-            WidgetShow $widget($BMPView); TextEditorRunTrace "Open Window View $BMPView" "b"
-            set ZoomBMP $ZoomBMPTmp
-        }
-        set TrainingAreaTool line
-        MouseActiveFunction "TrainingStat"
-        set AreaTiePointN ""
-        set TrainingAreaToolLine "false"
-        } else {
-        if {$TrainingAreaTool == "line"} {
-            MouseActiveFunction ""
-            } else {
-            set TrainingAreaTool line
-            MouseActiveFunction "TrainingStat"
-            set AreaTiePointN ""
-            set TrainingAreaToolLine "false"
-            }
-        } 
-    }
-}} \
-        -image [vTcl:image:get_image [file join . GUI Images lines.gif]] \
-        -pady 0 
-    vTcl:DefineAlias "$site_6_0.cpd113" "Button4" vTcl:WidgetProc "Toplevel247" 1
-    button $site_6_0.cpd114 \
-        \
-        -command {global TrainingAreaTool TrainingAreaToolLine AreaTiePointN
-global BMPImageOpen BMPView RectLensCenter Lens BMPSampleLens ZoomBMP ZoomBMPTmp
-global MouseActiveButton OpenDirFile
-
-if {$OpenDirFile == 0} {
-ClearStatBmp
-PlotStatRAZ
-PlotStatClose
-$widget(TextStat) delete 1.0 end
-$widget(Button247_2) configure -state normal
-if {"$BMPImageOpen" == "1"} {
-    if {$MouseActiveButton != "Training"} {
-        if {$MouseActiveButton == "Lens"} {
-            set Lens ""
-            set BMPSampleLens ""
-            $widget(CANVASBMPLENS) dtag RectLensCenter
-            Window hide $widget(VIEWBMPLENS); TextEditorRunTrace "Close Window View BMP Lens" "b"
-            Window hide $widget(VIEWLENS); TextEditorRunTrace "Close Window Zoom" "b"
-            WidgetShow $widget($BMPView); TextEditorRunTrace "Open Window View $BMPView" "b"
-            set ZoomBMP $ZoomBMPTmp
-        }
-        set TrainingAreaTool rect
-        MouseActiveFunction "TrainingStat"
-        set AreaTiePointN ""
-        set TrainingAreaToolLine "false"
-        } else {
-        if {$TrainingAreaTool == "rect"} {
-            MouseActiveFunction ""
-            } else {
-            set TrainingAreaTool rect
-            MouseActiveFunction "TrainingStat"
-            set AreaTiePointN ""
-            set TrainingAreaToolLine "false"
-            }
-        } 
-    }
-}} \
-        -image [vTcl:image:get_image [file join . GUI Images rectangle.gif]] \
-        -pady 0 
-    vTcl:DefineAlias "$site_6_0.cpd114" "Button5" vTcl:WidgetProc "Toplevel247" 1
-    pack $site_6_0.cpd89 \
-        -in $site_6_0 -anchor center -expand 1 -fill none -side top 
-    pack $site_6_0.cpd113 \
-        -in $site_6_0 -anchor center -expand 1 -fill none -side top 
-    pack $site_6_0.cpd114 \
-        -in $site_6_0 -anchor center -expand 1 -fill none -side top 
     frame $site_5_0.fra83 \
         -borderwidth 2 -height 75 -width 125 
     vTcl:DefineAlias "$site_5_0.fra83" "Frame2" vTcl:WidgetProc "Toplevel247" 1
     set site_6_0 $site_5_0.fra83
     button $site_6_0.cpd84 \
         -background #ffff00 \
-        -command {ClearStatBmp
-PlotStatRAZ
-PlotStatClose
-$widget(TextStat) delete 1.0 end
-$widget(Button247_2) configure -state disable} \
-        -padx 4 -pady 2 -text Clear 
-    vTcl:DefineAlias "$site_6_0.cpd84" "Button247_1" vTcl:WidgetProc "Toplevel247" 1
-    button $site_6_0.cpd85 \
-        -background #ffff00 \
-        -command {global NTrainingAreaClass AreaClassN NTrainingArea AreaN AreaPointLig AreaPointCol AreaPoint  
-global TMPStatisticsTxt TMPStatisticsBin TMPStatResultsTxt VarStatSave OpenDirFile
+        -command {global TMPStatisticsTxt VarStatSave
+global NTrainingAreaClass AreaClassN NTrainingArea AreaN AreaPointLig AreaPointCol AreaPoint
+global VarStatSave TMPStatisticsTxt TMPStatisticsBin TMPStatResultsTxt
 
-
-if {$OpenDirFile == 0} {
-
-set Argument [expr (10000*$NTrainingAreaClass + 101)]
-if {$AreaPointLig($Argument) == ""} {set NTrainingAreaClass [expr $NTrainingAreaClass -1]}
+set VarStatSave "no"
+$widget(Button247_1) configure -state disable
+$widget(Button247_3) configure -state disable
+$widget(Button247_4) configure -state disable
+$widget(Button247_5) configure -state disable
+$widget(Button247_6) configure -state disable
+$widget(Button247_7) configure -state disable
+$widget(Checkbutton247_1) configure -state disable
+$widget(TitleFrame247_1) configure -state disable
+$widget(Combobox247_1) configure -state disabled
+$widget(TitleFrame247_2) configure -state disable
+$widget(Combobox247_2) configure -state disabled
+$widget(TitleFrame247_3) configure -state disable
+$widget(Combobox247_3) configure -state disabled
 
 DeleteFile $TMPStatisticsTxt
 DeleteFile $TMPStatisticsBin
 DeleteFile $TMPStatResultsTxt
 
-set f [open $TMPStatisticsTxt w]
-puts $f "STATISTIC_AREA"
-#AREA
-set i 1
-for {set j 1} {$j <= $NTrainingArea($i)} {incr j} {
-    puts $f "Nb_Tie_Points"
-    set Argument [expr (100*$i + $j)]
-    puts $f $AreaPoint($Argument)
-    for {set k 1} {$k <= $AreaPoint($Argument)} {incr k} {
-        puts $f "Tie_Point"
-        set Argument1 [expr (10000*$i + 100*$j + $k)]
-        puts $f "Row"
-        puts $f $AreaPointLig($Argument1)
-        puts $f "Col"
-        puts $f $AreaPointCol($Argument1)
+for {set i 0} {$i <= 2} {incr i} {
+    set NTrainingArea($i) ""
+    for {set j 0} {$j <= 2} {incr j} {
+        set Argument [expr (100*$i + $j)]
+        set AreaPoint($Argument) ""
+        for {set k 0} {$k <= 17} {incr k} {
+            set Argument [expr (10000*$i + 100*$j + $k)]
+            set AreaPointLig($Argument) ""
+            set AreaPointCol($Argument) ""
+            }
         }
-    }
-close $f
+    }           
 
+set AreaClassN 1
+set NTrainingAreaClass 1
+set AreaN 1
+set NTrainingArea(1) 1
+
+PlotStatRAZ
+PlotStatClose
+$widget(TextStat) delete 1.0 end
+
+set VarStatSave "no"
+WaitUntilCreated $TMPStatisticsTxt
 if [file exists $TMPStatisticsTxt] {
     set VarStatSave "ok"
+    $widget(Button247_1) configure -state normal
     $widget(Button247_3) configure -state normal
     $widget(Button247_4) configure -state disable
     $widget(Button247_5) configure -state disable
@@ -1306,15 +1132,14 @@ if [file exists $TMPStatisticsTxt] {
     $widget(Button247_7) configure -state disable
     $widget(Checkbutton247_1) configure -state disable
     $widget(TitleFrame247_1) configure -state disable
-    $widget(TitleFrame247_2) configure -state disable
+    $widget(TitleFrame247_2) configure -state disable    
     }
-}} \
-        -padx 4 -pady 2 -text Save 
-    vTcl:DefineAlias "$site_6_0.cpd85" "Button247_2" vTcl:WidgetProc "Toplevel247" 1
+tkwait variable VarStatSave} \
+        -padx 4 -pady 2 -text Clear 
+    vTcl:DefineAlias "$site_6_0.cpd84" "Button247_1" vTcl:WidgetProc "Toplevel247" 1
     button $site_6_0.cpd86 \
         -background #ffff00 \
-        -command {global StatDirInput VarStatSave 
-global StatExecFid StatFunction
+        -command {global StatDirInput VarStatSave StatExecFid StatFunction
 global TMPStatisticsBin TMPStatResultsTxt TMPStatLabelTxt TMPStatHistoTxt TextFile
 global VarError ErrorMessage OpenDirFile
 
@@ -1351,8 +1176,7 @@ if {$VarStatSave == "ok"} {
                 }
             }
         }
-    MouseActiveFunction ""
-    $widget(Button247_2) configure -state disable
+    #MouseActiveFunction ""
     $widget(Button247_3) configure -state disable
     $widget(Button247_4) configure -state normal
     $widget(Button247_6) configure -state normal
@@ -1374,12 +1198,8 @@ if {$VarStatSave == "ok"} {
     vTcl:DefineAlias "$site_6_0.cpd86" "Button247_3" vTcl:WidgetProc "Toplevel247" 1
     pack $site_6_0.cpd84 \
         -in $site_6_0 -anchor center -expand 1 -fill none -side top 
-    pack $site_6_0.cpd85 \
-        -in $site_6_0 -anchor center -expand 1 -fill none -side top 
     pack $site_6_0.cpd86 \
         -in $site_6_0 -anchor center -expand 1 -fill none -side top 
-    pack $site_5_0.fra87 \
-        -in $site_5_0 -anchor center -expand 1 -fill both -padx 10 -side left 
     pack $site_5_0.fra83 \
         -in $site_5_0 -anchor center -expand 1 -fill y -padx 10 -side left 
     frame $site_4_0.cpd72 \
@@ -1688,8 +1508,7 @@ if {$GnuStatPdfFlag == 0} {
     vTcl:DefineAlias "$top.fra92" "Frame20" vTcl:WidgetProc "Toplevel247" 1
     set site_3_0 $top.fra92
     button $site_3_0.but23 \
-        -background #ff8000 \
-        -command {HelpPdfEdit "Help/Statistics.pdf"} \
+        -background #ff8000 -command {HelpPdfEdit "Help/Statistics.pdf"} \
         -image [vTcl:image:get_image [file join . GUI Images help.gif]] \
         -pady 0 -width 20 
     vTcl:DefineAlias "$site_3_0.but23" "Button15" vTcl:WidgetProc "Toplevel247" 1
@@ -1699,7 +1518,7 @@ if {$GnuStatPdfFlag == 0} {
     }
     button $site_3_0.but24 \
         -background #ffff00 \
-        -command {global OpenDirFile
+        -command {global OpenDirFile MapAlgebraConfigFileStatHistoROI
 global StatExecFid GnuplotPipeFid GnuplotPipeStat Load_SaveDisplay1
 
 if {$OpenDirFile == 0} {
@@ -1727,8 +1546,7 @@ set StatExecFid ""
 set ProgressLine ""
 
 PlotStatRAZ   
-ClosePSPViewer
-Window hide $widget(Toplevel64); TextEditorRunTrace "Close Window PolSARpro Viewer" "b"
+if {$MapAlgebraConfigFileStatHistoROI != ""} { set MapAlgebraConfigFileStatHistoROI [MapAlgebra_command $MapAlgebraConfigFileStatHistoROI "quit" ""] }
 Window hide $widget(Toplevel247); TextEditorRunTrace "Close Window Statistics" "b"
 }} \
         -padx 4 -pady 2 -text Exit 

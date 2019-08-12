@@ -842,10 +842,10 @@ if {$DirName != ""} {
         -in $site_5_0 -anchor center -expand 1 -fill none -side left 
     radiobutton $site_4_0.cpd67 \
         \
-        -command {global NwinCalibCol NwinCalibRow
-set NwinCalibRow 1
-set NwinCalibCol 1
-Window show .top35; TextEditorRunTrace "Open Window Under Construction" "b"} \
+        -command {Window show .top35; TextEditorRunTrace "Open Window Under Construction" "b"
+#global NwinCalibCol NwinCalibRow
+#set NwinCalibRow 1
+#set NwinCalibCol 1} \
         -text {S.R. Cloude} -value cloude -variable CalibProcedure 
     vTcl:DefineAlias "$site_4_0.cpd67" "Radiobutton11" vTcl:WidgetProc "Toplevel249" 1
     frame $site_4_0.cpd74 \
@@ -891,7 +891,7 @@ set NwinCalibCol 1} \
     button $site_3_0.but93 \
         -background #ffff00 \
         -command {global DataDir DirName CalibDirInput CalibDirOutput CalibOutputDir CalibOutputSubDir 
-global Fonction2 ProgressLine PSPMemory TMPMemoryAllocError
+global Fonction2 ProgressLine TMPMemoryAllocError
 global VarFunction VarWarning VarAdvice WarningMessage WarningMessage2
 global OpenDirFile ConfigFile FinalNlig FinalNcol PolarCase PolarType 
 global TMPDirectory CalibProcedure NwinCalibCol NwinCalibRow
@@ -953,9 +953,9 @@ if {"$VarWarning"=="ok"} {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/data_convert/data_convert.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$CalibDirInput\x22 -od \x22$TMPDirectory\x22 -iodf S2C4 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -sym 0 -nlr 1 -nlc 1 -ssr 1 -ssc 1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22" "k"
-            set f [ open "| Soft/data_convert/data_convert.exe -id \x22$CalibDirInput\x22 -od \x22$TMPDirectory\x22 -iodf S2C4 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -sym 0 -nlr 1 -nlc 1 -ssr 1 -ssc 1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22" r]
+            TextEditorRunTrace "Process The Function Soft/bin/data_convert/data_convert.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$CalibDirInput\x22 -od \x22$TMPDirectory\x22 -iodf S2C4 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -sym 0 -nlr 1 -nlc 1 -ssr 1 -ssc 1  -errf \x22$TMPMemoryAllocError\x22" "k"
+            set f [ open "| Soft/bin/data_convert/data_convert.exe -id \x22$CalibDirInput\x22 -od \x22$TMPDirectory\x22 -iodf S2C4 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -sym 0 -nlr 1 -nlc 1 -ssr 1 -ssc 1  -errf \x22$TMPMemoryAllocError\x22" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -966,9 +966,9 @@ if {"$VarWarning"=="ok"} {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/calibration/calibration_ainsworth.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$CalibDirInput\x22 -od \x22$CalibDirOutput\x22 -idt \x22$TMPDirectory\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/calibration/calibration_ainsworth.exe -id \x22$CalibDirInput\x22 -od \x22$CalibDirOutput\x22 -idt \x22$TMPDirectory\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/calibration/calibration_ainsworth.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$CalibDirInput\x22 -od \x22$CalibDirOutput\x22 -idt \x22$TMPDirectory\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/calibration/calibration_ainsworth.exe -id \x22$CalibDirInput\x22 -od \x22$CalibDirOutput\x22 -idt \x22$TMPDirectory\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -988,9 +988,9 @@ if {"$VarWarning"=="ok"} {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/speckle_filter/boxcar_filter.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$CalibDirInput\x22 -od \x22$TMPDirectory\x22 -iodf S2C4 -nwr $NwinCalibRow -nwc $NwinCalibCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/speckle_filter/boxcar_filter.exe -id \x22$CalibDirInput\x22 -od \x22$TMPDirectory\x22 -iodf S2C4 -nwr $NwinCalibRow -nwc $NwinCalibCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/speckle_filter/boxcar_filter.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$CalibDirInput\x22 -od \x22$TMPDirectory\x22 -iodf S2C4 -nwr $NwinCalibRow -nwc $NwinCalibCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/speckle_filter/boxcar_filter.exe -id \x22$CalibDirInput\x22 -od \x22$TMPDirectory\x22 -iodf S2C4 -nwr $NwinCalibRow -nwc $NwinCalibCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1001,9 +1001,9 @@ if {"$VarWarning"=="ok"} {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/calibration/calibration_quegan.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$CalibDirInput\x22 -od \x22$CalibDirOutput\x22 -idt \x22$TMPDirectory\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/calibration/calibration_quegan.exe -id \x22$CalibDirInput\x22 -od \x22$CalibDirOutput\x22 -idt \x22$TMPDirectory\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/calibration/calibration_quegan.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$CalibDirInput\x22 -od \x22$CalibDirOutput\x22 -idt \x22$TMPDirectory\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/calibration/calibration_quegan.exe -id \x22$CalibDirInput\x22 -od \x22$CalibDirOutput\x22 -idt \x22$TMPDirectory\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1017,9 +1017,9 @@ if {"$VarWarning"=="ok"} {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/calibration/calibration_papathanassiou.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$CalibDirInput\x22 -od \x22$CalibDirOutput\x22 -nwr $NwinCalibRow -nwc $NwinCalibCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/calibration/calibration_papathanassiou.exe -id \x22$CalibDirInput\x22 -od \x22$CalibDirOutput\x22 -nwr $NwinCalibRow -nwc $NwinCalibCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/calibration/calibration_papathanassiou.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$CalibDirInput\x22 -od \x22$CalibDirOutput\x22 -nwr $NwinCalibRow -nwc $NwinCalibCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/calibration/calibration_papathanassiou.exe -id \x22$CalibDirInput\x22 -od \x22$CalibDirOutput\x22 -nwr $NwinCalibRow -nwc $NwinCalibCol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1033,9 +1033,9 @@ if {"$VarWarning"=="ok"} {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/calibration/calibration_sato.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$CalibDirInput\x22 -od \x22$CalibDirOutput\x22 -td \x22$TMPDirectory\x22 -iodf S2 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/calibration/calibration_sato.exe -id \x22$CalibDirInput\x22 -od \x22$CalibDirOutput\x22 -td \x22$TMPDirectory\x22 -iodf S2 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/calibration/calibration_sato.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$CalibDirInput\x22 -od \x22$CalibDirOutput\x22 -td \x22$TMPDirectory\x22 -iodf S2  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/calibration/calibration_sato.exe -id \x22$CalibDirInput\x22 -od \x22$CalibDirOutput\x22 -td \x22$TMPDirectory\x22 -iodf S2  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError

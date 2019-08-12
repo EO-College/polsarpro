@@ -767,7 +767,7 @@ proc ::main {argc argv} {
 proc ::PlotScatterPlot {} {
 global GnuplotPipeFid GnuplotPipeScatterPlot GnuXview GnuZview  
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
-global ImageMagickMaker TMPGnuPlotTk1 TMPGnuPlot1Tk GnuOutputFormat GnuOutputFile
+global TMPGnuPlotTk1 TMPGnuPlot1Tk GnuOutputFormat GnuOutputFile
 global TMPScatterPlotFileOutputXYbin TMPScatterPlotFileOutputXYtxt
 global ScatterPlotLabelX ScatterPlotLabelY ScatterPlotTitle
 global PlatForm WinDir GnuPlotPath WGNUPLOTINIDir
@@ -805,7 +805,7 @@ if [file exists $TMPScatterPlotFileOutputXYtxt] {
     	set GnuplotPipeScatterPlot $GnuplotPipeFid
 	}
 
-    PlotScatterPlotThumb
+    #PlotScatterPlotThumb
     
     set GnuOutputFile $TMPGnuPlotTk1
     puts $GnuplotPipeScatterPlot "reset"; flush $GnuplotPipeScatterPlot 
@@ -864,9 +864,10 @@ if [file exists $TMPScatterPlotFileOutputXYtxt] {
     set GnuplotPipeFid "" 
 
     WaitUntilCreated $TMPGnuPlotTk1
+    Gimp $TMPGnuPlotTk1
 
     set ProgressLine "0"; update
-    ViewGnuPlotTK 1 .top407 "Scatter Plot"   
+    #ViewGnuPlotTKThumb 1 .top407 "Scatter Plot"   
     }
 }
 #############################################################################
@@ -875,7 +876,7 @@ if [file exists $TMPScatterPlotFileOutputXYtxt] {
 proc ::PlotScatterPlotThumb {} {
 global GnuplotPipeFid GnuplotPipeScatterPlot GnuXview GnuZview  
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
-global ImageMagickMaker TMPGnuPlotTk1 TMPGnuPlot1Tk GnuOutputFormat GnuOutputFile
+global TMPGnuPlotTk1 TMPGnuPlot1Tk GnuOutputFormat GnuOutputFile
 global TMPScatterPlotFileOutputXYbin TMPScatterPlotFileOutputXYtxt
 global ScatterPlotLabelX ScatterPlotLabelY ScatterPlotTitle PSPThumbnails
 global PlatForm WinDir GnuPlotPath WGNUPLOTINIDir
@@ -1073,26 +1074,54 @@ set FileName ""
 OpenFile $ScatterPlotDirInput $types "INPUT FILE"
     
 if {$FileName != ""} {
-    set ScatterPlotDirInputX [file dirname $FileName]
-    set ConfigFile "$ScatterPlotDirInputX/config.txt"
-    set ErrorMessage ""
-    LoadConfig
-    if {"$ErrorMessage" == ""} {
-        set ScatterPlotFileMaskX "$ScatterPlotDirInputX/mask_valid_pixels.bin"
-        if [file exists $ScatterPlotFileMaskX] {
-            set ScatterPlotFileInputX $FileName
+    set FileNameHdr "$FileName.hdr"
+    if [file exists $FileNameHdr] {
+        set f [open $FileNameHdr "r"]
+        gets $f tmp
+        gets $f tmp
+        gets $f tmp
+        if {[string first "PolSARpro" $tmp] != "-1"} {
+            gets $f tmp; gets $f tmp 
+            gets $f tmp; gets $f tmp
+            gets $f tmp; gets $f tmp
+            if {$tmp == "data type = 2"} {set InputFormatX "int"; set OutputFormatX "real"}
+            if {$tmp == "data type = 4"} {set InputFormatX "float"; set OutputFormatX "real"}
+            if {$tmp == "data type = 6"} {set InputFormatX "cmplx"; set OutputFormatX "mod"}
+
+            set ScatterPlotDirInputX [file dirname $FileName]
+            set ConfigFile "$ScatterPlotDirInputX/config.txt"
+            set ErrorMessage ""
+            LoadConfig
+            if {"$ErrorMessage" == ""} {
+                set ScatterPlotFileMaskX "$ScatterPlotDirInputX/mask_valid_pixels.bin"
+                if [file exists $ScatterPlotFileMaskX] {
+                    set ScatterPlotFileInputX $FileName
+                    } else {
+                    set ErrorMessage "THE mask_valid_pixels.bin FILE DOES NOT EXIST"
+                    Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
+                    tkwait variable VarError
+                    if {$VarError == "cancel"} {Window hide $widget(Toplevel407); TextEditorRunTrace "Close Window Create ScatterPlot File" "b"}
+                    }    
+                } else {
+                Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
+                tkwait variable VarError
+                if {$VarError == "cancel"} {Window hide $widget(Toplevel407); TextEditorRunTrace "Close Window Create ScatterPlot File" "b"}
+                }    
             } else {
-            set ErrorMessage "THE mask_valid_pixels.bin FILE DOES NOT EXIST"
+            set ErrorMessage "NOT A PolSARpro BINARY DATA FILE TYPE"
             Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
             tkwait variable VarError
             if {$VarError == "cancel"} {Window hide $widget(Toplevel407); TextEditorRunTrace "Close Window Create ScatterPlot File" "b"}
             }    
+        close $f
         } else {
+        set ErrorMessage "THE HDR FILE $FileNameHdr DOES NOT EXIST"
         Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
         tkwait variable VarError
         if {$VarError == "cancel"} {Window hide $widget(Toplevel407); TextEditorRunTrace "Close Window Create ScatterPlot File" "b"}
         }    
-    }} \
+    }
+} \
         -image [vTcl:image:get_image [file join . GUI Images OpenFile.gif]] \
         -padx 1 -pady 0 -text button 
     bindtags $site_6_0.cpd79 "$site_6_0.cpd79 Button $top all _vTclBalloon"
@@ -1258,9 +1287,9 @@ set Fonction2 "$ScatterPlotFileInputX"
 set ProgressLine "0"
 WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
 update
-TextEditorRunTrace "Process The Function Soft/bmp_process/MinMaxBMP.exe" "k"
+TextEditorRunTrace "Process The Function Soft/bin/bmp_process/MinMaxBMP.exe" "k"
 TextEditorRunTrace "Arguments: -if \x22$ScatterPlotFileInputX\x22 -ift $InputFormatX -oft $OutputFormatX -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -of \x22$TMPMinMaxBmp\x22 $MaskCmd" "k"
-set f [ open "| Soft/bmp_process/MinMaxBMP.exe -if \x22$ScatterPlotFileInputX\x22 -ift $InputFormatX -oft $OutputFormatX -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -of \x22$TMPMinMaxBmp\x22 $MaskCmd" r]
+set f [ open "| Soft/bin/bmp_process/MinMaxBMP.exe -if \x22$ScatterPlotFileInputX\x22 -ift $InputFormatX -oft $OutputFormatX -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -of \x22$TMPMinMaxBmp\x22 $MaskCmd" r]
 PsPprogressBar $f
 TextEditorRunTrace "Check RunTime Errors" "r"
 CheckRunTimeError
@@ -1432,26 +1461,54 @@ set FileName ""
 OpenFile $ScatterPlotDirInput $types "INPUT FILE"
     
 if {$FileName != ""} {
-    set ScatterPlotDirInputY [file dirname $FileName]
-    set ConfigFile "$ScatterPlotDirInputY/config.txt"
-    set ErrorMessage ""
-    LoadConfig
-    if {"$ErrorMessage" == ""} {
-        set ScatterPlotFileMaskY "$ScatterPlotDirInputY/mask_valid_pixels.bin"
-        if [file exists $ScatterPlotFileMaskY] {
-            set ScatterPlotFileInputY $FileName
+    set FileNameHdr "$FileName.hdr"
+    if [file exists $FileNameHdr] {
+        set f [open $FileNameHdr "r"]
+        gets $f tmp
+        gets $f tmp
+        gets $f tmp
+        if {[string first "PolSARpro" $tmp] != "-1"} {
+            gets $f tmp; gets $f tmp 
+            gets $f tmp; gets $f tmp
+            gets $f tmp; gets $f tmp
+            if {$tmp == "data type = 2"} {set InputFormatY "int"; set OutputFormatY "real"}
+            if {$tmp == "data type = 4"} {set InputFormatY "float"; set OutputFormatY "real"}
+            if {$tmp == "data type = 6"} {set InputFormatY "cmplx"; set OutputFormatY "mod"}
+
+            set ScatterPlotDirInputY [file dirname $FileName]
+            set ConfigFile "$ScatterPlotDirInputY/config.txt"
+            set ErrorMessage ""
+            LoadConfig
+            if {"$ErrorMessage" == ""} {
+                set ScatterPlotFileMaskY "$ScatterPlotDirInputY/mask_valid_pixels.bin"
+                if [file exists $ScatterPlotFileMaskY] {
+                    set ScatterPlotFileInputY $FileName
+                    } else {
+                    set ErrorMessage "THE mask_valid_pixels.bin FILE DOES NOT EXIST"
+                    Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
+                    tkwait variable VarError
+                    if {$VarError == "cancel"} {Window hide $widget(Toplevel407); TextEditorRunTrace "Close Window Create ScatterPlot File" "b"}
+                    }    
+                } else {
+                Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
+                tkwait variable VarError
+                if {$VarError == "cancel"} {Window hide $widget(Toplevel407); TextEditorRunTrace "Close Window Create ScatterPlot File" "b"}
+                }    
             } else {
-            set ErrorMessage "THE mask_valid_pixels.bin FILE DOES NOT EXIST"
+            set ErrorMessage "NOT A PolSARpro BINARY DATA FILE TYPE"
             Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
             tkwait variable VarError
             if {$VarError == "cancel"} {Window hide $widget(Toplevel407); TextEditorRunTrace "Close Window Create ScatterPlot File" "b"}
             }    
+        close $f
         } else {
+        set ErrorMessage "THE HDR FILE $FileNameHdr DOES NOT EXIST"
         Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
         tkwait variable VarError
         if {$VarError == "cancel"} {Window hide $widget(Toplevel407); TextEditorRunTrace "Close Window Create ScatterPlot File" "b"}
         }    
-    }} \
+    }
+} \
         -image [vTcl:image:get_image [file join . GUI Images OpenFile.gif]] \
         -padx 1 -pady 0 -text button 
     bindtags $site_6_0.cpd79 "$site_6_0.cpd79 Button $top all _vTclBalloon"
@@ -1617,9 +1674,9 @@ set Fonction2 "$ScatterPlotFileInputY"
 set ProgressLine "0"
 WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
 update
-TextEditorRunTrace "Process The Function Soft/bmp_process/MinMaxBMP.exe" "k"
+TextEditorRunTrace "Process The Function Soft/bin/bmp_process/MinMaxBMP.exe" "k"
 TextEditorRunTrace "Arguments: -if \x22$ScatterPlotFileInputY\x22 -ift $InputFormatY -oft $OutputFormatY -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -of \x22$TMPMinMaxBmp\x22 $MaskCmd" "k"
-set f [ open "| Soft/bmp_process/MinMaxBMP.exe -if \x22$ScatterPlotFileInputY\x22 -ift $InputFormatY -oft $OutputFormatY -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -of \x22$TMPMinMaxBmp\x22 $MaskCmd" r]
+set f [ open "| Soft/bin/bmp_process/MinMaxBMP.exe -if \x22$ScatterPlotFileInputY\x22 -ift $InputFormatY -oft $OutputFormatY -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -of \x22$TMPMinMaxBmp\x22 $MaskCmd" r]
 PsPprogressBar $f
 TextEditorRunTrace "Check RunTime Errors" "r"
 CheckRunTimeError
@@ -1798,7 +1855,8 @@ global MinMaxAutoScatterPlotY MinMaxContrastScatterPlotY
 global InputFormatY OutputFormatY MinScatterPlotY MaxScatterPlotY MinCScatterPlotY MaxCScatterPlotY
 global VarError ErrorMessage Fonction Fonction2 ProgressLine OpenDirFile
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
-global TMPScatterPlotFileOutputXtxt TMPScatterPlotFileOutputXbin TMPScatterPlotFileOutputYtxt TMPScatterPlotFileOutputYbin
+global TMPScatterPlotFileOutputXtxt TMPScatterPlotFileOutputXbin TMPScatterPlotFileOutputXmask
+global TMPScatterPlotFileOutputYtxt TMPScatterPlotFileOutputYbin TMPScatterPlotFileOutputYmask
 global TMPScatterPlotFileOutputXYbin TMPScatterPlotFileOutputXYtxt
 
 if {$OpenDirFile == 0} {
@@ -1858,21 +1916,24 @@ if {"$NligInit"!="0"} {
     
                 DeleteFile $TMPScatterPlotFileOutputXbin
                 DeleteFile $TMPScatterPlotFileOutputXtxt
+                DeleteFile $TMPScatterPlotFileOutputXmask
                 DeleteFile $TMPScatterPlotFileOutputYbin
                 DeleteFile $TMPScatterPlotFileOutputYtxt
+                DeleteFile $TMPScatterPlotFileOutputYmask
                 DeleteFile $TMPScatterPlotFileOutputXYbin
                 DeleteFile $TMPScatterPlotFileOutputXYtxt
 
                 set ScatterPlotDirOutput [file dirname $ScatterPlotFileInputX]
+                set BorderType "Null"
 
                 set Fonction "Creation of the ScatterPlot File :"
                 set Fonction2 "$ScatterPlotFileOutput"    
                 set ProgressLine "0"
                 WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                 update
-                TextEditorRunTrace "Process The Function Soft/bmp_process/prepare_scatterplot.exe" "k"
-                TextEditorRunTrace "Arguments: -if \x22$ScatterPlotFileInputX\x22 -mask \x22$ScatterPlotFileMaskX\x22 -obf \x22$TMPScatterPlotFileOutputXbin\x22 -otf \x22$TMPScatterPlotFileOutputXtxt\x22 -ift $InputFormatX -oft $OutputFormatX -nc $FinalNcol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mm $MinMaxScatterPlotX -min $MinScatterPlotX -max $MaxScatterPlotX" "k"
-                set f [ open "| Soft/bmp_process/prepare_scatterplot.exe -if \x22$ScatterPlotFileInputX\x22 -mask \x22$ScatterPlotFileMaskX\x22 -obf \x22$TMPScatterPlotFileOutputXbin\x22 -otf \x22$TMPScatterPlotFileOutputXtxt\x22 -ift $InputFormatX -oft $OutputFormatX -nc $FinalNcol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mm $MinMaxScatterPlotX -min $MinScatterPlotX -max $MaxScatterPlotX" r]
+                TextEditorRunTrace "Process The Function Soft/bin/bmp_process/prepare_scatterplot.exe" "k"
+                TextEditorRunTrace "Arguments: -if \x22$ScatterPlotFileInputX\x22 -mask \x22$ScatterPlotFileMaskX\x22 -obf \x22$TMPScatterPlotFileOutputXbin\x22 -otf \x22$TMPScatterPlotFileOutputXtxt\x22 -omf \x22$TMPScatterPlotFileOutputXmask\x22 -ift $InputFormatX -oft $OutputFormatX -nc $FinalNcol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mm $MinMaxScatterPlotX -min $MinScatterPlotX -max $MaxScatterPlotX -bord $BorderType" "k"
+                set f [ open "| Soft/bin/bmp_process/prepare_scatterplot.exe -if \x22$ScatterPlotFileInputX\x22 -mask \x22$ScatterPlotFileMaskX\x22 -obf \x22$TMPScatterPlotFileOutputXbin\x22 -otf \x22$TMPScatterPlotFileOutputXtxt\x22 -omf \x22$TMPScatterPlotFileOutputXmask\x22 -ift $InputFormatX -oft $OutputFormatX -nc $FinalNcol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mm $MinMaxScatterPlotX -min $MinScatterPlotX -max $MaxScatterPlotX -bord $BorderType" r]
                 PsPprogressBar $f
                 TextEditorRunTrace "Check RunTime Errors" "r"
                 CheckRunTimeError
@@ -1881,9 +1942,9 @@ if {"$NligInit"!="0"} {
                 set ProgressLine "0"
                 WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                 update
-                TextEditorRunTrace "Process The Function Soft/bmp_process/prepare_scatterplot.exe" "k"
-                TextEditorRunTrace "Arguments: -if \x22$ScatterPlotFileInputY\x22 -mask \x22$ScatterPlotFileMaskY\x22 -obf \x22$TMPScatterPlotFileOutputYbin\x22 -otf \x22$TMPScatterPlotFileOutputYtxt\x22 -ift $InputFormatY -oft $OutputFormatY -nc $FinalNcol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mm $MinMaxScatterPlotY -min $MinScatterPlotY -max $MaxScatterPlotY" "k"
-                set f [ open "| Soft/bmp_process/prepare_scatterplot.exe -if \x22$ScatterPlotFileInputY\x22 -mask \x22$ScatterPlotFileMaskY\x22 -obf \x22$TMPScatterPlotFileOutputYbin\x22 -otf \x22$TMPScatterPlotFileOutputYtxt\x22 -ift $InputFormatY -oft $OutputFormatY -nc $FinalNcol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mm $MinMaxScatterPlotY -min $MinScatterPlotY -max $MaxScatterPlotY" r]
+                TextEditorRunTrace "Process The Function Soft/bin/bmp_process/prepare_scatterplot.exe" "k"
+                TextEditorRunTrace "Arguments: -if \x22$ScatterPlotFileInputY\x22 -mask \x22$ScatterPlotFileMaskY\x22 -obf \x22$TMPScatterPlotFileOutputYbin\x22 -otf \x22$TMPScatterPlotFileOutputYtxt\x22 -omf \x22$TMPScatterPlotFileOutputYmask\x22 -ift $InputFormatY -oft $OutputFormatY -nc $FinalNcol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mm $MinMaxScatterPlotY -min $MinScatterPlotY -max $MaxScatterPlotY -bord $BorderType" "k"
+                set f [ open "| Soft/bin/bmp_process/prepare_scatterplot.exe -if \x22$ScatterPlotFileInputY\x22 -mask \x22$ScatterPlotFileMaskY\x22 -obf \x22$TMPScatterPlotFileOutputYbin\x22 -otf \x22$TMPScatterPlotFileOutputYtxt\x22 -omf \x22$TMPScatterPlotFileOutputYmask\x22 -ift $InputFormatY -oft $OutputFormatY -nc $FinalNcol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mm $MinMaxScatterPlotY -min $MinScatterPlotY -max $MaxScatterPlotY -bord $BorderType" r]
                 PsPprogressBar $f
                 TextEditorRunTrace "Check RunTime Errors" "r"
                 CheckRunTimeError
@@ -1892,15 +1953,16 @@ if {"$NligInit"!="0"} {
                 set ProgressLine "0"
                 WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                 update
-                TextEditorRunTrace "Process The Function Soft/bmp_process/create_scatterplot.exe" "k"
-                TextEditorRunTrace "Arguments: -ifbX \x22$TMPScatterPlotFileOutputXbin\x22 -iftX \x22$TMPScatterPlotFileOutputXtxt\x22 -ifbY \x22$TMPScatterPlotFileOutputYbin\x22 -iftY \x22$TMPScatterPlotFileOutputYtxt\x22 -ofb \x22$TMPScatterPlotFileOutputXYbin\x22 -oft \x22$TMPScatterPlotFileOutputXYtxt\x22 -fnr $FinalNlig -fnc $FinalNcol" "k"
-                set f [ open "| Soft/bmp_process/create_scatterplot.exe -ifbX \x22$TMPScatterPlotFileOutputXbin\x22 -iftX \x22$TMPScatterPlotFileOutputXtxt\x22 -ifbY \x22$TMPScatterPlotFileOutputYbin\x22 -iftY \x22$TMPScatterPlotFileOutputYtxt\x22 -ofb \x22$TMPScatterPlotFileOutputXYbin\x22 -oft \x22$TMPScatterPlotFileOutputXYtxt\x22 -fnr $FinalNlig -fnc $FinalNcol" r]
+                TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_scatterplot.exe" "k"
+                TextEditorRunTrace "Arguments: -ifbX \x22$TMPScatterPlotFileOutputXbin\x22 -iftX \x22$TMPScatterPlotFileOutputXtxt\x22 -ifmX \x22$TMPScatterPlotFileOutputXmask\x22 -ifbY \x22$TMPScatterPlotFileOutputYbin\x22 -iftY \x22$TMPScatterPlotFileOutputYtxt\x22 -ifmY \x22$TMPScatterPlotFileOutputYmask\x22 -ofb \x22$TMPScatterPlotFileOutputXYbin\x22 -oft \x22$TMPScatterPlotFileOutputXYtxt\x22 -fnr $FinalNlig -fnc $FinalNcol" "k"
+                set f [ open "| Soft/bin/bmp_process/create_scatterplot.exe -ifbX \x22$TMPScatterPlotFileOutputXbin\x22 -iftX \x22$TMPScatterPlotFileOutputXtxt\x22 -ifmX \x22$TMPScatterPlotFileOutputXmask\x22 -ifbY \x22$TMPScatterPlotFileOutputYbin\x22 -iftY \x22$TMPScatterPlotFileOutputYtxt\x22 -ifmY \x22$TMPScatterPlotFileOutputYmask\x22 -ofb \x22$TMPScatterPlotFileOutputXYbin\x22 -oft \x22$TMPScatterPlotFileOutputXYtxt\x22 -fnr $FinalNlig -fnc $FinalNcol" r]
                 PsPprogressBar $f
                 TextEditorRunTrace "Check RunTime Errors" "r"
                 CheckRunTimeError
                 WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
 
                 WaitUntilCreated $TMPScatterPlotFileOutputXYbin
+                WaitUntilCreated $TMPScatterPlotFileOutputXYtxt
 
                 PlotScatterPlot
                 $widget(Button407_3) configure -state normal

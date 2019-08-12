@@ -1001,9 +1001,9 @@ if {$OpenDirFile == 0} {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/data_process_sngl/cluster_create.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/cluster_create.exe" "k"
             TextEditorRunTrace "Arguments: -isf \x22$ClusterSegFile\x22 -ivf \x22$ClusterValFile\x22 -of \x22$ClusterFile\x22 -fnr $FinalNlig -fnc $FinalNcol -npix $ClusterNpix -neig $ClusterNeighb" "k"
-            set f [ open "| Soft/data_process_sngl/cluster_create.exe -isf \x22$ClusterSegFile\x22 -ivf \x22$ClusterValFile\x22 -of \x22$ClusterFile\x22 -fnr $FinalNlig -fnc $FinalNcol -npix $ClusterNpix -neig $ClusterNeighb" r]
+            set f [ open "| Soft/bin/data_process_sngl/cluster_create.exe -isf \x22$ClusterSegFile\x22 -ivf \x22$ClusterValFile\x22 -of \x22$ClusterFile\x22 -fnr $FinalNlig -fnc $FinalNcol -npix $ClusterNpix -neig $ClusterNeighb" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError

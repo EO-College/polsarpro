@@ -459,39 +459,25 @@ proc vTcl:project:info {} {
         array set save {-text 1}
     }
     namespace eval ::widgets::$site_3_0.ent58 {
-        array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -state 1 -textvariable 1 -width 1}
+        array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -justify 1 -state 1 -textvariable 1 -width 1}
     }
     namespace eval ::widgets::$site_3_0.lab59 {
         array set save {-text 1}
     }
     namespace eval ::widgets::$site_3_0.ent60 {
-        array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -state 1 -textvariable 1 -width 1}
+        array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -justify 1 -state 1 -textvariable 1 -width 1}
     }
     namespace eval ::widgets::$site_3_0.lab61 {
         array set save {-text 1}
     }
     namespace eval ::widgets::$site_3_0.ent62 {
-        array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -state 1 -textvariable 1 -width 1}
+        array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -justify 1 -state 1 -textvariable 1 -width 1}
     }
     namespace eval ::widgets::$site_3_0.lab63 {
         array set save {-text 1}
     }
     namespace eval ::widgets::$site_3_0.ent64 {
-        array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -state 1 -textvariable 1 -width 1}
-    }
-    namespace eval ::widgets::$base.cpd83 {
-        array set save {-text 1}
-    }
-    set site_4_0 [$base.cpd83 getframe]
-    namespace eval ::widgets::$site_4_0 {
-        array set save {}
-    }
-    set site_4_0 $site_4_0
-    namespace eval ::widgets::$site_4_0.cpd80 {
-        array set save {-text 1 -value 1 -variable 1}
-    }
-    namespace eval ::widgets::$site_4_0.cpd81 {
-        array set save {-text 1 -value 1 -variable 1}
+        array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -justify 1 -state 1 -textvariable 1 -width 1}
     }
     namespace eval ::widgets::$base.cpd73 {
         array set save {-text 1}
@@ -695,14 +681,28 @@ proc vTcl:project:info {} {
         array set save {}
     }
     set site_4_0 $site_4_0
-    namespace eval ::widgets::$site_4_0.cpd80 {
-        array set save {-text 1 -value 1 -variable 1}
+    namespace eval ::widgets::$site_4_0.cpd66 {
+        array set save {}
     }
-    namespace eval ::widgets::$site_4_0.cpd81 {
-        array set save {-text 1 -value 1 -variable 1}
-    }
-    namespace eval ::widgets::$site_4_0.che72 {
+    set site_5_0 $site_4_0.cpd66
+    namespace eval ::widgets::$site_5_0.che72 {
         array set save {-text 1 -variable 1}
+    }
+    namespace eval ::widgets::$site_5_0.cpd81 {
+        array set save {-text 1 -value 1 -variable 1}
+    }
+    namespace eval ::widgets::$site_5_0.cpd80 {
+        array set save {-text 1 -value 1 -variable 1}
+    }
+    namespace eval ::widgets::$site_4_0.cpd67 {
+        array set save {}
+    }
+    set site_5_0 $site_4_0.cpd67
+    namespace eval ::widgets::$site_5_0.che72 {
+        array set save {-text 1 -variable 1}
+    }
+    namespace eval ::widgets::$site_5_0.cpd81 {
+        array set save {-text 1 -value 1 -variable 1}
     }
     namespace eval ::widgets::$base.fra83 {
         array set save {-height 1 -relief 1 -width 1}
@@ -753,7 +753,8 @@ proc ::PlotSpectrum {} {
 global TMPRawSpectrumTxt TMPRawSpectrumBin TMPAvgSpectrumTxt TMPAvgSpectrumBin
 global GnuplotPipeFid GnuplotPipeSpectrum GnuOutputFormat GnuOutputFile
 global GnuSpectrumChannelId GnuSpectrumChannel GnuSpectrumFile
-global ImageMagickMaker TMPGnuPlotTk1 TMPGnuPlot1Tk
+global TMPGnuPlotTk1 TMPGnuPlot1Tk
+global DataFormatActive PolarType
 
 set xwindow [winfo x .top243]; set ywindow [winfo y .top243]
 
@@ -766,17 +767,33 @@ if {$GnuplotPipeSpectrum == ""} {
     set GnuplotPipeSpectrum $GnuplotPipeFid
     }
 
-PlotSpectrumThumb
+#PlotSpectrumThumb
 
 set GnuOutputFile $TMPGnuPlotTk1
 set GnuOutputFormat "gif"
 GnuPlotTerm $GnuplotPipeSpectrum $GnuOutputFormat
 
-if {$GnuSpectrumChannelId == 1} {set GnuSpectrumChannel "s11"}
-if {$GnuSpectrumChannelId == 2} {set GnuSpectrumChannel "s12"}
-if {$GnuSpectrumChannelId == 3} {set GnuSpectrumChannel "s21"}
-if {$GnuSpectrumChannelId == 4} {set GnuSpectrumChannel "s22"}
-#if {$GnuSpectrumChannelId == 5} {set GnuSpectrumChannel "All"}
+if {$DataFormatActive == "S2"} {
+    if {$GnuSpectrumChannelId == 1} {set GnuSpectrumChannel "s11"}
+    if {$GnuSpectrumChannelId == 2} {set GnuSpectrumChannel "s12"}
+    if {$GnuSpectrumChannelId == 3} {set GnuSpectrumChannel "s21"}
+    if {$GnuSpectrumChannelId == 4} {set GnuSpectrumChannel "s22"}
+    #if {$GnuSpectrumChannelId == 5} {set GnuSpectrumChannel "All"}
+    }
+if {$DataFormatActive == "SPP"} {
+    if {$PolarType == "pp1"} {
+        if {$GnuSpectrumChannelId == 1} {set GnuSpectrumChannel "s11"}
+        if {$GnuSpectrumChannelId == 2} {set GnuSpectrumChannel "s21"}
+        }
+    if {$PolarType == "pp2"} {
+        if {$GnuSpectrumChannelId == 1} {set GnuSpectrumChannel "s22"}
+        if {$GnuSpectrumChannelId == 2} {set GnuSpectrumChannel "s12"}
+        }
+    if {$PolarType == "pp3"} {
+        if {$GnuSpectrumChannelId == 1} {set GnuSpectrumChannel "s11"}
+        if {$GnuSpectrumChannelId == 2} {set GnuSpectrumChannel "s22"}
+        }
+    }
 
 if {$GnuSpectrumFile == "raw"} {
     WaitUntilCreated $TMPRawSpectrumTxt 
@@ -803,19 +820,51 @@ puts $GnuplotPipeSpectrum "set ylabel 'Amplitude - dB'"; flush $GnuplotPipeSpect
 set xrg "\x5B$xmin:$xmax\x5D"; puts $GnuplotPipeSpectrum "set xrange $xrg noreverse nowriteback"; flush $GnuplotPipeSpectrum
 set yrg "\x5B$ymin:$ymax\x5D"; puts $GnuplotPipeSpectrum "set yrange $yrg noreverse nowriteback"; flush $GnuplotPipeSpectrum
 puts $GnuplotPipeSpectrum "set title 'Doppler Spectrum - Channel $GnuSpectrumChannel' textcolor lt 3"; flush $GnuplotPipeSpectrum
-if {$GnuSpectrumFile == "raw"} {
-    if {$GnuSpectrumChannelId == 1} {puts $GnuplotPipeSpectrum "plot '$TMPRawSpectrumBin' using 1:2 title 's11 channel' with lines"; flush $GnuplotPipeSpectrum}
-    if {$GnuSpectrumChannelId == 2} {puts $GnuplotPipeSpectrum "plot '$TMPRawSpectrumBin' using 1:3 title 's12 channel' with lines"; flush $GnuplotPipeSpectrum}
-    if {$GnuSpectrumChannelId == 3} {puts $GnuplotPipeSpectrum "plot '$TMPRawSpectrumBin' using 1:4 title 's21 channel' with lines"; flush $GnuplotPipeSpectrum}
-    if {$GnuSpectrumChannelId == 4} {puts $GnuplotPipeSpectrum "plot '$TMPRawSpectrumBin' using 1:5 title 's22 channel' with lines"; flush $GnuplotPipeSpectrum}
-    #if {$GnuSpectrumChannelId == 5} {puts $GnuplotPipeSpectrum "plot '$TMPRawSpectrumBin' using 1:2 title 's11 channel' with lines, '$TMPRawSpectrumBin' using 1:3 title 's12 channel' with lines, '$TMPRawSpectrumBin' using 1:4 title 's21 channel' with lines, '$TMPRawSpectrumBin' using 1:5 title 's22 channel' with lines"; flush $GnuplotPipeSpectrum}
+if {$DataFormatActive == "S2"} {
+    if {$GnuSpectrumFile == "raw"} {
+        if {$GnuSpectrumChannel == "s11"} {puts $GnuplotPipeSpectrum "plot '$TMPRawSpectrumBin' using 1:2 title 's11 channel' with lines"; flush $GnuplotPipeSpectrum}
+        if {$GnuSpectrumChannel == "s12"} {puts $GnuplotPipeSpectrum "plot '$TMPRawSpectrumBin' using 1:3 title 's12 channel' with lines"; flush $GnuplotPipeSpectrum}
+        if {$GnuSpectrumChannel == "s21"} {puts $GnuplotPipeSpectrum "plot '$TMPRawSpectrumBin' using 1:4 title 's21 channel' with lines"; flush $GnuplotPipeSpectrum}
+        if {$GnuSpectrumChannel == "s22"} {puts $GnuplotPipeSpectrum "plot '$TMPRawSpectrumBin' using 1:5 title 's22 channel' with lines"; flush $GnuplotPipeSpectrum}
+        #if {$GnuSpectrumChannelId == 5} {puts $GnuplotPipeSpectrum "plot '$TMPRawSpectrumBin' using 1:2 title 's11 channel' with lines, '$TMPRawSpectrumBin' using 1:3 title 's12 channel' with lines, '$TMPRawSpectrumBin' using 1:4 title 's21 channel' with lines, '$TMPRawSpectrumBin' using 1:5 title 's22 channel' with lines"; flush $GnuplotPipeSpectrum}
+        }
+    if {$GnuSpectrumFile == "avg"} {
+        if {$GnuSpectrumChannel == "s11"} {puts $GnuplotPipeSpectrum "plot '$TMPAvgSpectrumBin' using 1:2 title 's11 channel' with lines"; flush $GnuplotPipeSpectrum}
+        if {$GnuSpectrumChannel == "s12"} {puts $GnuplotPipeSpectrum "plot '$TMPAvgSpectrumBin' using 1:3 title 's12 channel' with lines"; flush $GnuplotPipeSpectrum}
+        if {$GnuSpectrumChannel == "s21"} {puts $GnuplotPipeSpectrum "plot '$TMPAvgSpectrumBin' using 1:4 title 's21 channel' with lines"; flush $GnuplotPipeSpectrum}
+        if {$GnuSpectrumChannel == "s22"} {puts $GnuplotPipeSpectrum "plot '$TMPAvgSpectrumBin' using 1:5 title 's22 channel' with lines"; flush $GnuplotPipeSpectrum}
+        #if {$GnuSpectrumChannelId == 5} {puts $GnuplotPipeSpectrum "plot '$TMPAvgSpectrumBin' using 1:2 title 's11 channel' with lines, '$TMPAvgSpectrumBin' using 1:3 title 's12 channel' with lines, '$TMPAvgSpectrumBin' using 1:4 title 's21 channel' with lines, '$TMPAvgSpectrumBin' using 1:5 title 's22 channel' with lines"; flush $GnuplotPipeSpectrum}
+        }
     }
-if {$GnuSpectrumFile == "avg"} {
-    if {$GnuSpectrumChannelId == 1} {puts $GnuplotPipeSpectrum "plot '$TMPAvgSpectrumBin' using 1:2 title 's11 channel' with lines"; flush $GnuplotPipeSpectrum}
-    if {$GnuSpectrumChannelId == 2} {puts $GnuplotPipeSpectrum "plot '$TMPAvgSpectrumBin' using 1:3 title 's12 channel' with lines"; flush $GnuplotPipeSpectrum}
-    if {$GnuSpectrumChannelId == 3} {puts $GnuplotPipeSpectrum "plot '$TMPAvgSpectrumBin' using 1:4 title 's21 channel' with lines"; flush $GnuplotPipeSpectrum}
-    if {$GnuSpectrumChannelId == 4} {puts $GnuplotPipeSpectrum "plot '$TMPAvgSpectrumBin' using 1:5 title 's22 channel' with lines"; flush $GnuplotPipeSpectrum}
-    #if {$GnuSpectrumChannelId == 5} {puts $GnuplotPipeSpectrum "plot '$TMPAvgSpectrumBin' using 1:2 title 's11 channel' with lines, '$TMPAvgSpectrumBin' using 1:3 title 's12 channel' with lines, '$TMPAvgSpectrumBin' using 1:4 title 's21 channel' with lines, '$TMPAvgSpectrumBin' using 1:5 title 's22 channel' with lines"; flush $GnuplotPipeSpectrum}
+if {$DataFormatActive == "SPP"} {
+    if {$GnuSpectrumFile == "raw"} {
+        if {$PolarType == "pp1"} {
+            if {$GnuSpectrumChannel == "s11"} {puts $GnuplotPipeSpectrum "plot '$TMPRawSpectrumBin' using 1:2 title 's11 channel' with lines"; flush $GnuplotPipeSpectrum}
+            if {$GnuSpectrumChannel == "s21"} {puts $GnuplotPipeSpectrum "plot '$TMPRawSpectrumBin' using 1:3 title 's21 channel' with lines"; flush $GnuplotPipeSpectrum}
+            }
+        if {$PolarType == "pp2"} {
+            if {$GnuSpectrumChannel == "s22"} {puts $GnuplotPipeSpectrum "plot '$TMPRawSpectrumBin' using 1:2 title 's22 channel' with lines"; flush $GnuplotPipeSpectrum}
+            if {$GnuSpectrumChannel == "s12"} {puts $GnuplotPipeSpectrum "plot '$TMPRawSpectrumBin' using 1:3 title 's12 channel' with lines"; flush $GnuplotPipeSpectrum}
+            }
+        if {$PolarType == "pp3"} {
+            if {$GnuSpectrumChannel == "s11"} {puts $GnuplotPipeSpectrum "plot '$TMPRawSpectrumBin' using 1:2 title 's11 channel' with lines"; flush $GnuplotPipeSpectrum}
+            if {$GnuSpectrumChannel == "s22"} {puts $GnuplotPipeSpectrum "plot '$TMPRawSpectrumBin' using 1:3 title 's22 channel' with lines"; flush $GnuplotPipeSpectrum}
+            }
+        }
+    if {$GnuSpectrumFile == "avg"} {
+        if {$PolarType == "pp1"} {
+            if {$GnuSpectrumChannel == "s11"} {puts $GnuplotPipeSpectrum "plot '$TMPAvgSpectrumBin' using 1:2 title 's11 channel' with lines"; flush $GnuplotPipeSpectrum}
+            if {$GnuSpectrumChannel == "s21"} {puts $GnuplotPipeSpectrum "plot '$TMPAvgSpectrumBin' using 1:3 title 's21 channel' with lines"; flush $GnuplotPipeSpectrum}
+            }
+        if {$PolarType == "pp2"} {
+            if {$GnuSpectrumChannel == "s22"} {puts $GnuplotPipeSpectrum "plot '$TMPAvgSpectrumBin' using 1:2 title 's22 channel' with lines"; flush $GnuplotPipeSpectrum}
+            if {$GnuSpectrumChannel == "s12"} {puts $GnuplotPipeSpectrum "plot '$TMPAvgSpectrumBin' using 1:3 title 's12 channel' with lines"; flush $GnuplotPipeSpectrum}
+            }
+        if {$PolarType == "pp3"} {
+            if {$GnuSpectrumChannel == "s11"} {puts $GnuplotPipeSpectrum "plot '$TMPAvgSpectrumBin' using 1:2 title 's11 channel' with lines"; flush $GnuplotPipeSpectrum}
+            if {$GnuSpectrumChannel == "s22"} {puts $GnuplotPipeSpectrum "plot '$TMPAvgSpectrumBin' using 1:3 title 's22 channel' with lines"; flush $GnuplotPipeSpectrum}
+            }
+        }
     }
 puts $GnuplotPipeSpectrum "unset output"; flush $GnuplotPipeSpectrum 
 
@@ -827,7 +876,8 @@ catch "close $GnuplotPipeSpectrum"
 set GnuplotPipeSpectrum ""
 
 WaitUntilCreated $TMPGnuPlotTk1
-ViewGnuPlotTK 1 .top243 "Doppler Spectrum"
+Gimp $TMPGnuPlotTk1
+#ViewGnuPlotTKThumb 1 .top243 "Doppler Spectrum"
 }
 #############################################################################
 ## Procedure:  PlotSpectrumThumb
@@ -836,7 +886,8 @@ proc ::PlotSpectrumThumb {} {
 global TMPRawSpectrumTxt TMPRawSpectrumBin TMPAvgSpectrumTxt TMPAvgSpectrumBin
 global GnuplotPipeFid GnuplotPipeSpectrum GnuOutputFormat GnuOutputFile
 global GnuSpectrumChannelId GnuSpectrumChannel GnuSpectrumFile
-global ImageMagickMaker TMPGnuPlotTk1 TMPGnuPlot1Tk
+global TMPGnuPlotTk1 TMPGnuPlot1Tk
+global DataFormatActive PolarType
 
 set xwindow [winfo x .top243]; set ywindow [winfo y .top243]
 
@@ -846,11 +897,27 @@ set GnuOutputFile $TMPGnuPlot1Tk
 set GnuOutputFormat "png"
 GnuPlotTerm $GnuplotPipeSpectrum $GnuOutputFormat
 
-if {$GnuSpectrumChannelId == 1} {set GnuSpectrumChannel "s11"}
-if {$GnuSpectrumChannelId == 2} {set GnuSpectrumChannel "s12"}
-if {$GnuSpectrumChannelId == 3} {set GnuSpectrumChannel "s21"}
-if {$GnuSpectrumChannelId == 4} {set GnuSpectrumChannel "s22"}
-#if {$GnuSpectrumChannelId == 5} {set GnuSpectrumChannel "All"}
+if {$DataFormatActive == "S2"} {
+    if {$GnuSpectrumChannelId == 1} {set GnuSpectrumChannel "s11"}
+    if {$GnuSpectrumChannelId == 2} {set GnuSpectrumChannel "s12"}
+    if {$GnuSpectrumChannelId == 3} {set GnuSpectrumChannel "s21"}
+    if {$GnuSpectrumChannelId == 4} {set GnuSpectrumChannel "s22"}
+    #if {$GnuSpectrumChannelId == 5} {set GnuSpectrumChannel "All"}
+    }
+if {$DataFormatActive == "SPP"} {
+    if {$PolarType == "pp1"} {
+        if {$GnuSpectrumChannelId == 1} {set GnuSpectrumChannel "s11"}
+        if {$GnuSpectrumChannelId == 2} {set GnuSpectrumChannel "s21"}
+        }
+    if {$PolarType == "pp2"} {
+        if {$GnuSpectrumChannelId == 1} {set GnuSpectrumChannel "s22"}
+        if {$GnuSpectrumChannelId == 2} {set GnuSpectrumChannel "s12"}
+        }
+    if {$PolarType == "pp3"} {
+        if {$GnuSpectrumChannelId == 1} {set GnuSpectrumChannel "s11"}
+        if {$GnuSpectrumChannelId == 2} {set GnuSpectrumChannel "s22"}
+        }
+    }
 
 if {$GnuSpectrumFile == "raw"} {
     WaitUntilCreated $TMPRawSpectrumTxt 
@@ -877,19 +944,51 @@ puts $GnuplotPipeSpectrum "set ylabel 'Amplitude - dB'"; flush $GnuplotPipeSpect
 set xrg "\x5B$xmin:$xmax\x5D"; puts $GnuplotPipeSpectrum "set xrange $xrg noreverse nowriteback"; flush $GnuplotPipeSpectrum
 set yrg "\x5B$ymin:$ymax\x5D"; puts $GnuplotPipeSpectrum "set yrange $yrg noreverse nowriteback"; flush $GnuplotPipeSpectrum
 puts $GnuplotPipeSpectrum "set title 'Doppler Spectrum - Channel $GnuSpectrumChannel' textcolor lt 3"; flush $GnuplotPipeSpectrum
-if {$GnuSpectrumFile == "raw"} {
-    if {$GnuSpectrumChannelId == 1} {puts $GnuplotPipeSpectrum "plot '$TMPRawSpectrumBin' using 1:2 title 's11 channel' with lines"; flush $GnuplotPipeSpectrum}
-    if {$GnuSpectrumChannelId == 2} {puts $GnuplotPipeSpectrum "plot '$TMPRawSpectrumBin' using 1:3 title 's12 channel' with lines"; flush $GnuplotPipeSpectrum}
-    if {$GnuSpectrumChannelId == 3} {puts $GnuplotPipeSpectrum "plot '$TMPRawSpectrumBin' using 1:4 title 's21 channel' with lines"; flush $GnuplotPipeSpectrum}
-    if {$GnuSpectrumChannelId == 4} {puts $GnuplotPipeSpectrum "plot '$TMPRawSpectrumBin' using 1:5 title 's22 channel' with lines"; flush $GnuplotPipeSpectrum}
-    #if {$GnuSpectrumChannelId == 5} {puts $GnuplotPipeSpectrum "plot '$TMPRawSpectrumBin' using 1:2 title 's11 channel' with lines, '$TMPRawSpectrumBin' using 1:3 title 's12 channel' with lines, '$TMPRawSpectrumBin' using 1:4 title 's21 channel' with lines, '$TMPRawSpectrumBin' using 1:5 title 's22 channel' with lines"; flush $GnuplotPipeSpectrum}
+if {$DataFormatActive == "S2"} {
+    if {$GnuSpectrumFile == "raw"} {
+        if {$GnuSpectrumChannel == "s11"} {puts $GnuplotPipeSpectrum "plot '$TMPRawSpectrumBin' using 1:2 title 's11 channel' with lines"; flush $GnuplotPipeSpectrum}
+        if {$GnuSpectrumChannel == "s12"} {puts $GnuplotPipeSpectrum "plot '$TMPRawSpectrumBin' using 1:3 title 's12 channel' with lines"; flush $GnuplotPipeSpectrum}
+        if {$GnuSpectrumChannel == "s21"} {puts $GnuplotPipeSpectrum "plot '$TMPRawSpectrumBin' using 1:4 title 's21 channel' with lines"; flush $GnuplotPipeSpectrum}
+        if {$GnuSpectrumChannel == "s22"} {puts $GnuplotPipeSpectrum "plot '$TMPRawSpectrumBin' using 1:5 title 's22 channel' with lines"; flush $GnuplotPipeSpectrum}
+        #if {$GnuSpectrumChannelId == 5} {puts $GnuplotPipeSpectrum "plot '$TMPRawSpectrumBin' using 1:2 title 's11 channel' with lines, '$TMPRawSpectrumBin' using 1:3 title 's12 channel' with lines, '$TMPRawSpectrumBin' using 1:4 title 's21 channel' with lines, '$TMPRawSpectrumBin' using 1:5 title 's22 channel' with lines"; flush $GnuplotPipeSpectrum}
+        }
+    if {$GnuSpectrumFile == "avg"} {
+        if {$GnuSpectrumChannel == "s11"} {puts $GnuplotPipeSpectrum "plot '$TMPAvgSpectrumBin' using 1:2 title 's11 channel' with lines"; flush $GnuplotPipeSpectrum}
+        if {$GnuSpectrumChannel == "s12"} {puts $GnuplotPipeSpectrum "plot '$TMPAvgSpectrumBin' using 1:3 title 's12 channel' with lines"; flush $GnuplotPipeSpectrum}
+        if {$GnuSpectrumChannel == "s21"} {puts $GnuplotPipeSpectrum "plot '$TMPAvgSpectrumBin' using 1:4 title 's21 channel' with lines"; flush $GnuplotPipeSpectrum}
+        if {$GnuSpectrumChannel == "s22"} {puts $GnuplotPipeSpectrum "plot '$TMPAvgSpectrumBin' using 1:5 title 's22 channel' with lines"; flush $GnuplotPipeSpectrum}
+        #if {$GnuSpectrumChannelId == 5} {puts $GnuplotPipeSpectrum "plot '$TMPAvgSpectrumBin' using 1:2 title 's11 channel' with lines, '$TMPAvgSpectrumBin' using 1:3 title 's12 channel' with lines, '$TMPAvgSpectrumBin' using 1:4 title 's21 channel' with lines, '$TMPAvgSpectrumBin' using 1:5 title 's22 channel' with lines"; flush $GnuplotPipeSpectrum}
+        }
     }
-if {$GnuSpectrumFile == "avg"} {
-    if {$GnuSpectrumChannelId == 1} {puts $GnuplotPipeSpectrum "plot '$TMPAvgSpectrumBin' using 1:2 title 's11 channel' with lines"; flush $GnuplotPipeSpectrum}
-    if {$GnuSpectrumChannelId == 2} {puts $GnuplotPipeSpectrum "plot '$TMPAvgSpectrumBin' using 1:3 title 's12 channel' with lines"; flush $GnuplotPipeSpectrum}
-    if {$GnuSpectrumChannelId == 3} {puts $GnuplotPipeSpectrum "plot '$TMPAvgSpectrumBin' using 1:4 title 's21 channel' with lines"; flush $GnuplotPipeSpectrum}
-    if {$GnuSpectrumChannelId == 4} {puts $GnuplotPipeSpectrum "plot '$TMPAvgSpectrumBin' using 1:5 title 's22 channel' with lines"; flush $GnuplotPipeSpectrum}
-    #if {$GnuSpectrumChannelId == 5} {puts $GnuplotPipeSpectrum "plot '$TMPAvgSpectrumBin' using 1:2 title 's11 channel' with lines, '$TMPAvgSpectrumBin' using 1:3 title 's12 channel' with lines, '$TMPAvgSpectrumBin' using 1:4 title 's21 channel' with lines, '$TMPAvgSpectrumBin' using 1:5 title 's22 channel' with lines"; flush $GnuplotPipeSpectrum}
+if {$DataFormatActive == "SPP"} {
+    if {$GnuSpectrumFile == "raw"} {
+        if {$PolarType == "pp1"} {
+            if {$GnuSpectrumChannel == "s11"} {puts $GnuplotPipeSpectrum "plot '$TMPRawSpectrumBin' using 1:2 title 's11 channel' with lines"; flush $GnuplotPipeSpectrum}
+            if {$GnuSpectrumChannel == "s21"} {puts $GnuplotPipeSpectrum "plot '$TMPRawSpectrumBin' using 1:3 title 's21 channel' with lines"; flush $GnuplotPipeSpectrum}
+            }
+        if {$PolarType == "pp2"} {
+            if {$GnuSpectrumChannel == "s22"} {puts $GnuplotPipeSpectrum "plot '$TMPRawSpectrumBin' using 1:2 title 's22 channel' with lines"; flush $GnuplotPipeSpectrum}
+            if {$GnuSpectrumChannel == "s12"} {puts $GnuplotPipeSpectrum "plot '$TMPRawSpectrumBin' using 1:3 title 's12 channel' with lines"; flush $GnuplotPipeSpectrum}
+            }
+        if {$PolarType == "pp3"} {
+            if {$GnuSpectrumChannel == "s11"} {puts $GnuplotPipeSpectrum "plot '$TMPRawSpectrumBin' using 1:2 title 's11 channel' with lines"; flush $GnuplotPipeSpectrum}
+            if {$GnuSpectrumChannel == "s22"} {puts $GnuplotPipeSpectrum "plot '$TMPRawSpectrumBin' using 1:3 title 's22 channel' with lines"; flush $GnuplotPipeSpectrum}
+            }
+        }
+    if {$GnuSpectrumFile == "avg"} {
+        if {$PolarType == "pp1"} {
+            if {$GnuSpectrumChannel == "s11"} {puts $GnuplotPipeSpectrum "plot '$TMPAvgSpectrumBin' using 1:2 title 's11 channel' with lines"; flush $GnuplotPipeSpectrum}
+            if {$GnuSpectrumChannel == "s21"} {puts $GnuplotPipeSpectrum "plot '$TMPAvgSpectrumBin' using 1:3 title 's21 channel' with lines"; flush $GnuplotPipeSpectrum}
+            }
+        if {$PolarType == "pp2"} {
+            if {$GnuSpectrumChannel == "s22"} {puts $GnuplotPipeSpectrum "plot '$TMPAvgSpectrumBin' using 1:2 title 's22 channel' with lines"; flush $GnuplotPipeSpectrum}
+            if {$GnuSpectrumChannel == "s12"} {puts $GnuplotPipeSpectrum "plot '$TMPAvgSpectrumBin' using 1:3 title 's12 channel' with lines"; flush $GnuplotPipeSpectrum}
+            }
+        if {$PolarType == "pp3"} {
+            if {$GnuSpectrumChannel == "s11"} {puts $GnuplotPipeSpectrum "plot '$TMPAvgSpectrumBin' using 1:2 title 's11 channel' with lines"; flush $GnuplotPipeSpectrum}
+            if {$GnuSpectrumChannel == "s22"} {puts $GnuplotPipeSpectrum "plot '$TMPAvgSpectrumBin' using 1:3 title 's22 channel' with lines"; flush $GnuplotPipeSpectrum}
+            }
+        }
     }
 puts $GnuplotPipeSpectrum "unset output"; flush $GnuplotPipeSpectrum 
 
@@ -926,7 +1025,7 @@ proc vTclWindow. {base} {
     ###################
     wm focusmodel $top passive
     wm geometry $top 200x200+175+175; update
-    wm maxsize $top 3360 1028
+    wm maxsize $top 3364 1032
     wm minsize $top 116 1
     wm overrideredirect $top 0
     wm resizable $top 1 1
@@ -957,9 +1056,9 @@ proc vTclWindow.top243 {base} {
     vTcl:toplevel $top -class Toplevel
     wm withdraw $top
     wm focusmodel $top passive
-    wm geometry $top 500x520+10+110; update
+    wm geometry $top 500x490+10+110; update
     wm maxsize $top 1284 1009
-    wm minsize $top 116 1
+    wm minsize $top 162 8
     wm overrideredirect $top 0
     wm resizable $top 1 1
     wm title $top "Data Processing: Sub Aperture Decomposition"
@@ -1084,32 +1183,32 @@ set SubAptDataDir $SubAptOutputDir} \
     vTcl:DefineAlias "$site_3_0.lab57" "Label243_01" vTcl:WidgetProc "Toplevel243" 1
     entry $site_3_0.ent58 \
         -background white -disabledbackground #ffffff \
-        -disabledforeground #0000ff -foreground #0000ff -state disabled \
-        -textvariable NligInit -width 5 
+        -disabledforeground #0000ff -foreground #0000ff -justify center \
+        -state disabled -textvariable NligInit -width 5 
     vTcl:DefineAlias "$site_3_0.ent58" "Entry243_01" vTcl:WidgetProc "Toplevel243" 1
     label $site_3_0.lab59 \
         -text {End Row} 
     vTcl:DefineAlias "$site_3_0.lab59" "Label243_02" vTcl:WidgetProc "Toplevel243" 1
     entry $site_3_0.ent60 \
         -background white -disabledbackground #ffffff \
-        -disabledforeground #0000ff -foreground #0000ff -state disabled \
-        -textvariable NligEnd -width 5 
+        -disabledforeground #0000ff -foreground #0000ff -justify center \
+        -state disabled -textvariable NligEnd -width 5 
     vTcl:DefineAlias "$site_3_0.ent60" "Entry243_02" vTcl:WidgetProc "Toplevel243" 1
     label $site_3_0.lab61 \
         -text {Init Col} 
     vTcl:DefineAlias "$site_3_0.lab61" "Label243_03" vTcl:WidgetProc "Toplevel243" 1
     entry $site_3_0.ent62 \
         -background white -disabledbackground #ffffff \
-        -disabledforeground #0000ff -foreground #0000ff -state disabled \
-        -textvariable NcolInit -width 5 
+        -disabledforeground #0000ff -foreground #0000ff -justify center \
+        -state disabled -textvariable NcolInit -width 5 
     vTcl:DefineAlias "$site_3_0.ent62" "Entry243_03" vTcl:WidgetProc "Toplevel243" 1
     label $site_3_0.lab63 \
         -text {End Col} 
     vTcl:DefineAlias "$site_3_0.lab63" "Label243_04" vTcl:WidgetProc "Toplevel243" 1
     entry $site_3_0.ent64 \
         -background white -disabledbackground #ffffff \
-        -disabledforeground #0000ff -foreground #0000ff -state disabled \
-        -textvariable NcolEnd -width 5 
+        -disabledforeground #0000ff -foreground #0000ff -justify center \
+        -state disabled -textvariable NcolEnd -width 5 
     vTcl:DefineAlias "$site_3_0.ent64" "Entry243_04" vTcl:WidgetProc "Toplevel243" 1
     pack $site_3_0.lab57 \
         -in $site_3_0 -anchor center -expand 1 -fill none -padx 10 -side left 
@@ -1128,25 +1227,6 @@ set SubAptDataDir $SubAptOutputDir} \
         -side left 
     pack $site_3_0.ent64 \
         -in $site_3_0 -anchor center -expand 1 -fill none -side left 
-    TitleFrame $top.cpd83 \
-        -text {Azimut / Range Orientation} 
-    vTcl:DefineAlias "$top.cpd83" "TitleFrame7" vTcl:WidgetProc "Toplevel243" 1
-    bind $top.cpd83 <Destroy> {
-        Widget::destroy %W; rename %W {}
-    }
-    set site_4_0 [$top.cpd83 getframe]
-    radiobutton $site_4_0.cpd80 \
-        -text {Azimut = Row / Range = Col} -value 1 \
-        -variable SubAptAzimutFlag 
-    vTcl:DefineAlias "$site_4_0.cpd80" "Radiobutton236" vTcl:WidgetProc "Toplevel243" 1
-    radiobutton $site_4_0.cpd81 \
-        -text {Azimut = Col / Range = Row} -value 0 \
-        -variable SubAptAzimutFlag 
-    vTcl:DefineAlias "$site_4_0.cpd81" "Radiobutton237" vTcl:WidgetProc "Toplevel243" 1
-    pack $site_4_0.cpd80 \
-        -in $site_4_0 -anchor center -expand 1 -fill none -side left 
-    pack $site_4_0.cpd81 \
-        -in $site_4_0 -anchor center -expand 1 -fill none -side left 
     TitleFrame $top.cpd73 \
         -text {Check Doppler Spectrum} 
     vTcl:DefineAlias "$top.cpd73" "TitleFrame5" vTcl:WidgetProc "Toplevel243" 1
@@ -1158,7 +1238,7 @@ set SubAptDataDir $SubAptOutputDir} \
         -background #ffff00 \
         -command {global OpenDirFile SubAptDirInput SubAptAzimutFlag SubAptCheck
 global TMPRawSpectrumTxt TMPRawSpectrumBin TMPAvgSpectrumTxt TMPAvgSpectrumBin
-global VarError ErrorMessage 
+global VarError ErrorMessage DataFormatActive
 global GnuplotPipeFid GnuplotPipeSpectrum GnuSpectrumFile GnuSpectrumChannel
 global GnuOutputFormat GnuOutputFile SpectrumOutputFile GnuSpectrumChannelId
 
@@ -1173,7 +1253,7 @@ $widget(Button243_4) configure -state disable
 $widget(Button243_5) configure -state disable
 $widget(Radiobutton243_1) configure -state disable
 $widget(Radiobutton243_2) configure -state disable
-set GnuSpectrumFile ""
+set GnuSpectrumFile " "
 set GnuSpectrumChannel ""
 
 DeleteFile $TMPRawSpectrumTxt
@@ -1185,9 +1265,9 @@ set Fonction2 ""
 set ProgressLine "0"
 WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
 update
-TextEditorRunTrace "Process The Function Soft/data_process_sngl/sub_aperture_check_spectrum.exe" "k"
-TextEditorRunTrace "Arguments: -id \x22$SubAptDirInput\x22 -azf $SubAptAzimutFlag -of1 \x22$TMPRawSpectrumTxt\x22 -of2 \x22$TMPRawSpectrumBin\x22 -of3 \x22$TMPAvgSpectrumTxt\x22 -of4 \x22$TMPAvgSpectrumBin\x22" "k"
-set f [ open "| Soft/data_process_sngl/sub_aperture_check_spectrum.exe -id \x22$SubAptDirInput\x22 -azf $SubAptAzimutFlag -of1 \x22$TMPRawSpectrumTxt\x22 -of2 \x22$TMPRawSpectrumBin\x22 -of3 \x22$TMPAvgSpectrumTxt\x22 -of4 \x22$TMPAvgSpectrumBin\x22" r]
+TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/sub_aperture_check_spectrum.exe" "k"
+TextEditorRunTrace "Arguments: -id \x22$SubAptDirInput\x22 -iodf $DataFormatActive -azf $SubAptAzimutFlag -of1 \x22$TMPRawSpectrumTxt\x22 -of2 \x22$TMPRawSpectrumBin\x22 -of3 \x22$TMPAvgSpectrumTxt\x22 -of4 \x22$TMPAvgSpectrumBin\x22" "k"
+set f [ open "| Soft/bin/data_process_sngl/sub_aperture_check_spectrum.exe -id \x22$SubAptDirInput\x22 -iodf $DataFormatActive -azf $SubAptAzimutFlag -of1 \x22$TMPRawSpectrumTxt\x22 -of2 \x22$TMPRawSpectrumBin\x22 -of3 \x22$TMPAvgSpectrumTxt\x22 -of4 \x22$TMPAvgSpectrumBin\x22" r]
 PsPprogressBar $f
 TextEditorRunTrace "Check RunTime Errors" "r"
 CheckRunTimeError
@@ -1244,22 +1324,24 @@ PlotSpectrum} \
     set site_8_0 $site_7_0.fra74
     button $site_8_0.but75 \
         \
-        -command {global GnuSpectrumChannelId
+        -command {global GnuSpectrumChannelId DataFormatActive
 
 incr GnuSpectrumChannelId
 #if {$GnuSpectrumChannelId == 6} {set GnuSpectrumChannelId 1}
-if {$GnuSpectrumChannelId == 5} {set GnuSpectrumChannelId 1}
+if {$DataFormatActive == "S2"} {if {$GnuSpectrumChannelId == 5} {set GnuSpectrumChannelId 1}}
+if {$DataFormatActive == "SPP"} {if {$GnuSpectrumChannelId == 3} {set GnuSpectrumChannelId 1}}
 
 PlotSpectrum} \
         -image [vTcl:image:get_image [file join . GUI Images up.gif]] -pady 0 
     vTcl:DefineAlias "$site_8_0.but75" "Button243_4" vTcl:WidgetProc "Toplevel243" 1
     button $site_8_0.but76 \
         \
-        -command {global GnuSpectrumChannelId
+        -command {global GnuSpectrumChannelId DataFormatActive
 
 incr GnuSpectrumChannelId -1
 #if {$GnuSpectrumChannelId == 0} {set GnuSpectrumChannelId 5}
-if {$GnuSpectrumChannelId == 0} {set GnuSpectrumChannelId 4}
+if {$DataFormatActive == "S2"} {if {$GnuSpectrumChannelId == 0} {set GnuSpectrumChannelId 4}}
+if {$DataFormatActive == "SPP"} {if {$GnuSpectrumChannelId == 0} {set GnuSpectrumChannelId 2}}
 
 PlotSpectrum} \
         -image [vTcl:image:get_image [file join . GUI Images down.gif]] \
@@ -1341,8 +1423,7 @@ if {$GnuplotPipeSpectrum != ""} {
     set GnuplotPipeSpectrum ""
     }
 set GnuplotPipeFid ""
-Window hide .top401
-} \
+Window hide .top401} \
         -padx 4 -pady 2 -text Close 
     vTcl:DefineAlias "$site_5_0.cpd80" "Button243_3" vTcl:WidgetProc "Toplevel243" 1
     frame $site_5_0.cpd81 \
@@ -1542,8 +1623,7 @@ if {"$SubAptWeight"=="1"} {
         \
         -command {global SubAptFilter SubAptDataDir SubAptOutputDir SubAptOutputSubDir
 global SubAptConvert SubAptFilterCase SubAptNlook SubAptNwinFilter
-global SubAptProcessFonction SubAptDeleteS2
-
+global SubAptProcessFonction SubAptDeleteS2 SubAptDeleteSPP DataFormatActive
 
 if {"$SubAptFilter"=="0"} {
     .top243.tit78 configure -text ""
@@ -1551,35 +1631,46 @@ if {"$SubAptFilter"=="0"} {
     $widget(Radiobutton243_4) configure -state disable
     $widget(Radiobutton243_5) configure -state disable
     $widget(Radiobutton243_6) configure -state disable
+    $widget(Radiobutton243_7) configure -state disable
     $widget(Label243_3) configure -state disable
     $widget(Entry243_3) configure -state disable
     $widget(Label243_4) configure -state disable
     $widget(Entry243_4) configure -state disable
     $widget(Checkbutton243_4) configure -state disable
+    $widget(Checkbutton243_5) configure -state disable
     set SubAptOutputDir $SubAptDataDir
     set SubAptFilterCase ""
     set SubAptNlook ""
     set SubAptNwinFilter ""
     set SubAptOutputSubDir ""
     set SubAptDeleteS2 ""
+    set SubAptDeleteSPP ""
     } else {
     .top243.tit78 configure -text "Output Format"
     $widget(Radiobutton243_3) configure -state normal
     $widget(Radiobutton243_4) configure -state normal
-    $widget(Radiobutton243_5) configure -state normal
-    $widget(Radiobutton243_6) configure -state normal
     $widget(Label243_3) configure -state normal
     $widget(Entry243_3) configure -state normal
     $widget(Label243_4) configure -state normal
     $widget(Entry243_4) configure -state normal
-    $widget(Checkbutton243_4) configure -state normal
     set SubAptDataDir $SubAptOutputDir
     append SubAptOutputDir "_LEE"
     set SubAptFilterCase "lee"
     set SubAptNlook 1
     set SubAptNwinFilter 7
-    set SubAptOutputSubDir "T3"
-    set SubAptDeleteS2 "1"
+    if {$DataFormatActive == "S2"} {
+        $widget(Radiobutton243_5) configure -state normal
+        $widget(Radiobutton243_6) configure -state normal
+        $widget(Checkbutton243_4) configure -state normal
+        set SubAptOutputSubDir "T3"
+        set SubAptDeleteS2 "1"
+        }
+    if {$DataFormatActive == "SPP"} {
+        $widget(Radiobutton243_7) configure -state normal
+        $widget(Checkbutton243_5) configure -state normal
+        set SubAptOutputSubDir "C2"
+        set SubAptDeleteSPP "1"
+        }
     }} \
         -variable SubAptFilter 
     vTcl:DefineAlias "$site_4_0.cpd79" "Checkbutton243_3" vTcl:WidgetProc "Toplevel243" 1
@@ -1628,10 +1719,10 @@ append SubAptOutputDir "_LEE"} \
     vTcl:DefineAlias "$site_5_0.lab23" "Label243_3" vTcl:WidgetProc "Toplevel243" 1
     entry $site_5_0.ent24 \
         -background white -foreground #ff0000 -justify center \
-        -textvariable SubAptNlook -width 3 
+        -textvariable SubAptNlook -width 5 
     vTcl:DefineAlias "$site_5_0.ent24" "Entry243_3" vTcl:WidgetProc "Toplevel243" 1
     pack $site_5_0.lab23 \
-        -in $site_5_0 -anchor center -expand 0 -fill none -side left 
+        -in $site_5_0 -anchor center -expand 0 -fill none -padx 10 -side left 
     pack $site_5_0.ent24 \
         -in $site_5_0 -anchor center -expand 0 -fill none -side left 
     frame $site_4_0.cpd82 \
@@ -1643,10 +1734,10 @@ append SubAptOutputDir "_LEE"} \
     vTcl:DefineAlias "$site_5_0.lab23" "Label243_4" vTcl:WidgetProc "Toplevel243" 1
     entry $site_5_0.ent24 \
         -background white -foreground #ff0000 -justify center \
-        -textvariable SubAptNwinFilter -width 3 
+        -textvariable SubAptNwinFilter -width 5 
     vTcl:DefineAlias "$site_5_0.ent24" "Entry243_4" vTcl:WidgetProc "Toplevel243" 1
     pack $site_5_0.lab23 \
-        -in $site_5_0 -anchor center -expand 0 -fill none -side left 
+        -in $site_5_0 -anchor center -expand 0 -fill none -padx 10 -side left 
     pack $site_5_0.ent24 \
         -in $site_5_0 -anchor center -expand 0 -fill none -side left 
     pack $site_4_0.cpd79 \
@@ -1663,22 +1754,41 @@ append SubAptOutputDir "_LEE"} \
         Widget::destroy %W; rename %W {}
     }
     set site_4_0 [$top.tit78 getframe]
-    radiobutton $site_4_0.cpd80 \
-        -text {S2 >> T3} -value T3 -variable SubAptOutputSubDir 
-    vTcl:DefineAlias "$site_4_0.cpd80" "Radiobutton243_5" vTcl:WidgetProc "Toplevel243" 1
-    radiobutton $site_4_0.cpd81 \
-        -text {S2 >> C3} -value C3 -variable SubAptOutputSubDir 
-    vTcl:DefineAlias "$site_4_0.cpd81" "Radiobutton243_6" vTcl:WidgetProc "Toplevel243" 1
-    checkbutton $site_4_0.che72 \
+    frame $site_4_0.cpd66
+    set site_5_0 $site_4_0.cpd66
+    checkbutton $site_5_0.che72 \
         -text {Delete [S2] Original Data after Speckle Filtering} \
         -variable SubAptDeleteS2 
-    vTcl:DefineAlias "$site_4_0.che72" "Checkbutton243_4" vTcl:WidgetProc "Toplevel243" 1
-    pack $site_4_0.cpd80 \
-        -in $site_4_0 -anchor center -expand 1 -fill none -side left 
-    pack $site_4_0.cpd81 \
-        -in $site_4_0 -anchor center -expand 1 -fill none -side left 
-    pack $site_4_0.che72 \
-        -in $site_4_0 -anchor center -expand 1 -fill none -side left 
+    vTcl:DefineAlias "$site_5_0.che72" "Checkbutton243_4" vTcl:WidgetProc "Toplevel243" 1
+    radiobutton $site_5_0.cpd81 \
+        -text {S2 >> C3} -value C3 -variable SubAptOutputSubDir 
+    vTcl:DefineAlias "$site_5_0.cpd81" "Radiobutton243_5" vTcl:WidgetProc "Toplevel243" 1
+    radiobutton $site_5_0.cpd80 \
+        -text {S2 >> T3} -value T3 -variable SubAptOutputSubDir 
+    vTcl:DefineAlias "$site_5_0.cpd80" "Radiobutton243_6" vTcl:WidgetProc "Toplevel243" 1
+    pack $site_5_0.che72 \
+        -in $site_5_0 -anchor center -expand 0 -fill none -padx 10 -side left 
+    pack $site_5_0.cpd81 \
+        -in $site_5_0 -anchor center -expand 1 -fill none -side left 
+    pack $site_5_0.cpd80 \
+        -in $site_5_0 -anchor center -expand 1 -fill none -side left 
+    frame $site_4_0.cpd67
+    set site_5_0 $site_4_0.cpd67
+    checkbutton $site_5_0.che72 \
+        -text {Delete [SPP] Original Data after Speckle Filtering} \
+        -variable SubAptDeleteSPP 
+    vTcl:DefineAlias "$site_5_0.che72" "Checkbutton243_5" vTcl:WidgetProc "Toplevel243" 1
+    radiobutton $site_5_0.cpd81 \
+        -text {SPP >> C2} -value C2 -variable SubAptOutputSubDir 
+    vTcl:DefineAlias "$site_5_0.cpd81" "Radiobutton243_7" vTcl:WidgetProc "Toplevel243" 1
+    pack $site_5_0.che72 \
+        -in $site_5_0 -anchor center -expand 0 -fill none -padx 10 -side left 
+    pack $site_5_0.cpd81 \
+        -in $site_5_0 -anchor center -expand 0 -fill none -padx 10 -side left 
+    pack $site_4_0.cpd66 \
+        -in $site_4_0 -anchor center -expand 0 -fill x -side top 
+    pack $site_4_0.cpd67 \
+        -in $site_4_0 -anchor center -expand 0 -fill x -side top 
     frame $top.fra83 \
         -relief groove -height 35 -width 125 
     vTcl:DefineAlias "$top.fra83" "Frame20" vTcl:WidgetProc "Toplevel243" 1
@@ -1689,8 +1799,9 @@ append SubAptOutputDir "_LEE"} \
 global SubAptOutputDirSub SubAptOutputDirSubNum
 global SubAptNSubIm SubAptPctRes SubAptWeight SubAptLimit1 SubAptLimit2
 global SubAptFilter SubAptFilterCase SubAptNlook SubAptNwinFilter
-global OpenDirFile VarWarning VarAdvice PSPMemory TMPMemoryAllocError
-global GnuplotPipeFid GnuplotPipeSpectrum
+global SubAptProcessFonction SubAptDeleteS2 SubAptDeleteSPP DataFormatActive
+global OpenDirFile VarWarning VarAdvice TMPMemoryAllocError
+global GnuplotPipeFid GnuplotPipeSpectrum 
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
 global OpenDirFile ConfigFile FinalNlig FinalNcol PolarCase PolarType 
 
@@ -1766,9 +1877,9 @@ if {"$VarWarningFinal"=="ok"} {
     set ProgressLine "0"
     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
     update
-    TextEditorRunTrace "Process The Function Soft/data_process_sngl/sub_aperture_decomposition.exe" "k"
+    TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/sub_aperture_decomposition.exe" "k"
     TextEditorRunTrace "Arguments: -id \x22$SubAptDirInput\x22 -od \x22$SubAptOutputDir\x22 -pct $SubAptPctRes -sub $SubAptNSubIm -wgh $SubAptWeight -azf $SubAptAzimutFlag -lim1 $SubAptLimite1 -lim2 $SubAptLimite2" "k"
-    set f [ open "| Soft/data_process_sngl/sub_aperture_decomposition.exe -id \x22$SubAptDirInput\x22 -od \x22$SubAptOutputDir\x22 -pct $SubAptPctRes -sub $SubAptNSubIm -wgh $SubAptWeight -azf $SubAptAzimutFlag -lim1 $SubAptLimite1 -lim2 $SubAptLimite2" r]
+    set f [ open "| Soft/bin/data_process_sngl/sub_aperture_decomposition.exe -id \x22$SubAptDirInput\x22 -od \x22$SubAptOutputDir\x22 -pct $SubAptPctRes -sub $SubAptNSubIm -wgh $SubAptWeight -azf $SubAptAzimutFlag -lim1 $SubAptLimite1 -lim2 $SubAptLimite2" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError
@@ -1796,6 +1907,7 @@ if {"$VarWarningFinal"=="ok"} {
             if [file isdirectory $DirNameCreate] {
                 if {$SubAptOutputSubDir== "T3"} {DeleteMatrixT $DirNameCreate}
                 if {$SubAptOutputSubDir== "C3"} {DeleteMatrixC $DirNameCreate}    
+                if {$SubAptOutputSubDir== "C2"} {DeleteMatrixC $DirNameCreate}    
                 } else {
                 TextEditorRunTrace "Create Directory $DirNameCreate" "k"
                 if { [catch {file mkdir $DirNameCreate} ErrorCreateDir] } {
@@ -1831,15 +1943,16 @@ if {"$VarWarningFinal"=="ok"} {
     
                 if {$SubAptFilterCase == "box"} {
                     set Fonction "BoxCar Speckle Filter"
-                    set SubAptFilterFunction "Soft/speckle_filter/boxcar_filter.exe"
+                    set SubAptFilterFunction "Soft/bin/speckle_filter/boxcar_filter.exe"
                     set SubAptNlook 0
                     }
                 if {$SubAptFilterCase == "lee"} {
                     set Fonction "J.S. LEE Refined Speckle Filter"
-                    set SubAptFilterFunction "Soft/speckle_filter/lee_refined_filter.exe"
+                    set SubAptFilterFunction "Soft/bin/speckle_filter/lee_refined_filter.exe"
                     }
                 if {$SubAptOutputSubDir== "T3"} {set SubAptFilterF "S2T3"}
                 if {$SubAptOutputSubDir== "C3"} {set SubAptFilterF "S2C3"}
+                if {$SubAptOutputSubDir== "C2"} {set SubAptFilterF "SPPC2"}
     
                 set Fonction2 "$SubAptFilterDirOutput"
 
@@ -1851,17 +1964,18 @@ if {"$VarWarningFinal"=="ok"} {
                 WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                 update
                 TextEditorRunTrace "Process The Function $SubAptFilterFunction" "k"
-                TextEditorRunTrace "Arguments: -id \x22$SubAptFilterDirInput\x22 -od \x22$SubAptFilterDirOutput\x22 -iodf $SubAptFilterF -nlk $SubAptNlook -nw $SubAptNwinFilter -nwr $SubAptNwinFilter -nwc $SubAptNwinFilter -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                set f [ open "| $SubAptFilterFunction -id \x22$SubAptFilterDirInput\x22 -od \x22$SubAptFilterDirOutput\x22 -iodf $SubAptFilterF -nlk $SubAptNlook -nw $SubAptNwinFilter -nwr $SubAptNwinFilter -nwc $SubAptNwinFilter -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                TextEditorRunTrace "Arguments: -id \x22$SubAptFilterDirInput\x22 -od \x22$SubAptFilterDirOutput\x22 -iodf $SubAptFilterF -nlk $SubAptNlook -nw $SubAptNwinFilter -nwr $SubAptNwinFilter -nwc $SubAptNwinFilter -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                set f [ open "| $SubAptFilterFunction -id \x22$SubAptFilterDirInput\x22 -od \x22$SubAptFilterDirOutput\x22 -iodf $SubAptFilterF -nlk $SubAptNlook -nw $SubAptNwinFilter -nwr $SubAptNwinFilter -nwc $SubAptNwinFilter -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                 PsPprogressBar $f
                 TextEditorRunTrace "Check RunTime Errors" "r"
                 CheckRunTimeError
                 WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
                 if {$SubAptOutputSubDir== "T3"} {EnviWriteConfigT $SubAptFilterDirOutput $FinalNlig $FinalNcol}
                 if {$SubAptOutputSubDir== "C3"} {EnviWriteConfigC $SubAptFilterDirOutput $FinalNlig $FinalNcol}
+                if {$SubAptOutputSubDir== "C2"} {EnviWriteConfigC $SubAptFilterDirOutput $FinalNlig $FinalNcol}
     
                 #Delete Original Data
-                if {$SubAptDeleteS2 == "1"} {
+                if {$SubAptDeleteS2 == "1" || $SubAptDeleteSPP == "1"} {
                     set FileNameDelete $SubAptDirOutput; append FileNameDelete $SubAptOutputDirSubNum; append FileNameDelete "/config.txt"
                     DeleteFile $FileNameDelete
 
@@ -1883,6 +1997,7 @@ if {"$VarWarningFinal"=="ok"} {
             set WarningMessage "THE DATA FORMAT TO BE PROCESSED IS NOW:"
             if {$SubAptOutputSubDir == "T3"} {set WarningMessage2 "3x3 COHERENCY MATRIX - T3"}
             if {$SubAptOutputSubDir == "C3"} {set WarningMessage2 "3x3 COVARIANCE MATRIX - C3"}
+            if {$SubAptOutputSubDir == "C2"} {set WarningMessage2 "2x2 COVARIANCE MATRIX - C2"}
             set VarAdvice ""
             Window show $widget(Toplevel242); TextEditorRunTrace "Open Window Advice" "b"
             tkwait variable VarAdvice
@@ -1971,8 +2086,6 @@ Window hide $widget(Toplevel243); TextEditorRunTrace "Close Window SubApt Proced
         -in $top -anchor center -expand 0 -fill x -side top 
     pack $top.fra74 \
         -in $top -anchor center -expand 0 -fill x -pady 2 -side top 
-    pack $top.cpd83 \
-        -in $top -anchor center -expand 0 -fill x -side top 
     pack $top.cpd73 \
         -in $top -anchor center -expand 0 -fill x -side top 
     pack $top.tit99 \

@@ -676,7 +676,7 @@ global GnuplotPipeFid GnuplotPipeCopol GnuplotPipeXpol
 global TMPCopolSigTxt TMPCopolSigBin TMPXpolSigTxt TMPXpolSigBin  
 global GnuXview GnuZview  
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
-global ImageMagickMaker TMPGnuPlotTk1 TMPGnuPlotTk2 TMPGnuPlot1Tk TMPGnuPlot2Tk GnuOutputFormat GnuOutputFile
+global TMPGnuPlotTk1 TMPGnuPlotTk2 TMPGnuPlot1Tk TMPGnuPlot2Tk GnuOutputFormat GnuOutputFile
 
 set TestVarName(0) "Orientation Elevation (°)"; set TestVarType(0) "float"; set TestVarValue(0) $GnuXview; set TestVarMin(0) "0.0"; set TestVarMax(0) "180.0"
 set TestVarName(1) "Orientation Azimut (°)"; set TestVarType(1) "float"; set TestVarValue(1) $GnuZview; set TestVarMin(1) "0.0"; set TestVarMax(1) "360.0"
@@ -766,7 +766,7 @@ if [file exists $TMPXpolSigTxt] {
 	GnuPlotInit 0 0 1 1
     	set GnuplotPipeXpol $GnuplotPipeFid
 	}
-    PlotPolarSigThumb 1
+    #PlotPolarSigThumb 1
     set GnuOutputFile $TMPGnuPlotTk1
     set GnuOutputFormat "gif"
     GnuPlotTerm $GnuplotPipeXpol $GnuOutputFormat
@@ -783,7 +783,8 @@ if [file exists $TMPXpolSigTxt] {
     set GnuplotPipeXpol ""
 
     WaitUntilCreated $TMPGnuPlotTk1
-    ViewGnuPlotTK 1 .top240 "X-Pol Signature"
+    Gimp $TMPGnuPlotTk1
+    #ViewGnuPlotTKThumb 1 .top240 "X-Pol Signature"
     }
 
 DeleteFile $TMPGnuPlotTk2
@@ -794,7 +795,7 @@ if [file exists $TMPCopolSigTxt] {
 	GnuPlotInit 0 0 1 1
     	set GnuplotPipeCopol $GnuplotPipeFid
 	}
-    PlotPolarSigThumb 2
+    #PlotPolarSigThumb 2
     set GnuOutputFile $TMPGnuPlotTk2
     set GnuOutputFormat "gif"
     GnuPlotTerm $GnuplotPipeCopol $GnuOutputFormat
@@ -811,7 +812,8 @@ if [file exists $TMPCopolSigTxt] {
     set GnuplotPipeCopol ""
 
     WaitUntilCreated $TMPGnuPlotTk2
-    ViewGnuPlotTK 2 .top401 "Co-Pol Signature"
+    Gimp $TMPGnuPlotTk2
+    #ViewGnuPlotTKThumb 2 .top401 "Co-Pol Signature"
     }
         
 $Rb240_1 configure -state normal
@@ -837,11 +839,11 @@ global GnuplotPipeFid GnuplotPipeCopol GnuplotPipeXpol
 global TMPCopolSigTxt TMPCopolSigBin TMPXpolSigTxt TMPXpolSigBin  
 global GnuXview GnuZview  
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
-global ImageMagickMaker TMPGnuPlotTk1 TMPGnuPlotTk2 TMPGnuPlot1Tk TMPGnuPlot2Tk GnuOutputFormat GnuOutputFile
+global TMPGnuPlotTk1 TMPGnuPlotTk2 TMPGnuPlot1Tk TMPGnuPlot2Tk GnuOutputFormat GnuOutputFile
 
 set xwindow [winfo x .top240]; set ywindow [winfo y .top240]
 
-if [file $ThumbNum == 1] {
+if {$ThumbNum == 1} {
     DeleteFile $TMPGnuPlot1Tk
     set GnuOutputFile $TMPGnuPlot1Tk
     set GnuOutputFormat "png"
@@ -854,7 +856,7 @@ if [file $ThumbNum == 1] {
     WaitUntilCreated $TMPGnuPlot1Tk
     }
 
-if [file $ThumbNum == 2] {
+if {$ThumbNum == 2} {
     DeleteFile $TMPGnuPlot2Tk
     set GnuOutputFile $TMPGnuPlot2Tk
     set GnuOutputFormat "png"
@@ -1467,7 +1469,6 @@ set GnuplotPipeFid ""
 Window hide .top401
 Window hide .top402    
 ClosePSPViewer
-Window hide $widget(Toplevel64); TextEditorRunTrace "Close Window PolSARpro Viewer" "b"
 Window hide $widget(Toplevel240); TextEditorRunTrace "Close Window Polarimetric Signatures" "b"} \
         -padx 4 -pady 2 -text Exit 
     vTcl:DefineAlias "$site_3_0.but24" "Button240_2" vTcl:WidgetProc "Toplevel240" 1

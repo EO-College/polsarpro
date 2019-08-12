@@ -619,9 +619,6 @@ proc vTcl:project:info {} {
     namespace eval ::widgets::$site_6_0.but67 {
         array set save {-_tooltip 1 -background 1 -command 1 -padx 1 -pady 1 -text 1}
     }
-    namespace eval ::widgets::$site_6_0.but68 {
-        array set save {-_tooltip 1 -background 1 -command 1 -padx 1 -pady 1 -text 1}
-    }
     namespace eval ::widgets::$site_5_0.but68 {
         array set save {-_tooltip 1 -background 1 -command 1 -padx 1 -pady 1 -text 1}
     }
@@ -712,9 +709,9 @@ proc vTclWindow. {base} {
     # CREATING WIDGETS
     ###################
     wm focusmodel $top passive
-    wm geometry $top 200x200+66+66; update
-    wm maxsize $top 1284 785
-    wm minsize $top 104 1
+    wm geometry $top 200x200+130+130; update
+    wm maxsize $top 1924 1061
+    wm minsize $top 120 1
     wm overrideredirect $top 0
     wm resizable $top 1 1
     wm withdraw $top
@@ -746,10 +743,10 @@ proc vTclWindow.top314 {base} {
     wm focusmodel $top passive
     wm geometry $top 500x440+10+110; update
     wm maxsize $top 1604 1184
-    wm minsize $top 116 1
+    wm minsize $top 120 1
     wm overrideredirect $top 0
     wm resizable $top 1 1
-    wm title $top "Data Processing: POLinSAR - Supervised Classification"
+    wm title $top "Data Processing: Pol-InSAR - Supervised Classification"
     vTcl:DefineAlias "$top" "Toplevel314" vTcl:Toplevel:WidgetProc "" 1
     bindtags $top "$top Toplevel all _TopLevel"
     vTcl:FireEvent $top <<Create>>
@@ -1396,8 +1393,8 @@ if [file exists $FileTrainingArea] {
     button $site_6_0.but67 \
         -background #ffff00 \
         -command {global VarTrainingArea NTrainingAreaClass AreaClassN NTrainingArea AreaN AreaPointLig AreaPointCol AreaPoint AreaPointN
-global BMPDirInput rect_color OpenDirFile GraphicEditorType
-global MouseInitX MouseInitY MouseEndX MouseEndY MouseNlig MouseNcol TrainingAreaToolLine
+global BMPDirInput OpenDirFile SupervisedDirInput FileTrainingArea
+global MapAlgebraBMPFile MapAlgebraConfigFileSupervised
 
 if {$OpenDirFile == 0} {
 
@@ -1408,6 +1405,15 @@ Window show $widget(Toplevel32); TextEditorRunTrace "Open Window Warning" "b"
 tkwait variable VarWarning
 
 if {$VarWarning == "ok"} {
+
+set types {
+{{BMP Files}        {.bmp}        }
+}
+set filename ""
+set filename [tk_getOpenFile -initialdir $SupervisedDirInput -filetypes $types -title "INPUT BMP FILE"]
+if {$filename != ""} {
+    set MapAlgebraBMPFile $filename
+    }
 
 set NTrainingAreaClassTmp $NTrainingAreaClass
 for {set i 1} {$i <= $NTrainingAreaClass} {incr i} {
@@ -1423,30 +1429,26 @@ for {set i 1} {$i <= $NTrainingAreaClass} {incr i} {
             }
         }
     }
-
-ClosePSPViewer
-LoadPSPViewer
-set BMPDirInput $SupervisedMasterDirInput
-Window show $widget(Toplevel64); TextEditorRunTrace "Open Window PolSARpro Viewer" "b"
-
-set MouseInitX $AreaPointCol(10101)
-set MouseInitY $AreaPointLig(10101)
-set MouseEndX [expr $AreaPointCol(10101) + $MouseInitX -1]
-set MouseEndY [expr $AreaPointLig(10101) + $MouseInitY -1]
-set MouseNlig [expr abs($MouseEndY - $MouseInitY) +1]
-set MouseNcol [expr abs($MouseEndX - $MouseInitX) +1]
 set AreaClassN 1
 set AreaN 1
 set AreaPointN ""
 set TrainingAreaToolLine "false"
 
-set rect_color "white"
-set b .top47.fra41.but29
-$b configure -background $rect_color -foreground $rect_color
-
 set VarTrainingArea "no"
-set GraphicEditorType "wishart_"
-WidgetShowFromWidget $widget(Toplevel314) $widget(Toplevel47); TextEditorRunTrace "Open Window Training Areas Graphic Editor" "b"
+set MapAlgebraSession [ MapAlgebra_session ]
+set MapAlgebraConfigFileSupervised "$TMPDir/$MapAlgebraSession"; append MapAlgebraConfigFileSupervised "_mapalgebrapaths.txt"
+set FileTrainingArea "$SupervisedDirInput/$MapAlgebraSession"; append FileTrainingArea "_wishart_training_areas.txt"
+DeleteFile $FileTrainingArea
+$widget(Button314_3) configure -state disable
+MapAlgebra_init "TrainingArea" $MapAlgebraSession $FileTrainingArea
+MapAlgebra_launch $MapAlgebraConfigFileSupervised $MapAlgebraBMPFile
+WaitUntilCreated $FileTrainingArea
+if [file exists $FileTrainingArea] {
+    set VarTrainingArea "ok"
+    set MapAlgebraConfigFileSupervised [MapAlgebra_command $MapAlgebraConfigFileSupervised "quit" ""]
+    set MapAlgebraConfigFileSupervised ""
+    $widget(Button314_3) configure -state normal
+    }
 tkwait variable VarTrainingArea
 
 #Return after Graphic Editor Exit
@@ -1468,11 +1470,7 @@ if {"$VarTrainingArea"=="no"} {
     set AreaClassN 1
     set AreaN 1
     }
-
-MouseActiveFunction ""
-$widget(Button314_3) configure -state normal
-
-}
+  }
 }} \
         -padx 4 -pady 2 -text {Graphic Editor} 
     vTcl:DefineAlias "$site_6_0.but67" "Button642" vTcl:WidgetProc "Toplevel314" 1
@@ -1480,33 +1478,7 @@ $widget(Button314_3) configure -state normal
     bind $site_6_0.but67 <<SetBalloon>> {
         set ::vTcl::balloon::%W {Training Areas Graphic Editor}
     }
-    button $site_6_0.but68 \
-        -background #ffff00 \
-        -command {global FileTrainingArea OpenDirFile
-#UTIL
-global Load_TextEdit PSPTopLevel
-
-if {$OpenDirFile == 0} {
-
-if {$Load_TextEdit == 0} {
-    source "GUI/util/TextEdit.tcl"
-    set Load_TextEdit 1
-    WmTransient $widget(Toplevel95) $PSPTopLevel
-    }
-
-TextEditorFromWidget .top314 $FileTrainingArea
-$widget(Button314_3) configure -state normal
-
-}} \
-        -padx 4 -pady 2 -text {Text Editor} 
-    vTcl:DefineAlias "$site_6_0.but68" "Button643" vTcl:WidgetProc "Toplevel314" 1
-    bindtags $site_6_0.but68 "$site_6_0.but68 Button $top all _vTclBalloon"
-    bind $site_6_0.but68 <<SetBalloon>> {
-        set ::vTcl::balloon::%W {Training Areas Text Editor}
-    }
     pack $site_6_0.but67 \
-        -in $site_6_0 -anchor center -expand 1 -fill none -side left 
-    pack $site_6_0.but68 \
         -in $site_6_0 -anchor center -expand 1 -fill none -side left 
     button $site_5_0.but68 \
         -background #ffff00 \
@@ -1593,7 +1565,7 @@ if {"$VarWarning"=="ok"} {
     $widget(Button314_4) configure -state normal
     }
     } else {
-    if {"$VarWarning"=="no"} {Window hide $widget(Toplevel314); TextEditorRunTrace "Close Window POLinSAR - Supervised Classification" "b"}
+    if {"$VarWarning"=="no"} {Window hide $widget(Toplevel314); TextEditorRunTrace "Close Window Pol-InSAR - Supervised Classification" "b"}
     }
 } else {
 set WarningMessage "TRAINING AREAS MUST BE DEFINED FIRST"
@@ -1869,7 +1841,7 @@ if {"$VarWarning"=="ok"} {
         }
     }
     } else {
-    if {"$VarWarning"=="no"} {Window hide $widget(Toplevel314); TextEditorRunTrace "Close Window POLinSAR - Supervised Classification" "b"}
+    if {"$VarWarning"=="no"} {Window hide $widget(Toplevel314); TextEditorRunTrace "Close Window Pol-InSAR - Supervised Classification" "b"}
     }
 }
 }} \
@@ -1897,11 +1869,9 @@ if {$OpenDirFile == 0} {
 
 if {$BMPImageOpen == 1} {
     ClosePSPViewer
-    Window hide $widget(Toplevel64); TextEditorRunTrace "Close Window PolSARpro Viewer" "b"
     }
 if {$BMPImageOpen == 0} {
-    Window hide $widget(Toplevel47); TextEditorRunTrace "Close Window Training Areas Graphic Editor" "b"
-    Window hide $widget(Toplevel314); TextEditorRunTrace "Close Window POLinSAR - Supervised Classification" "b"
+    Window hide $widget(Toplevel314); TextEditorRunTrace "Close Window Pol-InSAR - Supervised Classification" "b"
     }
 }} \
         -padx 4 -pady 2 -text Exit 

@@ -859,9 +859,9 @@ DeleteFile "$TMPCompareBinaryData.txt"
 WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
 set ProgressLine "0"
 update
-TextEditorRunTrace "Process The Function Soft/tools/check_binary_data_file.exe" "k"
+TextEditorRunTrace "Process The Function Soft/bin/tools/check_binary_data_file.exe" "k"
 TextEditorRunTrace "Arguments: -if \x22$FileInput1\x22 -ss terrasarx_ssc -inc $NcolFullSize -of \x22$TMPCompareBinaryData\x22" "k"
-set f [ open "| Soft/tools/check_binary_data_file.exe -if \x22$FileInput1\x22 -ss terrasarx_ssc -inc $NcolFullSize -of \x22$TMPCompareBinaryData\x22" r]
+set f [ open "| Soft/bin/tools/check_binary_data_file.exe -if \x22$FileInput1\x22 -ss terrasarx_ssc -inc $NcolFullSize -of \x22$TMPCompareBinaryData\x22" r]
 PsPprogressBar $f
 TextEditorRunTrace "Check RunTime Errors" "r"
 CheckRunTimeError
@@ -881,9 +881,9 @@ DeleteFile "$TMPCompareBinaryData.txt"
 WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
 set ProgressLine "0"
 update
-TextEditorRunTrace "Process The Function Soft/tools/check_binary_data_file.exe" "k"
+TextEditorRunTrace "Process The Function Soft/bin/tools/check_binary_data_file.exe" "k"
 TextEditorRunTrace "Arguments: -if \x22$FileInput2\x22 -ss terrasarx_ssc -inc $NcolFullSize -of \x22$TMPCompareBinaryData\x22" "k"
-set f [ open "| Soft/tools/check_binary_data_file.exe -if \x22$FileInput2\x22 -ss terrasarx_ssc -inc $NcolFullSize -of \x22$TMPCompareBinaryData\x22" r]
+set f [ open "| Soft/bin/tools/check_binary_data_file.exe -if \x22$FileInput2\x22 -ss terrasarx_ssc -inc $NcolFullSize -of \x22$TMPCompareBinaryData\x22" r]
 PsPprogressBar $f
 TextEditorRunTrace "Check RunTime Errors" "r"
 CheckRunTimeError
@@ -948,9 +948,9 @@ DeleteFile "$TMPCompareBinaryData.txt"
 WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
 set ProgressLine "0"
 update
-TextEditorRunTrace "Process The Function Soft/tools/check_binary_data_file.exe" "k"
+TextEditorRunTrace "Process The Function Soft/bin/tools/check_binary_data_file.exe" "k"
 TextEditorRunTrace "Arguments: -if \x22$FileInput1\x22 -ss terrasarx_ssc -inc $NcolFullSize -of \x22$TMPCompareBinaryData\x22" "k"
-set f [ open "| Soft/tools/check_binary_data_file.exe -if \x22$FileInput1\x22 -ss terrasarx_ssc -inc $NcolFullSize -of \x22$TMPCompareBinaryData\x22" r]
+set f [ open "| Soft/bin/tools/check_binary_data_file.exe -if \x22$FileInput1\x22 -ss terrasarx_ssc -inc $NcolFullSize -of \x22$TMPCompareBinaryData\x22" r]
 PsPprogressBar $f
 TextEditorRunTrace "Check RunTime Errors" "r"
 CheckRunTimeError
@@ -970,9 +970,9 @@ DeleteFile "$TMPCompareBinaryData.txt"
 WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
 set ProgressLine "0"
 update
-TextEditorRunTrace "Process The Function Soft/tools/check_binary_data_file.exe" "k"
+TextEditorRunTrace "Process The Function Soft/bin/tools/check_binary_data_file.exe" "k"
 TextEditorRunTrace "Arguments: -if \x22$FileInput2\x22 -ss terrasarx_ssc -inc $NcolFullSize -of \x22$TMPCompareBinaryData\x22" "k"
-set f [ open "| Soft/tools/check_binary_data_file.exe -if \x22$FileInput2\x22 -ss terrasarx_ssc -inc $NcolFullSize -of \x22$TMPCompareBinaryData\x22" r]
+set f [ open "| Soft/bin/tools/check_binary_data_file.exe -if \x22$FileInput2\x22 -ss terrasarx_ssc -inc $NcolFullSize -of \x22$TMPCompareBinaryData\x22" r]
 PsPprogressBar $f
 TextEditorRunTrace "Check RunTime Errors" "r"
 CheckRunTimeError
@@ -992,9 +992,9 @@ DeleteFile "$TMPCompareBinaryData.txt"
 WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
 set ProgressLine "0"
 update
-TextEditorRunTrace "Process The Function Soft/tools/check_binary_data_file.exe" "k"
+TextEditorRunTrace "Process The Function Soft/bin/tools/check_binary_data_file.exe" "k"
 TextEditorRunTrace "Arguments: -if \x22$FileInput3\x22 -ss terrasarx_ssc -inc $NcolFullSize -of \x22$TMPCompareBinaryData\x22" "k"
-set f [ open "| Soft/tools/check_binary_data_file.exe -if \x22$FileInput3\x22 -ss terrasarx_ssc -inc $NcolFullSize -of \x22$TMPCompareBinaryData\x22" r]
+set f [ open "| Soft/bin/tools/check_binary_data_file.exe -if \x22$FileInput3\x22 -ss terrasarx_ssc -inc $NcolFullSize -of \x22$TMPCompareBinaryData\x22" r]
 PsPprogressBar $f
 TextEditorRunTrace "Check RunTime Errors" "r"
 CheckRunTimeError
@@ -1014,9 +1014,9 @@ DeleteFile "$TMPCompareBinaryData.txt"
 WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
 set ProgressLine "0"
 update
-TextEditorRunTrace "Process The Function Soft/tools/check_binary_data_file.exe" "k"
+TextEditorRunTrace "Process The Function Soft/bin/tools/check_binary_data_file.exe" "k"
 TextEditorRunTrace "Arguments: -if \x22$FileInput4\x22 -ss terrasarx_ssc -inc $NcolFullSize -of \x22$TMPCompareBinaryData\x22" "k"
-set f [ open "| Soft/tools/check_binary_data_file.exe -if \x22$FileInput4\x22 -ss terrasarx_ssc -inc $NcolFullSize -of \x22$TMPCompareBinaryData\x22" r]
+set f [ open "| Soft/bin/tools/check_binary_data_file.exe -if \x22$FileInput4\x22 -ss terrasarx_ssc -inc $NcolFullSize -of \x22$TMPCompareBinaryData\x22" r]
 PsPprogressBar $f
 TextEditorRunTrace "Check RunTime Errors" "r"
 CheckRunTimeError

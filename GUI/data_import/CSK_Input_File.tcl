@@ -897,9 +897,9 @@ if {$CSKFileInput != ""} {
     if [file exists $TMPCSKTmp] {
         DeleteFile  $TMPGoogle
         DeleteFile  $TMPCSKConfig
-        TextEditorRunTrace "Process The Function Soft/data_import/csk_config.exe" "k"
+        TextEditorRunTrace "Process The Function Soft/bin/data_import/csk_config.exe" "k"
         TextEditorRunTrace "Arguments: -if \x22$TMPCSKTmp\x22 -od \x22$CSKDirOutput\x22 -ocf \x22$TMPCSKConfig\x22 -ogf \x22$TMPGoogle\x22" "k"
-        set f [ open "| Soft/data_import/csk_config.exe -if \x22$TMPCSKTmp\x22 -od \x22$CSKDirOutput\x22 -ocf \x22$TMPCSKConfig\x22 -ogf \x22$TMPGoogle\x22" r]
+        set f [ open "| Soft/bin/data_import/csk_config.exe -if \x22$TMPCSKTmp\x22 -od \x22$CSKDirOutput\x22 -ocf \x22$TMPCSKConfig\x22 -ogf \x22$TMPGoogle\x22" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError

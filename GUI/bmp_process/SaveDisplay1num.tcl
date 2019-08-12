@@ -618,6 +618,15 @@ if {$SaveDisplayOutputFileNum == 4} { CopyFile $TMPGnuPlotTk4 $SaveDisplayFileOu
 if {$SaveDisplayOutputFileNum == 5} { CopyFile $TMPGnuPlotTk5 $SaveDisplayFileOutput }
 if {$SaveDisplayOutputFileNum == 6} { CopyFile $TMPGnuPlotTk6 $SaveDisplayFileOutput }
 
+set SaveDisplayFileOutput "$SaveDisplayDirOutput/$SaveDisplayOutputFile1"
+append SaveDisplayFileOutput "_color.gif"
+if {$SaveDisplayOutputFileNum == 1} { if [file exists $TMPGnuPlotTk11] {CopyFile $TMPGnuPlotTk11 $SaveDisplayFileOutput }}
+if {$SaveDisplayOutputFileNum == 2} { if [file exists $TMPGnuPlotTk12] {CopyFile $TMPGnuPlotTk12 $SaveDisplayFileOutput }}
+if {$SaveDisplayOutputFileNum == 3} { if [file exists $TMPGnuPlotTk13] {CopyFile $TMPGnuPlotTk13 $SaveDisplayFileOutput }}
+if {$SaveDisplayOutputFileNum == 4} { if [file exists $TMPGnuPlotTk14] {CopyFile $TMPGnuPlotTk14 $SaveDisplayFileOutput }}
+if {$SaveDisplayOutputFileNum == 5} { if [file exists $TMPGnuPlotTk15] {CopyFile $TMPGnuPlotTk15 $SaveDisplayFileOutput }}
+if {$SaveDisplayOutputFileNum == 6} { if [file exists $TMPGnuPlotTk16] {CopyFile $TMPGnuPlotTk16 $SaveDisplayFileOutput }}
+
 set VarSaveGnuPlotFile "ok"
 
 Window hide $widget(Toplevel460); TextEditorRunTrace "Close Window Save Display 1" "b"} \

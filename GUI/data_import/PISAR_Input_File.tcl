@@ -1100,14 +1100,14 @@ if {$PISARFileInputFlag == 1} {
     DeleteFile  $ConfigFile
 
     if {$PISARDataFormat == "MGPC"} {
-        TextEditorRunTrace "Process The Function Soft/data_import/pisar_header.exe" "k"
+        TextEditorRunTrace "Process The Function Soft/bin/data_import/pisar_header.exe" "k"
         TextEditorRunTrace "Arguments: -if \x22$FileInputPISAR\x22 -iee $IEEEFormat -df $PISARDataFormat -of \x22$TMPPisarConfig\x22" "k"
-        set f [ open "| Soft/data_import/pisar_header.exe -if \x22$FileInputPISAR\x22 -iee $IEEEFormat -df $PISARDataFormat -of \x22$TMPPisarConfig\x22" r]
+        set f [ open "| Soft/bin/data_import/pisar_header.exe -if \x22$FileInputPISAR\x22 -iee $IEEEFormat -df $PISARDataFormat -of \x22$TMPPisarConfig\x22" r]
         }
     if {$PISARDataFormat == "MGPSSC"} {
-        TextEditorRunTrace "Process The Function Soft/data_import/pisar_header.exe" "k"
+        TextEditorRunTrace "Process The Function Soft/bin/data_import/pisar_header.exe" "k"
         TextEditorRunTrace "Arguments: -if \x22$FileInputHH\x22 -iee $IEEEFormat -df $PISARDataFormat -of \x22$TMPPisarConfig\x22" "k"
-        set f [ open "| Soft/data_import/pisar_header.exe -if \x22$FileInputHH\x22 -iee $IEEEFormat -df $PISARDataFormat -of \x22$TMPPisarConfig\x22" r]
+        set f [ open "| Soft/bin/data_import/pisar_header.exe -if \x22$FileInputHH\x22 -iee $IEEEFormat -df $PISARDataFormat -of \x22$TMPPisarConfig\x22" r]
         }
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"

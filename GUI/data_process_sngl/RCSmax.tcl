@@ -805,7 +805,7 @@ if {$DirName != "" } {
     button $site_3_0.but93 \
         -background #ffff00 \
         -command {global RCSDirInput RCSDirOutput RCSOutputDir RCSOutputSubDir
-global RCSFonction RCSFunction RCSdb RCSphi RCStau RCSHSL PSPMemory TMPMemoryAllocError
+global RCSFonction RCSFunction RCSdb RCSphi RCStau RCSHSL TMPMemoryAllocError
 global Fonction Fonction2 ProgressLine VarWarning WarningMessage WarningMessage2 OpenDirFile
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax PSPViewGimpBMP
 
@@ -841,9 +841,9 @@ if {"$VarWarning"=="ok"} {
     set ProgressLine "0"
     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
     update
-    TextEditorRunTrace "Process The Function Soft/data_process_sngl/RCSmax.exe" "k"
-    TextEditorRunTrace "Arguments: -id \x22$RCSDirInput\x22 -od \x22$RCSDirOutput\x22 -iodf $RCSFonction -nwr $RCSNwinL -nwc $RCSNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-    set f [ open "| Soft/data_process_sngl/RCSmax.exe -id \x22$RCSDirInput\x22 -od \x22$RCSDirOutput\x22 -iodf $RCSFonction -nwr $RCSNwinL -nwc $RCSNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+    TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/RCSmax.exe" "k"
+    TextEditorRunTrace "Arguments: -id \x22$RCSDirInput\x22 -od \x22$RCSDirOutput\x22 -iodf $RCSFonction -nwr $RCSNwinL -nwc $RCSNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+    set f [ open "| Soft/bin/data_process_sngl/RCSmax.exe -id \x22$RCSDirInput\x22 -od \x22$RCSDirOutput\x22 -iodf $RCSFonction -nwr $RCSNwinL -nwc $RCSNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError
@@ -936,14 +936,14 @@ if {"$VarWarning"=="ok"} {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/bmp_process/create_hsv_file.exe" "k"
-            TextEditorRunTrace "Arguments: -ifh \x22$FileInputHue\x22 -ifs \x22$FileInputSat\x22 -ifv \x22$FileInputVal\x22 -of \x22$HSVFileOutput\x22 -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -auto 1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/bmp_process/create_hsv_file.exe -ifh \x22$FileInputHue\x22 -ifs \x22$FileInputSat\x22 -ifv \x22$FileInputVal\x22 -of \x22$HSVFileOutput\x22 -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -auto 1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_hsv_file.exe" "k"
+            TextEditorRunTrace "Arguments: -ifh \x22$FileInputHue\x22 -ifs \x22$FileInputSat\x22 -ifv \x22$FileInputVal\x22 -of \x22$HSVFileOutput\x22 -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -auto 1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/bmp_process/create_hsv_file.exe -ifh \x22$FileInputHue\x22 -ifs \x22$FileInputSat\x22 -ifv \x22$FileInputVal\x22 -of \x22$HSVFileOutput\x22 -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -auto 1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
             WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-            if {$PSPViewGimpBMP == 1} { Gimp $HSVFileOutput }
+            if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $HSVFileOutput }
             }
         }     
     }

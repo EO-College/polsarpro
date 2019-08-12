@@ -898,7 +898,7 @@ WidgetOn351} \
         -background #ffff00 \
         -command {global ParametersDirInput ParametersDirOutput ParametersOutputDir ParametersOutputSubDir
 global ParametersFonction ParametersFonctionPP ParaBMP ParaNwinL ParaNwinC
-global ParaConformity ParaFaraday BMPDirInput PSPMemory TMPMemoryAllocError
+global ParaConformity ParaFaraday BMPDirInput TMPMemoryAllocError
 global ParaScattPred ParaScattDiv ParaDegPur ParaDepInd ParaEntropy ParaAlpha ParaName
 global ParaKozlovAni ParaFreemanEntropy ParaPPS ParaPPSp1 ParaPPSalpha1 ParaPOC ParaRVOG
 global Fonction Fonction2 ProgressLine VarWarning WarningMessage WarningMessage2
@@ -961,9 +961,9 @@ if {"$VarWarning"=="ok"} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/data_process_sngl/conformity_coeff.exe" "k"
-        TextEditorRunTrace "Arguments: -id \x22$ParametersDirInput\x22 -od \x22$ParametersDirOutput\x22 -iodf $ParametersF -nwr $ParaNwinL -nwc $ParaNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-        set f [ open "| Soft/data_process_sngl/conformity_coeff.exe -id \x22$ParametersDirInput\x22 -od \x22$ParametersDirOutput\x22 -iodf $ParametersF -nwr $ParaNwinL -nwc $ParaNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+        TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/conformity_coeff.exe" "k"
+        TextEditorRunTrace "Arguments: -id \x22$ParametersDirInput\x22 -od \x22$ParametersDirOutput\x22 -iodf $ParametersF -nwr $ParaNwinL -nwc $ParaNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+        set f [ open "| Soft/bin/data_process_sngl/conformity_coeff.exe -id \x22$ParametersDirInput\x22 -od \x22$ParametersDirOutput\x22 -iodf $ParametersF -nwr $ParaNwinL -nwc $ParaNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError
@@ -1002,9 +1002,9 @@ if {"$VarWarning"=="ok"} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/data_process_sngl/faraday_rotation.exe" "k"
-        TextEditorRunTrace "Arguments: -id \x22$ParametersDirInput\x22 -od \x22$ParametersDirOutput\x22 -iodf $ParametersF -nwr $ParaNwinL -nwc $ParaNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-        set f [ open "| Soft/data_process_sngl/faraday_rotation.exe -id \x22$ParametersDirInput\x22 -od \x22$ParametersDirOutput\x22 -iodf $ParametersF -nwr $ParaNwinL -nwc $ParaNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+        TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/faraday_rotation.exe" "k"
+        TextEditorRunTrace "Arguments: -id \x22$ParametersDirInput\x22 -od \x22$ParametersDirOutput\x22 -iodf $ParametersF -nwr $ParaNwinL -nwc $ParaNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+        set f [ open "| Soft/bin/data_process_sngl/faraday_rotation.exe -id \x22$ParametersDirInput\x22 -od \x22$ParametersDirOutput\x22 -iodf $ParametersF -nwr $ParaNwinL -nwc $ParaNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError
@@ -1063,9 +1063,9 @@ if {"$VarWarning"=="ok"} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/data_process_sngl/praks_colin.exe" "k"
-        TextEditorRunTrace "Arguments: -id \x22$ParametersDirInput\x22 -od \x22$ParametersDirOutput\x22 -iodf $ParametersF -nwr $ParaNwinL -nwc $ParaNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -fl1 $ParaScattPred -fl2 $ParaScattDiv -fl3 $ParaDegPur -fl4 $ParaDepInd -fl5 $ParaEntropy -fl6 $ParaAlpha -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-        set f [ open "| Soft/data_process_sngl/praks_colin.exe -id \x22$ParametersDirInput\x22 -od \x22$ParametersDirOutput\x22 -iodf $ParametersF -nwr $ParaNwinL -nwc $ParaNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -fl1 $ParaScattPred -fl2 $ParaScattDiv -fl3 $ParaDegPur -fl4 $ParaDepInd -fl5 $ParaEntropy -fl6 $ParaAlpha -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+        TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/praks_colin.exe" "k"
+        TextEditorRunTrace "Arguments: -id \x22$ParametersDirInput\x22 -od \x22$ParametersDirOutput\x22 -iodf $ParametersF -nwr $ParaNwinL -nwc $ParaNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -fl1 $ParaScattPred -fl2 $ParaScattDiv -fl3 $ParaDegPur -fl4 $ParaDepInd -fl5 $ParaEntropy -fl6 $ParaAlpha  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+        set f [ open "| Soft/bin/data_process_sngl/praks_colin.exe -id \x22$ParametersDirInput\x22 -od \x22$ParametersDirOutput\x22 -iodf $ParametersF -nwr $ParaNwinL -nwc $ParaNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -fl1 $ParaScattPred -fl2 $ParaScattDiv -fl3 $ParaDegPur -fl4 $ParaDepInd -fl5 $ParaEntropy -fl6 $ParaAlpha  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError
@@ -1180,9 +1180,9 @@ if {"$VarWarning"=="ok"} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/data_process_sngl/an_cui_yang.exe" "k"
-        TextEditorRunTrace "Arguments: -id \x22$ParametersDirInput\x22 -od \x22$ParametersDirOutput\x22 -iodf $ParametersF -nwr $ParaNwinL -nwc $ParaNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -fl1 $ParaEntropy -fl2 $ParaAlpha -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-        set f [ open "| Soft/data_process_sngl/an_cui_yang.exe -id \x22$ParametersDirInput\x22 -od \x22$ParametersDirOutput\x22 -iodf $ParametersF -nwr $ParaNwinL -nwc $ParaNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -fl1 $ParaEntropy -fl2 $ParaAlpha -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+        TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/an_cui_yang.exe" "k"
+        TextEditorRunTrace "Arguments: -id \x22$ParametersDirInput\x22 -od \x22$ParametersDirOutput\x22 -iodf $ParametersF -nwr $ParaNwinL -nwc $ParaNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -fl1 $ParaEntropy -fl2 $ParaAlpha  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+        set f [ open "| Soft/bin/data_process_sngl/an_cui_yang.exe -id \x22$ParametersDirInput\x22 -od \x22$ParametersDirOutput\x22 -iodf $ParametersF -nwr $ParaNwinL -nwc $ParaNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -fl1 $ParaEntropy -fl2 $ParaAlpha  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError
@@ -1238,9 +1238,9 @@ if {"$VarWarning"=="ok"} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/data_process_sngl/kozlov_anisotropy.exe" "k"
-        TextEditorRunTrace "Arguments: -id \x22$ParametersDirInput\x22 -od \x22$ParametersDirOutput\x22 -iodf $ParametersF -nwr $ParaNwinL -nwc $ParaNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-        set f [ open "| Soft/data_process_sngl/kozlov_anisotropy.exe -id \x22$ParametersDirInput\x22 -od \x22$ParametersDirOutput\x22 -iodf $ParametersF -nwr $ParaNwinL -nwc $ParaNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+        TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/kozlov_anisotropy.exe" "k"
+        TextEditorRunTrace "Arguments: -id \x22$ParametersDirInput\x22 -od \x22$ParametersDirOutput\x22 -iodf $ParametersF -nwr $ParaNwinL -nwc $ParaNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+        set f [ open "| Soft/bin/data_process_sngl/kozlov_anisotropy.exe -id \x22$ParametersDirInput\x22 -od \x22$ParametersDirOutput\x22 -iodf $ParametersF -nwr $ParaNwinL -nwc $ParaNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError
@@ -1306,9 +1306,9 @@ if {"$VarWarning"=="ok"} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/data_process_sngl/h_a_alpha_eigenvalue_set.exe" "k"
-        TextEditorRunTrace "Arguments: -id \x22$ParametersDirInput\x22 -od \x22$ParametersDirOutput\x22 -iodf $ParametersF -nwr $ParaNwinL -nwc $ParaNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -fl1 0 -fl2 0 -fl3 0 -fl4 0 -fl5 0 -fl6 0 -fl7 0 -fl8 0 -fl9 0 -fl10 0 -fl11 0 -fl12 1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-        set f [ open "| Soft/data_process_sngl/h_a_alpha_eigenvalue_set.exe -id \x22$ParametersDirInput\x22 -od \x22$ParametersDirOutput\x22 -iodf $ParametersF -nwr $ParaNwinL -nwc $ParaNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -fl1 0 -fl2 0 -fl3 0 -fl4 0 -fl5 0 -fl6 0 -fl7 0 -fl8 0 -fl9 0 -fl10 0 -fl11 0 -fl12 1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+        TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/h_a_alpha_eigenvalue_set.exe" "k"
+        TextEditorRunTrace "Arguments: -id \x22$ParametersDirInput\x22 -od \x22$ParametersDirOutput\x22 -iodf $ParametersF -nwr $ParaNwinL -nwc $ParaNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -fl1 0 -fl2 0 -fl3 0 -fl4 0 -fl5 0 -fl6 0 -fl7 0 -fl8 0 -fl9 0 -fl10 0 -fl11 0 -fl12 1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+        set f [ open "| Soft/bin/data_process_sngl/h_a_alpha_eigenvalue_set.exe -id \x22$ParametersDirInput\x22 -od \x22$ParametersDirOutput\x22 -iodf $ParametersF -nwr $ParaNwinL -nwc $ParaNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -fl1 0 -fl2 0 -fl3 0 -fl4 0 -fl5 0 -fl6 0 -fl7 0 -fl8 0 -fl9 0 -fl10 0 -fl11 0 -fl12 1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError
@@ -1350,9 +1350,9 @@ if {"$VarWarning"=="ok"} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/data_process_sngl/scattering_mechanism_entropy_freeman.exe" "k"
-        TextEditorRunTrace "Arguments: -id \x22$ParametersDirInput\x22 -od \x22$ParametersDirOutput\x22 -iodf $ParametersF -nwr $ParaNwinL -nwc $ParaNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-        set f [ open "| Soft/data_process_sngl/scattering_mechanism_entropy_freeman.exe -id \x22$ParametersDirInput\x22 -od \x22$ParametersDirOutput\x22 -iodf $ParametersF -nwr $ParaNwinL -nwc $ParaNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+        TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/scattering_mechanism_entropy_freeman.exe" "k"
+        TextEditorRunTrace "Arguments: -id \x22$ParametersDirInput\x22 -od \x22$ParametersDirOutput\x22 -iodf $ParametersF -nwr $ParaNwinL -nwc $ParaNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+        set f [ open "| Soft/bin/data_process_sngl/scattering_mechanism_entropy_freeman.exe -id \x22$ParametersDirInput\x22 -od \x22$ParametersDirOutput\x22 -iodf $ParametersF -nwr $ParaNwinL -nwc $ParaNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError
@@ -1395,9 +1395,9 @@ if {"$VarWarning"=="ok"} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/data_process_sngl/scattering_mechanism_entropy_vanzyl.exe" "k"
-        TextEditorRunTrace "Arguments: -id \x22$ParametersDirInput\x22 -od \x22$ParametersDirOutput\x22 -iodf $ParametersF -nwr $ParaNwinL -nwc $ParaNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-        set f [ open "| Soft/data_process_sngl/scattering_mechanism_entropy_vanzyl.exe -id \x22$ParametersDirInput\x22 -od \x22$ParametersDirOutput\x22 -iodf $ParametersF -nwr $ParaNwinL -nwc $ParaNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+        TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/scattering_mechanism_entropy_vanzyl.exe" "k"
+        TextEditorRunTrace "Arguments: -id \x22$ParametersDirInput\x22 -od \x22$ParametersDirOutput\x22 -iodf $ParametersF -nwr $ParaNwinL -nwc $ParaNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+        set f [ open "| Soft/bin/data_process_sngl/scattering_mechanism_entropy_vanzyl.exe -id \x22$ParametersDirInput\x22 -od \x22$ParametersDirOutput\x22 -iodf $ParametersF -nwr $ParaNwinL -nwc $ParaNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError
@@ -1440,9 +1440,9 @@ if {"$VarWarning"=="ok"} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/data_process_sngl/pps_detection.exe" "k"
-        TextEditorRunTrace "Arguments: -id \x22$ParametersDirInput\x22 -od \x22$ParametersDirOutput\x22 -iodf $ParametersF -nwr $ParaNwinL -nwc $ParaNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -p1 $ParaPPSp1 -a1 $ParaPPSalpha1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-        set f [ open "| Soft/data_process_sngl/pps_detection.exe -id \x22$ParametersDirInput\x22 -od \x22$ParametersDirOutput\x22 -iodf $ParametersF -nwr $ParaNwinL -nwc $ParaNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -p1 $ParaPPSp1 -a1 $ParaPPSalpha1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+        TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/pps_detection.exe" "k"
+        TextEditorRunTrace "Arguments: -id \x22$ParametersDirInput\x22 -od \x22$ParametersDirOutput\x22 -iodf $ParametersF -nwr $ParaNwinL -nwc $ParaNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -p1 $ParaPPSp1 -a1 $ParaPPSalpha1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+        set f [ open "| Soft/bin/data_process_sngl/pps_detection.exe -id \x22$ParametersDirInput\x22 -od \x22$ParametersDirOutput\x22 -iodf $ParametersF -nwr $ParaNwinL -nwc $ParaNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -p1 $ParaPPSp1 -a1 $ParaPPSalpha1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError
@@ -1484,9 +1484,9 @@ if {"$VarWarning"=="ok"} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/data_process_sngl/orientation_estimation.exe" "k"
-        TextEditorRunTrace "Arguments: -id \x22$ParametersDirInput\x22 -od \x22$ParametersDirOutput\x22 -iodf $ParametersF -nwr $ParaNwinL -nwc $ParaNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-        set f [ open "| Soft/data_process_sngl/orientation_estimation.exe -id \x22$ParametersDirInput\x22 -od \x22$ParametersDirOutput\x22 -iodf $ParametersF -nwr $ParaNwinL -nwc $ParaNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+        TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/orientation_estimation.exe" "k"
+        TextEditorRunTrace "Arguments: -id \x22$ParametersDirInput\x22 -od \x22$ParametersDirOutput\x22 -iodf $ParametersF -nwr $ParaNwinL -nwc $ParaNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+        set f [ open "| Soft/bin/data_process_sngl/orientation_estimation.exe -id \x22$ParametersDirInput\x22 -od \x22$ParametersDirOutput\x22 -iodf $ParametersF -nwr $ParaNwinL -nwc $ParaNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError
@@ -1499,9 +1499,9 @@ if {"$VarWarning"=="ok"} {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/data_process_sngl/orientation_correction.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$ParametersDirInput\x22 -od \x22$ParametersDirOutput\x22 -if \x22$OrientationFile\x22 -iodf $ParametersF -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_sngl/orientation_correction.exe -id \x22$ParametersDirInput\x22 -od \x22$ParametersDirOutput\x22 -if \x22$OrientationFile\x22 -iodf $ParametersF -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/orientation_correction.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$ParametersDirInput\x22 -od \x22$ParametersDirOutput\x22 -if \x22$OrientationFile\x22 -iodf $ParametersF -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_sngl/orientation_correction.exe -id \x22$ParametersDirInput\x22 -od \x22$ParametersDirOutput\x22 -if \x22$OrientationFile\x22 -iodf $ParametersF -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1552,15 +1552,15 @@ if {"$VarWarning"=="ok"} {
                 set ProgressLine "0"
                 WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                 update
-                TextEditorRunTrace "Process The Function Soft/bmp_process/create_pauli_rgb_file.exe" "k"
-                TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $ParametersF -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -auto 1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                set f [ open "| Soft/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $ParametersF -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -auto 1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_pauli_rgb_file.exe" "k"
+                TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $ParametersF -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -auto 1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                set f [ open "| Soft/bin/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $ParametersF -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -auto 1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                 PsPprogressBar $f
                 TextEditorRunTrace "Check RunTime Errors" "r"
                 CheckRunTimeError
                 set BMPDirInput $RGBDirOutput
                 WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-                if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+                if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
                 } else {
                 set VarError ""
                 set ErrorMessage "IMPOSSIBLE TO OPEN THE BIN FILES" 
@@ -1598,9 +1598,9 @@ if {"$VarWarning"=="ok"} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/data_process_sngl/RVOG_PolSAR.exe" "k"
-        TextEditorRunTrace "Arguments: -id \x22$ParametersDirInput\x22 -od \x22$ParametersDirOutput\x22 -iodf $ParametersF -nwr $ParaNwinL -nwc $ParaNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-        set f [ open "| Soft/data_process_sngl/RVOG_PolSAR.exe -id \x22$ParametersDirInput\x22 -od \x22$ParametersDirOutput\x22 -iodf $ParametersF -nwr $ParaNwinL -nwc $ParaNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+        TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/RVOG_PolSAR.exe" "k"
+        TextEditorRunTrace "Arguments: -id \x22$ParametersDirInput\x22 -od \x22$ParametersDirOutput\x22 -iodf $ParametersF -nwr $ParaNwinL -nwc $ParaNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+        set f [ open "| Soft/bin/data_process_sngl/RVOG_PolSAR.exe -id \x22$ParametersDirInput\x22 -od \x22$ParametersDirOutput\x22 -iodf $ParametersF -nwr $ParaNwinL -nwc $ParaNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError

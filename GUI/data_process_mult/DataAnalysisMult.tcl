@@ -1027,7 +1027,7 @@ $widget(Radiobutton512_5) configure -state disable} \
         -background #ffff00 \
         -command {global DataDirMult MultDataDirInput MultDataBinFile
 global MultDataAvg MultDataStd MultDataCV MultDataNwinL MultDataNwinC MultDataBMP
-global MultDataFormatIn MultDataFormatOut MultDataFonction PSPMemory TMPMemoryAllocError
+global MultDataFormatIn MultDataFormatOut MultDataFonction TMPMemoryAllocError
 global Fonction2 ProgressLine VarFunction VarWarning WarningMessage WarningMessage2
 global ConfigFile FinalNlig FinalNcol PolarCase PolarType OpenDirFile FlatEarthFile
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
@@ -1062,9 +1062,9 @@ if {"$VarWarning"=="ok"} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/data_process_mult/data_analysis_mult.exe" "k"
+        TextEditorRunTrace "Process The Function Soft/bin/data_process_mult/data_analysis_mult.exe" "k"
         TextEditorRunTrace "Arguments: -id \x22$DataDirMult(1)\x22 -iodf $MultDataFonction -if \x22$MultDataBinFile\x22 -idf $MultDataFormatIn -odf $MultDataFormatOut -nwr $MultDataNwinL -nwc $MultDataNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -fl1 $MultDataAvg -fl2 $MultDataStd -fl3 $MultDataCV $MaskCmd" "k"
-        set f [ open "| Soft/data_process_mult/data_analysis_mult.exe -id \x22$DataDirMult(1)\x22 -iodf $MultDataFonction -if \x22$MultDataBinFile\x22 -idf $MultDataFormatIn -odf $MultDataFormatOut -nwr $MultDataNwinL -nwc $MultDataNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -fl1 $MultDataAvg -fl2 $MultDataStd -fl3 $MultDataCV $MaskCmd" r]
+        set f [ open "| Soft/bin/data_process_mult/data_analysis_mult.exe -id \x22$DataDirMult(1)\x22 -iodf $MultDataFonction -if \x22$MultDataBinFile\x22 -idf $MultDataFormatIn -odf $MultDataFormatOut -nwr $MultDataNwinL -nwc $MultDataNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -fl1 $MultDataAvg -fl2 $MultDataStd -fl3 $MultDataCV $MaskCmd" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError

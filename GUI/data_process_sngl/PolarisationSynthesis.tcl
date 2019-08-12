@@ -1217,7 +1217,7 @@ $widget(Label100_6) configure -state disable} \
 global SyntDirInput SyntDirOutput SyntOutputDir SyntOutputSubDir ConfigFile
 global Synt000 Synt030 Synt045 Synt060 Synt090 Synt120 Synt135 Synt150 SyntLeft SyntRight SyntRGB SyntRGBFormat SyntBMP
 global Fonction Fonction2 VarFunction VarWarning WarningMessage WarningMessage2 VarError ErrorMessage ProgressLine
-global TMPSyntBmp TMPSyntBlue TMPSyntGreen TMPSyntRed PSPMemory TMPMemoryAllocError
+global TMPSyntBmp TMPSyntBlue TMPSyntGreen TMPSyntRed TMPMemoryAllocError
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax PSPViewGimpBMP
 
 if {$OpenDirFile == 0} {
@@ -1266,9 +1266,9 @@ if {"$VarWarning"=="ok"} {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/data_process_sngl/polar_synt.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$SyntDirInput\x22 -iodf $SyntFonction -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -rgb $SyntRGB -rgbf $SyntRGBFormat -bmp $SyntBMP -phi $OrientationAngle -tau $EllipticityAngle -bmpf \x22$TMPSyntBmp\x22 -bf \x22$TMPSyntBlue\x22 -gf \x22$TMPSyntGreen\x22 -rf \x22$TMPSyntRed\x22 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"    
-            set f [ open "| Soft/data_process_sngl/polar_synt.exe -id \x22$SyntDirInput\x22 -iodf $SyntFonction -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -rgb $SyntRGB -rgbf $SyntRGBFormat -bmp $SyntBMP -phi $OrientationAngle -tau $EllipticityAngle -bmpf \x22$TMPSyntBmp\x22 -bf \x22$TMPSyntBlue\x22 -gf \x22$TMPSyntGreen\x22 -rf \x22$TMPSyntRed\x22 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]            
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/polar_synt.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$SyntDirInput\x22 -iodf $SyntFonction -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -rgb $SyntRGB -rgbf $SyntRGBFormat -bmp $SyntBMP -phi $OrientationAngle -tau $EllipticityAngle -bmpf \x22$TMPSyntBmp\x22 -bf \x22$TMPSyntBlue\x22 -gf \x22$TMPSyntGreen\x22 -rf \x22$TMPSyntRed\x22  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"    
+            set f [ open "| Soft/bin/data_process_sngl/polar_synt.exe -id \x22$SyntDirInput\x22 -iodf $SyntFonction -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -rgb $SyntRGB -rgbf $SyntRGBFormat -bmp $SyntBMP -phi $OrientationAngle -tau $EllipticityAngle -bmpf \x22$TMPSyntBmp\x22 -bf \x22$TMPSyntBlue\x22 -gf \x22$TMPSyntGreen\x22 -rf \x22$TMPSyntRed\x22  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]            
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1293,14 +1293,14 @@ if {"$VarWarning"=="ok"} {
                 set ProgressLine "0"
                 WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                 update
-                TextEditorRunTrace "Process The Function Soft/bmp_process/create_rgb_file.exe" "k"
-                TextEditorRunTrace "Arguments: -ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$RGBFileOutput\x22 -inc $FinalNcol -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -auto 1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                set f [ open "| Soft/bmp_process/create_rgb_file.exe -ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$RGBFileOutput\x22 -inc $FinalNcol -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -auto 1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_rgb_file.exe" "k"
+                TextEditorRunTrace "Arguments: -ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$RGBFileOutput\x22 -inc $FinalNcol -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -auto 1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                set f [ open "| Soft/bin/bmp_process/create_rgb_file.exe -ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$RGBFileOutput\x22 -inc $FinalNcol -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -auto 1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                 PsPprogressBar $f
                 TextEditorRunTrace "Check RunTime Errors" "r"
                 CheckRunTimeError
                 WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-                if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+                if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
                 }
             }
         if {"$Synt030"=="1"} {
@@ -1314,9 +1314,9 @@ if {"$VarWarning"=="ok"} {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/data_process_sngl/polar_synt.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$SyntDirInput\x22 -iodf $SyntFonction -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -rgb $SyntRGB -rgbf $SyntRGBFormat -bmp $SyntBMP -phi $OrientationAngle -tau $EllipticityAngle -bmpf \x22$TMPSyntBmp\x22 -bf \x22$TMPSyntBlue\x22 -gf \x22$TMPSyntGreen\x22 -rf \x22$TMPSyntRed\x22 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"    
-            set f [ open "| Soft/data_process_sngl/polar_synt.exe -id \x22$SyntDirInput\x22 -iodf $SyntFonction -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -rgb $SyntRGB -rgbf $SyntRGBFormat -bmp $SyntBMP -phi $OrientationAngle -tau $EllipticityAngle -bmpf \x22$TMPSyntBmp\x22 -bf \x22$TMPSyntBlue\x22 -gf \x22$TMPSyntGreen\x22 -rf \x22$TMPSyntRed\x22 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]            
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/polar_synt.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$SyntDirInput\x22 -iodf $SyntFonction -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -rgb $SyntRGB -rgbf $SyntRGBFormat -bmp $SyntBMP -phi $OrientationAngle -tau $EllipticityAngle -bmpf \x22$TMPSyntBmp\x22 -bf \x22$TMPSyntBlue\x22 -gf \x22$TMPSyntGreen\x22 -rf \x22$TMPSyntRed\x22  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"    
+            set f [ open "| Soft/bin/data_process_sngl/polar_synt.exe -id \x22$SyntDirInput\x22 -iodf $SyntFonction -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -rgb $SyntRGB -rgbf $SyntRGBFormat -bmp $SyntBMP -phi $OrientationAngle -tau $EllipticityAngle -bmpf \x22$TMPSyntBmp\x22 -bf \x22$TMPSyntBlue\x22 -gf \x22$TMPSyntGreen\x22 -rf \x22$TMPSyntRed\x22  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]            
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1341,14 +1341,14 @@ if {"$VarWarning"=="ok"} {
                 set ProgressLine "0"
                 WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                 update
-                TextEditorRunTrace "Process The Function Soft/bmp_process/create_rgb_file.exe" "k"
-                TextEditorRunTrace "Arguments: -ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$RGBFileOutput\x22 -inc $FinalNcol -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -auto 1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                set f [ open "| Soft/bmp_process/create_rgb_file.exe -ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$RGBFileOutput\x22 -inc $FinalNcol -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -auto 1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_rgb_file.exe" "k"
+                TextEditorRunTrace "Arguments: -ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$RGBFileOutput\x22 -inc $FinalNcol -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -auto 1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                set f [ open "| Soft/bin/bmp_process/create_rgb_file.exe -ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$RGBFileOutput\x22 -inc $FinalNcol -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -auto 1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                 PsPprogressBar $f
                 TextEditorRunTrace "Check RunTime Errors" "r"
                 CheckRunTimeError
                 WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-                if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+                if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
                 }
             }
         if {"$Synt045"=="1"} {
@@ -1362,9 +1362,9 @@ if {"$VarWarning"=="ok"} {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/data_process_sngl/polar_synt.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$SyntDirInput\x22 -iodf $SyntFonction -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -rgb $SyntRGB -rgbf $SyntRGBFormat -bmp $SyntBMP -phi $OrientationAngle -tau $EllipticityAngle -bmpf \x22$TMPSyntBmp\x22 -bf \x22$TMPSyntBlue\x22 -gf \x22$TMPSyntGreen\x22 -rf \x22$TMPSyntRed\x22 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"    
-            set f [ open "| Soft/data_process_sngl/polar_synt.exe -id \x22$SyntDirInput\x22 -iodf $SyntFonction -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -rgb $SyntRGB -rgbf $SyntRGBFormat -bmp $SyntBMP -phi $OrientationAngle -tau $EllipticityAngle -bmpf \x22$TMPSyntBmp\x22 -bf \x22$TMPSyntBlue\x22 -gf \x22$TMPSyntGreen\x22 -rf \x22$TMPSyntRed\x22 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]            
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/polar_synt.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$SyntDirInput\x22 -iodf $SyntFonction -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -rgb $SyntRGB -rgbf $SyntRGBFormat -bmp $SyntBMP -phi $OrientationAngle -tau $EllipticityAngle -bmpf \x22$TMPSyntBmp\x22 -bf \x22$TMPSyntBlue\x22 -gf \x22$TMPSyntGreen\x22 -rf \x22$TMPSyntRed\x22  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"    
+            set f [ open "| Soft/bin/data_process_sngl/polar_synt.exe -id \x22$SyntDirInput\x22 -iodf $SyntFonction -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -rgb $SyntRGB -rgbf $SyntRGBFormat -bmp $SyntBMP -phi $OrientationAngle -tau $EllipticityAngle -bmpf \x22$TMPSyntBmp\x22 -bf \x22$TMPSyntBlue\x22 -gf \x22$TMPSyntGreen\x22 -rf \x22$TMPSyntRed\x22  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]            
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1389,14 +1389,14 @@ if {"$VarWarning"=="ok"} {
                 set ProgressLine "0"
                 WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                 update
-                TextEditorRunTrace "Process The Function Soft/bmp_process/create_rgb_file.exe" "k"
-                TextEditorRunTrace "Arguments: -ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$RGBFileOutput\x22 -inc $FinalNcol -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -auto 1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                set f [ open "| Soft/bmp_process/create_rgb_file.exe -ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$RGBFileOutput\x22 -inc $FinalNcol -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -auto 1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_rgb_file.exe" "k"
+                TextEditorRunTrace "Arguments: -ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$RGBFileOutput\x22 -inc $FinalNcol -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -auto 1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                set f [ open "| Soft/bin/bmp_process/create_rgb_file.exe -ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$RGBFileOutput\x22 -inc $FinalNcol -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -auto 1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                 PsPprogressBar $f
                 TextEditorRunTrace "Check RunTime Errors" "r"
                 CheckRunTimeError
                 WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-                if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+                if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
                 }
             }
         if {"$Synt060"=="1"} {
@@ -1410,9 +1410,9 @@ if {"$VarWarning"=="ok"} {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/data_process_sngl/polar_synt.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$SyntDirInput\x22 -iodf $SyntFonction -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -rgb $SyntRGB -rgbf $SyntRGBFormat -bmp $SyntBMP -phi $OrientationAngle -tau $EllipticityAngle -bmpf \x22$TMPSyntBmp\x22 -bf \x22$TMPSyntBlue\x22 -gf \x22$TMPSyntGreen\x22 -rf \x22$TMPSyntRed\x22 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"    
-            set f [ open "| Soft/data_process_sngl/polar_synt.exe -id \x22$SyntDirInput\x22 -iodf $SyntFonction -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -rgb $SyntRGB -rgbf $SyntRGBFormat -bmp $SyntBMP -phi $OrientationAngle -tau $EllipticityAngle -bmpf \x22$TMPSyntBmp\x22 -bf \x22$TMPSyntBlue\x22 -gf \x22$TMPSyntGreen\x22 -rf \x22$TMPSyntRed\x22 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]            
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/polar_synt.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$SyntDirInput\x22 -iodf $SyntFonction -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -rgb $SyntRGB -rgbf $SyntRGBFormat -bmp $SyntBMP -phi $OrientationAngle -tau $EllipticityAngle -bmpf \x22$TMPSyntBmp\x22 -bf \x22$TMPSyntBlue\x22 -gf \x22$TMPSyntGreen\x22 -rf \x22$TMPSyntRed\x22  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"    
+            set f [ open "| Soft/bin/data_process_sngl/polar_synt.exe -id \x22$SyntDirInput\x22 -iodf $SyntFonction -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -rgb $SyntRGB -rgbf $SyntRGBFormat -bmp $SyntBMP -phi $OrientationAngle -tau $EllipticityAngle -bmpf \x22$TMPSyntBmp\x22 -bf \x22$TMPSyntBlue\x22 -gf \x22$TMPSyntGreen\x22 -rf \x22$TMPSyntRed\x22  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]            
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1437,14 +1437,14 @@ if {"$VarWarning"=="ok"} {
                 set ProgressLine "0"
                 WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                 update
-                TextEditorRunTrace "Process The Function Soft/bmp_process/create_rgb_file.exe" "k"
-                TextEditorRunTrace "Arguments: -ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$RGBFileOutput\x22 -inc $FinalNcol -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -auto 1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                set f [ open "| Soft/bmp_process/create_rgb_file.exe -ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$RGBFileOutput\x22 -inc $FinalNcol -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -auto 1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_rgb_file.exe" "k"
+                TextEditorRunTrace "Arguments: -ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$RGBFileOutput\x22 -inc $FinalNcol -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -auto 1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                set f [ open "| Soft/bin/bmp_process/create_rgb_file.exe -ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$RGBFileOutput\x22 -inc $FinalNcol -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -auto 1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                 PsPprogressBar $f
                 TextEditorRunTrace "Check RunTime Errors" "r"
                 CheckRunTimeError
                 WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-                if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+                if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
                 }
             }
         if {"$Synt090"=="1"} {
@@ -1458,9 +1458,9 @@ if {"$VarWarning"=="ok"} {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/data_process_sngl/polar_synt.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$SyntDirInput\x22 -iodf $SyntFonction -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -rgb $SyntRGB -rgbf $SyntRGBFormat -bmp $SyntBMP -phi $OrientationAngle -tau $EllipticityAngle -bmpf \x22$TMPSyntBmp\x22 -bf \x22$TMPSyntBlue\x22 -gf \x22$TMPSyntGreen\x22 -rf \x22$TMPSyntRed\x22 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"    
-            set f [ open "| Soft/data_process_sngl/polar_synt.exe -id \x22$SyntDirInput\x22 -iodf $SyntFonction -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -rgb $SyntRGB -rgbf $SyntRGBFormat -bmp $SyntBMP -phi $OrientationAngle -tau $EllipticityAngle -bmpf \x22$TMPSyntBmp\x22 -bf \x22$TMPSyntBlue\x22 -gf \x22$TMPSyntGreen\x22 -rf \x22$TMPSyntRed\x22 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]            
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/polar_synt.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$SyntDirInput\x22 -iodf $SyntFonction -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -rgb $SyntRGB -rgbf $SyntRGBFormat -bmp $SyntBMP -phi $OrientationAngle -tau $EllipticityAngle -bmpf \x22$TMPSyntBmp\x22 -bf \x22$TMPSyntBlue\x22 -gf \x22$TMPSyntGreen\x22 -rf \x22$TMPSyntRed\x22  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"    
+            set f [ open "| Soft/bin/data_process_sngl/polar_synt.exe -id \x22$SyntDirInput\x22 -iodf $SyntFonction -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -rgb $SyntRGB -rgbf $SyntRGBFormat -bmp $SyntBMP -phi $OrientationAngle -tau $EllipticityAngle -bmpf \x22$TMPSyntBmp\x22 -bf \x22$TMPSyntBlue\x22 -gf \x22$TMPSyntGreen\x22 -rf \x22$TMPSyntRed\x22  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]            
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1485,14 +1485,14 @@ if {"$VarWarning"=="ok"} {
                 set ProgressLine "0"
                 WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                 update
-                TextEditorRunTrace "Process The Function Soft/bmp_process/create_rgb_file.exe" "k"
-                TextEditorRunTrace "Arguments: -ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$RGBFileOutput\x22 -inc $FinalNcol -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -auto 1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                set f [ open "| Soft/bmp_process/create_rgb_file.exe -ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$RGBFileOutput\x22 -inc $FinalNcol -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -auto 1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_rgb_file.exe" "k"
+                TextEditorRunTrace "Arguments: -ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$RGBFileOutput\x22 -inc $FinalNcol -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -auto 1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                set f [ open "| Soft/bin/bmp_process/create_rgb_file.exe -ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$RGBFileOutput\x22 -inc $FinalNcol -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -auto 1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                 PsPprogressBar $f
                 TextEditorRunTrace "Check RunTime Errors" "r"
                 CheckRunTimeError
                 WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-                if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+                if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
                 }
             }
         if {"$Synt120"=="1"} {
@@ -1506,9 +1506,9 @@ if {"$VarWarning"=="ok"} {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/data_process_sngl/polar_synt.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$SyntDirInput\x22 -iodf $SyntFonction -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -rgb $SyntRGB -rgbf $SyntRGBFormat -bmp $SyntBMP -phi $OrientationAngle -tau $EllipticityAngle -bmpf \x22$TMPSyntBmp\x22 -bf \x22$TMPSyntBlue\x22 -gf \x22$TMPSyntGreen\x22 -rf \x22$TMPSyntRed\x22 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"    
-            set f [ open "| Soft/data_process_sngl/polar_synt.exe -id \x22$SyntDirInput\x22 -iodf $SyntFonction -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -rgb $SyntRGB -rgbf $SyntRGBFormat -bmp $SyntBMP -phi $OrientationAngle -tau $EllipticityAngle -bmpf \x22$TMPSyntBmp\x22 -bf \x22$TMPSyntBlue\x22 -gf \x22$TMPSyntGreen\x22 -rf \x22$TMPSyntRed\x22 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]            
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/polar_synt.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$SyntDirInput\x22 -iodf $SyntFonction -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -rgb $SyntRGB -rgbf $SyntRGBFormat -bmp $SyntBMP -phi $OrientationAngle -tau $EllipticityAngle -bmpf \x22$TMPSyntBmp\x22 -bf \x22$TMPSyntBlue\x22 -gf \x22$TMPSyntGreen\x22 -rf \x22$TMPSyntRed\x22  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"    
+            set f [ open "| Soft/bin/data_process_sngl/polar_synt.exe -id \x22$SyntDirInput\x22 -iodf $SyntFonction -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -rgb $SyntRGB -rgbf $SyntRGBFormat -bmp $SyntBMP -phi $OrientationAngle -tau $EllipticityAngle -bmpf \x22$TMPSyntBmp\x22 -bf \x22$TMPSyntBlue\x22 -gf \x22$TMPSyntGreen\x22 -rf \x22$TMPSyntRed\x22  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]            
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1533,14 +1533,14 @@ if {"$VarWarning"=="ok"} {
                 set ProgressLine "0"
                 WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                 update
-                TextEditorRunTrace "Process The Function Soft/bmp_process/create_rgb_file.exe" "k"
-                TextEditorRunTrace "Arguments: -ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$RGBFileOutput\x22 -inc $FinalNcol -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -auto 1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                set f [ open "| Soft/bmp_process/create_rgb_file.exe -ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$RGBFileOutput\x22 -inc $FinalNcol -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -auto 1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_rgb_file.exe" "k"
+                TextEditorRunTrace "Arguments: -ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$RGBFileOutput\x22 -inc $FinalNcol -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -auto 1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                set f [ open "| Soft/bin/bmp_process/create_rgb_file.exe -ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$RGBFileOutput\x22 -inc $FinalNcol -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -auto 1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                 PsPprogressBar $f
                 TextEditorRunTrace "Check RunTime Errors" "r"
                 CheckRunTimeError
                 WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-                if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+                if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
                 }
             }
         if {"$Synt135"=="1"} {
@@ -1554,9 +1554,9 @@ if {"$VarWarning"=="ok"} {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/data_process_sngl/polar_synt.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$SyntDirInput\x22 -iodf $SyntFonction -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -rgb $SyntRGB -rgbf $SyntRGBFormat -bmp $SyntBMP -phi $OrientationAngle -tau $EllipticityAngle -bmpf \x22$TMPSyntBmp\x22 -bf \x22$TMPSyntBlue\x22 -gf \x22$TMPSyntGreen\x22 -rf \x22$TMPSyntRed\x22 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"    
-            set f [ open "| Soft/data_process_sngl/polar_synt.exe -id \x22$SyntDirInput\x22 -iodf $SyntFonction -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -rgb $SyntRGB -rgbf $SyntRGBFormat -bmp $SyntBMP -phi $OrientationAngle -tau $EllipticityAngle -bmpf \x22$TMPSyntBmp\x22 -bf \x22$TMPSyntBlue\x22 -gf \x22$TMPSyntGreen\x22 -rf \x22$TMPSyntRed\x22 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]            
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/polar_synt.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$SyntDirInput\x22 -iodf $SyntFonction -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -rgb $SyntRGB -rgbf $SyntRGBFormat -bmp $SyntBMP -phi $OrientationAngle -tau $EllipticityAngle -bmpf \x22$TMPSyntBmp\x22 -bf \x22$TMPSyntBlue\x22 -gf \x22$TMPSyntGreen\x22 -rf \x22$TMPSyntRed\x22  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"    
+            set f [ open "| Soft/bin/data_process_sngl/polar_synt.exe -id \x22$SyntDirInput\x22 -iodf $SyntFonction -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -rgb $SyntRGB -rgbf $SyntRGBFormat -bmp $SyntBMP -phi $OrientationAngle -tau $EllipticityAngle -bmpf \x22$TMPSyntBmp\x22 -bf \x22$TMPSyntBlue\x22 -gf \x22$TMPSyntGreen\x22 -rf \x22$TMPSyntRed\x22  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]            
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1581,14 +1581,14 @@ if {"$VarWarning"=="ok"} {
                 set ProgressLine "0"
                 WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                 update
-                TextEditorRunTrace "Process The Function Soft/bmp_process/create_rgb_file.exe" "k"
-                TextEditorRunTrace "Arguments: -ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$RGBFileOutput\x22 -inc $FinalNcol -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -auto 1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                set f [ open "| Soft/bmp_process/create_rgb_file.exe -ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$RGBFileOutput\x22 -inc $FinalNcol -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -auto 1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_rgb_file.exe" "k"
+                TextEditorRunTrace "Arguments: -ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$RGBFileOutput\x22 -inc $FinalNcol -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -auto 1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                set f [ open "| Soft/bin/bmp_process/create_rgb_file.exe -ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$RGBFileOutput\x22 -inc $FinalNcol -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -auto 1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                 PsPprogressBar $f
                 TextEditorRunTrace "Check RunTime Errors" "r"
                 CheckRunTimeError
                 WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-                if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+                if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
                 }
             }
         if {"$Synt150"=="1"} {
@@ -1602,9 +1602,9 @@ if {"$VarWarning"=="ok"} {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/data_process_sngl/polar_synt.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$SyntDirInput\x22 -iodf $SyntFonction -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -rgb $SyntRGB -rgbf $SyntRGBFormat -bmp $SyntBMP -phi $OrientationAngle -tau $EllipticityAngle -bmpf \x22$TMPSyntBmp\x22 -bf \x22$TMPSyntBlue\x22 -gf \x22$TMPSyntGreen\x22 -rf \x22$TMPSyntRed\x22 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"    
-            set f [ open "| Soft/data_process_sngl/polar_synt.exe -id \x22$SyntDirInput\x22 -iodf $SyntFonction -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -rgb $SyntRGB -rgbf $SyntRGBFormat -bmp $SyntBMP -phi $OrientationAngle -tau $EllipticityAngle -bmpf \x22$TMPSyntBmp\x22 -bf \x22$TMPSyntBlue\x22 -gf \x22$TMPSyntGreen\x22 -rf \x22$TMPSyntRed\x22 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]            
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/polar_synt.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$SyntDirInput\x22 -iodf $SyntFonction -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -rgb $SyntRGB -rgbf $SyntRGBFormat -bmp $SyntBMP -phi $OrientationAngle -tau $EllipticityAngle -bmpf \x22$TMPSyntBmp\x22 -bf \x22$TMPSyntBlue\x22 -gf \x22$TMPSyntGreen\x22 -rf \x22$TMPSyntRed\x22  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"    
+            set f [ open "| Soft/bin/data_process_sngl/polar_synt.exe -id \x22$SyntDirInput\x22 -iodf $SyntFonction -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -rgb $SyntRGB -rgbf $SyntRGBFormat -bmp $SyntBMP -phi $OrientationAngle -tau $EllipticityAngle -bmpf \x22$TMPSyntBmp\x22 -bf \x22$TMPSyntBlue\x22 -gf \x22$TMPSyntGreen\x22 -rf \x22$TMPSyntRed\x22  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]            
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1629,14 +1629,14 @@ if {"$VarWarning"=="ok"} {
                 set ProgressLine "0"
                 WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                 update
-                TextEditorRunTrace "Process The Function Soft/bmp_process/create_rgb_file.exe" "k"
-                TextEditorRunTrace "Arguments: -ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$RGBFileOutput\x22 -inc $FinalNcol -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -auto 1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                set f [ open "| Soft/bmp_process/create_rgb_file.exe -ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$RGBFileOutput\x22 -inc $FinalNcol -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -auto 1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_rgb_file.exe" "k"
+                TextEditorRunTrace "Arguments: -ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$RGBFileOutput\x22 -inc $FinalNcol -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -auto 1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                set f [ open "| Soft/bin/bmp_process/create_rgb_file.exe -ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$RGBFileOutput\x22 -inc $FinalNcol -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -auto 1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                 PsPprogressBar $f
                 TextEditorRunTrace "Check RunTime Errors" "r"
                 CheckRunTimeError
                 WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-                if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+                if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
                 }
             }
         if {"$SyntLeft"=="1"} {
@@ -1650,9 +1650,9 @@ if {"$VarWarning"=="ok"} {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/data_process_sngl/polar_synt.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$SyntDirInput\x22 -iodf $SyntFonction -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -rgb $SyntRGB -rgbf $SyntRGBFormat -bmp $SyntBMP -phi $OrientationAngle -tau $EllipticityAngle -bmpf \x22$TMPSyntBmp\x22 -bf \x22$TMPSyntBlue\x22 -gf \x22$TMPSyntGreen\x22 -rf \x22$TMPSyntRed\x22 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"    
-            set f [ open "| Soft/data_process_sngl/polar_synt.exe -id \x22$SyntDirInput\x22 -iodf $SyntFonction -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -rgb $SyntRGB -rgbf $SyntRGBFormat -bmp $SyntBMP -phi $OrientationAngle -tau $EllipticityAngle -bmpf \x22$TMPSyntBmp\x22 -bf \x22$TMPSyntBlue\x22 -gf \x22$TMPSyntGreen\x22 -rf \x22$TMPSyntRed\x22 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]            
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/polar_synt.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$SyntDirInput\x22 -iodf $SyntFonction -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -rgb $SyntRGB -rgbf $SyntRGBFormat -bmp $SyntBMP -phi $OrientationAngle -tau $EllipticityAngle -bmpf \x22$TMPSyntBmp\x22 -bf \x22$TMPSyntBlue\x22 -gf \x22$TMPSyntGreen\x22 -rf \x22$TMPSyntRed\x22  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"    
+            set f [ open "| Soft/bin/data_process_sngl/polar_synt.exe -id \x22$SyntDirInput\x22 -iodf $SyntFonction -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -rgb $SyntRGB -rgbf $SyntRGBFormat -bmp $SyntBMP -phi $OrientationAngle -tau $EllipticityAngle -bmpf \x22$TMPSyntBmp\x22 -bf \x22$TMPSyntBlue\x22 -gf \x22$TMPSyntGreen\x22 -rf \x22$TMPSyntRed\x22  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]            
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1677,14 +1677,14 @@ if {"$VarWarning"=="ok"} {
                 set ProgressLine "0"
                 WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                 update
-                TextEditorRunTrace "Process The Function Soft/bmp_process/create_rgb_file.exe" "k"
-                TextEditorRunTrace "Arguments: -ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$RGBFileOutput\x22 -inc $FinalNcol -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -auto 1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                set f [ open "| Soft/bmp_process/create_rgb_file.exe -ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$RGBFileOutput\x22 -inc $FinalNcol -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -auto 1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_rgb_file.exe" "k"
+                TextEditorRunTrace "Arguments: -ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$RGBFileOutput\x22 -inc $FinalNcol -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -auto 1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                set f [ open "| Soft/bin/bmp_process/create_rgb_file.exe -ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$RGBFileOutput\x22 -inc $FinalNcol -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -auto 1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                 PsPprogressBar $f
                 TextEditorRunTrace "Check RunTime Errors" "r"
                 CheckRunTimeError
                 WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-                if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+                if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
                 }
             }
         if {"$SyntRight"=="1"} {
@@ -1698,9 +1698,9 @@ if {"$VarWarning"=="ok"} {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/data_process_sngl/polar_synt.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$SyntDirInput\x22 -iodf $SyntFonction -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -rgb $SyntRGB -rgbf $SyntRGBFormat -bmp $SyntBMP -phi $OrientationAngle -tau $EllipticityAngle -bmpf \x22$TMPSyntBmp\x22 -bf \x22$TMPSyntBlue\x22 -gf \x22$TMPSyntGreen\x22 -rf \x22$TMPSyntRed\x22 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"    
-            set f [ open "| Soft/data_process_sngl/polar_synt.exe -id \x22$SyntDirInput\x22 -iodf $SyntFonction -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -rgb $SyntRGB -rgbf $SyntRGBFormat -bmp $SyntBMP -phi $OrientationAngle -tau $EllipticityAngle -bmpf \x22$TMPSyntBmp\x22 -bf \x22$TMPSyntBlue\x22 -gf \x22$TMPSyntGreen\x22 -rf \x22$TMPSyntRed\x22 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]            
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/polar_synt.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$SyntDirInput\x22 -iodf $SyntFonction -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -rgb $SyntRGB -rgbf $SyntRGBFormat -bmp $SyntBMP -phi $OrientationAngle -tau $EllipticityAngle -bmpf \x22$TMPSyntBmp\x22 -bf \x22$TMPSyntBlue\x22 -gf \x22$TMPSyntGreen\x22 -rf \x22$TMPSyntRed\x22  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"    
+            set f [ open "| Soft/bin/data_process_sngl/polar_synt.exe -id \x22$SyntDirInput\x22 -iodf $SyntFonction -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -rgb $SyntRGB -rgbf $SyntRGBFormat -bmp $SyntBMP -phi $OrientationAngle -tau $EllipticityAngle -bmpf \x22$TMPSyntBmp\x22 -bf \x22$TMPSyntBlue\x22 -gf \x22$TMPSyntGreen\x22 -rf \x22$TMPSyntRed\x22  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]            
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1725,14 +1725,14 @@ if {"$VarWarning"=="ok"} {
                 set ProgressLine "0"
                 WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                 update
-                TextEditorRunTrace "Process The Function Soft/bmp_process/create_rgb_file.exe" "k"
-                TextEditorRunTrace "Arguments: -ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$RGBFileOutput\x22 -inc $FinalNcol -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -auto 1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                set f [ open "| Soft/bmp_process/create_rgb_file.exe -ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$RGBFileOutput\x22 -inc $FinalNcol -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -auto 1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_rgb_file.exe" "k"
+                TextEditorRunTrace "Arguments: -ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$RGBFileOutput\x22 -inc $FinalNcol -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -auto 1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                set f [ open "| Soft/bin/bmp_process/create_rgb_file.exe -ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$RGBFileOutput\x22 -inc $FinalNcol -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -auto 1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                 PsPprogressBar $f
                 TextEditorRunTrace "Check RunTime Errors" "r"
                 CheckRunTimeError
                 WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-                if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+                if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
                 }
             }
         }

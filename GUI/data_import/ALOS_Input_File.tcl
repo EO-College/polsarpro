@@ -972,32 +972,15 @@ if {$config == "true"} {
         MenuRAZ
         ClosePSPViewer
         CloseAllWidget
-        if {$ActiveProgram == "ALOS"} {
-            if {$ALOSDataFormat == "dual1.1"} { TextEditorRunTrace "Close EO-SI Dual Pol" "b" }
-            if {$ALOSDataFormat == "dual1.5"} { TextEditorRunTrace "Close EO-SI ALOS" "b" }
-            if {$ALOSDataFormat == "quad1.1"} { TextEditorRunTrace "Close EO-SI" "b" }
-            if {$ALOSDataFormat == "quad1.5"} { TextEditorRunTrace "Close EO-SI ALOS" "b" }
-
-            if {$ModeALOS == "dual1.1"} { TextEditorRunTrace "Open EO-SI Dual Pol" "b" }
-            if {$ModeALOS == "dual1.5"} { TextEditorRunTrace "Open EO-SI ALOS" "b" }
-            if {$ModeALOS == "quad1.1"} { TextEditorRunTrace "Open EO-SI" "b" }
-            if {$ModeALOS == "quad1.5"} { TextEditorRunTrace "Open EO-SI ALOS" "b" }
-
-            set ALOSDataFormat $ModeALOS
-            $widget(MenubuttonALOS) configure -background #FFFF00
-            MenuEnvImp
-            InitDataDir
-            CheckEnvironnement
-            }
         Window hide $widget(Toplevel218); TextEditorRunTrace "Close Window ALOS Input File" "b"
 
         } else {
 
         set ALOSFile "$ALOSDirInput/workreport"
         if [file exists $ALOSFile] {
-            TextEditorRunTrace "Process The Function Soft/data_import/alos_google.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/data_import/alos_google.exe" "k"
             TextEditorRunTrace "Arguments: -if \x22$ALOSFile\x22 -od \x22$ALOSDirOutput\x22 -of \x22$TMPGoogle\x22" "k"
-            set f [ open "| Soft/data_import/alos_google.exe -if \x22$ALOSFile\x22 -od \x22$ALOSDirOutput\x22 -of \x22$TMPGoogle\x22" r]
+            set f [ open "| Soft/bin/data_import/alos_google.exe -if \x22$ALOSFile\x22 -od \x22$ALOSDirOutput\x22 -of \x22$TMPGoogle\x22" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1026,9 +1009,9 @@ if {$config == "true"} {
 
         set ALOSFile "$ALOSDirInput/summary.txt"
         if [file exists $ALOSFile] {
-            TextEditorRunTrace "Process The Function Soft/data_import/alos_google.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/data_import/alos_google.exe" "k"
             TextEditorRunTrace "Arguments: -if \x22$ALOSFile\x22 -od \x22$ALOSDirOutput\x22 -of \x22$TMPGoogle\x22" "k"
-            set f [ open "| Soft/data_import/alos_google.exe -if \x22$ALOSFile\x22 -od \x22$ALOSDirOutput\x22 -of \x22$TMPGoogle\x22" r]
+            set f [ open "| Soft/bin/data_import/alos_google.exe -if \x22$ALOSFile\x22 -od \x22$ALOSDirOutput\x22 -of \x22$TMPGoogle\x22" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1062,9 +1045,9 @@ if {$config == "true"} {
         append ALOSFile [string range $LedName 4 $LedNameLength]
         append ALOSFile ".txt"
         if [file exists $ALOSFile] {
-            TextEditorRunTrace "Process The Function Soft/data_import/alos_google.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/data_import/alos_google.exe" "k"
             TextEditorRunTrace "Arguments: -if \x22$ALOSFile\x22 -od \x22$ALOSDirOutput\x22 -of \x22$TMPGoogle\x22" "k"
-            set f [ open "| Soft/data_import/alos_google.exe -if \x22$ALOSFile\x22 -od \x22$ALOSDirOutput\x22 -of \x22$TMPGoogle\x22" r]
+            set f [ open "| Soft/bin/data_import/alos_google.exe -if \x22$ALOSFile\x22 -od \x22$ALOSDirOutput\x22 -of \x22$TMPGoogle\x22" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1427,7 +1410,7 @@ if [file exists $ALOSFile] {
     button $site_3_0.but93 \
         -background #ffff00 \
         -command {global ALOSDirInput ALOSDirOutput ALOSFileInputFlag
-global ALOSDataFormat ALOSDataLevel ALOSDataType
+global ALOSDataFormat ALOSDataLevel ALOSDataType 
 global FileInput1 FileInput2 FileInput3 FileInput4
 global VarWarning VarAdvice WarningMessage WarningMessage2 ErrorMessage VarError
 global NligInit NligEnd NligFullSize NcolInit NcolEnd NcolFullSize NligFullSizeInput NcolFullSizeInput
@@ -1445,9 +1428,9 @@ if {"$VarWarning"=="ok"} {
 
 DeleteFile  $TMPALOSConfig
 
-TextEditorRunTrace "Process The Function Soft/data_import/alos_header.exe" "k"
+TextEditorRunTrace "Process The Function Soft/bin/data_import/alos_header.exe" "k"
 TextEditorRunTrace "Arguments: -od \x22$ALOSDirOutput\x22 -ilf \x22$ALOSLeaderFile\x22 -iif \x22$FileInput1\x22 -itf \x22$ALOSTrailerFile\x22 -ocf \x22$TMPALOSConfig\x22" "k"
-set f [ open "| Soft/data_import/alos_header.exe -od \x22$ALOSDirOutput\x22 -ilf \x22$ALOSLeaderFile\x22 -iif \x22$FileInput1\x22 -itf \x22$ALOSTrailerFile\x22 -ocf \x22$TMPALOSConfig\x22" r]
+set f [ open "| Soft/bin/data_import/alos_header.exe -od \x22$ALOSDirOutput\x22 -ilf \x22$ALOSLeaderFile\x22 -iif \x22$FileInput1\x22 -itf \x22$ALOSTrailerFile\x22 -ocf \x22$TMPALOSConfig\x22" r]
 PsPprogressBar $f
 TextEditorRunTrace "Check RunTime Errors" "r"
 CheckRunTimeError
@@ -1472,11 +1455,29 @@ if [file exists $ConfigFile] {
     gets $f tmp
     gets $f tmp
     gets $f NcolFullSize
+    gets $f tmp
+    gets $f tmp; gets $f tmp; gets $f tmp
+    gets $f tmp; gets $f tmp; gets $f tmp
+    gets $f tmp; gets $f tmp; gets $f tmp
+    gets $f tmp; gets $f tmp; gets $f tmp
+    gets $f tmp; gets $f tmp; gets $f tmp
+    gets $f ALOSAntennaPass
+    gets $f ALOSIncAng
+    gets $f ALOSResAz
+    gets $f ALOSResRg
     close $f
     set TestVarName(0) "Initial Number of Rows"; set TestVarType(0) "int"; set TestVarValue(0) $NligFullSize; set TestVarMin(0) "0"; set TestVarMax(0) ""
     set TestVarName(1) "Initial Number of Cols"; set TestVarType(1) "int"; set TestVarValue(1) $NcolFullSize; set TestVarMin(1) "0"; set TestVarMax(1) ""
     TestVar 2
     if {$TestVarError == "ok"} {
+        if { $ALOSAntennaPass == "ASCEND"} {set ALOSAntennaPass "AR"} else {set ALOSAntennaPass "DR"} 
+        set f [open "$ALOSDirOutput/config_acquisition.txt" w]
+        puts $f $ALOSAntennaPass
+        puts $f $ALOSIncAng
+        puts $f $ALOSResRg
+        puts $f $ALOSResAz
+        close $f
+
         set ALOSFileInputFlag 1
         if {$ALOSDataLevel == "1.1" } { set ALOSDataType "COMPLEX SAR IMAGE" }
         if {$ALOSDataLevel == "1.5" } { set ALOSDataType "GEOREFERENCED SAR IMAGE" }
@@ -1537,7 +1538,7 @@ if {$Load_TextEdit == 0} {
     WmTransient $widget(Toplevel95) $PSPTopLevel
     }
 
-set ALOSFile "$ALOSDirOutput/leader_ceos.txt"
+set ALOSFile "$ALOSDirOutput/ceos_leader.txt"
 if [file exists $ALOSFile] {
     TextEditorRunTrace "Open Window Text Editor" "b"
     TextEditorFromWidget .top218 $ALOSFile
@@ -1554,7 +1555,7 @@ if {$Load_TextEdit == 0} {
     WmTransient $widget(Toplevel95) $PSPTopLevel
     }
 
-set ALOSFile "$ALOSDirOutput/trailer_ceos.txt"
+set ALOSFile "$ALOSDirOutput/ceos_trailer.txt"
 if [file exists $ALOSFile] {
     TextEditorRunTrace "Open Window Text Editor" "b"
     TextEditorFromWidget .top218 $ALOSFile
@@ -1571,7 +1572,7 @@ if {$Load_TextEdit == 0} {
     WmTransient $widget(Toplevel95) $PSPTopLevel
     }
 
-set ALOSFile "$ALOSDirOutput/image_ceos.txt"
+set ALOSFile "$ALOSDirOutput/ceos_image.txt"
 if [file exists $ALOSFile] {
     TextEditorRunTrace "Open Window Text Editor" "b"
     TextEditorFromWidget .top218 $ALOSFile

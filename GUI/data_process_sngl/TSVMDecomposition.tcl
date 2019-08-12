@@ -1011,7 +1011,7 @@ $widget(Checkbutton367_5) configure -state disable} \
         -background #ffff00 \
         -command {global TSVMDirInput TSVMDirOutput TSVMOutputDir TSVMOutputSubDir
 global Fonction Fonction2 VarFunction VarWarning WarningMessage WarningMessage2 VarError ErrorMessage ProgressLine
-global TSVMDecompositionFonction PSPMemory TMPMemoryAllocError
+global TSVMDecompositionFonction TMPMemoryAllocError
 global BMPDirInput OpenDirFile
 
 if {$OpenDirFile == 0} {
@@ -1055,9 +1055,9 @@ if {"$config"=="true"} {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/data_process_sngl/tsvm_decomposition.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$TSVMDirInput\x22 -od \x22$TSVMDirOutput\x22 -iodf $TSVMDecompositionFonction -nwr $NwinTSVML -nwc $NwinTSVMC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -fl1 $TSVMalpphitaupsi -fl2 $TSVMalpha123 -fl3 $TSVMphi123 -fl4 $TSVMtau123 -fl5 $TSVMpsi123 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_sngl/tsvm_decomposition.exe -id \x22$TSVMDirInput\x22 -od \x22$TSVMDirOutput\x22 -iodf $TSVMDecompositionFonction -nwr $NwinTSVML -nwc $NwinTSVMC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -fl1 $TSVMalpphitaupsi -fl2 $TSVMalpha123 -fl3 $TSVMphi123 -fl4 $TSVMtau123 -fl5 $TSVMpsi123 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/tsvm_decomposition.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$TSVMDirInput\x22 -od \x22$TSVMDirOutput\x22 -iodf $TSVMDecompositionFonction -nwr $NwinTSVML -nwc $NwinTSVMC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -fl1 $TSVMalpphitaupsi -fl2 $TSVMalpha123 -fl3 $TSVMphi123 -fl4 $TSVMtau123 -fl5 $TSVMpsi123  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_sngl/tsvm_decomposition.exe -id \x22$TSVMDirInput\x22 -od \x22$TSVMDirOutput\x22 -iodf $TSVMDecompositionFonction -nwr $NwinTSVML -nwc $NwinTSVMC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -fl1 $TSVMalpphitaupsi -fl2 $TSVMalpha123 -fl3 $TSVMphi123 -fl4 $TSVMtau123 -fl5 $TSVMpsi123  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError

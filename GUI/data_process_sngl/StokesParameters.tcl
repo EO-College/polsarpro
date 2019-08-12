@@ -175,6 +175,7 @@ foreach img {
         {{[file join . GUI Images OpenDir.gif]} {user image} user {}}
         {{[file join . GUI Images help.gif]} {user image} user {}}
         {{[file join . GUI Images Transparent_Button.gif]} {user image} user {}}
+        {{[file join . GUI Images GIMPshortcut.gif]} {user image} user {}}
 
             } {
     eval set _file [lindex $img 0]
@@ -569,6 +570,13 @@ proc vTcl:project:info {} {
     namespace eval ::widgets::$site_8_0.cpd85 {
         array set save {-command 1 -padx 1 -text 1 -variable 1}
     }
+    namespace eval ::widgets::$site_7_0.cpd66 {
+        array set save {-height 1 -width 1}
+    }
+    set site_8_0 $site_7_0.cpd66
+    namespace eval ::widgets::$site_8_0.cpd85 {
+        array set save {-padx 1 -text 1 -variable 1}
+    }
     namespace eval ::widgets::$site_5_0.cpd83 {
         array set save {-ipad 1 -text 1}
     }
@@ -763,6 +771,13 @@ proc vTcl:project:info {} {
     namespace eval ::widgets::$site_8_0.cpd85 {
         array set save {-command 1 -padx 1 -text 1 -variable 1}
     }
+    namespace eval ::widgets::$site_7_0.cpd67 {
+        array set save {-height 1 -width 1}
+    }
+    set site_8_0 $site_7_0.cpd67
+    namespace eval ::widgets::$site_8_0.cpd85 {
+        array set save {-padx 1 -text 1 -variable 1}
+    }
     namespace eval ::widgets::$site_5_0.cpd83 {
         array set save {-ipad 1 -text 1}
     }
@@ -891,6 +906,9 @@ proc vTcl:project:info {} {
     namespace eval ::widgets::$site_3_0.cpd82 {
         array set save {-_tooltip 1 -background 1 -command 1 -padx 1 -pady 1 -text 1}
     }
+    namespace eval ::widgets::$site_3_0.but66 {
+        array set save {-command 1 -image 1 -pady 1 -text 1}
+    }
     namespace eval ::widgets::$base.fra94 {
         array set save {-height 1 -relief 1 -width 1}
     }
@@ -961,9 +979,9 @@ proc vTclWindow. {base} {
     # CREATING WIDGETS
     ###################
     wm focusmodel $top passive
-    wm geometry $top 200x200+22+22; update
-    wm maxsize $top 1284 785
-    wm minsize $top 104 1
+    wm geometry $top 200x200+100+100; update
+    wm maxsize $top 3364 1032
+    wm minsize $top 116 1
     wm overrideredirect $top 0
     wm resizable $top 1 1
     wm withdraw $top
@@ -993,9 +1011,9 @@ proc vTclWindow.top209 {base} {
     vTcl:toplevel $top -class Toplevel
     wm withdraw $top
     wm focusmodel $top passive
-    wm geometry $top 500x620+10+110; update
+    wm geometry $top 500x630+10+110; update
     wm maxsize $top 1604 1184
-    wm minsize $top 113 1
+    wm minsize $top 116 1
     wm overrideredirect $top 0
     wm resizable $top 1 1
     wm title $top "Data Processing: Stokes Parameters"
@@ -1156,14 +1174,14 @@ if {$DirName != "" } {
     set site_3_0 $top.fra71
     TitleFrame $site_3_0.tit72 \
         -text {Jones Vector (s11 / s21)} 
-    vTcl:DefineAlias "$site_3_0.tit72" "TitleFrame1" vTcl:WidgetProc "Toplevel209" 1
+    vTcl:DefineAlias "$site_3_0.tit72" "TitleFrame209_1" vTcl:WidgetProc "Toplevel209" 1
     bind $site_3_0.tit72 <Destroy> {
         Widget::destroy %W; rename %W {}
     }
     set site_5_0 [$site_3_0.tit72 getframe]
     TitleFrame $site_5_0.cpd75 \
         -ipad 2 -text {Stokes Components} 
-    vTcl:DefineAlias "$site_5_0.cpd75" "TitleFrame3" vTcl:WidgetProc "Toplevel209" 1
+    vTcl:DefineAlias "$site_5_0.cpd75" "TitleFrame209_2" vTcl:WidgetProc "Toplevel209" 1
     bind $site_5_0.cpd75 <Destroy> {
         Widget::destroy %W; rename %W {}
     }
@@ -1262,7 +1280,7 @@ if {$DirName != "" } {
         -in $site_7_0 -anchor center -expand 0 -fill x -side top 
     TitleFrame $site_5_0.cpd82 \
         -ipad 2 -text {Stokes Angles} 
-    vTcl:DefineAlias "$site_5_0.cpd82" "TitleFrame4" vTcl:WidgetProc "Toplevel209" 1
+    vTcl:DefineAlias "$site_5_0.cpd82" "TitleFrame209_3" vTcl:WidgetProc "Toplevel209" 1
     bind $site_5_0.cpd82 <Destroy> {
         Widget::destroy %W; rename %W {}
     }
@@ -1311,13 +1329,24 @@ if {$StkTauv1 == 1} {
         -in $site_8_0 -anchor center -expand 0 -fill none -side right 
     pack $site_8_0.cpd85 \
         -in $site_8_0 -anchor center -expand 0 -fill none -side left 
+    frame $site_7_0.cpd66 \
+        -height 75 -width 125 
+    vTcl:DefineAlias "$site_7_0.cpd66" "Frame461" vTcl:WidgetProc "Toplevel209" 1
+    set site_8_0 $site_7_0.cpd66
+    checkbutton $site_8_0.cpd85 \
+        -padx 1 -text {Poincare Planisphere} -variable StkPPv1 
+    vTcl:DefineAlias "$site_8_0.cpd85" "Checkbutton209_59" vTcl:WidgetProc "Toplevel209" 1
+    pack $site_8_0.cpd85 \
+        -in $site_8_0 -anchor center -expand 0 -fill none -side left 
     pack $site_7_0.cpd76 \
         -in $site_7_0 -anchor center -expand 1 -fill x -side top 
     pack $site_7_0.cpd79 \
         -in $site_7_0 -anchor center -expand 0 -fill x -side top 
+    pack $site_7_0.cpd66 \
+        -in $site_7_0 -anchor center -expand 0 -fill x -side top 
     TitleFrame $site_5_0.cpd83 \
         -ipad 2 -text {Wave Descriptors} 
-    vTcl:DefineAlias "$site_5_0.cpd83" "TitleFrame5" vTcl:WidgetProc "Toplevel209" 1
+    vTcl:DefineAlias "$site_5_0.cpd83" "TitleFrame209_4" vTcl:WidgetProc "Toplevel209" 1
     bind $site_5_0.cpd83 <Destroy> {
         Widget::destroy %W; rename %W {}
     }
@@ -1546,14 +1575,14 @@ if {$StkCPR1 == 1} {
         -in $site_5_0 -anchor center -expand 1 -fill x -side top 
     TitleFrame $site_3_0.cpd74 \
         -text {Jones Vector (s12 / s22)} 
-    vTcl:DefineAlias "$site_3_0.cpd74" "TitleFrame2" vTcl:WidgetProc "Toplevel209" 1
+    vTcl:DefineAlias "$site_3_0.cpd74" "TitleFrame209_5" vTcl:WidgetProc "Toplevel209" 1
     bind $site_3_0.cpd74 <Destroy> {
         Widget::destroy %W; rename %W {}
     }
     set site_5_0 [$site_3_0.cpd74 getframe]
     TitleFrame $site_5_0.cpd75 \
         -ipad 2 -text {Stokes Components} 
-    vTcl:DefineAlias "$site_5_0.cpd75" "TitleFrame6" vTcl:WidgetProc "Toplevel209" 1
+    vTcl:DefineAlias "$site_5_0.cpd75" "TitleFrame209_6" vTcl:WidgetProc "Toplevel209" 1
     bind $site_5_0.cpd75 <Destroy> {
         Widget::destroy %W; rename %W {}
     }
@@ -1652,7 +1681,7 @@ if {$StkCPR1 == 1} {
         -in $site_7_0 -anchor center -expand 0 -fill x -side top 
     TitleFrame $site_5_0.cpd82 \
         -ipad 2 -text {Stokes Angles} 
-    vTcl:DefineAlias "$site_5_0.cpd82" "TitleFrame7" vTcl:WidgetProc "Toplevel209" 1
+    vTcl:DefineAlias "$site_5_0.cpd82" "TitleFrame209_7" vTcl:WidgetProc "Toplevel209" 1
     bind $site_5_0.cpd82 <Destroy> {
         Widget::destroy %W; rename %W {}
     }
@@ -1701,13 +1730,24 @@ if {$StkTauv2 == 1} {
         -in $site_8_0 -anchor center -expand 0 -fill none -side right 
     pack $site_8_0.cpd85 \
         -in $site_8_0 -anchor center -expand 0 -fill none -side left 
+    frame $site_7_0.cpd67 \
+        -height 75 -width 125 
+    vTcl:DefineAlias "$site_7_0.cpd67" "Frame462" vTcl:WidgetProc "Toplevel209" 1
+    set site_8_0 $site_7_0.cpd67
+    checkbutton $site_8_0.cpd85 \
+        -padx 1 -text {Poincare Planisphere} -variable StkPPv2 
+    vTcl:DefineAlias "$site_8_0.cpd85" "Checkbutton209_60" vTcl:WidgetProc "Toplevel209" 1
+    pack $site_8_0.cpd85 \
+        -in $site_8_0 -anchor center -expand 0 -fill none -side left 
     pack $site_7_0.cpd76 \
         -in $site_7_0 -anchor center -expand 1 -fill x -side top 
     pack $site_7_0.cpd79 \
         -in $site_7_0 -anchor center -expand 0 -fill x -side top 
+    pack $site_7_0.cpd67 \
+        -in $site_7_0 -anchor center -expand 0 -fill x -side top 
     TitleFrame $site_5_0.cpd83 \
         -ipad 2 -text {Wave Descriptors} 
-    vTcl:DefineAlias "$site_5_0.cpd83" "TitleFrame10" vTcl:WidgetProc "Toplevel209" 1
+    vTcl:DefineAlias "$site_5_0.cpd83" "TitleFrame209_8" vTcl:WidgetProc "Toplevel209" 1
     bind $site_5_0.cpd83 <Destroy> {
         Widget::destroy %W; rename %W {}
     }
@@ -1974,9 +2014,9 @@ if {$StkCPR2 == 1} {
         -in $site_4_0 -anchor center -expand 0 -fill none -side left 
     button $site_3_0.cpd71 \
         -background #ffff00 \
-        -command {global StkG0v1 StkG1v1 StkG2v1 StkG3v1 StkPhiv1 StkTauv1 StkEigv1 StkProbv1 StkHv1 StkAv1 StkCv1 StkDoLP1 StkDoCP1 StkCPR1 StkLPR1
+        -command {global StkG0v1 StkG1v1 StkG2v1 StkG3v1 StkPhiv1 StkTauv1 StkEigv1 StkProbv1 StkHv1 StkAv1 StkCv1 StkDoLP1 StkDoCP1 StkCPR1 StkLPR1 StkPPv1
 global BMPStkG0v1 BMPStkG1v1 BMPStkG2v1 BMPStkG3v1 BMPStkPhiv1 BMPStkTauv1 BMPStkEigv1 BMPStkProbv1 BMPStkHv1 BMPStkAv1 BMPStkCv1 BMPStkDoLP1 BMPStkDoCP1 BMPStkCPR1 BMPStkLPR1
-global StkG0v2 StkG1v2 StkG2v2 StkG3v2 StkPhiv2 StkTauv2 StkEigv2 StkProbv2 StkHv2 StkAv2 StkCv2 StkDoLP2 StkDoCP2 StkCPR2 StkLPR2
+global StkG0v2 StkG1v2 StkG2v2 StkG3v2 StkPhiv2 StkTauv2 StkEigv2 StkProbv2 StkHv2 StkAv2 StkCv2 StkDoLP2 StkDoCP2 StkCPR2 StkLPR2 StkPPv2
 global BMPStkG0v2 BMPStkG1v2 BMPStkG2v2 BMPStkG3v2 BMPStkPhiv2 BMPStkTauv2 BMPStkEigv2 BMPStkProbv2 BMPStkHv2 BMPStkAv2 BMPStkCv2 BMPStkDoLP2 BMPStkDoCP2 BMPStkCPR2 BMPStkLPR2
 global StkFonction PolarType
 
@@ -1984,7 +2024,7 @@ set NwinStkL "?"
 set NwinStkC "?"
 if {$StkFonction == "S2"} {
     set StkG0v1 1; set StkG1v1 1; set StkG2v1 1; set StkG3v1 1
-    set StkPhiv1 1; set StkTauv1 1
+    set StkPhiv1 1; set StkTauv1 1; set StkPPv1 1
     set StkEigv1 1; set StkHv1 1
     set StkAv1 1; set StkCv1 1; set StkProbv1 1
     set StkDoLP1 1; set StkDoCP1 1
@@ -2013,7 +2053,7 @@ if {$StkFonction == "S2"} {
     $widget(Checkbutton209_48) configure -state normal
 
     set StkG0v2 1; set StkG1v2 1; set StkG2v2 1; set StkG3v2 1
-    set StkPhiv2 1; set StkTauv2 1
+    set StkPhiv2 1; set StkTauv2 1; set StkPPv2 1
     set StkEigv2 1; set StkHv2 1
     set StkAv2 1; set StkCv2 1
     set StkDoLP2 1; set StkDoCP2 1
@@ -2044,7 +2084,7 @@ if {$StkFonction == "S2"} {
     } else {
     if {$PolarType == "pp1"} {
         set StkG0v1 1; set StkG1v1 1; set StkG2v1 1; set StkG3v1 1
-        set StkPhiv1 1; set StkTauv1 1
+        set StkPhiv1 1; set StkTauv1 1; set StkPPv1 1
         set StkEigv1 1; set StkHv1 1
         set StkAv1 1; set StkCv1 1; set StkProbv1 1
         set StkDoLP1 1; set StkDoCP1 1
@@ -2074,7 +2114,7 @@ if {$StkFonction == "S2"} {
         }
     if {$PolarType == "pp2"} {
         set StkG0v2 1; set StkG1v2 1; set StkG2v2 1; set StkG3v2 1
-        set StkPhiv2 1; set StkTauv2 1
+        set StkPhiv2 1; set StkTauv2 1; set StkPPv2 1
         set StkEigv2 1; set StkHv2 1
         set StkAv2 1; set StkCv2 1
         set StkDoLP2 1; set StkDoCP2 1
@@ -2112,9 +2152,9 @@ if {$StkFonction == "S2"} {
     }
     button $site_3_0.cpd82 \
         -background #ffff00 \
-        -command {global StkG0v1 StkG1v1 StkG2v1 StkG3v1 StkPhiv1 StkTauv1 StkEigv1 StkProbv1 StkHv1 StkAv1 StkCv1 StkDoLP1 StkDoCP1 StkCPR1 StkLPR1
+        -command {global StkG0v1 StkG1v1 StkG2v1 StkG3v1 StkPhiv1 StkTauv1 StkEigv1 StkProbv1 StkHv1 StkAv1 StkCv1 StkDoLP1 StkDoCP1 StkCPR1 StkLPR1 StkPPv1
 global BMPStkG0v1 BMPStkG1v1 BMPStkG2v1 BMPStkG3v1 BMPStkPhiv1 BMPStkTauv1 BMPStkEigv1 BMPStkProbv1 BMPStkHv1 BMPStkAv1 BMPStkCv1 BMPStkDoLP1 BMPStkDoCP1 BMPStkCPR1 BMPStkLPR1
-global StkG0v2 StkG1v2 StkG2v2 StkG3v2 StkPhiv2 StkTauv2 StkEigv2 StkProbv2 StkHv2 StkAv2 StkCv2 StkDoLP2 StkDoCP2 StkCPR2 StkLPR2
+global StkG0v2 StkG1v2 StkG2v2 StkG3v2 StkPhiv2 StkTauv2 StkEigv2 StkProbv2 StkHv2 StkAv2 StkCv2 StkDoLP2 StkDoCP2 StkCPR2 StkLPR2 StkPPv2
 global BMPStkG0v2 BMPStkG1v2 BMPStkG2v2 BMPStkG3v2 BMPStkPhiv2 BMPStkTauv2 BMPStkEigv2 BMPStkProbv2 BMPStkHv2 BMPStkAv2 BMPStkCv2 BMPStkDoLP2 BMPStkDoCP2 BMPStkCPR2 BMPStkLPR2
 global NwinStkL NwinStkC
 
@@ -2126,6 +2166,7 @@ set StkG2v1 0
 set StkG3v1 0
 set StkPhiv1 0
 set StkTauv1 0
+set StkPPv1 0
 set StkEigv1 0
 set StkHv1 0
 set StkAv1 0
@@ -2171,6 +2212,7 @@ set StkG2v2 0
 set StkG3v2 0
 set StkPhiv2 0
 set StkTauv2 0
+set StkPPv2 0
 set StkEigv2 0
 set StkHv2 0
 set StkAv2 0
@@ -2216,13 +2258,25 @@ $widget(Checkbutton209_58) configure -state disable} \
     bind $site_3_0.cpd82 <<SetBalloon>> {
         set ::vTcl::balloon::%W {Reset}
     }
+    button $site_3_0.but66 \
+        \
+        -command {global TMPGnuPlotTk1 TMPGnuPlotTk2
+global StkPPv1 StkPPv2
+
+if {"$StkPPv1"=="1"} { Gimp $TMPGnuPlotTk1 } 
+if {"$StkPPv2"=="1"} { Gimp $TMPGnuPlotTk2 }} \
+        -image [vTcl:image:get_image [file join . GUI Images GIMPshortcut.gif]] \
+        -pady 0 -text . 
+    vTcl:DefineAlias "$site_3_0.but66" "Button209_00" vTcl:WidgetProc "Toplevel209" 1
     pack $site_3_0.fra79 \
-        -in $site_3_0 -anchor center -expand 1 -fill none -side left 
+        -in $site_3_0 -anchor center -expand 0 -fill none -side left 
     pack $site_3_0.cpd69 \
         -in $site_3_0 -anchor center -expand 1 -fill none -side left 
     pack $site_3_0.cpd71 \
-        -in $site_3_0 -anchor center -expand 1 -fill none -padx 50 -side left 
+        -in $site_3_0 -anchor center -expand 1 -fill none -side left 
     pack $site_3_0.cpd82 \
+        -in $site_3_0 -anchor center -expand 1 -fill none -side left 
+    pack $site_3_0.but66 \
         -in $site_3_0 -anchor center -expand 1 -fill none -side left 
     frame $top.fra94 \
         -relief groove -height 35 -width 125 
@@ -2232,12 +2286,16 @@ $widget(Checkbutton209_58) configure -state disable} \
         -background #ffff00 \
         -command {global StkDirInput StkDirOutput StkOutputDir StkOutputSubDir StkFonction StkFunction
 global Fonction Fonction2 VarFunction VarWarning WarningMessage WarningMessage2 VarError ErrorMessage ProgressLine 
-global BMPDirInput OpenDirFile PSPMemory TMPMemoryAllocError
-global StkG0v1 StkG1v1 StkG2v1 StkG3v1 StkPhiv1 StkTauv1 StkEigv1 StkProbv1 StkHv1 StkAv1 StkCv1 StkDoLP1 StkDoCP1 StkCPR1 StkLPR1
-global StkG0v2 StkG1v2 StkG2v2 StkG3v2 StkPhiv2 StkTauv2 StkEigv2 StkProbv2 StkHv2 StkAv2 StkCv2 StkDoLP2 StkDoCP2 StkCPR2 StkLPR2
+global BMPDirInput OpenDirFile TMPMemoryAllocError
+global StkG0v1 StkG1v1 StkG2v1 StkG3v1 StkPhiv1 StkTauv1 StkEigv1 StkProbv1 StkHv1 StkAv1 StkCv1 StkDoLP1 StkDoCP1 StkCPR1 StkLPR1 StkPPv1
+global StkG0v2 StkG1v2 StkG2v2 StkG3v2 StkPhiv2 StkTauv2 StkEigv2 StkProbv2 StkHv2 StkAv2 StkCv2 StkDoLP2 StkDoCP2 StkCPR2 StkLPR2 StkPPv2
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax NwinStkL NwinStkC
 
 if {$OpenDirFile == 0} {
+
+$widget(Button209_00) configure -state disable
+Window hide .top401
+Window hide .top402
 
 set config1 "false"
 if {$StkG0v1 != "0"} { set config1 "true" }
@@ -2255,6 +2313,7 @@ if {$StkDoLP1 != "0"} { set config1 "true" }
 if {$StkDoCP1 != "0"} { set config1 "true" }
 if {$StkCPR1 != "0"} { set config1 "true" }
 if {$StkLPR1 != "0"} { set config1 "true" }
+if {$StkPPv1 != "0"} { set config1 "true" }
 set config2 "false"
 if {$StkG0v2 != "0"} { set config2 "true" }
 if {$StkG1v2 != "0"} { set config2 "true" }
@@ -2271,6 +2330,7 @@ if {$StkDoLP2 != "0"} { set config2 "true" }
 if {$StkDoCP2 != "0"} { set config2 "true" }
 if {$StkCPR2 != "0"} { set config2 "true" }
 if {$StkLPR2 != "0"} { set config2 "true" }
+if {$StkPPv2 != "0"} { set config2 "true" }
 set config "false"
 if {"$config1"=="true"} { set config "true" }
 if {"$config2"=="true"} { set config "true" }
@@ -2313,9 +2373,9 @@ if {"$config"=="true"} {
                 set ProgressLine "0"
                 WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                 update
-                TextEditorRunTrace "Process The Function Soft/data_process_sngl/StokesParameters.exe" "k"
-                TextEditorRunTrace "Arguments: -id \x22$StkDirInput\x22 -od \x22$StkDirOutput\x22 -iodf $StkFonction -nwr $NwinStkL -nwc $NwinStkC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -cha 1 -fl1 $StkG0v1 -fl2 $StkG1v1 -fl3 $StkG2v1 -fl4 $StkG3v1 -fl5 $StkPhiv1 -fl6 $StkTauv1 -fl7 $StkEigv1 -fl8 $StkProbv1 -fl9 $StkHv1 -fl10 $StkAv1 -fl11 $StkCv1 -fl12 $StkDoLP1 -fl13 $StkDoCP1 -fl14 $StkLPR1 -fl15 $StkCPR1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                set f [ open "| Soft/data_process_sngl/StokesParameters.exe -id \x22$StkDirInput\x22 -od \x22$StkDirOutput\x22 -iodf $StkFonction -nwr $NwinStkL -nwc $NwinStkC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -cha 1 -fl1 $StkG0v1 -fl2 $StkG1v1 -fl3 $StkG2v1 -fl4 $StkG3v1 -fl5 $StkPhiv1 -fl6 $StkTauv1 -fl7 $StkEigv1 -fl8 $StkProbv1 -fl9 $StkHv1 -fl10 $StkAv1 -fl11 $StkCv1 -fl12 $StkDoLP1 -fl13 $StkDoCP1 -fl14 $StkLPR1 -fl15 $StkCPR1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/stokes_parameters.exe" "k"
+                TextEditorRunTrace "Arguments: -id \x22$StkDirInput\x22 -od \x22$StkDirOutput\x22 -iodf $StkFonction -nwr $NwinStkL -nwc $NwinStkC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -cha 1 -fl1 $StkG0v1 -fl2 $StkG1v1 -fl3 $StkG2v1 -fl4 $StkG3v1 -fl5 $StkPhiv1 -fl6 $StkTauv1 -fl7 $StkEigv1 -fl8 $StkProbv1 -fl9 $StkHv1 -fl10 $StkAv1 -fl11 $StkCv1 -fl12 $StkDoLP1 -fl13 $StkDoCP1 -fl14 $StkLPR1 -fl15 $StkCPR1 -fl16 $StkPPv1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                set f [ open "| Soft/bin/data_process_sngl/stokes_parameters.exe -id \x22$StkDirInput\x22 -od \x22$StkDirOutput\x22 -iodf $StkFonction -nwr $NwinStkL -nwc $NwinStkC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -cha 1 -fl1 $StkG0v1 -fl2 $StkG1v1 -fl3 $StkG2v1 -fl4 $StkG3v1 -fl5 $StkPhiv1 -fl6 $StkTauv1 -fl7 $StkEigv1 -fl8 $StkProbv1 -fl9 $StkHv1 -fl10 $StkAv1 -fl11 $StkCv1 -fl12 $StkDoLP1 -fl13 $StkDoCP1 -fl14 $StkLPR1 -fl15 $StkCPR1 -fl16 $StkPPv1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                 PsPprogressBar $f
                 TextEditorRunTrace "Check RunTime Errors" "r"
                 CheckRunTimeError
@@ -2380,6 +2440,16 @@ if {"$config"=="true"} {
                 if {"$StkLPR1"=="1"} {
                     if [file exists "$StkDirOutput/Stokes1_LPR.bin"] {EnviWriteConfig "$StkDirOutput/Stokes1_LPR.bin" $FinalNlig $FinalNcol 4}
                     }
+                if {"$StkPPv1"=="1"} {
+                    set config ""
+                    if [file exists "$StkDirOutput/Stokes1_xp.bin"] { append config "xp" }
+                    if [file exists "$StkDirOutput/Stokes1_yp.bin"] { append config "yp" }
+                    if {$config == "xpyp" } {
+                        set Bord "Poincare"
+                        PsPScatterPlot "$StkDirOutput/Stokes1_xp.bin" "$StkDirInput/mask_valid_pixels.bin" float real 0 -2 2 "$StkDirOutput/Stokes1_yp.bin" "$StkDirInput/mask_valid_pixels.bin" float real 0 -1 1 $OffsetLig $OffsetCol $FinalNlig $FinalNcol $Bord "" "" "Poincare Planisphere" 1 .top209
+                        $widget(Button209_00) configure -state normal
+                        }
+                    }
                 }                    
             if {"$config2"=="true"} {
                 set MaskCmd ""
@@ -2388,9 +2458,9 @@ if {"$config"=="true"} {
                 set ProgressLine "0"
                 WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                 update
-                TextEditorRunTrace "Process The Function Soft/data_process_sngl/StokesParameters.exe" "k"
-                TextEditorRunTrace "Arguments: -id \x22$StkDirInput\x22 -od \x22$StkDirOutput\x22 -iodf $StkFonction -nwr $NwinStkL -nwc $NwinStkC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -cha 2 -fl1 $StkG0v2 -fl2 $StkG1v2 -fl3 $StkG2v2 -fl4 $StkG3v2 -fl5 $StkPhiv2 -fl6 $StkTauv2 -fl7 $StkEigv2 -fl8 $StkProbv2 -fl9 $StkHv2 -fl10 $StkAv2 -fl11 $StkCv2 -fl12 $StkDoLP2 -fl13 $StkDoCP2 -fl14 $StkLPR2 -fl15 $StkCPR2 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                set f [ open "| Soft/data_process_sngl/StokesParameters.exe -id \x22$StkDirInput\x22 -od \x22$StkDirOutput\x22 -iodf $StkFonction -nwr $NwinStkL -nwc $NwinStkC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -cha 2 -fl1 $StkG0v2 -fl2 $StkG1v2 -fl3 $StkG2v2 -fl4 $StkG3v2 -fl5 $StkPhiv2 -fl6 $StkTauv2 -fl7 $StkEigv2 -fl8 $StkProbv2 -fl9 $StkHv2 -fl10 $StkAv2 -fl11 $StkCv2 -fl12 $StkDoLP2 -fl13 $StkDoCP2 -fl14 $StkLPR2 -fl15 $StkCPR2 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/stokes_parameters.exe" "k"
+                TextEditorRunTrace "Arguments: -id \x22$StkDirInput\x22 -od \x22$StkDirOutput\x22 -iodf $StkFonction -nwr $NwinStkL -nwc $NwinStkC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -cha 2 -fl1 $StkG0v2 -fl2 $StkG1v2 -fl3 $StkG2v2 -fl4 $StkG3v2 -fl5 $StkPhiv2 -fl6 $StkTauv2 -fl7 $StkEigv2 -fl8 $StkProbv2 -fl9 $StkHv2 -fl10 $StkAv2 -fl11 $StkCv2 -fl12 $StkDoLP2 -fl13 $StkDoCP2 -fl14 $StkLPR2 -fl15 $StkCPR2 -fl16 $StkPPv2  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                set f [ open "| Soft/bin/data_process_sngl/stokes_parameters.exe -id \x22$StkDirInput\x22 -od \x22$StkDirOutput\x22 -iodf $StkFonction -nwr $NwinStkL -nwc $NwinStkC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -cha 2 -fl1 $StkG0v2 -fl2 $StkG1v2 -fl3 $StkG2v2 -fl4 $StkG3v2 -fl5 $StkPhiv2 -fl6 $StkTauv2 -fl7 $StkEigv2 -fl8 $StkProbv2 -fl9 $StkHv2 -fl10 $StkAv2 -fl11 $StkCv2 -fl12 $StkDoLP2 -fl13 $StkDoCP2 -fl14 $StkLPR2 -fl15 $StkCPR2 -fl16 $StkPPv2  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                 PsPprogressBar $f
                 TextEditorRunTrace "Check RunTime Errors" "r"
                 CheckRunTimeError
@@ -2453,6 +2523,16 @@ if {"$config"=="true"} {
                     }
                 if {"$StkLPR2"=="1"} {
                     if [file exists "$StkDirOutput/Stokes2_LPR.bin"] {EnviWriteConfig "$StkDirOutput/Stokes2_LPR.bin" $FinalNlig $FinalNcol 4}
+                    }
+                if {"$StkPPv2"=="1"} {
+                    set config ""
+                    if [file exists "$StkDirOutput/Stokes2_xp.bin"] { append config "xp" }
+                    if [file exists "$StkDirOutput/Stokes2_yp.bin"] { append config "yp" }
+                    if {$config == "xpyp" } {
+                        set Bord "Poincare"
+                        PsPScatterPlot "$StkDirOutput/Stokes2_xp.bin" "$StkDirInput/mask_valid_pixels.bin" float real 0 -2 2 "$StkDirOutput/Stokes2_yp.bin" "$StkDirInput/mask_valid_pixels.bin" float real 0 -1 1 $OffsetLig $OffsetCol $FinalNlig $FinalNcol $Bord "" "" "Poincare Planisphere" 2 .top209
+                        $widget(Button209_00) configure -state normal
+                        }
                     }
                 }
             #Update the Nlig/Ncol of the new image after processing
@@ -2948,6 +3028,8 @@ if {"$config"=="true"} {
         -background #ffff00 \
         -command {global OpenDirFile
 if {$OpenDirFile == 0} {
+Window hide .top401
+Window hide .top402
 Window hide $widget(Toplevel209); TextEditorRunTrace "Close Window Stokes Parameters" "b"
 }} \
         -padx 4 -pady 2 -text Exit 
@@ -2972,7 +3054,7 @@ Window hide $widget(Toplevel209); TextEditorRunTrace "Close Window Stokes Parame
     pack $top.fra71 \
         -in $top -anchor center -expand 0 -fill x -side top 
     pack $top.fra77 \
-        -in $top -anchor center -expand 0 -fill none -pady 2 -side top 
+        -in $top -anchor center -expand 0 -fill x -pady 2 -side top 
     pack $top.fra94 \
         -in $top -anchor center -expand 1 -fill x -side top 
 

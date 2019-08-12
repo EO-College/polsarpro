@@ -173,9 +173,6 @@ catch {package require Img}
 foreach img {
 
         {{[file join . GUI Images OpenDir.gif]} {user image} user {}}
-        {{[file join . GUI Images color-rgb.gif]} {user image} user {}}
-        {{[file join . GUI Images up.gif]} {user image} user {}}
-        {{[file join . GUI Images down.gif]} {user image} user {}}
         {{[file join . GUI Images help.gif]} {user image} user {}}
         {{[file join . GUI Images DecrDir.gif]} {user image} user {}}
         {{[file join . GUI Images HomeDir.gif]} {user image} user {}}
@@ -395,16 +392,6 @@ proc vTcl:project:info {} {
         set set,size 1
         set runvisible 1
     }
-    namespace eval ::widgets::$base.fra69 {
-        array set save {-borderwidth 1 -height 1 -width 1}
-    }
-    set site_3_0 $base.fra69
-    namespace eval ::widgets::$site_3_0.cpd71 {
-        array set save {-_tooltip 1 -background 1 -command 1 -image 1 -padx 1 -pady 1 -width 1}
-    }
-    namespace eval ::widgets::$site_3_0.cpd70 {
-        array set save {-_tooltip 1 -background 1 -command 1 -padx 1 -pady 1 -text 1}
-    }
     namespace eval ::widgets::$base.tit92 {
         array set save {-ipad 1 -text 1}
     }
@@ -429,128 +416,15 @@ proc vTcl:project:info {} {
     namespace eval ::widgets::$site_5_0.cpd73 {
         array set save {-_tooltip 1 -command 1 -image 1 -pady 1 -text 1}
     }
-    namespace eval ::widgets::$base.tit95 {
-        array set save {-text 1}
+    namespace eval ::widgets::$base.fra69 {
+        array set save {-borderwidth 1 -height 1 -width 1}
     }
-    set site_4_0 [$base.tit95 getframe]
-    namespace eval ::widgets::$site_4_0 {
-        array set save {}
+    set site_3_0 $base.fra69
+    namespace eval ::widgets::$site_3_0.cpd71 {
+        array set save {-_tooltip 1 -background 1 -command 1 -image 1 -padx 1 -pady 1 -width 1}
     }
-    set site_4_0 $site_4_0
-    namespace eval ::widgets::$site_4_0.cpd71 {
-        array set save {-borderwidth 1 -height 1 -relief 1 -width 1}
-    }
-    set site_5_0 $site_4_0.cpd71
-    namespace eval ::widgets::$site_5_0.lab73 {
-        array set save {-relief 1 -text 1 -width 1}
-    }
-    namespace eval ::widgets::$site_5_0.cpd71 {
-        array set save {-_tooltip 1 -background 1 -foreground 1 -relief 1 -textvariable 1 -width 1}
-    }
-    namespace eval ::widgets::$site_5_0.but75 {
-        array set save {-command 1 -image 1 -pady 1 -text 1}
-    }
-    namespace eval ::widgets::$site_5_0.but76 {
-        array set save {-command 1 -image 1 -pady 1 -text 1}
-    }
-    namespace eval ::widgets::$site_4_0.cpd77 {
-        array set save {-borderwidth 1 -height 1 -relief 1 -width 1}
-    }
-    set site_5_0 $site_4_0.cpd77
-    namespace eval ::widgets::$site_5_0.lab73 {
-        array set save {-relief 1 -text 1 -width 1}
-    }
-    namespace eval ::widgets::$site_5_0.cpd72 {
-        array set save {-_tooltip 1 -background 1 -foreground 1 -relief 1 -textvariable 1 -width 1}
-    }
-    namespace eval ::widgets::$site_5_0.but75 {
-        array set save {-command 1 -image 1 -pady 1 -text 1}
-    }
-    namespace eval ::widgets::$site_5_0.but76 {
-        array set save {-command 1 -image 1 -pady 1 -text 1}
-    }
-    namespace eval ::widgets::$site_4_0.but69 {
+    namespace eval ::widgets::$site_3_0.cpd70 {
         array set save {-_tooltip 1 -background 1 -command 1 -padx 1 -pady 1 -text 1}
-    }
-    namespace eval ::widgets::$base.tit96 {
-        array set save {-text 1}
-    }
-    set site_4_0 [$base.tit96 getframe]
-    namespace eval ::widgets::$site_4_0 {
-        array set save {}
-    }
-    set site_4_0 $site_4_0
-    namespace eval ::widgets::$site_4_0.cpd97 {
-        array set save {-borderwidth 1 -height 1 -width 1}
-    }
-    set site_5_0 $site_4_0.cpd97
-    namespace eval ::widgets::$site_5_0.fra81 {
-        array set save {-borderwidth 1 -height 1 -width 1}
-    }
-    set site_6_0 $site_5_0.fra81
-    namespace eval ::widgets::$site_6_0.cpd89 {
-        array set save {-_tooltip 1 -command 1 -image 1 -pady 1 -text 1}
-    }
-    namespace eval ::widgets::$site_6_0.lab85 {
-        array set save {-text 1}
-    }
-    namespace eval ::widgets::$site_5_0.cpd90 {
-        array set save {-borderwidth 1 -height 1 -width 1}
-    }
-    set site_6_0 $site_5_0.cpd90
-    namespace eval ::widgets::$site_6_0.cpd89 {
-        array set save {-_tooltip 1 -command 1 -image 1 -pady 1 -text 1}
-    }
-    namespace eval ::widgets::$site_6_0.lab85 {
-        array set save {-text 1}
-    }
-    namespace eval ::widgets::$site_4_0.cpd98 {
-        array set save {-borderwidth 1 -height 1 -width 1}
-    }
-    set site_5_0 $site_4_0.cpd98
-    namespace eval ::widgets::$site_5_0.fra81 {
-        array set save {-borderwidth 1 -height 1 -width 1}
-    }
-    set site_6_0 $site_5_0.fra81
-    namespace eval ::widgets::$site_6_0.cpd89 {
-        array set save {-_tooltip 1 -command 1 -image 1 -pady 1 -text 1}
-    }
-    namespace eval ::widgets::$site_6_0.lab85 {
-        array set save {-text 1}
-    }
-    namespace eval ::widgets::$site_5_0.cpd90 {
-        array set save {-borderwidth 1 -height 1 -width 1}
-    }
-    set site_6_0 $site_5_0.cpd90
-    namespace eval ::widgets::$site_6_0.cpd89 {
-        array set save {-_tooltip 1 -command 1 -image 1 -pady 1 -text 1}
-    }
-    namespace eval ::widgets::$site_6_0.lab85 {
-        array set save {-text 1}
-    }
-    namespace eval ::widgets::$site_4_0.cpd82 {
-        array set save {-borderwidth 1 -height 1 -width 1}
-    }
-    set site_5_0 $site_4_0.cpd82
-    namespace eval ::widgets::$site_5_0.fra81 {
-        array set save {-borderwidth 1 -height 1 -width 1}
-    }
-    set site_6_0 $site_5_0.fra81
-    namespace eval ::widgets::$site_6_0.cpd89 {
-        array set save {-_tooltip 1 -command 1 -image 1 -pady 1 -text 1}
-    }
-    namespace eval ::widgets::$site_6_0.lab85 {
-        array set save {-text 1}
-    }
-    namespace eval ::widgets::$site_5_0.cpd73 {
-        array set save {-borderwidth 1 -height 1 -width 1}
-    }
-    set site_6_0 $site_5_0.cpd73
-    namespace eval ::widgets::$site_6_0.cpd89 {
-        array set save {-_tooltip 1 -command 1 -image 1 -pady 1 -text 1}
-    }
-    namespace eval ::widgets::$site_6_0.lab85 {
-        array set save {-text 1}
     }
     namespace eval ::widgets_bindings {
         set tagslist {_TopLevel _vTclBalloon}
@@ -609,9 +483,9 @@ proc vTclWindow. {base} {
     # CREATING WIDGETS
     ###################
     wm focusmodel $top passive
-    wm geometry $top 200x200+22+22; update
-    wm maxsize $top 1284 785
-    wm minsize $top 104 1
+    wm geometry $top 200x200+250+250; update
+    wm maxsize $top 5124 1422
+    wm minsize $top 116 1
     wm overrideredirect $top 0
     wm resizable $top 1 1
     wm withdraw $top
@@ -641,9 +515,9 @@ proc vTclWindow.top31 {base} {
     vTcl:toplevel $top -class Toplevel
     wm withdraw $top
     wm focusmodel $top passive
-    wm geometry $top 500x250+10+110; update
+    wm geometry $top 500x90+10+110; update
     wm maxsize $top 1604 1184
-    wm minsize $top 113 1
+    wm minsize $top 116 1
     wm overrideredirect $top 0
     wm resizable $top 1 1
     wm title $top "Environment"
@@ -652,71 +526,6 @@ proc vTclWindow.top31 {base} {
     vTcl:FireEvent $top <<Create>>
     wm protocol $top WM_DELETE_WINDOW "vTcl:FireEvent $top <<>>"
 
-    frame $top.fra69 \
-        -borderwidth 2 -height 75 -width 125 
-    vTcl:DefineAlias "$top.fra69" "Frame1" vTcl:WidgetProc "Toplevel31" 1
-    set site_3_0 $top.fra69
-    button $site_3_0.cpd71 \
-        -background #ff8000 \
-        -command {HelpPdfEdit "Help/Environment.pdf"} \
-        -image [vTcl:image:get_image [file join . GUI Images help.gif]] \
-        -padx 1 -pady 0 -width 20 
-    vTcl:DefineAlias "$site_3_0.cpd71" "Button12" vTcl:WidgetProc "Toplevel31" 1
-    bindtags $site_3_0.cpd71 "$site_3_0.cpd71 Button $top all _vTclBalloon"
-    bind $site_3_0.cpd71 <<SetBalloon>> {
-        set ::vTcl::balloon::%W {Help File}
-    }
-    button $site_3_0.cpd70 \
-        -background #ffff00 \
-        -command {global ViewerName WidthBMP HeightBMP WidthBMPNew HeightBMPNew OpenDirFile CONFIGDir
-global DataDirTmp DataDir
-
-if {$OpenDirFile == 0} {
-
-set HeightWidthBMPChange 0
-if {$WidthBMPNew != $WidthBMP } {set HeightWidthBMPChange 1}
-if {$HeightBMPNew != $HeightBMP } {set HeightWidthBMPChange 1}
-if {$HeightWidthBMPChange == 1 } {
-    #####################################################################
-    set WarningMessage "DISPLAY SIZE HAS CHANGED"
-    set WarningMessage2 "DO YOU WISH TO SAVE ?"
-    set VarWarning ""
-    Window show $widget(Toplevel32); TextEditorRunTrace "Open Window Warning" "b"
-    tkwait variable VarWarning
-    if {"$VarWarning"=="ok"} {
-        set WidthBMP $WidthBMPNew
-        set HeightBMP $HeightBMPNew
-        set f [open "$CONFIGDir/Viewer.txt" w]
-        puts $f $ViewerName
-        puts $f "Width"
-        puts $f $WidthBMP
-        puts $f "Height"
-        puts $f $HeightBMP
-        close $f
-        } else {
-        set WidthBMPNew $WidthBMP
-        set HeightBMPNew $HeightBMP
-        }
-    set HeightWidthBMPChange 0
-    ##################################################################### 
-    }    
-if {$DataDirTmp != $DataDir } {
-    #MenuRAZ
-    CloseAllWidget
-    }
-CheckEnvironnement
-set DataDirTmp $DataDir
-Window hide $widget(Toplevel31); TextEditorRunTrace "Close Window Environment" "b"
-}} \
-        -padx 4 -pady 2 -text {Save & Exit} 
-    bindtags $site_3_0.cpd70 "$site_3_0.cpd70 Button $top all _vTclBalloon"
-    bind $site_3_0.cpd70 <<SetBalloon>> {
-        set ::vTcl::balloon::%W {Save Configuration and Exit the Function}
-    }
-    pack $site_3_0.cpd71 \
-        -in $site_3_0 -anchor center -expand 1 -fill none -side left 
-    pack $site_3_0.cpd70 \
-        -in $site_3_0 -anchor center -expand 1 -fill none -side left 
     TitleFrame $top.tit92 \
         -ipad 0 -text {Main Input Directory} 
     vTcl:DefineAlias "$top.tit92" "TitleFrame1" vTcl:WidgetProc "Toplevel31" 1
@@ -806,955 +615,77 @@ CheckEnvBinData
         -in $site_4_0 -anchor center -expand 1 -fill x -side left 
     pack $site_4_0.fra81 \
         -in $site_4_0 -anchor center -expand 0 -fill none -side right 
-    TitleFrame $top.tit95 \
-        -text {Display Size} 
-    vTcl:DefineAlias "$top.tit95" "TitleFrame2" vTcl:WidgetProc "Toplevel31" 1
-    bind $top.tit95 <Destroy> {
-        Widget::destroy %W; rename %W {}
+    frame $top.fra69 \
+        -borderwidth 2 -height 75 -width 125 
+    vTcl:DefineAlias "$top.fra69" "Frame1" vTcl:WidgetProc "Toplevel31" 1
+    set site_3_0 $top.fra69
+    button $site_3_0.cpd71 \
+        -background #ff8000 -command {HelpPdfEdit "Help/Environment.pdf"} \
+        -image [vTcl:image:get_image [file join . GUI Images help.gif]] \
+        -padx 1 -pady 0 -width 20 
+    vTcl:DefineAlias "$site_3_0.cpd71" "Button12" vTcl:WidgetProc "Toplevel31" 1
+    bindtags $site_3_0.cpd71 "$site_3_0.cpd71 Button $top all _vTclBalloon"
+    bind $site_3_0.cpd71 <<SetBalloon>> {
+        set ::vTcl::balloon::%W {Help File}
     }
-    set site_4_0 [$top.tit95 getframe]
-    frame $site_4_0.cpd71 \
-        -borderwidth 2 -relief ridge -height 75 -width 125 
-    vTcl:DefineAlias "$site_4_0.cpd71" "Frame2" vTcl:WidgetProc "Toplevel31" 1
-    set site_5_0 $site_4_0.cpd71
-    label $site_5_0.lab73 \
-        -relief sunken -text Rows -width 10 
-    vTcl:DefineAlias "$site_5_0.lab73" "Label1" vTcl:WidgetProc "Toplevel31" 1
-    label $site_5_0.cpd71 \
-        -background #ffffff -foreground #0000ff -relief sunken \
-        -textvariable HeightBMPNew -width 10 
-    vTcl:DefineAlias "$site_5_0.cpd71" "Label7" vTcl:WidgetProc "Toplevel31" 1
-    bindtags $site_5_0.cpd71 "$site_5_0.cpd71 Label $top all _vTclBalloon"
-    bind $site_5_0.cpd71 <<SetBalloon>> {
-        set ::vTcl::balloon::%W {DIsplay Screen Height Size}
-    }
-    button $site_5_0.but75 \
-        \
-        -command {global HeightBMPNew
-
-set HeightTMP [expr $HeightBMPNew +100]
-set HeightMax [lindex [wm maxsize $widget(Toplevel31)] 0 ]
-if {$HeightTMP < $HeightMax } {
-    set HeightBMPNew $HeightTMP
-    }} \
-        -image [vTcl:image:get_image [file join . GUI Images up.gif]] -pady 0 \
-        -text button 
-    vTcl:DefineAlias "$site_5_0.but75" "Button5" vTcl:WidgetProc "Toplevel31" 1
-    button $site_5_0.but76 \
-        \
-        -command {global HeightBMPNew
-
-set HeightTMP [expr $HeightBMPNew -100]
-if {$HeightTMP > 0 } {
-    set HeightBMPNew $HeightTMP
-    }} \
-        -image [vTcl:image:get_image [file join . GUI Images down.gif]] \
-        -pady 0 -text button 
-    vTcl:DefineAlias "$site_5_0.but76" "Button6" vTcl:WidgetProc "Toplevel31" 1
-    pack $site_5_0.lab73 \
-        -in $site_5_0 -anchor center -expand 1 -fill none -side left 
-    pack $site_5_0.cpd71 \
-        -in $site_5_0 -anchor center -expand 1 -fill none -side left 
-    pack $site_5_0.but75 \
-        -in $site_5_0 -anchor center -expand 1 -fill none -side left 
-    pack $site_5_0.but76 \
-        -in $site_5_0 -anchor center -expand 1 -fill none -side left 
-    frame $site_4_0.cpd77 \
-        -borderwidth 2 -relief ridge -height 75 -width 125 
-    vTcl:DefineAlias "$site_4_0.cpd77" "Frame4" vTcl:WidgetProc "Toplevel31" 1
-    set site_5_0 $site_4_0.cpd77
-    label $site_5_0.lab73 \
-        -relief sunken -text Columns -width 10 
-    vTcl:DefineAlias "$site_5_0.lab73" "Label6" vTcl:WidgetProc "Toplevel31" 1
-    label $site_5_0.cpd72 \
-        -background #ffffff -foreground #0000ff -relief sunken \
-        -textvariable WidthBMPNew -width 10 
-    vTcl:DefineAlias "$site_5_0.cpd72" "Label8" vTcl:WidgetProc "Toplevel31" 1
-    bindtags $site_5_0.cpd72 "$site_5_0.cpd72 Label $top all _vTclBalloon"
-    bind $site_5_0.cpd72 <<SetBalloon>> {
-        set ::vTcl::balloon::%W {DIsplay Screen Width Size}
-    }
-    button $site_5_0.but75 \
-        \
-        -command {global WidthBMPNew
-
-set WidthTMP [expr $WidthBMPNew +100]
-set WidthMax [lindex [wm maxsize $widget(Toplevel31)] 0 ]
-if {$WidthTMP < $WidthMax } {
-    set WidthBMPNew $WidthTMP
-    }} \
-        -image [vTcl:image:get_image [file join . GUI Images up.gif]] -pady 0 \
-        -text button 
-    vTcl:DefineAlias "$site_5_0.but75" "Button7" vTcl:WidgetProc "Toplevel31" 1
-    button $site_5_0.but76 \
-        \
-        -command {global WidthBMPNew
-
-set WidthTMP [expr $WidthBMPNew -100]
-if {$WidthTMP > 0 } {
-    set WidthBMPNew $WidthTMP
-    }} \
-        -image [vTcl:image:get_image [file join . GUI Images down.gif]] \
-        -pady 0 -text button 
-    vTcl:DefineAlias "$site_5_0.but76" "Button8" vTcl:WidgetProc "Toplevel31" 1
-    pack $site_5_0.lab73 \
-        -in $site_5_0 -anchor center -expand 1 -fill none -side left 
-    pack $site_5_0.cpd72 \
-        -in $site_5_0 -anchor center -expand 1 -fill none -side left 
-    pack $site_5_0.but75 \
-        -in $site_5_0 -anchor center -expand 1 -fill none -side left 
-    pack $site_5_0.but76 \
-        -in $site_5_0 -anchor center -expand 1 -fill none -side left 
-    button $site_4_0.but69 \
+    button $site_3_0.cpd70 \
         -background #ffff00 \
         -command {global ViewerName WidthBMP HeightBMP WidthBMPNew HeightBMPNew OpenDirFile CONFIGDir
+global DataDirTmp DataDir
 
 if {$OpenDirFile == 0} {
-set WidthBMP $WidthBMPNew
-set HeightBMP $HeightBMPNew
 
-set f [open "$CONFIGDir/Viewer.txt" w]
-puts $f $ViewerName
-puts $f "Width"
-puts $f $WidthBMP
-puts $f "Height"
-puts $f $HeightBMP
-close $f
+set HeightWidthBMPChange 0
+if {$WidthBMPNew != $WidthBMP } {set HeightWidthBMPChange 1}
+if {$HeightBMPNew != $HeightBMP } {set HeightWidthBMPChange 1}
+if {$HeightWidthBMPChange == 1 } {
+    #####################################################################
+    set WarningMessage "DISPLAY SIZE HAS CHANGED"
+    set WarningMessage2 "DO YOU WISH TO SAVE ?"
+    set VarWarning ""
+    Window show $widget(Toplevel32); TextEditorRunTrace "Open Window Warning" "b"
+    tkwait variable VarWarning
+    if {"$VarWarning"=="ok"} {
+        set WidthBMP $WidthBMPNew
+        set HeightBMP $HeightBMPNew
+        set f [open "$CONFIGDir/Viewer.txt" w]
+        puts $f $ViewerName
+        puts $f "Width"
+        puts $f $WidthBMP
+        puts $f "Height"
+        puts $f $HeightBMP
+        close $f
+        } else {
+        set WidthBMPNew $WidthBMP
+        set HeightBMPNew $HeightBMP
+        }
+    set HeightWidthBMPChange 0
+    ##################################################################### 
+    }    
+if {$DataDirTmp != $DataDir } {
+    #MenuRAZ
+    CloseAllWidget
+    }
+CheckEnvironnement
+set DataDirTmp $DataDir
+Window hide $widget(Toplevel31); TextEditorRunTrace "Close Window Environment" "b"
 }} \
-        -padx 4 -pady 2 -text Update 
-    vTcl:DefineAlias "$site_4_0.but69" "Button9" vTcl:WidgetProc "Toplevel31" 1
-    bindtags $site_4_0.but69 "$site_4_0.but69 Button $top all _vTclBalloon"
-    bind $site_4_0.but69 <<SetBalloon>> {
-        set ::vTcl::balloon::%W {Update the Display Size}
+        -padx 4 -pady 2 -text {Save & Exit} 
+    bindtags $site_3_0.cpd70 "$site_3_0.cpd70 Button $top all _vTclBalloon"
+    bind $site_3_0.cpd70 <<SetBalloon>> {
+        set ::vTcl::balloon::%W {Save Configuration and Exit the Function}
     }
-    pack $site_4_0.cpd71 \
-        -in $site_4_0 -anchor center -expand 1 -fill none -side left 
-    pack $site_4_0.cpd77 \
-        -in $site_4_0 -anchor center -expand 1 -fill none -side left 
-    pack $site_4_0.but69 \
-        -in $site_4_0 -anchor center -expand 1 -fill none -side left 
-    TitleFrame $top.tit96 \
-        -text {Color Maps} 
-    vTcl:DefineAlias "$top.tit96" "TitleFrame3" vTcl:WidgetProc "Toplevel31" 1
-    bind $top.tit96 <Destroy> {
-        Widget::destroy %W; rename %W {}
-    }
-    set site_4_0 [$top.tit96 getframe]
-    frame $site_4_0.cpd97 \
-        -borderwidth 2 -height 75 -width 125 
-    vTcl:DefineAlias "$site_4_0.cpd97" "Frame6" vTcl:WidgetProc "Toplevel31" 1
-    set site_5_0 $site_4_0.cpd97
-    frame $site_5_0.fra81 \
-        -borderwidth 2 -height 75 -width 125 
-    vTcl:DefineAlias "$site_5_0.fra81" "Frame8" vTcl:WidgetProc "Toplevel31" 1
-    set site_6_0 $site_5_0.fra81
-    button $site_6_0.cpd89 \
-        \
-        -command [list vTcl:DoCmdOption $site_6_0.cpd89 {global ColorMapSupervised16 VarColorMap ColorMapIn ColorMapOut ColorNumber ColorMapNumber
-global RedPalette GreenPalette BluePalette COLORMAPDir
-#BMP PROCESS
-global Load_colormap PSPTopLevel
- 
-if {$Load_colormap == 0} {
-    source "GUI/bmp_process/colormap.tcl"
-    set Load_colormap 1
-    WmTransient $widget(Toplevel38) $PSPTopLevel
-    }
-    
-set ColorMapSupervised16 "$COLORMAPDir/Supervised_ColorMap16.pal"
-set ColorMapNumber 16
-set ColorNumber "256"
-for {set i 0} {$i < 256} {incr i} {
-    set RedPalette($i) 1
-    set GreenPalette($i) 1
-    set BluePalette($i) 1
-    }
-if [file exists $ColorMapSupervised16] {
-    set f [open $ColorMapSupervised16 r]
-    gets $f tmp
-    gets $f tmp
-    gets $f tmp
-    for {set i 0} {$i < $ColorNumber} {incr i} {
-        gets $f couleur
-        set RedPalette($i) [lindex $couleur 0]
-        set GreenPalette($i) [lindex $couleur 1]
-        set BluePalette($i) [lindex $couleur 2]
-        }
-    close $f
-    }
- 
-set c1 .top38.fra35.but36
-set couleur [format "#%02x%02x%02x" $RedPalette(1) $GreenPalette(1) $BluePalette(1)]    
-$c1 configure -background $couleur
-set c2 .top38.fra35.but37
-set couleur [format "#%02x%02x%02x" $RedPalette(2) $GreenPalette(2) $BluePalette(2)]    
-$c2 configure -background $couleur
-set c3 .top38.fra35.but38
-set couleur [format "#%02x%02x%02x" $RedPalette(3) $GreenPalette(3) $BluePalette(3)]    
-$c3 configure -background $couleur
-set c4 .top38.fra35.but39
-set couleur [format "#%02x%02x%02x" $RedPalette(4) $GreenPalette(4) $BluePalette(4)]    
-$c4 configure -background $couleur
-set c5 .top38.fra35.but40
-set couleur [format "#%02x%02x%02x" $RedPalette(5) $GreenPalette(5) $BluePalette(5)]    
-$c5 configure -background $couleur
-set c6 .top38.fra35.but41
-set couleur [format "#%02x%02x%02x" $RedPalette(6) $GreenPalette(6) $BluePalette(6)]    
-$c6 configure -background $couleur
-set c7 .top38.fra35.but42
-set couleur [format "#%02x%02x%02x" $RedPalette(7) $GreenPalette(7) $BluePalette(7)]    
-$c7 configure -background $couleur
-set c8 .top38.fra35.but43
-set couleur [format "#%02x%02x%02x" $RedPalette(8) $GreenPalette(8) $BluePalette(8)]    
-$c8 configure -background $couleur
-set c9 .top38.fra35.but44
-set couleur [format "#%02x%02x%02x" $RedPalette(9) $GreenPalette(9) $BluePalette(9)]    
-$c9 configure -background $couleur
-set c10 .top38.fra35.but45
-set couleur [format "#%02x%02x%02x" $RedPalette(10) $GreenPalette(10) $BluePalette(10)]    
-$c10 configure -background $couleur
-set c11 .top38.fra35.but46
-set couleur [format "#%02x%02x%02x" $RedPalette(11) $GreenPalette(11) $BluePalette(11)]    
-$c11 configure -background $couleur
-set c12 .top38.fra35.but47
-set couleur [format "#%02x%02x%02x" $RedPalette(12) $GreenPalette(12) $BluePalette(12)]    
-$c12 configure -background $couleur
-set c13 .top38.fra35.but48
-set couleur [format "#%02x%02x%02x" $RedPalette(13) $GreenPalette(13) $BluePalette(13)]    
-$c13 configure -background $couleur
-set c14 .top38.fra35.but49
-set couleur [format "#%02x%02x%02x" $RedPalette(14) $GreenPalette(14) $BluePalette(14)]    
-$c14 configure -background $couleur
-set c15 .top38.fra35.but50
-set couleur [format "#%02x%02x%02x" $RedPalette(15) $GreenPalette(15) $BluePalette(15)]    
-$c15 configure -background $couleur
-set c16 .top38.fra35.but51
-set couleur [format "#%02x%02x%02x" $RedPalette(16) $GreenPalette(16) $BluePalette(16)]    
-$c16 configure -background $couleur
-
-.top38.fra35.but38 configure -state normal
-   
-set VarColorMap ""
-set ColorMapIn $ColorMapSupervised16
-set ColorMapOut $ColorMapSupervised16
-WidgetShowFromWidget $widget(Toplevel31) $widget(Toplevel38); TextEditorRunTrace "Open Window Colormap" "b"
-tkwait variable VarColorMap
-if {"$VarColorMap"=="ok"} {
-   set ColorMapSupervised16 $ColorMapOut
-   }}] \
-        -image [vTcl:image:get_image [file join . GUI Images color-rgb.gif]] \
-        -pady 0 -text button 
-    vTcl:DefineAlias "$site_6_0.cpd89" "Button1" vTcl:WidgetProc "Toplevel31" 1
-    bindtags $site_6_0.cpd89 "$site_6_0.cpd89 Button $top all _vTclBalloon"
-    bind $site_6_0.cpd89 <<SetBalloon>> {
-        set ::vTcl::balloon::%W {Edit Colormap}
-    }
-    label $site_6_0.lab85 \
-        -text {Supervized ColorMap16} 
-    vTcl:DefineAlias "$site_6_0.lab85" "Label2" vTcl:WidgetProc "Toplevel31" 1
-    pack $site_6_0.cpd89 \
-        -in $site_6_0 -anchor center -expand 0 -fill none -side left 
-    pack $site_6_0.lab85 \
-        -in $site_6_0 -anchor center -expand 0 -fill none -side left 
-    frame $site_5_0.cpd90 \
-        -borderwidth 2 -height 75 -width 125 
-    vTcl:DefineAlias "$site_5_0.cpd90" "Frame9" vTcl:WidgetProc "Toplevel31" 1
-    set site_6_0 $site_5_0.cpd90
-    button $site_6_0.cpd89 \
-        \
-        -command [list vTcl:DoCmdOption $site_6_0.cpd89 {global ColorMapWishart8 VarColorMap ColorMapIn ColorMapOut ColorNumber ColorMapNumber
-global RedPalette GreenPalette BluePalette COLORMAPDir
-#BMP PROCESS
-global Load_colormap PSPTopLevel
- 
-if {$Load_colormap == 0} {
-    source "GUI/bmp_process/colormap.tcl"
-    set Load_colormap 1
-    WmTransient $widget(Toplevel38) $PSPTopLevel
-    }
-
-set ColorMapWishart8 "$COLORMAPDir/Wishart_ColorMap8.pal"
-set ColorMapNumber 8
-set ColorNumber "256"
-for {set i 0} {$i < 256} {incr i} {
-    set RedPalette($i) 1
-    set GreenPalette($i) 1
-    set BluePalette($i) 1
-    }
-if [file exists $ColorMapWishart8] {
-    set f [open $ColorMapWishart8 r]
-    gets $f tmp
-    gets $f tmp
-    gets $f tmp
-    for {set i 0} {$i < $ColorNumber} {incr i} {
-        gets $f couleur
-        set RedPalette($i) [lindex $couleur 0]
-        set GreenPalette($i) [lindex $couleur 1]
-        set BluePalette($i) [lindex $couleur 2]
-        }
-    close $f
-    }
- 
-set c1 .top38.fra35.but36
-set couleur [format "#%02x%02x%02x" $RedPalette(1) $GreenPalette(1) $BluePalette(1)]    
-$c1 configure -background $couleur
-set c2 .top38.fra35.but37
-set couleur [format "#%02x%02x%02x" $RedPalette(2) $GreenPalette(2) $BluePalette(2)]    
-$c2 configure -background $couleur
-set c3 .top38.fra35.but38
-set couleur [format "#%02x%02x%02x" $RedPalette(3) $GreenPalette(3) $BluePalette(3)]    
-$c3 configure -background $couleur
-set c4 .top38.fra35.but39
-set couleur [format "#%02x%02x%02x" $RedPalette(4) $GreenPalette(4) $BluePalette(4)]    
-$c4 configure -background $couleur
-set c5 .top38.fra35.but40
-set couleur [format "#%02x%02x%02x" $RedPalette(5) $GreenPalette(5) $BluePalette(5)]    
-$c5 configure -background $couleur
-set c6 .top38.fra35.but41
-set couleur [format "#%02x%02x%02x" $RedPalette(6) $GreenPalette(6) $BluePalette(6)]    
-$c6 configure -background $couleur
-set c7 .top38.fra35.but42
-set couleur [format "#%02x%02x%02x" $RedPalette(7) $GreenPalette(7) $BluePalette(7)]    
-$c7 configure -background $couleur
-set c8 .top38.fra35.but43
-set couleur [format "#%02x%02x%02x" $RedPalette(8) $GreenPalette(8) $BluePalette(8)]    
-$c8 configure -background $couleur
-set c9 .top38.fra35.but44
-set couleur [format "#%02x%02x%02x" $RedPalette(9) $GreenPalette(9) $BluePalette(9)]    
-$c9 configure -background $couleur
-set c10 .top38.fra35.but45
-set couleur [format "#%02x%02x%02x" $RedPalette(10) $GreenPalette(10) $BluePalette(10)]    
-$c10 configure -background $couleur
-set c11 .top38.fra35.but46
-set couleur [format "#%02x%02x%02x" $RedPalette(11) $GreenPalette(11) $BluePalette(11)]    
-$c11 configure -background $couleur
-set c12 .top38.fra35.but47
-set couleur [format "#%02x%02x%02x" $RedPalette(12) $GreenPalette(12) $BluePalette(12)]    
-$c12 configure -background $couleur
-set c13 .top38.fra35.but48
-set couleur [format "#%02x%02x%02x" $RedPalette(13) $GreenPalette(13) $BluePalette(13)]    
-$c13 configure -background $couleur
-set c14 .top38.fra35.but49
-set couleur [format "#%02x%02x%02x" $RedPalette(14) $GreenPalette(14) $BluePalette(14)]    
-$c14 configure -background $couleur
-set c15 .top38.fra35.but50
-set couleur [format "#%02x%02x%02x" $RedPalette(15) $GreenPalette(15) $BluePalette(15)]    
-$c15 configure -background $couleur
-set c16 .top38.fra35.but51
-set couleur [format "#%02x%02x%02x" $RedPalette(16) $GreenPalette(16) $BluePalette(16)]    
-$c16 configure -background $couleur
-   
-.top38.fra35.but38 configure -state normal
-   
-set VarColorMap ""
-set ColorMapIn $ColorMapWishart8
-set ColorMapOut $ColorMapWishart8
-WidgetShowFromWidget $widget(Toplevel31) $widget(Toplevel38); TextEditorRunTrace "Open Window Colormap" "b"
-tkwait variable VarColorMap
-if {"$VarColorMap"=="ok"} {
-   set ColorMapWishart8 $ColorMapOut
-   }}] \
-        -image [vTcl:image:get_image [file join . GUI Images color-rgb.gif]] \
-        -pady 0 -text button 
-    vTcl:DefineAlias "$site_6_0.cpd89" "Button2" vTcl:WidgetProc "Toplevel31" 1
-    bindtags $site_6_0.cpd89 "$site_6_0.cpd89 Button $top all _vTclBalloon"
-    bind $site_6_0.cpd89 <<SetBalloon>> {
-        set ::vTcl::balloon::%W {Edit Colormap}
-    }
-    label $site_6_0.lab85 \
-        -text {Unsupervized ColorMap8} 
-    vTcl:DefineAlias "$site_6_0.lab85" "Label3" vTcl:WidgetProc "Toplevel31" 1
-    pack $site_6_0.cpd89 \
-        -in $site_6_0 -anchor center -expand 0 -fill none -side left 
-    pack $site_6_0.lab85 \
-        -in $site_6_0 -anchor center -expand 0 -fill none -side left 
-    pack $site_5_0.fra81 \
-        -in $site_5_0 -anchor center -expand 1 -fill x -side top 
-    pack $site_5_0.cpd90 \
-        -in $site_5_0 -anchor center -expand 0 -fill x -side top 
-    frame $site_4_0.cpd98 \
-        -borderwidth 2 -height 75 -width 125 
-    vTcl:DefineAlias "$site_4_0.cpd98" "Frame7" vTcl:WidgetProc "Toplevel31" 1
-    set site_5_0 $site_4_0.cpd98
-    frame $site_5_0.fra81 \
-        -borderwidth 2 -height 75 -width 125 
-    vTcl:DefineAlias "$site_5_0.fra81" "Frame10" vTcl:WidgetProc "Toplevel31" 1
-    set site_6_0 $site_5_0.fra81
-    button $site_6_0.cpd89 \
-        \
-        -command [list vTcl:DoCmdOption $site_6_0.cpd89 {global ColorMapPlanes9 VarColorMap ColorMapIn ColorMapOut ColorNumber ColorMapNumber
-global RedPalette GreenPalette BluePalette COLORMAPDir
-#BMP PROCESS
-global Load_colormap PSPTopLevel
- 
-if {$Load_colormap == 0} {
-    source "GUI/bmp_process/colormap.tcl"
-    set Load_colormap 1
-    WmTransient $widget(Toplevel38) $PSPTopLevel
-    }
-
-set ColorMapPlanes9 "$COLORMAPDir/Planes_H_A_Alpha_ColorMap9.pal"
-set ColorMapNumber 9
-set ColorNumber "256"
-for {set i 0} {$i < 256} {incr i} {
-    set RedPalette($i) 1
-    set GreenPalette($i) 1
-    set BluePalette($i) 1
-    }
-if [file exists $ColorMapPlanes9] {
-    set f [open $ColorMapPlanes9 r]
-    gets $f tmp
-    gets $f tmp
-    gets $f tmp
-    for {set i 0} {$i < $ColorNumber} {incr i} {
-        gets $f couleur
-        set RedPalette($i) [lindex $couleur 0]
-        set GreenPalette($i) [lindex $couleur 1]
-        set BluePalette($i) [lindex $couleur 2]
-        }
-    close $f
-    }
- 
-set c1 .top38.fra35.but36
-set couleur [format "#%02x%02x%02x" $RedPalette(1) $GreenPalette(1) $BluePalette(1)]    
-$c1 configure -background $couleur
-set c2 .top38.fra35.but37
-set couleur [format "#%02x%02x%02x" $RedPalette(2) $GreenPalette(2) $BluePalette(2)]    
-$c2 configure -background $couleur
-set c3 .top38.fra35.but38
-set couleur [format "#%02x%02x%02x" $RedPalette(3) $GreenPalette(3) $BluePalette(3)]    
-$c3 configure -background $couleur
-set c4 .top38.fra35.but39
-set couleur [format "#%02x%02x%02x" $RedPalette(4) $GreenPalette(4) $BluePalette(4)]    
-$c4 configure -background $couleur
-set c5 .top38.fra35.but40
-set couleur [format "#%02x%02x%02x" $RedPalette(5) $GreenPalette(5) $BluePalette(5)]    
-$c5 configure -background $couleur
-set c6 .top38.fra35.but41
-set couleur [format "#%02x%02x%02x" $RedPalette(6) $GreenPalette(6) $BluePalette(6)]    
-$c6 configure -background $couleur
-set c7 .top38.fra35.but42
-set couleur [format "#%02x%02x%02x" $RedPalette(7) $GreenPalette(7) $BluePalette(7)]    
-$c7 configure -background $couleur
-set c8 .top38.fra35.but43
-set couleur [format "#%02x%02x%02x" $RedPalette(8) $GreenPalette(8) $BluePalette(8)]    
-$c8 configure -background $couleur
-set c9 .top38.fra35.but44
-set couleur [format "#%02x%02x%02x" $RedPalette(9) $GreenPalette(9) $BluePalette(9)]    
-$c9 configure -background $couleur
-set c10 .top38.fra35.but45
-set couleur [format "#%02x%02x%02x" $RedPalette(10) $GreenPalette(10) $BluePalette(10)]    
-$c10 configure -background $couleur
-set c11 .top38.fra35.but46
-set couleur [format "#%02x%02x%02x" $RedPalette(11) $GreenPalette(11) $BluePalette(11)]    
-$c11 configure -background $couleur
-set c12 .top38.fra35.but47
-set couleur [format "#%02x%02x%02x" $RedPalette(12) $GreenPalette(12) $BluePalette(12)]    
-$c12 configure -background $couleur
-set c13 .top38.fra35.but48
-set couleur [format "#%02x%02x%02x" $RedPalette(13) $GreenPalette(13) $BluePalette(13)]    
-$c13 configure -background $couleur
-set c14 .top38.fra35.but49
-set couleur [format "#%02x%02x%02x" $RedPalette(14) $GreenPalette(14) $BluePalette(14)]    
-$c14 configure -background $couleur
-set c15 .top38.fra35.but50
-set couleur [format "#%02x%02x%02x" $RedPalette(15) $GreenPalette(15) $BluePalette(15)]    
-$c15 configure -background $couleur
-set c16 .top38.fra35.but51
-set couleur [format "#%02x%02x%02x" $RedPalette(16) $GreenPalette(16) $BluePalette(16)]    
-$c16 configure -background $couleur
-
-.top38.fra35.but38 configure -state disable
-   
-set VarColorMap ""
-set ColorMapIn $ColorMapPlanes9
-set ColorMapOut $ColorMapPlanes9
-WidgetShowFromWidget $widget(Toplevel31) $widget(Toplevel38); TextEditorRunTrace "Open Window Colormap" "b"
-tkwait variable VarColorMap
-if {"$VarColorMap"=="ok"} {
-   set ColorMapPlanes9 $ColorMapOut
-   }}] \
-        -image [vTcl:image:get_image [file join . GUI Images color-rgb.gif]] \
-        -pady 0 -text button 
-    vTcl:DefineAlias "$site_6_0.cpd89" "Button3" vTcl:WidgetProc "Toplevel31" 1
-    bindtags $site_6_0.cpd89 "$site_6_0.cpd89 Button $top all _vTclBalloon"
-    bind $site_6_0.cpd89 <<SetBalloon>> {
-        set ::vTcl::balloon::%W {Edit Colormap}
-    }
-    label $site_6_0.lab85 \
-        -text {Unsupervized ColorMap9} 
-    vTcl:DefineAlias "$site_6_0.lab85" "Label4" vTcl:WidgetProc "Toplevel31" 1
-    pack $site_6_0.cpd89 \
-        -in $site_6_0 -anchor center -expand 0 -fill none -side left 
-    pack $site_6_0.lab85 \
-        -in $site_6_0 -anchor center -expand 0 -fill none -side left 
-    frame $site_5_0.cpd90 \
-        -borderwidth 2 -height 75 -width 125 
-    vTcl:DefineAlias "$site_5_0.cpd90" "Frame11" vTcl:WidgetProc "Toplevel31" 1
-    set site_6_0 $site_5_0.cpd90
-    button $site_6_0.cpd89 \
-        \
-        -command [list vTcl:DoCmdOption $site_6_0.cpd89 {global ColorMapWishart16 VarColorMap ColorMapIn ColorMapOut ColorNumber ColorMapNumber
-global RedPalette GreenPalette BluePalette COLORMAPDir
-#BMP PROCESS
-global Load_colormap PSPTopLevel
- 
-if {$Load_colormap == 0} {
-    source "GUI/bmp_process/colormap.tcl"
-    set Load_colormap 1
-    WmTransient $widget(Toplevel38) $PSPTopLevel
-    }
-
-set ColorMapWishart16 "$COLORMAPDir/Wishart_ColorMap16.pal"
-set ColorMapNumber 16
-set ColorNumber "256"
-for {set i 0} {$i < 256} {incr i} {
-    set RedPalette($i) 1
-    set GreenPalette($i) 1
-    set BluePalette($i) 1
-    }
-if [file exists $ColorMapWishart16] {
-    set f [open $ColorMapWishart16 r]
-    gets $f tmp
-    gets $f tmp
-    gets $f tmp
-    for {set i 0} {$i < $ColorNumber} {incr i} {
-        gets $f couleur
-        set RedPalette($i) [lindex $couleur 0]
-        set GreenPalette($i) [lindex $couleur 1]
-        set BluePalette($i) [lindex $couleur 2]
-        }
-    close $f
-    }
- 
-set c1 .top38.fra35.but36
-set couleur [format "#%02x%02x%02x" $RedPalette(1) $GreenPalette(1) $BluePalette(1)]    
-$c1 configure -background $couleur
-set c2 .top38.fra35.but37
-set couleur [format "#%02x%02x%02x" $RedPalette(2) $GreenPalette(2) $BluePalette(2)]    
-$c2 configure -background $couleur
-set c3 .top38.fra35.but38
-set couleur [format "#%02x%02x%02x" $RedPalette(3) $GreenPalette(3) $BluePalette(3)]    
-$c3 configure -background $couleur
-set c4 .top38.fra35.but39
-set couleur [format "#%02x%02x%02x" $RedPalette(4) $GreenPalette(4) $BluePalette(4)]    
-$c4 configure -background $couleur
-set c5 .top38.fra35.but40
-set couleur [format "#%02x%02x%02x" $RedPalette(5) $GreenPalette(5) $BluePalette(5)]    
-$c5 configure -background $couleur
-set c6 .top38.fra35.but41
-set couleur [format "#%02x%02x%02x" $RedPalette(6) $GreenPalette(6) $BluePalette(6)]    
-$c6 configure -background $couleur
-set c7 .top38.fra35.but42
-set couleur [format "#%02x%02x%02x" $RedPalette(7) $GreenPalette(7) $BluePalette(7)]    
-$c7 configure -background $couleur
-set c8 .top38.fra35.but43
-set couleur [format "#%02x%02x%02x" $RedPalette(8) $GreenPalette(8) $BluePalette(8)]    
-$c8 configure -background $couleur
-set c9 .top38.fra35.but44
-set couleur [format "#%02x%02x%02x" $RedPalette(9) $GreenPalette(9) $BluePalette(9)]    
-$c9 configure -background $couleur
-set c10 .top38.fra35.but45
-set couleur [format "#%02x%02x%02x" $RedPalette(10) $GreenPalette(10) $BluePalette(10)]    
-$c10 configure -background $couleur
-set c11 .top38.fra35.but46
-set couleur [format "#%02x%02x%02x" $RedPalette(11) $GreenPalette(11) $BluePalette(11)]    
-$c11 configure -background $couleur
-set c12 .top38.fra35.but47
-set couleur [format "#%02x%02x%02x" $RedPalette(12) $GreenPalette(12) $BluePalette(12)]    
-$c12 configure -background $couleur
-set c13 .top38.fra35.but48
-set couleur [format "#%02x%02x%02x" $RedPalette(13) $GreenPalette(13) $BluePalette(13)]    
-$c13 configure -background $couleur
-set c14 .top38.fra35.but49
-set couleur [format "#%02x%02x%02x" $RedPalette(14) $GreenPalette(14) $BluePalette(14)]    
-$c14 configure -background $couleur
-set c15 .top38.fra35.but50
-set couleur [format "#%02x%02x%02x" $RedPalette(15) $GreenPalette(15) $BluePalette(15)]    
-$c15 configure -background $couleur
-set c16 .top38.fra35.but51
-set couleur [format "#%02x%02x%02x" $RedPalette(16) $GreenPalette(16) $BluePalette(16)]    
-$c16 configure -background $couleur
-
-.top38.fra35.but38 configure -state normal
-   
-set VarColorMap ""
-set ColorMapIn $ColorMapWishart16
-set ColorMapOut $ColorMapWishart16
-WidgetShowFromWidget $widget(Toplevel31) $widget(Toplevel38); TextEditorRunTrace "Open Window Colormap" "b"
-tkwait variable VarColorMap
-if {"$VarColorMap"=="ok"} {
-   set ColorMapWishart16 $ColorMapOut
-   }}] \
-        -image [vTcl:image:get_image [file join . GUI Images color-rgb.gif]] \
-        -pady 0 -text button 
-    vTcl:DefineAlias "$site_6_0.cpd89" "Button4" vTcl:WidgetProc "Toplevel31" 1
-    bindtags $site_6_0.cpd89 "$site_6_0.cpd89 Button $top all _vTclBalloon"
-    bind $site_6_0.cpd89 <<SetBalloon>> {
-        set ::vTcl::balloon::%W {Edit Colormap}
-    }
-    label $site_6_0.lab85 \
-        -text {Unsupervized ColorMap16} 
-    vTcl:DefineAlias "$site_6_0.lab85" "Label5" vTcl:WidgetProc "Toplevel31" 1
-    pack $site_6_0.cpd89 \
-        -in $site_6_0 -anchor center -expand 0 -fill none -side left 
-    pack $site_6_0.lab85 \
-        -in $site_6_0 -anchor center -expand 0 -fill none -side left 
-    pack $site_5_0.fra81 \
-        -in $site_5_0 -anchor center -expand 1 -fill x -side top 
-    pack $site_5_0.cpd90 \
-        -in $site_5_0 -anchor center -expand 0 -fill x -side top 
-    frame $site_4_0.cpd82 \
-        -borderwidth 2 -height 75 -width 125 
-    vTcl:DefineAlias "$site_4_0.cpd82" "Frame12" vTcl:WidgetProc "Toplevel31" 1
-    set site_5_0 $site_4_0.cpd82
-    frame $site_5_0.fra81 \
-        -borderwidth 2 -height 75 -width 125 
-    vTcl:DefineAlias "$site_5_0.fra81" "Frame13" vTcl:WidgetProc "Toplevel31" 1
-    set site_6_0 $site_5_0.fra81
-    button $site_6_0.cpd89 \
-        \
-        -command [list vTcl:DoCmdOption $site_6_0.cpd89 {global ColorMapPlanes27 VarColorMap ColorMapIn ColorMapOut ColorNumber ColorMapNumber
-global RedPalette GreenPalette BluePalette OpenDirFile COLORMAPDir
-#BMP PROCESS
-global Load_colormap2 PSPTopLevel
- 
-if {$OpenDirFile == 0} {
-
-if {$Load_colormap2 == 0} {
-    source "GUI/bmp_process/colormap2.tcl"
-    set Load_colormap2 1
-    WmTransient $widget(Toplevel254) $PSPTopLevel
-    }
-
-set ColorMapPlanes27 "$COLORMAPDir/Planes_H_Alpha_Lambda_ColorMap27.pal"
-set ColorMapNumber 32
-set ColorNumber 256
-for {set i 0} {$i < 256} {incr i} {
-    set RedPalette($i) 1
-    set GreenPalette($i) 1
-    set BluePalette($i) 1
-    }
-if [file exists $ColorMapPlanes27] {
-    set f [open $ColorMapPlanes27 r]
-    gets $f tmp
-    gets $f tmp
-    gets $f tmp
-    for {set i 0} {$i < $ColorNumber} {incr i} {
-        gets $f couleur
-        set RedPalette($i) [lindex $couleur 0]
-        set GreenPalette($i) [lindex $couleur 1]
-        set BluePalette($i) [lindex $couleur 2]
-        }
-    close $f
-    }
- 
-set c1 .top254.fra35.but36
-set couleur [format "#%02x%02x%02x" $RedPalette(1) $GreenPalette(1) $BluePalette(1)]    
-$c1 configure -background $couleur
-set c2 .top254.fra35.but37
-set couleur [format "#%02x%02x%02x" $RedPalette(2) $GreenPalette(2) $BluePalette(2)]    
-$c2 configure -background $couleur
-set c3 .top254.fra35.but38
-set couleur [format "#%02x%02x%02x" $RedPalette(3) $GreenPalette(3) $BluePalette(3)]    
-$c3 configure -background $couleur
-set c4 .top254.fra35.but39
-set couleur [format "#%02x%02x%02x" $RedPalette(4) $GreenPalette(4) $BluePalette(4)]    
-$c4 configure -background $couleur
-set c5 .top254.fra35.but40
-set couleur [format "#%02x%02x%02x" $RedPalette(5) $GreenPalette(5) $BluePalette(5)]    
-$c5 configure -background $couleur
-set c6 .top254.fra35.but41
-set couleur [format "#%02x%02x%02x" $RedPalette(6) $GreenPalette(6) $BluePalette(6)]    
-$c6 configure -background $couleur
-set c7 .top254.fra35.but42
-set couleur [format "#%02x%02x%02x" $RedPalette(7) $GreenPalette(7) $BluePalette(7)]    
-$c7 configure -background $couleur
-set c8 .top254.fra35.but43
-set couleur [format "#%02x%02x%02x" $RedPalette(8) $GreenPalette(8) $BluePalette(8)]    
-$c8 configure -background $couleur
-set c9 .top254.fra35.but44
-set couleur [format "#%02x%02x%02x" $RedPalette(9) $GreenPalette(9) $BluePalette(9)]    
-$c9 configure -background $couleur
-set c10 .top254.fra35.but45
-set couleur [format "#%02x%02x%02x" $RedPalette(10) $GreenPalette(10) $BluePalette(10)]    
-$c10 configure -background $couleur
-set c11 .top254.fra35.but46
-set couleur [format "#%02x%02x%02x" $RedPalette(11) $GreenPalette(11) $BluePalette(11)]    
-$c11 configure -background $couleur
-set c12 .top254.fra35.but47
-set couleur [format "#%02x%02x%02x" $RedPalette(12) $GreenPalette(12) $BluePalette(12)]    
-$c12 configure -background $couleur
-set c13 .top254.fra35.but48
-set couleur [format "#%02x%02x%02x" $RedPalette(13) $GreenPalette(13) $BluePalette(13)]    
-$c13 configure -background $couleur
-set c14 .top254.fra35.but49
-set couleur [format "#%02x%02x%02x" $RedPalette(14) $GreenPalette(14) $BluePalette(14)]    
-$c14 configure -background $couleur
-set c15 .top254.fra35.but50
-set couleur [format "#%02x%02x%02x" $RedPalette(15) $GreenPalette(15) $BluePalette(15)]    
-$c15 configure -background $couleur
-set c16 .top254.fra35.but51
-set couleur [format "#%02x%02x%02x" $RedPalette(16) $GreenPalette(16) $BluePalette(16)]    
-$c16 configure -background $couleur
-set c17 .top254.cpd73.but36
-set couleur [format "#%02x%02x%02x" $RedPalette(17) $GreenPalette(17) $BluePalette(17)]    
-$c17 configure -background $couleur
-set c18 .top254.cpd73.but37
-set couleur [format "#%02x%02x%02x" $RedPalette(18) $GreenPalette(18) $BluePalette(18)]    
-$c18 configure -background $couleur
-set c19 .top254.cpd73.but38
-set couleur [format "#%02x%02x%02x" $RedPalette(19) $GreenPalette(19) $BluePalette(19)]    
-$c19 configure -background $couleur
-set c20 .top254.cpd73.but39
-set couleur [format "#%02x%02x%02x" $RedPalette(20) $GreenPalette(20) $BluePalette(20)]    
-$c20 configure -background $couleur
-set c21 .top254.cpd73.but40
-set couleur [format "#%02x%02x%02x" $RedPalette(21) $GreenPalette(21) $BluePalette(21)]    
-$c21 configure -background $couleur
-set c22 .top254.cpd73.but41
-set couleur [format "#%02x%02x%02x" $RedPalette(22) $GreenPalette(22) $BluePalette(22)]    
-$c22 configure -background $couleur
-set c23 .top254.cpd73.but42
-set couleur [format "#%02x%02x%02x" $RedPalette(23) $GreenPalette(23) $BluePalette(23)]    
-$c23 configure -background $couleur
-set c24 .top254.cpd73.but43
-set couleur [format "#%02x%02x%02x" $RedPalette(24) $GreenPalette(24) $BluePalette(24)]    
-$c24 configure -background $couleur
-set c25 .top254.cpd73.but44
-set couleur [format "#%02x%02x%02x" $RedPalette(25) $GreenPalette(25) $BluePalette(25)]    
-$c25 configure -background $couleur
-set c26 .top254.cpd73.but45
-set couleur [format "#%02x%02x%02x" $RedPalette(26) $GreenPalette(26) $BluePalette(26)]    
-$c26 configure -background $couleur
-set c27 .top254.cpd73.but46
-set couleur [format "#%02x%02x%02x" $RedPalette(27) $GreenPalette(27) $BluePalette(27)]    
-$c27 configure -background $couleur
-set c28 .top254.cpd73.but47
-set couleur [format "#%02x%02x%02x" $RedPalette(28) $GreenPalette(28) $BluePalette(28)]    
-$c28 configure -background $couleur
-set c29 .top254.cpd73.but48
-set couleur [format "#%02x%02x%02x" $RedPalette(29) $GreenPalette(29) $BluePalette(29)]    
-$c29 configure -background $couleur
-set c30 .top254.cpd73.but49
-set couleur [format "#%02x%02x%02x" $RedPalette(30) $GreenPalette(30) $BluePalette(30)]    
-$c30 configure -background $couleur
-set c31 .top254.cpd73.but50
-set couleur [format "#%02x%02x%02x" $RedPalette(31) $GreenPalette(31) $BluePalette(31)]    
-$c31 configure -background $couleur
-set c32 .top254.cpd73.but51
-set couleur [format "#%02x%02x%02x" $RedPalette(32) $GreenPalette(32) $BluePalette(32)]    
-$c32 configure -background $couleur
-
-.top254.fra35.but38 configure -state normal
-   
-set VarColorMap ""
-set ColorMapIn $ColorMapPlanes27
-set ColorMapOut $ColorMapPlanes27
-WidgetShowFromWidget $widget(Toplevel31) $widget(Toplevel254); TextEditorRunTrace "Open Window Colormap" "b"
-tkwait variable VarColorMap
-if {"$VarColorMap"=="ok"} {
-   set ColorMapPlanes27 $ColorMapOut
-   }
-}}] \
-        -image [vTcl:image:get_image [file join . GUI Images color-rgb.gif]] \
-        -pady 0 -text button 
-    vTcl:DefineAlias "$site_6_0.cpd89" "Button14" vTcl:WidgetProc "Toplevel31" 1
-    bindtags $site_6_0.cpd89 "$site_6_0.cpd89 Button $top all _vTclBalloon"
-    bind $site_6_0.cpd89 <<SetBalloon>> {
-        set ::vTcl::balloon::%W {Edit Colormap}
-    }
-    label $site_6_0.lab85 \
-        -text {Unsupervized ColorMap27} 
-    vTcl:DefineAlias "$site_6_0.lab85" "Label9" vTcl:WidgetProc "Toplevel31" 1
-    pack $site_6_0.cpd89 \
-        -in $site_6_0 -anchor center -expand 0 -fill none -side left 
-    pack $site_6_0.lab85 \
-        -in $site_6_0 -anchor center -expand 0 -fill none -side left 
-    frame $site_5_0.cpd73 \
-        -borderwidth 2 -height 75 -width 125 
-    vTcl:DefineAlias "$site_5_0.cpd73" "Frame14" vTcl:WidgetProc "Toplevel31" 1
-    set site_6_0 $site_5_0.cpd73
-    button $site_6_0.cpd89 \
-        \
-        -command [list vTcl:DoCmdOption $site_6_0.cpd89 {global ColorMap32 VarColorMap ColorMapIn ColorMapOut ColorNumber ColorMapNumber
-global RedPalette GreenPalette BluePalette OpenDirFile COLORMAPDir
-#BMP PROCESS
-global Load_colormap2 PSPTopLevel
- 
-if {$OpenDirFile == 0} {
-
-if {$Load_colormap2 == 0} {
-    source "GUI/bmp_process/colormap2.tcl"
-    set Load_colormap2 1
-    WmTransient $widget(Toplevel254) $PSPTopLevel
-    }
-
-set ColorMap32 "$COLORMAPDir/Random_ColorMap32.pal"
-set ColorMapNumber 32
-set ColorNumber 256
-for {set i 0} {$i < 256} {incr i} {
-    set RedPalette($i) 1
-    set GreenPalette($i) 1
-    set BluePalette($i) 1
-    }
-if [file exists $ColorMap32] {
-    set f [open $ColorMap32 r]
-    gets $f tmp
-    gets $f tmp
-    gets $f tmp
-    for {set i 0} {$i < $ColorNumber} {incr i} {
-        gets $f couleur
-        set RedPalette($i) [lindex $couleur 0]
-        set GreenPalette($i) [lindex $couleur 1]
-        set BluePalette($i) [lindex $couleur 2]
-        }
-    close $f
-    }
- 
-set c1 .top254.fra35.but36
-set couleur [format "#%02x%02x%02x" $RedPalette(1) $GreenPalette(1) $BluePalette(1)]    
-$c1 configure -background $couleur
-set c2 .top254.fra35.but37
-set couleur [format "#%02x%02x%02x" $RedPalette(2) $GreenPalette(2) $BluePalette(2)]    
-$c2 configure -background $couleur
-set c3 .top254.fra35.but38
-set couleur [format "#%02x%02x%02x" $RedPalette(3) $GreenPalette(3) $BluePalette(3)]    
-$c3 configure -background $couleur
-set c4 .top254.fra35.but39
-set couleur [format "#%02x%02x%02x" $RedPalette(4) $GreenPalette(4) $BluePalette(4)]    
-$c4 configure -background $couleur
-set c5 .top254.fra35.but40
-set couleur [format "#%02x%02x%02x" $RedPalette(5) $GreenPalette(5) $BluePalette(5)]    
-$c5 configure -background $couleur
-set c6 .top254.fra35.but41
-set couleur [format "#%02x%02x%02x" $RedPalette(6) $GreenPalette(6) $BluePalette(6)]    
-$c6 configure -background $couleur
-set c7 .top254.fra35.but42
-set couleur [format "#%02x%02x%02x" $RedPalette(7) $GreenPalette(7) $BluePalette(7)]    
-$c7 configure -background $couleur
-set c8 .top254.fra35.but43
-set couleur [format "#%02x%02x%02x" $RedPalette(8) $GreenPalette(8) $BluePalette(8)]    
-$c8 configure -background $couleur
-set c9 .top254.fra35.but44
-set couleur [format "#%02x%02x%02x" $RedPalette(9) $GreenPalette(9) $BluePalette(9)]    
-$c9 configure -background $couleur
-set c10 .top254.fra35.but45
-set couleur [format "#%02x%02x%02x" $RedPalette(10) $GreenPalette(10) $BluePalette(10)]    
-$c10 configure -background $couleur
-set c11 .top254.fra35.but46
-set couleur [format "#%02x%02x%02x" $RedPalette(11) $GreenPalette(11) $BluePalette(11)]    
-$c11 configure -background $couleur
-set c12 .top254.fra35.but47
-set couleur [format "#%02x%02x%02x" $RedPalette(12) $GreenPalette(12) $BluePalette(12)]    
-$c12 configure -background $couleur
-set c13 .top254.fra35.but48
-set couleur [format "#%02x%02x%02x" $RedPalette(13) $GreenPalette(13) $BluePalette(13)]    
-$c13 configure -background $couleur
-set c14 .top254.fra35.but49
-set couleur [format "#%02x%02x%02x" $RedPalette(14) $GreenPalette(14) $BluePalette(14)]    
-$c14 configure -background $couleur
-set c15 .top254.fra35.but50
-set couleur [format "#%02x%02x%02x" $RedPalette(15) $GreenPalette(15) $BluePalette(15)]    
-$c15 configure -background $couleur
-set c16 .top254.fra35.but51
-set couleur [format "#%02x%02x%02x" $RedPalette(16) $GreenPalette(16) $BluePalette(16)]    
-$c16 configure -background $couleur
-set c17 .top254.cpd73.but36
-set couleur [format "#%02x%02x%02x" $RedPalette(17) $GreenPalette(17) $BluePalette(17)]    
-$c17 configure -background $couleur
-set c18 .top254.cpd73.but37
-set couleur [format "#%02x%02x%02x" $RedPalette(18) $GreenPalette(18) $BluePalette(18)]    
-$c18 configure -background $couleur
-set c19 .top254.cpd73.but38
-set couleur [format "#%02x%02x%02x" $RedPalette(19) $GreenPalette(19) $BluePalette(19)]    
-$c19 configure -background $couleur
-set c20 .top254.cpd73.but39
-set couleur [format "#%02x%02x%02x" $RedPalette(20) $GreenPalette(20) $BluePalette(20)]    
-$c20 configure -background $couleur
-set c21 .top254.cpd73.but40
-set couleur [format "#%02x%02x%02x" $RedPalette(21) $GreenPalette(21) $BluePalette(21)]    
-$c21 configure -background $couleur
-set c22 .top254.cpd73.but41
-set couleur [format "#%02x%02x%02x" $RedPalette(22) $GreenPalette(22) $BluePalette(22)]    
-$c22 configure -background $couleur
-set c23 .top254.cpd73.but42
-set couleur [format "#%02x%02x%02x" $RedPalette(23) $GreenPalette(23) $BluePalette(23)]    
-$c23 configure -background $couleur
-set c24 .top254.cpd73.but43
-set couleur [format "#%02x%02x%02x" $RedPalette(24) $GreenPalette(24) $BluePalette(24)]    
-$c24 configure -background $couleur
-set c25 .top254.cpd73.but44
-set couleur [format "#%02x%02x%02x" $RedPalette(25) $GreenPalette(25) $BluePalette(25)]    
-$c25 configure -background $couleur
-set c26 .top254.cpd73.but45
-set couleur [format "#%02x%02x%02x" $RedPalette(26) $GreenPalette(26) $BluePalette(26)]    
-$c26 configure -background $couleur
-set c27 .top254.cpd73.but46
-set couleur [format "#%02x%02x%02x" $RedPalette(27) $GreenPalette(27) $BluePalette(27)]    
-$c27 configure -background $couleur
-set c28 .top254.cpd73.but47
-set couleur [format "#%02x%02x%02x" $RedPalette(28) $GreenPalette(28) $BluePalette(28)]    
-$c28 configure -background $couleur
-set c29 .top254.cpd73.but48
-set couleur [format "#%02x%02x%02x" $RedPalette(29) $GreenPalette(29) $BluePalette(29)]    
-$c29 configure -background $couleur
-set c30 .top254.cpd73.but49
-set couleur [format "#%02x%02x%02x" $RedPalette(30) $GreenPalette(30) $BluePalette(30)]    
-$c30 configure -background $couleur
-set c31 .top254.cpd73.but50
-set couleur [format "#%02x%02x%02x" $RedPalette(31) $GreenPalette(31) $BluePalette(31)]    
-$c31 configure -background $couleur
-set c32 .top254.cpd73.but51
-set couleur [format "#%02x%02x%02x" $RedPalette(32) $GreenPalette(32) $BluePalette(32)]    
-$c32 configure -background $couleur
-
-.top254.fra35.but38 configure -state normal
-   
-set VarColorMap ""
-set ColorMapIn $ColorMap32
-set ColorMapOut $ColorMap32
-WidgetShowFromWidget $widget(Toplevel31) $widget(Toplevel254); TextEditorRunTrace "Open Window Colormap" "b"
-tkwait variable VarColorMap
-if {"$VarColorMap"=="ok"} {
-   set ColorMap32 $ColorMapOut
-   }
-}}] \
-        -image [vTcl:image:get_image [file join . GUI Images color-rgb.gif]] \
-        -pady 0 -text button 
-    vTcl:DefineAlias "$site_6_0.cpd89" "Button15" vTcl:WidgetProc "Toplevel31" 1
-    bindtags $site_6_0.cpd89 "$site_6_0.cpd89 Button $top all _vTclBalloon"
-    bind $site_6_0.cpd89 <<SetBalloon>> {
-        set ::vTcl::balloon::%W {Edit Colormap}
-    }
-    label $site_6_0.lab85 \
-        -text {Random ColorMap32} 
-    vTcl:DefineAlias "$site_6_0.lab85" "Label10" vTcl:WidgetProc "Toplevel31" 1
-    pack $site_6_0.cpd89 \
-        -in $site_6_0 -anchor center -expand 0 -fill none -side left 
-    pack $site_6_0.lab85 \
-        -in $site_6_0 -anchor center -expand 0 -fill none -side left 
-    pack $site_5_0.fra81 \
-        -in $site_5_0 -anchor center -expand 0 -fill x -side top 
-    pack $site_5_0.cpd73 \
-        -in $site_5_0 -anchor center -expand 0 -fill x -side top 
-    pack $site_4_0.cpd97 \
-        -in $site_4_0 -anchor center -expand 0 -fill both -side left 
-    pack $site_4_0.cpd98 \
-        -in $site_4_0 -anchor center -expand 0 -fill both -side left 
-    pack $site_4_0.cpd82 \
-        -in $site_4_0 -anchor center -expand 0 -fill both -side left 
+    pack $site_3_0.cpd71 \
+        -in $site_3_0 -anchor center -expand 1 -fill none -side left 
+    pack $site_3_0.cpd70 \
+        -in $site_3_0 -anchor center -expand 1 -fill none -side left 
     ###################
     # SETTING GEOMETRY
     ###################
-    pack $top.fra69 \
-        -in $top -anchor center -expand 1 -fill x -side bottom 
     pack $top.tit92 \
         -in $top -anchor center -expand 0 -fill x -side top 
-    pack $top.tit95 \
-        -in $top -anchor center -expand 1 -fill x -side top 
-    pack $top.tit96 \
-        -in $top -anchor center -expand 1 -fill x -side top 
+    pack $top.fra69 \
+        -in $top -anchor center -expand 0 -fill x -pady 5 -side top 
 
     vTcl:FireEvent $base <<Ready>>
 }

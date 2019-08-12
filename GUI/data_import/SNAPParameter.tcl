@@ -452,6 +452,29 @@ proc vTcl:project:info {} {
     namespace eval ::widgets::$site_5_0.but71 {
         array set save {-command 1 -image 1 -pady 1 -text 1}
     }
+    namespace eval ::widgets::$base.tit68 {
+        array set save {-ipad 1 -text 1}
+    }
+    set site_4_0 [$base.tit68 getframe]
+    namespace eval ::widgets::$site_4_0 {
+        array set save {}
+    }
+    set site_4_0 $site_4_0
+    namespace eval ::widgets::$site_4_0.rad69 {
+        array set save {-command 1 -text 1 -value 1 -variable 1}
+    }
+    namespace eval ::widgets::$site_4_0.cpd70 {
+        array set save {-command 1 -text 1 -value 1 -variable 1}
+    }
+    namespace eval ::widgets::$site_4_0.cpd71 {
+        array set save {-command 1 -text 1 -value 1 -variable 1}
+    }
+    namespace eval ::widgets::$site_4_0.cpd72 {
+        array set save {-command 1 -text 1 -value 1 -variable 1}
+    }
+    namespace eval ::widgets::$site_4_0.cpd73 {
+        array set save {-command 1 -text 1 -value 1 -variable 1}
+    }
     namespace eval ::widgets::$base.cpd72 {
         array set save {-ipad 1 -text 1}
     }
@@ -781,8 +804,8 @@ proc vTclWindow. {base} {
     # CREATING WIDGETS
     ###################
     wm focusmodel $top passive
-    wm geometry $top 200x200+50+50; update
-    wm maxsize $top 3360 1028
+    wm geometry $top 200x200+200+200; update
+    wm maxsize $top 3364 1032
     wm minsize $top 116 1
     wm overrideredirect $top 0
     wm resizable $top 1 1
@@ -813,7 +836,7 @@ proc vTclWindow.top428 {base} {
     vTcl:toplevel $top -class Toplevel
     wm withdraw $top
     wm focusmodel $top passive
-    wm geometry $top 500x540+10+110; update
+    wm geometry $top 500x580+10+110; update
     wm maxsize $top 1604 1184
     wm minsize $top 116 1
     wm overrideredirect $top 0
@@ -933,6 +956,63 @@ set SNAPParameterFile $FileName} \
         -in $site_4_0 -anchor center -expand 1 -fill x -side left 
     pack $site_4_0.cpd92 \
         -in $site_4_0 -anchor center -expand 0 -fill none -side left 
+    TitleFrame $top.tit68 \
+        -ipad 2 -text {Polarimetric SAR Sensor} 
+    vTcl:DefineAlias "$top.tit68" "TitleFrame2" vTcl:WidgetProc "Toplevel428" 1
+    bind $top.tit68 <Destroy> {
+        Widget::destroy %W; rename %W {}
+    }
+    set site_4_0 [$top.tit68 getframe]
+    radiobutton $site_4_0.rad69 \
+        \
+        -command {global SNAPLeaderFile
+
+set SNAPLeaderFile ""
+$widget(TitleFrame428_1) configure -text "SAR Volume File"} \
+        -text {ALOS-1 (CEOS)} -value ALOS1 -variable SNAPSensor 
+    vTcl:DefineAlias "$site_4_0.rad69" "Radiobutton12" vTcl:WidgetProc "Toplevel428" 1
+    radiobutton $site_4_0.cpd70 \
+        \
+        -command {global SNAPLeaderFile
+
+set SNAPLeaderFile ""
+$widget(TitleFrame428_1) configure -text "SAR Volume File"} \
+        -text {ALOS-2 (CEOS)} -value ALOS2 -variable SNAPSensor 
+    vTcl:DefineAlias "$site_4_0.cpd70" "Radiobutton13" vTcl:WidgetProc "Toplevel428" 1
+    radiobutton $site_4_0.cpd71 \
+        \
+        -command {global SNAPLeaderFile
+
+set SNAPLeaderFile ""
+$widget(TitleFrame428_1) configure -text "SAR Product File"} \
+        -text RADARSAT2 -value RS2 -variable SNAPSensor 
+    vTcl:DefineAlias "$site_4_0.cpd71" "Radiobutton14" vTcl:WidgetProc "Toplevel428" 1
+    radiobutton $site_4_0.cpd72 \
+        \
+        -command {global SNAPLeaderFile
+
+set SNAPLeaderFile ""
+$widget(TitleFrame428_1) configure -text "SAR Metadata File"} \
+        -text SENTINEL-1 -value S1A -variable SNAPSensor 
+    vTcl:DefineAlias "$site_4_0.cpd72" "Radiobutton15" vTcl:WidgetProc "Toplevel428" 1
+    radiobutton $site_4_0.cpd73 \
+        \
+        -command {global SNAPLeaderFile
+
+set SNAPLeaderFile ""
+$widget(TitleFrame428_1) configure -text "SAR Product File"} \
+        -text TerraSAR-X -value TSX -variable SNAPSensor 
+    vTcl:DefineAlias "$site_4_0.cpd73" "Radiobutton16" vTcl:WidgetProc "Toplevel428" 1
+    pack $site_4_0.rad69 \
+        -in $site_4_0 -anchor center -expand 1 -fill none -side left 
+    pack $site_4_0.cpd70 \
+        -in $site_4_0 -anchor center -expand 1 -fill none -side left 
+    pack $site_4_0.cpd71 \
+        -in $site_4_0 -anchor center -expand 1 -fill none -side left 
+    pack $site_4_0.cpd72 \
+        -in $site_4_0 -anchor center -expand 1 -fill none -side left 
+    pack $site_4_0.cpd73 \
+        -in $site_4_0 -anchor center -expand 1 -fill none -side left 
     TitleFrame $top.cpd72 \
         -ipad 0 -text {SAR Product File} 
     vTcl:DefineAlias "$top.cpd72" "TitleFrame428_1" vTcl:WidgetProc "Toplevel428" 1
@@ -953,63 +1033,152 @@ set SNAPParameterFile $FileName} \
         \
         -command {global FileName SNAPDirInput SNAPSensor SNAPLeaderFile
 global SNAPPixelSizeAz SNAPPixelSizeRg SNAPPixelSize
-global TetaNearRg TetaFarRg SNAPPixelSizeRg0 SNAPPixelSizeAz0
-global TMPRadarsat2Config
+global SNAPTeta0 SNAPPixelSizeRg0 SNAPPixelSizeAz0 SNAPAntennaPass
 global ErrorMessage VarError
 global SNAPMlkAzIn SNAPMlkRgIn
 global SNAPMlkAzOut SNAPMlkRgOut
+global TMPSentinel1Metadata 
 
-$widget(Button428_1) configure -state disable
-$widget(Button428_2) configure -state disable
-$widget(Button428_3) configure -state disable
-$widget(Button428_4) configure -state disable
-$widget(Button428_6) configure -state disable
-$widget(Button428_7) configure -state disable
-$widget(Button428_8) configure -state disable
-$widget(Button428_9) configure -state disable
+if {$SNAPSensor==""} {
+    set SNAPLeaderFile "Select Polarimetric SAR Sensor first"
+    set ErrorMessage "SELECT SAR SENSOR FIRST"
+    set VarError ""
+    Window show .top44; TextEditorRunTrace "Open Window Error" "b"
+    } else {
+    $widget(Button428_1) configure -state disable
+    $widget(Button428_2) configure -state disable
+    $widget(Button428_3) configure -state disable
+    $widget(Button428_4) configure -state disable
+    $widget(Button428_6) configure -state disable
+    $widget(Button428_7) configure -state disable
+    $widget(Button428_8) configure -state disable
+    $widget(Button428_9) configure -state disable
 
-set SNAPDirInputTmp [file dirname $SNAPDirInput]
-set types {
-    {{XML Files}        {.xml}        }
-    }
-set FileName ""
-OpenFile $SNAPDirInputTmp $types "SAR PRODUCT FILE"
-set SNAPLeaderFile $FileName
-
-set SNAPMlkAzIn "1"; set SNAPMlkRgIn "1"
-set SNAPMlkAzOut "1"; set SNAPMlkRgOut "1"
-
-if {$SNAPSensor == "RS2"} {
-    DeleteFile $TMPRadarsat2Config
-    SNAPReadXML $SNAPLeaderFile $TMPRadarsat2Config "radarsat"
-    WaitUntilCreated $TMPRadarsat2Config
-    if [file exists $TMPRadarsat2Config] {
-        set f [open $TMPRadarsat2Config r]
-        gets $f TetaNearRg
-        gets $f TetaFarRg
-        gets $f SNAPPixelSizeRg0
-        gets $f SNAPPixelSizeAz0
-        close $f
+    set SNAPDirInputTmp [file dirname $SNAPDirInput]
+    set FileName ""
+    if {$SNAPSensor == "ALOS1"} {
+        set types {
+            {{All Files}        *        }
+            }
+        OpenFile $SNAPDirInputTmp $types "SAR VOLUME FILE"
         }
-    set SNAPPixelSizeRg [expr round(100000. * $SNAPPixelSizeRg0) / 100000.]
-    set SNAPPixelSizeAz [expr round(100000. * $SNAPPixelSizeAz0) / 100000.]
-    set Teta0 [expr ($TetaNearRg + $TetaFarRg) / 2 ]
-    set Teta0 [expr ($Teta0 * 3.1415926) / 180.0]
-    set SNAPPixelSizeRg [expr $SNAPPixelSizeRg / sin($Teta0)]
-    set SNAPPixelSizeRg [expr round(100000. * $SNAPPixelSizeRg) / 100000.]
-    if {$SNAPPixelSizeRg <= $SNAPPixelSizeAz} {
-        set SNAPPixelSize $SNAPPixelSizeAz
-        } else {
-        set SNAPPixelSize $SNAPPixelSizeRg
+    if {$SNAPSensor == "ALOS2"} {
+        set types {
+            {{All Files}        *        }
+            }
+        OpenFile $SNAPDirInputTmp $types "SAR VOLUME FILE"
         }
-    $widget(Button428_1) configure -state normal
-    $widget(Button428_2) configure -state normal
-    $widget(Button428_3) configure -state normal
-    $widget(Button428_4) configure -state normal
-    $widget(Button428_6) configure -state normal
-    $widget(Button428_7) configure -state normal
-    $widget(Button428_8) configure -state normal
-    $widget(Button428_9) configure -state normal
+    if {$SNAPSensor == "RS2"} {
+        set types {
+            {{XML Files}        {.xml}        }
+            }
+        OpenFile $SNAPDirInputTmp $types "SAR PRODUCT FILE"
+        }
+    if {$SNAPSensor == "TSX"} {
+        set types {
+            {{XML Files}        {.xml}        }
+            }
+        OpenFile $SNAPDirInputTmp $types "SAR PRODUCT FILE"
+        }
+    if {$SNAPSensor == "S1A"} {
+        set types {
+            {{XML Files}        {.xml}        }
+            }
+        OpenFile $SNAPDirInputTmp $types "SAR METADATA FILE"
+        }
+
+    if {$FileName != "" } {
+        set config "OK"
+        if {$SNAPSensor == "ALOS1"} {
+            if {[string range [file tail $FileName] 0 2] != "VOL"} {
+                set config "KO"
+                set ErrorMessage "NOT A SAR VOLUME FILE"
+                set VarError ""
+                Window show .top44; TextEditorRunTrace "Open Window Error" "b"
+                }
+            }
+        if {$SNAPSensor == "ALOS2"} {
+            if {[string range [file tail $FileName] 0 2] != "VOL"} {
+                set config "KO"
+                set ErrorMessage "NOT A SAR VOLUME FILE"
+                set VarError ""
+                Window show .top44; TextEditorRunTrace "Open Window Error" "b"
+                }
+            }
+    
+        if {$config == "OK"} {
+            set SNAPLeaderFile $FileName
+    
+            set SNAPMlkAzIn "1"; set SNAPMlkRgIn "1"
+            set SNAPMlkAzOut "1"; set SNAPMlkRgOut "1"
+    
+            set config 0
+            set SNAPDirInputTmp [file dirname $SNAPLeaderFile]
+            set ConfigAcqFile "$SNAPDirInputTmp/config_acquisition.txt" 
+            if [file exists $ConfigAcqFile] { 
+                set config 1
+                } else {
+                set SNAPDirInputTmp [file dirname $SNAPDirInput]
+                set ConfigAcqFile "$SNAPDirInputTmp/config_acquisition.txt" 
+                if [file exists $ConfigAcqFile] { 
+                    set config 1
+                    } else {
+                    set SNAPDirInputTmp $DataDir
+                    set ConfigAcqFile "$SNAPDirInputTmp/config_acquisition.txt" 
+                    if [file exists $ConfigAcqFile] { 
+                        set config 1
+                        }
+                    }
+                }
+            if {$config == 1} {
+                set f [open "$SNAPDirInputTmp/config_acquisition.txt" r]
+                gets $f SNAPAntennaPass
+                gets $f SNAPTeta0
+                gets $f SNAPPixelSizeRg0
+                gets $f SNAPPixelSizeAz0
+                close $f
+    
+                if {$SNAPSensor == "S1A"} {
+                    DeleteFile $TMPSentinel1Metadata
+                    TextEditorRunTrace "Process The Function Soft/bin/data_import/sentinel1_metadata.exe" "k"
+                    TextEditorRunTrace "Arguments: -if \x22$SNAPLeaderFile\x22 -of \x22$TMPSentinel1Metadata\x22" "k"
+                    set f [ open "| Soft/bin/data_import/sentinel1_metadata.exe -if \x22$SNAPLeaderFile\x22 -of \x22$TMPSentinel1Metadata\x22" r]
+                    PsPprogressBar $f
+                    TextEditorRunTrace "Check RunTime Errors" "r"
+                    CheckRunTimeError
+                    WaitUntilCreated $TMPSentinel1Metadata
+                    if [file exists $TMPSentinel1Metadata] {
+                        set ff [open $TMPSentinel1Metadata r]
+                        gets $ff SNAPMlkAzIn
+                        gets $ff SNAPMlkRgIn
+                        close $ff
+                        }
+                    }
+
+                set SNAPPixelSizeRg [expr round(100000. * $SNAPPixelSizeRg0) / 100000.]
+                set SNAPPixelSizeAz [expr round(100000. * $SNAPPixelSizeAz0) / 100000.]
+                set SNAPTeta0 [expr ($SNAPTeta0 * 3.1415926) / 180.0]
+                set SNAPPixelSizeRg [expr $SNAPPixelSizeRg / sin($SNAPTeta0)]
+                set SNAPPixelSizeRg [expr round(100000. * $SNAPPixelSizeRg) / 100000.]
+                set SNAPPixelSizeRg [expr $SNAPPixelSizeRg * ($SNAPMlkRgIn * $SNAPMlkRgOut)]
+                set SNAPPixelSizeAz [expr $SNAPPixelSizeAz * ($SNAPMlkAzIn * $SNAPMlkAzOut)]
+                if {$SNAPPixelSizeRg <= $SNAPPixelSizeAz} {
+                    set SNAPPixelSize $SNAPPixelSizeAz
+                    } else {
+                    set SNAPPixelSize $SNAPPixelSizeRg
+                    }
+    
+                $widget(Button428_1) configure -state normal
+                $widget(Button428_2) configure -state normal
+                $widget(Button428_3) configure -state normal
+                $widget(Button428_4) configure -state normal
+                $widget(Button428_6) configure -state normal
+                $widget(Button428_7) configure -state normal
+                $widget(Button428_8) configure -state normal
+                $widget(Button428_9) configure -state normal
+                }
+            }
+        }
     }} \
         -image [vTcl:image:get_image [file join . GUI Images OpenFile.gif]] \
         -pady 0 -text button 
@@ -1112,52 +1281,46 @@ if {$SNAPSensor == "RS2"} {
         \
         -command {global SNAPMlkAzIn SNAPMlkRgIn SNAPMlkAzOut SNAPMlkRgOut SNAPSensor
 global SNAPPixelSizeAz SNAPPixelSizeRg SNAPPixelSize
-global TetaNearRg TetaFarRg SNAPPixelSizeRg0 SNAPPixelSizeAz0
+global SNAPTeta0 SNAPPixelSizeRg0 SNAPPixelSizeAz0
 
 set SNAPMlkAzIn [expr $SNAPMlkAzIn + 1]
 if {$SNAPMlkAzIn == 16} {set SNAPMlkAzIn 1}
 
-if {$SNAPSensor == "RS2"} {
-    set SNAPPixelSizeRg [expr round(100000. * $SNAPPixelSizeRg0) / 100000.]
-    set SNAPPixelSizeAz [expr round(100000. * $SNAPPixelSizeAz0) / 100000.]
-    set Teta0 [expr ($TetaNearRg + $TetaFarRg) / 2 ]
-    set Teta0 [expr ($Teta0 * 3.1415926) / 180.0]
-    set SNAPPixelSizeRg [expr $SNAPPixelSizeRg / sin($Teta0)]
-    set SNAPPixelSizeRg [expr round(100000. * $SNAPPixelSizeRg) / 100000.]
-    set SNAPPixelSizeRg [expr $SNAPPixelSizeRg * ($SNAPMlkRgIn * $SNAPMlkRgOut)]
-    set SNAPPixelSizeAz [expr $SNAPPixelSizeAz * ($SNAPMlkAzIn * $SNAPMlkAzOut)]
-    if {$SNAPPixelSizeRg <= $SNAPPixelSizeAz} {
-        set SNAPPixelSize $SNAPPixelSizeAz
-        } else {
-        set SNAPPixelSize $SNAPPixelSizeRg
-        }
-    }} \
+set SNAPPixelSizeRg [expr round(100000. * $SNAPPixelSizeRg0) / 100000.]
+set SNAPPixelSizeAz [expr round(100000. * $SNAPPixelSizeAz0) / 100000.]
+set SNAPPixelSizeRg [expr $SNAPPixelSizeRg / sin($SNAPTeta0)]
+set SNAPPixelSizeRg [expr round(100000. * $SNAPPixelSizeRg) / 100000.]
+set SNAPPixelSizeRg [expr $SNAPPixelSizeRg * ($SNAPMlkRgIn * $SNAPMlkRgOut)]
+set SNAPPixelSizeAz [expr $SNAPPixelSizeAz * ($SNAPMlkAzIn * $SNAPMlkAzOut)]
+if {$SNAPPixelSizeRg <= $SNAPPixelSizeAz} {
+    set SNAPPixelSize $SNAPPixelSizeAz
+    } else {
+    set SNAPPixelSize $SNAPPixelSizeRg
+    }
+} \
         -image [vTcl:image:get_image [file join . GUI Images up.gif]] -pady 0 
     vTcl:DefineAlias "$site_7_0.cpd71" "Button428_6" vTcl:WidgetProc "Toplevel428" 1
     button $site_7_0.but70 \
         \
         -command {global SNAPMlkAzIn SNAPMlkRgIn SNAPMlkAzOut SNAPMlkRgOut SNAPSensor
 global SNAPPixelSizeAz SNAPPixelSizeRg SNAPPixelSize
-global TetaNearRg TetaFarRg SNAPPixelSizeRg0 SNAPPixelSizeAz0
+global SNAPTeta0 SNAPPixelSizeRg0 SNAPPixelSizeAz0
 
 set SNAPMlkAzIn [expr $SNAPMlkAzIn - 1]
 if {$SNAPMlkAzIn == 0} {set SNAPMlkAzIn 15}
 
-if {$SNAPSensor == "RS2"} {
-    set SNAPPixelSizeRg [expr round(100000. * $SNAPPixelSizeRg0) / 100000.]
-    set SNAPPixelSizeAz [expr round(100000. * $SNAPPixelSizeAz0) / 100000.]
-    set Teta0 [expr ($TetaNearRg + $TetaFarRg) / 2 ]
-    set Teta0 [expr ($Teta0 * 3.1415926) / 180.0]
-    set SNAPPixelSizeRg [expr $SNAPPixelSizeRg / sin($Teta0)]
-    set SNAPPixelSizeRg [expr round(100000. * $SNAPPixelSizeRg) / 100000.]
-    set SNAPPixelSizeRg [expr $SNAPPixelSizeRg * ($SNAPMlkRgIn * $SNAPMlkRgOut)]
-    set SNAPPixelSizeAz [expr $SNAPPixelSizeAz * ($SNAPMlkAzIn * $SNAPMlkAzOut)]
-    if {$SNAPPixelSizeRg <= $SNAPPixelSizeAz} {
-        set SNAPPixelSize $SNAPPixelSizeAz
-        } else {
-        set SNAPPixelSize $SNAPPixelSizeRg
-        }
-    }} \
+set SNAPPixelSizeRg [expr round(100000. * $SNAPPixelSizeRg0) / 100000.]
+set SNAPPixelSizeAz [expr round(100000. * $SNAPPixelSizeAz0) / 100000.]
+set SNAPPixelSizeRg [expr $SNAPPixelSizeRg / sin($SNAPTeta0)]
+set SNAPPixelSizeRg [expr round(100000. * $SNAPPixelSizeRg) / 100000.]
+set SNAPPixelSizeRg [expr $SNAPPixelSizeRg * ($SNAPMlkRgIn * $SNAPMlkRgOut)]
+set SNAPPixelSizeAz [expr $SNAPPixelSizeAz * ($SNAPMlkAzIn * $SNAPMlkAzOut)]
+if {$SNAPPixelSizeRg <= $SNAPPixelSizeAz} {
+    set SNAPPixelSize $SNAPPixelSizeAz
+    } else {
+    set SNAPPixelSize $SNAPPixelSizeRg
+    }
+} \
         -image [vTcl:image:get_image [file join . GUI Images down.gif]] \
         -pady 0 
     vTcl:DefineAlias "$site_7_0.but70" "Button428_7" vTcl:WidgetProc "Toplevel428" 1
@@ -1191,52 +1354,46 @@ if {$SNAPSensor == "RS2"} {
         \
         -command {global SNAPMlkAzIn SNAPMlkRgIn SNAPMlkAzOut SNAPMlkRgOut SNAPSensor
 global SNAPPixelSizeAz SNAPPixelSizeRg SNAPPixelSize
-global TetaNearRg TetaFarRg SNAPPixelSizeRg0 SNAPPixelSizeAz0
+global SNAPTeta0 SNAPPixelSizeRg0 SNAPPixelSizeAz0
 
 set SNAPMlkRgIn [expr $SNAPMlkRgIn + 1]
 if {$SNAPMlkRgIn == 16} {set SNAPMlkRgIn 1}
 
-if {$SNAPSensor == "RS2"} {
-    set SNAPPixelSizeRg [expr round(100000. * $SNAPPixelSizeRg0) / 100000.]
-    set SNAPPixelSizeAz [expr round(100000. * $SNAPPixelSizeAz0) / 100000.]
-    set Teta0 [expr ($TetaNearRg + $TetaFarRg) / 2 ]
-    set Teta0 [expr ($Teta0 * 3.1415926) / 180.0]
-    set SNAPPixelSizeRg [expr $SNAPPixelSizeRg / sin($Teta0)]
-    set SNAPPixelSizeRg [expr round(100000. * $SNAPPixelSizeRg) / 100000.]
-    set SNAPPixelSizeRg [expr $SNAPPixelSizeRg * ($SNAPMlkRgIn * $SNAPMlkRgOut)]
-    set SNAPPixelSizeAz [expr $SNAPPixelSizeAz * ($SNAPMlkAzIn * $SNAPMlkAzOut)]
-    if {$SNAPPixelSizeRg <= $SNAPPixelSizeAz} {
-        set SNAPPixelSize $SNAPPixelSizeAz
-        } else {
-        set SNAPPixelSize $SNAPPixelSizeRg
-        }
-    }} \
+set SNAPPixelSizeRg [expr round(100000. * $SNAPPixelSizeRg0) / 100000.]
+set SNAPPixelSizeAz [expr round(100000. * $SNAPPixelSizeAz0) / 100000.]
+set SNAPPixelSizeRg [expr $SNAPPixelSizeRg / sin($SNAPTeta0)]
+set SNAPPixelSizeRg [expr round(100000. * $SNAPPixelSizeRg) / 100000.]
+set SNAPPixelSizeRg [expr $SNAPPixelSizeRg * ($SNAPMlkRgIn * $SNAPMlkRgOut)]
+set SNAPPixelSizeAz [expr $SNAPPixelSizeAz * ($SNAPMlkAzIn * $SNAPMlkAzOut)]
+if {$SNAPPixelSizeRg <= $SNAPPixelSizeAz} {
+    set SNAPPixelSize $SNAPPixelSizeAz
+    } else {
+    set SNAPPixelSize $SNAPPixelSizeRg
+    }
+} \
         -image [vTcl:image:get_image [file join . GUI Images up.gif]] -pady 0 
     vTcl:DefineAlias "$site_7_0.cpd71" "Button428_8" vTcl:WidgetProc "Toplevel428" 1
     button $site_7_0.but70 \
         \
         -command {global SNAPMlkAzIn SNAPMlkRgIn SNAPMlkAzOut SNAPMlkRgOut SNAPSensor
 global SNAPPixelSizeAz SNAPPixelSizeRg SNAPPixelSize
-global TetaNearRg TetaFarRg SNAPPixelSizeRg0 SNAPPixelSizeAz0
+global SNAPTeta0 SNAPPixelSizeRg0 SNAPPixelSizeAz0
 
 set SNAPMlkRgIn [expr $SNAPMlkRgIn - 1]
 if {$SNAPMlkRgIn == 0} {set SNAPMlkRgIn 15}
 
-if {$SNAPSensor == "RS2"} {
-    set SNAPPixelSizeRg [expr round(100000. * $SNAPPixelSizeRg0) / 100000.]
-    set SNAPPixelSizeAz [expr round(100000. * $SNAPPixelSizeAz0) / 100000.]
-    set Teta0 [expr ($TetaNearRg + $TetaFarRg) / 2 ]
-    set Teta0 [expr ($Teta0 * 3.1415926) / 180.0]
-    set SNAPPixelSizeRg [expr $SNAPPixelSizeRg / sin($Teta0)]
-    set SNAPPixelSizeRg [expr round(100000. * $SNAPPixelSizeRg) / 100000.]
-    set SNAPPixelSizeRg [expr $SNAPPixelSizeRg * ($SNAPMlkRgIn * $SNAPMlkRgOut)]
-    set SNAPPixelSizeAz [expr $SNAPPixelSizeAz * ($SNAPMlkAzIn * $SNAPMlkAzOut)]
-    if {$SNAPPixelSizeRg <= $SNAPPixelSizeAz} {
-        set SNAPPixelSize $SNAPPixelSizeAz
-        } else {
-        set SNAPPixelSize $SNAPPixelSizeRg
-        }
-    }} \
+set SNAPPixelSizeRg [expr round(100000. * $SNAPPixelSizeRg0) / 100000.]
+set SNAPPixelSizeAz [expr round(100000. * $SNAPPixelSizeAz0) / 100000.]
+set SNAPPixelSizeRg [expr $SNAPPixelSizeRg / sin($SNAPTeta0)]
+set SNAPPixelSizeRg [expr round(100000. * $SNAPPixelSizeRg) / 100000.]
+set SNAPPixelSizeRg [expr $SNAPPixelSizeRg * ($SNAPMlkRgIn * $SNAPMlkRgOut)]
+set SNAPPixelSizeAz [expr $SNAPPixelSizeAz * ($SNAPMlkAzIn * $SNAPMlkAzOut)]
+if {$SNAPPixelSizeRg <= $SNAPPixelSizeAz} {
+    set SNAPPixelSize $SNAPPixelSizeAz
+    } else {
+    set SNAPPixelSize $SNAPPixelSizeRg
+    }
+} \
         -image [vTcl:image:get_image [file join . GUI Images down.gif]] \
         -pady 0 
     vTcl:DefineAlias "$site_7_0.but70" "Button428_9" vTcl:WidgetProc "Toplevel428" 1
@@ -1281,52 +1438,46 @@ if {$SNAPSensor == "RS2"} {
         \
         -command {global SNAPMlkAzIn SNAPMlkRgIn SNAPMlkAzOut SNAPMlkRgOut SNAPSensor
 global SNAPPixelSizeAz SNAPPixelSizeRg SNAPPixelSize
-global TetaNearRg TetaFarRg SNAPPixelSizeRg0 SNAPPixelSizeAz0
+global SNAPTeta0 SNAPPixelSizeRg0 SNAPPixelSizeAz0
 
 set SNAPMlkAzOut [expr $SNAPMlkAzOut + 1]
 if {$SNAPMlkAzOut == 16} {set SNAPMlkAzOut 1}
 
-if {$SNAPSensor == "RS2"} {
-    set SNAPPixelSizeRg [expr round(100000. * $SNAPPixelSizeRg0) / 100000.]
-    set SNAPPixelSizeAz [expr round(100000. * $SNAPPixelSizeAz0) / 100000.]
-    set Teta0 [expr ($TetaNearRg + $TetaFarRg) / 2 ]
-    set Teta0 [expr ($Teta0 * 3.1415926) / 180.0]
-    set SNAPPixelSizeRg [expr $SNAPPixelSizeRg / sin($Teta0)]
-    set SNAPPixelSizeRg [expr round(100000. * $SNAPPixelSizeRg) / 100000.]
-    set SNAPPixelSizeRg [expr $SNAPPixelSizeRg * ($SNAPMlkRgIn * $SNAPMlkRgOut)]
-    set SNAPPixelSizeAz [expr $SNAPPixelSizeAz * ($SNAPMlkAzIn * $SNAPMlkAzOut)]
-    if {$SNAPPixelSizeRg <= $SNAPPixelSizeAz} {
-        set SNAPPixelSize $SNAPPixelSizeAz
-        } else {
-        set SNAPPixelSize $SNAPPixelSizeRg
-        }
-    }} \
+set SNAPPixelSizeRg [expr round(100000. * $SNAPPixelSizeRg0) / 100000.]
+set SNAPPixelSizeAz [expr round(100000. * $SNAPPixelSizeAz0) / 100000.]
+set SNAPPixelSizeRg [expr $SNAPPixelSizeRg / sin($SNAPTeta0)]
+set SNAPPixelSizeRg [expr round(100000. * $SNAPPixelSizeRg) / 100000.]
+set SNAPPixelSizeRg [expr $SNAPPixelSizeRg * ($SNAPMlkRgIn * $SNAPMlkRgOut)]
+set SNAPPixelSizeAz [expr $SNAPPixelSizeAz * ($SNAPMlkAzIn * $SNAPMlkAzOut)]
+if {$SNAPPixelSizeRg <= $SNAPPixelSizeAz} {
+    set SNAPPixelSize $SNAPPixelSizeAz
+    } else {
+    set SNAPPixelSize $SNAPPixelSizeRg
+    }
+} \
         -image [vTcl:image:get_image [file join . GUI Images up.gif]] -pady 0 
     vTcl:DefineAlias "$site_7_0.cpd71" "Button428_1" vTcl:WidgetProc "Toplevel428" 1
     button $site_7_0.but70 \
         \
         -command {global SNAPMlkAzIn SNAPMlkRgIn SNAPMlkAzOut SNAPMlkRgOut SNAPSensor
 global SNAPPixelSizeAz SNAPPixelSizeRg SNAPPixelSize
-global TetaNearRg TetaFarRg SNAPPixelSizeRg0 SNAPPixelSizeAz0
+global SNAPTeta0 SNAPPixelSizeRg0 SNAPPixelSizeAz0
 
 set SNAPMlkAzOut [expr $SNAPMlkAzOut - 1]
 if {$SNAPMlkAzOut == 0} {set SNAPMlkAzOut 15}
 
-if {$SNAPSensor == "RS2"} {
-    set SNAPPixelSizeRg [expr round(100000. * $SNAPPixelSizeRg0) / 100000.]
-    set SNAPPixelSizeAz [expr round(100000. * $SNAPPixelSizeAz0) / 100000.]
-    set Teta0 [expr ($TetaNearRg + $TetaFarRg) / 2 ]
-    set Teta0 [expr ($Teta0 * 3.1415926) / 180.0]
-    set SNAPPixelSizeRg [expr $SNAPPixelSizeRg / sin($Teta0)]
-    set SNAPPixelSizeRg [expr round(100000. * $SNAPPixelSizeRg) / 100000.]
-    set SNAPPixelSizeRg [expr $SNAPPixelSizeRg * ($SNAPMlkRgIn * $SNAPMlkRgOut)]
-    set SNAPPixelSizeAz [expr $SNAPPixelSizeAz * ($SNAPMlkAzIn * $SNAPMlkAzOut)]
-    if {$SNAPPixelSizeRg <= $SNAPPixelSizeAz} {
-        set SNAPPixelSize $SNAPPixelSizeAz
-        } else {
-        set SNAPPixelSize $SNAPPixelSizeRg
-        }
-    }} \
+set SNAPPixelSizeRg [expr round(100000. * $SNAPPixelSizeRg0) / 100000.]
+set SNAPPixelSizeAz [expr round(100000. * $SNAPPixelSizeAz0) / 100000.]
+set SNAPPixelSizeRg [expr $SNAPPixelSizeRg / sin($SNAPTeta0)]
+set SNAPPixelSizeRg [expr round(100000. * $SNAPPixelSizeRg) / 100000.]
+set SNAPPixelSizeRg [expr $SNAPPixelSizeRg * ($SNAPMlkRgIn * $SNAPMlkRgOut)]
+set SNAPPixelSizeAz [expr $SNAPPixelSizeAz * ($SNAPMlkAzIn * $SNAPMlkAzOut)]
+if {$SNAPPixelSizeRg <= $SNAPPixelSizeAz} {
+    set SNAPPixelSize $SNAPPixelSizeAz
+    } else {
+    set SNAPPixelSize $SNAPPixelSizeRg
+    }
+} \
         -image [vTcl:image:get_image [file join . GUI Images down.gif]] \
         -pady 0 
     vTcl:DefineAlias "$site_7_0.but70" "Button428_2" vTcl:WidgetProc "Toplevel428" 1
@@ -1360,52 +1511,46 @@ if {$SNAPSensor == "RS2"} {
         \
         -command {global SNAPMlkAzIn SNAPMlkRgIn SNAPMlkAzOut SNAPMlkRgOut SNAPSensor
 global SNAPPixelSizeAz SNAPPixelSizeRg SNAPPixelSize
-global TetaNearRg TetaFarRg SNAPPixelSizeRg0 SNAPPixelSizeAz0
+global SNAPTeta0 SNAPPixelSizeRg0 SNAPPixelSizeAz0
 
 set SNAPMlkRgOut [expr $SNAPMlkRgOut + 1]
 if {$SNAPMlkRgOut == 16} {set SNAPMlkRgOut 1}
 
-if {$SNAPSensor == "RS2"} {
-    set SNAPPixelSizeRg [expr round(100000. * $SNAPPixelSizeRg0) / 100000.]
-    set SNAPPixelSizeAz [expr round(100000. * $SNAPPixelSizeAz0) / 100000.]
-    set Teta0 [expr ($TetaNearRg + $TetaFarRg) / 2 ]
-    set Teta0 [expr ($Teta0 * 3.1415926) / 180.0]
-    set SNAPPixelSizeRg [expr $SNAPPixelSizeRg / sin($Teta0)]
-    set SNAPPixelSizeRg [expr round(100000. * $SNAPPixelSizeRg) / 100000.]
-    set SNAPPixelSizeRg [expr $SNAPPixelSizeRg * ($SNAPMlkRgIn * $SNAPMlkRgOut)]
-    set SNAPPixelSizeAz [expr $SNAPPixelSizeAz * ($SNAPMlkAzIn * $SNAPMlkAzOut)]
-    if {$SNAPPixelSizeRg <= $SNAPPixelSizeAz} {
-        set SNAPPixelSize $SNAPPixelSizeAz
-        } else {
-        set SNAPPixelSize $SNAPPixelSizeRg
-        }
-    }} \
+set SNAPPixelSizeRg [expr round(100000. * $SNAPPixelSizeRg0) / 100000.]
+set SNAPPixelSizeAz [expr round(100000. * $SNAPPixelSizeAz0) / 100000.]
+set SNAPPixelSizeRg [expr $SNAPPixelSizeRg / sin($SNAPTeta0)]
+set SNAPPixelSizeRg [expr round(100000. * $SNAPPixelSizeRg) / 100000.]
+set SNAPPixelSizeRg [expr $SNAPPixelSizeRg * ($SNAPMlkRgIn * $SNAPMlkRgOut)]
+set SNAPPixelSizeAz [expr $SNAPPixelSizeAz * ($SNAPMlkAzIn * $SNAPMlkAzOut)]
+if {$SNAPPixelSizeRg <= $SNAPPixelSizeAz} {
+    set SNAPPixelSize $SNAPPixelSizeAz
+    } else {
+    set SNAPPixelSize $SNAPPixelSizeRg
+    }
+} \
         -image [vTcl:image:get_image [file join . GUI Images up.gif]] -pady 0 
     vTcl:DefineAlias "$site_7_0.cpd71" "Button428_3" vTcl:WidgetProc "Toplevel428" 1
     button $site_7_0.but70 \
         \
         -command {global SNAPMlkAzIn SNAPMlkRgIn SNAPMlkAzOut SNAPMlkRgOut SNAPSensor
 global SNAPPixelSizeAz SNAPPixelSizeRg SNAPPixelSize
-global TetaNearRg TetaFarRg SNAPPixelSizeRg0 SNAPPixelSizeAz0
+global SNAPTeta0 SNAPPixelSizeRg0 SNAPPixelSizeAz0
 
 set SNAPMlkRgOut [expr $SNAPMlkRgOut - 1]
 if {$SNAPMlkRgOut == 0} {set SNAPMlkRgOut 15}
 
-if {$SNAPSensor == "RS2"} {
-    set SNAPPixelSizeRg [expr round(100000. * $SNAPPixelSizeRg0) / 100000.]
-    set SNAPPixelSizeAz [expr round(100000. * $SNAPPixelSizeAz0) / 100000.]
-    set Teta0 [expr ($TetaNearRg + $TetaFarRg) / 2 ]
-    set Teta0 [expr ($Teta0 * 3.1415926) / 180.0]
-    set SNAPPixelSizeRg [expr $SNAPPixelSizeRg / sin($Teta0)]
-    set SNAPPixelSizeRg [expr round(100000. * $SNAPPixelSizeRg) / 100000.]
-    set SNAPPixelSizeRg [expr $SNAPPixelSizeRg * ($SNAPMlkRgIn * $SNAPMlkRgOut)]
-    set SNAPPixelSizeAz [expr $SNAPPixelSizeAz * ($SNAPMlkAzIn * $SNAPMlkAzOut)]
-    if {$SNAPPixelSizeRg <= $SNAPPixelSizeAz} {
-        set SNAPPixelSize $SNAPPixelSizeAz
-        } else {
-        set SNAPPixelSize $SNAPPixelSizeRg
-        }
-    }} \
+set SNAPPixelSizeRg [expr round(100000. * $SNAPPixelSizeRg0) / 100000.]
+set SNAPPixelSizeAz [expr round(100000. * $SNAPPixelSizeAz0) / 100000.]
+set SNAPPixelSizeRg [expr $SNAPPixelSizeRg / sin($SNAPTeta0)]
+set SNAPPixelSizeRg [expr round(100000. * $SNAPPixelSizeRg) / 100000.]
+set SNAPPixelSizeRg [expr $SNAPPixelSizeRg * ($SNAPMlkRgIn * $SNAPMlkRgOut)]
+set SNAPPixelSizeAz [expr $SNAPPixelSizeAz * ($SNAPMlkAzIn * $SNAPMlkAzOut)]
+if {$SNAPPixelSizeRg <= $SNAPPixelSizeAz} {
+    set SNAPPixelSize $SNAPPixelSizeAz
+    } else {
+    set SNAPPixelSize $SNAPPixelSizeRg
+    }
+} \
         -image [vTcl:image:get_image [file join . GUI Images down.gif]] \
         -pady 0 
     vTcl:DefineAlias "$site_7_0.but70" "Button428_4" vTcl:WidgetProc "Toplevel428" 1
@@ -1609,7 +1754,7 @@ $widget(Button428_5) configure -state normal} \
 global VarAdvice WarningMessage WarningMessage2 ErrorMessage VarError
 global SNAPFileHdr MapInfoMapInfo MapInfoUnit MapInfoActive SNAPState
 global SNAPSensorPol SNAPSensor SNAPPixelSize SNAPLeaderFile
-global TMPDir SNAPParameterFile
+global TMPDir SNAPParameterFile SNAPAntennaPass
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
 
 if {$OpenDirFile == 0} {
@@ -1661,11 +1806,11 @@ if {$TestVarError == "ok"} {
         set MapInfoConfigFile "$SNAPDirOutput/config_mapinfo.txt"
         if [file exists $MapInfoConfigFile] { MapInfoReadConfig $MapInfoConfigFile }
 
-        Window hide $widget(Toplevel428); TextEditorRunTrace "Close Window SNAP S1-TBX - Geocode Parameter" "b"
+        Window hide $widget(Toplevel428); TextEditorRunTrace "Close Window SNAP Desktop - Geocode Parameter" "b"
 
         } else {
         if {"$VarWarning"=="no"} {
-            Window hide $widget(Toplevel428); TextEditorRunTrace "Close Window SNAP S1-TBX - Geocode Parameter" "b"
+            Window hide $widget(Toplevel428); TextEditorRunTrace "Close Window SNAP Desktop - Geocode Parameter" "b"
             }
         }
     }
@@ -1691,7 +1836,7 @@ if {$TestVarError == "ok"} {
 
 if {$OpenDirFile == 0} {
     SNAPDelete
-    Window hide $widget(Toplevel428); TextEditorRunTrace "Close Window SNAP S1-TBX - Geocode Parameter" "b"
+    Window hide $widget(Toplevel428); TextEditorRunTrace "Close Window SNAP Desktop - Geocode Parameter" "b"
     }} \
         -padx 4 -pady 2 -text Exit 
     vTcl:DefineAlias "$site_3_0.but24" "Button16" vTcl:WidgetProc "Toplevel428" 1
@@ -1711,6 +1856,8 @@ if {$OpenDirFile == 0} {
     pack $top.cpd71 \
         -in $top -anchor center -expand 0 -fill x -side top 
     pack $top.cpd67 \
+        -in $top -anchor center -expand 0 -fill x -side top 
+    pack $top.tit68 \
         -in $top -anchor center -expand 0 -fill x -side top 
     pack $top.cpd72 \
         -in $top -anchor center -expand 0 -fill x -side top 

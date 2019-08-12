@@ -943,9 +943,9 @@ if {"$VarWarning"=="ok"} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/data_process_sngl/h_alpha_fuzzy_membership.exe" "k"
+        TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/h_alpha_fuzzy_membership.exe" "k"
         TextEditorRunTrace "Arguments: -id \x22$FCMDirInput\x22 -od \x22$FCMDirOutput\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -sig $FCMCrisp $MaskCmd" "k"
-        set f [ open "| Soft/data_process_sngl/h_alpha_fuzzy_membership.exe -id \x22$FCMDirInput\x22 -od \x22$FCMDirOutput\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -sig $FCMCrisp $MaskCmd" r]
+        set f [ open "| Soft/bin/data_process_sngl/h_alpha_fuzzy_membership.exe -id \x22$FCMDirInput\x22 -od \x22$FCMDirOutput\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -sig $FCMCrisp $MaskCmd" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError
@@ -1292,7 +1292,7 @@ if {$FileName != ""} {
         -background #ffff00 \
         -command {global FCMDirInput FCMDirOutput FCMOutputDir FCMOutputSubDir
 global FCMNwinL FCMNwinC FCMPourcentage FCMIteration FCMWei BMPFCM
-global FCMHAlphaClassifFonction ColorMapFCM8 PSPMemory TMPMemoryAllocError
+global FCMHAlphaClassifFonction ColorMapFCM8 TMPMemoryAllocError
 global Fonction Fonction2 ProgressLine VarWarning WarningMessage WarningMessage2 OpenDirFile
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
 
@@ -1402,9 +1402,9 @@ if {"$VarWarning"=="ok"} {
         set FCMHAlphaClassifF $FCMHAlphaClassifFonction
         if {$FCMHAlphaClassifFonction == "S2m"} { set FCMHAlphaClassifF "S2" }
         if {$FCMHAlphaClassifFonction == "S2b"} { set FCMHAlphaClassifF "S2" }
-        TextEditorRunTrace "Process The Function Soft/data_process_sngl/h_alpha_fcm_classifier.exe" "k"
-        TextEditorRunTrace "Arguments: -id \x22$FCMDirInput\x22 -od \x22$FCMDirOutput\x22 -iodf $FCMHAlphaClassifF -nwr $FCMNwinL -nwc $FCMNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -wei $FCMWei -wem $FCMWei -dV $FCMPourcentage -nit $FCMIteration -bmp $BMPFCM -clm \x22$ColorMapFCM8\x22 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-        set f [ open "| Soft/data_process_sngl/h_alpha_fcm_classifier.exe -id \x22$FCMDirInput\x22 -od \x22$FCMDirOutput\x22 -iodf $FCMHAlphaClassifF -nwr $FCMNwinL -nwc $FCMNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -wei $FCMWei -wem $FCMWei -dV $FCMPourcentage -nit $FCMIteration -bmp $BMPFCM -clm \x22$ColorMapFCM8\x22 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+        TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/h_alpha_fcm_classifier.exe" "k"
+        TextEditorRunTrace "Arguments: -id \x22$FCMDirInput\x22 -od \x22$FCMDirOutput\x22 -iodf $FCMHAlphaClassifF -nwr $FCMNwinL -nwc $FCMNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -wei $FCMWei -wem $FCMWei -dV $FCMPourcentage -nit $FCMIteration -bmp $BMPFCM -clm \x22$ColorMapFCM8\x22  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+        set f [ open "| Soft/bin/data_process_sngl/h_alpha_fcm_classifier.exe -id \x22$FCMDirInput\x22 -od \x22$FCMDirOutput\x22 -iodf $FCMHAlphaClassifF -nwr $FCMNwinL -nwc $FCMNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -wei $FCMWei -wem $FCMWei -dV $FCMPourcentage -nit $FCMIteration -bmp $BMPFCM -clm \x22$ColorMapFCM8\x22  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError

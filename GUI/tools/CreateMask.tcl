@@ -840,12 +840,10 @@ if [file exists $FileTrainingArea] {
     button $site_6_0.but67 \
         -background #ffff00 \
         -command {global VarTrainingArea NTrainingAreaClass AreaClassN NTrainingArea AreaN AreaPointLig AreaPointCol AreaPoint AreaPointN
-global BMPDirInput rect_color OpenDirFile
-global MouseInitX MouseInitY MouseEndX MouseEndY MouseNlig MouseNcol TrainingAreaToolLine
+global SupervisedDirInput SupervisedDirOutput OpenDirFile TMPDir FileTrainingArea
+global MapAlgebraBMPFile MapAlgebraConfigFileMASK
 
 if {$OpenDirFile == 0} {
-
-ClosePSPViewer
 
 set WarningMessage "OPEN A BMP FILE TO SELECT"
 set WarningMessage2 "THE MASKING AREAS"
@@ -855,7 +853,14 @@ tkwait variable VarWarning
 
 if {$VarWarning == "ok"} {
 
-LoadPSPViewer
+set types {
+{{BMP Files}        {.bmp}        }
+}
+set filename ""
+set filename [tk_getOpenFile -initialdir $SupervisedDirInput -filetypes $types -title "INPUT BMP FILE"]
+if {$filename != ""} {
+    set MapAlgebraBMPFile $filename
+    }
 
 set NTrainingAreaClassTmp $NTrainingAreaClass
 for {set i 1} {$i <= $NTrainingAreaClass} {incr i} {
@@ -871,27 +876,25 @@ for {set i 1} {$i <= $NTrainingAreaClass} {incr i} {
             }
         }
     }
-
-set BMPDirInput $SupervisedDirInput
-Window show $widget(Toplevel64); TextEditorRunTrace "Open Window PolSARpro Viewer" "b"
-
-set MouseInitX $AreaPointCol(10101)
-set MouseInitY $AreaPointLig(10101)
-set MouseEndX [expr $AreaPointCol(10101) + $MouseInitX -1]
-set MouseEndY [expr $AreaPointLig(10101) + $MouseInitY -1]
-set MouseNlig [expr abs($MouseEndY - $MouseInitY) +1]
-set MouseNcol [expr abs($MouseEndX - $MouseInitX) +1]
 set AreaClassN 1
 set AreaN 1
 set AreaPointN ""
 set TrainingAreaToolLine "false"
 
-set rect_color "white"
-set b .top391.fra41.but29
-$b configure -background $rect_color -foreground $rect_color
-
 set VarTrainingArea "no"
-WidgetShowFromWidget $widget(Toplevel379) $widget(Toplevel391); TextEditorRunTrace "Open Window Graphic Editor" "b"
+set MapAlgebraSession [ MapAlgebra_session ]
+set MapAlgebraConfigFileMASK "$TMPDir/$MapAlgebraSession"; append MapAlgebraConfigFileMASK "_mapalgebrapaths.txt"
+set FileTrainingArea "$SupervisedDirInput/$MapAlgebraSession"; append FileTrainingArea "_masking_areas.txt"
+DeleteFile $FileTrainingArea
+MapAlgebra_init "MaskArea" $MapAlgebraSession $FileTrainingArea
+MapAlgebra_launch $MapAlgebraConfigFileMASK $MapAlgebraBMPFile
+WaitUntilCreated $FileTrainingArea
+if [file exists $FileTrainingArea] {
+    set VarTrainingArea "ok"
+    set MapAlgebraConfigFileMASK [MapAlgebra_command $MapAlgebraConfigFileMASK "quit" ""]
+    set MapAlgebraConfigFileMASK ""
+    $widget(Button379_3) configure -state normal 
+    }
 tkwait variable VarTrainingArea
 
 #Return after Graphic Editor Exit
@@ -913,12 +916,7 @@ if {"$VarTrainingArea"=="no"} {
     set AreaClassN 1
     set AreaN 1
     }
-
-MouseActiveFunction ""
-
-if {"$VarTrainingArea"=="ok"} { $widget(Button379_3) configure -state normal }
-
-}
+  }
 }} \
         -padx 4 -pady 2 -text {Graphic Editor} 
     vTcl:DefineAlias "$site_6_0.but67" "Button379_1" vTcl:WidgetProc "Toplevel379" 1
@@ -980,7 +978,7 @@ if {$FileTrainingArea != "$CONFIGDir/masking_areas.txt"} {
     TestVar 5
     if {$TestVarError == "ok"} {
 
-    set FileTrainingSet "$SupervisedDirOutput/mask_file.bin"
+    set FileTrainingSet "$SupervisedDirOutput/masking_file.bin"
 
     DeleteFile $FileTrainingSet
 
@@ -988,9 +986,9 @@ if {$FileTrainingArea != "$CONFIGDir/masking_areas.txt"} {
     set ProgressLine "0"
     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
     update
-    TextEditorRunTrace "Process The Function Soft/tools/create_mask_file.exe" "k"
+    TextEditorRunTrace "Process The Function Soft/bin/tools/create_mask_file.exe" "k"
     TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -af \x22$FileTrainingArea\x22 -mf \x22$FileTrainingSet\x22" "k"
-    set f [ open "| Soft/tools/create_mask_file.exe -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -af \x22$FileTrainingArea\x22 -mf \x22$FileTrainingSet\x22" r]
+    set f [ open "| Soft/bin/tools/create_mask_file.exe -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -af \x22$FileTrainingArea\x22 -mf \x22$FileTrainingSet\x22" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError
@@ -1007,14 +1005,14 @@ if {$FileTrainingArea != "$CONFIGDir/masking_areas.txt"} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/bmp_process/create_bmp_file.exe" "k"
+        TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_bmp_file.exe" "k"
         TextEditorRunTrace "Arguments: -if \x22$BMPFileInput\x22 -of \x22$BMPFileOutput\x22 -ift float -oft real -clm gray -nc $FinalNcol  -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mm 0 -min 0 -max 1" "k"
-        set f [ open "| Soft/bmp_process/create_bmp_file.exe -if \x22$BMPFileInput\x22 -of \x22$BMPFileOutput\x22 -ift float -oft real -clm gray -nc $FinalNcol  -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mm 0 -min 0 -max 1" r]
+        set f [ open "| Soft/bin/bmp_process/create_bmp_file.exe -if \x22$BMPFileInput\x22 -of \x22$BMPFileOutput\x22 -ift float -oft real -clm gray -nc $FinalNcol  -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mm 0 -min 0 -max 1" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError
         WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-        if {$PSPViewGimpBMP == 1} { Gimp $BMPFileOutput }
+        if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $BMPFileOutput }
         } else {
         set VarError ""
         set ErrorMessage "IMPOSSIBLE TO OPEN THE BIN FILES" 
@@ -1050,19 +1048,12 @@ tkwait variable VarWarning
     }
     button $site_3_0.but24 \
         -background #ffff00 \
-        -command {global BMPImageOpen OpenDirFile MaskFonction
+        -command {global OpenDirFile MaskFonction MapAlgebraConfigFileMASK
 
 if {$OpenDirFile == 0} {
-
-if {$BMPImageOpen == 1} {
-    ClosePSPViewer
-    Window hide $widget(Toplevel64); TextEditorRunTrace "Close Window PolSARpro Viewer" "b"
-    }
-if {$BMPImageOpen == 0} {
-    Window hide $widget(Toplevel391); TextEditorRunTrace "Close Window Graphic Editor" "b"
     set MaskFonction "0"
+    if {$MapAlgebraConfigFileMASK != ""} { set MapAlgebraConfigFileMASK [MapAlgebra_command $MapAlgebraConfigFileMASK "quit" ""] }
     Window hide $widget(Toplevel379); TextEditorRunTrace "Close Window Create Mask" "b"
-    }
 }} \
         -padx 4 -pady 2 -text Exit 
     vTcl:DefineAlias "$site_3_0.but24" "Button16" vTcl:WidgetProc "Toplevel379" 1

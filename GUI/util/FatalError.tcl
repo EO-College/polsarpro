@@ -561,7 +561,7 @@ proc vTclWindow.top236 {base} {
     vTcl:DefineAlias "$site_4_0.lab38" "Label66" vTcl:WidgetProc "Toplevel236" 1
     label $site_4_0.cpd71 \
         -background #ffff00 -foreground #ff0000 \
-        -text {FATAL ERROR - ABNORMAL TERMINATION OF PolSARpro v5.0} 
+        -text {FATAL ERROR - ABNORMAL TERMINATION OF PolSARpro Software} 
     vTcl:DefineAlias "$site_4_0.cpd71" "Label67" vTcl:WidgetProc "Toplevel236" 1
     pack $site_4_0.lab38 \
         -in $site_4_0 -anchor center -expand 1 -fill x -side top 
@@ -586,14 +586,13 @@ set VarFatalError "OK"
 Window hide $widget(Toplevel236); TextEditorRunTrace "Close Window Fatal Error" "b"
 CloseAllWidget
 ClosePSPViewer
-Window hide $widget(Toplevel64); TextEditorRunTrace "Close Window PolSARpro Viewer" "b"
 set Fonction "UNLOAD CONFIGURATION"
-set Fonction2 "POLSARPRO v5.0"
+set Fonction2 "PolSARpro Software"
 set ProgressLine "100"
-TextEditorRunTrace "Unload PolSARpro v5.0 Configuration" "r"
+TextEditorRunTrace "Unload PolSARpro Software Configuration" "r"
 Window show $widget(Toplevel345); TextEditorRunTrace "Open Window Close PSP" "b"
 update
-set f [ open "| Soft/tools/unload_config.exe" r]
+set f [ open "| Soft/bin/tools/unload_config.exe" r]
 OpenCloseProgressBar $f
 Window hide $widget(Toplevel345); TextEditorRunTrace "Close Window Close PSP" "b"
 set Fonction ""; set Fonction2 ""
@@ -604,7 +603,7 @@ CleanTMPDirectory
 TextEditorRunTrace "Close Log File" "k"
 catch "close $SessionNameLogFid"
 
-Window hide $widget(Toplevel2); TextEditorRunTrace "Close Window PolSARpro v5.0 Main Menu" "b"
+Window hide $widget(Toplevel2); TextEditorRunTrace "Close Window PolSARpro Software Main Menu" "b"
 exit} \
         -pady 0 -text OK -width 10 
     vTcl:DefineAlias "$site_3_0.but41" "Button25" vTcl:WidgetProc "Toplevel236" 1

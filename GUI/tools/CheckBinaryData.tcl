@@ -698,9 +698,9 @@ for {set i 1} {$i < $NBinFile} {incr i} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/tools/check_data_file_float.exe" "k"
+        TextEditorRunTrace "Process The Function Soft/bin/tools/check_data_file_float.exe" "k"
         TextEditorRunTrace "Arguments: -if \x22$BinFileName\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -of \x22$TMPCheckBinaryData\x22" "k"
-        set f [ open "| Soft/tools/check_data_file_float.exe -if \x22$BinFileName\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -of \x22$TMPCheckBinaryData\x22" r]
+        set f [ open "| Soft/bin/tools/check_data_file_float.exe -if \x22$BinFileName\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -of \x22$TMPCheckBinaryData\x22" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError
@@ -725,9 +725,9 @@ for {set i 1} {$i < $NBinFile} {incr i} {
                     set ProgressLine "0"
                     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                     update
-                    TextEditorRunTrace "Process The Function Soft/tools/repair_data_file_float.exe" "k"
+                    TextEditorRunTrace "Process The Function Soft/bin/tools/repair_data_file_float.exe" "k"
                     TextEditorRunTrace "Arguments: -if \x22$BinFileName\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -of \x22$TmpBinFileName\x22" "k"
-                    set f [ open "| Soft/tools/repair_data_file_float.exe -if \x22$BinFileName\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -of \x22$TmpBinFileName\x22" r]
+                    set f [ open "| Soft/bin/tools/repair_data_file_float.exe -if \x22$BinFileName\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -of \x22$TmpBinFileName\x22" r]
                     PsPprogressBar $f
                     TextEditorRunTrace "Check RunTime Errors" "r"
                     CheckRunTimeError
@@ -780,9 +780,9 @@ for {set i 1} {$i < $NBinFile} {incr i} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/tools/check_data_file_float.exe" "k"
+        TextEditorRunTrace "Process The Function Soft/bin/tools/check_data_file_float.exe" "k"
         TextEditorRunTrace "Arguments: -if \x22$BinFileName\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -of \x22$TMPCheckBinaryData\x22" "k"
-        set f [ open "| Soft/tools/check_data_file_float.exe -if \x22$BinFileName\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -of \x22$TMPCheckBinaryData\x22" r]
+        set f [ open "| Soft/bin/tools/check_data_file_float.exe -if \x22$BinFileName\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -of \x22$TMPCheckBinaryData\x22" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError
@@ -807,9 +807,9 @@ for {set i 1} {$i < $NBinFile} {incr i} {
                     set ProgressLine "0"
                     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                     update
-                    TextEditorRunTrace "Process The Function Soft/tools/repair_data_file_float.exe" "k"
+                    TextEditorRunTrace "Process The Function Soft/bin/tools/repair_data_file_float.exe" "k"
                     TextEditorRunTrace "Arguments: -if \x22$BinFileName\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -of \x22$TmpBinFileName\x22" "k"
-                    set f [ open "| Soft/tools/repair_data_file_float.exe -if \x22$BinFileName\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -of \x22$TmpBinFileName\x22" r]
+                    set f [ open "| Soft/bin/tools/repair_data_file_float.exe -if \x22$BinFileName\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -of \x22$TmpBinFileName\x22" r]
                     PsPprogressBar $f
                     TextEditorRunTrace "Check RunTime Errors" "r"
                     CheckRunTimeError
@@ -862,9 +862,9 @@ for {set i 1} {$i < $NBinFile} {incr i} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/tools/check_data_file_cmplx.exe" "k"
+        TextEditorRunTrace "Process The Function Soft/bin/tools/check_data_file_cmplx.exe" "k"
         TextEditorRunTrace "Arguments: -if \x22$BinFileName\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -of \x22$TMPCheckBinaryData\x22" "k"
-        set f [ open "| Soft/tools/check_data_file_cmplx.exe -if \x22$BinFileName\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -of \x22$TMPCheckBinaryData\x22" r]
+        set f [ open "| Soft/bin/tools/check_data_file_cmplx.exe -if \x22$BinFileName\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -of \x22$TMPCheckBinaryData\x22" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError
@@ -889,9 +889,9 @@ for {set i 1} {$i < $NBinFile} {incr i} {
                     set ProgressLine "0"
                     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                     update
-                    TextEditorRunTrace "Process The Function Soft/tools/repair_data_file_cmplx.exe" "k"
+                    TextEditorRunTrace "Process The Function Soft/bin/tools/repair_data_file_cmplx.exe" "k"
                     TextEditorRunTrace "Arguments: -if \x22$BinFileName\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -of \x22$TmpBinFileName\x22" "k"
-                    set f [ open "| Soft/tools/repair_data_file_cmplx.exe -if \x22$BinFileName\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -of \x22$TmpBinFileName\x22" r]
+                    set f [ open "| Soft/bin/tools/repair_data_file_cmplx.exe -if \x22$BinFileName\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -of \x22$TmpBinFileName\x22" r]
                     PsPprogressBar $f
                     TextEditorRunTrace "Check RunTime Errors" "r"
                     CheckRunTimeError
@@ -953,9 +953,9 @@ for {set i 1} {$i < $NBinFile} {incr i} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/tools/check_data_file_float.exe" "k"
+        TextEditorRunTrace "Process The Function Soft/bin/tools/check_data_file_float.exe" "k"
         TextEditorRunTrace "Arguments: -if \x22$BinFileName\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -of \x22$TMPCheckBinaryData\x22" "k"
-        set f [ open "| Soft/tools/check_data_file_float.exe -if \x22$BinFileName\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -of \x22$TMPCheckBinaryData\x22" r]
+        set f [ open "| Soft/bin/tools/check_data_file_float.exe -if \x22$BinFileName\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -of \x22$TMPCheckBinaryData\x22" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError
@@ -980,9 +980,9 @@ for {set i 1} {$i < $NBinFile} {incr i} {
                     set ProgressLine "0"
                     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                     update
-                    TextEditorRunTrace "Process The Function Soft/tools/repair_data_file_float.exe" "k"
+                    TextEditorRunTrace "Process The Function Soft/bin/tools/repair_data_file_float.exe" "k"
                     TextEditorRunTrace "Arguments: -if \x22$BinFileName\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -of \x22$TmpBinFileName\x22" "k"
-                    set f [ open "| Soft/tools/repair_data_file_float.exe -if \x22$BinFileName\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -of \x22$TmpBinFileName\x22" r]
+                    set f [ open "| Soft/bin/tools/repair_data_file_float.exe -if \x22$BinFileName\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -of \x22$TmpBinFileName\x22" r]
                     PsPprogressBar $f
                     TextEditorRunTrace "Check RunTime Errors" "r"
                     CheckRunTimeError
@@ -1030,19 +1030,19 @@ if [file exists $CheckFileName] {
     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
     update
     if {$CheckType == "Float"} {    
-        TextEditorRunTrace "Process The Function Soft/tools/check_data_file_float.exe" "k"
+        TextEditorRunTrace "Process The Function Soft/bin/tools/check_data_file_float.exe" "k"
         TextEditorRunTrace "Arguments: -if \x22$CheckFileName\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -of \x22$TMPCheckBinaryData\x22" "k"
-        set f [ open "| Soft/tools/check_data_file_float.exe -if \x22$CheckFileName\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -of \x22$TMPCheckBinaryData\x22" r]
+        set f [ open "| Soft/bin/tools/check_data_file_float.exe -if \x22$CheckFileName\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -of \x22$TMPCheckBinaryData\x22" r]
         }
     if {$CheckType == "Cmplx"} {    
-        TextEditorRunTrace "Process The Function Soft/tools/check_data_file_cmplx.exe" "k"
+        TextEditorRunTrace "Process The Function Soft/bin/tools/check_data_file_cmplx.exe" "k"
         TextEditorRunTrace "Arguments: -if \x22$CheckFileName\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -of \x22$TMPCheckBinaryData\x22" "k"
-        set f [ open "| Soft/tools/check_data_file_cmplx.exe -if \x22$CheckFileName\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -of \x22$TMPCheckBinaryData\x22" r]
+        set f [ open "| Soft/bin/tools/check_data_file_cmplx.exe -if \x22$CheckFileName\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -of \x22$TMPCheckBinaryData\x22" r]
         }
     if {$CheckType == "Int"} {    
-        TextEditorRunTrace "Process The Function Soft/tools/check_data_file_int.exe" "k"
+        TextEditorRunTrace "Process The Function Soft/bin/tools/check_data_file_int.exe" "k"
         TextEditorRunTrace "Arguments: -if \x22$CheckFileName\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -of \x22$TMPCheckBinaryData\x22" "k"
-        set f [ open "| Soft/tools/check_data_file_int.exe -if \x22$CheckFileName\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -of \x22$TMPCheckBinaryData\x22" r]
+        set f [ open "| Soft/bin/tools/check_data_file_int.exe -if \x22$CheckFileName\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -of \x22$TMPCheckBinaryData\x22" r]
         }
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
@@ -1069,19 +1069,19 @@ if [file exists $CheckFileName] {
                 WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                 update
                 if {$CheckType == "Float"} {    
-                    TextEditorRunTrace "Process The Function Soft/tools/repair_data_file_float.exe" "k"
+                    TextEditorRunTrace "Process The Function Soft/bin/tools/repair_data_file_float.exe" "k"
                     TextEditorRunTrace "Arguments: -if \x22$CheckFileName\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -of \x22$TmpFileName\x22" "k"
-                    set f [ open "| Soft/tools/repair_data_file_float.exe -if \x22$CheckFileName\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -of \x22$TmpFileName\x22" r]
+                    set f [ open "| Soft/bin/tools/repair_data_file_float.exe -if \x22$CheckFileName\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -of \x22$TmpFileName\x22" r]
                     }
                 if {$CheckType == "Cmplx"} {    
-                    TextEditorRunTrace "Process The Function Soft/tools/repair_data_file_cmplx.exe" "k"
+                    TextEditorRunTrace "Process The Function Soft/bin/tools/repair_data_file_cmplx.exe" "k"
                     TextEditorRunTrace "Arguments: -if \x22$CheckFileName\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -of \x22$TmpFileName\x22" "k"
-                    set f [ open "| Soft/tools/repair_data_file_cmplx.exe -if \x22$CheckFileName\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -of \x22$TmpFileName\x22" r]
+                    set f [ open "| Soft/bin/tools/repair_data_file_cmplx.exe -if \x22$CheckFileName\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -of \x22$TmpFileName\x22" r]
                     }
                 if {$CheckType == "Int"} {    
-                    TextEditorRunTrace "Process The Function Soft/tools/repair_data_file_int.exe" "k"
+                    TextEditorRunTrace "Process The Function Soft/bin/tools/repair_data_file_int.exe" "k"
                     TextEditorRunTrace "Arguments: -if \x22$CheckFileName\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -of \x22$TmpFileName\x22" "k"
-                    set f [ open "| Soft/tools/repair_data_file_int.exe -if \x22$CheckFileName\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -of \x22$TmpFileName\x22" r]
+                    set f [ open "| Soft/bin/tools/repair_data_file_int.exe -if \x22$CheckFileName\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -of \x22$TmpFileName\x22" r]
                     }
                 PsPprogressBar $f
                 TextEditorRunTrace "Check RunTime Errors" "r"
@@ -1858,16 +1858,50 @@ if {$CheckData == "File"} {
     vTcl:DefineAlias "$site_7_0.cpd105" "Entry316_1" vTcl:WidgetProc "Toplevel316" 1
     button $site_7_0.cpd106 \
         \
-        -command {global FileName CheckInputDir CheckFileName
+        -command {global FileName
+global CheckInputDir CheckFileName CheckType 
+global VarError ErrorMessage
 
 set types {
-{{BIN Files}        {.bin}        }
-}
+    {{BIN Files}        {.bin}        }
+    }
 set FileName ""
 OpenFile "$CheckInputDir" $types "INPUT BINARY DATA FILE"
 if {$FileName != ""} {
-    set CheckFileName $FileName
-    }} \
+    set FileNameHdr "$FileName.hdr"
+    if [file exists $FileNameHdr] {
+        set f [open $FileNameHdr "r"]
+        gets $f tmp
+        gets $f tmp
+        gets $f tmp
+        if {[string first "PolSARpro" $tmp] != "-1"} {
+            gets $f tmp; set NcolEnd [string range $tmp [expr [string first "=" $tmp] + 2 ] [string length $tmp] ]
+            gets $f tmp; set NligEnd [string range $tmp [expr [string first "=" $tmp] + 2 ] [string length $tmp] ]
+            set NligInit 1
+            set NcolInit 1
+            gets $f tmp
+            gets $f tmp
+            gets $f tmp
+            gets $f tmp
+            if {$tmp == "data type = 2"} {set CheckType "int"}
+            if {$tmp == "data type = 4"} {set CheckType "float"}
+            if {$tmp == "data type = 6"} {set CheckType "cmplx"}
+            set CheckFileName $FileName
+            } else {
+            set ErrorMessage "NOT A PolSARpro BINARY DATA FILE TYPE"
+            Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
+            tkwait variable VarError
+            if {$VarError == "cancel"} {Window hide $widget(Toplevel371); TextEditorRunTrace "Close Window Data File Management" "b"}
+            }    
+        close $f
+        } else {
+        set ErrorMessage "THE HDR FILE $FileNameHdr DOES NOT EXIST"
+        Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
+        tkwait variable VarError
+        if {$VarError == "cancel"} {Window hide $widget(Toplevel371); TextEditorRunTrace "Close Window Data File Management" "b"}
+        }    
+    }
+} \
         -image [vTcl:image:get_image [file join . GUI Images OpenFile.gif]] \
         -pady 0 -text button 
     vTcl:DefineAlias "$site_7_0.cpd106" "Button316_1" vTcl:WidgetProc "Toplevel316" 1

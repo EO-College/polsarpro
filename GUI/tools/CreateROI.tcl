@@ -549,8 +549,8 @@ proc vTclWindow. {base} {
     # CREATING WIDGETS
     ###################
     wm focusmodel $top passive
-    wm geometry $top 200x200+22+22; update
-    wm maxsize $top 1284 785
+    wm geometry $top 200x200+110+110; update
+    wm maxsize $top 3604 1065
     wm minsize $top 104 1
     wm overrideredirect $top 0
     wm resizable $top 1 1
@@ -750,12 +750,10 @@ if {$DirName != "" } {
     button $site_3_0.cpd67 \
         -background #ffff00 \
         -command {global VarTrainingArea NTrainingAreaClass AreaClassN NTrainingArea AreaN AreaPointLig AreaPointCol AreaPoint AreaPointN
-global BMPDirInput rect_color OpenDirFile
-global MouseInitX MouseInitY MouseEndX MouseEndY MouseNlig MouseNcol TrainingAreaToolLine
+global SupervisedDirInput SupervisedDirOutput OpenDirFile TMPDir StatHistoROIFileTrainingArea
+global MapAlgebraBMPFile MapAlgebraConfigFileStatHistoROI
 
 if {$OpenDirFile == 0} {
-
-ClosePSPViewer
 
 set WarningMessage "OPEN A BMP FILE TO SELECT"
 set WarningMessage2 "THE Region Of Interest (R.O.I)"
@@ -765,8 +763,15 @@ tkwait variable VarWarning
 
 if {$VarWarning == "ok"} {
 
-LoadPSPViewer
-
+set types {
+{{BMP Files}        {.bmp}        }
+}
+set filename ""
+set filename [tk_getOpenFile -initialdir $SupervisedDirInput -filetypes $types -title "INPUT BMP FILE"]
+if {$filename != ""} {
+    set MapAlgebraBMPFile $filename
+    }
+    
 set NTrainingAreaClassTmp $NTrainingAreaClass
 for {set i 1} {$i <= $NTrainingAreaClass} {incr i} {
     set NTrainingAreaTmp($i) $NTrainingArea($i)
@@ -781,27 +786,25 @@ for {set i 1} {$i <= $NTrainingAreaClass} {incr i} {
             }
         }
     }
-
-set BMPDirInput $SupervisedDirInput
-Window show $widget(Toplevel64); TextEditorRunTrace "Open Window PolSARpro Viewer" "b"
-
-set MouseInitX $AreaPointCol(10101)
-set MouseInitY $AreaPointLig(10101)
-set MouseEndX [expr $AreaPointCol(10101) + $MouseInitX -1]
-set MouseEndY [expr $AreaPointLig(10101) + $MouseInitY -1]
-set MouseNlig [expr abs($MouseEndY - $MouseInitY) +1]
-set MouseNcol [expr abs($MouseEndX - $MouseInitX) +1]
 set AreaClassN 1
 set AreaN 1
 set AreaPointN ""
 set TrainingAreaToolLine "false"
 
-set rect_color "white"
-set b .top393.fra41.but29
-$b configure -background $rect_color -foreground $rect_color
-
 set VarTrainingArea "no"
-WidgetShowFromWidget $widget(Toplevel392) $widget(Toplevel393); TextEditorRunTrace "Open Window Graphic Editor" "b"
+set MapAlgebraSession [ MapAlgebra_session ]
+set MapAlgebraConfigFileStatHistoROI "$TMPDir/$MapAlgebraSession"; append MapAlgebraConfigFileStatHistoROI "_mapalgebrapaths.txt"
+set StatHistoROIFileTrainingArea "$SupervisedDirInput/$MapAlgebraSession"; append StatHistoROIFileTrainingArea "_RoI_areas.txt"
+DeleteFile $StatHistoROIFileTrainingArea
+MapAlgebra_init "StatHistoROI" $MapAlgebraSession $StatHistoROIFileTrainingArea
+MapAlgebra_launch $MapAlgebraConfigFileStatHistoROI $MapAlgebraBMPFile
+WaitUntilCreated $StatHistoROIFileTrainingArea
+if [file exists $StatHistoROIFileTrainingArea] {
+    set VarTrainingArea "ok"
+    set MapAlgebraConfigFileStatHistoROI [MapAlgebra_command $MapAlgebraConfigFileStatHistoROI "quit" ""]
+    set MapAlgebraConfigFileStatHistoROI ""
+    $widget(Button392_2) configure -state normal
+    }
 tkwait variable VarTrainingArea
 
 #Return after Graphic Editor Exit
@@ -823,12 +826,7 @@ if {"$VarTrainingArea"=="no"} {
     set AreaClassN 1
     set AreaN 1
     }
-
-MouseActiveFunction ""
-
-if {"$VarTrainingArea"=="ok"} { $widget(Button392_2) configure -state normal }
-
-}
+  }
 }} \
         -padx 4 -pady 2 -text {Graphic Editor} 
     vTcl:DefineAlias "$site_3_0.cpd67" "Button392_1" vTcl:WidgetProc "Toplevel392" 1
@@ -846,11 +844,11 @@ if {"$VarTrainingArea"=="ok"} { $widget(Button392_2) configure -state normal }
 global ToolsFormat ToolsFunction ToolsFonction
 global Fonction2 VarFunction VarWarning WarningMessage WarningMessage2 ProgressLine ErrorMessage VarError
 global NcolFullSize ConfigFile FinalNlig FinalNcol PolarCase PolarType OpenDirFile
-global TMPMaskROIarea TMPMaskROIbin TMPMaskROItxt CONFIGDir
+global StatHistoROIFileTrainingArea TMPMaskROIbin TMPMaskROItxt CONFIGDir
 
 if {$OpenDirFile == 0} {
 
-if [file exists $TMPMaskROIarea] {
+if [file exists $StatHistoROIFileTrainingArea] {
 
 set SupervisedDirOutput $SupervisedOutputDir
 if {$SupervisedOutputSubDir != ""} { append SupervisedDirOutput "/$SupervisedOutputSubDir"}
@@ -871,9 +869,9 @@ if {"$VarWarning"=="ok"} {
     set ProgressLine "0"
     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
     update
-    TextEditorRunTrace "Process The Function Soft/tools/create_mask_roi_file.exe" "k"
-    TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -af \x22$TMPMaskROIarea\x22 -mfb \x22$TMPMaskROIbin\x22 -mft \x22$TMPMaskROItxt\x22" "k"
-    set f [ open "| Soft/tools/create_mask_roi_file.exe -id \x22$SupervisedDirInput\x22 -af \x22$TMPMaskROIarea\x22 -mfb \x22$TMPMaskROIbin\x22 -mft \x22$TMPMaskROItxt\x22" r]
+    TextEditorRunTrace "Process The Function Soft/bin/tools/create_mask_roi_file.exe" "k"
+    TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -af \x22$StatHistoROIFileTrainingArea\x22 -mfb \x22$TMPMaskROIbin\x22 -mft \x22$TMPMaskROItxt\x22" "k"
+    set f [ open "| Soft/bin/tools/create_mask_roi_file.exe -id \x22$SupervisedDirInput\x22 -af \x22$StatHistoROIFileTrainingArea\x22 -mfb \x22$TMPMaskROIbin\x22 -mft \x22$TMPMaskROItxt\x22" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError
@@ -906,8 +904,8 @@ if {"$VarWarning"=="ok"} {
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
             TextEditorRunTrace "Process The Function $ToolsFunction" "k"
-            TextEditorRunTrace "Arguments: \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" "k"
-            set f [ open "| $ToolsFunction \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" r]
+            TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
+            set f [ open "| $ToolsFunction -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -920,8 +918,8 @@ if {"$VarWarning"=="ok"} {
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
             TextEditorRunTrace "Process The Function $ToolsFunction" "k"
-            TextEditorRunTrace "Arguments: \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" "k"
-            set f [ open "| $ToolsFunction \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" r]
+            TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
+            set f [ open "| $ToolsFunction -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -934,8 +932,8 @@ if {"$VarWarning"=="ok"} {
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
             TextEditorRunTrace "Process The Function $ToolsFunction" "k"
-            TextEditorRunTrace "Arguments: \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" "k"
-            set f [ open "| $ToolsFunction \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" r]
+            TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
+            set f [ open "| $ToolsFunction -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -948,8 +946,8 @@ if {"$VarWarning"=="ok"} {
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
             TextEditorRunTrace "Process The Function $ToolsFunction" "k"
-            TextEditorRunTrace "Arguments: \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" "k"
-            set f [ open "| $ToolsFunction \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" r]
+            TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
+            set f [ open "| $ToolsFunction -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -971,8 +969,8 @@ if {"$VarWarning"=="ok"} {
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
             TextEditorRunTrace "Process The Function $ToolsFunction" "k"
-            TextEditorRunTrace "Arguments: \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" "k"
-            set f [ open "| $ToolsFunction \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" r]
+            TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
+            set f [ open "| $ToolsFunction -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -985,8 +983,8 @@ if {"$VarWarning"=="ok"} {
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
             TextEditorRunTrace "Process The Function $ToolsFunction" "k"
-            TextEditorRunTrace "Arguments: \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" "k"
-            set f [ open "| $ToolsFunction \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" r]
+            TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
+            set f [ open "| $ToolsFunction -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -999,8 +997,8 @@ if {"$VarWarning"=="ok"} {
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
             TextEditorRunTrace "Process The Function $ToolsFunction" "k"
-            TextEditorRunTrace "Arguments: \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" "k"
-            set f [ open "| $ToolsFunction \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" r]
+            TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
+            set f [ open "| $ToolsFunction -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1013,8 +1011,8 @@ if {"$VarWarning"=="ok"} {
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
             TextEditorRunTrace "Process The Function $ToolsFunction" "k"
-            TextEditorRunTrace "Arguments: \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" "k"
-            set f [ open "| $ToolsFunction \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" r]
+            TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
+            set f [ open "| $ToolsFunction -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1036,8 +1034,8 @@ if {"$VarWarning"=="ok"} {
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
             TextEditorRunTrace "Process The Function $ToolsFunction" "k"
-            TextEditorRunTrace "Arguments: \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" "k"
-            set f [ open "| $ToolsFunction \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" r]
+            TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
+            set f [ open "| $ToolsFunction -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1050,8 +1048,8 @@ if {"$VarWarning"=="ok"} {
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
             TextEditorRunTrace "Process The Function $ToolsFunction" "k"
-            TextEditorRunTrace "Arguments: \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" "k"
-            set f [ open "| $ToolsFunction \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" r]
+            TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
+            set f [ open "| $ToolsFunction -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1064,8 +1062,8 @@ if {"$VarWarning"=="ok"} {
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
             TextEditorRunTrace "Process The Function $ToolsFunction" "k"
-            TextEditorRunTrace "Arguments: \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" "k"
-            set f [ open "| $ToolsFunction \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" r]
+            TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
+            set f [ open "| $ToolsFunction -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1078,8 +1076,8 @@ if {"$VarWarning"=="ok"} {
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
             TextEditorRunTrace "Process The Function $ToolsFunction" "k"
-            TextEditorRunTrace "Arguments: \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" "k"
-            set f [ open "| $ToolsFunction \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" r]
+            TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
+            set f [ open "| $ToolsFunction -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1092,8 +1090,8 @@ if {"$VarWarning"=="ok"} {
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
             TextEditorRunTrace "Process The Function $ToolsFunction" "k"
-            TextEditorRunTrace "Arguments: \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" "k"
-            set f [ open "| $ToolsFunction \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" r]
+            TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
+            set f [ open "| $ToolsFunction -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1106,8 +1104,8 @@ if {"$VarWarning"=="ok"} {
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
             TextEditorRunTrace "Process The Function $ToolsFunction" "k"
-            TextEditorRunTrace "Arguments: \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" "k"
-            set f [ open "| $ToolsFunction \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" r]
+            TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
+            set f [ open "| $ToolsFunction -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1120,8 +1118,8 @@ if {"$VarWarning"=="ok"} {
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
             TextEditorRunTrace "Process The Function $ToolsFunction" "k"
-            TextEditorRunTrace "Arguments: \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" "k"
-            set f [ open "| $ToolsFunction \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" r]
+            TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
+            set f [ open "| $ToolsFunction -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1134,8 +1132,8 @@ if {"$VarWarning"=="ok"} {
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
             TextEditorRunTrace "Process The Function $ToolsFunction" "k"
-            TextEditorRunTrace "Arguments: \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" "k"
-            set f [ open "| $ToolsFunction \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" r]
+            TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
+            set f [ open "| $ToolsFunction -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1148,8 +1146,8 @@ if {"$VarWarning"=="ok"} {
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
             TextEditorRunTrace "Process The Function $ToolsFunction" "k"
-            TextEditorRunTrace "Arguments: \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" "k"
-            set f [ open "| $ToolsFunction \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" r]
+            TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
+            set f [ open "| $ToolsFunction -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1162,8 +1160,8 @@ if {"$VarWarning"=="ok"} {
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
             TextEditorRunTrace "Process The Function $ToolsFunction" "k"
-            TextEditorRunTrace "Arguments: \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" "k"
-            set f [ open "| $ToolsFunction \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" r]
+            TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
+            set f [ open "| $ToolsFunction -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1176,8 +1174,8 @@ if {"$VarWarning"=="ok"} {
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
             TextEditorRunTrace "Process The Function $ToolsFunction" "k"
-            TextEditorRunTrace "Arguments: \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" "k"
-            set f [ open "| $ToolsFunction \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" r]
+            TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
+            set f [ open "| $ToolsFunction -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1190,8 +1188,8 @@ if {"$VarWarning"=="ok"} {
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
             TextEditorRunTrace "Process The Function $ToolsFunction" "k"
-            TextEditorRunTrace "Arguments: \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" "k"
-            set f [ open "| $ToolsFunction \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" r]
+            TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
+            set f [ open "| $ToolsFunction -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1204,8 +1202,8 @@ if {"$VarWarning"=="ok"} {
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
             TextEditorRunTrace "Process The Function $ToolsFunction" "k"
-            TextEditorRunTrace "Arguments: \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" "k"
-            set f [ open "| $ToolsFunction \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" r]
+            TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
+            set f [ open "| $ToolsFunction -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1218,8 +1216,8 @@ if {"$VarWarning"=="ok"} {
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
             TextEditorRunTrace "Process The Function $ToolsFunction" "k"
-            TextEditorRunTrace "Arguments: \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" "k"
-            set f [ open "| $ToolsFunction \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" r]
+            TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
+            set f [ open "| $ToolsFunction -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1232,8 +1230,8 @@ if {"$VarWarning"=="ok"} {
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
             TextEditorRunTrace "Process The Function $ToolsFunction" "k"
-            TextEditorRunTrace "Arguments: \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" "k"
-            set f [ open "| $ToolsFunction \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" r]
+            TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
+            set f [ open "| $ToolsFunction -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1246,8 +1244,8 @@ if {"$VarWarning"=="ok"} {
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
             TextEditorRunTrace "Process The Function $ToolsFunction" "k"
-            TextEditorRunTrace "Arguments: \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" "k"
-            set f [ open "| $ToolsFunction \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" r]
+            TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
+            set f [ open "| $ToolsFunction -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1260,8 +1258,8 @@ if {"$VarWarning"=="ok"} {
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
             TextEditorRunTrace "Process The Function $ToolsFunction" "k"
-            TextEditorRunTrace "Arguments: \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" "k"
-            set f [ open "| $ToolsFunction \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" r]
+            TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
+            set f [ open "| $ToolsFunction -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1274,8 +1272,8 @@ if {"$VarWarning"=="ok"} {
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
             TextEditorRunTrace "Process The Function $ToolsFunction" "k"
-            TextEditorRunTrace "Arguments: \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" "k"
-            set f [ open "| $ToolsFunction \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" r]
+            TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
+            set f [ open "| $ToolsFunction -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1288,8 +1286,8 @@ if {"$VarWarning"=="ok"} {
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
             TextEditorRunTrace "Process The Function $ToolsFunction" "k"
-            TextEditorRunTrace "Arguments: \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" "k"
-            set f [ open "| $ToolsFunction \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" r]
+            TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
+            set f [ open "| $ToolsFunction -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1302,8 +1300,8 @@ if {"$VarWarning"=="ok"} {
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
             TextEditorRunTrace "Process The Function $ToolsFunction" "k"
-            TextEditorRunTrace "Arguments: \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" "k"
-            set f [ open "| $ToolsFunction \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" r]
+            TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
+            set f [ open "| $ToolsFunction -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1316,8 +1314,8 @@ if {"$VarWarning"=="ok"} {
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
             TextEditorRunTrace "Process The Function $ToolsFunction" "k"
-            TextEditorRunTrace "Arguments: \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" "k"
-            set f [ open "| $ToolsFunction \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" r]
+            TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
+            set f [ open "| $ToolsFunction -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1330,8 +1328,8 @@ if {"$VarWarning"=="ok"} {
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
             TextEditorRunTrace "Process The Function $ToolsFunction" "k"
-            TextEditorRunTrace "Arguments: \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" "k"
-            set f [ open "| $ToolsFunction \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" r]
+            TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
+            set f [ open "| $ToolsFunction -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1344,8 +1342,8 @@ if {"$VarWarning"=="ok"} {
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
             TextEditorRunTrace "Process The Function $ToolsFunction" "k"
-            TextEditorRunTrace "Arguments: \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" "k"
-            set f [ open "| $ToolsFunction \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" r]
+            TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
+            set f [ open "| $ToolsFunction -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1358,8 +1356,8 @@ if {"$VarWarning"=="ok"} {
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
             TextEditorRunTrace "Process The Function $ToolsFunction" "k"
-            TextEditorRunTrace "Arguments: \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" "k"
-            set f [ open "| $ToolsFunction \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" r]
+            TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
+            set f [ open "| $ToolsFunction -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1372,8 +1370,8 @@ if {"$VarWarning"=="ok"} {
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
             TextEditorRunTrace "Process The Function $ToolsFunction" "k"
-            TextEditorRunTrace "Arguments: \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" "k"
-            set f [ open "| $ToolsFunction \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" r]
+            TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
+            set f [ open "| $ToolsFunction -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1386,8 +1384,8 @@ if {"$VarWarning"=="ok"} {
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
             TextEditorRunTrace "Process The Function $ToolsFunction" "k"
-            TextEditorRunTrace "Arguments: \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" "k"
-            set f [ open "| $ToolsFunction \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" r]
+            TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
+            set f [ open "| $ToolsFunction -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1400,8 +1398,8 @@ if {"$VarWarning"=="ok"} {
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
             TextEditorRunTrace "Process The Function $ToolsFunction" "k"
-            TextEditorRunTrace "Arguments: \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" "k"
-            set f [ open "| $ToolsFunction \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" r]
+            TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
+            set f [ open "| $ToolsFunction -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1414,8 +1412,8 @@ if {"$VarWarning"=="ok"} {
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
             TextEditorRunTrace "Process The Function $ToolsFunction" "k"
-            TextEditorRunTrace "Arguments: \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" "k"
-            set f [ open "| $ToolsFunction \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" r]
+            TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
+            set f [ open "| $ToolsFunction -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1428,8 +1426,8 @@ if {"$VarWarning"=="ok"} {
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
             TextEditorRunTrace "Process The Function $ToolsFunction" "k"
-            TextEditorRunTrace "Arguments: \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" "k"
-            set f [ open "| $ToolsFunction \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" r]
+            TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
+            set f [ open "| $ToolsFunction -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1442,8 +1440,8 @@ if {"$VarWarning"=="ok"} {
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
             TextEditorRunTrace "Process The Function $ToolsFunction" "k"
-            TextEditorRunTrace "Arguments: \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" "k"
-            set f [ open "| $ToolsFunction \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" r]
+            TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
+            set f [ open "| $ToolsFunction -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1456,8 +1454,8 @@ if {"$VarWarning"=="ok"} {
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
             TextEditorRunTrace "Process The Function $ToolsFunction" "k"
-            TextEditorRunTrace "Arguments: \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" "k"
-            set f [ open "| $ToolsFunction \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" r]
+            TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
+            set f [ open "| $ToolsFunction -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1470,8 +1468,8 @@ if {"$VarWarning"=="ok"} {
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
             TextEditorRunTrace "Process The Function $ToolsFunction" "k"
-            TextEditorRunTrace "Arguments: \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" "k"
-            set f [ open "| $ToolsFunction \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" r]
+            TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
+            set f [ open "| $ToolsFunction -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1484,8 +1482,8 @@ if {"$VarWarning"=="ok"} {
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
             TextEditorRunTrace "Process The Function $ToolsFunction" "k"
-            TextEditorRunTrace "Arguments: \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" "k"
-            set f [ open "| $ToolsFunction \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" r]
+            TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
+            set f [ open "| $ToolsFunction -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1498,8 +1496,8 @@ if {"$VarWarning"=="ok"} {
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
             TextEditorRunTrace "Process The Function $ToolsFunction" "k"
-            TextEditorRunTrace "Arguments: \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" "k"
-            set f [ open "| $ToolsFunction \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" r]
+            TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
+            set f [ open "| $ToolsFunction -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1512,8 +1510,8 @@ if {"$VarWarning"=="ok"} {
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
             TextEditorRunTrace "Process The Function $ToolsFunction" "k"
-            TextEditorRunTrace "Arguments: \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" "k"
-            set f [ open "| $ToolsFunction \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" r]
+            TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
+            set f [ open "| $ToolsFunction -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1526,8 +1524,8 @@ if {"$VarWarning"=="ok"} {
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
             TextEditorRunTrace "Process The Function $ToolsFunction" "k"
-            TextEditorRunTrace "Arguments: \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" "k"
-            set f [ open "| $ToolsFunction \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" r]
+            TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
+            set f [ open "| $ToolsFunction -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1549,8 +1547,8 @@ if {"$VarWarning"=="ok"} {
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
             TextEditorRunTrace "Process The Function $ToolsFunction" "k"
-            TextEditorRunTrace "Arguments: \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" "k"
-            set f [ open "| $ToolsFunction \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" r]
+            TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
+            set f [ open "| $ToolsFunction -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1563,8 +1561,8 @@ if {"$VarWarning"=="ok"} {
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
             TextEditorRunTrace "Process The Function $ToolsFunction" "k"
-            TextEditorRunTrace "Arguments: \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" "k"
-            set f [ open "| $ToolsFunction \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" r]
+            TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
+            set f [ open "| $ToolsFunction -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1577,8 +1575,8 @@ if {"$VarWarning"=="ok"} {
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
             TextEditorRunTrace "Process The Function $ToolsFunction" "k"
-            TextEditorRunTrace "Arguments: \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" "k"
-            set f [ open "| $ToolsFunction \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" r]
+            TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
+            set f [ open "| $ToolsFunction -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1591,8 +1589,8 @@ if {"$VarWarning"=="ok"} {
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
             TextEditorRunTrace "Process The Function $ToolsFunction" "k"
-            TextEditorRunTrace "Arguments: \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" "k"
-            set f [ open "| $ToolsFunction \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" r]
+            TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
+            set f [ open "| $ToolsFunction -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1605,8 +1603,8 @@ if {"$VarWarning"=="ok"} {
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
             TextEditorRunTrace "Process The Function $ToolsFunction" "k"
-            TextEditorRunTrace "Arguments: \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" "k"
-            set f [ open "| $ToolsFunction \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" r]
+            TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
+            set f [ open "| $ToolsFunction -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1619,8 +1617,8 @@ if {"$VarWarning"=="ok"} {
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
             TextEditorRunTrace "Process The Function $ToolsFunction" "k"
-            TextEditorRunTrace "Arguments: \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" "k"
-            set f [ open "| $ToolsFunction \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" r]
+            TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
+            set f [ open "| $ToolsFunction -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1633,8 +1631,8 @@ if {"$VarWarning"=="ok"} {
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
             TextEditorRunTrace "Process The Function $ToolsFunction" "k"
-            TextEditorRunTrace "Arguments: \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" "k"
-            set f [ open "| $ToolsFunction \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" r]
+            TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
+            set f [ open "| $ToolsFunction -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1647,8 +1645,8 @@ if {"$VarWarning"=="ok"} {
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
             TextEditorRunTrace "Process The Function $ToolsFunction" "k"
-            TextEditorRunTrace "Arguments: \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" "k"
-            set f [ open "| $ToolsFunction \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" r]
+            TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
+            set f [ open "| $ToolsFunction -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1661,8 +1659,8 @@ if {"$VarWarning"=="ok"} {
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
             TextEditorRunTrace "Process The Function $ToolsFunction" "k"
-            TextEditorRunTrace "Arguments: \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" "k"
-            set f [ open "| $ToolsFunction \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" r]
+            TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
+            set f [ open "| $ToolsFunction -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1675,8 +1673,8 @@ if {"$VarWarning"=="ok"} {
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
             TextEditorRunTrace "Process The Function $ToolsFunction" "k"
-            TextEditorRunTrace "Arguments: \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" "k"
-            set f [ open "| $ToolsFunction \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" r]
+            TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
+            set f [ open "| $ToolsFunction -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1689,8 +1687,8 @@ if {"$VarWarning"=="ok"} {
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
             TextEditorRunTrace "Process The Function $ToolsFunction" "k"
-            TextEditorRunTrace "Arguments: \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" "k"
-            set f [ open "| $ToolsFunction \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" r]
+            TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
+            set f [ open "| $ToolsFunction -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1703,8 +1701,8 @@ if {"$VarWarning"=="ok"} {
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
             TextEditorRunTrace "Process The Function $ToolsFunction" "k"
-            TextEditorRunTrace "Arguments: \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" "k"
-            set f [ open "| $ToolsFunction \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" r]
+            TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
+            set f [ open "| $ToolsFunction -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1717,8 +1715,8 @@ if {"$VarWarning"=="ok"} {
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
             TextEditorRunTrace "Process The Function $ToolsFunction" "k"
-            TextEditorRunTrace "Arguments: \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" "k"
-            set f [ open "| $ToolsFunction \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" r]
+            TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
+            set f [ open "| $ToolsFunction -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1731,8 +1729,8 @@ if {"$VarWarning"=="ok"} {
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
             TextEditorRunTrace "Process The Function $ToolsFunction" "k"
-            TextEditorRunTrace "Arguments: \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" "k"
-            set f [ open "| $ToolsFunction \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" r]
+            TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
+            set f [ open "| $ToolsFunction -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1745,8 +1743,8 @@ if {"$VarWarning"=="ok"} {
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
             TextEditorRunTrace "Process The Function $ToolsFunction" "k"
-            TextEditorRunTrace "Arguments: \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" "k"
-            set f [ open "| $ToolsFunction \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" r]
+            TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
+            set f [ open "| $ToolsFunction -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1759,8 +1757,8 @@ if {"$VarWarning"=="ok"} {
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
             TextEditorRunTrace "Process The Function $ToolsFunction" "k"
-            TextEditorRunTrace "Arguments: \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" "k"
-            set f [ open "| $ToolsFunction \x22$SupervisedDirInput\x22 \x22$SupervisedDirOutput\x22 \x22$SupervisedFileInput\x22 \x22$SupervisedFileOutput\x22 \x22$TMPMaskROIbin\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol" r]
+            TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
+            set f [ open "| $ToolsFunction -id \x22$SupervisedDirInput\x22 -od \x22$SupervisedDirOutput\x22 -if \x22$SupervisedFileInput\x22 -of \x22$SupervisedFileOutput\x22 -rf \x22$TMPMaskROIbin\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1804,19 +1802,11 @@ tkwait variable VarError
     }
     button $site_3_0.but24 \
         -background #ffff00 \
-        -command {global BMPImageOpen OpenDirFile MaskFonction
+        -command {global OpenDirFile MapAlgebraConfigFileStatHistoROI
 
 if {$OpenDirFile == 0} {
-
-if {$BMPImageOpen == 1} {
-    ClosePSPViewer
-    Window hide $widget(Toplevel64); TextEditorRunTrace "Close Window PolSARpro Viewer" "b"
-    }
-if {$BMPImageOpen == 0} {
-    Window hide $widget(Toplevel393); TextEditorRunTrace "Close Window Graphic Editor" "b"
-    set MaskFonction "0"
+    if {$MapAlgebraConfigFileStatHistoROI != ""} { set MapAlgebraConfigFileStatHistoROI [MapAlgebra_command $MapAlgebraConfigFileStatHistoROI "quit" ""] }
     Window hide $widget(Toplevel392); TextEditorRunTrace "Close Window Create ROI" "b"
-    }
 }} \
         -padx 4 -pady 2 -text Exit 
     vTcl:DefineAlias "$site_3_0.but24" "Button16" vTcl:WidgetProc "Toplevel392" 1

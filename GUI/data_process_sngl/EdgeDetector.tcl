@@ -581,32 +581,141 @@ proc vTcl:project:info {} {
     namespace eval ::widgets::$site_5_0.cpd84 {
         array set save {-command 1 -padx 1 -text 1 -value 1 -variable 1}
     }
+    namespace eval ::widgets::$site_5_0.cpd71 {
+        array set save {-command 1 -padx 1 -text 1 -value 1 -variable 1}
+    }
     namespace eval ::widgets::$site_5_0.cpd76 {
         array set save {-command 1 -padx 1 -text 1 -value 1 -variable 1}
     }
-    namespace eval ::widgets::$site_4_0.cpd75 {
-        array set save {}
-    }
-    set site_5_0 $site_4_0.cpd75
-    namespace eval ::widgets::$site_5_0.cpd78 {
-        array set save {-text 1}
-    }
-    namespace eval ::widgets::$site_5_0.fra83 {
-        array set save {-borderwidth 1 -height 1 -relief 1 -width 1}
-    }
-    set site_6_0 $site_5_0.fra83
-    namespace eval ::widgets::$site_6_0.cpd84 {
-        array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -justify 1 -state 1 -textvariable 1 -width 1}
-    }
-    namespace eval ::widgets::$site_6_0.fra85 {
+    namespace eval ::widgets::$site_4_0.fra83 {
         array set save {-borderwidth 1 -height 1 -width 1}
     }
-    set site_7_0 $site_6_0.fra85
-    namespace eval ::widgets::$site_7_0.cpd86 {
+    set site_5_0 $site_4_0.fra83
+    namespace eval ::widgets::$site_5_0.cpd84 {
+        array set save {-text 1}
+    }
+    set site_7_0 [$site_5_0.cpd84 getframe]
+    namespace eval ::widgets::$site_7_0 {
+        array set save {}
+    }
+    set site_7_0 $site_7_0
+    namespace eval ::widgets::$site_7_0.cpd87 {
+        array set save {-borderwidth 1 -height 1 -relief 1 -width 1}
+    }
+    set site_8_0 $site_7_0.cpd87
+    namespace eval ::widgets::$site_8_0.cpd84 {
+        array set save {-background 1 -disabledbackground 1 -foreground 1 -justify 1 -state 1 -textvariable 1 -width 1}
+    }
+    namespace eval ::widgets::$site_8_0.fra85 {
+        array set save {-borderwidth 1 -height 1 -width 1}
+    }
+    set site_9_0 $site_8_0.fra85
+    namespace eval ::widgets::$site_9_0.cpd86 {
         array set save {-command 1 -image 1 -pady 1 -text 1}
     }
-    namespace eval ::widgets::$site_7_0.cpd87 {
+    namespace eval ::widgets::$site_9_0.cpd87 {
         array set save {-command 1 -image 1 -pady 1 -text 1}
+    }
+    namespace eval ::widgets::$site_7_0.cpd86 {
+        array set save {-text 1}
+    }
+    namespace eval ::widgets::$site_5_0.cpd85 {
+        array set save {-text 1}
+    }
+    set site_7_0 [$site_5_0.cpd85 getframe]
+    namespace eval ::widgets::$site_7_0 {
+        array set save {}
+    }
+    set site_7_0 $site_7_0
+    namespace eval ::widgets::$site_7_0.cpd88 {
+        array set save {}
+    }
+    set site_8_0 $site_7_0.cpd88
+    namespace eval ::widgets::$site_8_0.cpd77 {
+        array set save {-borderwidth 1 -height 1 -width 1}
+    }
+    set site_9_0 $site_8_0.cpd77
+    namespace eval ::widgets::$site_9_0.cpd78 {
+        array set save {-text 1}
+    }
+    namespace eval ::widgets::$site_9_0.cpd84 {
+        array set save {-background 1 -disabledbackground 1 -foreground 1 -justify 1 -state 1 -textvariable 1 -width 1}
+    }
+    namespace eval ::widgets::$site_8_0.cpd80 {
+        array set save {-borderwidth 1 -height 1 -width 1}
+    }
+    set site_9_0 $site_8_0.cpd80
+    namespace eval ::widgets::$site_9_0.cpd78 {
+        array set save {-text 1}
+    }
+    namespace eval ::widgets::$site_9_0.cpd84 {
+        array set save {-background 1 -disabledbackground 1 -foreground 1 -justify 1 -state 1 -textvariable 1 -width 1}
+    }
+    namespace eval ::widgets::$site_7_0.cpd89 {
+        array set save {}
+    }
+    set site_8_0 $site_7_0.cpd89
+    namespace eval ::widgets::$site_8_0.cpd82 {
+        array set save {-borderwidth 1 -height 1 -width 1}
+    }
+    set site_9_0 $site_8_0.cpd82
+    namespace eval ::widgets::$site_9_0.cpd78 {
+        array set save {-text 1}
+    }
+    namespace eval ::widgets::$site_9_0.cpd84 {
+        array set save {-background 1 -disabledbackground 1 -foreground 1 -justify 1 -state 1 -textvariable 1 -width 1}
+    }
+    namespace eval ::widgets::$base.tit66 {
+        array set save {-text 1}
+    }
+    set site_4_0 [$base.tit66 getframe]
+    namespace eval ::widgets::$site_4_0 {
+        array set save {}
+    }
+    set site_4_0 $site_4_0
+    namespace eval ::widgets::$site_4_0.cpd67 {
+        array set save {-ipad 1 -text 1}
+    }
+    set site_6_0 [$site_4_0.cpd67 getframe]
+    namespace eval ::widgets::$site_6_0 {
+        array set save {}
+    }
+    set site_6_0 $site_6_0
+    namespace eval ::widgets::$site_6_0.cpd85 {
+        array set save {-background 1 -disabledbackground 1 -foreground 1 -textvariable 1}
+    }
+    namespace eval ::widgets::$site_4_0.cpd68 {
+        array set save {-ipad 1 -text 1}
+    }
+    set site_6_0 [$site_4_0.cpd68 getframe]
+    namespace eval ::widgets::$site_6_0 {
+        array set save {}
+    }
+    set site_6_0 $site_6_0
+    namespace eval ::widgets::$site_6_0.cpd85 {
+        array set save {-background 1 -disabledbackground 1 -foreground 1 -textvariable 1}
+    }
+    namespace eval ::widgets::$site_4_0.cpd69 {
+        array set save {-ipad 1 -text 1}
+    }
+    set site_6_0 [$site_4_0.cpd69 getframe]
+    namespace eval ::widgets::$site_6_0 {
+        array set save {}
+    }
+    set site_6_0 $site_6_0
+    namespace eval ::widgets::$site_6_0.cpd85 {
+        array set save {-background 1 -disabledbackground 1 -foreground 1 -textvariable 1}
+    }
+    namespace eval ::widgets::$site_4_0.cpd70 {
+        array set save {-ipad 1 -text 1}
+    }
+    set site_6_0 [$site_4_0.cpd70 getframe]
+    namespace eval ::widgets::$site_6_0 {
+        array set save {}
+    }
+    set site_6_0 $site_6_0
+    namespace eval ::widgets::$site_6_0.cpd85 {
+        array set save {-background 1 -disabledbackground 1 -foreground 1 -textvariable 1}
     }
     namespace eval ::widgets::$base.cpd72 {
         array set save {-height 1 -width 1}
@@ -693,9 +802,9 @@ proc vTclWindow. {base} {
     # CREATING WIDGETS
     ###################
     wm focusmodel $top passive
-    wm geometry $top 200x200+66+66; update
-    wm maxsize $top 1284 785
-    wm minsize $top 104 1
+    wm geometry $top 200x200+50+50; update
+    wm maxsize $top 3364 1032
+    wm minsize $top 116 1
     wm overrideredirect $top 0
     wm resizable $top 1 1
     wm withdraw $top
@@ -725,9 +834,9 @@ proc vTclWindow.top337 {base} {
     vTcl:toplevel $top -class Toplevel
     wm withdraw $top
     wm focusmodel $top passive
-    wm geometry $top 500x430+10+110; update
+    wm geometry $top 500x650+10+110; update
     wm maxsize $top 1604 1184
-    wm minsize $top 113 1
+    wm minsize $top 116 1
     wm overrideredirect $top 0
     wm resizable $top 1 1
     wm title $top "Edge Detector"
@@ -783,11 +892,49 @@ set FileName ""
 OpenFile $EdgeDirInput $types "INPUT FILE"
     
 if {$FileName != ""} {
-    set EdgeFileInput $FileName
-    set EdgeFileOutput "$EdgeDirOutput/"
-    append EdgeFileOutput "$EdgeDetector"
-    append EdgeFileOutput "_"
-    append EdgeFileOutput "$EdgeCoeff.bin"
+    set FileNameHdr "$FileName.hdr"
+    if [file exists $FileNameHdr] {
+        set f [open $FileNameHdr "r"]
+        gets $f tmp
+        gets $f tmp
+        gets $f tmp
+        if {[string first "PolSARpro" $tmp] != "-1"} {
+            gets $f tmp; gets $f tmp
+            gets $f tmp; gets $f tmp
+            gets $f tmp; gets $f tmp
+            if {$tmp == "data type = 2"} {set InputFormat "int"; set OutputFormat "real"}
+            if {$tmp == "data type = 4"} {set InputFormat "float"; set OutputFormat "real"}
+            if {$tmp == "data type = 6"} {set InputFormat "cmplx"; set OutputFormat "mod"}
+            set EdgeDirInput [file dirname $FileName]
+            set ConfigFile "$EdgeDirInput/config.txt"
+            set ErrorMessage ""
+            LoadConfig
+            if {"$ErrorMessage" == ""} {
+                set EdgeFileInput $FileName
+                if {$EdgeDetector != "paillou"} {
+                    set EdgeFileOutput "$EdgeDirOutput/"
+                    append EdgeFileOutput "$EdgeDetector"
+                    append EdgeFileOutput "_"
+                    append EdgeFileOutput "$EdgeCoeff.bin"
+                    }
+                } else {
+                Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
+                tkwait variable VarError
+                if {$VarError == "cancel"} {Window hide $widget(Toplevel337); TextEditorRunTrace "Close Window Edge Detector" "b"}
+                }    
+            } else {
+            set ErrorMessage "NOT A PolSARpro BINARY DATA FILE TYPE"
+            Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
+            tkwait variable VarError
+            if {$VarError == "cancel"} {Window hide $widget(Toplevel337); TextEditorRunTrace "Close Window Edge Detector" "b"}
+            }    
+        close $f
+        } else {
+        set ErrorMessage "THE HDR FILE $FileNameHdr DOES NOT EXIST"
+        Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
+        tkwait variable VarError
+        if {$VarError == "cancel"} {Window hide $widget(Toplevel337); TextEditorRunTrace "Close Window Edge Detector" "b"}
+        }    
     }} \
         -image [vTcl:image:get_image [file join . GUI Images OpenFile.gif]] \
         -padx 1 -pady 0 -text button 
@@ -802,7 +949,7 @@ if {$FileName != ""} {
     pack $site_5_0.cpd91 \
         -in $site_5_0 -anchor center -expand 0 -fill none -side top 
     TitleFrame $site_3_0.cpd71 \
-        -ipad 0 -text {Output BMP Directory} 
+        -ipad 0 -text {Output Directory} 
     vTcl:DefineAlias "$site_3_0.cpd71" "TitleFrame9" vTcl:WidgetProc "Toplevel337" 1
     bind $site_3_0.cpd71 <Destroy> {
         Widget::destroy %W; rename %W {}
@@ -1047,7 +1194,7 @@ if {"$MinMaxAutoBMP"=="1"} {
     vTcl:DefineAlias "$site_6_0.ent35" "Entry337_2" vTcl:WidgetProc "Toplevel337" 1
     button $site_6_0.cpd75 \
         -background #ffff00 \
-        -command {global MaxBMP MinBMP TMPMinMaxBmp OpenDirFile EdgeFileInput PSPMemory TMPMemoryAllocError
+        -command {global MaxBMP MinBMP TMPMinMaxBmp OpenDirFile EdgeFileInput TMPMemoryAllocError
 
 if {$OpenDirFile == 0} {
 #read MinMaxBMP
@@ -1068,9 +1215,9 @@ if [file exists $MaskFile] { set MaskCmd "-mask \x22$MaskFile\x22" }
 set ProgressLine "0"
 WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
 update
-TextEditorRunTrace "Process The Function Soft/bmp_process/MinMaxBMP.exe" "k"
-TextEditorRunTrace "Arguments: -if \x22$EdgeFileInput\x22 -ift $InputFormat -oft $OutputFormat -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -of \x22$TMPMinMaxBmp\x22 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-set f [ open "| Soft/bmp_process/MinMaxBMP.exe -if \x22$EdgeFileInput\x22 -ift $InputFormat -oft $OutputFormat -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -of \x22$TMPMinMaxBmp\x22 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+TextEditorRunTrace "Process The Function Soft/bin/bmp_process/MinMaxBMP.exe" "k"
+TextEditorRunTrace "Arguments: -if \x22$EdgeFileInput\x22 -ift $InputFormat -oft $OutputFormat -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -of \x22$TMPMinMaxBmp\x22  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+set f [ open "| Soft/bin/bmp_process/MinMaxBMP.exe -if \x22$EdgeFileInput\x22 -ift $InputFormat -oft $OutputFormat -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -of \x22$TMPMinMaxBmp\x22  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
 PsPprogressBar $f
 TextEditorRunTrace "Check RunTime Errors" "r"
 CheckRunTimeError
@@ -1129,7 +1276,41 @@ if [file exists $MinMaxBMPvalues] {
     radiobutton $site_5_0.cpd82 \
         \
         -command {global EdgeFileOutput EdgeDetector EdgeCoeff
+global EdgePaillouAmpOutput EdgePaillouMaxAmpOutput
+global EdgePaillouAngOutput EdgePaillouMaxAngOutput
+global EdgeAlpha EdgeOmega EdgeThreshold
 
+set EdgeAlpha ""; set EdgeOmega ""; set EdgeThreshold ""
+
+$widget(TitleFrame337_6) configure -state normal
+$widget(Label337_3) configure -state normal
+$widget(Entry337_3) configure -state normal
+$widget(Button337_2) configure -state normal
+$widget(Button337_3) configure -state normal
+$widget(TitleFrame337_7) configure -state disable
+$widget(Label337_4) configure -state disable
+$widget(Entry337_4) configure -state disable
+$widget(Label337_5) configure -state disable
+$widget(Entry337_5) configure -state disable
+$widget(Label337_6) configure -state disable
+$widget(Entry337_6) configure -state disable
+$widget(TitleFrame337_1) configure -state disable
+$widget(TitleFrame337_2) configure -state disable
+$widget(Entry337_7) configure -state disable
+$widget(TitleFrame337_3) configure -state disable
+$widget(Entry337_8) configure -state disable
+$widget(TitleFrame337_4) configure -state disable
+$widget(Entry337_9) configure -state disable
+$widget(TitleFrame337_5) configure -state disable
+$widget(Entry337_10) configure -state disable
+$widget(TitleFrame337_8) configure -state normal
+$widget(Entry337_11) configure -state normal
+
+set EdgePaillouAmpOutput ""
+set EdgePaillouMaxAmpOutput ""
+set EdgePaillouAngOutput ""
+set EdgePaillouMaxAngOutput ""
+set EdgeCoeff "0.5"
 set EdgeFileOutput "$EdgeDirOutput/"
 append EdgeFileOutput "$EdgeDetector"
 append EdgeFileOutput "_"
@@ -1138,7 +1319,41 @@ append EdgeFileOutput "$EdgeCoeff.bin"} \
     radiobutton $site_5_0.cpd83 \
         \
         -command {global EdgeFileOutput EdgeDetector EdgeCoeff
+global EdgePaillouAmpOutput EdgePaillouMaxAmpOutput
+global EdgePaillouAngOutput EdgePaillouMaxAngOutput
+global EdgeAlpha EdgeOmega EdgeThreshold
 
+set EdgeAlpha ""; set EdgeOmega ""; set EdgeThreshold ""
+
+$widget(TitleFrame337_6) configure -state normal
+$widget(Label337_3) configure -state normal
+$widget(Entry337_3) configure -state normal
+$widget(Button337_2) configure -state normal
+$widget(Button337_3) configure -state normal
+$widget(TitleFrame337_7) configure -state disable
+$widget(Label337_4) configure -state disable
+$widget(Entry337_4) configure -state disable
+$widget(Label337_5) configure -state disable
+$widget(Entry337_5) configure -state disable
+$widget(Label337_6) configure -state disable
+$widget(Entry337_6) configure -state disable
+$widget(TitleFrame337_1) configure -state disable
+$widget(TitleFrame337_2) configure -state disable
+$widget(Entry337_7) configure -state disable
+$widget(TitleFrame337_3) configure -state disable
+$widget(Entry337_8) configure -state disable
+$widget(TitleFrame337_4) configure -state disable
+$widget(Entry337_9) configure -state disable
+$widget(TitleFrame337_5) configure -state disable
+$widget(Entry337_10) configure -state disable
+$widget(TitleFrame337_8) configure -state normal
+$widget(Entry337_11) configure -state normal
+
+set EdgePaillouAmpOutput ""
+set EdgePaillouMaxAmpOutput ""
+set EdgePaillouAngOutput ""
+set EdgePaillouMaxAngOutput ""
+set EdgeCoeff "0.5"
 set EdgeFileOutput "$EdgeDirOutput/"
 append EdgeFileOutput "$EdgeDetector"
 append EdgeFileOutput "_"
@@ -1147,16 +1362,128 @@ append EdgeFileOutput "$EdgeCoeff.bin"} \
     radiobutton $site_5_0.cpd84 \
         \
         -command {global EdgeFileOutput EdgeDetector EdgeCoeff
+global EdgePaillouAmpOutput EdgePaillouMaxAmpOutput
+global EdgePaillouAngOutput EdgePaillouMaxAngOutput
+global EdgeAlpha EdgeOmega EdgeThreshold
 
+set EdgeAlpha ""; set EdgeOmega ""; set EdgeThreshold ""
+
+$widget(TitleFrame337_6) configure -state normal
+$widget(Label337_3) configure -state normal
+$widget(Entry337_3) configure -state normal
+$widget(Button337_2) configure -state normal
+$widget(Button337_3) configure -state normal
+$widget(TitleFrame337_7) configure -state disable
+$widget(Label337_4) configure -state disable
+$widget(Entry337_4) configure -state disable
+$widget(Label337_5) configure -state disable
+$widget(Entry337_5) configure -state disable
+$widget(Label337_6) configure -state disable
+$widget(Entry337_6) configure -state disable
+$widget(TitleFrame337_1) configure -state disable
+$widget(TitleFrame337_2) configure -state disable
+$widget(Entry337_7) configure -state disable
+$widget(TitleFrame337_3) configure -state disable
+$widget(Entry337_8) configure -state disable
+$widget(TitleFrame337_4) configure -state disable
+$widget(Entry337_9) configure -state disable
+$widget(TitleFrame337_5) configure -state disable
+$widget(Entry337_10) configure -state disable
+$widget(TitleFrame337_8) configure -state normal
+$widget(Entry337_11) configure -state normal
+
+set EdgePaillouAmpOutput ""
+set EdgePaillouMaxAmpOutput ""
+set EdgePaillouAngOutput ""
+set EdgePaillouMaxAngOutput ""
+set EdgeCoeff "0.5"
 set EdgeFileOutput "$EdgeDirOutput/"
 append EdgeFileOutput "$EdgeDetector"
 append EdgeFileOutput "_"
 append EdgeFileOutput "$EdgeCoeff.bin"} \
         -padx 1 -text Marr-Hildreth -value marr -variable EdgeDetector 
+    radiobutton $site_5_0.cpd71 \
+        \
+        -command {global EdgeFileOutput EdgeDetector EdgeCoeff
+global EdgePaillouAmpOutput EdgePaillouMaxAmpOutput
+global EdgePaillouAngOutput EdgePaillouMaxAngOutput
+global EdgeAlpha EdgeOmega EdgeThreshold
+
+set EdgeAlpha "1.0"; set EdgeOmega "0.1"; set EdgeThreshold "10"
+
+$widget(TitleFrame337_6) configure -state disable
+$widget(Label337_3) configure -state disable
+$widget(Entry337_3) configure -state disable
+$widget(Button337_2) configure -state disable
+$widget(Button337_3) configure -state disable
+set EdgeCoeff ""
+$widget(TitleFrame337_7) configure -state normal
+$widget(Label337_4) configure -state normal
+$widget(Entry337_4) configure -state normal
+$widget(Label337_5) configure -state normal
+$widget(Entry337_5) configure -state normal
+$widget(Label337_6) configure -state normal
+$widget(Entry337_6) configure -state normal
+$widget(TitleFrame337_1) configure -state normal
+$widget(TitleFrame337_2) configure -state normal
+$widget(Entry337_7) configure -state normal
+$widget(TitleFrame337_3) configure -state normal
+$widget(Entry337_8) configure -state normal
+$widget(TitleFrame337_4) configure -state normal
+$widget(Entry337_9) configure -state normal
+$widget(TitleFrame337_5) configure -state normal
+$widget(Entry337_10) configure -state normal
+$widget(TitleFrame337_8) configure -state disable
+$widget(Entry337_11) configure -state disable
+
+set EdgeFileOutput ""
+set EdgePaillouAmpOutput "$EdgeDirOutput/"
+append EdgePaillouAmpOutput "paillou_gradient_amp.bin"
+set EdgePaillouMaxAmpOutput "$EdgeDirOutput/"
+append EdgePaillouMaxAmpOutput "paillou_gradient_maxamp.bin"
+set EdgePaillouAngOutput "$EdgeDirOutput/"
+append EdgePaillouAngOutput "paillou_gradient_dir.bin"
+set EdgePaillouMaxAngOutput "$EdgeDirOutput/"
+append EdgePaillouMaxAngOutput "paillou_gradient_maxdir.bin"} \
+        -padx 1 -text Paillou -value paillou -variable EdgeDetector 
     radiobutton $site_5_0.cpd76 \
         \
         -command {global EdgeFileOutput EdgeDetector EdgeCoeff
+global EdgePaillouAmpOutput EdgePaillouMaxAmpOutput
+global EdgePaillouAngOutput EdgePaillouMaxAngOutput
+global EdgeAlpha EdgeOmega EdgeThreshold
 
+set EdgeAlpha ""; set EdgeOmega ""; set EdgeThreshold ""
+
+$widget(TitleFrame337_6) configure -state normal
+$widget(Label337_3) configure -state normal
+$widget(Entry337_3) configure -state normal
+$widget(Button337_2) configure -state normal
+$widget(Button337_3) configure -state normal
+$widget(TitleFrame337_7) configure -state disable
+$widget(Label337_4) configure -state disable
+$widget(Entry337_4) configure -state disable
+$widget(Label337_5) configure -state disable
+$widget(Entry337_5) configure -state disable
+$widget(Label337_6) configure -state disable
+$widget(Entry337_6) configure -state disable
+$widget(TitleFrame337_1) configure -state disable
+$widget(TitleFrame337_2) configure -state disable
+$widget(Entry337_7) configure -state disable
+$widget(TitleFrame337_3) configure -state disable
+$widget(Entry337_8) configure -state disable
+$widget(TitleFrame337_4) configure -state disable
+$widget(Entry337_9) configure -state disable
+$widget(TitleFrame337_5) configure -state disable
+$widget(Entry337_10) configure -state disable
+$widget(TitleFrame337_8) configure -state normal
+$widget(Entry337_11) configure -state normal
+
+set EdgePaillouAmpOutput ""
+set EdgePaillouMaxAmpOutput ""
+set EdgePaillouAngOutput ""
+set EdgePaillouMaxAngOutput ""
+set EdgeCoeff "0.5"
 set EdgeFileOutput "$EdgeDirOutput/"
 append EdgeFileOutput "$EdgeDetector"
 append EdgeFileOutput "_"
@@ -1168,27 +1495,34 @@ append EdgeFileOutput "$EdgeCoeff.bin"} \
         -in $site_5_0 -anchor center -expand 1 -fill none -side left 
     pack $site_5_0.cpd84 \
         -in $site_5_0 -anchor center -expand 1 -fill none -side left 
+    pack $site_5_0.cpd71 \
+        -in $site_5_0 -anchor center -expand 1 -fill none -side left 
     pack $site_5_0.cpd76 \
         -in $site_5_0 -anchor center -expand 1 -fill none -side left 
-    frame $site_4_0.cpd75
-    set site_5_0 $site_4_0.cpd75
-    label $site_5_0.cpd78 \
-        -text {Edge Detector Coefficient : Coarse ( 0 ) ... Fine ( 1 ) Scale} 
-    vTcl:DefineAlias "$site_5_0.cpd78" "Label1" vTcl:WidgetProc "Toplevel337" 1
-    frame $site_5_0.fra83 \
-        -borderwidth 2 -relief groove -height 75 -width 125 
-    vTcl:DefineAlias "$site_5_0.fra83" "Frame6" vTcl:WidgetProc "Toplevel337" 1
-    set site_6_0 $site_5_0.fra83
-    entry $site_6_0.cpd84 \
-        -background white -disabledbackground #ffffff \
-        -disabledforeground #0000ff -foreground #0000ff -justify center \
-        -state disabled -textvariable EdgeCoeff -width 4 
-    vTcl:DefineAlias "$site_6_0.cpd84" "Entry1" vTcl:WidgetProc "Toplevel337" 1
-    frame $site_6_0.fra85 \
+    frame $site_4_0.fra83 \
         -borderwidth 2 -height 75 -width 125 
-    vTcl:DefineAlias "$site_6_0.fra85" "Frame7" vTcl:WidgetProc "Toplevel337" 1
-    set site_7_0 $site_6_0.fra85
-    button $site_7_0.cpd86 \
+    vTcl:DefineAlias "$site_4_0.fra83" "Frame1" vTcl:WidgetProc "Toplevel337" 1
+    set site_5_0 $site_4_0.fra83
+    TitleFrame $site_5_0.cpd84 \
+        -text {Detector Coefficient} 
+    vTcl:DefineAlias "$site_5_0.cpd84" "TitleFrame337_6" vTcl:WidgetProc "Toplevel337" 1
+    bind $site_5_0.cpd84 <Destroy> {
+        Widget::destroy %W; rename %W {}
+    }
+    set site_7_0 [$site_5_0.cpd84 getframe]
+    frame $site_7_0.cpd87 \
+        -borderwidth 2 -relief groove -height 75 -width 125 
+    vTcl:DefineAlias "$site_7_0.cpd87" "Frame8" vTcl:WidgetProc "Toplevel337" 1
+    set site_8_0 $site_7_0.cpd87
+    entry $site_8_0.cpd84 \
+        -background white -disabledbackground #ffffff -foreground #0000ff \
+        -justify center -state disabled -textvariable EdgeCoeff -width 4 
+    vTcl:DefineAlias "$site_8_0.cpd84" "Entry337_3" vTcl:WidgetProc "Toplevel337" 1
+    frame $site_8_0.fra85 \
+        -borderwidth 2 -height 75 -width 125 
+    vTcl:DefineAlias "$site_8_0.fra85" "Frame10" vTcl:WidgetProc "Toplevel337" 1
+    set site_9_0 $site_8_0.fra85
+    button $site_9_0.cpd86 \
         \
         -command {global EdgeFileOutput EdgeDetector EdgeCoeff
 
@@ -1201,8 +1535,8 @@ append EdgeFileOutput "_"
 append EdgeFileOutput "$EdgeCoeff.bin"} \
         -image [vTcl:image:get_image [file join . GUI Images down.gif]] \
         -pady 0 -text button 
-    vTcl:DefineAlias "$site_7_0.cpd86" "Button1" vTcl:WidgetProc "Toplevel337" 1
-    button $site_7_0.cpd87 \
+    vTcl:DefineAlias "$site_9_0.cpd86" "Button337_2" vTcl:WidgetProc "Toplevel337" 1
+    button $site_9_0.cpd87 \
         \
         -command {global EdgeFileOutput EdgeDetector EdgeCoeff
 
@@ -1215,30 +1549,170 @@ append EdgeFileOutput "_"
 append EdgeFileOutput "$EdgeCoeff.bin"} \
         -image [vTcl:image:get_image [file join . GUI Images up.gif]] -pady 0 \
         -text button 
-    vTcl:DefineAlias "$site_7_0.cpd87" "Button2" vTcl:WidgetProc "Toplevel337" 1
-    pack $site_7_0.cpd86 \
-        -in $site_7_0 -anchor center -expand 0 -fill none -padx 2 -side left 
+    vTcl:DefineAlias "$site_9_0.cpd87" "Button337_3" vTcl:WidgetProc "Toplevel337" 1
+    pack $site_9_0.cpd86 \
+        -in $site_9_0 -anchor center -expand 0 -fill none -padx 2 -side left 
+    pack $site_9_0.cpd87 \
+        -in $site_9_0 -anchor center -expand 0 -fill none -padx 2 -side left 
+    pack $site_8_0.cpd84 \
+        -in $site_8_0 -anchor center -expand 1 -fill none -padx 5 -side left 
+    pack $site_8_0.fra85 \
+        -in $site_8_0 -anchor center -expand 1 -fill none -side left 
+    label $site_7_0.cpd86 \
+        -text {Coarse ( 0 ) ... Fine ( 1 )} 
+    vTcl:DefineAlias "$site_7_0.cpd86" "Label337_3" vTcl:WidgetProc "Toplevel337" 1
     pack $site_7_0.cpd87 \
-        -in $site_7_0 -anchor center -expand 0 -fill none -padx 2 -side left 
-    pack $site_6_0.cpd84 \
-        -in $site_6_0 -anchor center -expand 1 -fill none -padx 5 -side left 
-    pack $site_6_0.fra85 \
-        -in $site_6_0 -anchor center -expand 1 -fill none -side left 
-    pack $site_5_0.cpd78 \
-        -in $site_5_0 -anchor center -expand 1 -fill none -padx 10 -side left 
-    pack $site_5_0.fra83 \
-        -in $site_5_0 -anchor center -expand 1 -fill none -ipady 2 -side left 
+        -in $site_7_0 -anchor center -expand 0 -fill none -side top 
+    pack $site_7_0.cpd86 \
+        -in $site_7_0 -anchor center -expand 0 -fill none -side top 
+    TitleFrame $site_5_0.cpd85 \
+        -text {Paillou Detector Parameters} 
+    vTcl:DefineAlias "$site_5_0.cpd85" "TitleFrame337_7" vTcl:WidgetProc "Toplevel337" 1
+    bind $site_5_0.cpd85 <Destroy> {
+        Widget::destroy %W; rename %W {}
+    }
+    set site_7_0 [$site_5_0.cpd85 getframe]
+    frame $site_7_0.cpd88
+    set site_8_0 $site_7_0.cpd88
+    frame $site_8_0.cpd77 \
+        -borderwidth 2 -height 75 -width 125 
+    vTcl:DefineAlias "$site_8_0.cpd77" "Frame23" vTcl:WidgetProc "Toplevel337" 1
+    set site_9_0 $site_8_0.cpd77
+    label $site_9_0.cpd78 \
+        -text Alpha 
+    vTcl:DefineAlias "$site_9_0.cpd78" "Label337_4" vTcl:WidgetProc "Toplevel337" 1
+    entry $site_9_0.cpd84 \
+        -background white -disabledbackground #ffffff -foreground #ff0000 \
+        -justify center -state disabled -textvariable EdgeAlpha -width 5 
+    vTcl:DefineAlias "$site_9_0.cpd84" "Entry337_4" vTcl:WidgetProc "Toplevel337" 1
+    pack $site_9_0.cpd78 \
+        -in $site_9_0 -anchor center -expand 0 -fill none -side left 
+    pack $site_9_0.cpd84 \
+        -in $site_9_0 -anchor center -expand 1 -fill none -padx 5 -side left 
+    frame $site_8_0.cpd80 \
+        -borderwidth 2 -height 75 -width 125 
+    vTcl:DefineAlias "$site_8_0.cpd80" "Frame24" vTcl:WidgetProc "Toplevel337" 1
+    set site_9_0 $site_8_0.cpd80
+    label $site_9_0.cpd78 \
+        -text Omega 
+    vTcl:DefineAlias "$site_9_0.cpd78" "Label337_5" vTcl:WidgetProc "Toplevel337" 1
+    entry $site_9_0.cpd84 \
+        -background white -disabledbackground #ffffff -foreground #ff0000 \
+        -justify center -state disabled -textvariable EdgeOmega -width 5 
+    vTcl:DefineAlias "$site_9_0.cpd84" "Entry337_5" vTcl:WidgetProc "Toplevel337" 1
+    pack $site_9_0.cpd78 \
+        -in $site_9_0 -anchor center -expand 0 -fill none -side left 
+    pack $site_9_0.cpd84 \
+        -in $site_9_0 -anchor center -expand 1 -fill none -padx 5 -side left 
+    pack $site_8_0.cpd77 \
+        -in $site_8_0 -anchor center -expand 1 -fill none -side left 
+    pack $site_8_0.cpd80 \
+        -in $site_8_0 -anchor center -expand 0 -fill none -side left 
+    frame $site_7_0.cpd89
+    set site_8_0 $site_7_0.cpd89
+    frame $site_8_0.cpd82 \
+        -borderwidth 2 -height 75 -width 125 
+    vTcl:DefineAlias "$site_8_0.cpd82" "Frame28" vTcl:WidgetProc "Toplevel337" 1
+    set site_9_0 $site_8_0.cpd82
+    label $site_9_0.cpd78 \
+        -text Threshold 
+    vTcl:DefineAlias "$site_9_0.cpd78" "Label337_6" vTcl:WidgetProc "Toplevel337" 1
+    entry $site_9_0.cpd84 \
+        -background white -disabledbackground #ffffff -foreground #ff0000 \
+        -justify center -state disabled -textvariable EdgeThreshold -width 7 
+    vTcl:DefineAlias "$site_9_0.cpd84" "Entry337_6" vTcl:WidgetProc "Toplevel337" 1
+    pack $site_9_0.cpd78 \
+        -in $site_9_0 -anchor center -expand 0 -fill none -side left 
+    pack $site_9_0.cpd84 \
+        -in $site_9_0 -anchor center -expand 1 -fill none -padx 5 -side left 
+    pack $site_8_0.cpd82 \
+        -in $site_8_0 -anchor center -expand 1 -fill none -side left 
+    pack $site_7_0.cpd88 \
+        -in $site_7_0 -anchor center -expand 0 -fill none -side top 
+    pack $site_7_0.cpd89 \
+        -in $site_7_0 -anchor center -expand 0 -fill none -side top 
+    pack $site_5_0.cpd84 \
+        -in $site_5_0 -anchor center -expand 1 -fill none -side left 
+    pack $site_5_0.cpd85 \
+        -in $site_5_0 -anchor center -expand 1 -fill none -side left 
     pack $site_4_0.cpd74 \
         -in $site_4_0 -anchor center -expand 0 -fill x -side top 
-    pack $site_4_0.cpd75 \
-        -in $site_4_0 -anchor center -expand 0 -fill none -ipady 5 -side top 
+    pack $site_4_0.fra83 \
+        -in $site_4_0 -anchor center -expand 1 -fill both -side top 
+    TitleFrame $top.tit66 \
+        -text {Paillou Detector} 
+    vTcl:DefineAlias "$top.tit66" "TitleFrame337_1" vTcl:WidgetProc "Toplevel337" 1
+    bind $top.tit66 <Destroy> {
+        Widget::destroy %W; rename %W {}
+    }
+    set site_4_0 [$top.tit66 getframe]
+    TitleFrame $site_4_0.cpd67 \
+        -ipad 2 -text {Output Gradient Amplitude File} 
+    vTcl:DefineAlias "$site_4_0.cpd67" "TitleFrame337_2" vTcl:WidgetProc "Toplevel337" 1
+    bind $site_4_0.cpd67 <Destroy> {
+        Widget::destroy %W; rename %W {}
+    }
+    set site_6_0 [$site_4_0.cpd67 getframe]
+    entry $site_6_0.cpd85 \
+        -background white -disabledbackground #ffffff -foreground #ff0000 \
+        -textvariable EdgePaillouAmpOutput 
+    vTcl:DefineAlias "$site_6_0.cpd85" "Entry337_7" vTcl:WidgetProc "Toplevel337" 1
+    pack $site_6_0.cpd85 \
+        -in $site_6_0 -anchor center -expand 1 -fill x -side left 
+    TitleFrame $site_4_0.cpd68 \
+        -ipad 2 -text {Output Gradient Maximum Amplitude File} 
+    vTcl:DefineAlias "$site_4_0.cpd68" "TitleFrame337_3" vTcl:WidgetProc "Toplevel337" 1
+    bind $site_4_0.cpd68 <Destroy> {
+        Widget::destroy %W; rename %W {}
+    }
+    set site_6_0 [$site_4_0.cpd68 getframe]
+    entry $site_6_0.cpd85 \
+        -background white -disabledbackground #ffffff -foreground #ff0000 \
+        -textvariable EdgePaillouMaxAmpOutput 
+    vTcl:DefineAlias "$site_6_0.cpd85" "Entry337_8" vTcl:WidgetProc "Toplevel337" 1
+    pack $site_6_0.cpd85 \
+        -in $site_6_0 -anchor center -expand 1 -fill x -side left 
+    TitleFrame $site_4_0.cpd69 \
+        -ipad 2 -text {Output Gradient Direction File} 
+    vTcl:DefineAlias "$site_4_0.cpd69" "TitleFrame337_4" vTcl:WidgetProc "Toplevel337" 1
+    bind $site_4_0.cpd69 <Destroy> {
+        Widget::destroy %W; rename %W {}
+    }
+    set site_6_0 [$site_4_0.cpd69 getframe]
+    entry $site_6_0.cpd85 \
+        -background white -disabledbackground #ffffff -foreground #ff0000 \
+        -textvariable EdgePaillouAngOutput 
+    vTcl:DefineAlias "$site_6_0.cpd85" "Entry337_9" vTcl:WidgetProc "Toplevel337" 1
+    pack $site_6_0.cpd85 \
+        -in $site_6_0 -anchor center -expand 1 -fill x -side left 
+    TitleFrame $site_4_0.cpd70 \
+        -ipad 2 -text {Output Gradient Maximum Direction File} 
+    vTcl:DefineAlias "$site_4_0.cpd70" "TitleFrame337_5" vTcl:WidgetProc "Toplevel337" 1
+    bind $site_4_0.cpd70 <Destroy> {
+        Widget::destroy %W; rename %W {}
+    }
+    set site_6_0 [$site_4_0.cpd70 getframe]
+    entry $site_6_0.cpd85 \
+        -background white -disabledbackground #ffffff -foreground #ff0000 \
+        -textvariable EdgePaillouMaxAngOutput 
+    vTcl:DefineAlias "$site_6_0.cpd85" "Entry337_10" vTcl:WidgetProc "Toplevel337" 1
+    pack $site_6_0.cpd85 \
+        -in $site_6_0 -anchor center -expand 1 -fill x -side left 
+    pack $site_4_0.cpd67 \
+        -in $site_4_0 -anchor center -expand 0 -fill x -side top 
+    pack $site_4_0.cpd68 \
+        -in $site_4_0 -anchor center -expand 0 -fill x -side top 
+    pack $site_4_0.cpd69 \
+        -in $site_4_0 -anchor center -expand 0 -fill x -side top 
+    pack $site_4_0.cpd70 \
+        -in $site_4_0 -anchor center -expand 0 -fill x -side top 
     frame $top.cpd72 \
         -height 75 -width 125 
     vTcl:DefineAlias "$top.cpd72" "Frame5" vTcl:WidgetProc "Toplevel337" 1
     set site_3_0 $top.cpd72
     TitleFrame $site_3_0.cpd99 \
         -ipad 2 -text {Output Binary File} 
-    vTcl:DefineAlias "$site_3_0.cpd99" "TitleFrame12" vTcl:WidgetProc "Toplevel337" 1
+    vTcl:DefineAlias "$site_3_0.cpd99" "TitleFrame337_8" vTcl:WidgetProc "Toplevel337" 1
     bind $site_3_0.cpd99 <Destroy> {
         Widget::destroy %W; rename %W {}
     }
@@ -1247,7 +1721,7 @@ append EdgeFileOutput "$EdgeCoeff.bin"} \
         -background white -disabledbackground #ffffff \
         -disabledforeground #ff0000 -foreground #ff0000 \
         -textvariable EdgeFileOutput 
-    vTcl:DefineAlias "$site_5_0.cpd85" "EntryTopXXCh12" vTcl:WidgetProc "Toplevel337" 1
+    vTcl:DefineAlias "$site_5_0.cpd85" "Entry337_11" vTcl:WidgetProc "Toplevel337" 1
     pack $site_5_0.cpd85 \
         -in $site_5_0 -anchor center -expand 1 -fill x -side left 
     pack $site_3_0.cpd99 \
@@ -1260,8 +1734,11 @@ append EdgeFileOutput "$EdgeCoeff.bin"} \
         -background #ffff00 \
         -command {global EdgeDirOutput EdgeFileInput EdgeFileOutput
 global EdgeDetector EdgeCoeff InputFormat OutputFormat 
+global EdgePaillouAmpOutput EdgePaillouMaxAmpOutput
+global EdgePaillouAngOutput EdgePaillouMaxAngOutput
+global EdgeAlpha EdgeOmega EdgeThreshold
 global VarError ErrorMessage Fonction Fonction2 ProgressLine
-global MinMaxAutoBMP MinMaxContrastBMP OpenDirFile PSPMemory TMPMemoryAllocError
+global MinMaxAutoBMP MinMaxContrastBMP OpenDirFile TMPMemoryAllocError
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
 
 if {$OpenDirFile == 0} {
@@ -1273,7 +1750,11 @@ if {"$EdgeFileInput"==""} {
     tkwait variable VarError
     } else {
 
-    set EdgeDirOutput [file dirname $EdgeFileOutput]
+    if {$EdgeDetector != "paillou"} {
+        set EdgeDirOutput [file dirname $EdgeFileOutput]
+        } else {
+        set EdgeDirOutput [file dirname $EdgePaillouAmpOutput]
+        }
     
     #####################################################################
     #Create Directory
@@ -1313,32 +1794,69 @@ if {"$EdgeFileInput"==""} {
                 set ProgressLine "0"
                 WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                 update
-                if {$EdgeDetector == "black"} { set EdgeSoft "Soft/data_process_sngl/edge_detector_black.exe" }
-                if {$EdgeDetector == "canny"} { set EdgeSoft "Soft/data_process_sngl/edge_detector_canny.exe" }
-                if {$EdgeDetector == "marr"} { set EdgeSoft "Soft/data_process_sngl/edge_detector_marr.exe" }
-                if {$EdgeDetector == "rothwell"} { set EdgeSoft "Soft/data_process_sngl/edge_detector_rothwell.exe" }
+                if {$EdgeDetector == "black"} { set EdgeSoft "Soft/bin/data_process_sngl/edge_detector_black.exe" }
+                if {$EdgeDetector == "canny"} { set EdgeSoft "Soft/bin/data_process_sngl/edge_detector_canny.exe" }
+                if {$EdgeDetector == "marr"} { set EdgeSoft "Soft/bin/data_process_sngl/edge_detector_marr.exe" }
+                if {$EdgeDetector == "paillou"} { set EdgeSoft "Soft/bin/data_process_sngl/edge_detector_paillou.exe" }
+                if {$EdgeDetector == "rothwell"} { set EdgeSoft "Soft/bin/data_process_sngl/edge_detector_rothwell.exe" }
                 TextEditorRunTrace "Process The Function $EdgeSoft" "k"
-                TextEditorRunTrace "Arguments: -if \x22$EdgeFileInput\x22 -od \x22$EdgeDirOutput\x22 -idf $InputFormat -odf $OutputFormat -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mmb $MinMaxBMP -min $MinBMP -max $MaxBMP -det $EdgeCoeff -of \x22$EdgeFileOutput\x22 $MaskCmd" "k"
-                set f [ open "| $EdgeSoft -if \x22$EdgeFileInput\x22 -od \x22$EdgeDirOutput\x22 -idf $InputFormat -odf $OutputFormat -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mmb $MinMaxBMP -min $MinBMP -max $MaxBMP -det $EdgeCoeff -of \x22$EdgeFileOutput\x22 $MaskCmd" r]
+                if {$EdgeDetector == "paillou"} {
+                    TextEditorRunTrace "Arguments: -if \x22$EdgeFileInput\x22 -od \x22$EdgeDirOutput\x22 -idf $InputFormat -odf $OutputFormat -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mmb $MinMaxBMP -min $MinBMP -max $MaxBMP -alp $EdgeAlpha -ome $EdgeOmega -thr $EdgeThreshold -of1 \x22$EdgePaillouAmpOutput\x22 -of2 \x22$EdgePaillouAngOutput\x22 -of3 \x22$EdgePaillouMaxAmpOutput\x22 -of4 \x22$EdgePaillouMaxAngOutput\x22 $MaskCmd" "k"
+                    set f [ open "| $EdgeSoft -if \x22$EdgeFileInput\x22 -od \x22$EdgeDirOutput\x22 -idf $InputFormat -odf $OutputFormat -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mmb $MinMaxBMP -min $MinBMP -max $MaxBMP -alp $EdgeAlpha -ome $EdgeOmega -thr $EdgeThreshold -of1 \x22$EdgePaillouAmpOutput\x22 -of2 \x22$EdgePaillouAngOutput\x22 -of3 \x22$EdgePaillouMaxAmpOutput\x22 -of4 \x22$EdgePaillouMaxAngOutput\x22 $MaskCmd" r]
+                    } else {
+                    TextEditorRunTrace "Arguments: -if \x22$EdgeFileInput\x22 -od \x22$EdgeDirOutput\x22 -idf $InputFormat -odf $OutputFormat -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mmb $MinMaxBMP -min $MinBMP -max $MaxBMP -det $EdgeCoeff -of \x22$EdgeFileOutput\x22 $MaskCmd" "k"
+                    set f [ open "| $EdgeSoft -if \x22$EdgeFileInput\x22 -od \x22$EdgeDirOutput\x22 -idf $InputFormat -odf $OutputFormat -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mmb $MinMaxBMP -min $MinBMP -max $MaxBMP -det $EdgeCoeff -of \x22$EdgeFileOutput\x22 $MaskCmd" r]
+                    }
                 PsPprogressBar $f
                 TextEditorRunTrace "Check RunTime Errors" "r"
                 CheckRunTimeError
                 WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
 
-                if [file exists $EdgeFileOutput] {
-                    EnviWriteConfig $EdgeFileOutput $FinalNlig $FinalNcol 4
-                    set BMPDirInput $EdgeDirOutput
-                    set BMPFileInput $EdgeFileOutput
-                    set BMPFileOutput [file rootname $EdgeFileOutput]
-                    append BMPFileOutput ".bmp"
-                    PSPcreate_bmp_file black $BMPFileInput $BMPFileOutput float real gray $FinalNcol 0 0 $FinalNlig $FinalNcol 0 0 1
+                if {$EdgeDetector != "paillou"} {
+                    if [file exists $EdgeFileOutput] {
+                        EnviWriteConfig $EdgeFileOutput $FinalNlig $FinalNcol 4
+                        set BMPDirInput $EdgeDirOutput
+                        set BMPFileInput $EdgeFileOutput
+                        set BMPFileOutput [file rootname $EdgeFileOutput]
+                        append BMPFileOutput ".bmp"
+                        PSPcreate_bmp_file black $BMPFileInput $BMPFileOutput float real gray $FinalNcol 0 0 $FinalNlig $FinalNcol 0 0 1
+                        } else {
+                        set config "false"
+                        set VarError ""
+                        set ErrorMessage "THE FILE $EdgeFileOutput DOES NOT EXIST" 
+                        Window show .top44; TextEditorRunTrace "Open Window Error" "b"
+                        tkwait variable VarError
+                        }   
                     } else {
-                    set config "false"
-                    set VarError ""
-                    set ErrorMessage "THE FILE $EdgeFileOutput DOES NOT EXIST" 
-                    Window show .top44; TextEditorRunTrace "Open Window Error" "b"
-                    tkwait variable VarError
-                    }   
+                    if [file exists $EdgePaillouAmpOutput] {
+                        EnviWriteConfig $EdgePaillouAmpOutput $FinalNlig $FinalNcol 4
+                        set BMPFileInput $EdgePaillouAmpOutput
+                        set BMPFileOutput [file rootname $EdgePaillouAmpOutput]
+                        append BMPFileOutput ".bmp"
+                        PSPcreate_bmp_file black $BMPFileInput $BMPFileOutput float real gray $FinalNcol 0 0 $FinalNlig $FinalNcol 0 0 1
+                        EnviWriteConfig $EdgePaillouMaxAmpOutput $FinalNlig $FinalNcol 4
+                        set BMPFileInput $EdgePaillouMaxAmpOutput
+                        set BMPFileOutput [file rootname $EdgePaillouMaxAmpOutput]
+                        append BMPFileOutput ".bmp"
+                        PSPcreate_bmp_file black $BMPFileInput $BMPFileOutput float real gray $FinalNcol 0 0 $FinalNlig $FinalNcol 0 0 1
+                        EnviWriteConfig $EdgePaillouAngOutput $FinalNlig $FinalNcol 4
+                        set BMPFileInput $EdgePaillouAngOutput
+                        set BMPFileOutput [file rootname $EdgePaillouAngOutput]
+                        append BMPFileOutput ".bmp"
+                        PSPcreate_bmp_file black $BMPFileInput $BMPFileOutput float real gray $FinalNcol 0 0 $FinalNlig $FinalNcol 0 0 1
+                        EnviWriteConfig $EdgePaillouMaxAngOutput $FinalNlig $FinalNcol 4
+                        set BMPFileInput $EdgePaillouMaxAngOutput
+                        set BMPFileOutput [file rootname $EdgePaillouMaxAngOutput]
+                        append BMPFileOutput ".bmp"
+                        PSPcreate_bmp_file black $BMPFileInput $BMPFileOutput float real gray $FinalNcol 0 0 $FinalNlig $FinalNcol 0 0 1
+                        } else {
+                        set config "false"
+                        set VarError ""
+                        set ErrorMessage "THE FILE $EdgePaillouAmpOutput DOES NOT EXIST" 
+                        Window show .top44; TextEditorRunTrace "Open Window Error" "b"
+                        tkwait variable VarError
+                        }                      
+                    }
                 }
             } else {
             if {"$VarWarning"=="no"} {Window hide $widget(Toplevel337); TextEditorRunTrace "Close Window Edge Detector" "b"}
@@ -1352,8 +1870,7 @@ if {"$EdgeFileInput"==""} {
         set ::vTcl::balloon::%W {Run the Function}
     }
     button $site_3_0.but23 \
-        -background #ff8000 \
-        -command {HelpPdfEdit "Help/EdgeDetector.pdf"} \
+        -background #ff8000 -command {HelpPdfEdit "Help/EdgeDetector.pdf"} \
         -image [vTcl:image:get_image [file join . GUI Images help.gif]] \
         -pady 0 -width 20 
     vTcl:DefineAlias "$site_3_0.but23" "Button15" vTcl:WidgetProc "Toplevel337" 1
@@ -1395,6 +1912,8 @@ Window hide $widget(Toplevel337); TextEditorRunTrace "Close Window Edge Detector
         -in $top -anchor center -expand 0 -fill x -side top 
     pack $top.cpd90 \
         -in $top -anchor center -expand 0 -fill x -side top 
+    pack $top.tit66 \
+        -in $top -anchor center -expand 0 -fill x -padx 10 -side top 
     pack $top.cpd72 \
         -in $top -anchor center -expand 0 -fill x -side top 
     pack $top.fra38 \

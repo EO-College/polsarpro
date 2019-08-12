@@ -1695,7 +1695,7 @@ if {$FileName != ""} {
 global HAAlpFlag WishartFlag IdentFlag HAAlpNwinL HAAlpNwinC BMPHAAlp WishartNwinL WishartNwinC BMPWishart 
 global Fonction Fonction2 VarFunction VarWarning WarningMessage WarningMessage2 VarError ErrorMessage ProgressLine
 global BMPDirInput OpenDirFile IdentFile MasterSlaveChannel
-global ColorMapWishart8 ColorMap9 ColorMapWishart16 PSPMemory TMPMemoryAllocError
+global ColorMapWishart8 ColorMap9 ColorMapWishart16 TMPMemoryAllocError
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
 
 if {$OpenDirFile == 0} {
@@ -1743,14 +1743,14 @@ if {"$VarWarning"=="ok"} {
                 set ProgressLine "0"
                 WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                 update
-                TextEditorRunTrace "Process The Function Soft/data_process_dual/h_a_alpha_decomposition.exe" "k"
+                TextEditorRunTrace "Process The Function Soft/bin/data_process_dual/h_a_alpha_decomposition.exe" "k"
                 if {$POLSAROutputSubDir == ""} {
-                    TextEditorRunTrace "Arguments: -idm \x22$DataDirChannel1\x22 -ids \x22$DataDirChannel2\x22 -od \x22$POLSARDirOutput\x22 -iodf S2T6 -nwr $HAAlpNwinL -nwc $HAAlpNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -ms $MasterSlaveChannel -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                    set f [ open "| Soft/data_process_dual/h_a_alpha_decomposition.exe -idm \x22$DataDirChannel1\x22 -ids \x22$DataDirChannel2\x22 -od \x22$POLSARDirOutput\x22 -iodf S2T6 -nwr $HAAlpNwinL -nwc $HAAlpNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -ms $MasterSlaveChannel -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                    TextEditorRunTrace "Arguments: -idm \x22$DataDirChannel1\x22 -ids \x22$DataDirChannel2\x22 -od \x22$POLSARDirOutput\x22 -iodf S2T6 -nwr $HAAlpNwinL -nwc $HAAlpNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -ms $MasterSlaveChannel  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                    set f [ open "| Soft/bin/data_process_dual/h_a_alpha_decomposition.exe -idm \x22$DataDirChannel1\x22 -ids \x22$DataDirChannel2\x22 -od \x22$POLSARDirOutput\x22 -iodf S2T6 -nwr $HAAlpNwinL -nwc $HAAlpNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -ms $MasterSlaveChannel  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                     }
                 if {$POLSAROutputSubDir == "T6"} {
-                    TextEditorRunTrace "Arguments: -id \x22$DataDirChannel1\x22 -od \x22$POLSARDirOutput\x22 -iodf T6 -nwr $HAAlpNwinL -nwc $HAAlpNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -ms $MasterSlaveChannel -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                    set f [ open "| Soft/data_process_dual/h_a_alpha_decomposition.exe -id \x22$DataDirChannel1\x22 -od \x22$POLSARDirOutput\x22 -iodf T6 -nwr $HAAlpNwinL -nwc $HAAlpNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -ms $MasterSlaveChannel -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                    TextEditorRunTrace "Arguments: -id \x22$DataDirChannel1\x22 -od \x22$POLSARDirOutput\x22 -iodf T6 -nwr $HAAlpNwinL -nwc $HAAlpNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -ms $MasterSlaveChannel  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                    set f [ open "| Soft/bin/data_process_dual/h_a_alpha_decomposition.exe -id \x22$DataDirChannel1\x22 -od \x22$POLSARDirOutput\x22 -iodf T6 -nwr $HAAlpNwinL -nwc $HAAlpNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -ms $MasterSlaveChannel  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                     }
                 PsPprogressBar $f
                 TextEditorRunTrace "Check RunTime Errors" "r"
@@ -1926,14 +1926,14 @@ if {"$VarWarning"=="ok"} {
                     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                     update
                     if {$POLSAROutputSubDir == ""} {
-                        TextEditorRunTrace "Process The Function Soft/data_process_sngl/wishart_h_a_alpha_classifier.exe" "k"
-                        TextEditorRunTrace "Arguments: -id \x22$POLSARDirInput\x22 -od \x22$POLSARDirOutput\x22 -iodf S2 -nwr $WishartNwinL -nwc $WishartNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -pct $WishartPourcentage -nit $WishartIteration -bmp $BMPWishart -co8 \x22$ColorMapWishart8\x22 -co16 \x22$ColorMapWishart16\x22 -hf \x22$HFile\x22 -af \x22$AFile\x22 -alf \x22$AlpFile\x22 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                        set f [ open "| Soft/data_process_sngl/wishart_h_a_alpha_classifier.exe -id \x22$POLSARDirInput\x22 -od \x22$POLSARDirOutput\x22 -iodf S2 -nwr $WishartNwinL -nwc $WishartNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -pct $WishartPourcentage -nit $WishartIteration -bmp $BMPWishart -co8 \x22$ColorMapWishart8\x22 -co16 \x22$ColorMapWishart16\x22 -hf \x22$HFile\x22 -af \x22$AFile\x22 -alf \x22$AlpFile\x22 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                        TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/wishart_h_a_alpha_classifier.exe" "k"
+                        TextEditorRunTrace "Arguments: -id \x22$POLSARDirInput\x22 -od \x22$POLSARDirOutput\x22 -iodf S2 -nwr $WishartNwinL -nwc $WishartNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -pct $WishartPourcentage -nit $WishartIteration -bmp $BMPWishart -co8 \x22$ColorMapWishart8\x22 -co16 \x22$ColorMapWishart16\x22 -hf \x22$HFile\x22 -af \x22$AFile\x22 -alf \x22$AlpFile\x22  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                        set f [ open "| Soft/bin/data_process_sngl/wishart_h_a_alpha_classifier.exe -id \x22$POLSARDirInput\x22 -od \x22$POLSARDirOutput\x22 -iodf S2 -nwr $WishartNwinL -nwc $WishartNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -pct $WishartPourcentage -nit $WishartIteration -bmp $BMPWishart -co8 \x22$ColorMapWishart8\x22 -co16 \x22$ColorMapWishart16\x22 -hf \x22$HFile\x22 -af \x22$AFile\x22 -alf \x22$AlpFile\x22  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                         }
                     if {$POLSAROutputSubDir == "T6"} {
-                        TextEditorRunTrace "Process The Function Soft/data_process_dual/wishart_h_a_alpha_classifier.exe" "k"
-                        TextEditorRunTrace "Arguments: -id \x22$POLSARDirInput\x22 -od \x22$POLSARDirOutput\x22 -iodf T6 -nwr $WishartNwinL -nwc $WishartNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -pct $WishartPourcentage -nit $WishartIteration -bmp $BMPWishart -co8 \x22$ColorMapWishart8\x22 -co16 \x22$ColorMapWishart16\x22 -ms $MasterSlaveChannel -hf \x22$HFile\x22 -af \x22$AFile\x22 -alf \x22$AlpFile\x22 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                        set f [ open "| Soft/data_process_dual/wishart_h_a_alpha_classifier.exe -id \x22$POLSARDirInput\x22 -od \x22$POLSARDirOutput\x22 -iodf T6 -nwr $WishartNwinL -nwc $WishartNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -pct $WishartPourcentage -nit $WishartIteration -bmp $BMPWishart -co8 \x22$ColorMapWishart8\x22 -co16 \x22$ColorMapWishart16\x22 -ms $MasterSlaveChannel -hf \x22$HFile\x22 -af \x22$AFile\x22 -alf \x22$AlpFile\x22 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                        TextEditorRunTrace "Process The Function Soft/bin/data_process_dual/wishart_h_a_alpha_classifier.exe" "k"
+                        TextEditorRunTrace "Arguments: -id \x22$POLSARDirInput\x22 -od \x22$POLSARDirOutput\x22 -iodf T6 -nwr $WishartNwinL -nwc $WishartNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -pct $WishartPourcentage -nit $WishartIteration -bmp $BMPWishart -co8 \x22$ColorMapWishart8\x22 -co16 \x22$ColorMapWishart16\x22 -ms $MasterSlaveChannel -hf \x22$HFile\x22 -af \x22$AFile\x22 -alf \x22$AlpFile\x22  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                        set f [ open "| Soft/bin/data_process_dual/wishart_h_a_alpha_classifier.exe -id \x22$POLSARDirInput\x22 -od \x22$POLSARDirOutput\x22 -iodf T6 -nwr $WishartNwinL -nwc $WishartNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -pct $WishartPourcentage -nit $WishartIteration -bmp $BMPWishart -co8 \x22$ColorMapWishart8\x22 -co16 \x22$ColorMapWishart16\x22 -ms $MasterSlaveChannel -hf \x22$HFile\x22 -af \x22$AFile\x22 -alf \x22$AlpFile\x22  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                         }
                     PsPprogressBar $f
                     TextEditorRunTrace "Check RunTime Errors" "r"
@@ -2043,9 +2043,9 @@ if {"$VarWarning"=="ok"} {
                     set ProgressLine "0"
                     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                     update
-                    TextEditorRunTrace "Process The Function Soft/data_process_sngl/id_class_gen.exe" "k"
+                    TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/id_class_gen.exe" "k"
                     TextEditorRunTrace "Arguments: -id \x22$POLSARDirInput\x22 -od \x22$POLSARDirOutput\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -if $IdentFile -clm \x22$ColorMapWishart16\x22" "k"
-                    set f [ open "| Soft/data_process_sngl/id_class_gen.exe -id \x22$POLSARDirInput\x22 -od \x22$POLSARDirOutput\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -if $IdentFile -clm \x22$ColorMapWishart16\x22" r]
+                    set f [ open "| Soft/bin/data_process_sngl/id_class_gen.exe -id \x22$POLSARDirInput\x22 -od \x22$POLSARDirOutput\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -if $IdentFile -clm \x22$ColorMapWishart16\x22" r]
                     PsPprogressBar $f
                     TextEditorRunTrace "Check RunTime Errors" "r"
                     CheckRunTimeError

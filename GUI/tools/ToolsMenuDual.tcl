@@ -622,8 +622,8 @@ if {$Load_CheckBinaryData == 0} {
     set CheckDirInput $DataDir
     set CheckInputDir $DataDir
     set CheckInputSubDir ""
-    set CheckData ""
-    set CheckType ""
+    set CheckData " "
+    set CheckType " "
     set CheckFile ""
     set CheckFileName ""
     set CheckResult ""
@@ -675,7 +675,7 @@ set CompareOffLig ""; set CompareOffCol ""; set CompareSubNlig ""; set CompareSu
 set CompareResult ""; set CompareFormat ""
 
 for {set i 0} {$i <= 40} {incr i} { set FileCompare($i) ""}
-set CompareSubDir ""; set CompareDataSubDir ""
+set CompareSubDir " "; set CompareDataSubDir ""
 
 WidgetShowFromMenuFix $widget(Toplevel310) $widget(Toplevel416); TextEditorRunTrace "Open Window Compare Data Directory" "b"} \
         -label {Compare Data Directory} 
@@ -717,7 +717,7 @@ if {$config == "true"} {
             update
             TextEditorRunTrace "Process The Function create_mask_valid_pixels.exe" "k"
             TextEditorRunTrace "Arguments: -id \x22$ToolsDirInput\x22 -od \x22$ToolsDirInput\x22 -idf $ToolsFormat -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol" "k"
-            set f [ open "| Soft/tools/create_mask_valid_pixels.exe -id \x22$ToolsDirInput\x22 -od \x22$ToolsDirInput\x22 -idf $ToolsFormat -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol" r]
+            set f [ open "| Soft/bin/tools/create_mask_valid_pixels.exe -id \x22$ToolsDirInput\x22 -od \x22$ToolsDirInput\x22 -idf $ToolsFormat -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -780,7 +780,7 @@ if {$config == "true"} {
     set ToolsOutputSubDir ""
     set ToolsDirOutput $ToolsDirOutputErase
     set ToolsFonction "IEEE FORMAT CONVERT"
-    set ToolsFunction "Soft/tools/cmplx_tools.exe"
+    set ToolsFunction "Soft/bin/tools/cmplx_tools.exe"
     set ToolsFormat "S2"
     set ToolsOperation "ieee"
     set ConfigFile "$ToolsDirInput/config.txt"
@@ -849,7 +849,7 @@ if {$config == "true"} {
     set ToolsOutputSubDir ""
     set ToolsDirOutput $ToolsDirOutputErase
     set ToolsFonction "SINCLAIR SUB DATA EXTRACTION"
-    set ToolsFunction "Soft/tools/cmplx_tools.exe"
+    set ToolsFunction "Soft/bin/tools/cmplx_tools.exe"
     set ToolsFormat "S2"
     set ToolsOperation "extract"
     set ConfigFile "$ToolsDirInput/config.txt"
@@ -918,7 +918,7 @@ if {$config == "true"} {
     set ToolsOutputSubDir ""
     set ToolsDirOutput $ToolsDirOutputErase
     set ToolsFonction "SINCLAIR ROTATION 90 LEFT"
-    set ToolsFunction "Soft/tools/cmplx_tools.exe"
+    set ToolsFunction "Soft/bin/tools/cmplx_tools.exe"
     set ToolsFormat "S2"
     set ToolsOperation "rot90l"
     set ConfigFile "$ToolsDirInput/config.txt"
@@ -987,7 +987,7 @@ if {$config == "true"} {
     set ToolsOutputSubDir ""
     set ToolsDirOutput $ToolsDirOutputErase
     set ToolsFonction "SINCLAIR ROTATION 90 RIGHT"
-    set ToolsFunction "Soft/tools/cmplx_tools.exe"
+    set ToolsFunction "Soft/bin/tools/cmplx_tools.exe"
     set ToolsFormat "S2"
     set ToolsOperation "rot90r"
     set ConfigFile "$ToolsDirInput/config.txt"
@@ -1056,7 +1056,7 @@ if {$config == "true"} {
     set ToolsOutputSubDir ""
     set ToolsDirOutput $ToolsDirOutputErase
     set ToolsFonction "SINCLAIR ROTATION 180"
-    set ToolsFunction "Soft/tools/cmplx_tools.exe"
+    set ToolsFunction "Soft/bin/tools/cmplx_tools.exe"
     set ToolsFormat "S2"
     set ToolsOperation "rot180"
     set ConfigFile "$ToolsDirInput/config.txt"
@@ -1125,7 +1125,7 @@ if {$config == "true"} {
     set ToolsOutputSubDir ""
     set ToolsDirOutput $ToolsDirOutputErase
     set ToolsFonction "SINCLAIR FLIP UP DOWN"
-    set ToolsFunction "Soft/tools/cmplx_tools.exe"
+    set ToolsFunction "Soft/bin/tools/cmplx_tools.exe"
     set ToolsFormat "S2"
     set ToolsOperation "flipud"
     set ConfigFile "$ToolsDirInput/config.txt"
@@ -1194,7 +1194,7 @@ if {$config == "true"} {
     set ToolsOutputSubDir ""
     set ToolsDirOutput $ToolsDirOutputErase
     set ToolsFonction "SINCLAIR FLIP LEFT RIGHT"
-    set ToolsFunction "Soft/tools/cmplx_tools.exe"
+    set ToolsFunction "Soft/bin/tools/cmplx_tools.exe"
     set ToolsFormat "S2"
     set ToolsOperation "fliplr"
     set ConfigFile "$ToolsDirInput/config.txt"
@@ -1263,7 +1263,7 @@ if {$config == "true"} {
     set ToolsOutputSubDir ""
     set ToolsDirOutput $ToolsDirOutputErase
     set ToolsFonction "SINCLAIR TRANSPOSE"
-    set ToolsFunction "Soft/tools/cmplx_tools.exe"
+    set ToolsFunction "Soft/bin/tools/cmplx_tools.exe"
     set ToolsFormat "S2"
     set ToolsOperation "transp"
     set ConfigFile "$ToolsDirInput/config.txt"
@@ -1333,7 +1333,7 @@ if {$config == "true"} {
     set ToolsOutputSubDir ""
     set ToolsDirOutput $ToolsDirOutputErase
     set ToolsFonction "SINCLAIR FFT (lines)"
-    set ToolsFunction "Soft/tools/cmplx_tools_fft.exe"
+    set ToolsFunction "Soft/bin/tools/cmplx_tools_fft.exe"
     set ToolsFormat "S2"
     set ToolsOperation "fft"
     set ConfigFile "$ToolsDirInput/config.txt"
@@ -1407,7 +1407,7 @@ if {$config == "true"} {
     set ToolsOutputSubDir ""
     set ToolsDirOutput $ToolsDirOutputErase
     set ToolsFonction "SINCLAIR APPLY MASK"
-    set ToolsFunction "Soft/tools/cmplx_tools_mask.exe"
+    set ToolsFunction "Soft/bin/tools/cmplx_tools_mask.exe"
     set ToolsFormat "S2"
     set ToolsOperation "mask"
     set ConfigFile "$ToolsDirInput/config.txt"
@@ -1464,7 +1464,7 @@ if {$Load_CheckBinaryData == 0} {
     set CheckDirInput $DataDir
     set CheckInputDir $DataDir
     set CheckInputSubDir ""
-    set CheckData ""
+    set CheckData " "
     set CheckType ""
     set CheckFile ""
     set CheckFileName ""
@@ -1517,7 +1517,7 @@ set CompareOffLig ""; set CompareOffCol ""; set CompareSubNlig ""; set CompareSu
 set CompareResult ""; set CompareFormat ""
 
 for {set i 0} {$i <= 40} {incr i} { set FileCompare($i) ""}
-set CompareSubDir ""; set CompareDataSubDir ""
+set CompareSubDir " "; set CompareDataSubDir ""
 
 WidgetShowFromMenuFix $widget(Toplevel310) $widget(Toplevel416); TextEditorRunTrace "Open Window Compare Data Directory" "b"} \
         -label {Compare Data Directory} 
@@ -1559,7 +1559,7 @@ if {$config == "true"} {
             update
             TextEditorRunTrace "Process The Function create_mask_valid_pixels.exe" "k"
             TextEditorRunTrace "Arguments: -id \x22$ToolsDirInput\x22 -od \x22$ToolsDirInput\x22 -idf $ToolsFormat -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol" "k"
-            set f [ open "| Soft/tools/create_mask_valid_pixels.exe -id \x22$ToolsDirInput\x22 -od \x22$ToolsDirInput\x22 -idf $ToolsFormat -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol" r]
+            set f [ open "| Soft/bin/tools/create_mask_valid_pixels.exe -id \x22$ToolsDirInput\x22 -od \x22$ToolsDirInput\x22 -idf $ToolsFormat -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1621,7 +1621,7 @@ if {$config == "true"} {
     set ToolsOutputSubDir ""
     set ToolsDirOutput $ToolsDirOutputErase
     set ToolsFonction "IEEE FORMAT CONVERT"
-    set ToolsFunction "Soft/tools/cmplx_tools.exe"
+    set ToolsFunction "Soft/bin/tools/cmplx_tools.exe"
     set ToolsFormat "S2"
     set ToolsOperation "ieee"
     set ConfigFile "$ToolsDirInput/config.txt"
@@ -1690,7 +1690,7 @@ if {$config == "true"} {
     set ToolsOutputSubDir ""
     set ToolsDirOutput $ToolsDirOutputErase
     set ToolsFonction "SINCLAIR SUB DATA EXTRACTION"
-    set ToolsFunction "Soft/tools/cmplx_tools.exe"
+    set ToolsFunction "Soft/bin/tools/cmplx_tools.exe"
     set ToolsFormat "S2"
     set ToolsOperation "extract"
     set ConfigFile "$ToolsDirInput/config.txt"
@@ -1759,7 +1759,7 @@ if {$config == "true"} {
     set ToolsOutputSubDir ""
     set ToolsDirOutput $ToolsDirOutputErase
     set ToolsFonction "SINCLAIR ROTATION 90 LEFT"
-    set ToolsFunction "Soft/tools/cmplx_tools.exe"
+    set ToolsFunction "Soft/bin/tools/cmplx_tools.exe"
     set ToolsFormat "S2"
     set ToolsOperation "rot90l"
     set ConfigFile "$ToolsDirInput/config.txt"
@@ -1828,7 +1828,7 @@ if {$config == "true"} {
     set ToolsOutputSubDir ""
     set ToolsDirOutput $ToolsDirOutputErase
     set ToolsFonction "SINCLAIR ROTATION 90 RIGHT"
-    set ToolsFunction "Soft/tools/cmplx_tools.exe"
+    set ToolsFunction "Soft/bin/tools/cmplx_tools.exe"
     set ToolsFormat "S2"
     set ToolsOperation "rot90r"
     set ConfigFile "$ToolsDirInput/config.txt"
@@ -1897,7 +1897,7 @@ if {$config == "true"} {
     set ToolsOutputSubDir ""
     set ToolsDirOutput $ToolsDirOutputErase
     set ToolsFonction "SINCLAIR ROTATION 180"
-    set ToolsFunction "Soft/tools/cmplx_tools.exe"
+    set ToolsFunction "Soft/bin/tools/cmplx_tools.exe"
     set ToolsFormat "S2"
     set ToolsOperation "rot180"
     set ConfigFile "$ToolsDirInput/config.txt"
@@ -1966,7 +1966,7 @@ if {$config == "true"} {
     set ToolsOutputSubDir ""
     set ToolsDirOutput $ToolsDirOutputErase
     set ToolsFonction "SINCLAIR FLIP UP DOWN"
-    set ToolsFunction "Soft/tools/cmplx_tools.exe"
+    set ToolsFunction "Soft/bin/tools/cmplx_tools.exe"
     set ToolsFormat "S2"
     set ToolsOperation "flipud"
     set ConfigFile "$ToolsDirInput/config.txt"
@@ -2035,7 +2035,7 @@ if {$config == "true"} {
     set ToolsOutputSubDir ""
     set ToolsDirOutput $ToolsDirOutputErase
     set ToolsFonction "SINCLAIR FLIP LEFT RIGHT"
-    set ToolsFunction "Soft/tools/cmplx_tools.exe"
+    set ToolsFunction "Soft/bin/tools/cmplx_tools.exe"
     set ToolsFormat "S2"
     set ToolsOperation "fliplr"
     set ConfigFile "$ToolsDirInput/config.txt"
@@ -2104,7 +2104,7 @@ if {$config == "true"} {
     set ToolsOutputSubDir ""
     set ToolsDirOutput $ToolsDirOutputErase
     set ToolsFonction "SINCLAIR TRANSPOSE"
-    set ToolsFunction "Soft/tools/cmplx_tools.exe"
+    set ToolsFunction "Soft/bin/tools/cmplx_tools.exe"
     set ToolsFormat "S2"
     set ToolsOperation "transp"
     set ConfigFile "$ToolsDirInput/config.txt"
@@ -2174,7 +2174,7 @@ if {$config == "true"} {
     set ToolsOutputSubDir ""
     set ToolsDirOutput $ToolsDirOutputErase
     set ToolsFonction "SINCLAIR FFT (lines)"
-    set ToolsFunction "Soft/tools/cmplx_tools_fft.exe"
+    set ToolsFunction "Soft/bin/tools/cmplx_tools_fft.exe"
     set ToolsFormat "S2"
     set ToolsOperation "fft"
     set ConfigFile "$ToolsDirInput/config.txt"
@@ -2248,7 +2248,7 @@ if {$config == "true"} {
     set ToolsOutputSubDir ""
     set ToolsDirOutput $ToolsDirOutputErase
     set ToolsFonction "SINCLAIR APPLY MASK"
-    set ToolsFunction "Soft/tools/cmplx_tools_mask.exe"
+    set ToolsFunction "Soft/bin/tools/cmplx_tools_mask.exe"
     set ToolsFormat "S2"
     set ToolsOperation "mask"
     set ConfigFile "$ToolsDirInput/config.txt"
@@ -2313,8 +2313,8 @@ if {$Load_CheckBinaryData == 0} {
     set CheckDirInput $DataDir
     set CheckInputDir $DataDir
     set CheckInputSubDir ""
-    set CheckData ""
-    set CheckType ""
+    set CheckData " "
+    set CheckType " "
     set CheckFile ""
     set CheckFileName ""
     set CheckResult ""
@@ -2365,7 +2365,7 @@ set CompareOffLig ""; set CompareOffCol ""; set CompareSubNlig ""; set CompareSu
 set CompareResult ""; set CompareFormat ""
 
 for {set i 0} {$i <= 40} {incr i} { set FileCompare($i) ""}
-set CompareSubDir ""; set CompareDataSubDir ""
+set CompareSubDir " "; set CompareDataSubDir ""
 
 WidgetShowFromMenuFix $widget(Toplevel310) $widget(Toplevel416); TextEditorRunTrace "Open Window Compare Data Directory" "b"} \
         -label {Compare Data Directory} 
@@ -2407,7 +2407,7 @@ if {$config == "true"} {
             update
             TextEditorRunTrace "Process The Function create_mask_valid_pixels.exe" "k"
             TextEditorRunTrace "Arguments: -id \x22$ToolsDirInput\x22 -od \x22$ToolsDirInput\x22 -idf $ToolsFormat -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol" "k"
-            set f [ open "| Soft/tools/create_mask_valid_pixels.exe -id \x22$ToolsDirInput\x22 -od \x22$ToolsDirInput\x22 -idf $ToolsFormat -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol" r]
+            set f [ open "| Soft/bin/tools/create_mask_valid_pixels.exe -id \x22$ToolsDirInput\x22 -od \x22$ToolsDirInput\x22 -idf $ToolsFormat -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -2470,7 +2470,7 @@ if {$config == "true"} {
     set ToolsOutputSubDir ""
     set ToolsDirOutput $ToolsDirOutputErase
     set ToolsFonction "IEEE FORMAT CONVERT"
-    set ToolsFunction "Soft/tools/cmplx_tools.exe"
+    set ToolsFunction "Soft/bin/tools/cmplx_tools.exe"
     set ToolsFormat "SPP"
     set ToolsOperation "ieee"
     set ConfigFile "$ToolsDirInput/config.txt"
@@ -2539,7 +2539,7 @@ if {$config == "true"} {
     set ToolsOutputSubDir ""
     set ToolsDirOutput $ToolsDirOutputErase
     set ToolsFonction "SINCLAIR SUB DATA EXTRACTION"
-    set ToolsFunction "Soft/tools/cmplx_tools.exe"
+    set ToolsFunction "Soft/bin/tools/cmplx_tools.exe"
     set ToolsFormat "SPP"
     set ToolsOperation "extract"
     set ConfigFile "$ToolsDirInput/config.txt"
@@ -2608,7 +2608,7 @@ if {$config == "true"} {
     set ToolsOutputSubDir ""
     set ToolsDirOutput $ToolsDirOutputErase
     set ToolsFonction "SINCLAIR ROTATION 90 LEFT"
-    set ToolsFunction "Soft/tools/cmplx_tools.exe"
+    set ToolsFunction "Soft/bin/tools/cmplx_tools.exe"
     set ToolsFormat "SPP"
     set ToolsOperation "rot90l"
     set ConfigFile "$ToolsDirInput/config.txt"
@@ -2677,7 +2677,7 @@ if {$config == "true"} {
     set ToolsOutputSubDir ""
     set ToolsDirOutput $ToolsDirOutputErase
     set ToolsFonction "SINCLAIR ROTATION 90 RIGHT"
-    set ToolsFunction "Soft/tools/cmplx_tools.exe"
+    set ToolsFunction "Soft/bin/tools/cmplx_tools.exe"
     set ToolsFormat "SPP"
     set ToolsOperation "rot90r"
     set ConfigFile "$ToolsDirInput/config.txt"
@@ -2746,7 +2746,7 @@ if {$config == "true"} {
     set ToolsOutputSubDir ""
     set ToolsDirOutput $ToolsDirOutputErase
     set ToolsFonction "SINCLAIR ROTATION 180"
-    set ToolsFunction "Soft/tools/cmplx_tools.exe"
+    set ToolsFunction "Soft/bin/tools/cmplx_tools.exe"
     set ToolsFormat "SPP"
     set ToolsOperation "rot180"
     set ConfigFile "$ToolsDirInput/config.txt"
@@ -2815,7 +2815,7 @@ if {$config == "true"} {
     set ToolsOutputSubDir ""
     set ToolsDirOutput $ToolsDirOutputErase
     set ToolsFonction "SINCLAIR FLIP UP DOWN"
-    set ToolsFunction "Soft/tools/cmplx_tools.exe"
+    set ToolsFunction "Soft/bin/tools/cmplx_tools.exe"
     set ToolsFormat "S2"
     set ToolsOperation "flipud"
     set ConfigFile "$ToolsDirInput/config.txt"
@@ -2884,7 +2884,7 @@ if {$config == "true"} {
     set ToolsOutputSubDir ""
     set ToolsDirOutput $ToolsDirOutputErase
     set ToolsFonction "SINCLAIR FLIP LEFT RIGHT"
-    set ToolsFunction "Soft/tools/cmplx_tools.exe"
+    set ToolsFunction "Soft/bin/tools/cmplx_tools.exe"
     set ToolsFormat "SPP"
     set ToolsOperation "fliplr"
     set ConfigFile "$ToolsDirInput/config.txt"
@@ -2953,7 +2953,7 @@ if {$config == "true"} {
     set ToolsOutputSubDir ""
     set ToolsDirOutput $ToolsDirOutputErase
     set ToolsFonction "SINCLAIR TRANSPOSE"
-    set ToolsFunction "Soft/tools/cmplx_tools.exe"
+    set ToolsFunction "Soft/bin/tools/cmplx_tools.exe"
     set ToolsFormat "SPP"
     set ToolsOperation "transp"
     set ConfigFile "$ToolsDirInput/config.txt"
@@ -3023,7 +3023,7 @@ if {$config == "true"} {
     set ToolsOutputSubDir ""
     set ToolsDirOutput $ToolsDirOutputErase
     set ToolsFonction "SINCLAIR FFT (lines)"
-    set ToolsFunction "Soft/tools/cmplx_tools_fft.exe"
+    set ToolsFunction "Soft/bin/tools/cmplx_tools_fft.exe"
     set ToolsFormat "SPP"
     set ToolsOperation "fft"
     set ConfigFile "$ToolsDirInput/config.txt"
@@ -3097,7 +3097,7 @@ if {$config == "true"} {
     set ToolsOutputSubDir ""
     set ToolsDirOutput $ToolsDirOutputErase
     set ToolsFonction "SINCLAIR APPLY MASK"
-    set ToolsFunction "Soft/tools/cmplx_tools_mask.exe"
+    set ToolsFunction "Soft/bin/tools/cmplx_tools_mask.exe"
     set ToolsFormat "SPP"
     set ToolsOperation "mask"
     set ConfigFile "$ToolsDirInput/config.txt"
@@ -3154,8 +3154,8 @@ if {$Load_CheckBinaryData == 0} {
     set CheckDirInput $DataDir
     set CheckInputDir $DataDir
     set CheckInputSubDir ""
-    set CheckData ""
-    set CheckType ""
+    set CheckData " "
+    set CheckType " "
     set CheckFile ""
     set CheckFileName ""
     set CheckResult ""
@@ -3207,7 +3207,7 @@ set CompareOffLig ""; set CompareOffCol ""; set CompareSubNlig ""; set CompareSu
 set CompareResult ""; set CompareFormat ""
 
 for {set i 0} {$i <= 40} {incr i} { set FileCompare($i) ""}
-set CompareSubDir ""; set CompareDataSubDir ""
+set CompareSubDir " "; set CompareDataSubDir ""
 
 WidgetShowFromMenuFix $widget(Toplevel310) $widget(Toplevel416); TextEditorRunTrace "Open Window Compare Data Directory" "b"} \
         -label {Compare Data Directory} 
@@ -3249,7 +3249,7 @@ if {$config == "true"} {
             update
             TextEditorRunTrace "Process The Function create_mask_valid_pixels.exe" "k"
             TextEditorRunTrace "Arguments: -id \x22$ToolsDirInput\x22 -od \x22$ToolsDirInput\x22 -idf $ToolsFormat -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol" "k"
-            set f [ open "| Soft/tools/create_mask_valid_pixels.exe -id \x22$ToolsDirInput\x22 -od \x22$ToolsDirInput\x22 -idf $ToolsFormat -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol" r]
+            set f [ open "| Soft/bin/tools/create_mask_valid_pixels.exe -id \x22$ToolsDirInput\x22 -od \x22$ToolsDirInput\x22 -idf $ToolsFormat -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -3311,7 +3311,7 @@ if {$config == "true"} {
     set ToolsOutputSubDir ""
     set ToolsDirOutput $ToolsDirOutputErase
     set ToolsFonction "IEEE FORMAT CONVERT"
-    set ToolsFunction "Soft/tools/cmplx_tools.exe"
+    set ToolsFunction "Soft/bin/tools/cmplx_tools.exe"
     set ToolsFormat "SPP"
     set ToolsOperation "ieee"
     set ConfigFile "$ToolsDirInput/config.txt"
@@ -3380,7 +3380,7 @@ if {$config == "true"} {
     set ToolsOutputSubDir ""
     set ToolsDirOutput $ToolsDirOutputErase
     set ToolsFonction "SINCLAIR SUB DATA EXTRACTION"
-    set ToolsFunction "Soft/tools/cmplx_tools.exe"
+    set ToolsFunction "Soft/bin/tools/cmplx_tools.exe"
     set ToolsFormat "SPP"
     set ToolsOperation "extract"
     set ConfigFile "$ToolsDirInput/config.txt"
@@ -3449,7 +3449,7 @@ if {$config == "true"} {
     set ToolsOutputSubDir ""
     set ToolsDirOutput $ToolsDirOutputErase
     set ToolsFonction "SINCLAIR ROTATION 90 LEFT"
-    set ToolsFunction "Soft/tools/cmplx_tools.exe"
+    set ToolsFunction "Soft/bin/tools/cmplx_tools.exe"
     set ToolsFormat "SPP"
     set ToolsOperation "rot90l"
     set ConfigFile "$ToolsDirInput/config.txt"
@@ -3518,7 +3518,7 @@ if {$config == "true"} {
     set ToolsOutputSubDir ""
     set ToolsDirOutput $ToolsDirOutputErase
     set ToolsFonction "SINCLAIR ROTATION 90 RIGHT"
-    set ToolsFunction "Soft/tools/cmplx_tools.exe"
+    set ToolsFunction "Soft/bin/tools/cmplx_tools.exe"
     set ToolsFormat "SPP"
     set ToolsOperation "rot90r"
     set ConfigFile "$ToolsDirInput/config.txt"
@@ -3587,7 +3587,7 @@ if {$config == "true"} {
     set ToolsOutputSubDir ""
     set ToolsDirOutput $ToolsDirOutputErase
     set ToolsFonction "SINCLAIR ROTATION 180"
-    set ToolsFunction "Soft/tools/cmplx_tools.exe"
+    set ToolsFunction "Soft/bin/tools/cmplx_tools.exe"
     set ToolsFormat "SPP"
     set ToolsOperation "rot180"
     set ConfigFile "$ToolsDirInput/config.txt"
@@ -3656,7 +3656,7 @@ if {$config == "true"} {
     set ToolsOutputSubDir ""
     set ToolsDirOutput $ToolsDirOutputErase
     set ToolsFonction "SINCLAIR FLIP UP DOWN"
-    set ToolsFunction "Soft/tools/cmplx_tools.exe"
+    set ToolsFunction "Soft/bin/tools/cmplx_tools.exe"
     set ToolsFormat "SPP"
     set ToolsOperation "flipud"
     set ConfigFile "$ToolsDirInput/config.txt"
@@ -3725,7 +3725,7 @@ if {$config == "true"} {
     set ToolsOutputSubDir ""
     set ToolsDirOutput $ToolsDirOutputErase
     set ToolsFonction "SINCLAIR FLIP LEFT RIGHT"
-    set ToolsFunction "Soft/tools/cmplx_tools.exe"
+    set ToolsFunction "Soft/bin/tools/cmplx_tools.exe"
     set ToolsFormat "SPP"
     set ToolsOperation "fliplr"
     set ConfigFile "$ToolsDirInput/config.txt"
@@ -3794,7 +3794,7 @@ if {$config == "true"} {
     set ToolsOutputSubDir ""
     set ToolsDirOutput $ToolsDirOutputErase
     set ToolsFonction "SINCLAIR TRANSPOSE"
-    set ToolsFunction "Soft/tools/cmplx_tools.exe"
+    set ToolsFunction "Soft/bin/tools/cmplx_tools.exe"
     set ToolsFormat "SPP"
     set ToolsOperation "transp"
     set ConfigFile "$ToolsDirInput/config.txt"
@@ -3864,7 +3864,7 @@ if {$config == "true"} {
     set ToolsOutputSubDir ""
     set ToolsDirOutput $ToolsDirOutputErase
     set ToolsFonction "SINCLAIR FFT (lines)"
-    set ToolsFunction "Soft/tools/cmplx_tools_fft.exe"
+    set ToolsFunction "Soft/bin/tools/cmplx_tools_fft.exe"
     set ToolsFormat "SPP"
     set ToolsOperation "fft"
     set ConfigFile "$ToolsDirInput/config.txt"
@@ -3938,7 +3938,7 @@ if {$config == "true"} {
     set ToolsOutputSubDir ""
     set ToolsDirOutput $ToolsDirOutputErase
     set ToolsFonction "SINCLAIR APPLY MASK"
-    set ToolsFunction "Soft/tools/cmplx_tools_mask.exe"
+    set ToolsFunction "Soft/bin/tools/cmplx_tools_mask.exe"
     set ToolsFormat "SPP"
     set ToolsOperation "mask"
     set ConfigFile "$ToolsDirInput/config.txt"
@@ -4007,8 +4007,8 @@ if {$Load_CheckBinaryData == 0} {
     set CheckDirInput $DataDir
     set CheckInputDir $DataDir
     set CheckInputSubDir ""
-    set CheckData ""
-    set CheckType ""
+    set CheckData " "
+    set CheckType " "
     set CheckFile ""
     set CheckFileName ""
     set CheckResult ""
@@ -4059,7 +4059,7 @@ set CompareOffLig ""; set CompareOffCol ""; set CompareSubNlig ""; set CompareSu
 set CompareResult ""; set CompareFormat ""
 
 for {set i 0} {$i <= 40} {incr i} { set FileCompare($i) ""}
-set CompareSubDir ""; set CompareDataSubDir ""
+set CompareSubDir " "; set CompareDataSubDir ""
 
 WidgetShowFromMenuFix $widget(Toplevel310) $widget(Toplevel416); TextEditorRunTrace "Open Window Compare Data Directory" "b"} \
         -label {Compare Data Directory} 
@@ -4094,7 +4094,7 @@ if [file exists "$DataDirChannel1/T4/T11.bin"] {
         update
         TextEditorRunTrace "Process The Function create_mask_valid_pixels.exe" "k"
         TextEditorRunTrace "Arguments: \x22$ToolsDirInput\x22 -id \x22$ToolsDirInput\x22 -od \x22$ToolsDirInput\x22 -idf $ToolsFormat -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol" "k"
-        set f [ open "| Soft/tools/create_mask_valid_pixels.exe -id \x22$ToolsDirInput\x22 -od \x22$ToolsDirInput\x22 -idf $ToolsFormat -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol" r]
+        set f [ open "| Soft/bin/tools/create_mask_valid_pixels.exe -id \x22$ToolsDirInput\x22 -od \x22$ToolsDirInput\x22 -idf $ToolsFormat -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError
@@ -4158,7 +4158,7 @@ if [file exists "$DataDirChannel1/T4/T11.bin"] {
     set ToolsOutputSubDir "T4"
     set ToolsDirOutput $ToolsDirOutputErase
     set ToolsFonction "T4 IEEE FORMAT CONVERT"
-    set ToolsFunction "Soft/tools/float_tools.exe"
+    set ToolsFunction "Soft/bin/tools/float_tools.exe"
     set ToolsFormat "T4"
     set ToolsOperation "ieee"
     set ConfigFile "$ToolsDirInput/config.txt"
@@ -4224,7 +4224,7 @@ if [file exists "$DataDirChannel1/T4/T11.bin"] {
     set ToolsOutputSubDir "T4"
     set ToolsDirOutput $ToolsDirOutputErase
     set ToolsFonction "T4 COHERENCY SUB DATA EXTRACTION"
-    set ToolsFunction "Soft/tools/float_tools.exe"
+    set ToolsFunction "Soft/bin/tools/float_tools.exe"
     set ToolsFormat "T4"
     set ToolsOperation "extract"
     set ConfigFile "$ToolsDirInput/config.txt"
@@ -4290,7 +4290,7 @@ if [file exists "$DataDirChannel1/T4/T11.bin"] {
     set ToolsOutputSubDir "T4"
     set ToolsDirOutput $ToolsDirOutputErase
     set ToolsFonction "T4 COHERENCY ROTATION 90 LEFT"
-    set ToolsFunction "Soft/tools/float_tools.exe"
+    set ToolsFunction "Soft/bin/tools/float_tools.exe"
     set ToolsFormat "T4"
     set ToolsOperation "rot90l"
     set ConfigFile "$ToolsDirInput/config.txt"
@@ -4356,7 +4356,7 @@ if [file exists "$DataDirChannel1/T4/T11.bin"] {
     set ToolsOutputSubDir "T4"
     set ToolsDirOutput $ToolsDirOutputErase
     set ToolsFonction "T4 COHERENCY ROTATION 90 RIGHT"
-    set ToolsFunction "Soft/tools/float_tools.exe"
+    set ToolsFunction "Soft/bin/tools/float_tools.exe"
     set ToolsFormat "T4"
     set ToolsOperation "rot90r"
     set ConfigFile "$ToolsDirInput/config.txt"
@@ -4423,7 +4423,7 @@ if [file exists "$DataDirChannel1/T4/T11.bin"] {
     set ToolsOutputSubDir "T4"
     set ToolsDirOutput $ToolsDirOutputErase
     set ToolsFonction "T4 COHERENCY ROTATION 180"
-    set ToolsFunction "Soft/tools/float_tools.exe"
+    set ToolsFunction "Soft/bin/tools/float_tools.exe"
     set ToolsFormat "T4"
     set ToolsOperation "rot180"
     set ConfigFile "$ToolsDirInput/config.txt"
@@ -4489,7 +4489,7 @@ if [file exists "$DataDirChannel1/T4/T11.bin"] {
     set ToolsOutputSubDir "T4"
     set ToolsDirOutput $ToolsDirOutputErase
     set ToolsFonction "T4 COHERENCY FLIP UP DOWN"
-    set ToolsFunction "Soft/tools/float_tools.exe"
+    set ToolsFunction "Soft/bin/tools/float_tools.exe"
     set ToolsFormat "T4"
     set ToolsOperation "flipud"
     set ConfigFile "$ToolsDirInput/config.txt"
@@ -4555,7 +4555,7 @@ if [file exists "$DataDirChannel1/T4/T11.bin"] {
     set ToolsOutputSubDir "T4"
     set ToolsDirOutput $ToolsDirOutputErase
     set ToolsFonction "T4 COHERENCY FLIP LEFT RIGHT"
-    set ToolsFunction "Soft/tools/float_tools.exe"
+    set ToolsFunction "Soft/bin/tools/float_tools.exe"
     set ToolsFormat "T4"
     set ToolsOperation "fliplr"
     set ConfigFile "$ToolsDirInput/config.txt"
@@ -4621,7 +4621,7 @@ if [file exists "$DataDirChannel1/T4/T11.bin"] {
     set ToolsOutputSubDir "T4"
     set ToolsDirOutput $ToolsDirOutputErase
     set ToolsFonction "T4 COHERENCY TRANSPOSE"
-    set ToolsFunction "Soft/tools/float_tools.exe"
+    set ToolsFunction "Soft/bin/tools/float_tools.exe"
     set ToolsFormat "T4"
     set ToolsOperation "transp"
     set ConfigFile "$ToolsDirInput/config.txt"
@@ -4690,7 +4690,7 @@ if [file exists "$DataDirChannel1/T4/T11.bin"] {
     set ToolsOutputSubDir "T4"
     set ToolsDirOutput $ToolsDirOutputErase
     set ToolsFonction "T4 COHERENCY APPLY MASK"
-    set ToolsFunction "Soft/tools/float_tools_mask.exe"
+    set ToolsFunction "Soft/bin/tools/float_tools_mask.exe"
     set ToolsFormat "T4"
     set ToolsOperation "mask"
     set ConfigFile "$ToolsDirInput/config.txt"
@@ -4748,8 +4748,8 @@ if {$Load_CheckBinaryData == 0} {
     set CheckDirInput $DataDir
     set CheckInputDir $DataDir
     set CheckInputSubDir ""
-    set CheckData ""
-    set CheckType ""
+    set CheckData " "
+    set CheckType " "
     set CheckFile ""
     set CheckFileName ""
     set CheckResult ""
@@ -4801,7 +4801,7 @@ set CompareOffLig ""; set CompareOffCol ""; set CompareSubNlig ""; set CompareSu
 set CompareResult ""; set CompareFormat ""
 
 for {set i 0} {$i <= 40} {incr i} { set FileCompare($i) ""}
-set CompareSubDir ""; set CompareDataSubDir ""
+set CompareSubDir " "; set CompareDataSubDir ""
 
 WidgetShowFromMenuFix $widget(Toplevel310) $widget(Toplevel416); TextEditorRunTrace "Open Window Compare Data Directory" "b"} \
         -label {Compare Data Directory} 
@@ -4836,7 +4836,7 @@ if [file exists "$DataDirChannel1/T6/T11.bin"] {
         update
         TextEditorRunTrace "Process The Function create_mask_valid_pixels.exe" "k"
         TextEditorRunTrace "Arguments: \x22$ToolsDirInput\x22 -id \x22$ToolsDirInput\x22 -od \x22$ToolsDirInput\x22 -idf $ToolsFormat -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol" "k"
-        set f [ open "| Soft/tools/create_mask_valid_pixels.exe -id \x22$ToolsDirInput\x22 -od \x22$ToolsDirInput\x22 -idf $ToolsFormat -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol" r]
+        set f [ open "| Soft/bin/tools/create_mask_valid_pixels.exe -id \x22$ToolsDirInput\x22 -od \x22$ToolsDirInput\x22 -idf $ToolsFormat -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError
@@ -4900,7 +4900,7 @@ if [file exists "$DataDirChannel1/T6/T11.bin"] {
     set ToolsOutputSubDir "T6"
     set ToolsDirOutput $ToolsDirOutputErase
     set ToolsFonction "T6 IEEE FORMAT CONVERT"
-    set ToolsFunction "Soft/tools/float_tools.exe"
+    set ToolsFunction "Soft/bin/tools/float_tools.exe"
     set ToolsFormat "T6"
     set ToolsOperation "ieee"
     set ConfigFile "$ToolsDirInput/config.txt"
@@ -4966,7 +4966,7 @@ if [file exists "$DataDirChannel1/T6/T11.bin"] {
     set ToolsOutputSubDir "T6"
     set ToolsDirOutput $ToolsDirOutputErase
     set ToolsFonction "T6 COHERENCY SUB DATA EXTRACTION"
-    set ToolsFunction "Soft/tools/float_tools.exe"
+    set ToolsFunction "Soft/bin/tools/float_tools.exe"
     set ToolsFormat "T6"
     set ToolsOperation "extract"
     set ConfigFile "$ToolsDirInput/config.txt"
@@ -5032,7 +5032,7 @@ if [file exists "$DataDirChannel1/T6/T11.bin"] {
     set ToolsOutputSubDir "T6"
     set ToolsDirOutput $ToolsDirOutputErase
     set ToolsFonction "T6 COHERENCY ROTATION 90 LEFT"
-    set ToolsFunction "Soft/tools/float_tools.exe"
+    set ToolsFunction "Soft/bin/tools/float_tools.exe"
     set ToolsFormat "T6"
     set ToolsOperation "rot90l"
     set ConfigFile "$ToolsDirInput/config.txt"
@@ -5098,7 +5098,7 @@ if [file exists "$DataDirChannel1/T6/T11.bin"] {
     set ToolsOutputSubDir "T6"
     set ToolsDirOutput $ToolsDirOutputErase
     set ToolsFonction "T6 COHERENCY ROTATION 90 RIGHT"
-    set ToolsFunction "Soft/tools/float_tools.exe"
+    set ToolsFunction "Soft/bin/tools/float_tools.exe"
     set ToolsFormat "T6"
     set ToolsOperation "rot90r"
     set ConfigFile "$ToolsDirInput/config.txt"
@@ -5165,7 +5165,7 @@ if [file exists "$DataDirChannel1/T6/T11.bin"] {
     set ToolsOutputSubDir "T6"
     set ToolsDirOutput $ToolsDirOutputErase
     set ToolsFonction "T6 COHERENCY ROTATION 180"
-    set ToolsFunction "Soft/tools/float_tools.exe"
+    set ToolsFunction "Soft/bin/tools/float_tools.exe"
     set ToolsFormat "T6"
     set ToolsOperation "rot180"
     set ConfigFile "$ToolsDirInput/config.txt"
@@ -5231,7 +5231,7 @@ if [file exists "$DataDirChannel1/T6/T11.bin"] {
     set ToolsOutputSubDir "T6"
     set ToolsDirOutput $ToolsDirOutputErase
     set ToolsFonction "T6 COHERENCY FLIP UP DOWN"
-    set ToolsFunction "Soft/tools/float_tools.exe"
+    set ToolsFunction "Soft/bin/tools/float_tools.exe"
     set ToolsFormat "T6"
     set ToolsOperation "flipud"
     set ConfigFile "$ToolsDirInput/config.txt"
@@ -5297,7 +5297,7 @@ if [file exists "$DataDirChannel1/T6/T11.bin"] {
     set ToolsOutputSubDir "T6"
     set ToolsDirOutput $ToolsDirOutputErase
     set ToolsFonction "T6 COHERENCY FLIP LEFT RIGHT"
-    set ToolsFunction "Soft/tools/float_tools.exe"
+    set ToolsFunction "Soft/bin/tools/float_tools.exe"
     set ToolsFormat "T6"
     set ToolsOperation "fliplr"
     set ConfigFile "$ToolsDirInput/config.txt"
@@ -5363,7 +5363,7 @@ if [file exists "$DataDirChannel1/T6/T11.bin"] {
     set ToolsOutputSubDir "T6"
     set ToolsDirOutput $ToolsDirOutputErase
     set ToolsFonction "T6 COHERENCY TRANSPOSE"
-    set ToolsFunction "Soft/tools/float_tools.exe"
+    set ToolsFunction "Soft/bin/tools/float_tools.exe"
     set ToolsFormat "T6"
     set ToolsOperation "transp"
     set ConfigFile "$ToolsDirInput/config.txt"
@@ -5432,7 +5432,7 @@ if [file exists "$DataDirChannel1/T6/T11.bin"] {
     set ToolsOutputSubDir "T6"
     set ToolsDirOutput $ToolsDirOutputErase
     set ToolsFonction "T6 COHERENCY APPLY MASK"
-    set ToolsFunction "Soft/tools/float_tools_mask.exe"
+    set ToolsFunction "Soft/bin/tools/float_tools_mask.exe"
     set ToolsFormat "T6"
     set ToolsOperation "mask"
     set ConfigFile "$ToolsDirInput/config.txt"
@@ -5492,8 +5492,8 @@ if {$Load_CheckBinaryData == 0} {
     set CheckDirInput $DataDir
     set CheckInputDir $DataDir
     set CheckInputSubDir ""
-    set CheckData ""
-    set CheckType ""
+    set CheckData " "
+    set CheckType " "
     set CheckFile ""
     set CheckFileName ""
     set CheckResult ""
@@ -5637,6 +5637,7 @@ WidgetShowFromMenuFix $widget(Toplevel310) $widget(Toplevel59); TextEditorRunTra
         -command {global DataFileSourceName DataFileTargetName
 glogal DataFileSourceDir DataFileTargetDir
 global DataFileFormat DataFileOperation DataFileFunction
+global NligEndTools NligInitTools NcolEndTools NcolInitTools
 
 #TOOLS
 global Load_DataFileManagement PSPTopLevel
@@ -5654,6 +5655,9 @@ set DataFileTargetName ""
 set DataFileFunction "IEEE DATA FORMAT CONVERT"
 set DataFileOperation "ieee"
 set DataFileFormat "float"
+set NligInitTools "?"; set NcolInitTools "?"
+set NligEndTools "?"; set NcolEndTools "?"
+
 WidgetShowFromMenuFix $widget(Toplevel310) $widget(Toplevel371); TextEditorRunTrace "Open Window Data File Management" "b"} \
         -label {IEEE Format Convert} 
     $top.men77.m add command \
@@ -5661,6 +5665,7 @@ WidgetShowFromMenuFix $widget(Toplevel310) $widget(Toplevel371); TextEditorRunTr
         -command {global DataFileSourceName DataFileTargetName
 global DataFileSourceDir DataFileTargetDir 
 global DataFileFormat DataFileOperation DataFileFunction
+global NligEndTools NligInitTools NcolEndTools NcolInitTools
 
 #TOOLS
 global Load_DataFileManagement PSPTopLevel
@@ -5678,6 +5683,9 @@ set DataFileTargetName ""
 set DataFileFunction "SUB DATA EXTRACTION"
 set DataFileOperation "extract"
 set DataFileFormat "float"
+set NligInitTools "?"; set NcolInitTools "?"
+set NligEndTools "?"; set NcolEndTools "?"
+
 WidgetShowFromMenuFix $widget(Toplevel310) $widget(Toplevel371); TextEditorRunTrace "Open Window Data File Management" "b"} \
         -label {Sub Data Extraction} 
     $top.men77.m add command \
@@ -5685,6 +5693,7 @@ WidgetShowFromMenuFix $widget(Toplevel310) $widget(Toplevel371); TextEditorRunTr
         -command {global DataFileSourceName DataFileTargetName
 global DataFileSourceDir DataFileTargetDir 
 global DataFileFormat DataFileOperation DataFileFunction
+global NligEndTools NligInitTools NcolEndTools NcolInitTools
 
 #TOOLS
 global Load_DataFileManagement PSPTopLevel
@@ -5702,6 +5711,9 @@ set DataFileTargetName ""
 set DataFileFunction "DATA ROTATION 90 LEFT"
 set DataFileOperation "rot90l"
 set DataFileFormat "float"
+set NligInitTools "?"; set NcolInitTools "?"
+set NligEndTools "?"; set NcolEndTools "?"
+
 WidgetShowFromMenuFix $widget(Toplevel310) $widget(Toplevel371); TextEditorRunTrace "Open Window Data File Management" "b"} \
         -label {Rotation 90 left} 
     $top.men77.m add command \
@@ -5709,6 +5721,7 @@ WidgetShowFromMenuFix $widget(Toplevel310) $widget(Toplevel371); TextEditorRunTr
         -command {global DataFileSourceName DataFileTargetName
 global DataFileSourceDir DataFileTargetDir 
 global DataFileFormat DataFileOperation DataFileFunction
+global NligEndTools NligInitTools NcolEndTools NcolInitTools
 
 #TOOLS
 global Load_DataFileManagement PSPTopLevel
@@ -5726,6 +5739,9 @@ set DataFileTargetName ""
 set DataFileFunction "DATA ROTATION 90 RIGHT"
 set DataFileOperation "rot90r"
 set DataFileFormat "float"
+set NligInitTools "?"; set NcolInitTools "?"
+set NligEndTools "?"; set NcolEndTools "?"
+
 WidgetShowFromMenuFix $widget(Toplevel310) $widget(Toplevel371); TextEditorRunTrace "Open Window Data File Management" "b"} \
         -label {Rotation 90 right} 
     $top.men77.m add command \
@@ -5733,6 +5749,7 @@ WidgetShowFromMenuFix $widget(Toplevel310) $widget(Toplevel371); TextEditorRunTr
         -command {global DataFileSourceName DataFileTargetName
 global DataFileSourceDir DataFileTargetDir 
 global DataFileFormat DataFileOperation DataFileFunction
+global NligEndTools NligInitTools NcolEndTools NcolInitTools
 
 #TOOLS
 global Load_DataFileManagement PSPTopLevel
@@ -5750,6 +5767,9 @@ set DataFileTargetName ""
 set DataFileFunction "DATA ROTATION 180"
 set DataFileOperation "rot180"
 set DataFileFormat "float"
+set NligInitTools "?"; set NcolInitTools "?"
+set NligEndTools "?"; set NcolEndTools "?"
+
 WidgetShowFromMenuFix $widget(Toplevel310) $widget(Toplevel371); TextEditorRunTrace "Open Window Data File Management" "b"} \
         -label {Rotation 180} 
     $top.men77.m add command \
@@ -5757,6 +5777,7 @@ WidgetShowFromMenuFix $widget(Toplevel310) $widget(Toplevel371); TextEditorRunTr
         -command {global DataFileSourceName DataFileTargetName
 global DataFileSourceDir DataFileTargetDir 
 global DataFileFormat DataFileOperation DataFileFunction
+global NligEndTools NligInitTools NcolEndTools NcolInitTools
 
 #TOOLS
 global Load_DataFileManagement PSPTopLevel
@@ -5774,6 +5795,9 @@ set DataFileTargetName ""
 set DataFileFunction "DATA FLIP UP - DOWN"
 set DataFileOperation "flipud"
 set DataFileFormat "float"
+set NligInitTools "?"; set NcolInitTools "?"
+set NligEndTools "?"; set NcolEndTools "?"
+
 WidgetShowFromMenuFix $widget(Toplevel310) $widget(Toplevel371); TextEditorRunTrace "Open Window Data File Management" "b"} \
         -label {Flip Up-Down} 
     $top.men77.m add command \
@@ -5781,6 +5805,7 @@ WidgetShowFromMenuFix $widget(Toplevel310) $widget(Toplevel371); TextEditorRunTr
         -command {global DataFileSourceName DataFileTargetName
 global DataFileSourceDir DataFileTargetDir 
 global DataFileFormat DataFileOperation DataFileFunction
+global NligEndTools NligInitTools NcolEndTools NcolInitTools
 
 #TOOLS
 global Load_DataFileManagement PSPTopLevel
@@ -5798,6 +5823,9 @@ set DataFileTargetName ""
 set DataFileFunction "DATA FLIP LEFT - RIGHT"
 set DataFileOperation "fliplr"
 set DataFileFormat "float"
+set NligInitTools "?"; set NcolInitTools "?"
+set NligEndTools "?"; set NcolEndTools "?"
+
 WidgetShowFromMenuFix $widget(Toplevel310) $widget(Toplevel371); TextEditorRunTrace "Open Window Data File Management" "b"} \
         -label {Flip Left-Right} 
     $top.men77.m add command \
@@ -5805,6 +5833,7 @@ WidgetShowFromMenuFix $widget(Toplevel310) $widget(Toplevel371); TextEditorRunTr
         -command {global DataFileSourceName DataFileTargetName
 global DataFileSourceDir DataFileTargetDir 
 global DataFileFormat DataFileOperation DataFileFunction
+global NligEndTools NligInitTools NcolEndTools NcolInitTools
 
 #TOOLS
 global Load_DataFileManagement PSPTopLevel
@@ -5822,6 +5851,9 @@ set DataFileTargetName ""
 set DataFileFunction "DATA TRANSPOSE"
 set DataFileOperation "transp"
 set DataFileFormat "float"
+set NligInitTools "?"; set NcolInitTools "?"
+set NligEndTools "?"; set NcolEndTools "?"
+
 WidgetShowFromMenuFix $widget(Toplevel310) $widget(Toplevel371); TextEditorRunTrace "Open Window Data File Management" "b"} \
         -label Transpose 
     $top.men77.m add separator \
@@ -5845,7 +5877,7 @@ set FileNameOutput1 ""
 set FileNameOutput2 ""
 set NligCmplx ""
 set NcolCmplx ""
-set CmplxOutputFormat ""
+set CmplxOutputFormat " "
 
 WidgetShowFromMenuFix $widget(Toplevel310) $widget(Toplevel417); TextEditorRunTrace "Open Window Complex Data File" "b"} \
         -label {Complex Data File} 
@@ -5858,13 +5890,7 @@ global ConfigFile VarError ErrorMessage NTrainingAreaClass AreaClassN NTrainingA
 global FileTrainingSet FileTrainingArea Fonction VarTrainingArea MaskFonction
 
 #DATA PROCESS SNGL
-global Load_MaskAreas_GraphicEditor Load_CreateMask PSPTopLevel
-
-if {$Load_MaskAreas_GraphicEditor == 0} {
-    source "GUI/data_process_sngl/MaskAreas_GraphicEditor.tcl"
-    set Load_MaskAreas_GraphicEditor 1
-    WmTransient $widget(Toplevel391) $PSPTopLevel
-    }
+global Load_CreateMask PSPTopLevel
 
 if {$Load_CreateMask == 0} {
     source "GUI/tools/CreateMask.tcl"
@@ -6095,7 +6121,7 @@ set MyFunctionPath ""
 set MyFunctionVar ""
 set MyFunctionVarN ""
 set VarName ""
-set VarType ""
+set VarType " "
 set VarValue1 ""
 set VarValue2 ""
 for {set i 0} {$i <= 20} {incr i} {
@@ -6148,7 +6174,7 @@ global Load_DeleteFile Load_DeleteFunction Load_ExecuteFunction Load_RenameDirec
 global Load_Tools Load_ToolsFFT Load_ExportENVI
 global Load_CheckBinaryData Load_CompareDir Load_ToolsMask Load_CompareFile 
 global Load_ReadBinaryDataFileValue Load_DataFileManagement Load_ComplexFile 
-global Load_MaskAreas_GraphicEditor Load_CreateMask Load_CreateHDRFile 
+global Load_CreateMask Load_CreateHDRFile 
 
 if {$OpenDirFile == 0} {
 
@@ -6172,7 +6198,6 @@ if {$Load_CompareFile == 1} { Window hide $widget(Toplevel406) }
 if {$Load_ReadBinaryDataFileValue == 1} { Window hide $widget(Toplevel418) }
 if {$Load_DataFileManagement == 1} { Window hide $widget(Toplevel371) }
 if {$Load_ComplexFile == 1} { Window hide $widget(Toplevel417) }
-if {$Load_MaskAreas_GraphicEditor == 1} { Window hide $widget(Toplevel391) }
 if {$Load_CreateMask == 1} { Window hide $widget(Toplevel379) }
 if {$Load_CreateHDRFile == 1} { Window hide $widget(Toplevel372) }
 

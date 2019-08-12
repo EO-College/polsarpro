@@ -1546,9 +1546,9 @@ if {$ConfigProductFile == "true"} {
 
             set FSARFile1 "$FSARDirOutput/product_header_HH.txt"
             set FSARFile2 "$FileInputHH.hdr"
-            TextEditorRunTrace "Process The Function Soft/data_import/fsar_config.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/data_import/fsar_config.exe" "k"
             TextEditorRunTrace "Arguments: -if1 \x22$FSARFile1\x22 -if2 \x22$FSARFile2\x22 -od \x22$FSARDirOutput\x22 -ocf \x22$TMPFsarConfig\x22 -ogf \x22$TMPGoogle\x22" "k"
-            set f [ open "| Soft/data_import/fsar_config.exe -if1 \x22$FSARFile1\x22 -if2 \x22$FSARFile2\x22 -od \x22$FSARDirOutput\x22 -ocf \x22$TMPFsarConfig\x22 -ogf \x22$TMPGoogle\x22" r]
+            set f [ open "| Soft/bin/data_import/fsar_config.exe -if1 \x22$FSARFile1\x22 -if2 \x22$FSARFile2\x22 -od \x22$FSARDirOutput\x22 -ocf \x22$TMPFsarConfig\x22 -ogf \x22$TMPGoogle\x22" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1645,7 +1645,7 @@ if [file exists $FSARFile] {
         -padx 4 -pady 2 -text {Edit Header} 
     vTcl:DefineAlias "$site_3_0.but75" "Button431_7" vTcl:WidgetProc "Toplevel431" 1
     button $site_3_0.but66 \
-        -background #ffffff \
+        \
         -command {global FileName VarError ErrorMessage FSARDirInput
 
 set FSARFile "$FSARDirInput/GEARTH_POLY.kml"

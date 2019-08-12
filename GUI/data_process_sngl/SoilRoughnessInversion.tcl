@@ -1213,7 +1213,7 @@ global SoilRoughnessNwinL SoilRoughnessNwinC
 global SoilRoughnessGtoVS SoilRoughnessGtoVD SoilRoughnessGtoVC SoilRoughnessGtoVBMP
 global SoilRoughnessByGtoV SoilRoughnessByA SoilRoughnessByCC SoilRoughnessByBMP
 global SoilRoughnessFromX SoilRoughnessFromS SoilRoughnessFromD SoilRoughnessFromBMP
-global PSPMemory TMPMemoryAllocError
+global TMPMemoryAllocError
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
 
 if {$OpenDirFile == 0} {
@@ -1262,9 +1262,9 @@ if {"$VarWarning"=="ok"} {
         if {$SoilRoughnessOutputSubDir == "T4"} {set SoilRoughnessF "T4"}
         if {$SoilRoughnessOutputSubDir == "C3"} {set SoilRoughnessF "C3"}
         if {$SoilRoughnessOutputSubDir == "C4"} {set SoilRoughnessF "C4"}
-        TextEditorRunTrace "Process The Function Soft/data_process_sngl/soil_roughness_inversion.exe" "k"
-        TextEditorRunTrace "Arguments: -id \x22$SoilRoughnessDirInput\x22 -od \x22$SoilRoughnessDirOutput\x22 -iodf $SoilRoughnessF -ang \x22$LIAFile\x22 -un $LIAangle -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -nwr $SoilRoughnessNwinL -nwc $SoilRoughnessNwinC -fl1 $SoilRoughnessGtoVS -fl2 $SoilRoughnessGtoVD -fl3 $SoilRoughnessGtoVC -fl4 $SoilRoughnessByGtoV -fl5 $SoilRoughnessByA -fl6 $SoilRoughnessByCC -fl7 $SoilRoughnessFromX -fl8 $SoilRoughnessFromS -fl9 $SoilRoughnessFromD -fl10 $SoilRoughnessModel -fl11 $SoilRoughRho -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-        set f [ open "| Soft/data_process_sngl/soil_roughness_inversion.exe -id \x22$SoilRoughnessDirInput\x22 -od \x22$SoilRoughnessDirOutput\x22 -iodf $SoilRoughnessF -ang \x22$LIAFile\x22 -un $LIAangle -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -nwr $SoilRoughnessNwinL -nwc $SoilRoughnessNwinC -fl1 $SoilRoughnessGtoVS -fl2 $SoilRoughnessGtoVD -fl3 $SoilRoughnessGtoVC -fl4 $SoilRoughnessByGtoV -fl5 $SoilRoughnessByA -fl6 $SoilRoughnessByCC -fl7 $SoilRoughnessFromX -fl8 $SoilRoughnessFromS -fl9 $SoilRoughnessFromD -fl10 $SoilRoughnessModel -fl11 $SoilRoughRho -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+        TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/soil_roughness_inversion.exe" "k"
+        TextEditorRunTrace "Arguments: -id \x22$SoilRoughnessDirInput\x22 -od \x22$SoilRoughnessDirOutput\x22 -iodf $SoilRoughnessF -ang \x22$LIAFile\x22 -un $LIAangle -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -nwr $SoilRoughnessNwinL -nwc $SoilRoughnessNwinC -fl1 $SoilRoughnessGtoVS -fl2 $SoilRoughnessGtoVD -fl3 $SoilRoughnessGtoVC -fl4 $SoilRoughnessByGtoV -fl5 $SoilRoughnessByA -fl6 $SoilRoughnessByCC -fl7 $SoilRoughnessFromX -fl8 $SoilRoughnessFromS -fl9 $SoilRoughnessFromD -fl10 $SoilRoughnessModel -fl11 $SoilRoughRho  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+        set f [ open "| Soft/bin/data_process_sngl/soil_roughness_inversion.exe -id \x22$SoilRoughnessDirInput\x22 -od \x22$SoilRoughnessDirOutput\x22 -iodf $SoilRoughnessF -ang \x22$LIAFile\x22 -un $LIAangle -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -nwr $SoilRoughnessNwinL -nwc $SoilRoughnessNwinC -fl1 $SoilRoughnessGtoVS -fl2 $SoilRoughnessGtoVD -fl3 $SoilRoughnessGtoVC -fl4 $SoilRoughnessByGtoV -fl5 $SoilRoughnessByA -fl6 $SoilRoughnessByCC -fl7 $SoilRoughnessFromX -fl8 $SoilRoughnessFromS -fl9 $SoilRoughnessFromD -fl10 $SoilRoughnessModel -fl11 $SoilRoughRho  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError

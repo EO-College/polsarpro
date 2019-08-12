@@ -1143,7 +1143,7 @@ if {$FileName != ""} {
         -background #ffff00 \
         -command {global IdentDirInput IdentDirOutput IdentOutputDir IdentOutputSubDir IdentDecompositionFonction
 global Fonction Fonction2 VarFunction VarWarning WarningMessage WarningMessage2 VarError ErrorMessage ProgressLine
-global BMPDirInput OpenDirFile IdentFile PSPMemory TMPMemoryAllocError
+global BMPDirInput OpenDirFile IdentFile TMPMemoryAllocError
 global ColorMap9 ColorMapWishart16
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
 
@@ -1199,9 +1199,9 @@ if {"$config"=="true"} {
                 set ProgressLine "0"
                 WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                 update
-                TextEditorRunTrace "Process The Function Soft/data_process_sngl/h_a_alpha_decomposition.exe" "k"
-                TextEditorRunTrace "Arguments: -id \x22$IdentDirInput\x22 -od \x22$IdentDirOutput\x22 -iodf $DecompFunct -nwr $IdentNwinL -nwc $IdentNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $DecompString -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                set f [ open "| Soft/data_process_sngl/h_a_alpha_decomposition.exe -id \x22$IdentDirInput\x22 -od \x22$IdentDirOutput\x22 -iodf $DecompFunct -nwr $IdentNwinL -nwc $IdentNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $DecompString -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/h_a_alpha_decomposition.exe" "k"
+                TextEditorRunTrace "Arguments: -id \x22$IdentDirInput\x22 -od \x22$IdentDirOutput\x22 -iodf $DecompFunct -nwr $IdentNwinL -nwc $IdentNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $DecompString  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                set f [ open "| Soft/bin/data_process_sngl/h_a_alpha_decomposition.exe -id \x22$IdentDirInput\x22 -od \x22$IdentDirOutput\x22 -iodf $DecompFunct -nwr $IdentNwinL -nwc $IdentNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $DecompString  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                 PsPprogressBar $f
                 TextEditorRunTrace "Check RunTime Errors" "r"
                 CheckRunTimeError
@@ -1226,9 +1226,9 @@ if {"$config"=="true"} {
                 set ProgressLine "0"
                 WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                 update
-                TextEditorRunTrace "Process The Function Soft/data_process_sngl/h_a_alpha_eigenvalue_set.exe" "k"
-                TextEditorRunTrace "Arguments: -id \x22$IdentDirInput\x22 -od \x22$IdentDirOutput\x22 -iodf $DecompFunct -nwr $IdentNwinL -nwc $IdentNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $DecompString -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                set f [ open "| Soft/data_process_sngl/h_a_alpha_eigenvalue_set.exe -id \x22$IdentDirInput\x22 -od \x22$IdentDirOutput\x22 -iodf $DecompFunct -nwr $IdentNwinL -nwc $IdentNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $DecompString -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/h_a_alpha_eigenvalue_set.exe" "k"
+                TextEditorRunTrace "Arguments: -id \x22$IdentDirInput\x22 -od \x22$IdentDirOutput\x22 -iodf $DecompFunct -nwr $IdentNwinL -nwc $IdentNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $DecompString  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                set f [ open "| Soft/bin/data_process_sngl/h_a_alpha_eigenvalue_set.exe -id \x22$IdentDirInput\x22 -od \x22$IdentDirOutput\x22 -iodf $DecompFunct -nwr $IdentNwinL -nwc $IdentNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $DecompString  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                 PsPprogressBar $f
                 TextEditorRunTrace "Check RunTime Errors" "r"
                 CheckRunTimeError
@@ -1254,9 +1254,9 @@ if {"$config"=="true"} {
                 set ProgressLine "0"
                 WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                 update
-                TextEditorRunTrace "Process The Function Soft/data_process_sngl/h_a_alpha_eigenvector_set.exe" "k"
-                TextEditorRunTrace "Arguments: -id \x22$IdentDirInput\x22 -od \x22$IdentDirOutput\x22 -iodf $DecompFunct -nwr $IdentNwinL -nwc $IdentNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $DecompString -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                set f [ open "| Soft/data_process_sngl/h_a_alpha_eigenvector_set.exe -id \x22$IdentDirInput\x22 -od \x22$IdentDirOutput\x22 -iodf $DecompFunct -nwr $IdentNwinL -nwc $IdentNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $DecompString -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/h_a_alpha_eigenvector_set.exe" "k"
+                TextEditorRunTrace "Arguments: -id \x22$IdentDirInput\x22 -od \x22$IdentDirOutput\x22 -iodf $DecompFunct -nwr $IdentNwinL -nwc $IdentNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $DecompString  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                set f [ open "| Soft/bin/data_process_sngl/h_a_alpha_eigenvector_set.exe -id \x22$IdentDirInput\x22 -od \x22$IdentDirOutput\x22 -iodf $DecompFunct -nwr $IdentNwinL -nwc $IdentNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $DecompString  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                 PsPprogressBar $f
                 TextEditorRunTrace "Check RunTime Errors" "r"
                 CheckRunTimeError
@@ -1373,9 +1373,9 @@ if {"$config"=="true"} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/data_process_sngl/id_class_gen.exe" "k"
-        TextEditorRunTrace "Arguments: -id \x22$IdentDirInput\x22 -od \x22$IdentDirOutput\x22 -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -if $IdentFile -clm \x22$ColorMapWishart16\x22 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-        set f [ open "| Soft/data_process_sngl/id_class_gen.exe -id \x22$IdentDirInput\x22 -od \x22$IdentDirOutput\x22 -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -if $IdentFile -clm \x22$ColorMapWishart16\x22 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+        TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/id_class_gen.exe" "k"
+        TextEditorRunTrace "Arguments: -id \x22$IdentDirInput\x22 -od \x22$IdentDirOutput\x22 -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -if $IdentFile -clm \x22$ColorMapWishart16\x22  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+        set f [ open "| Soft/bin/data_process_sngl/id_class_gen.exe -id \x22$IdentDirInput\x22 -od \x22$IdentDirOutput\x22 -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -if $IdentFile -clm \x22$ColorMapWishart16\x22  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError

@@ -174,8 +174,6 @@ foreach img {
 
         {{[file join . GUI Images help.gif]} {user image} user {}}
         {{[file join . GUI Images OpenFile.gif]} {user image} user {}}
-        {{[file join . GUI Images lines.gif]} {user image} user {}}
-        {{[file join . GUI Images rectangle.gif]} {user image} user {}}
         {{[file join . GUI Images SaveFile.gif]} {user image} user {}}
         {{[file join . GUI Images GIMPshortcut.gif]} {user image} user {}}
 
@@ -531,19 +529,6 @@ proc vTcl:project:info {} {
         array set save {-borderwidth 1 -height 1 -width 1}
     }
     set site_3_0 $base.fra73
-    namespace eval ::widgets::$site_3_0.fra74 {
-        array set save {-borderwidth 1 -height 1 -relief 1 -width 1}
-    }
-    set site_4_0 $site_3_0.fra74
-    namespace eval ::widgets::$site_4_0.but77 {
-        array set save {-command 1 -pady 1 -relief 1 -text 1}
-    }
-    namespace eval ::widgets::$site_4_0.but78 {
-        array set save {-command 1 -image 1 -pady 1 -text 1}
-    }
-    namespace eval ::widgets::$site_4_0.but79 {
-        array set save {-command 1 -image 1 -pady 1 -text 1}
-    }
     namespace eval ::widgets::$site_3_0.fra75 {
         array set save {-borderwidth 1 -height 1 -relief 1 -width 1}
     }
@@ -628,10 +613,7 @@ proc ::main {argc argv} {
 
 proc ::ClearHistoBMP {} {
 global NTrainingAreaClass AreaClassN NTrainingArea AreaN AreaPointLig AreaPointCol AreaPoint
-global MouseInitX MouseInitY MouseEndX MouseEndY MouseNlig MouseNcol
-global widget SourceWidth SourceHeight WidthBMP HeightBMP BMPWidth BMPHeight
-global ZoomBMP BMPImage ImageSource BMPCanvas VarHistoSave
-global TMPStatisticsTxt TMPStatisticsBin TMPStatResultsTxt
+global VarHistoSave TMPStatisticsTxt TMPStatisticsBin TMPStatResultsTxt
 
 set VarHistoSave "no"
 $widget(Button260_2) configure -state normal
@@ -670,58 +652,6 @@ set AreaClassN 1
 set NTrainingAreaClass 1
 set AreaN 1
 set NTrainingArea(1) 1
-
-set MouseInitX ""
-set MouseInitY ""
-set MouseEndX ""
-set MouseEndY ""
-set MouseNlig ""
-set MouseNcol ""
-
-set Num1 ""
-set Num2 ""
-set Num1 [string index $ZoomBMP 0]
-set Num2 [string index $ZoomBMP 1]
-if {$Num2 == ":"} {
-    set Num $Num1
-    set Den1 ""
-    set Den2 ""
-    set Den1 [string index $ZoomBMP 2]
-    set Den2 [string index $ZoomBMP 3]
-    if {$Den2 == ""} {
-        set Den $Den1
-        } else {
-        set Den [expr 10*$Den1 + $Den2]
-        }
-    } else {
-    set Num [expr 10*$Num1 + $Num2]
-    set Den1 ""
-    set Den2 ""
-    set Den1 [string index $ZoomBMP 3]
-    set Den2 [string index $ZoomBMP 4]
-    if {$Den2 == ""} {
-        set Den $Den1
-        } else {
-        set Den [expr 10*$Den1 + $Den2]
-        }
-    }
-
-if {$Den >= $Num} {
-    set BMPSample $Den
-    set Xmax [expr round($BMPWidth * $BMPSample)]
-    set Ymax [expr round($BMPHeight * $BMPSample)]
-    BMPImage copy ImageSource -from 0 0 $Xmax $Ymax -subsample $BMPSample $BMPSample
-    $widget($BMPCanvas) configure -width $BMPWidth -height $BMPHeight
-    $widget($BMPCanvas) create image 0 0 -anchor nw -image BMPImage
-    }
-if {$Den < $Num} {
-    set BMPZoom $Num
-    set Xmax [expr round($BMPWidth / $BMPZoom)]
-    set Ymax [expr round($BMPHeight / $BMPZoom)]
-    BMPImage copy ImageSource -from 0 0 $Xmax $Ymax -zoom $BMPZoom $BMPZoom
-    $widget($BMPCanvas) configure -width $BMPWidth -height $BMPHeight
-    $widget($BMPCanvas) create image 0 0 -anchor nw -image BMPImage
-    }
 }
 #############################################################################
 ## Procedure:  PlotHistoRAZ
@@ -778,7 +708,7 @@ if {$GnuplotPipeFid == ""} {
 proc ::PlotHisto1D {} {
 global GnuplotPipeFid GnuplotPipeHisto GnuOutputFormat GnuOutputFile
 global GnuHistoFile GnuHistoTitle GnuHistoLabel GnuHistoStyle GnuHistoMax
-global ImageMagickMaker TMPGnuPlotTk1 TMPGnuPlot1Tk
+global TMPGnuPlotTk1 TMPGnuPlot1Tk
 
 set xwindow [winfo x .top260]; set ywindow [winfo y .top260]
 
@@ -790,7 +720,7 @@ if {$GnuplotPipeHisto == ""} {
     set GnuplotPipeHisto $GnuplotPipeFid
     }
     
-PlotHisto1DThumb
+#PlotHisto1DThumb
 
 set GnuOutputFile $TMPGnuPlotTk1
 set GnuOutputFormat "gif"
@@ -812,8 +742,9 @@ catch "close $GnuplotPipeHisto"
 set GnuplotPipeHisto ""
 
 WaitUntilCreated $TMPGnuPlotTk1
+Gimp $TMPGnuPlotTk1
 
-ViewGnuPlotTK 1 .top260 "Histogram"
+#ViewGnuPlotTKThumb 1 .top260 "Histogram"
 }
 #############################################################################
 ## Procedure:  PlotHisto1DThumb
@@ -821,7 +752,7 @@ ViewGnuPlotTK 1 .top260 "Histogram"
 proc ::PlotHisto1DThumb {} {
 global GnuplotPipeFid GnuplotPipeHisto GnuOutputFormat GnuOutputFile
 global GnuHistoFile GnuHistoTitle GnuHistoLabel GnuHistoStyle GnuHistoMax
-global ImageMagickMaker TMPGnuPlotTk1 TMPGnuPlot1Tk
+global TMPGnuPlotTk1 TMPGnuPlot1Tk
 
 set xwindow [winfo x .top260]; set ywindow [winfo y .top260]
 
@@ -871,9 +802,9 @@ proc vTclWindow. {base} {
     # CREATING WIDGETS
     ###################
     wm focusmodel $top passive
-    wm geometry $top 200x200+175+175; update
-    wm maxsize $top 3360 1028
-    wm minsize $top 116 1
+    wm geometry $top 200x200+66+66; update
+    wm maxsize $top 3604 1065
+    wm minsize $top 104 1
     wm overrideredirect $top 0
     wm resizable $top 1 1
     wm withdraw $top
@@ -1001,13 +932,39 @@ set FileName ""
 OpenFile $HistoDirInput $types "INPUT FILE"
     
 if {$FileName != ""} {
-    set HistoDirInput [file dirname $FileName]
-    set ConfigFile "$HistoDirInput/config.txt"
-    set ErrorMessage ""
-    LoadConfig
-    if {"$ErrorMessage" == ""} {
-        set HistoFileInput $FileName
+    set FileNameHdr "$FileName.hdr"
+    if [file exists $FileNameHdr] {
+        set f [open $FileNameHdr "r"]
+        gets $f tmp
+        gets $f tmp
+        gets $f tmp
+        if {[string first "PolSARpro" $tmp] != "-1"} {
+            gets $f tmp; gets $f tmp
+            gets $f tmp; gets $f tmp
+            gets $f tmp; gets $f tmp
+            if {$tmp == "data type = 2"} {set HistoInputFormat "int"; set HistoOutputFormat "real"}
+            if {$tmp == "data type = 4"} {set HistoInputFormat "float"; set HistoOutputFormat "real"}
+            if {$tmp == "data type = 6"} {set HistoInputFormat "cmplx"; set HistoOutputFormat "mod"}
+            set HistoDirInput [file dirname $FileName]
+            set ConfigFile "$HistoDirInput/config.txt"
+            set ErrorMessage ""
+            LoadConfig
+            if {"$ErrorMessage" == ""} {
+                set HistoFileInput $FileName
+                } else {
+                Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
+                tkwait variable VarError
+                if {$VarError == "cancel"} {Window hide $widget(Toplevel260); TextEditorRunTrace "Close Window Statistic Histograms" "b"}
+                }    
+            } else {
+            set ErrorMessage "NOT A PolSARpro BINARY DATA FILE TYPE"
+            Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
+            tkwait variable VarError
+            if {$VarError == "cancel"} {Window hide $widget(Toplevel260); TextEditorRunTrace "Close Window Statistic Histograms" "b"}
+            }    
+        close $f
         } else {
+        set ErrorMessage "THE HDR FILE $FileNameHdr DOES NOT EXIST"
         Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
         tkwait variable VarError
         if {$VarError == "cancel"} {Window hide $widget(Toplevel260); TextEditorRunTrace "Close Window Statistic Histograms" "b"}
@@ -1206,9 +1163,9 @@ if [file exists $TMPStatResultsTxt] {
     set ProgressLine "0"
     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
     update
-    TextEditorRunTrace "Process The Function Soft/bmp_process/MinMaxBMP.exe" "k"
+    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/MinMaxBMP.exe" "k"
     TextEditorRunTrace "Arguments: -if \x22$TMPStatisticsBin\x22 -ift $HistoInputFormat -oft $HistoOutputFormat -nc 1 -ofr 0 -ofc 0 -fnr $Npts -fnc 1 -of \x22$TMPMinMaxBmp\x22" "k"
-    set f [ open "| Soft/bmp_process/MinMaxBMP.exe -if \x22$TMPStatisticsBin\x22 -ift $HistoInputFormat -oft $HistoOutputFormat -nc 1 -ofr 0 -ofc 0 -fnr $Npts -fnc 1 -of \x22$TMPMinMaxBmp\x22" r]
+    set f [ open "| Soft/bin/bmp_process/MinMaxBMP.exe -if \x22$TMPStatisticsBin\x22 -ift $HistoInputFormat -oft $HistoOutputFormat -nc 1 -ofr 0 -ofc 0 -fnr $Npts -fnc 1 -of \x22$TMPMinMaxBmp\x22" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError
@@ -1254,144 +1211,67 @@ if [file exists $TMPStatResultsTxt] {
         -borderwidth 2 -height 75 -width 125 
     vTcl:DefineAlias "$top.fra73" "Frame1" vTcl:WidgetProc "Toplevel260" 1
     set site_3_0 $top.fra73
-    frame $site_3_0.fra74 \
-        -borderwidth 2 -relief sunken -height 75 -width 125 
-    vTcl:DefineAlias "$site_3_0.fra74" "Frame4" vTcl:WidgetProc "Toplevel260" 1
-    set site_4_0 $site_3_0.fra74
-    button $site_4_0.but77 \
-        \
-        -command {global rect_color
-
-if {$rect_color == "white"} {
-    set rect_color "black"
-    } else {
-    set rect_color "white"
-    }
-
-set b .top260.fra73.fra74.but77
-$b configure -background $rect_color -foreground $rect_color} \
-        -pady 0 -relief ridge -text {   } 
-    vTcl:DefineAlias "$site_4_0.but77" "Button1" vTcl:WidgetProc "Toplevel260" 1
-    button $site_4_0.but78 \
-        \
-        -command {global TrainingAreaTool TrainingAreaToolLine AreaTiePointN
-global BMPImageOpen BMPView RectLensCenter Lens BMPSampleLens ZoomBMP ZoomBMPTmp
-global MouseActiveButton OpenDirFile HistoFileInput
-
-if {$OpenDirFile == 0} {
-
-if {$HistoFileInput != ""} {
-
-ClearHistoBMP
-PlotHistoRAZ
-PlotHistoClose
-$widget(Button260_2) configure -state normal
-
-if {"$BMPImageOpen" == "1"} {
-    if {$MouseActiveButton != "Training"} {
-        if {$MouseActiveButton == "Lens"} {
-            set Lens ""
-            set BMPSampleLens ""
-            $widget(CANVASBMPLENS) dtag RectLensCenter
-            Window hide $widget(VIEWBMPLENS); TextEditorRunTrace "Close Window View BMP Lens" "b"
-            Window hide $widget(VIEWLENS); TextEditorRunTrace "Close Window Zoom" "b"
-            WidgetShow $widget($BMPView); TextEditorRunTrace "Open Window View $BMPView" "b"
-            set ZoomBMP $ZoomBMPTmp
-        }
-        set TrainingAreaTool line
-        MouseActiveFunction "TrainingHisto"
-        set AreaTiePointN ""
-        set TrainingAreaToolLine "false"
-        } else {
-        if {$TrainingAreaTool == "line"} {
-            MouseActiveFunction ""
-            } else {
-            set TrainingAreaTool line
-            MouseActiveFunction "TrainingHisto"
-            set AreaTiePointN ""
-            set TrainingAreaToolLine "false"
-            }
-        } 
-    }
-} else {
-set ErrorMessage "THE INPUT DATA FILE IS NOT DEFINED" 
-Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
-tkwait variable VarError
-}
-
-}} \
-        -image [vTcl:image:get_image [file join . GUI Images lines.gif]] \
-        -pady 0 -text button 
-    vTcl:DefineAlias "$site_4_0.but78" "Button2" vTcl:WidgetProc "Toplevel260" 1
-    button $site_4_0.but79 \
-        \
-        -command {global TrainingAreaTool TrainingAreaToolLine AreaTiePointN
-global BMPImageOpen BMPView RectLensCenter Lens BMPSampleLens ZoomBMP ZoomBMPTmp
-global MouseActiveButton OpenDirFile HistoFileInput
-
-if {$OpenDirFile == 0} {
-
-if {$HistoFileInput != ""} {
-
-ClearHistoBMP
-PlotHistoRAZ
-PlotHistoClose
-$widget(Button260_2) configure -state normal
-if {"$BMPImageOpen" == "1"} {
-    if {$MouseActiveButton != "Training"} {
-        if {$MouseActiveButton == "Lens"} {
-            set Lens ""
-            set BMPSampleLens ""
-            $widget(CANVASBMPLENS) dtag RectLensCenter
-            Window hide $widget(VIEWBMPLENS); TextEditorRunTrace "Close Window View BMP Lens" "b"
-            Window hide $widget(VIEWLENS); TextEditorRunTrace "Close Window Zoom" "b"
-            WidgetShow $widget($BMPView); TextEditorRunTrace "Open Window View $BMPView" "b"
-            set ZoomBMP $ZoomBMPTmp
-        }
-        set TrainingAreaTool rect
-        MouseActiveFunction "TrainingHisto"
-        set AreaTiePointN ""
-        set TrainingAreaToolLine "false"
-        } else {
-        if {$TrainingAreaTool == "rect"} {
-            MouseActiveFunction ""
-            } else {
-            set TrainingAreaTool rect
-            MouseActiveFunction "TrainingHisto"
-            set AreaTiePointN ""
-            set TrainingAreaToolLine "false"
-            }
-        } 
-    }
-} else {
-set ErrorMessage "THE INPUT DATA FILE IS NOT DEFINED" 
-Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
-tkwait variable VarError
-}
-
-}} \
-        -image [vTcl:image:get_image [file join . GUI Images rectangle.gif]] \
-        -pady 0 -text button 
-    vTcl:DefineAlias "$site_4_0.but79" "Button3" vTcl:WidgetProc "Toplevel260" 1
-    pack $site_4_0.but77 \
-        -in $site_4_0 -anchor center -expand 1 -fill none -padx 5 -side left 
-    pack $site_4_0.but78 \
-        -in $site_4_0 -anchor center -expand 1 -fill none -padx 10 -pady 5 \
-        -side left 
-    pack $site_4_0.but79 \
-        -in $site_4_0 -anchor center -expand 1 -fill none -padx 5 -side left 
     frame $site_3_0.fra75 \
         -borderwidth 2 -relief sunken -height 75 -width 125 
     vTcl:DefineAlias "$site_3_0.fra75" "Frame5" vTcl:WidgetProc "Toplevel260" 1
     set site_4_0 $site_3_0.fra75
     button $site_4_0.but80 \
         -background #ffff00 \
-        -command {ClearHistoBMP
+        -command {global NTrainingAreaClass AreaClassN NTrainingArea AreaN AreaPointLig AreaPointCol AreaPoint
+global VarHistoSave TMPStatisticsTxt TMPStatisticsBin TMPStatResultsTxt
+
+set VarHistoSave "no"
+$widget(Button260_2) configure -state disable
+$widget(Button260_7) configure -state disable
+$widget(Button260_3) configure -state disable
+$widget(Button260_4) configure -state disable
+$widget(Button260_5) configure -state disable
+$widget(Button260_6) configure -state disable
+$widget(Radiobutton260_1) configure -state disable
+$widget(Radiobutton260_2) configure -state disable
+$widget(TitleFrame260_1) configure -state disable
+$widget(Checkbutton260_1) configure -state disable
+$widget(Label260_1) configure -state disable
+$widget(Entry260_1) configure -state disable
+$widget(Label260_2) configure -state disable
+$widget(Entry260_2) configure -state disable
+$widget(Button260_1) configure -state disable
+
+DeleteFile $TMPStatisticsTxt
+DeleteFile $TMPStatisticsBin
+DeleteFile $TMPStatResultsTxt
+
+for {set i 0} {$i <= 2} {incr i} {
+    set NTrainingArea($i) ""
+    for {set j 0} {$j <= 2} {incr j} {
+        set Argument [expr (100*$i + $j)]
+        set AreaPoint($Argument) ""
+        for {set k 0} {$k <= 17} {incr k} {
+            set Argument [expr (10000*$i + 100*$j + $k)]
+            set AreaPointLig($Argument) ""
+            set AreaPointCol($Argument) ""
+            }
+        }
+    }           
+
+set AreaClassN 1
+set NTrainingAreaClass 1
+set AreaN 1
+set NTrainingArea(1) 1
+
 PlotHistoRAZ
 PlotHistoClose
-$widget(Button260_2) configure -state disable} \
+
+set VarHistoSave "no"
+WaitUntilCreated $TMPStatisticsTxt
+if [file exists $TMPStatisticsTxt] {
+    set VarHistoSave "ok"
+    $widget(Button260_2) configure -state normal
+    $widget(Button260_7) configure -state normal
+    }
+tkwait variable VarHistoSave} \
         -padx 4 -pady 2 -text Clear 
-    vTcl:DefineAlias "$site_4_0.but80" "Button4" vTcl:WidgetProc "Toplevel260" 1
+    vTcl:DefineAlias "$site_4_0.but80" "Button260_7" vTcl:WidgetProc "Toplevel260" 1
     button $site_4_0.but81 \
         -background #ffff00 \
         -command {global NTrainingAreaClass AreaClassN NTrainingArea AreaN AreaPointLig AreaPointCol AreaPoint  
@@ -1405,31 +1285,8 @@ if {$OpenDirFile == 0} {
 
 if {$HistoFileInput != ""} {
 
-set Argument [expr (10000*$NTrainingAreaClass + 101)]
-if {$AreaPointLig($Argument) == ""} {set NTrainingAreaClass [expr $NTrainingAreaClass -1]}
-
-DeleteFile $TMPStatisticsTxt
 DeleteFile $TMPStatisticsBin
 DeleteFile $TMPStatResultsTxt
-
-set f [open $TMPStatisticsTxt w]
-puts $f "STATISTIC_AREA"
-#AREA
-set i 1
-for {set j 1} {$j <= $NTrainingArea($i)} {incr j} {
-    puts $f "Nb_Tie_Points"
-    set Argument [expr (100*$i + $j)]
-    puts $f $AreaPoint($Argument)
-    for {set k 1} {$k <= $AreaPoint($Argument)} {incr k} {
-        puts $f "Tie_Point"
-        set Argument1 [expr (10000*$i + 100*$j + $k)]
-        puts $f "Row"
-        puts $f $AreaPointLig($Argument1)
-        puts $f "Col"
-        puts $f $AreaPointCol($Argument1)
-        }
-    }
-close $f
 
 if [file exists $TMPStatisticsTxt] {
     #Data Extract
@@ -1536,7 +1393,7 @@ tkwait variable VarError
 }
 
 }} \
-        -padx 4 -pady 2 -text Save 
+        -padx 4 -pady 2 -text "Extract & Process" 
     vTcl:DefineAlias "$site_4_0.but81" "Button260_2" vTcl:WidgetProc "Toplevel260" 1
     pack $site_4_0.but80 \
         -in $site_4_0 -anchor center -expand 1 -fill none -padx 5 -pady 5 \
@@ -1575,14 +1432,14 @@ if {$VarHistoSave == "ok"} {
         set TestVarName(1) "Max Value"; set TestVarType(1) "float"; set TestVarValue(1) $RunMax; set TestVarMin(1) "-10000.00"; set TestVarMax(1) "10000.00"
         TestVar 2
         if {$TestVarError == "ok"} {
-            TextEditorRunTrace "Process The Function Soft/data_process_sngl/statistics_histogram.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/statistics_histogram.exe" "k"
             TextEditorRunTrace "Arguments: \x22$TMPStatisticsBin\x22 \x22$TMPStatHistoTxt\x22 \x22$TMPStatResultsTxt\x22 $HistoInputFormat $HistoOutputFormat $Nbins $MinMaxAutoHisto $RunMin $RunMax" "k"
-            set f [ open "| Soft/data_process_sngl/statistics_histogram.exe \x22$TMPStatisticsBin\x22 \x22$TMPStatHistoTxt\x22 \x22$TMPStatResultsTxt\x22 $HistoInputFormat $HistoOutputFormat $Nbins $MinMaxAutoHisto $RunMin $RunMax" r]
+            set f [ open "| Soft/bin/data_process_sngl/statistics_histogram.exe \x22$TMPStatisticsBin\x22 \x22$TMPStatHistoTxt\x22 \x22$TMPStatResultsTxt\x22 $HistoInputFormat $HistoOutputFormat $Nbins $MinMaxAutoHisto $RunMin $RunMax" r]
             catch "close $f"
             }
         }            
     if [file exists $TMPStatHistoTxt] {
-        MouseActiveFunction ""
+        #MouseActiveFunction ""
         $widget(Button260_4) configure -state normal
         $widget(Button260_5) configure -state normal
         $widget(Button260_6) configure -state normal
@@ -1673,8 +1530,6 @@ $widget(Button260_4) configure -state disable} \
     pack $site_4_0.but84 \
         -in $site_4_0 -anchor center -expand 1 -fill none -padx 5 -pady 5 \
         -side left 
-    pack $site_3_0.fra74 \
-        -in $site_3_0 -anchor center -expand 1 -fill none -side left 
     pack $site_3_0.fra75 \
         -in $site_3_0 -anchor center -expand 1 -fill none -side left 
     pack $site_3_0.fra76 \
@@ -1684,8 +1539,7 @@ $widget(Button260_4) configure -state disable} \
     vTcl:DefineAlias "$top.fra38" "Frame20" vTcl:WidgetProc "Toplevel260" 1
     set site_3_0 $top.fra38
     button $site_3_0.but23 \
-        -background #ff8000 \
-        -command {HelpPdfEdit "Help/Histograms.pdf"} \
+        -background #ff8000 -command {HelpPdfEdit "Help/Histograms.pdf"} \
         -image [vTcl:image:get_image [file join . GUI Images help.gif]] \
         -pady 0 -width 20 
     vTcl:DefineAlias "$site_3_0.but23" "Button15" vTcl:WidgetProc "Toplevel260" 1
@@ -1695,7 +1549,7 @@ $widget(Button260_4) configure -state disable} \
     }
     button $site_3_0.but24 \
         -background #ffff00 \
-        -command {global OpenDirFile
+        -command {global OpenDirFile MapAlgebraConfigFileStatHistoROI
 global HistoExecFid GnuplotPipeFid GnuplotPipeHisto Load_SaveDisplay1
 
 if {$OpenDirFile == 0} {
@@ -1720,8 +1574,7 @@ set ProgressLine ""
 
 PlotHistoRAZ   
 PlotHistoClose 
-ClosePSPViewer
-Window hide $widget(Toplevel64); TextEditorRunTrace "Close Window PolSARpro Viewer" "b"
+if {$MapAlgebraConfigFileStatHistoROI != ""} { set MapAlgebraConfigFileStatHistoROI [MapAlgebra_command $MapAlgebraConfigFileStatHistoROI "quit" ""] }
 Window hide $widget(Toplevel260); TextEditorRunTrace "Close Window Histograms" "b"
 set ProgressLine "0"; update
 }} \

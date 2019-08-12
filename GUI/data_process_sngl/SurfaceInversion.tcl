@@ -752,7 +752,7 @@ proc ::main {argc argv} {
 proc ::SurfacePlotHisto1D {} {
 global GnuplotPipeFid GnuplotPipeHisto GnuOutputFile
 global GnuHistoFile1 GnuHistoFile2 GnuHistoMax1 GnuHistoMax2
-global ImageMagickMaker TMPGnuPlotTk1 TMPGnuPlotTk2 TMPGnuPlot1Tk TMPGnuPlot2Tk
+global TMPGnuPlotTk1 TMPGnuPlotTk2 TMPGnuPlot1Tk TMPGnuPlot2Tk
 
 set xwindow [winfo x .top253]; set ywindow [winfo y .top253]
 
@@ -769,7 +769,7 @@ if {$GnuplotPipeHisto == ""} {
     set GnuplotPipeHisto $GnuplotPipeFid
     }
     
-SurfacePlotHisto1DThumb 1
+#SurfacePlotHisto1DThumb 1
 
 set GnuOutputFile $TMPGnuPlotTk1
 set GnuOutputFormat "gif"
@@ -791,13 +791,15 @@ catch "close $GnuplotPipeHisto"
 set GnuplotPipeHisto ""
 
 WaitUntilCreated $TMPGnuPlotTk1
+Gimp $TMPGnuPlotTk1
+#ViewGnuPlotTKThumb 1 .top253 "Histogram HVHV / VVVV"
 
 if {$GnuplotPipeHisto == ""} {
     GnuPlotInit 0 0 1 1
     set GnuplotPipeHisto $GnuplotPipeFid
     }
     
-SurfacePlotHisto1DThumb 2
+#SurfacePlotHisto1DThumb 2
 
 set GnuOutputFile $TMPGnuPlotTk2
 set GnuOutputFormat "gif"
@@ -819,9 +821,8 @@ catch "close $GnuplotPipeHisto"
 set GnuplotPipeHisto ""
 
 WaitUntilCreated $TMPGnuPlotTk2
-
-ViewGnuPlotTK 1 .top253 "Histogram HVHV / VVVV"
-ViewGnuPlotTK 2 .top401 "Histogram HHHH / VVVV"
+Gimp $TMPGnuPlotTk2
+#ViewGnuPlotTKThumb 2 .top401 "Histogram HHHH / VVVV"
 }
 #############################################################################
 ## Procedure:  SurfacePlotHisto1DThumb
@@ -829,7 +830,7 @@ ViewGnuPlotTK 2 .top401 "Histogram HHHH / VVVV"
 proc ::SurfacePlotHisto1DThumb {ThumbNum} {
 global GnuplotPipeFid GnuplotPipeHisto GnuOutputFile
 global GnuHistoFile1 GnuHistoFile2 GnuHistoMax1 GnuHistoMax2
-global ImageMagickMaker TMPGnuPlotTk1 TMPGnuPlotTk2 TMPGnuPlot1Tk TMPGnuPlot2Tk
+global TMPGnuPlotTk1 TMPGnuPlotTk2 TMPGnuPlot1Tk TMPGnuPlot2Tk
 
 set xwindow [winfo x .top253]; set ywindow [winfo y .top253]
 
@@ -1779,9 +1780,9 @@ if {$SurfaceOutputSubDir == "T3"} {set SurfaceF "T3"}
 if {$SurfaceOutputSubDir == "T4"} {set SurfaceF "T4"}
 if {$SurfaceOutputSubDir == "C3"} {set SurfaceF "C3"}
 if {$SurfaceOutputSubDir == "C4"} {set SurfaceF "C4"}
-TextEditorRunTrace "Process The Function Soft/data_process_sngl/surface_inversion_histo.exe" "k"
-TextEditorRunTrace "Arguments: -id \x22$SurfaceDirInput\x22 -iodf $SurfaceF -hvvv \x22$TMPStatisticsBin1\x22 -hhvv \x22$TMPStatisticsBin2\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-set f [ open "| Soft/data_process_sngl/surface_inversion_histo.exe -id \x22$SurfaceDirInput\x22 -iodf $SurfaceF -hvvv \x22$TMPStatisticsBin1\x22 -hhvv \x22$TMPStatisticsBin2\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/surface_inversion_histo.exe" "k"
+TextEditorRunTrace "Arguments: -id \x22$SurfaceDirInput\x22 -iodf $SurfaceF -hvvv \x22$TMPStatisticsBin1\x22 -hhvv \x22$TMPStatisticsBin2\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+set f [ open "| Soft/bin/data_process_sngl/surface_inversion_histo.exe -id \x22$SurfaceDirInput\x22 -iodf $SurfaceF -hvvv \x22$TMPStatisticsBin1\x22 -hhvv \x22$TMPStatisticsBin2\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
 PsPprogressBar $f
 TextEditorRunTrace "Check RunTime Errors" "r"
 CheckRunTimeError
@@ -1791,9 +1792,9 @@ set config "true"
 if [file exists $TMPStatisticsBin1] {
     Window hide .top401
     DeleteFile $TMPStatHistoTxt1
-    TextEditorRunTrace "Process The Function Soft/data_process_sngl/statistics_histogram.exe" "k"
+    TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/statistics_histogram.exe" "k"
     TextEditorRunTrace "Arguments: \x22$TMPStatisticsBin1\x22 \x22$TMPStatHistoTxt1\x22 \x22$TMPStatResultsTxt1\x22 float real 200 1 -9999 +9999" "k"
-    set f [ open "| Soft/data_process_sngl/statistics_histogram.exe \x22$TMPStatisticsBin1\x22 \x22$TMPStatHistoTxt1\x22 \x22$TMPStatResultsTxt1\x22 float real 200 1 -9999 +9999" r]
+    set f [ open "| Soft/bin/data_process_sngl/statistics_histogram.exe \x22$TMPStatisticsBin1\x22 \x22$TMPStatHistoTxt1\x22 \x22$TMPStatResultsTxt1\x22 float real 200 1 -9999 +9999" r]
     catch "close $f"
     }            
 if [file exists $TMPStatHistoTxt1] {
@@ -1812,9 +1813,9 @@ if [file exists $TMPStatHistoTxt1] {
 if [file exists $TMPStatisticsBin2] {
     Window hide .top402
     DeleteFile $TMPStatHistoTxt2
-    TextEditorRunTrace "Process The Function Soft/data_process_sngl/statistics_histogram.exe" "k"
+    TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/statistics_histogram.exe" "k"
     TextEditorRunTrace "Arguments: \x22$TMPStatisticsBin2\x22 \x22$TMPStatHistoTxt2\x22 \x22$TMPStatResultsTxt2\x22 float real 200 1 -9999 +9999" "k"
-    set f [ open "| Soft/data_process_sngl/statistics_histogram.exe \x22$TMPStatisticsBin2\x22 \x22$TMPStatHistoTxt2\x22 \x22$TMPStatResultsTxt2\x22 float real 200 1 -9999 +9999" r]
+    set f [ open "| Soft/bin/data_process_sngl/statistics_histogram.exe \x22$TMPStatisticsBin2\x22 \x22$TMPStatHistoTxt2\x22 \x22$TMPStatResultsTxt2\x22 float real 200 1 -9999 +9999" r]
     catch "close $f"
     }            
 if [file exists $TMPStatHistoTxt2] {
@@ -1949,7 +1950,7 @@ global Fonction2 ProgressLine VarFunction VarWarning VarAdvice WarningMessage Wa
 global ConfigFile FinalNlig FinalNcol PolarCase PolarType
 global SurfaceModel LIAFile LIAangle SurfaceFreq SurfaceCoeffCalib SurfaceCalibFlag
 global SurfaceThreshold1 SurfaceThreshold2 SurfaceThreshold3 SurfaceThreshold4 
-global SurfaceNwinL SurfaceNwinC SurfaceDieli SurfaceBeta PSPMemory TMPMemoryAllocError
+global SurfaceNwinL SurfaceNwinC SurfaceDieli SurfaceBeta TMPMemoryAllocError
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
 global DisplayXBraggHAlpha
 
@@ -2070,9 +2071,9 @@ if {"$VarWarning"=="ok"} {
         if {$SurfaceOutputSubDir == "T4"} {set SurfaceF "T4"}
         if {$SurfaceOutputSubDir == "C3"} {set SurfaceF "C3"}
         if {$SurfaceOutputSubDir == "C4"} {set SurfaceF "C4"}
-        TextEditorRunTrace "Process The Function Soft/data_process_sngl/surface_inversion_oh.exe" "k"
-        TextEditorRunTrace "Arguments: -id \x22$SurfaceDirInput\x22 -od \x22$SurfaceDirOutput\x22 -iodf $SurfaceF -ang \x22$LIAFile\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -un $LIAangle -th1 $SurfaceThreshold1 -th2 $SurfaceThreshold2 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-        set f [ open "| Soft/data_process_sngl/surface_inversion_oh.exe -id \x22$SurfaceDirInput\x22 -od \x22$SurfaceDirOutput\x22 -iodf $SurfaceF -ang \x22$LIAFile\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -un $LIAangle -th1 $SurfaceThreshold1 -th2 $SurfaceThreshold2 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+        TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/surface_inversion_oh.exe" "k"
+        TextEditorRunTrace "Arguments: -id \x22$SurfaceDirInput\x22 -od \x22$SurfaceDirOutput\x22 -iodf $SurfaceF -ang \x22$LIAFile\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -un $LIAangle -th1 $SurfaceThreshold1 -th2 $SurfaceThreshold2  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+        set f [ open "| Soft/bin/data_process_sngl/surface_inversion_oh.exe -id \x22$SurfaceDirInput\x22 -od \x22$SurfaceDirOutput\x22 -iodf $SurfaceF -ang \x22$LIAFile\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -un $LIAangle -th1 $SurfaceThreshold1 -th2 $SurfaceThreshold2  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError
@@ -2158,9 +2159,9 @@ if {"$VarWarning"=="ok"} {
         if {$SurfaceOutputSubDir == "T4"} {set SurfaceF "T4"}
         if {$SurfaceOutputSubDir == "C3"} {set SurfaceF "C3"}
         if {$SurfaceOutputSubDir == "C4"} {set SurfaceF "C4"}
-        TextEditorRunTrace "Process The Function Soft/data_process_sngl/surface_inversion_oh2004.exe" "k"
-        TextEditorRunTrace "Arguments: -id \x22$SurfaceDirInput\x22 -od \x22$SurfaceDirOutput\x22 -iodf $SurfaceF -ang \x22$LIAFile\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -un $LIAangle -fr $SurfaceFreq -th1 $SurfaceThreshold3 -th2 $SurfaceThreshold4 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-        set f [ open "| Soft/data_process_sngl/surface_inversion_oh2004.exe -id \x22$SurfaceDirInput\x22 -od \x22$SurfaceDirOutput\x22 -iodf $SurfaceF -ang \x22$LIAFile\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -un $LIAangle -fr $SurfaceFreq -th1 $SurfaceThreshold3 -th2 $SurfaceThreshold4 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+        TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/surface_inversion_oh2004.exe" "k"
+        TextEditorRunTrace "Arguments: -id \x22$SurfaceDirInput\x22 -od \x22$SurfaceDirOutput\x22 -iodf $SurfaceF -ang \x22$LIAFile\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -un $LIAangle -fr $SurfaceFreq -th1 $SurfaceThreshold3 -th2 $SurfaceThreshold4  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+        set f [ open "| Soft/bin/data_process_sngl/surface_inversion_oh2004.exe -id \x22$SurfaceDirInput\x22 -od \x22$SurfaceDirOutput\x22 -iodf $SurfaceF -ang \x22$LIAFile\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -un $LIAangle -fr $SurfaceFreq -th1 $SurfaceThreshold3 -th2 $SurfaceThreshold4  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError
@@ -2237,9 +2238,9 @@ if {"$VarWarning"=="ok"} {
         if {$SurfaceOutputSubDir == "T4"} {set SurfaceF "T4"}
         if {$SurfaceOutputSubDir == "C3"} {set SurfaceF "C3T3"}
         if {$SurfaceOutputSubDir == "C4"} {set SurfaceF "C4T4"}
-        TextEditorRunTrace "Process The Function Soft/data_process_sngl/h_a_alpha_decomposition.exe" "k"
-        TextEditorRunTrace "Arguments: -id \x22$SurfaceDirInput\x22 -od \x22$SurfaceDirOutput\x22 -iodf $SurfaceF -nwr $SurfaceNwinL -nwc $SurfaceNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -fl1 0 -fl2 0 -fl3 1 -fl4 1 -fl5 0 -fl6 0 -fl7 0 -fl8 0 -fl9 0 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-        set f [ open "| Soft/data_process_sngl/h_a_alpha_decomposition.exe -id \x22$SurfaceDirInput\x22 -od \x22$SurfaceDirOutput\x22 -iodf $SurfaceF -nwr $SurfaceNwinL -nwc $SurfaceNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -fl1 0 -fl2 0 -fl3 1 -fl4 1 -fl5 0 -fl6 0 -fl7 0 -fl8 0 -fl9 0 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+        TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/h_a_alpha_decomposition.exe" "k"
+        TextEditorRunTrace "Arguments: -id \x22$SurfaceDirInput\x22 -od \x22$SurfaceDirOutput\x22 -iodf $SurfaceF -nwr $SurfaceNwinL -nwc $SurfaceNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -fl1 0 -fl2 0 -fl3 1 -fl4 1 -fl5 0 -fl6 0 -fl7 0 -fl8 0 -fl9 0  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+        set f [ open "| Soft/bin/data_process_sngl/h_a_alpha_decomposition.exe -id \x22$SurfaceDirInput\x22 -od \x22$SurfaceDirOutput\x22 -iodf $SurfaceF -nwr $SurfaceNwinL -nwc $SurfaceNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -fl1 0 -fl2 0 -fl3 1 -fl4 1 -fl5 0 -fl6 0 -fl7 0 -fl8 0 -fl9 0  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError
@@ -2283,9 +2284,9 @@ if {"$VarWarning"=="ok"} {
         if {$SurfaceOutputSubDir == "T4"} {set SurfaceF "T4"}
         if {$SurfaceOutputSubDir == "C3"} {set SurfaceF "C3"}
         if {$SurfaceOutputSubDir == "C4"} {set SurfaceF "C4"}
-        TextEditorRunTrace "Process The Function Soft/data_process_sngl/surface_inversion_xbragg.exe" "k"
-        TextEditorRunTrace "Arguments: -id \x22$SurfaceDirInput\x22 -od \x22$SurfaceDirOutput\x22 -iodf $SurfaceF -ang \x22$LIAFile\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -un $LIAangle -nwr $SurfaceNwinL -nwc $SurfaceNwinC -dif $SurfaceDieli -bef $SurfaceBeta -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-        set f [ open "| Soft/data_process_sngl/surface_inversion_xbragg.exe -id \x22$SurfaceDirInput\x22 -od \x22$SurfaceDirOutput\x22 -iodf $SurfaceF -ang \x22$LIAFile\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -un $LIAangle -nwr $SurfaceNwinL -nwc $SurfaceNwinC -dif $SurfaceDieli -bef $SurfaceBeta -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+        TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/surface_inversion_xbragg.exe" "k"
+        TextEditorRunTrace "Arguments: -id \x22$SurfaceDirInput\x22 -od \x22$SurfaceDirOutput\x22 -iodf $SurfaceF -ang \x22$LIAFile\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -un $LIAangle -nwr $SurfaceNwinL -nwc $SurfaceNwinC -dif $SurfaceDieli -bef $SurfaceBeta  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+        set f [ open "| Soft/bin/data_process_sngl/surface_inversion_xbragg.exe -id \x22$SurfaceDirInput\x22 -od \x22$SurfaceDirOutput\x22 -iodf $SurfaceF -ang \x22$LIAFile\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -un $LIAangle -nwr $SurfaceNwinL -nwc $SurfaceNwinC -dif $SurfaceDieli -bef $SurfaceBeta  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError
@@ -2354,9 +2355,9 @@ if {"$VarWarning"=="ok"} {
         if {$SurfaceOutputSubDir == "T4"} {set SurfaceF "T4"}
         if {$SurfaceOutputSubDir == "C3"} {set SurfaceF "C3"}
         if {$SurfaceOutputSubDir == "C4"} {set SurfaceF "C4"}
-        TextEditorRunTrace "Process The Function Soft/data_process_sngl/surface_inversion_dubois.exe" "k"
-        TextEditorRunTrace "Arguments: -id \x22$SurfaceDirInput\x22 -od \x22$SurfaceDirOutput\x22 -iodf $SurfaceF -ang \x22$LIAFile\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -fr $SurfaceFreq -un $LIAangle -caf $SurfaceCalibFlag -cac $SCoeffCalib -th1 $SurfaceThreshold1 -th2 $SurfaceThreshold2 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-        set f [ open "| Soft/data_process_sngl/surface_inversion_dubois.exe -id \x22$SurfaceDirInput\x22 -od \x22$SurfaceDirOutput\x22 -iodf $SurfaceF -ang \x22$LIAFile\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -fr $SurfaceFreq -un $LIAangle -caf $SurfaceCalibFlag -cac $SCoeffCalib -th1 $SurfaceThreshold1 -th2 $SurfaceThreshold2 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+        TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/surface_inversion_dubois.exe" "k"
+        TextEditorRunTrace "Arguments: -id \x22$SurfaceDirInput\x22 -od \x22$SurfaceDirOutput\x22 -iodf $SurfaceF -ang \x22$LIAFile\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -fr $SurfaceFreq -un $LIAangle -caf $SurfaceCalibFlag -cac $SCoeffCalib -th1 $SurfaceThreshold1 -th2 $SurfaceThreshold2  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+        set f [ open "| Soft/bin/data_process_sngl/surface_inversion_dubois.exe -id \x22$SurfaceDirInput\x22 -od \x22$SurfaceDirOutput\x22 -iodf $SurfaceF -ang \x22$LIAFile\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -fr $SurfaceFreq -un $LIAangle -caf $SurfaceCalibFlag -cac $SCoeffCalib -th1 $SurfaceThreshold1 -th2 $SurfaceThreshold2  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError

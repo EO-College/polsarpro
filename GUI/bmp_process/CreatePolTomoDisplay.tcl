@@ -20,20 +20,20 @@ if {![info exists vTcl(sourcing)]} {
     package require Tk
     switch $tcl_platform(platform) {
 	windows {
-            option add *Button.padY 0
+	    option add *Button.padY 0
 	}
 	default {
-            option add *Scrollbar.width 10
-            option add *Scrollbar.highlightThickness 0
-            option add *Scrollbar.elementBorderWidth 2
-            option add *Scrollbar.borderWidth 2
+	    option add *Scrollbar.width 10
+	    option add *Scrollbar.highlightThickness 0
+	    option add *Scrollbar.elementBorderWidth 2
+	    option add *Scrollbar.borderWidth 2
 	}
     }
     
 }
 
 #############################################################################
-# Visual Tcl v1.60 Project
+# Visual Tcl v8.6.0.5 Project
 #
 
 
@@ -149,7 +149,8 @@ proc ::vTcl:image:get_creation_type {filename} {
         .ppm -
         .jpg -
         .bmp -
-        .gif    {return photo}
+        .gif -
+	.png	{return photo}
         .xbm    {return bitmap}
         default {return photo}
     }
@@ -205,24 +206,24 @@ proc ::Window {args} {
     if {$name == "."} { wm withdraw $name; return }
     set exists [winfo exists $newname]
     switch $cmd {
-        show {
-            if {$exists} {
-                wm deiconify $newname
-            } elseif {[info procs vTclWindow$name] != ""} {
-                eval "vTclWindow$name $newname $rest"
-            }
-            if {[winfo exists $newname] && [wm state $newname] == "normal"} {
-                vTcl:FireEvent $newname <<Show>>
-            }
-        }
-        hide    {
-            if {$exists} {
-                wm withdraw $newname
-                vTcl:FireEvent $newname <<Hide>>
-                return}
-        }
-        iconify { if $exists {wm iconify $newname; return} }
-        destroy { if $exists {destroy $newname; return} }
+	show {
+	    if {$exists} {
+		wm deiconify $newname
+	    } elseif {[info procs vTclWindow$name] != ""} {
+		eval "vTclWindow$name $newname $rest"
+	    }
+	    if {[winfo exists $newname] && [wm state $newname] == "normal"} {
+		vTcl:FireEvent $newname <<Show>>
+	    }
+	}
+	hide    {
+	    if {$exists} {
+		wm withdraw $newname
+		vTcl:FireEvent $newname <<Hide>>
+		return}
+	}
+	iconify { if $exists {wm iconify $newname; return} }
+	destroy { if $exists {destroy $newname; return} }
     }
 }
 #############################################################################
@@ -238,13 +239,13 @@ proc ::vTcl:DefineAlias {target alias widgetProc top_or_alias cmdalias} {
     set widget($alias) $target
     set widget(rev,$target) $alias
     if {$cmdalias} {
-        interp alias {} $alias {} $widgetProc $target
+	interp alias {} $alias {} $widgetProc $target
     }
     if {$top_or_alias != ""} {
-        set widget($top_or_alias,$alias) $target
-        if {$cmdalias} {
-            interp alias {} $top_or_alias.$alias {} $widgetProc $target
-        }
+	set widget($top_or_alias,$alias) $target
+	if {$cmdalias} {
+	    interp alias {} $top_or_alias.$alias {} $widgetProc $target
+	}
     }
 }
 #############################################################################
@@ -280,25 +281,25 @@ proc ::vTcl:FireEvent {target event {params {}}} {
     if {![winfo exists $target]} return
     ## Process each binding tag, looking for the event
     foreach bindtag [bindtags $target] {
-        set tag_events [bind $bindtag]
-        set stop_processing 0
-        foreach tag_event $tag_events {
-            if {$tag_event == $event} {
-                set bind_code [bind $bindtag $tag_event]
-                foreach rep "\{%W $target\} $params" {
-                    regsub -all [lindex $rep 0] $bind_code [lindex $rep 1] bind_code
-                }
-                set result [catch {uplevel #0 $bind_code} errortext]
-                if {$result == 3} {
-                    ## break exception, stop processing
-                    set stop_processing 1
-                } elseif {$result != 0} {
-                    bgerror $errortext
-                }
-                break
-            }
-        }
-        if {$stop_processing} {break}
+	set tag_events [bind $bindtag]
+	set stop_processing 0
+	foreach tag_event $tag_events {
+	    if {$tag_event == $event} {
+		set bind_code [bind $bindtag $tag_event]
+		foreach rep "\{%W $target\} $params" {
+		    regsub -all [lindex $rep 0] $bind_code [lindex $rep 1] bind_code
+		}
+		set result [catch {uplevel #0 $bind_code} errortext]
+		if {$result == 3} {
+		    ## break exception, stop processing
+		    set stop_processing 1
+		} elseif {$result != 0} {
+		    bgerror $errortext
+		}
+		break
+	    }
+	}
+	if {$stop_processing} {break}
     }
 }
 #############################################################################
@@ -359,8 +360,8 @@ proc ::vTcl:WidgetProc {w args} {
     ##    Please read their license agreements for details.
 
     if {[llength $args] == 0} {
-        ## If no arguments, returns the path the alias points to
-        return $w
+	## If no arguments, returns the path the alias points to
+	return $w
     }
 
     set command [lindex $args 0]
@@ -386,350 +387,57 @@ proc ::vTcl:toplevel {args} {
 if {[info exists vTcl(sourcing)]} {
 
 proc vTcl:project:info {} {
-    set base .top524
+    set base .top528
     namespace eval ::widgets::$base {
         set set,origin 1
         set set,size 1
         set runvisible 1
     }
-    namespace eval ::widgets::$base.fra67 {
-        array set save {-borderwidth 1 -height 1 -relief 1 -width 1}
-    }
     set site_3_0 $base.fra67
-    namespace eval ::widgets::$site_3_0.cpd69 {
-        array set save {-ipad 1 -text 1}
-    }
     set site_5_0 [$site_3_0.cpd69 getframe]
-    namespace eval ::widgets::$site_5_0 {
-        array set save {}
-    }
     set site_5_0 $site_5_0
-    namespace eval ::widgets::$site_5_0.cpd85 {
-        array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -state 1 -textvariable 1}
-    }
-    namespace eval ::widgets::$site_5_0.cpd91 {
-        array set save {-borderwidth 1 -height 1 -width 1}
-    }
     set site_6_0 $site_5_0.cpd91
-    namespace eval ::widgets::$site_6_0.cpd79 {
-        array set save {-_tooltip 1 -command 1 -image 1 -padx 1 -pady 1 -text 1}
-    }
-    namespace eval ::widgets::$site_3_0.cpd70 {
-        array set save {-ipad 1 -text 1}
-    }
+    set site_4_0 $site_3_0.cpd53
     set site_5_0 [$site_3_0.cpd70 getframe]
-    namespace eval ::widgets::$site_5_0 {
-        array set save {}
-    }
     set site_5_0 $site_5_0
-    namespace eval ::widgets::$site_5_0.cpd82 {
-        array set save {-padx 1 -text 1 -value 1 -variable 1}
-    }
-    namespace eval ::widgets::$site_5_0.cpd83 {
-        array set save {-padx 1 -text 1 -value 1 -variable 1}
-    }
-    namespace eval ::widgets::$site_5_0.cpd84 {
-        array set save {-padx 1 -text 1 -value 1 -variable 1}
-    }
-    namespace eval ::widgets::$site_3_0.cpd71 {
-        array set save {-ipad 1 -text 1}
-    }
     set site_5_0 [$site_3_0.cpd71 getframe]
-    namespace eval ::widgets::$site_5_0 {
-        array set save {}
-    }
     set site_5_0 $site_5_0
-    namespace eval ::widgets::$site_5_0.cpd86 {
-        array set save {-padx 1 -text 1 -value 1 -variable 1}
-    }
-    namespace eval ::widgets::$site_5_0.cpd71 {
-        array set save {-padx 1 -text 1 -value 1 -variable 1}
-    }
-    namespace eval ::widgets::$site_5_0.cpd87 {
-        array set save {-padx 1 -text 1 -value 1 -variable 1}
-    }
-    namespace eval ::widgets::$site_5_0.cpd89 {
-        array set save {-padx 1 -text 1 -value 1 -variable 1}
-    }
-    namespace eval ::widgets::$site_5_0.cpd90 {
-        array set save {-padx 1 -text 1 -value 1 -variable 1}
-    }
-    namespace eval ::widgets::$site_5_0.cpd92 {
-        array set save {-padx 1 -text 1 -value 1 -variable 1}
-    }
-    namespace eval ::widgets::$site_3_0.cpd72 {
-        array set save {-ipad 1 -text 1}
-    }
     set site_5_0 [$site_3_0.cpd72 getframe]
-    namespace eval ::widgets::$site_5_0 {
-        array set save {}
-    }
     set site_5_0 $site_5_0
-    namespace eval ::widgets::$site_5_0.cpd72 {
-        array set save {}
-    }
     set site_6_0 $site_5_0.cpd72
-    namespace eval ::widgets::$site_6_0.fra77 {
-        array set save {-borderwidth 1 -height 1 -width 1}
-    }
     set site_7_0 $site_6_0.fra77
-    namespace eval ::widgets::$site_7_0.cpd78 {
-        array set save {-command 1 -padx 1 -text 1 -variable 1}
-    }
-    namespace eval ::widgets::$site_6_0.cpd79 {
-        array set save {-borderwidth 1 -height 1 -width 1}
-    }
     set site_7_0 $site_6_0.cpd79
-    namespace eval ::widgets::$site_7_0.cpd78 {
-        array set save {-padx 1 -text 1 -variable 1}
-    }
-    namespace eval ::widgets::$site_6_0.cpd66 {
-        array set save {-borderwidth 1 -height 1 -width 1}
-    }
     set site_7_0 $site_6_0.cpd66
-    namespace eval ::widgets::$site_7_0.cpd78 {
-        array set save {-command 1 -padx 1 -text 1 -variable 1}
-    }
-    namespace eval ::widgets::$site_5_0.cpd73 {
-        array set save {}
-    }
     set site_6_0 $site_5_0.cpd73
-    namespace eval ::widgets::$site_6_0.cpd102 {
-        array set save {-borderwidth 1 -height 1 -width 1}
-    }
     set site_7_0 $site_6_0.cpd102
-    namespace eval ::widgets::$site_7_0.cpd75 {
-        array set save {-_tooltip 1 -background 1 -command 1 -pady 1 -text 1}
-    }
-    namespace eval ::widgets::$site_6_0.fra67 {
-        array set save {-borderwidth 1 -height 1 -width 1}
-    }
     set site_7_0 $site_6_0.fra67
-    namespace eval ::widgets::$site_7_0.lab68 {
-        array set save {-text 1}
-    }
-    namespace eval ::widgets::$site_7_0.cpd69 {
-        array set save {-text 1}
-    }
-    namespace eval ::widgets::$site_6_0.cpd70 {
-        array set save {-borderwidth 1 -height 1 -width 1}
-    }
     set site_7_0 $site_6_0.cpd70
-    namespace eval ::widgets::$site_7_0.ent71 {
-        array set save {-background 1 -foreground 1 -justify 1 -textvariable 1 -width 1}
-    }
-    namespace eval ::widgets::$site_7_0.cpd73 {
-        array set save {-background 1 -disabledforeground 1 -foreground 1 -justify 1 -state 1 -textvariable 1 -width 1}
-    }
-    namespace eval ::widgets::$site_6_0.cpd74 {
-        array set save {-borderwidth 1 -height 1 -width 1}
-    }
     set site_7_0 $site_6_0.cpd74
-    namespace eval ::widgets::$site_7_0.lab68 {
-        array set save {-text 1}
-    }
-    namespace eval ::widgets::$site_7_0.cpd69 {
-        array set save {-text 1}
-    }
-    namespace eval ::widgets::$site_6_0.cpd75 {
-        array set save {-borderwidth 1 -height 1 -width 1}
-    }
     set site_7_0 $site_6_0.cpd75
-    namespace eval ::widgets::$site_7_0.ent71 {
-        array set save {-background 1 -foreground 1 -justify 1 -textvariable 1 -width 1}
-    }
-    namespace eval ::widgets::$site_7_0.cpd73 {
-        array set save {-background 1 -disabledforeground 1 -foreground 1 -justify 1 -state 1 -textvariable 1 -width 1}
-    }
-    namespace eval ::widgets::$base.cpd75 {
-        array set save {-ipad 1 -text 1}
-    }
     set site_4_0 [$base.cpd75 getframe]
-    namespace eval ::widgets::$site_4_0 {
-        array set save {}
-    }
     set site_4_0 $site_4_0
-    namespace eval ::widgets::$site_4_0.cpd85 {
-        array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -state 1 -textvariable 1}
-    }
-    namespace eval ::widgets::$site_4_0.cpd91 {
-        array set save {-borderwidth 1 -height 1 -width 1}
-    }
     set site_5_0 $site_4_0.cpd91
-    namespace eval ::widgets::$site_5_0.cpd79 {
-        array set save {-_tooltip 1 -command 1 -image 1 -padx 1 -pady 1 -text 1}
-    }
-    namespace eval ::widgets::$base.cpd66 {
-        array set save {-ipad 1 -text 1}
-    }
     set site_4_0 [$base.cpd66 getframe]
-    namespace eval ::widgets::$site_4_0 {
-        array set save {}
-    }
     set site_4_0 $site_4_0
-    namespace eval ::widgets::$site_4_0.cpd85 {
-        array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -state 1 -textvariable 1}
-    }
-    namespace eval ::widgets::$site_4_0.cpd91 {
-        array set save {-borderwidth 1 -height 1 -width 1}
-    }
     set site_5_0 $site_4_0.cpd91
-    namespace eval ::widgets::$site_5_0.cpd79 {
-        array set save {-_tooltip 1 -command 1 -image 1 -padx 1 -pady 1 -text 1}
-    }
-    namespace eval ::widgets::$base.fra74 {
-        array set save {-borderwidth 1 -height 1 -width 1}
-    }
     set site_3_0 $base.fra74
-    namespace eval ::widgets::$site_3_0.cpd71 {
-        array set save {-borderwidth 1 -height 1 -width 1}
-    }
     set site_4_0 $site_3_0.cpd71
-    namespace eval ::widgets::$site_4_0.lab68 {
-        array set save {-text 1}
-    }
-    namespace eval ::widgets::$site_4_0.ent69 {
-        array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -textvariable 1}
-    }
-    namespace eval ::widgets::$site_3_0.cpd70 {
-        array set save {-borderwidth 1 -height 1 -width 1}
-    }
     set site_4_0 $site_3_0.cpd70
-    namespace eval ::widgets::$site_4_0.fra67 {
-        array set save {-borderwidth 1 -height 1 -relief 1 -width 1}
-    }
     set site_5_0 $site_4_0.fra67
-    namespace eval ::widgets::$site_5_0.lab68 {
-        array set save {-text 1}
-    }
-    namespace eval ::widgets::$site_5_0.ent69 {
-        array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -justify 1 -state 1 -textvariable 1 -width 1}
-    }
-    namespace eval ::widgets::$site_4_0.cpd70 {
-        array set save {-borderwidth 1 -height 1 -relief 1 -width 1}
-    }
     set site_5_0 $site_4_0.cpd70
-    namespace eval ::widgets::$site_5_0.lab68 {
-        array set save {-text 1}
-    }
-    namespace eval ::widgets::$site_5_0.ent69 {
-        array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -justify 1 -state 1 -textvariable 1 -width 1}
-    }
-    namespace eval ::widgets::$site_4_0.cpd71 {
-        array set save {-borderwidth 1 -height 1 -relief 1 -width 1}
-    }
     set site_5_0 $site_4_0.cpd71
-    namespace eval ::widgets::$site_5_0.lab68 {
-        array set save {-text 1}
-    }
-    namespace eval ::widgets::$site_5_0.ent69 {
-        array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -justify 1 -state 1 -textvariable 1 -width 1}
-    }
-    namespace eval ::widgets::$base.cpd72 {
-        array set save {-borderwidth 1 -height 1 -width 1}
-    }
     set site_3_0 $base.cpd72
-    namespace eval ::widgets::$site_3_0.cpd71 {
-        array set save {-borderwidth 1 -height 1 -width 1}
-    }
     set site_4_0 $site_3_0.cpd71
-    namespace eval ::widgets::$site_4_0.lab68 {
-        array set save {-text 1}
-    }
-    namespace eval ::widgets::$site_4_0.ent69 {
-        array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -textvariable 1}
-    }
-    namespace eval ::widgets::$site_3_0.cpd70 {
-        array set save {-borderwidth 1 -height 1 -width 1}
-    }
     set site_4_0 $site_3_0.cpd70
-    namespace eval ::widgets::$site_4_0.fra67 {
-        array set save {-borderwidth 1 -height 1 -relief 1 -width 1}
-    }
     set site_5_0 $site_4_0.fra67
-    namespace eval ::widgets::$site_5_0.lab68 {
-        array set save {-text 1}
-    }
-    namespace eval ::widgets::$site_5_0.ent69 {
-        array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -justify 1 -state 1 -textvariable 1 -width 1}
-    }
-    namespace eval ::widgets::$site_4_0.cpd70 {
-        array set save {-borderwidth 1 -height 1 -relief 1 -width 1}
-    }
     set site_5_0 $site_4_0.cpd70
-    namespace eval ::widgets::$site_5_0.lab68 {
-        array set save {-text 1}
-    }
-    namespace eval ::widgets::$site_5_0.ent69 {
-        array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -justify 1 -state 1 -textvariable 1 -width 1}
-    }
-    namespace eval ::widgets::$site_4_0.cpd71 {
-        array set save {-borderwidth 1 -height 1 -relief 1 -width 1}
-    }
     set site_5_0 $site_4_0.cpd71
-    namespace eval ::widgets::$site_5_0.lab68 {
-        array set save {-text 1}
-    }
-    namespace eval ::widgets::$site_5_0.ent69 {
-        array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -justify 1 -state 1 -textvariable 1 -width 1}
-    }
-    namespace eval ::widgets::$base.cpd67 {
-        array set save {-borderwidth 1 -height 1 -width 1}
-    }
     set site_3_0 $base.cpd67
-    namespace eval ::widgets::$site_3_0.cpd69 {
-        array set save {-text 1}
-    }
-    namespace eval ::widgets::$site_3_0.cpd68 {
-        array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -textvariable 1 -width 1}
-    }
-    namespace eval ::widgets::$site_3_0.cpd66 {
-        array set save {-ipad 1 -text 1}
-    }
     set site_5_0 [$site_3_0.cpd66 getframe]
-    namespace eval ::widgets::$site_5_0 {
-        array set save {}
-    }
     set site_5_0 $site_5_0
-    namespace eval ::widgets::$site_5_0.cpd68 {
-        array set save {-borderwidth 1 -height 1 -width 1}
-    }
     set site_6_0 $site_5_0.cpd68
-    namespace eval ::widgets::$site_6_0.lab68 {
-        array set save {-text 1}
-    }
-    namespace eval ::widgets::$site_6_0.ent69 {
-        array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -justify 1 -textvariable 1 -width 1}
-    }
-    namespace eval ::widgets::$site_5_0.cpd67 {
-        array set save {-borderwidth 1 -height 1 -width 1}
-    }
     set site_6_0 $site_5_0.cpd67
-    namespace eval ::widgets::$site_6_0.lab68 {
-        array set save {-text 1}
-    }
-    namespace eval ::widgets::$site_6_0.ent69 {
-        array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -justify 1 -textvariable 1 -width 1}
-    }
-    namespace eval ::widgets::$base.fra38 {
-        array set save {-height 1 -relief 1 -width 1}
-    }
     set site_3_0 $base.fra38
-    namespace eval ::widgets::$site_3_0.but93 {
-        array set save {-_tooltip 1 -background 1 -command 1 -padx 1 -pady 1 -text 1}
-    }
-    namespace eval ::widgets::$site_3_0.but66 {
-        array set save {-_tooltip 1 -background 1 -command 1 -image 1 -pady 1}
-    }
-    namespace eval ::widgets::$site_3_0.but67 {
-        array set save {-background 1 -command 1 -image 1 -pady 1 -text 1}
-    }
-    namespace eval ::widgets::$site_3_0.but23 {
-        array set save {-_tooltip 1 -background 1 -command 1 -image 1 -pady 1 -width 1}
-    }
-    namespace eval ::widgets::$site_3_0.but24 {
-        array set save {-_tooltip 1 -background 1 -command 1 -padx 1 -pady 1 -text 1}
-    }
     namespace eval ::widgets_bindings {
         set tagslist {_TopLevel _vTclBalloon}
     }
@@ -738,7 +446,7 @@ proc vTcl:project:info {} {
             init
             main
             vTclWindow.
-            vTclWindow.top524
+            vTclWindow.top528
         }
         set compounds {
         }
@@ -787,9 +495,9 @@ proc vTclWindow. {base} {
     # CREATING WIDGETS
     ###################
     wm focusmodel $top passive
-    wm geometry $top 200x200+125+125; update
-    wm maxsize $top 3360 1028
-    wm minsize $top 116 1
+    wm geometry $top 200x200+132+132; update
+    wm maxsize $top 3844 1065
+    wm minsize $top 104 1
     wm overrideredirect $top 0
     wm resizable $top 1 1
     wm withdraw $top
@@ -805,9 +513,9 @@ proc vTclWindow. {base} {
     vTcl:FireEvent $base <<Ready>>
 }
 
-proc vTclWindow.top524 {base} {
+proc vTclWindow.top528 {base} {
     if {$base == ""} {
-        set base .top524
+        set base .top528
     }
     if {[winfo exists $base]} {
         wm deiconify $base; return
@@ -819,40 +527,40 @@ proc vTclWindow.top524 {base} {
     vTcl:toplevel $top -class Toplevel
     wm withdraw $top
     wm focusmodel $top passive
-    wm geometry $top 500x500+10+110; update
+    wm geometry $top 500x510+10+110; update
     wm maxsize $top 1604 1184
     wm minsize $top 116 1
     wm overrideredirect $top 0
     wm resizable $top 1 1
     wm title $top "Create Pol-Tomography Display"
-    vTcl:DefineAlias "$top" "Toplevel524" vTcl:Toplevel:WidgetProc "" 1
+    vTcl:DefineAlias "$top" "Toplevel528" vTcl:Toplevel:WidgetProc "" 1
     bindtags $top "$top Toplevel all _TopLevel"
     vTcl:FireEvent $top <<Create>>
     wm protocol $top WM_DELETE_WINDOW "vTcl:FireEvent $top <<>>"
 
     frame $top.fra67 \
-        -borderwidth 2 -relief sunken -height 75 -width 125 
-    vTcl:DefineAlias "$top.fra67" "Frame11" vTcl:WidgetProc "Toplevel524" 1
+		-borderwidth 2 -relief sunken -height 75 -width 125 
+    vTcl:DefineAlias "$top.fra67" "Frame11" vTcl:WidgetProc "Toplevel528" 1
     set site_3_0 $top.fra67
     TitleFrame $site_3_0.cpd69 \
-        -ipad 0 -text {Input Data File} 
-    vTcl:DefineAlias "$site_3_0.cpd69" "TitleFrame8" vTcl:WidgetProc "Toplevel524" 1
+		-ipad 0 -text {Input Data File} 
+    vTcl:DefineAlias "$site_3_0.cpd69" "TitleFrame8" vTcl:WidgetProc "Toplevel528" 1
     bind $site_3_0.cpd69 <Destroy> {
         Widget::destroy %W; rename %W {}
     }
     set site_5_0 [$site_3_0.cpd69 getframe]
     entry $site_5_0.cpd85 \
-        -background white -disabledbackground #ffffff \
-        -disabledforeground #0000ff -foreground #0000ff -state disabled \
-        -textvariable PTOMDisplayFileInput 
-    vTcl:DefineAlias "$site_5_0.cpd85" "EntryTopXXCh8" vTcl:WidgetProc "Toplevel524" 1
+		-background white -disabledbackground {#ffffff} \
+		-disabledforeground {#0000ff} -foreground {#0000ff} -state disabled \
+		-textvariable PTOMDisplayFileInput 
+    vTcl:DefineAlias "$site_5_0.cpd85" "EntryTopXXCh8" vTcl:WidgetProc "Toplevel528" 1
     frame $site_5_0.cpd91 \
-        -borderwidth 2 -height 75 -width 125 
-    vTcl:DefineAlias "$site_5_0.cpd91" "Frame21" vTcl:WidgetProc "Toplevel524" 1
+		-borderwidth 2 -height 75 -width 125 
+    vTcl:DefineAlias "$site_5_0.cpd91" "Frame21" vTcl:WidgetProc "Toplevel528" 1
     set site_6_0 $site_5_0.cpd91
     button $site_6_0.cpd79 \
-        \
-        -command {global FileName PTOMDisplayDirInput PTOMDisplayDirOutput PTOMDisplayFileInput PTOMDisplayFileMask
+		\
+		-command {global FileName PTOMDisplayDirInput PTOMDisplayDirOutput PTOMDisplayFileInput PTOMDisplayFileMask
 global MinMaxAutoPTOMDisplay MinMaxContrastPTOMDisplay MinMaxNormalisationPTOMDisplay
 global InputFormat OutputFormat MinPTOMDisplay MaxPTOMDisplay MinCPTOMDisplay MaxCPTOMDisplay
 global PTOMNligInit PTOMNligEnd PTOMNcolInit PTOMNcolEnd PTOMNcolFullSize PTOMNligFullSize
@@ -864,33 +572,33 @@ global ValidMaskFile ValidMaskColor
 Window hide .top401
 Window hide .top401tomo
 
-set PTOMDisplayFileInput ""
+set PTOMDisplayFileInput " "
 #set PTOMDisplayZGroundFile ""
 #set PTOMDisplayZTopFile ""
-set PTOMDisplayFileMask ""
+set PTOMDisplayFileMask " "
 set MaskCmd ""
-set PTOMNligInit ""; set PTOMNligEnd ""
-set PTOMNcolInit ""; set PTOMNcolEnd ""
-set PTOMNcolFullSize ""; set PTOMNligFullSize ""
-set PTOMzdim ""; set PTOMxdim ""
-set PTOMzmin ""; set PTOMzmax ""
-set PTOMxmin ""; set PTOMxmax ""
-set InputFormat ""
-set OutputFormat ""
+set PTOMNligInit " "; set PTOMNligEnd " "
+set PTOMNcolInit " "; set PTOMNcolEnd " "
+set PTOMNcolFullSize " "; set PTOMNligFullSize " "
+set PTOMzdim " "; set PTOMxdim " "
+set PTOMzmin "?"; set PTOMzmax "?"
+set PTOMxmin "?"; set PTOMxmax "?"
+set InputFormat "float"
+set OutputFormat "real"
 set MinMaxAutoPTOMDisplay 1
 set MinMaxContrastPTOMDisplay 0
 set MinMaxNormalisationPTOMDisplay 0
-$widget(Label524_1) configure -state disable
-$widget(Entry524_1) configure -state disable
-$widget(Label524_2) configure -state disable
-$widget(Entry524_2) configure -state disable
-$widget(Label524_3) configure -state disable
-$widget(Entry524_3) configure -state disable
-$widget(Entry524_3) configure -disabledbackground $PSPBackgroundColor
-$widget(Label524_4) configure -state disable
-$widget(Entry524_4) configure -state disable
-$widget(Entry524_4) configure -disabledbackground $PSPBackgroundColor
-$widget(Button524_1) configure -state disable
+$widget(Label528_1) configure -state disable
+$widget(Entry528_1) configure -state disable
+$widget(Label528_2) configure -state disable
+$widget(Entry528_2) configure -state disable
+$widget(Label528_3) configure -state disable
+$widget(Entry528_3) configure -state disable
+$widget(Entry528_3) configure -disabledbackground $PSPBackgroundColor
+$widget(Label528_4) configure -state disable
+$widget(Entry528_4) configure -state disable
+$widget(Entry528_4) configure -disabledbackground $PSPBackgroundColor
+$widget(Button528_1) configure -state disable
 set MinPTOMDisplay "Auto"
 set MaxPTOMDisplay "Auto"
 set MinCPTOMDisplay ""
@@ -911,7 +619,7 @@ if {$FileName != ""} {
     set ConfigFileTomo [file dirname $FileName]
     append ConfigFileTomo "/config.txt"
     if [file exists $ConfigFileTomo] {
-        set PTOMzdim "?"; set PTOMxdim "?"
+        set PTOMzdim " "; set PTOMxdim " "
         set PTOMzmin "?"; set PTOMzmax "?"
         set PTOMxmin "?"; set PTOMxmax "?"
         set f [open $ConfigFileTomo r]
@@ -948,7 +656,7 @@ if {$FileName != ""} {
             close $f
 
             set config "false"
-            if {$PTOMxmin != "?" && $PTOMxmax != "?" && $PTOMxdim != "" && $PTOMzmin != "?" && $PTOMzmax != "?" && $PTOMzdim != ""} { set config "true"}
+            if {$PTOMxmin != "?" && $PTOMxmax != "?" && $PTOMxdim != " " && $PTOMzmin != "?" && $PTOMzmax != "?" && $PTOMzdim != " "} { set config "true"}
            
             if {$config == "true"} {
                 set FileNameHdr "$FileName.hdr"
@@ -995,93 +703,145 @@ if {$FileName != ""} {
                 set ErrorMessage "NOT A POL-TOMO DIRECTORY TYPE"
                 Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
                 tkwait variable VarError
-                if {$VarError == "cancel"} {Window hide $widget(Toplevel524); TextEditorRunTrace "Close Window Create PTOMDisplay File" "b"}
+                if {$VarError == "cancel"} {Window hide $widget(Toplevel528); TextEditorRunTrace "Close Window Create PTOMDisplay File" "b"}
                 }    
             } else {
             close $f
             set ErrorMessage "NOT A POL-TOMO DIRECTORY TYPE"
             Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
             tkwait variable VarError
-            if {$VarError == "cancel"} {Window hide $widget(Toplevel524); TextEditorRunTrace "Close Window Create PTOMDisplay File" "b"}
+            if {$VarError == "cancel"} {Window hide $widget(Toplevel528); TextEditorRunTrace "Close Window Create PTOMDisplay File" "b"}
             }    
         } else {
         set ErrorMessage "NOT CONFIG FILE"
         Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
         tkwait variable VarError
-        if {$VarError == "cancel"} {Window hide $widget(Toplevel524); TextEditorRunTrace "Close Window Create PTOMDisplay File" "b"}
+        if {$VarError == "cancel"} {Window hide $widget(Toplevel528); TextEditorRunTrace "Close Window Create PTOMDisplay File" "b"}
         }    
     }} \
-        -image [vTcl:image:get_image [file join . GUI Images OpenFile.gif]] \
-        -padx 1 -pady 0 -text button 
+		-image [vTcl:image:get_image [file join . GUI Images OpenFile.gif]] \
+		-padx 1 -pady 0 -text button 
     bindtags $site_6_0.cpd79 "$site_6_0.cpd79 Button $top all _vTclBalloon"
     bind $site_6_0.cpd79 <<SetBalloon>> {
         set ::vTcl::balloon::%W {Open File}
     }
     pack $site_6_0.cpd79 \
-        -in $site_6_0 -anchor center -expand 0 -fill none -side top 
+		-in $site_6_0 -anchor center -expand 0 -fill none -side top 
     pack $site_5_0.cpd85 \
-        -in $site_5_0 -anchor center -expand 1 -fill x -side left 
+		-in $site_5_0 -anchor center -expand 1 -fill x -side left 
     pack $site_5_0.cpd91 \
-        -in $site_5_0 -anchor center -expand 0 -fill none -side top 
+		-in $site_5_0 -anchor center -expand 0 -fill none -side top 
+    frame $site_3_0.cpd53 \
+		-borderwidth 2 -relief groove -height 75 -width 125 
+    vTcl:DefineAlias "$site_3_0.cpd53" "Frame10" vTcl:WidgetProc "Toplevel528" 1
+    set site_4_0 $site_3_0.cpd53
+    label $site_4_0.lab45 \
+		-text {Init Row} 
+    vTcl:DefineAlias "$site_4_0.lab45" "Label5" vTcl:WidgetProc "Toplevel528" 1
+    entry $site_4_0.ent49 \
+		-background white -disabledbackground {#ffffff} \
+		-disabledforeground {#0000ff} -foreground {#0000ff} -justify center \
+		-state disabled -textvariable PTOMNligInit -width 5 
+    vTcl:DefineAlias "$site_4_0.ent49" "Entry5" vTcl:WidgetProc "Toplevel528" 1
+    label $site_4_0.cpd46 \
+		-text {End Row} 
+    vTcl:DefineAlias "$site_4_0.cpd46" "Label6" vTcl:WidgetProc "Toplevel528" 1
+    entry $site_4_0.cpd50 \
+		-background white -disabledbackground {#ffffff} \
+		-disabledforeground {#0000ff} -foreground {#0000ff} -justify center \
+		-state disabled -textvariable PTOMNligEnd -width 5 
+    vTcl:DefineAlias "$site_4_0.cpd50" "Entry6" vTcl:WidgetProc "Toplevel528" 1
+    label $site_4_0.cpd47 \
+		-text {Init Col} 
+    vTcl:DefineAlias "$site_4_0.cpd47" "Label18" vTcl:WidgetProc "Toplevel528" 1
+    entry $site_4_0.cpd51 \
+		-background white -disabledbackground {#ffffff} \
+		-disabledforeground {#0000ff} -foreground {#0000ff} -justify center \
+		-state disabled -textvariable PTOMNcolInit -width 5 
+    vTcl:DefineAlias "$site_4_0.cpd51" "Entry17" vTcl:WidgetProc "Toplevel528" 1
+    label $site_4_0.cpd48 \
+		-text {End Col} 
+    vTcl:DefineAlias "$site_4_0.cpd48" "Label19" vTcl:WidgetProc "Toplevel528" 1
+    entry $site_4_0.cpd52 \
+		-background white -disabledbackground {#ffffff} \
+		-disabledforeground {#0000ff} -foreground {#0000ff} -justify center \
+		-state disabled -textvariable PTOMNcolEnd -width 5 
+    vTcl:DefineAlias "$site_4_0.cpd52" "Entry18" vTcl:WidgetProc "Toplevel528" 1
+    pack $site_4_0.lab45 \
+		-in $site_4_0 -anchor center -expand 1 -fill none -side left 
+    pack $site_4_0.ent49 \
+		-in $site_4_0 -anchor center -expand 1 -fill none -side left 
+    pack $site_4_0.cpd46 \
+		-in $site_4_0 -anchor center -expand 1 -fill none -side left 
+    pack $site_4_0.cpd50 \
+		-in $site_4_0 -anchor center -expand 1 -fill none -side left 
+    pack $site_4_0.cpd47 \
+		-in $site_4_0 -anchor center -expand 1 -fill none -side left 
+    pack $site_4_0.cpd51 \
+		-in $site_4_0 -anchor center -expand 1 -fill none -side left 
+    pack $site_4_0.cpd48 \
+		-in $site_4_0 -anchor center -expand 1 -fill none -side left 
+    pack $site_4_0.cpd52 \
+		-in $site_4_0 -anchor center -expand 1 -fill none -side left 
     TitleFrame $site_3_0.cpd70 \
-        -ipad 0 -text {Data Format} 
-    vTcl:DefineAlias "$site_3_0.cpd70" "TitleFrame1" vTcl:WidgetProc "Toplevel524" 1
+		-ipad 0 -text {Data Format} 
+    vTcl:DefineAlias "$site_3_0.cpd70" "TitleFrame1" vTcl:WidgetProc "Toplevel528" 1
     bind $site_3_0.cpd70 <Destroy> {
         Widget::destroy %W; rename %W {}
     }
     set site_5_0 [$site_3_0.cpd70 getframe]
     radiobutton $site_5_0.cpd82 \
-        -padx 1 -text Complex -value cmplx -variable InputFormat 
+		-padx 1 -text Complex -value cmplx -variable InputFormat 
     radiobutton $site_5_0.cpd83 \
-        -padx 1 -text Float -value float -variable InputFormat 
+		-padx 1 -text Float -value float -variable InputFormat 
     radiobutton $site_5_0.cpd84 \
-        -padx 1 -text Integer -value int -variable InputFormat 
+		-padx 1 -text Integer -value int -variable InputFormat 
     pack $site_5_0.cpd82 \
-        -in $site_5_0 -anchor center -expand 1 -fill none -side left 
+		-in $site_5_0 -anchor center -expand 1 -fill none -side left 
     pack $site_5_0.cpd83 \
-        -in $site_5_0 -anchor center -expand 1 -fill none -side left 
+		-in $site_5_0 -anchor center -expand 1 -fill none -side left 
     pack $site_5_0.cpd84 \
-        -in $site_5_0 -anchor center -expand 1 -fill none -side left 
+		-in $site_5_0 -anchor center -expand 1 -fill none -side left 
     TitleFrame $site_3_0.cpd71 \
-        -ipad 0 -text Show 
-    vTcl:DefineAlias "$site_3_0.cpd71" "TitleFrame2" vTcl:WidgetProc "Toplevel524" 1
+		-ipad 0 -text Show 
+    vTcl:DefineAlias "$site_3_0.cpd71" "TitleFrame2" vTcl:WidgetProc "Toplevel528" 1
     bind $site_3_0.cpd71 <Destroy> {
         Widget::destroy %W; rename %W {}
     }
     set site_5_0 [$site_3_0.cpd71 getframe]
     radiobutton $site_5_0.cpd86 \
-        -padx 1 -text Modulus -value mod -variable OutputFormat 
-    vTcl:DefineAlias "$site_5_0.cpd86" "Radiobutton35" vTcl:WidgetProc "Toplevel524" 1
+		-padx 1 -text Modulus -value mod -variable OutputFormat 
+    vTcl:DefineAlias "$site_5_0.cpd86" "Radiobutton35" vTcl:WidgetProc "Toplevel528" 1
     radiobutton $site_5_0.cpd71 \
-        -padx 1 -text 10log(Mod) -value db10 -variable OutputFormat 
-    vTcl:DefineAlias "$site_5_0.cpd71" "Radiobutton43" vTcl:WidgetProc "Toplevel524" 1
+		-padx 1 -text 10log(Mod) -value db10 -variable OutputFormat 
+    vTcl:DefineAlias "$site_5_0.cpd71" "Radiobutton43" vTcl:WidgetProc "Toplevel528" 1
     radiobutton $site_5_0.cpd87 \
-        -padx 1 -text 20log(Mod) -value db20 -variable OutputFormat 
-    vTcl:DefineAlias "$site_5_0.cpd87" "Radiobutton36" vTcl:WidgetProc "Toplevel524" 1
+		-padx 1 -text 20log(Mod) -value db20 -variable OutputFormat 
+    vTcl:DefineAlias "$site_5_0.cpd87" "Radiobutton36" vTcl:WidgetProc "Toplevel528" 1
     radiobutton $site_5_0.cpd89 \
-        -padx 1 -text Phase -value pha -variable OutputFormat 
-    vTcl:DefineAlias "$site_5_0.cpd89" "Radiobutton37" vTcl:WidgetProc "Toplevel524" 1
+		-padx 1 -text Phase -value pha -variable OutputFormat 
+    vTcl:DefineAlias "$site_5_0.cpd89" "Radiobutton37" vTcl:WidgetProc "Toplevel528" 1
     radiobutton $site_5_0.cpd90 \
-        -padx 1 -text Real -value real -variable OutputFormat 
-    vTcl:DefineAlias "$site_5_0.cpd90" "Radiobutton38" vTcl:WidgetProc "Toplevel524" 1
+		-padx 1 -text Real -value real -variable OutputFormat 
+    vTcl:DefineAlias "$site_5_0.cpd90" "Radiobutton38" vTcl:WidgetProc "Toplevel528" 1
     radiobutton $site_5_0.cpd92 \
-        -padx 1 -text Imag -value imag -variable OutputFormat 
-    vTcl:DefineAlias "$site_5_0.cpd92" "Radiobutton39" vTcl:WidgetProc "Toplevel524" 1
+		-padx 1 -text Imag -value imag -variable OutputFormat 
+    vTcl:DefineAlias "$site_5_0.cpd92" "Radiobutton39" vTcl:WidgetProc "Toplevel528" 1
     pack $site_5_0.cpd86 \
-        -in $site_5_0 -anchor center -expand 1 -fill none -side left 
+		-in $site_5_0 -anchor center -expand 1 -fill none -side left 
     pack $site_5_0.cpd71 \
-        -in $site_5_0 -anchor center -expand 1 -fill none -side left 
+		-in $site_5_0 -anchor center -expand 1 -fill none -side left 
     pack $site_5_0.cpd87 \
-        -in $site_5_0 -anchor center -expand 1 -fill none -side left 
+		-in $site_5_0 -anchor center -expand 1 -fill none -side left 
     pack $site_5_0.cpd89 \
-        -in $site_5_0 -anchor center -expand 1 -fill none -side left 
+		-in $site_5_0 -anchor center -expand 1 -fill none -side left 
     pack $site_5_0.cpd90 \
-        -in $site_5_0 -anchor center -expand 1 -fill none -side left 
+		-in $site_5_0 -anchor center -expand 1 -fill none -side left 
     pack $site_5_0.cpd92 \
-        -in $site_5_0 -anchor center -expand 1 -fill none -side left 
+		-in $site_5_0 -anchor center -expand 1 -fill none -side left 
     TitleFrame $site_3_0.cpd72 \
-        -ipad 0 -text {Minimum / Maximum Values} 
-    vTcl:DefineAlias "$site_3_0.cpd72" "TitleFrame6" vTcl:WidgetProc "Toplevel524" 1
+		-ipad 0 -text {Minimum / Maximum Values} 
+    vTcl:DefineAlias "$site_3_0.cpd72" "TitleFrame6" vTcl:WidgetProc "Toplevel528" 1
     bind $site_3_0.cpd72 <Destroy> {
         Widget::destroy %W; rename %W {}
     }
@@ -1089,77 +849,77 @@ if {$FileName != ""} {
     frame $site_5_0.cpd72
     set site_6_0 $site_5_0.cpd72
     frame $site_6_0.fra77 \
-        -borderwidth 2 -height 75 -width 125 
-    vTcl:DefineAlias "$site_6_0.fra77" "Frame3" vTcl:WidgetProc "Toplevel524" 1
+		-borderwidth 2 -height 75 -width 125 
+    vTcl:DefineAlias "$site_6_0.fra77" "Frame3" vTcl:WidgetProc "Toplevel528" 1
     set site_7_0 $site_6_0.fra77
     checkbutton $site_7_0.cpd78 \
-        \
-        -command {global MinMaxAutoPTOMDisplay
+		\
+		-command {global MinMaxAutoPTOMDisplay
 if {"$MinMaxAutoPTOMDisplay"=="1"} {
-    $widget(Label524_1) configure -state disable
-    $widget(Entry524_1) configure -state disable
-    $widget(Label524_2) configure -state disable
-    $widget(Entry524_2) configure -state disable
-    $widget(Label524_3) configure -state disable
-    $widget(Entry524_3) configure -state disable
-    $widget(Entry524_3) configure -disabledbackground $PSPBackgroundColor
-    $widget(Label524_4) configure -state disable
-    $widget(Entry524_4) configure -state disable
-    $widget(Entry524_4) configure -disabledbackground $PSPBackgroundColor
-    $widget(Button524_1) configure -state disable
+    $widget(Label528_1) configure -state disable
+    $widget(Entry528_1) configure -state disable
+    $widget(Label528_2) configure -state disable
+    $widget(Entry528_2) configure -state disable
+    $widget(Label528_3) configure -state disable
+    $widget(Entry528_3) configure -state disable
+    $widget(Entry528_3) configure -disabledbackground $PSPBackgroundColor
+    $widget(Label528_4) configure -state disable
+    $widget(Entry528_4) configure -state disable
+    $widget(Entry528_4) configure -disabledbackground $PSPBackgroundColor
+    $widget(Button528_1) configure -state disable
     set MinPTOMDisplay "Auto"
     set MaxPTOMDisplay "Auto"
     set MinCPTOMDisplay ""
     set MaxCPTOMDisplay ""
     } else {
-    $widget(Label524_1) configure -state normal
-    $widget(Entry524_1) configure -state normal
-    $widget(Label524_2) configure -state normal
-    $widget(Entry524_2) configure -state normal
-    $widget(Label524_3) configure -state normal
-    $widget(Entry524_3) configure -state disable
-    $widget(Entry524_3) configure -disabledbackground #FFFFFF
-    $widget(Label524_4) configure -state normal
-    $widget(Entry524_4) configure -state disable
-    $widget(Entry524_4) configure -disabledbackground #FFFFFF
-    $widget(Button524_1) configure -state normal
+    $widget(Label528_1) configure -state normal
+    $widget(Entry528_1) configure -state normal
+    $widget(Label528_2) configure -state normal
+    $widget(Entry528_2) configure -state normal
+    $widget(Label528_3) configure -state normal
+    $widget(Entry528_3) configure -state disable
+    $widget(Entry528_3) configure -disabledbackground #FFFFFF
+    $widget(Label528_4) configure -state normal
+    $widget(Entry528_4) configure -state disable
+    $widget(Entry528_4) configure -disabledbackground #FFFFFF
+    $widget(Button528_1) configure -state normal
     set MinPTOMDisplay "?"
     set MaxPTOMDisplay "?"
     set MinCPTOMDisplay ""
     set MaxCPTOMDisplay ""
     }} \
-        -padx 1 -text Automatic -variable MinMaxAutoPTOMDisplay 
-    vTcl:DefineAlias "$site_7_0.cpd78" "Checkbutton524_1" vTcl:WidgetProc "Toplevel524" 1
+		-padx 1 -text Automatic -variable MinMaxAutoPTOMDisplay 
+    vTcl:DefineAlias "$site_7_0.cpd78" "Checkbutton528_1" vTcl:WidgetProc "Toplevel528" 1
     pack $site_7_0.cpd78 \
-        -in $site_7_0 -anchor center -expand 0 -fill none -side top 
+		-in $site_7_0 -anchor center -expand 0 -fill none -side top 
     frame $site_6_0.cpd79 \
-        -borderwidth 2 -height 75 -width 125 
-    vTcl:DefineAlias "$site_6_0.cpd79" "Frame4" vTcl:WidgetProc "Toplevel524" 1
+		-borderwidth 2 -height 75 -width 125 
+    vTcl:DefineAlias "$site_6_0.cpd79" "Frame4" vTcl:WidgetProc "Toplevel528" 1
     set site_7_0 $site_6_0.cpd79
     checkbutton $site_7_0.cpd78 \
-        -padx 1 -text {Enhanced Contrast} -variable MinMaxContrastPTOMDisplay 
-    vTcl:DefineAlias "$site_7_0.cpd78" "Checkbutton524_2" vTcl:WidgetProc "Toplevel524" 1
+		-padx 1 -text {Enhanced Contrast} -variable MinMaxContrastPTOMDisplay 
+    vTcl:DefineAlias "$site_7_0.cpd78" "Checkbutton528_2" vTcl:WidgetProc "Toplevel528" 1
     pack $site_7_0.cpd78 \
-        -in $site_7_0 -anchor center -expand 0 -fill none -side top 
+		-in $site_7_0 -anchor center -expand 0 -fill none -side top 
     frame $site_6_0.cpd66 \
-        -borderwidth 2 -height 75 -width 125 
-    vTcl:DefineAlias "$site_6_0.cpd66" "Frame5" vTcl:WidgetProc "Toplevel524" 1
+		-borderwidth 2 -height 75 -width 125 
+    vTcl:DefineAlias "$site_6_0.cpd66" "Frame5" vTcl:WidgetProc "Toplevel528" 1
     set site_7_0 $site_6_0.cpd66
     checkbutton $site_7_0.cpd78 \
-        \
-        -command {global MinMaxAutoPTOMDisplay MinMaxContrastPTOMDisplay MinMaxNormalisationPTOMDisplay
+		\
+		-command {global MinMaxAutoPTOMDisplay MinMaxContrastPTOMDisplay MinMaxNormalisationPTOMDisplay
 
-$widget(Label524_1) configure -state disable
-$widget(Entry524_1) configure -state disable
-$widget(Label524_2) configure -state disable
-$widget(Entry524_2) configure -state disable
-$widget(Label524_3) configure -state disable
-$widget(Entry524_3) configure -state disable
-$widget(Entry524_3) configure -disabledbackground $PSPBackgroundColor
-$widget(Label524_4) configure -state disable
-$widget(Entry524_4) configure -state disable
-$widget(Entry524_4) configure -disabledbackground $PSPBackgroundColor
-$widget(Button524_1) configure -state disable
+$widget(Label528_1) configure -state disable
+$widget(Entry528_1) configure -state disable
+$widget(Label528_2) configure -state disable
+$widget(Entry528_2) configure -state disable
+$widget(Label528_3) configure -state disable
+$widget(Entry528_3) configure -state disable
+$widget(Entry528_3) configure -disabledbackground $PSPBackgroundColor
+$widget(Label528_4) configure -state disable
+$widget(Entry528_4) configure -state disable
+$widget(Entry528_4) configure -disabledbackground $PSPBackgroundColor
+$widget(Button528_1) configure -state disable
 set MinPTOMDisplay "Auto"
 set MaxPTOMDisplay "Auto"
 set MinCPTOMDisplay ""
@@ -1168,34 +928,34 @@ set MaxCPTOMDisplay ""
 if {"$MinMaxNormalisationPTOMDisplay"=="1"} {
     set MinMaxAutoPTOMDisplay 0
     set MinMaxContrastPTOMDisplay 0
-    $widget(Checkbutton524_1) configure -state disable
-    $widget(Checkbutton524_2) configure -state disable  
+    $widget(Checkbutton528_1) configure -state disable
+    $widget(Checkbutton528_2) configure -state disable  
     } else {
     set MinMaxAutoPTOMDisplay 1
     set MinMaxContrastPTOMDisplay 0
-    $widget(Checkbutton524_1) configure -state normal
-    $widget(Checkbutton524_2) configure -state normal  
+    $widget(Checkbutton528_1) configure -state normal
+    $widget(Checkbutton528_2) configure -state normal  
     }} \
-        -padx 1 -text {Normalisation % X [bin]} \
-        -variable MinMaxNormalisationPTOMDisplay 
-    vTcl:DefineAlias "$site_7_0.cpd78" "Checkbutton45" vTcl:WidgetProc "Toplevel524" 1
+		-padx 1 -text {Normalisation % X [bin]} \
+		-variable MinMaxNormalisationPTOMDisplay 
+    vTcl:DefineAlias "$site_7_0.cpd78" "Checkbutton45" vTcl:WidgetProc "Toplevel528" 1
     pack $site_7_0.cpd78 \
-        -in $site_7_0 -anchor center -expand 1 -fill none -side left 
+		-in $site_7_0 -anchor center -expand 1 -fill none -side left 
     pack $site_6_0.fra77 \
-        -in $site_6_0 -anchor w -expand 1 -fill none -side top 
+		-in $site_6_0 -anchor w -expand 1 -fill none -side top 
     pack $site_6_0.cpd79 \
-        -in $site_6_0 -anchor w -expand 1 -fill none -side top 
+		-in $site_6_0 -anchor w -expand 1 -fill none -side top 
     pack $site_6_0.cpd66 \
-        -in $site_6_0 -anchor w -expand 1 -fill none -side top 
+		-in $site_6_0 -anchor w -expand 1 -fill none -side top 
     frame $site_5_0.cpd73
     set site_6_0 $site_5_0.cpd73
     frame $site_6_0.cpd102 \
-        -borderwidth 2 -height 75 -width 125 
-    vTcl:DefineAlias "$site_6_0.cpd102" "Frame69" vTcl:WidgetProc "Toplevel524" 1
+		-borderwidth 2 -height 75 -width 125 
+    vTcl:DefineAlias "$site_6_0.cpd102" "Frame69" vTcl:WidgetProc "Toplevel528" 1
     set site_7_0 $site_6_0.cpd102
     button $site_7_0.cpd75 \
-        -background #ffff00 \
-        -command {global PTOMDisplayFileInput MaxPTOMDisplay MinPTOMDisplay MaxCPTOMDisplay MinCPTOMDisplay TMPMinMaxBmp OpenDirFile
+		-background {#ffff00} \
+		-command {global PTOMDisplayFileInput MaxPTOMDisplay MinPTOMDisplay MaxCPTOMDisplay MinCPTOMDisplay TMPMinMaxBmp OpenDirFile
 global PTOMNligInit PTOMNcolInit PTOMNligInit PTOMNcolEnd PTOMNcolFullSize
 
 if {$OpenDirFile == 0} {
@@ -1218,9 +978,9 @@ set Fonction2 "$PTOMDisplayFileInput"
 set ProgressLine "0"
 WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
 update
-TextEditorRunTrace "Process The Function Soft/bmp_process/MinMaxBMP.exe" "k"
+TextEditorRunTrace "Process The Function Soft/bin/bmp_process/MinMaxBMP.exe" "k"
 TextEditorRunTrace "Arguments: -if \x22$PTOMDisplayFileInput\x22 -ift $InputFormat -oft $OutputFormat -nc $PTOMNcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -of \x22$TMPMinMaxBmp\x22 $MaskCmd" "k"
-set f [ open "| Soft/bmp_process/MinMaxBMP.exe -if \x22$PTOMDisplayFileInput\x22 -ift $InputFormat -oft $OutputFormat -nc $PTOMNcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -of \x22$TMPMinMaxBmp\x22 $MaskCmd" r]
+set f [ open "| Soft/bin/bmp_process/MinMaxBMP.exe -if \x22$PTOMDisplayFileInput\x22 -ift $InputFormat -oft $OutputFormat -nc $PTOMNcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -of \x22$TMPMinMaxBmp\x22 $MaskCmd" r]
 PsPprogressBar $f
 TextEditorRunTrace "Check RunTime Errors" "r"
 CheckRunTimeError
@@ -1240,117 +1000,119 @@ if [file exists $MinMaxPTOMDisplayvalues] {
     close $f
     }
 }} \
-        -pady 2 -text MinMax 
-    vTcl:DefineAlias "$site_7_0.cpd75" "Button524_1" vTcl:WidgetProc "Toplevel524" 1
+		-pady 2 -text MinMax 
+    vTcl:DefineAlias "$site_7_0.cpd75" "Button528_1" vTcl:WidgetProc "Toplevel528" 1
     bindtags $site_7_0.cpd75 "$site_7_0.cpd75 Button $top all _vTclBalloon"
     bind $site_7_0.cpd75 <<SetBalloon>> {
         set ::vTcl::balloon::%W {Find the Min Max values}
     }
     pack $site_7_0.cpd75 \
-        -in $site_7_0 -anchor center -expand 1 -fill none -side left 
+		-in $site_7_0 -anchor center -expand 1 -fill none -side left 
     frame $site_6_0.fra67 \
-        -borderwidth 2 -height 75 -width 125 
-    vTcl:DefineAlias "$site_6_0.fra67" "Frame1" vTcl:WidgetProc "Toplevel524" 1
+		-borderwidth 2 -height 75 -width 125 
+    vTcl:DefineAlias "$site_6_0.fra67" "Frame1" vTcl:WidgetProc "Toplevel528" 1
     set site_7_0 $site_6_0.fra67
     label $site_7_0.lab68 \
-        -text Min 
-    vTcl:DefineAlias "$site_7_0.lab68" "Label524_1" vTcl:WidgetProc "Toplevel524" 1
+		-text Min 
+    vTcl:DefineAlias "$site_7_0.lab68" "Label528_1" vTcl:WidgetProc "Toplevel528" 1
     label $site_7_0.cpd69 \
-        -text {Min E.C} 
-    vTcl:DefineAlias "$site_7_0.cpd69" "Label524_3" vTcl:WidgetProc "Toplevel524" 1
+		-text {Min E.C} 
+    vTcl:DefineAlias "$site_7_0.cpd69" "Label528_3" vTcl:WidgetProc "Toplevel528" 1
     pack $site_7_0.lab68 \
-        -in $site_7_0 -anchor center -expand 0 -fill none -pady 2 -side top 
+		-in $site_7_0 -anchor center -expand 0 -fill none -pady 2 -side top 
     pack $site_7_0.cpd69 \
-        -in $site_7_0 -anchor center -expand 0 -fill none -pady 2 -side top 
+		-in $site_7_0 -anchor center -expand 0 -fill none -pady 2 -side top 
     frame $site_6_0.cpd70 \
-        -borderwidth 2 -height 75 -width 125 
-    vTcl:DefineAlias "$site_6_0.cpd70" "Frame6" vTcl:WidgetProc "Toplevel524" 1
+		-borderwidth 2 -height 75 -width 125 
+    vTcl:DefineAlias "$site_6_0.cpd70" "Frame6" vTcl:WidgetProc "Toplevel528" 1
     set site_7_0 $site_6_0.cpd70
     entry $site_7_0.ent71 \
-        -background white -foreground #ff0000 -justify center \
-        -textvariable MinPTOMDisplay -width 12 
-    vTcl:DefineAlias "$site_7_0.ent71" "Entry524_1" vTcl:WidgetProc "Toplevel524" 1
+		-background white -foreground {#ff0000} -justify center \
+		-textvariable MinPTOMDisplay -width 12 
+    vTcl:DefineAlias "$site_7_0.ent71" "Entry528_1" vTcl:WidgetProc "Toplevel528" 1
     entry $site_7_0.cpd73 \
-        -background white -disabledforeground #0000ff -foreground #0000ff \
-        -justify center -state disabled -textvariable MinCPTOMDisplay \
-        -width 12 
-    vTcl:DefineAlias "$site_7_0.cpd73" "Entry524_3" vTcl:WidgetProc "Toplevel524" 1
+		-background white -disabledforeground {#0000ff} -foreground {#0000ff} \
+		-justify center -state disabled -textvariable MinCPTOMDisplay \
+		-width 12 
+    vTcl:DefineAlias "$site_7_0.cpd73" "Entry528_3" vTcl:WidgetProc "Toplevel528" 1
     pack $site_7_0.ent71 \
-        -in $site_7_0 -anchor center -expand 0 -fill none -pady 2 -side top 
+		-in $site_7_0 -anchor center -expand 0 -fill none -pady 2 -side top 
     pack $site_7_0.cpd73 \
-        -in $site_7_0 -anchor center -expand 0 -fill none -pady 2 -side top 
+		-in $site_7_0 -anchor center -expand 0 -fill none -pady 2 -side top 
     frame $site_6_0.cpd74 \
-        -borderwidth 2 -height 75 -width 125 
-    vTcl:DefineAlias "$site_6_0.cpd74" "Frame7" vTcl:WidgetProc "Toplevel524" 1
+		-borderwidth 2 -height 75 -width 125 
+    vTcl:DefineAlias "$site_6_0.cpd74" "Frame7" vTcl:WidgetProc "Toplevel528" 1
     set site_7_0 $site_6_0.cpd74
     label $site_7_0.lab68 \
-        -text Max 
-    vTcl:DefineAlias "$site_7_0.lab68" "Label524_2" vTcl:WidgetProc "Toplevel524" 1
+		-text Max 
+    vTcl:DefineAlias "$site_7_0.lab68" "Label528_2" vTcl:WidgetProc "Toplevel528" 1
     label $site_7_0.cpd69 \
-        -text {Max E.C} 
-    vTcl:DefineAlias "$site_7_0.cpd69" "Label524_4" vTcl:WidgetProc "Toplevel524" 1
+		-text {Max E.C} 
+    vTcl:DefineAlias "$site_7_0.cpd69" "Label528_4" vTcl:WidgetProc "Toplevel528" 1
     pack $site_7_0.lab68 \
-        -in $site_7_0 -anchor center -expand 0 -fill none -pady 2 -side top 
+		-in $site_7_0 -anchor center -expand 0 -fill none -pady 2 -side top 
     pack $site_7_0.cpd69 \
-        -in $site_7_0 -anchor center -expand 0 -fill none -pady 2 -side top 
+		-in $site_7_0 -anchor center -expand 0 -fill none -pady 2 -side top 
     frame $site_6_0.cpd75 \
-        -borderwidth 2 -height 75 -width 125 
-    vTcl:DefineAlias "$site_6_0.cpd75" "Frame8" vTcl:WidgetProc "Toplevel524" 1
+		-borderwidth 2 -height 75 -width 125 
+    vTcl:DefineAlias "$site_6_0.cpd75" "Frame8" vTcl:WidgetProc "Toplevel528" 1
     set site_7_0 $site_6_0.cpd75
     entry $site_7_0.ent71 \
-        -background white -foreground #ff0000 -justify center \
-        -textvariable MaxPTOMDisplay -width 12 
-    vTcl:DefineAlias "$site_7_0.ent71" "Entry524_2" vTcl:WidgetProc "Toplevel524" 1
+		-background white -foreground {#ff0000} -justify center \
+		-textvariable MaxPTOMDisplay -width 12 
+    vTcl:DefineAlias "$site_7_0.ent71" "Entry528_2" vTcl:WidgetProc "Toplevel528" 1
     entry $site_7_0.cpd73 \
-        -background white -disabledforeground #0000ff -foreground #0000ff \
-        -justify center -state disabled -textvariable MaxCPTOMDisplay \
-        -width 12 
-    vTcl:DefineAlias "$site_7_0.cpd73" "Entry524_4" vTcl:WidgetProc "Toplevel524" 1
+		-background white -disabledforeground {#0000ff} -foreground {#0000ff} \
+		-justify center -state disabled -textvariable MaxCPTOMDisplay \
+		-width 12 
+    vTcl:DefineAlias "$site_7_0.cpd73" "Entry528_4" vTcl:WidgetProc "Toplevel528" 1
     pack $site_7_0.ent71 \
-        -in $site_7_0 -anchor center -expand 0 -fill none -pady 2 -side top 
+		-in $site_7_0 -anchor center -expand 0 -fill none -pady 2 -side top 
     pack $site_7_0.cpd73 \
-        -in $site_7_0 -anchor center -expand 0 -fill none -pady 2 -side top 
+		-in $site_7_0 -anchor center -expand 0 -fill none -pady 2 -side top 
     pack $site_6_0.cpd102 \
-        -in $site_6_0 -anchor center -expand 1 -fill y -padx 5 -side right 
+		-in $site_6_0 -anchor center -expand 1 -fill y -padx 5 -side right 
     pack $site_6_0.fra67 \
-        -in $site_6_0 -anchor center -expand 0 -fill none -padx 5 -side left 
+		-in $site_6_0 -anchor center -expand 0 -fill none -padx 5 -side left 
     pack $site_6_0.cpd70 \
-        -in $site_6_0 -anchor center -expand 0 -fill none -padx 5 -side left 
+		-in $site_6_0 -anchor center -expand 0 -fill none -padx 5 -side left 
     pack $site_6_0.cpd74 \
-        -in $site_6_0 -anchor center -expand 0 -fill none -padx 5 -side left 
+		-in $site_6_0 -anchor center -expand 0 -fill none -padx 5 -side left 
     pack $site_6_0.cpd75 \
-        -in $site_6_0 -anchor center -expand 0 -fill none -padx 5 -side left 
+		-in $site_6_0 -anchor center -expand 0 -fill none -padx 5 -side left 
     pack $site_5_0.cpd72 \
-        -in $site_5_0 -anchor center -expand 1 -fill none -side left 
+		-in $site_5_0 -anchor center -expand 1 -fill none -side left 
     pack $site_5_0.cpd73 \
-        -in $site_5_0 -anchor center -expand 1 -fill y -side left 
+		-in $site_5_0 -anchor center -expand 1 -fill y -side left 
     pack $site_3_0.cpd69 \
-        -in $site_3_0 -anchor center -expand 0 -fill x -side top 
+		-in $site_3_0 -anchor center -expand 0 -fill x -side top 
+    pack $site_3_0.cpd53 \
+		-in $site_3_0 -anchor center -expand 0 -fill x -side top 
     pack $site_3_0.cpd70 \
-        -in $site_3_0 -anchor center -expand 0 -fill x -side top 
+		-in $site_3_0 -anchor center -expand 0 -fill x -side top 
     pack $site_3_0.cpd71 \
-        -in $site_3_0 -anchor center -expand 0 -fill x -side top 
+		-in $site_3_0 -anchor center -expand 0 -fill x -side top 
     pack $site_3_0.cpd72 \
-        -in $site_3_0 -anchor center -expand 0 -fill x -side top 
+		-in $site_3_0 -anchor center -expand 0 -fill x -side top 
     TitleFrame $top.cpd75 \
-        -ipad 0 -text {Z Ground Profile - Input Data File} 
-    vTcl:DefineAlias "$top.cpd75" "TitleFrame9" vTcl:WidgetProc "Toplevel524" 1
+		-ipad 0 -text {Z Ground Profile - Input Data File} 
+    vTcl:DefineAlias "$top.cpd75" "TitleFrame9" vTcl:WidgetProc "Toplevel528" 1
     bind $top.cpd75 <Destroy> {
         Widget::destroy %W; rename %W {}
     }
     set site_4_0 [$top.cpd75 getframe]
     entry $site_4_0.cpd85 \
-        -background white -disabledbackground #ffffff \
-        -disabledforeground #0000ff -foreground #0000ff -state disabled \
-        -textvariable PTOMDisplayZGroundFile 
-    vTcl:DefineAlias "$site_4_0.cpd85" "EntryTopXXCh9" vTcl:WidgetProc "Toplevel524" 1
+		-background white -disabledbackground {#ffffff} \
+		-disabledforeground {#0000ff} -foreground {#0000ff} -state disabled \
+		-textvariable PTOMDisplayZGroundFile 
+    vTcl:DefineAlias "$site_4_0.cpd85" "EntryTopXXCh9" vTcl:WidgetProc "Toplevel528" 1
     frame $site_4_0.cpd91 \
-        -borderwidth 2 -height 75 -width 125 
-    vTcl:DefineAlias "$site_4_0.cpd91" "Frame22" vTcl:WidgetProc "Toplevel524" 1
+		-borderwidth 2 -height 75 -width 125 
+    vTcl:DefineAlias "$site_4_0.cpd91" "Frame22" vTcl:WidgetProc "Toplevel528" 1
     set site_5_0 $site_4_0.cpd91
     button $site_5_0.cpd79 \
-        \
-        -command {global FileName PTOMDisplayDirInput PTOMDisplayZGroundFile
+		\
+		-command {global FileName PTOMDisplayDirInput PTOMDisplayZGroundFile
 global WarningMessage WarningMessage2 VarAdvice
 
 set types {
@@ -1364,37 +1126,37 @@ if {$FileName != ""} {
     } else {
     set PTOMDisplayZGroundFile ""
     }} \
-        -image [vTcl:image:get_image [file join . GUI Images OpenFile.gif]] \
-        -padx 1 -pady 0 -text button 
+		-image [vTcl:image:get_image [file join . GUI Images OpenFile.gif]] \
+		-padx 1 -pady 0 -text button 
     bindtags $site_5_0.cpd79 "$site_5_0.cpd79 Button $top all _vTclBalloon"
     bind $site_5_0.cpd79 <<SetBalloon>> {
         set ::vTcl::balloon::%W {Open File}
     }
     pack $site_5_0.cpd79 \
-        -in $site_5_0 -anchor center -expand 0 -fill none -side top 
+		-in $site_5_0 -anchor center -expand 0 -fill none -side top 
     pack $site_4_0.cpd85 \
-        -in $site_4_0 -anchor center -expand 1 -fill x -side left 
+		-in $site_4_0 -anchor center -expand 1 -fill x -side left 
     pack $site_4_0.cpd91 \
-        -in $site_4_0 -anchor center -expand 0 -fill none -side top 
+		-in $site_4_0 -anchor center -expand 0 -fill none -side top 
     TitleFrame $top.cpd66 \
-        -ipad 0 -text {Z Top Profile - Input Data File} 
-    vTcl:DefineAlias "$top.cpd66" "TitleFrame10" vTcl:WidgetProc "Toplevel524" 1
+		-ipad 0 -text {Z Top Profile - Input Data File} 
+    vTcl:DefineAlias "$top.cpd66" "TitleFrame10" vTcl:WidgetProc "Toplevel528" 1
     bind $top.cpd66 <Destroy> {
         Widget::destroy %W; rename %W {}
     }
     set site_4_0 [$top.cpd66 getframe]
     entry $site_4_0.cpd85 \
-        -background white -disabledbackground #ffffff \
-        -disabledforeground #0000ff -foreground #0000ff -state disabled \
-        -textvariable PTOMDisplayZTopFile 
-    vTcl:DefineAlias "$site_4_0.cpd85" "EntryTopXXCh10" vTcl:WidgetProc "Toplevel524" 1
+		-background white -disabledbackground {#ffffff} \
+		-disabledforeground {#0000ff} -foreground {#0000ff} -state disabled \
+		-textvariable PTOMDisplayZTopFile 
+    vTcl:DefineAlias "$site_4_0.cpd85" "EntryTopXXCh10" vTcl:WidgetProc "Toplevel528" 1
     frame $site_4_0.cpd91 \
-        -borderwidth 2 -height 75 -width 125 
-    vTcl:DefineAlias "$site_4_0.cpd91" "Frame23" vTcl:WidgetProc "Toplevel524" 1
+		-borderwidth 2 -height 75 -width 125 
+    vTcl:DefineAlias "$site_4_0.cpd91" "Frame23" vTcl:WidgetProc "Toplevel528" 1
     set site_5_0 $site_4_0.cpd91
     button $site_5_0.cpd79 \
-        \
-        -command {global FileName PTOMDisplayDirInput PTOMDisplayZTopFile
+		\
+		-command {global FileName PTOMDisplayDirInput PTOMDisplayZTopFile
 global WarningMessage WarningMessage2 VarAdvice
 
 set types {
@@ -1408,251 +1170,251 @@ if {$FileName != ""} {
     } else {
     set PTOMDisplayZTopFile ""
     }} \
-        -image [vTcl:image:get_image [file join . GUI Images OpenFile.gif]] \
-        -padx 1 -pady 0 -text button 
+		-image [vTcl:image:get_image [file join . GUI Images OpenFile.gif]] \
+		-padx 1 -pady 0 -text button 
     bindtags $site_5_0.cpd79 "$site_5_0.cpd79 Button $top all _vTclBalloon"
     bind $site_5_0.cpd79 <<SetBalloon>> {
         set ::vTcl::balloon::%W {Open File}
     }
     pack $site_5_0.cpd79 \
-        -in $site_5_0 -anchor center -expand 0 -fill none -side top 
+		-in $site_5_0 -anchor center -expand 0 -fill none -side top 
     pack $site_4_0.cpd85 \
-        -in $site_4_0 -anchor center -expand 1 -fill x -side left 
+		-in $site_4_0 -anchor center -expand 1 -fill x -side left 
     pack $site_4_0.cpd91 \
-        -in $site_4_0 -anchor center -expand 0 -fill none -side top 
+		-in $site_4_0 -anchor center -expand 0 -fill none -side top 
     frame $top.fra74 \
-        -borderwidth 2 -height 75 -width 125 
-    vTcl:DefineAlias "$top.fra74" "Frame2" vTcl:WidgetProc "Toplevel524" 1
+		-borderwidth 2 -height 75 -width 125 
+    vTcl:DefineAlias "$top.fra74" "Frame2" vTcl:WidgetProc "Toplevel528" 1
     set site_3_0 $top.fra74
     frame $site_3_0.cpd71 \
-        -borderwidth 2 -height 75 -width 125 
-    vTcl:DefineAlias "$site_3_0.cpd71" "Frame27" vTcl:WidgetProc "Toplevel524" 1
+		-borderwidth 2 -height 75 -width 125 
+    vTcl:DefineAlias "$site_3_0.cpd71" "Frame27" vTcl:WidgetProc "Toplevel528" 1
     set site_4_0 $site_3_0.cpd71
     label $site_4_0.lab68 \
-        -text {Label ( X )} 
-    vTcl:DefineAlias "$site_4_0.lab68" "Label10" vTcl:WidgetProc "Toplevel524" 1
+		-text {Label ( X )} 
+    vTcl:DefineAlias "$site_4_0.lab68" "Label10" vTcl:WidgetProc "Toplevel528" 1
     entry $site_4_0.ent69 \
-        -background white -disabledbackground #ffffff \
-        -disabledforeground #ff0000 -foreground #ff0000 \
-        -textvariable PTOMDisplayLabelX 
-    vTcl:DefineAlias "$site_4_0.ent69" "Entry10" vTcl:WidgetProc "Toplevel524" 1
+		-background white -disabledbackground {#ffffff} \
+		-disabledforeground {#ff0000} -foreground {#ff0000} \
+		-textvariable PTOMDisplayLabelX 
+    vTcl:DefineAlias "$site_4_0.ent69" "Entry10" vTcl:WidgetProc "Toplevel528" 1
     pack $site_4_0.lab68 \
-        -in $site_4_0 -anchor center -expand 0 -fill none -side left 
+		-in $site_4_0 -anchor center -expand 0 -fill none -side left 
     pack $site_4_0.ent69 \
-        -in $site_4_0 -anchor center -expand 0 -fill none -side left 
+		-in $site_4_0 -anchor center -expand 0 -fill none -side left 
     frame $site_3_0.cpd70 \
-        -borderwidth 2 -height 75 -width 125 
-    vTcl:DefineAlias "$site_3_0.cpd70" "Frame19" vTcl:WidgetProc "Toplevel524" 1
+		-borderwidth 2 -height 75 -width 125 
+    vTcl:DefineAlias "$site_3_0.cpd70" "Frame19" vTcl:WidgetProc "Toplevel528" 1
     set site_4_0 $site_3_0.cpd70
     frame $site_4_0.fra67 \
-        -borderwidth 2 -relief groove -height 75 -width 125 
-    vTcl:DefineAlias "$site_4_0.fra67" "Frame24" vTcl:WidgetProc "Toplevel524" 1
+		-borderwidth 2 -relief groove -height 75 -width 125 
+    vTcl:DefineAlias "$site_4_0.fra67" "Frame24" vTcl:WidgetProc "Toplevel528" 1
     set site_5_0 $site_4_0.fra67
     label $site_5_0.lab68 \
-        -text X_min 
-    vTcl:DefineAlias "$site_5_0.lab68" "Label7" vTcl:WidgetProc "Toplevel524" 1
+		-text X_min 
+    vTcl:DefineAlias "$site_5_0.lab68" "Label7" vTcl:WidgetProc "Toplevel528" 1
     entry $site_5_0.ent69 \
-        -background white -disabledbackground #ffffff \
-        -disabledforeground #0000ff -justify center -state disabled \
-        -textvariable PTOMxmin -width 7 
-    vTcl:DefineAlias "$site_5_0.ent69" "Entry7" vTcl:WidgetProc "Toplevel524" 1
+		-background white -disabledbackground {#ffffff} \
+		-disabledforeground {#0000ff} -justify center -state disabled \
+		-textvariable PTOMxmin -width 7 
+    vTcl:DefineAlias "$site_5_0.ent69" "Entry7" vTcl:WidgetProc "Toplevel528" 1
     pack $site_5_0.lab68 \
-        -in $site_5_0 -anchor center -expand 0 -fill none -side left 
+		-in $site_5_0 -anchor center -expand 0 -fill none -side left 
     pack $site_5_0.ent69 \
-        -in $site_5_0 -anchor center -expand 0 -fill none -side left 
+		-in $site_5_0 -anchor center -expand 0 -fill none -side left 
     frame $site_4_0.cpd70 \
-        -borderwidth 2 -relief groove -height 75 -width 125 
-    vTcl:DefineAlias "$site_4_0.cpd70" "Frame25" vTcl:WidgetProc "Toplevel524" 1
+		-borderwidth 2 -relief groove -height 75 -width 125 
+    vTcl:DefineAlias "$site_4_0.cpd70" "Frame25" vTcl:WidgetProc "Toplevel528" 1
     set site_5_0 $site_4_0.cpd70
     label $site_5_0.lab68 \
-        -text X_max 
-    vTcl:DefineAlias "$site_5_0.lab68" "Label8" vTcl:WidgetProc "Toplevel524" 1
+		-text X_max 
+    vTcl:DefineAlias "$site_5_0.lab68" "Label8" vTcl:WidgetProc "Toplevel528" 1
     entry $site_5_0.ent69 \
-        -background white -disabledbackground #ffffff \
-        -disabledforeground #0000ff -justify center -state disabled \
-        -textvariable PTOMxmax -width 7 
-    vTcl:DefineAlias "$site_5_0.ent69" "Entry8" vTcl:WidgetProc "Toplevel524" 1
+		-background white -disabledbackground {#ffffff} \
+		-disabledforeground {#0000ff} -justify center -state disabled \
+		-textvariable PTOMxmax -width 7 
+    vTcl:DefineAlias "$site_5_0.ent69" "Entry8" vTcl:WidgetProc "Toplevel528" 1
     pack $site_5_0.lab68 \
-        -in $site_5_0 -anchor center -expand 0 -fill none -side left 
+		-in $site_5_0 -anchor center -expand 0 -fill none -side left 
     pack $site_5_0.ent69 \
-        -in $site_5_0 -anchor center -expand 0 -fill none -side left 
+		-in $site_5_0 -anchor center -expand 0 -fill none -side left 
     frame $site_4_0.cpd71 \
-        -borderwidth 2 -relief groove -height 75 -width 125 
-    vTcl:DefineAlias "$site_4_0.cpd71" "Frame26" vTcl:WidgetProc "Toplevel524" 1
+		-borderwidth 2 -relief groove -height 75 -width 125 
+    vTcl:DefineAlias "$site_4_0.cpd71" "Frame26" vTcl:WidgetProc "Toplevel528" 1
     set site_5_0 $site_4_0.cpd71
     label $site_5_0.lab68 \
-        -text X_unit 
-    vTcl:DefineAlias "$site_5_0.lab68" "Label9" vTcl:WidgetProc "Toplevel524" 1
+		-text X_unit 
+    vTcl:DefineAlias "$site_5_0.lab68" "Label9" vTcl:WidgetProc "Toplevel528" 1
     entry $site_5_0.ent69 \
-        -background white -disabledbackground #ffffff \
-        -disabledforeground #0000ff -justify center -state disabled \
-        -textvariable PTOMxdim -width 5 
-    vTcl:DefineAlias "$site_5_0.ent69" "Entry9" vTcl:WidgetProc "Toplevel524" 1
+		-background white -disabledbackground {#ffffff} \
+		-disabledforeground {#0000ff} -justify center -state disabled \
+		-textvariable PTOMxdim -width 5 
+    vTcl:DefineAlias "$site_5_0.ent69" "Entry9" vTcl:WidgetProc "Toplevel528" 1
     pack $site_5_0.lab68 \
-        -in $site_5_0 -anchor center -expand 0 -fill none -side left 
+		-in $site_5_0 -anchor center -expand 0 -fill none -side left 
     pack $site_5_0.ent69 \
-        -in $site_5_0 -anchor center -expand 0 -fill none -side left 
+		-in $site_5_0 -anchor center -expand 0 -fill none -side left 
     pack $site_4_0.fra67 \
-        -in $site_4_0 -anchor center -expand 1 -fill none -side left 
+		-in $site_4_0 -anchor center -expand 1 -fill none -side left 
     pack $site_4_0.cpd70 \
-        -in $site_4_0 -anchor center -expand 1 -fill none -side left 
+		-in $site_4_0 -anchor center -expand 1 -fill none -side left 
     pack $site_4_0.cpd71 \
-        -in $site_4_0 -anchor center -expand 1 -fill none -side left 
+		-in $site_4_0 -anchor center -expand 1 -fill none -side left 
     pack $site_3_0.cpd71 \
-        -in $site_3_0 -anchor center -expand 0 -fill none -side left 
+		-in $site_3_0 -anchor center -expand 0 -fill none -side left 
     pack $site_3_0.cpd70 \
-        -in $site_3_0 -anchor center -expand 1 -fill x -side left 
+		-in $site_3_0 -anchor center -expand 1 -fill x -side left 
     frame $top.cpd72 \
-        -borderwidth 2 -height 75 -width 125 
-    vTcl:DefineAlias "$top.cpd72" "Frame28" vTcl:WidgetProc "Toplevel524" 1
+		-borderwidth 2 -height 75 -width 125 
+    vTcl:DefineAlias "$top.cpd72" "Frame28" vTcl:WidgetProc "Toplevel528" 1
     set site_3_0 $top.cpd72
     frame $site_3_0.cpd71 \
-        -borderwidth 2 -height 75 -width 125 
-    vTcl:DefineAlias "$site_3_0.cpd71" "Frame29" vTcl:WidgetProc "Toplevel524" 1
+		-borderwidth 2 -height 75 -width 125 
+    vTcl:DefineAlias "$site_3_0.cpd71" "Frame29" vTcl:WidgetProc "Toplevel528" 1
     set site_4_0 $site_3_0.cpd71
     label $site_4_0.lab68 \
-        -text {Label ( Z )} 
-    vTcl:DefineAlias "$site_4_0.lab68" "Label11" vTcl:WidgetProc "Toplevel524" 1
+		-text {Label ( Z )} 
+    vTcl:DefineAlias "$site_4_0.lab68" "Label11" vTcl:WidgetProc "Toplevel528" 1
     entry $site_4_0.ent69 \
-        -background white -disabledbackground #ffffff \
-        -disabledforeground #ff0000 -foreground #ff0000 \
-        -textvariable PTOMDisplayLabelY 
-    vTcl:DefineAlias "$site_4_0.ent69" "Entry11" vTcl:WidgetProc "Toplevel524" 1
+		-background white -disabledbackground {#ffffff} \
+		-disabledforeground {#ff0000} -foreground {#ff0000} \
+		-textvariable PTOMDisplayLabelY 
+    vTcl:DefineAlias "$site_4_0.ent69" "Entry11" vTcl:WidgetProc "Toplevel528" 1
     pack $site_4_0.lab68 \
-        -in $site_4_0 -anchor center -expand 0 -fill none -side left 
+		-in $site_4_0 -anchor center -expand 0 -fill none -side left 
     pack $site_4_0.ent69 \
-        -in $site_4_0 -anchor center -expand 0 -fill none -side left 
+		-in $site_4_0 -anchor center -expand 0 -fill none -side left 
     frame $site_3_0.cpd70 \
-        -borderwidth 2 -height 75 -width 125 
-    vTcl:DefineAlias "$site_3_0.cpd70" "Frame30" vTcl:WidgetProc "Toplevel524" 1
+		-borderwidth 2 -height 75 -width 125 
+    vTcl:DefineAlias "$site_3_0.cpd70" "Frame30" vTcl:WidgetProc "Toplevel528" 1
     set site_4_0 $site_3_0.cpd70
     frame $site_4_0.fra67 \
-        -borderwidth 2 -relief groove -height 75 -width 125 
-    vTcl:DefineAlias "$site_4_0.fra67" "Frame31" vTcl:WidgetProc "Toplevel524" 1
+		-borderwidth 2 -relief groove -height 75 -width 125 
+    vTcl:DefineAlias "$site_4_0.fra67" "Frame31" vTcl:WidgetProc "Toplevel528" 1
     set site_5_0 $site_4_0.fra67
     label $site_5_0.lab68 \
-        -text Z_min 
-    vTcl:DefineAlias "$site_5_0.lab68" "Label12" vTcl:WidgetProc "Toplevel524" 1
+		-text Z_min 
+    vTcl:DefineAlias "$site_5_0.lab68" "Label12" vTcl:WidgetProc "Toplevel528" 1
     entry $site_5_0.ent69 \
-        -background white -disabledbackground #ffffff \
-        -disabledforeground #0000ff -justify center -state disabled \
-        -textvariable PTOMzmin -width 7 
-    vTcl:DefineAlias "$site_5_0.ent69" "Entry12" vTcl:WidgetProc "Toplevel524" 1
+		-background white -disabledbackground {#ffffff} \
+		-disabledforeground {#0000ff} -justify center -state disabled \
+		-textvariable PTOMzmin -width 7 
+    vTcl:DefineAlias "$site_5_0.ent69" "Entry12" vTcl:WidgetProc "Toplevel528" 1
     pack $site_5_0.lab68 \
-        -in $site_5_0 -anchor center -expand 0 -fill none -side left 
+		-in $site_5_0 -anchor center -expand 0 -fill none -side left 
     pack $site_5_0.ent69 \
-        -in $site_5_0 -anchor center -expand 0 -fill none -side left 
+		-in $site_5_0 -anchor center -expand 0 -fill none -side left 
     frame $site_4_0.cpd70 \
-        -borderwidth 2 -relief groove -height 75 -width 125 
-    vTcl:DefineAlias "$site_4_0.cpd70" "Frame32" vTcl:WidgetProc "Toplevel524" 1
+		-borderwidth 2 -relief groove -height 75 -width 125 
+    vTcl:DefineAlias "$site_4_0.cpd70" "Frame32" vTcl:WidgetProc "Toplevel528" 1
     set site_5_0 $site_4_0.cpd70
     label $site_5_0.lab68 \
-        -text Z_max 
-    vTcl:DefineAlias "$site_5_0.lab68" "Label13" vTcl:WidgetProc "Toplevel524" 1
+		-text Z_max 
+    vTcl:DefineAlias "$site_5_0.lab68" "Label13" vTcl:WidgetProc "Toplevel528" 1
     entry $site_5_0.ent69 \
-        -background white -disabledbackground #ffffff \
-        -disabledforeground #0000ff -justify center -state disabled \
-        -textvariable PTOMzmax -width 7 
-    vTcl:DefineAlias "$site_5_0.ent69" "Entry13" vTcl:WidgetProc "Toplevel524" 1
+		-background white -disabledbackground {#ffffff} \
+		-disabledforeground {#0000ff} -justify center -state disabled \
+		-textvariable PTOMzmax -width 7 
+    vTcl:DefineAlias "$site_5_0.ent69" "Entry13" vTcl:WidgetProc "Toplevel528" 1
     pack $site_5_0.lab68 \
-        -in $site_5_0 -anchor center -expand 0 -fill none -side left 
+		-in $site_5_0 -anchor center -expand 0 -fill none -side left 
     pack $site_5_0.ent69 \
-        -in $site_5_0 -anchor center -expand 0 -fill none -side left 
+		-in $site_5_0 -anchor center -expand 0 -fill none -side left 
     frame $site_4_0.cpd71 \
-        -borderwidth 2 -relief groove -height 75 -width 125 
-    vTcl:DefineAlias "$site_4_0.cpd71" "Frame33" vTcl:WidgetProc "Toplevel524" 1
+		-borderwidth 2 -relief groove -height 75 -width 125 
+    vTcl:DefineAlias "$site_4_0.cpd71" "Frame33" vTcl:WidgetProc "Toplevel528" 1
     set site_5_0 $site_4_0.cpd71
     label $site_5_0.lab68 \
-        -text Z_unit 
-    vTcl:DefineAlias "$site_5_0.lab68" "Label14" vTcl:WidgetProc "Toplevel524" 1
+		-text Z_unit 
+    vTcl:DefineAlias "$site_5_0.lab68" "Label14" vTcl:WidgetProc "Toplevel528" 1
     entry $site_5_0.ent69 \
-        -background white -disabledbackground #ffffff \
-        -disabledforeground #0000ff -justify center -state disabled \
-        -textvariable PTOMzdim -width 5 
-    vTcl:DefineAlias "$site_5_0.ent69" "Entry14" vTcl:WidgetProc "Toplevel524" 1
+		-background white -disabledbackground {#ffffff} \
+		-disabledforeground {#0000ff} -justify center -state disabled \
+		-textvariable PTOMzdim -width 5 
+    vTcl:DefineAlias "$site_5_0.ent69" "Entry14" vTcl:WidgetProc "Toplevel528" 1
     pack $site_5_0.lab68 \
-        -in $site_5_0 -anchor center -expand 0 -fill none -side left 
+		-in $site_5_0 -anchor center -expand 0 -fill none -side left 
     pack $site_5_0.ent69 \
-        -in $site_5_0 -anchor center -expand 0 -fill none -side left 
+		-in $site_5_0 -anchor center -expand 0 -fill none -side left 
     pack $site_4_0.fra67 \
-        -in $site_4_0 -anchor center -expand 1 -fill none -side left 
+		-in $site_4_0 -anchor center -expand 1 -fill none -side left 
     pack $site_4_0.cpd70 \
-        -in $site_4_0 -anchor center -expand 1 -fill none -side left 
+		-in $site_4_0 -anchor center -expand 1 -fill none -side left 
     pack $site_4_0.cpd71 \
-        -in $site_4_0 -anchor center -expand 1 -fill none -side left 
+		-in $site_4_0 -anchor center -expand 1 -fill none -side left 
     pack $site_3_0.cpd71 \
-        -in $site_3_0 -anchor center -expand 0 -fill none -side left 
+		-in $site_3_0 -anchor center -expand 0 -fill none -side left 
     pack $site_3_0.cpd70 \
-        -in $site_3_0 -anchor center -expand 1 -fill x -side left 
+		-in $site_3_0 -anchor center -expand 1 -fill x -side left 
     frame $top.cpd67 \
-        -borderwidth 2 -height 75 -width 125 
-    vTcl:DefineAlias "$top.cpd67" "Frame17" vTcl:WidgetProc "Toplevel524" 1
+		-borderwidth 2 -height 75 -width 125 
+    vTcl:DefineAlias "$top.cpd67" "Frame17" vTcl:WidgetProc "Toplevel528" 1
     set site_3_0 $top.cpd67
     label $site_3_0.cpd69 \
-        -text {Tomogram Display Title} 
-    vTcl:DefineAlias "$site_3_0.cpd69" "Label15" vTcl:WidgetProc "Toplevel524" 1
+		-text {Tomogram Display Title} 
+    vTcl:DefineAlias "$site_3_0.cpd69" "Label15" vTcl:WidgetProc "Toplevel528" 1
     entry $site_3_0.cpd68 \
-        -background white -disabledbackground #ffffff \
-        -disabledforeground #ff0000 -foreground #ff0000 \
-        -textvariable PTOMDisplayTitle -width 30 
-    vTcl:DefineAlias "$site_3_0.cpd68" "EntryTopXXCh19" vTcl:WidgetProc "Toplevel524" 1
+		-background white -disabledbackground {#ffffff} \
+		-disabledforeground {#ff0000} -foreground {#ff0000} \
+		-textvariable PTOMDisplayTitle -width 30 
+    vTcl:DefineAlias "$site_3_0.cpd68" "EntryTopXXCh19" vTcl:WidgetProc "Toplevel528" 1
     TitleFrame $site_3_0.cpd66 \
-        -ipad 0 -text {Display Size} 
-    vTcl:DefineAlias "$site_3_0.cpd66" "TitleFrame3" vTcl:WidgetProc "Toplevel524" 1
+		-ipad 0 -text {Display Size} 
+    vTcl:DefineAlias "$site_3_0.cpd66" "TitleFrame3" vTcl:WidgetProc "Toplevel528" 1
     bind $site_3_0.cpd66 <Destroy> {
         Widget::destroy %W; rename %W {}
     }
     set site_5_0 [$site_3_0.cpd66 getframe]
     frame $site_5_0.cpd68 \
-        -borderwidth 2 -height 75 -width 125 
-    vTcl:DefineAlias "$site_5_0.cpd68" "Frame35" vTcl:WidgetProc "Toplevel524" 1
+		-borderwidth 2 -height 75 -width 125 
+    vTcl:DefineAlias "$site_5_0.cpd68" "Frame35" vTcl:WidgetProc "Toplevel528" 1
     set site_6_0 $site_5_0.cpd68
     label $site_6_0.lab68 \
-        -text Col 
-    vTcl:DefineAlias "$site_6_0.lab68" "Label17" vTcl:WidgetProc "Toplevel524" 1
+		-text Col 
+    vTcl:DefineAlias "$site_6_0.lab68" "Label17" vTcl:WidgetProc "Toplevel528" 1
     entry $site_6_0.ent69 \
-        -background white -disabledbackground #ffffff \
-        -disabledforeground #ff0000 -foreground #ff0000 -justify center \
-        -textvariable PTOMGifCol -width 5 
-    vTcl:DefineAlias "$site_6_0.ent69" "Entry16" vTcl:WidgetProc "Toplevel524" 1
+		-background white -disabledbackground {#ffffff} \
+		-disabledforeground {#ff0000} -foreground {#ff0000} -justify center \
+		-textvariable PTOMGifCol -width 5 
+    vTcl:DefineAlias "$site_6_0.ent69" "Entry16" vTcl:WidgetProc "Toplevel528" 1
     pack $site_6_0.lab68 \
-        -in $site_6_0 -anchor center -expand 0 -fill none -side left 
+		-in $site_6_0 -anchor center -expand 0 -fill none -side left 
     pack $site_6_0.ent69 \
-        -in $site_6_0 -anchor center -expand 0 -fill none -side left 
+		-in $site_6_0 -anchor center -expand 0 -fill none -side left 
     frame $site_5_0.cpd67 \
-        -borderwidth 2 -height 75 -width 125 
-    vTcl:DefineAlias "$site_5_0.cpd67" "Frame34" vTcl:WidgetProc "Toplevel524" 1
+		-borderwidth 2 -height 75 -width 125 
+    vTcl:DefineAlias "$site_5_0.cpd67" "Frame34" vTcl:WidgetProc "Toplevel528" 1
     set site_6_0 $site_5_0.cpd67
     label $site_6_0.lab68 \
-        -text Row 
-    vTcl:DefineAlias "$site_6_0.lab68" "Label16" vTcl:WidgetProc "Toplevel524" 1
+		-text Row 
+    vTcl:DefineAlias "$site_6_0.lab68" "Label16" vTcl:WidgetProc "Toplevel528" 1
     entry $site_6_0.ent69 \
-        -background white -disabledbackground #ffffff \
-        -disabledforeground #ff0000 -foreground #ff0000 -justify center \
-        -textvariable PTOMGifLig -width 5 
-    vTcl:DefineAlias "$site_6_0.ent69" "Entry15" vTcl:WidgetProc "Toplevel524" 1
+		-background white -disabledbackground {#ffffff} \
+		-disabledforeground {#ff0000} -foreground {#ff0000} -justify center \
+		-textvariable PTOMGifLig -width 5 
+    vTcl:DefineAlias "$site_6_0.ent69" "Entry15" vTcl:WidgetProc "Toplevel528" 1
     pack $site_6_0.lab68 \
-        -in $site_6_0 -anchor center -expand 0 -fill none -side left 
+		-in $site_6_0 -anchor center -expand 0 -fill none -side left 
     pack $site_6_0.ent69 \
-        -in $site_6_0 -anchor center -expand 0 -fill none -side left 
+		-in $site_6_0 -anchor center -expand 0 -fill none -side left 
     pack $site_5_0.cpd68 \
-        -in $site_5_0 -anchor center -expand 1 -fill none -side left 
+		-in $site_5_0 -anchor center -expand 1 -fill none -side left 
     pack $site_5_0.cpd67 \
-        -in $site_5_0 -anchor center -expand 1 -fill none -side left 
+		-in $site_5_0 -anchor center -expand 1 -fill none -side left 
     pack $site_3_0.cpd69 \
-        -in $site_3_0 -anchor center -expand 0 -fill none -side left 
+		-in $site_3_0 -anchor center -expand 0 -fill none -side left 
     pack $site_3_0.cpd68 \
-        -in $site_3_0 -anchor center -expand 1 -fill x -padx 5 -side left 
+		-in $site_3_0 -anchor center -expand 1 -fill x -padx 5 -side left 
     pack $site_3_0.cpd66 \
-        -in $site_3_0 -anchor center -expand 0 -fill none -padx 10 \
-        -side right 
+		-in $site_3_0 -anchor center -expand 0 -fill none -padx 10 \
+		-side right 
     frame $top.fra38 \
-        -relief groove -height 35 -width 125 
-    vTcl:DefineAlias "$top.fra38" "Frame20" vTcl:WidgetProc "Toplevel524" 1
+		-relief groove -height 35 -width 125 
+    vTcl:DefineAlias "$top.fra38" "Frame20" vTcl:WidgetProc "Toplevel528" 1
     set site_3_0 $top.fra38
     button $site_3_0.but93 \
-        -background #ffff00 \
-        -command {global PTOMDisplayDirOutput PTOMDisplayFileOutput PTOMNligInit 
+		-background {#ffff00} \
+		-command {global PTOMDisplayDirOutput PTOMDisplayFileOutput PTOMNligInit 
 global PTOMDisplayFileInput PTOMDisplayFileMask MaskCmd
 global PTOMDisplayZGroundFile PTOMDisplayZTopFile
 global PTOMxmin PTOMxmax PTOMzmin PTOMzmax
@@ -1718,9 +1480,9 @@ if {"$PTOMNligInit"!="0"} {
                 set ProgressLine "0"
                 WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                 update
-                TextEditorRunTrace "Process The Function Soft/bmp_process/prepare_tomo_display.exe" "k"
+                TextEditorRunTrace "Process The Function Soft/bin/bmp_process/prepare_tomo_display.exe" "k"
                 TextEditorRunTrace "Arguments: -if \x22$PTOMDisplayFileInput\x22 -obf \x22$TMPPTOMDisplayFileOutputXbin\x22 -otf \x22$TMPPTOMDisplayFileOutputXtxt\x22 -ift $InputFormat -oft $OutputFormat -nc $FinalNcol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mm $MinMaxPTOMDisplay -min $MinPTOMDisplay -max $MaxPTOMDisplay $MaskCmd" "k"
-                set f [ open "| Soft/bmp_process/prepare_tomo_display.exe -if \x22$PTOMDisplayFileInput\x22 -obf \x22$TMPPTOMDisplayFileOutputXbin\x22 -otf \x22$TMPPTOMDisplayFileOutputXtxt\x22 -ift $InputFormat -oft $OutputFormat -nc $FinalNcol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mm $MinMaxPTOMDisplay -min $MinPTOMDisplay -max $MaxPTOMDisplay $MaskCmd" r]
+                set f [ open "| Soft/bin/bmp_process/prepare_tomo_display.exe -if \x22$PTOMDisplayFileInput\x22 -obf \x22$TMPPTOMDisplayFileOutputXbin\x22 -otf \x22$TMPPTOMDisplayFileOutputXtxt\x22 -ift $InputFormat -oft $OutputFormat -nc $FinalNcol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mm $MinMaxPTOMDisplay -min $MinPTOMDisplay -max $MaxPTOMDisplay $MaskCmd" r]
                 PsPprogressBar $f
                 TextEditorRunTrace "Check RunTime Errors" "r"
                 CheckRunTimeError
@@ -1741,9 +1503,9 @@ if {"$PTOMNligInit"!="0"} {
                 set ProgressLine "0"
                 WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                 update
-                TextEditorRunTrace "Process The Function Soft/bmp_process/create_tomo_display.exe" "k"
+                TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_tomo_display.exe" "k"
                 TextEditorRunTrace "Arguments: -ifb \x22$TMPPTOMDisplayFileOutputXbin\x22 -ift \x22$TMPPTOMDisplayFileOutputXtxt\x22 -igf \x22$PTOMDisplayFileZGround\x22 -itf \x22$PTOMDisplayFileZTop\x22 -ofb \x22$TMPPTOMDisplayFileOutputXYbin\x22 -oft \x22$TMPPTOMDisplayFileOutputXYtxt\x22 -fnr $FinalNlig -fnc $FinalNcol $MaskCmd" "k"
-                set f [ open "| Soft/bmp_process/create_tomo_display.exe -ifb \x22$TMPPTOMDisplayFileOutputXbin\x22 -ift \x22$TMPPTOMDisplayFileOutputXtxt\x22 -igf \x22$PTOMDisplayFileZGround\x22 -itf \x22$PTOMDisplayFileZTop\x22 -ofb \x22$TMPPTOMDisplayFileOutputXYbin\x22 -oft \x22$TMPPTOMDisplayFileOutputXYtxt\x22 -fnr $FinalNlig -fnc $FinalNcol $MaskCmd" r]
+                set f [ open "| Soft/bin/bmp_process/create_tomo_display.exe -ifb \x22$TMPPTOMDisplayFileOutputXbin\x22 -ift \x22$TMPPTOMDisplayFileOutputXtxt\x22 -igf \x22$PTOMDisplayFileZGround\x22 -itf \x22$PTOMDisplayFileZTop\x22 -ofb \x22$TMPPTOMDisplayFileOutputXYbin\x22 -oft \x22$TMPPTOMDisplayFileOutputXYtxt\x22 -fnr $FinalNlig -fnc $FinalNcol $MaskCmd" r]
                 PsPprogressBar $f
                 TextEditorRunTrace "Check RunTime Errors" "r"
                 CheckRunTimeError
@@ -1752,11 +1514,11 @@ if {"$PTOMNligInit"!="0"} {
                 WaitUntilCreated $TMPPTOMDisplayFileOutputXYbin
 
                 PsPPTOMDisplay
-                $widget(Button524_3) configure -state normal
-                $widget(Button524_4) configure -state normal
+                $widget(Button528_3) configure -state normal
+                $widget(Button528_4) configure -state normal
                 }
             } else {
-            if {"$VarWarning"=="no"} {Window hide $widget(Toplevel524); TextEditorRunTrace "Close Window Create PTOMDisplay File" "b"}
+            if {"$VarWarning"=="no"} {Window hide $widget(Toplevel528); TextEditorRunTrace "Close Window Create PTOMDisplay File" "b"}
             }
         }
     } else {
@@ -1766,15 +1528,15 @@ if {"$PTOMNligInit"!="0"} {
         tkwait variable VarError
         }
 }} \
-        -padx 4 -pady 2 -text Run 
-    vTcl:DefineAlias "$site_3_0.but93" "Button13" vTcl:WidgetProc "Toplevel524" 1
+		-padx 4 -pady 2 -text Run 
+    vTcl:DefineAlias "$site_3_0.but93" "Button13" vTcl:WidgetProc "Toplevel528" 1
     bindtags $site_3_0.but93 "$site_3_0.but93 Button $top all _vTclBalloon"
     bind $site_3_0.but93 <<SetBalloon>> {
         set ::vTcl::balloon::%W {Run the Function}
     }
     button $site_3_0.but66 \
-        -background #ffff00 \
-        -command {global ErrorMessage VarError VarSaveGnuPlotFile
+		-background {#ffff00} \
+		-command {global ErrorMessage VarError VarSaveGnuPlotFile
 global GnuplotPipeFid SaveDisplayDirOutput PTOMDisplayDirOutput
 global SaveDisplayOutputFile1
 
@@ -1797,78 +1559,78 @@ if {$GnuplotPipeFid == ""} {
     set SaveDisplayDirOutput $PTOMDisplayDirOutput
     
     set VarSaveGnuPlotFile ""
-    WidgetShowFromWidget $widget(Toplevel524) $widget(Toplevel456); TextEditorRunTrace "Open Window Save Display 1" "b"
+    WidgetShowFromWidget $widget(Toplevel528) $widget(Toplevel456); TextEditorRunTrace "Open Window Save Display 1" "b"
     tkwait variable VarSaveGnuPlotFile
     }} \
-        -image [vTcl:image:get_image [file join . GUI Images SaveFile.gif]] \
-        -pady 0 
-    vTcl:DefineAlias "$site_3_0.but66" "Button524_3" vTcl:WidgetProc "Toplevel524" 1
+		-image [vTcl:image:get_image [file join . GUI Images SaveFile.gif]] \
+		-pady 0 
+    vTcl:DefineAlias "$site_3_0.but66" "Button528_3" vTcl:WidgetProc "Toplevel528" 1
     bindtags $site_3_0.but66 "$site_3_0.but66 Button $top all _vTclBalloon"
     bind $site_3_0.but66 <<SetBalloon>> {
         set ::vTcl::balloon::%W {Save}
     }
     button $site_3_0.but67 \
-        -background #ffffff \
-        -command {global TMPGnuPlotTk1 
+		-background {#ffffff} \
+		-command {global TMPGnuPlotTk1 
 
 Gimp $TMPGnuPlotTk1} \
-        -image [vTcl:image:get_image [file join . GUI Images GIMPshortcut.gif]] \
-        -pady 0 -text button 
-    vTcl:DefineAlias "$site_3_0.but67" "Button524_4" vTcl:WidgetProc "Toplevel524" 1
+		-image [vTcl:image:get_image [file join . GUI Images GIMPshortcut.gif]] \
+		-pady 0 -text button 
+    vTcl:DefineAlias "$site_3_0.but67" "Button528_4" vTcl:WidgetProc "Toplevel528" 1
     button $site_3_0.but23 \
-        -background #ff8000 \
-        -command {HelpPdfEdit "Help/CreatePolTomoDisplay.pdf"} \
-        -image [vTcl:image:get_image [file join . GUI Images help.gif]] \
-        -pady 0 -width 20 
-    vTcl:DefineAlias "$site_3_0.but23" "Button15" vTcl:WidgetProc "Toplevel524" 1
+		-background {#ff8000} \
+		-command {HelpPdfEdit "Help/CreatePolTomoDisplay.pdf"} \
+		-image [vTcl:image:get_image [file join . GUI Images help.gif]] \
+		-pady 0 -width 20 
+    vTcl:DefineAlias "$site_3_0.but23" "Button15" vTcl:WidgetProc "Toplevel528" 1
     bindtags $site_3_0.but23 "$site_3_0.but23 Button $top all _vTclBalloon"
     bind $site_3_0.but23 <<SetBalloon>> {
         set ::vTcl::balloon::%W {Help File}
     }
     button $site_3_0.but24 \
-        -background #ffff00 \
-        -command {global DisplayMainMenu GnuplotPipeFid OpenDirFile Load_SaveDisplay1 
+		-background {#ffff00} \
+		-command {global DisplayMainMenu GnuplotPipeFid OpenDirFile Load_SaveDisplay1 
 
 if {$OpenDirFile == 0} {
 if {$Load_SaveDisplay1 == 1} {Window hide $widget(Toplevel456); TextEditorRunTrace "Close Window Save Display 1" "b"}
 set GnuplotPipeFid ""
 Window hide .top401tomo
-Window hide $widget(Toplevel524); TextEditorRunTrace "Close Window Create Tomogram Display File" "b"
+Window hide $widget(Toplevel528); TextEditorRunTrace "Close Window Create Tomogram Display File" "b"
 }} \
-        -padx 4 -pady 2 -text Exit 
-    vTcl:DefineAlias "$site_3_0.but24" "Button16" vTcl:WidgetProc "Toplevel524" 1
+		-padx 4 -pady 2 -text Exit 
+    vTcl:DefineAlias "$site_3_0.but24" "Button16" vTcl:WidgetProc "Toplevel528" 1
     bindtags $site_3_0.but24 "$site_3_0.but24 Button $top all _vTclBalloon"
     bind $site_3_0.but24 <<SetBalloon>> {
         set ::vTcl::balloon::%W {Exit the Function}
     }
     pack $site_3_0.but93 \
-        -in $site_3_0 -anchor center -expand 1 -fill none -side left 
+		-in $site_3_0 -anchor center -expand 1 -fill none -side left 
     pack $site_3_0.but66 \
-        -in $site_3_0 -anchor center -expand 1 -fill none -side left 
+		-in $site_3_0 -anchor center -expand 1 -fill none -side left 
     pack $site_3_0.but67 \
-        -in $site_3_0 -anchor center -expand 1 -fill none -ipadx 1 -ipady 1 \
-        -side left 
+		-in $site_3_0 -anchor center -expand 1 -fill none -ipadx 1 -ipady 1 \
+		-side left 
     pack $site_3_0.but23 \
-        -in $site_3_0 -anchor center -expand 1 -fill none -side left 
+		-in $site_3_0 -anchor center -expand 1 -fill none -side left 
     pack $site_3_0.but24 \
-        -in $site_3_0 -anchor center -expand 1 -fill none -side left 
+		-in $site_3_0 -anchor center -expand 1 -fill none -side left 
     ###################
     # SETTING GEOMETRY
     ###################
     pack $top.fra67 \
-        -in $top -anchor center -expand 0 -fill x -pady 5 -side top 
+		-in $top -anchor center -expand 0 -fill x -pady 5 -side top 
     pack $top.cpd75 \
-        -in $top -anchor center -expand 0 -fill x -side top 
+		-in $top -anchor center -expand 0 -fill x -side top 
     pack $top.cpd66 \
-        -in $top -anchor center -expand 0 -fill x -side top 
+		-in $top -anchor center -expand 0 -fill x -side top 
     pack $top.fra74 \
-        -in $top -anchor center -expand 0 -fill x -pady 5 -side top 
+		-in $top -anchor center -expand 0 -fill x -pady 5 -side top 
     pack $top.cpd72 \
-        -in $top -anchor center -expand 0 -fill x -side top 
+		-in $top -anchor center -expand 0 -fill x -side top 
     pack $top.cpd67 \
-        -in $top -anchor center -expand 0 -fill x -side top 
+		-in $top -anchor center -expand 0 -fill x -side top 
     pack $top.fra38 \
-        -in $top -anchor center -expand 1 -fill x -side top 
+		-in $top -anchor center -expand 1 -fill x -side top 
 
     vTcl:FireEvent $base <<Ready>>
 }
@@ -1897,6 +1659,6 @@ if {![info exists vTcl(sourcing)]} {
 }
 
 Window show .
-Window show .top524
+Window show .top528
 
 main $argc $argv

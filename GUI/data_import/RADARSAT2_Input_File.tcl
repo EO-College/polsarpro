@@ -858,7 +858,7 @@ set RADARSAT2ProductFile $FileName} \
         -background #ffff00 \
         -command {global RADARSAT2DirInput RADARSAT2DirOutput RADARSAT2FileInputFlag
 global RADARSAT2DataFormat RADARSAT2DataLevel RADARSAT2ProductFile
-global RADARSAT2Lut RADARSAT2LutFile
+global RADARSAT2Lut RADARSAT2LutFile RADARSAT2Antenna RADARSAT2Pass RADARSAT2AntennaPass
 global FileInput1 FileInput2 FileInput3 FileInput4
 global VarWarning VarAdvice WarningMessage WarningMessage2 ErrorMessage VarError
 global NligInit NligEnd NligFullSize NcolInit NcolEnd NcolFullSize NligFullSizeInput NcolFullSizeInput
@@ -902,7 +902,13 @@ if [file exists $RADARSAT2ProductFile] {
     if [file exists $TMPRadarsat2Config] {
         set f [open $TMPRadarsat2Config r]
         gets $f RADARSAT2DataLevel
+        gets $f RADARSAT2Antenna
+        gets $f RADARSAT2Pass
+        gets $f RADARSAT2IncAngNear
+        gets $f RADARSAT2IncAngFar
         gets $f RADARSAT2DataType
+        gets $f RADARSAT2ResRg
+        gets $f RADARSAT2ResAz
         close $f
         if {$RADARSAT2DataType == "Complex" } {
 
@@ -921,6 +927,17 @@ if [file exists $RADARSAT2ProductFile] {
             if {$RADARSAT2DataLevel == "VV VH" } { set RADARSAT2DataLevel "dual"; set PolarType "pp2" }
             if {$RADARSAT2DataLevel == "HH VV" } { set RADARSAT2DataLevel "dual"; set PolarType "pp3" }
             if {$RADARSAT2DataLevel == "VV HH" } { set RADARSAT2DataLevel "dual"; set PolarType "pp3" }
+
+            if {$RADARSAT2Pass == "Ascending" } { set RADARSAT2AntennaPass "A" } else { set RADARSAT2AntennaPass "D" }
+            if {$RADARSAT2Antenna == "Right" } { append RADARSAT2AntennaPass "R" } else { append RADARSAT2AntennaPass "L" }
+
+            set f [open "$RADARSAT2DirOutput/config_acquisition.txt" w]
+            puts $f $RADARSAT2AntennaPass
+            puts $f [expr ($RADARSAT2IncAngNear + $RADARSAT2IncAngFar) / 2 ]
+            puts $f $RADARSAT2ResRg
+            puts $f $RADARSAT2ResAz
+            close $f
+
             if {$RADARSAT2DataFormat == $RADARSAT2DataLevel } {
                 $widget(Button219_5) configure -state normal; 
                 $widget(Label219_10) configure -state normal; $widget(Entry219_10) configure -disabledbackground #FFFFFF
@@ -973,9 +990,9 @@ if [file exists $RADARSAT2ProductFile] {
                         }                        
                     }
                 $widget(Button219_6) configure -state normal
-                TextEditorRunTrace "Process The Function Soft/data_import/radarsat2_google.exe" "k"
+                TextEditorRunTrace "Process The Function Soft/bin/data_import/radarsat2_google.exe" "k"
                 TextEditorRunTrace "Arguments: -id \x22$RADARSAT2DirOutput\x22 -of \x22$TMPGoogle\x22" "k"
-                set f [ open "| Soft/data_import/radarsat2_google.exe -id \x22$RADARSAT2DirOutput\x22 -of \x22$TMPGoogle\x22" r]
+                set f [ open "| Soft/bin/data_import/radarsat2_google.exe -id \x22$RADARSAT2DirOutput\x22 -of \x22$TMPGoogle\x22" r]
                 PsPprogressBar $f
                 TextEditorRunTrace "Check RunTime Errors" "r"
                 CheckRunTimeError
@@ -1035,28 +1052,12 @@ if {$datalevelerror == 1 } {
         TextEditorRunTrace "Close EO-SI Dual Pol" "b"
         set RADARSAT2DataFormat "quad"
         }
-    if {$ActiveProgram == "RADARSAT2"} {
-        if {$RADARSAT2DataFormat == "dual" } { TextEditorRunTrace "Open EO-SI Dual Pol" "b" }
-        if {$RADARSAT2DataFormat == "quad" } { TextEditorRunTrace "Open EO-SI" "b" }
-        $widget(MenubuttonRAD2) configure -background #FFFF00
-        MenuEnvImp
-        InitDataDir
-        CheckEnvironnement
-        }
     Window hide $widget(Toplevel219); TextEditorRunTrace "Close Window RADARSAT2 Input File" "b"
     }
 if {$datalevelerror == 2 } {
     MenuRAZ
     ClosePSPViewer
     CloseAllWidget
-    if {$ActiveProgram == "RADARSAT2"} {
-        if {$RADARSAT2DataFormat == "dual"} { TextEditorRunTrace "Close EO-SI Dual Pol" "b" }
-        if {$RADARSAT2DataFormat == "quad"} { TextEditorRunTrace "Close EO-SI" "b" }
-        set ActiveProgram ""
-        set RADARSAT2DataFormat ""
-        $widget(MenubuttonRAD2) configure -background $couleur_fond
-        MenuEnvImp
-        }
     Window hide $widget(Toplevel219); TextEditorRunTrace "Close Window RADARSAT2 Input File" "b"
     }
 }
@@ -1354,9 +1355,9 @@ if {$RADARSAT2FileInputFlag == 1} {
 
     DeleteFile $TMPRadarsat2Config
 
-    TextEditorRunTrace "Process The Function Soft/data_import/radarsat2_header.exe" "k"
+    TextEditorRunTrace "Process The Function Soft/bin/data_import/radarsat2_header.exe" "k"
     TextEditorRunTrace "Arguments: -if \x22$FileInput1\x22 -of \x22$TMPRadarsat2Config\x22" "k"
-    set f [ open "| Soft/data_import/radarsat2_header.exe -if \x22$FileInput1\x22 -of \x22$TMPRadarsat2Config\x22" r]
+    set f [ open "| Soft/bin/data_import/radarsat2_header.exe -if \x22$FileInput1\x22 -of \x22$TMPRadarsat2Config\x22" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError
@@ -1392,9 +1393,9 @@ if {$RADARSAT2FileInputFlag == 1} {
         set NligFullSizeInput $NligFullSize
         set NcolFullSizeInput $NcolFullSize
 
-        TextEditorRunTrace "Process The Function Soft/data_import/radarsat2_lut.exe" "k"
+        TextEditorRunTrace "Process The Function Soft/bin/data_import/radarsat2_lut.exe" "k"
         TextEditorRunTrace "Arguments: -id \x22$RADARSAT2DirOutput\x22 -nc $NcolFullSize" "k"
-        set f [ open "| Soft/data_import/radarsat2_lut.exe -id \x22$RADARSAT2DirOutput\x22 -nc $NcolFullSize" r]
+        set f [ open "| Soft/bin/data_import/radarsat2_lut.exe -id \x22$RADARSAT2DirOutput\x22 -nc $NcolFullSize" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError

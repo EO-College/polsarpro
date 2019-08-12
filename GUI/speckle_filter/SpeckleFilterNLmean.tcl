@@ -1332,7 +1332,7 @@ global FilterFonction FilterFunction OpenDirFile TMPDirectory
 global ChannelFilter Fonction2 ProgressLine VarFunction VarWarning VarAdvice WarningMessage WarningMessage2
 global ConfigFile FinalNlig FinalNcol PolarCase PolarType 
 global NlookNL NwinTgt NwinFilter NwinSearch NwinPatch
-global PSPMemory TMPMemoryAllocError DataFormatActive
+global TMPMemoryAllocError DataFormatActive
 global NligFullSize NcolFullSize NLFilter CoeffK
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
 
@@ -1380,14 +1380,14 @@ if {"$VarWarning"=="ok"} {
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
         if {$NLFilter == "NLmean"} {
-            TextEditorRunTrace "Process The Function Soft/speckle_filter/nl_mean_pre_filter.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$FilterDirInput\x22 -od \x22$FilterDirOutput\x22 -iodf $FilterFonc -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -nlk $NlookNL -nw $NwinFilter -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/speckle_filter/nl_mean_pre_filter.exe -id \x22$FilterDirInput\x22 -od \x22$FilterDirOutput\x22 -iodf $FilterFonc -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -nlk $NlookNL -nw $NwinFilter -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/speckle_filter/nl_mean_pre_filter.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$FilterDirInput\x22 -od \x22$FilterDirOutput\x22 -iodf $FilterFonc -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -nlk $NlookNL -nw $NwinFilter  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/speckle_filter/nl_mean_pre_filter.exe -id \x22$FilterDirInput\x22 -od \x22$FilterDirOutput\x22 -iodf $FilterFonc -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -nlk $NlookNL -nw $NwinFilter  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             }
         if {$NLFilter == "NLmeanSigma"} {
-            TextEditorRunTrace "Process The Function Soft/speckle_filter/nl_mean_sigma_pre_filter.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$FilterDirInput\x22 -od \x22$FilterDirOutput\x22 -iodf $FilterFonc -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -nlk $NlookNL -nw $NwinFilter -nwt $NwinTgt -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/speckle_filter/nl_mean_sigma_pre_filter.exe -id \x22$FilterDirInput\x22 -od \x22$FilterDirOutput\x22 -iodf $FilterFonc -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -nlk $NlookNL -nw $NwinFilter -nwt $NwinTgt -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/speckle_filter/nl_mean_sigma_pre_filter.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$FilterDirInput\x22 -od \x22$FilterDirOutput\x22 -iodf $FilterFonc -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -nlk $NlookNL -nw $NwinFilter -nwt $NwinTgt  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/speckle_filter/nl_mean_sigma_pre_filter.exe -id \x22$FilterDirInput\x22 -od \x22$FilterDirOutput\x22 -iodf $FilterFonc -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -nlk $NlookNL -nw $NwinFilter -nwt $NwinTgt  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             }
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
@@ -1407,14 +1407,14 @@ if {"$VarWarning"=="ok"} {
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
         if {$NLFilter == "NLmean"} {
-            TextEditorRunTrace "Process The Function Soft/speckle_filter/nl_mean_filter.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$FilterDirInput\x22 -od \x22$FilterDirOutput\x22 -iodf $FilterFonc -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -nlk $NlookNL -nws $NwinSearch -nwp $NwinPatch -k CoeffK -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/speckle_filter/nl_mean_filter.exe -id \x22$FilterDirInput\x22 -od \x22$FilterDirOutput\x22 -iodf $FilterFonc -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -nlk $NlookNL -nws $NwinSearch -nwp $NwinPatch -k CoeffK -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/speckle_filter/nl_mean_filter.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$FilterDirInput\x22 -od \x22$FilterDirOutput\x22 -iodf $FilterFonc -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -nlk $NlookNL -nws $NwinSearch -nwp $NwinPatch -k CoeffK  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/speckle_filter/nl_mean_filter.exe -id \x22$FilterDirInput\x22 -od \x22$FilterDirOutput\x22 -iodf $FilterFonc -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -nlk $NlookNL -nws $NwinSearch -nwp $NwinPatch -k CoeffK  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             }
         if {$NLFilter == "NLmeanSigma"} {
-            TextEditorRunTrace "Process The Function Soft/speckle_filter/nl_mean_sigma_filter.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$FilterDirInput\x22 -od \x22$FilterDirOutput\x22 -iodf $FilterFonc -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -nlk $NlookNL -nws $NwinSearch -nwp $NwinPatch -k CoeffK -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/speckle_filter/nl_mean_sigma_filter.exe -id \x22$FilterDirInput\x22 -od \x22$FilterDirOutput\x22 -iodf $FilterFonc -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -nlk $NlookNL -nws $NwinSearch -nwp $NwinPatch -k CoeffK -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/speckle_filter/nl_mean_sigma_filter.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$FilterDirInput\x22 -od \x22$FilterDirOutput\x22 -iodf $FilterFonc -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -nlk $NlookNL -nws $NwinSearch -nwp $NwinPatch -k CoeffK  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/speckle_filter/nl_mean_sigma_filter.exe -id \x22$FilterDirInput\x22 -od \x22$FilterDirOutput\x22 -iodf $FilterFonc -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -nlk $NlookNL -nws $NwinSearch -nwp $NwinPatch -k CoeffK  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             }
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"

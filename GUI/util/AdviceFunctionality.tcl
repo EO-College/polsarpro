@@ -540,7 +540,7 @@ proc vTclWindow.top387 {base} {
         -text {TO HAVE ACCESS TO THIS FUNCTIONALITY} 
     vTcl:DefineAlias "$site_4_0.lab38" "Label66" vTcl:WidgetProc "Toplevel387" 1
     label $site_4_0.lab39 \
-        -text {SELECT THE PolSARpro v5.0 MENU BUTTON} 
+        -text {SELECT THE PolSARpro Software MENU BUTTON} 
     vTcl:DefineAlias "$site_4_0.lab39" "Label79" vTcl:WidgetProc "Toplevel387" 1
     frame $site_4_0.cpd67 \
         -borderwidth 2 -height 75 -width 125 

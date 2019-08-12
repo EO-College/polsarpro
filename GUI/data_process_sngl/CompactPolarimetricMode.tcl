@@ -1023,11 +1023,11 @@ set HybridConstruct 0
     button $site_3_0.but93 \
         -anchor center -background #ffff00 \
         -command {global DirHybridChange HybridDirInput HybridDirOutput
-global HybridFunction HybridFonction HybridMode HybridMethod PSPMemory TMPMemoryAllocError
+global HybridFunction HybridFonction HybridMode HybridMethod TMPMemoryAllocError
 global HybridConstruct HybridOutputFormat DataFormatActive NwinHybridL NwinHybridC
 global Fonction Fonction2 ProgressLine VarFunction
 global VarWarning WarningMessage WarningMessage2 PSPViewGimpBMP
-global ConfigFile FinalNlig FinalNcol PolarCase PolarType OpenDirFile PSPMemory TMPMemoryAllocError
+global ConfigFile FinalNlig FinalNcol PolarCase PolarType OpenDirFile TMPMemoryAllocError
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax PSPViewGimpBMP
 
 if {$OpenDirFile == 0} {
@@ -1087,9 +1087,9 @@ if {$HybridOutputSubDir != ""} {append HybridDirOutput "/$HybridOutputSubDir"}
                     set ProgressLine "0"
                     update
                     set ConvertOutputFormat "S2SPP"; append ConvertOutputFormat $HybridMode
-                    TextEditorRunTrace "Process The Function Soft/data_convert/data_convert.exe" "k"
-                    TextEditorRunTrace "Arguments: -id \x22$HybridDirInput\x22 -od \x22$HybridOutputDir\x22 -iodf $ConvertOutputFormat -sym 1 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -nlr 1 -nlc 1 -ssr 1 -ssc 1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22" "k"
-                    set f [ open "| Soft/data_convert/data_convert.exe -id \x22$HybridDirInput\x22 -od \x22$HybridOutputDir\x22 -iodf $ConvertOutputFormat -sym 1 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -nlr 1 -nlc 1 -ssr 1 -ssc 1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22" r]
+                    TextEditorRunTrace "Process The Function Soft/bin/data_convert/data_convert.exe" "k"
+                    TextEditorRunTrace "Arguments: -id \x22$HybridDirInput\x22 -od \x22$HybridOutputDir\x22 -iodf $ConvertOutputFormat -sym 1 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -nlr 1 -nlc 1 -ssr 1 -ssc 1  -errf \x22$TMPMemoryAllocError\x22" "k"
+                    set f [ open "| Soft/bin/data_convert/data_convert.exe -id \x22$HybridDirInput\x22 -od \x22$HybridOutputDir\x22 -iodf $ConvertOutputFormat -sym 1 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -nlr 1 -nlc 1 -ssr 1 -ssc 1  -errf \x22$TMPMemoryAllocError\x22" r]
                     PsPprogressBar $f
                     TextEditorRunTrace "Check RunTime Errors" "r"
                     CheckRunTimeError
@@ -1107,14 +1107,14 @@ if {$HybridOutputSubDir != ""} {append HybridDirOutput "/$HybridOutputSubDir"}
                     set ProgressLine "0"
                     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                     update
-                    TextEditorRunTrace "Process The Function Soft/bmp_process/create_rgb_file_SPPIPPC2.exe" "k"
-                    TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf SPP -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -rgbf RGB1 -auto 1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                    set f [ open "| Soft/bmp_process/create_rgb_file_SPPIPPC2.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf SPP -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -rgbf RGB1 -auto 1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_rgb_file_SPPIPPC2.exe" "k"
+                    TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf SPP -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -rgbf RGB1 -auto 1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                    set f [ open "| Soft/bin/bmp_process/create_rgb_file_SPPIPPC2.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf SPP -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -rgbf RGB1 -auto 1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                     PsPprogressBar $f
                     TextEditorRunTrace "Check RunTime Errors" "r"
                     CheckRunTimeError
                     WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-                    if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+                    if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
                     }
 
                 set HybridDirOutput $HybridOutputDir; append HybridDirOutput "/C2"
@@ -1126,9 +1126,9 @@ if {$HybridOutputSubDir != ""} {append HybridDirOutput "/$HybridOutputSubDir"}
                 if {$HybridFonction == "C3"} { set ConvertOutputFormat "C3C2" }
                 if {$HybridFonction == "T3"} { set ConvertOutputFormat "T3C2" }
                 append ConvertOutputFormat $HybridMode
-                TextEditorRunTrace "Process The Function Soft/data_convert/data_convert.exe" "k"
-                TextEditorRunTrace "Arguments: -id \x22$HybridDirInput\x22 -od \x22$HybridDirOutput\x22 -iodf $ConvertOutputFormat -sym 1 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -nlr 1 -nlc 1 -ssr 1 -ssc 1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22" "k"
-                set f [ open "| Soft/data_convert/data_convert.exe -id \x22$HybridDirInput\x22 -od \x22$HybridDirOutput\x22 -iodf $ConvertOutputFormat -sym 1 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -nlr 1 -nlc 1 -ssr 1 -ssc 1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22" r]
+                TextEditorRunTrace "Process The Function Soft/bin/data_convert/data_convert.exe" "k"
+                TextEditorRunTrace "Arguments: -id \x22$HybridDirInput\x22 -od \x22$HybridDirOutput\x22 -iodf $ConvertOutputFormat -sym 1 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -nlr 1 -nlc 1 -ssr 1 -ssc 1  -errf \x22$TMPMemoryAllocError\x22" "k"
+                set f [ open "| Soft/bin/data_convert/data_convert.exe -id \x22$HybridDirInput\x22 -od \x22$HybridDirOutput\x22 -iodf $ConvertOutputFormat -sym 1 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -nlr 1 -nlc 1 -ssr 1 -ssc 1  -errf \x22$TMPMemoryAllocError\x22" r]
                 PsPprogressBar $f
                 TextEditorRunTrace "Check RunTime Errors" "r"
                 CheckRunTimeError
@@ -1146,23 +1146,23 @@ if {$HybridOutputSubDir != ""} {append HybridDirOutput "/$HybridOutputSubDir"}
                 set ProgressLine "0"
                 WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                 update
-                TextEditorRunTrace "Process The Function Soft/bmp_process/create_rgb_file_SPPIPPC2.exe" "k"
-                TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf C2 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -rgbf RGB1 -auto 1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                set f [ open "| Soft/bmp_process/create_rgb_file_SPPIPPC2.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf C2 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -rgbf RGB1 -auto 1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_rgb_file_SPPIPPC2.exe" "k"
+                TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf C2 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -rgbf RGB1 -auto 1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                set f [ open "| Soft/bin/bmp_process/create_rgb_file_SPPIPPC2.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf C2 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -rgbf RGB1 -auto 1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                 PsPprogressBar $f
                 TextEditorRunTrace "Check RunTime Errors" "r"
                 CheckRunTimeError
                 WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-                if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+                if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
 
 
                 if {$HybridConstruct == "1"} {
                     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                     set ProgressLine "0"
                     update
-                    TextEditorRunTrace "Process The Function Soft/data_process_sngl/hybrid_polar.exe" "k"
-                    TextEditorRunTrace "Arguments: -iod $HybridOutputDir -odf $HybridOutputFormat -nwr $NwinHybridL -nwc $NwinHybridC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mod $HybridMode -recm $HybridMethod -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                    set f [ open "| Soft/data_process_sngl/hybrid_polar.exe -iod $HybridOutputDir -odf $HybridOutputFormat -nwr $NwinHybridL -nwc $NwinHybridC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mod $HybridMode -recm $HybridMethod -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                    TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/hybrid_polar.exe" "k"
+                    TextEditorRunTrace "Arguments: -iod $HybridOutputDir -odf $HybridOutputFormat -nwr $NwinHybridL -nwc $NwinHybridC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mod $HybridMode -recm $HybridMethod  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                    set f [ open "| Soft/bin/data_process_sngl/hybrid_polar.exe -iod $HybridOutputDir -odf $HybridOutputFormat -nwr $NwinHybridL -nwc $NwinHybridC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mod $HybridMode -recm $HybridMethod  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                     PsPprogressBar $f
                     TextEditorRunTrace "Check RunTime Errors" "r"
                     CheckRunTimeError
@@ -1185,14 +1185,14 @@ if {$HybridOutputSubDir != ""} {append HybridDirOutput "/$HybridOutputSubDir"}
                     set ProgressLine "0"
                     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                     update
-                    TextEditorRunTrace "Process The Function Soft/bmp_process/create_pauli_rgb_file.exe" "k"
-                    TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $HybridOutputFormat -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -auto 1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                    set f [ open "| Soft/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $HybridOutputFormat -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -auto 1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_pauli_rgb_file.exe" "k"
+                    TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $HybridOutputFormat -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -auto 1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                    set f [ open "| Soft/bin/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $HybridOutputFormat -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -auto 1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                     PsPprogressBar $f
                     TextEditorRunTrace "Check RunTime Errors" "r"
                     CheckRunTimeError
                     WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-                    if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+                    if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
                     }
 
                 if {$HybridConstruct == "1"} {

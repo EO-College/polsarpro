@@ -808,9 +808,9 @@ if {$VarWarning == "ok"} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/data_convert/Ipp_to_Ipp_mlk.exe" "k"
+        TextEditorRunTrace "Process The Function Soft/bin/data_convert/Ipp_to_Ipp_mlk.exe" "k"
         TextEditorRunTrace "Arguments: \x22$ConvertDirInput\x22 \x22$ConvertDirOutput\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol $MultiLookRow $MultiLookCol" "k"
-        set f [ open "| Soft/data_convert/Ipp_to_Ipp_mlk.exe \x22$ConvertDirInput\x22 \x22$ConvertDirOutput\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol $MultiLookRow $MultiLookCol" r]
+        set f [ open "| Soft/bin/data_convert/Ipp_to_Ipp_mlk.exe \x22$ConvertDirInput\x22 \x22$ConvertDirOutput\x22 $OffsetLig $OffsetCol $FinalNlig $FinalNcol $MultiLookRow $MultiLookCol" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check Run Time Errors" "r"
         CheckRunTimeError

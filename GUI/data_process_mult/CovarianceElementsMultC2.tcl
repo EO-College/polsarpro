@@ -930,14 +930,14 @@ $widget(Checkbutton511_4) configure -state normal} \
     }
     button $site_3_0.cpd79 \
         -background #ffff00 \
-        -command {set C2toC11 ""
-set C2toC12 ""
-set C2toC22 ""
-set C2toSpan ""
-set BMPC2toC11 ""
-set BMPC2toC12 ""
-set BMPC2toC22 ""
-set BMPC2toSpan ""
+        -command {set C2toC11 " "
+set C2toC12 " "
+set C2toC22 " "
+set C2toSpan " "
+set BMPC2toC11 " "
+set BMPC2toC12 " "
+set BMPC2toC22 " "
+set BMPC2toSpan " "
 $widget(Checkbutton511_1) configure -state disable
 $widget(Checkbutton511_2) configure -state disable
 $widget(Checkbutton511_3) configure -state disable
@@ -961,7 +961,7 @@ $widget(Checkbutton511_4) configure -state disable} \
         -command {global DataDirMult NDataDirMult 
 global CovDirInput CovDirOutput CovOutputDir CovOutputSubDir
 global Fonction Fonction2 ProgressLine VarWarning WarningMessage WarningMessage2
-global BMPDirInput OpenDirFile PSPMemory TMPMemoryAllocError
+global BMPDirInput OpenDirFile TMPMemoryAllocError
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
 
 if {$OpenDirFile == 0} {
@@ -1007,9 +1007,9 @@ if {"$VarWarning"=="ok"} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/data_process_sngl/process_elements.exe" "k"
-        TextEditorRunTrace "Arguments: -id \x22$CovDirInput\x22 -od \x22$CovDirOutput\x22 -iodf C2 -elt 11 -fmt $C2toC11 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-        set f [ open "| Soft/data_process_sngl/process_elements.exe -id \x22$CovDirInput\x22 -od \x22$CovDirOutput\x22 -iodf C2 -elt 11 -fmt $C2toC11 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+        TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/process_elements.exe" "k"
+        TextEditorRunTrace "Arguments: -id \x22$CovDirInput\x22 -od \x22$CovDirOutput\x22 -iodf C2 -elt 11 -fmt $C2toC11 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+        set f [ open "| Soft/bin/data_process_sngl/process_elements.exe -id \x22$CovDirInput\x22 -od \x22$CovDirOutput\x22 -iodf C2 -elt 11 -fmt $C2toC11 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError
@@ -1038,9 +1038,9 @@ if {"$VarWarning"=="ok"} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/data_process_sngl/process_elements.exe" "k"
-        TextEditorRunTrace "Arguments: -id \x22$CovDirInput\x22 -od \x22$CovDirOutput\x22 -iodf C2 -elt 12 -fmt $C2toC12 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-        set f [ open "| Soft/data_process_sngl/process_elements.exe -id \x22$CovDirInput\x22 -od \x22$CovDirOutput\x22 -iodf C2 -elt 12 -fmt $C2toC12 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+        TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/process_elements.exe" "k"
+        TextEditorRunTrace "Arguments: -id \x22$CovDirInput\x22 -od \x22$CovDirOutput\x22 -iodf C2 -elt 12 -fmt $C2toC12 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+        set f [ open "| Soft/bin/data_process_sngl/process_elements.exe -id \x22$CovDirInput\x22 -od \x22$CovDirOutput\x22 -iodf C2 -elt 12 -fmt $C2toC12 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError
@@ -1077,9 +1077,9 @@ if {"$VarWarning"=="ok"} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/data_process_sngl/process_elements.exe" "k"
-        TextEditorRunTrace "Arguments: -id \x22$CovDirInput\x22 -od \x22$CovDirOutput\x22 -iodf C2 -elt 22 -fmt $C2toC22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-        set f [ open "| Soft/data_process_sngl/process_elements.exe -id \x22$CovDirInput\x22 -od \x22$CovDirOutput\x22 -iodf C2 -elt 22 -fmt $C2toC22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+        TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/process_elements.exe" "k"
+        TextEditorRunTrace "Arguments: -id \x22$CovDirInput\x22 -od \x22$CovDirOutput\x22 -iodf C2 -elt 22 -fmt $C2toC22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+        set f [ open "| Soft/bin/data_process_sngl/process_elements.exe -id \x22$CovDirInput\x22 -od \x22$CovDirOutput\x22 -iodf C2 -elt 22 -fmt $C2toC22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError
@@ -1113,9 +1113,9 @@ if {"$VarWarning"=="ok"} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/data_process_sngl/process_span.exe" "k"
-        TextEditorRunTrace "Arguments: -id \x22$CovDirInput\x22 -od \x22$CovDirOutput\x22 -iodf C2 -fmt $C2toSpan -nwr 1 -nwc 1 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-        set f [ open "| Soft/data_process_sngl/process_span.exe -id \x22$CovDirInput\x22 -od \x22$CovDirOutput\x22 -iodf C2 -fmt $C2toSpan -nwr 1 -nwc 1 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+        TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/process_span.exe" "k"
+        TextEditorRunTrace "Arguments: -id \x22$CovDirInput\x22 -od \x22$CovDirOutput\x22 -iodf C2 -fmt $C2toSpan -nwr 1 -nwc 1 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+        set f [ open "| Soft/bin/data_process_sngl/process_span.exe -id \x22$CovDirInput\x22 -od \x22$CovDirOutput\x22 -iodf C2 -fmt $C2toSpan -nwr 1 -nwc 1 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError

@@ -589,15 +589,15 @@ proc vTclWindow.top85 {base} {
     vTcl:DefineAlias "$top.fra70" "Frame5" vTcl:WidgetProc "Toplevel85" 1
     set site_3_0 $top.fra70
     label $site_3_0.lab71 \
-        -background #ffffff -text {The PolSARpro software} 
+        -background #ffffff -text {The PolSARpro v6.0 (Biomass Edition) software} 
     vTcl:DefineAlias "$site_3_0.lab71" "Label9" vTcl:WidgetProc "Toplevel85" 1
     label $site_3_0.cpd72 \
         -background #ffffff -foreground #0000ff \
-        -text {(The Polarimetric SAR data Processing and Educationnal Toolbox)} 
+        -text {(The Polarimetric SAR data Processing and Educational Toolbox)} 
     vTcl:DefineAlias "$site_3_0.cpd72" "Label10" vTcl:WidgetProc "Toplevel85" 1
     label $site_3_0.cpd73 \
         -background #ffffff \
-        -text {has been developed since 2003 under ESA-ESRIN contracts} 
+        -text {has been developed since 2003 under different ESA-ESRIN contracts} 
     vTcl:DefineAlias "$site_3_0.cpd73" "Label11" vTcl:WidgetProc "Toplevel85" 1
     pack $site_3_0.lab71 \
         -in $site_3_0 -anchor center -expand 0 -fill none -side top 
@@ -711,9 +711,9 @@ if {$Load_PSPContributors == 0} {
     set Load_PSPContributors 1
     WmTransient $widget(Toplevel256) $PSPTopLevel
     }
-WidgetShow $widget(Toplevel256); TextEditorRunTrace "Open Window PolSARpro v5.0 Contributors" "b"} \
+WidgetShow $widget(Toplevel256); TextEditorRunTrace "Open Window PolSARpro v6.0 (Biomass Edition) Software Contributors" "b"} \
         -foreground #0000ff -pady 0 \
-        -text {See the PolSARpro v5.0 Contributors} 
+        -text {See the PolSARpro Software Contributors} 
     vTcl:DefineAlias "$top.cpd69" "Button2" vTcl:WidgetProc "Toplevel85" 1
     frame $top.fra102 \
         -borderwidth 2 -background #ffffff -height 75 -width 125 
@@ -722,8 +722,8 @@ WidgetShow $widget(Toplevel256); TextEditorRunTrace "Open Window PolSARpro v5.0 
     button $site_3_0.but106 \
         -background #ffff00 \
         -command {global PSPContributors
-if {$Load_PSPContributors == 1} { Window hide $widget(Toplevel256); TextEditorRunTrace "Close Window PolSARpro v5.0 Contributors" "b" }
-Window hide $widget(Toplevel85); TextEditorRunTrace "Close Window About PolSARpro" "b"} \
+if {$Load_PSPContributors == 1} { Window hide $widget(Toplevel256); TextEditorRunTrace "Close Window PolSARpro v6.0 (Biomass Edition) Software Contributors" "b" }
+Window hide $widget(Toplevel85); TextEditorRunTrace "Close Window About PolSARpro v6.0 (Biomass Edition)" "b"} \
         -padx 4 -pady 2 -text Exit -width 4 
     vTcl:DefineAlias "$site_3_0.but106" "Button35" vTcl:WidgetProc "Toplevel85" 1
     bindtags $site_3_0.but106 "$site_3_0.but106 Button $top all _vTclBalloon"

@@ -754,6 +754,14 @@ if [file exists "$HeightInvDirInput/cmplx_coh_avg_Opt3.bin"] {
     incr NumList
     set HeightInvList($NumList) "OPT 3 (avg)"
     }
+if [file exists "$HeightInvDirInput/cmplx_coh_HHVV.bin"] {
+    incr NumList
+    set HeightInvList($NumList) "HHVV*"
+    }
+if [file exists "$HeightInvDirInput/cmplx_coh_avg_HHVV.bin"] {
+    incr NumList
+    set HeightInvList($NumList) "HHVV* (avg)"
+    }
 
 if [file exists "$HeightInvDirInput/cmplx_coh_Ch1.bin"] {
     incr NumList
@@ -837,6 +845,8 @@ if {$PhaseTopChannel == "OPT 2" } { set GammaHighFile "$HeightInvDirInput/cmplx_
 if {$PhaseTopChannel == "OPT 2 (avg)" } { set GammaHighFile "$HeightInvDirInput/cmplx_coh_avg_Opt2.bin" }
 if {$PhaseTopChannel == "OPT 3" } { set GammaHighFile "$HeightInvDirInput/cmplx_coh_Opt3.bin" }
 if {$PhaseTopChannel == "OPT 3 (avg)" } { set GammaHighFile "$HeightInvDirInput/cmplx_coh_avg_Opt3.bin" }
+if {$PhaseTopChannel == "HHVV*" } { set GammaHighFile "$HeightInvDirInput/cmplx_coh_HHVV.bin" }
+if {$PhaseTopChannel == "HHVV* (avg)" } { set GammaHighFile "$HeightInvDirInput/cmplx_coh_avg_HHVV.bin" }
 
 if {$PhaseTopChannel == "Ch1" } { set GammaHighFile "$HeightInvDirInput/cmplx_coh_Ch1.bin" }
 if {$PhaseTopChannel == "Ch1 (avg)" } { set GammaHighFile "$HeightInvDirInput/cmplx_coh_avg_Ch1.bin" }
@@ -872,6 +882,8 @@ if {$PhaseGroundChannel == "OPT 2" } { set GammaLowFile "$HeightInvDirInput/cmpl
 if {$PhaseGroundChannel == "OPT 2 (avg)" } { set GammaLowFile "$HeightInvDirInput/cmplx_coh_avg_Opt2.bin" }
 if {$PhaseGroundChannel == "OPT 3" } { set GammaLowFile "$HeightInvDirInput/cmplx_coh_Opt3.bin" }
 if {$PhaseGroundChannel == "OPT 3 (avg)" } { set GammaLowFile "$HeightInvDirInput/cmplx_coh_avg_Opt3.bin" }
+if {$PhaseGroundChannel == "HHVV*" } { set GammaLowFile "$HeightInvDirInput/cmplx_coh_HHVV.bin" }
+if {$PhaseGroundChannel == "HHVV* (avg)" } { set GammaLowFile "$HeightInvDirInput/cmplx_coh_avg_HHVV.bin" }
 
 if {$PhaseGroundChannel == "Ch1" } { set GammaLowFile "$HeightInvDirInput/cmplx_coh_Ch1.bin" }
 if {$PhaseGroundChannel == "Ch1 (avg)" } { set GammaLowFile "$HeightInvDirInput/cmplx_coh_avg_Ch1.bin" }
@@ -908,9 +920,9 @@ if {$OpenDirFile == 0} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/data_process_dual/height_estimation_inversion_procedure_DEM.exe" "k"
+        TextEditorRunTrace "Process The Function Soft/bin/data_process_dual/height_estimation_inversion_procedure_DEM.exe" "k"
         TextEditorRunTrace "Arguments: -id \x22$HeightInvDirInput\x22 -od \x22$HeightInvDirOutput\x22 -ifgh \x22$GammaHighFile\x22 -ifgl \x22$GammaLowFile\x22 -kz \x22$KzFile\x22 -nc $FinalNcol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
-        set f [ open "| Soft/data_process_dual/height_estimation_inversion_procedure_DEM.exe -id \x22$HeightInvDirInput\x22 -od \x22$HeightInvDirOutput\x22 -ifgh \x22$GammaHighFile\x22 -ifgl \x22$GammaLowFile\x22 -kz \x22$KzFile\x22 -nc $FinalNcol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
+        set f [ open "| Soft/bin/data_process_dual/height_estimation_inversion_procedure_DEM.exe -id \x22$HeightInvDirInput\x22 -od \x22$HeightInvDirOutput\x22 -ifgh \x22$GammaHighFile\x22 -ifgl \x22$GammaLowFile\x22 -kz \x22$KzFile\x22 -nc $FinalNcol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError
@@ -963,9 +975,9 @@ if {$OpenDirFile == 0} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/data_process_dual/height_estimation_inversion_procedure_RVOG.exe" "k"
+        TextEditorRunTrace "Process The Function Soft/bin/data_process_dual/height_estimation_inversion_procedure_RVOG.exe" "k"
         TextEditorRunTrace "Arguments: -id \x22$HeightInvDirInput\x22 -od \x22$HeightInvDirOutput\x22 -ifgh \x22$GammaHighFile\x22 -ifgl \x22$GammaLowFile\x22 -kz \x22$KzFile\x22 -nwr $HeightInvNwin -nwc $HeightInvNwin -coef $HeightInvFactor -nc $FinalNcol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
-        set f [ open "| Soft/data_process_dual/height_estimation_inversion_procedure_RVOG.exe -id \x22$HeightInvDirInput\x22 -od \x22$HeightInvDirOutput\x22 -ifgh \x22$GammaHighFile\x22 -ifgl \x22$GammaLowFile\x22 -kz \x22$KzFile\x22 -nwr $HeightInvNwin -nwc $HeightInvNwin -coef $HeightInvFactor -nc $FinalNcol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
+        set f [ open "| Soft/bin/data_process_dual/height_estimation_inversion_procedure_RVOG.exe -id \x22$HeightInvDirInput\x22 -od \x22$HeightInvDirOutput\x22 -ifgh \x22$GammaHighFile\x22 -ifgl \x22$GammaLowFile\x22 -kz \x22$KzFile\x22 -nwr $HeightInvNwin -nwc $HeightInvNwin -coef $HeightInvFactor -nc $FinalNcol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError
@@ -1009,7 +1021,7 @@ if {$OpenDirFile == 0} {
         if [file exists "$filename.bin"] {
             set BMPFileInput "$filename.bin"
             set BMPFileOutput "$filename.bmp"
-            PSPcreate_bmp_file black $BMPFileInput $BMPFileOutput float real jet $FinalNcol 0 0 $FinalNlig $FinalNcol 0 -25 25
+            PSPcreate_bmp_file black $BMPFileInput $BMPFileOutput float real jet $FinalNcol 0 0 $FinalNlig $FinalNcol 0 -5 25
             } else {
             set config "false"
             set VarError ""
@@ -1022,7 +1034,7 @@ if {$OpenDirFile == 0} {
         if [file exists "$filename.bin"] {
             set BMPFileInput "$filename.bin"
             set BMPFileOutput "$filename.bmp"
-            PSPcreate_bmp_file black $BMPFileInput $BMPFileOutput float real jet $FinalNcol 0 0 $FinalNlig $FinalNcol 0 -25 25
+            PSPcreate_bmp_file black $BMPFileInput $BMPFileOutput float real jet $FinalNcol 0 0 $FinalNlig $FinalNcol 0 -5 25
             } else {
             set config "false"
             set VarError ""
@@ -1059,9 +1071,9 @@ if {$OpenDirFile == 0} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/data_process_dual/height_estimation_inversion_procedure_COH.exe" "k"
+        TextEditorRunTrace "Process The Function Soft/bin/data_process_dual/height_estimation_inversion_procedure_COH.exe" "k"
         TextEditorRunTrace "Arguments: -id \x22$HeightInvDirInput\x22 -od \x22$HeightInvDirOutput\x22 -ifgh \x22$GammaHighFile\x22 -ifgl \x22$GammaLowFile\x22 -kz \x22$KzFile\x22 -nc $FinalNcol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
-        set f [ open "| Soft/data_process_dual/height_estimation_inversion_procedure_COH.exe -id \x22$HeightInvDirInput\x22 -od \x22$HeightInvDirOutput\x22 -ifgh \x22$GammaHighFile\x22 -ifgl \x22$GammaLowFile\x22 -kz \x22$KzFile\x22 -nc $FinalNcol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
+        set f [ open "| Soft/bin/data_process_dual/height_estimation_inversion_procedure_COH.exe -id \x22$HeightInvDirInput\x22 -od \x22$HeightInvDirOutput\x22 -ifgh \x22$GammaHighFile\x22 -ifgl \x22$GammaLowFile\x22 -kz \x22$KzFile\x22 -nc $FinalNcol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError
@@ -1076,7 +1088,7 @@ if {$OpenDirFile == 0} {
         if [file exists "$filename.bin"] {
             set BMPFileInput "$filename.bin"
             set BMPFileOutput "$filename.bmp"
-            PSPcreate_bmp_file black $BMPFileInput $BMPFileOutput float real jet $FinalNcol 0 0 $FinalNlig $FinalNcol 0 -25 25
+            PSPcreate_bmp_file black $BMPFileInput $BMPFileOutput float real jet $FinalNcol 0 0 $FinalNlig $FinalNcol 0 -5 25
             } else {
             set config "false"
             set VarError ""
@@ -1108,9 +1120,9 @@ if {$OpenDirFile == 0} {
     set ProgressLine "0"
     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
     update
-    TextEditorRunTrace "Process The Function Soft/data_process_dual/phase_center_height_estimation.exe" "k"
+    TextEditorRunTrace "Process The Function Soft/bin/data_process_dual/phase_center_height_estimation.exe" "k"
     TextEditorRunTrace "Arguments: -id \x22$HeightInvDirInput\x22 -od \x22$HeightInvDirOutput\x22 -kz \x22$KzFile\x22 -nc $FinalNcol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -type $PhaseCenterType -avg $PhaseCenterAvg" "k"
-    set f [ open "| Soft/data_process_dual/phase_center_height_estimation.exe -id \x22$HeightInvDirInput\x22 -od \x22$HeightInvDirOutput\x22 -kz \x22$KzFile\x22 -nc $FinalNcol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -type $PhaseCenterType -avg $PhaseCenterAvg" r]
+    set f [ open "| Soft/bin/data_process_dual/phase_center_height_estimation.exe -id \x22$HeightInvDirInput\x22 -od \x22$HeightInvDirOutput\x22 -kz \x22$KzFile\x22 -nc $FinalNcol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -type $PhaseCenterType -avg $PhaseCenterAvg" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError
@@ -1127,7 +1139,7 @@ if {$OpenDirFile == 0} {
     if [file exists "$filename.bin"] {
         set BMPFileInput "$filename.bin"
         set BMPFileOutput "$filename.bmp"
-        PSPcreate_bmp_file black $BMPFileInput $BMPFileOutput float real jet $FinalNcol 0 0 $FinalNlig $FinalNcol 0 -15 15
+        PSPcreate_bmp_file black $BMPFileInput $BMPFileOutput float real jet $FinalNcol 0 0 $FinalNlig $FinalNcol 0 -5 25
         } else {
         set config "false"
         set VarError ""
@@ -1169,6 +1181,8 @@ if {$PhaseCenterChannel == "OPT 2" } { set PhaseCenterType "Opt2" }
 if {$PhaseCenterChannel == "OPT 2 (avg)" } { set PhaseCenterType "Opt2"; set PhaseCenterAvg 1 }
 if {$PhaseCenterChannel == "OPT 3" } { set PhaseCenterType "Opt3" }
 if {$PhaseCenterChannel == "OPT 3 (avg)" } { set PhaseCenterType "Opt3"; set PhaseCenterAvg 1 }
+if {$PhaseCenterChannel == "HHVV*" } { set PhaseCenterType "HHVV*" }
+if {$PhaseCenterChannel == "HHVV* (avg)" } { set PhaseCenterType "HHVV*"; set PhaseCenterAvg 1 }
 
 if {$PhaseCenterChannel == "Ch1" } { set PhaseCenterType "Ch1" }
 if {$PhaseCenterChannel == "Ch1 (avg)" } { set PhaseCenterType "Ch1"; set PhaseCenterAvg 1 }
@@ -1242,7 +1256,7 @@ proc vTclWindow.top319 {base} {
     vTcl:toplevel $top -class Toplevel
     wm withdraw $top
     wm focusmodel $top passive
-    wm geometry $top 500x450+10+110; update
+    wm geometry $top 570x450+10+110; update
     wm maxsize $top 1284 1009
     wm minsize $top 116 1
     wm overrideredirect $top 0
@@ -1921,12 +1935,11 @@ global ZoomBMP BMPImage ImageSource BMPCanvas
 global TrainingAreaToolLine rect_color VarHistoSave VarStatToolLine                    
 
 #DATA PROCESS SNGL
-global Load_Histograms
+global Load_HistogramsDual
 #BMP PROCESS
 global Load_ViewBMPLens PSPTopLevel
 
 ClosePSPViewer
-Window hide $widget(Toplevel64); TextEditorRunTrace "Close Window PolSARpro Viewer" "b"
 
 set config "true"
 if {$HistoExecFid != ""} {
@@ -1960,17 +1973,22 @@ if [file exists "$HeightInvDirInput/config.txt"] {
             tkwait variable VarWarning
 
             if {$VarWarning == "ok"} {
-                LoadPSPViewer
-                Window show $widget(Toplevel64); TextEditorRunTrace "Open Window PolSARpro Viewer" "b"
-
-                if {$Load_Histograms == 0} {
-                    source "GUI/data_process_sngl/Histograms.tcl"
-                    set Load_Histograms 1
-                    WmTransient $widget(Toplevel260) $PSPTopLevel
+                ClosePSPViewer;
+                set types {
+                {{BMP Files}        {.bmp}        }
+                }
+                set filename ""
+                set filename [tk_getOpenFile -initialdir $HistoDirInput -filetypes $types -title "INPUT BMP FILE"]
+                if {$filename != ""} {
+                    set MapAlgebraBMPFile $filename
                     }
-                set line_color "white"
-                set b .top260.fra73.fra74.but77
-                $b configure -background $line_color -foreground $line_color
+
+                if {$Load_HistogramsDual == 0} {
+                    source "GUI/data_process_dual/HistogramsDual.tcl"
+                    set Load_HistogramsDual 1
+                    WmTransient $widget(Toplevel260a) $PSPTopLevel
+                    }
+
                 set GnuOutputFormat "SCREEN"
                 set GnuOutputFile ""; set HistoOutputFile ""
                 set NTrainingArea(0) 0; set AreaPoint(0) 0; set AreaPointLig(0) 0; set AreaPointCol(0) 0
@@ -1987,33 +2005,50 @@ if [file exists "$HeightInvDirInput/config.txt"] {
                         }
                     }           
                 set AreaClassN 1; set NTrainingAreaClass 1; set AreaN 1; set NTrainingArea(1) 1; set AreaPointN ""
-                set TrainingAreaToolLine "false"; set rect_color "white"; set VarHistoSave "no"; set VarStatToolLine "stop"                    
-                set MouseInitX ""; set MouseInitY ""; set MouseEndX ""; set MouseEndY ""; set MouseNlig ""; set MouseNcol ""
-                $widget(Button260_2) configure -state disable
-                $widget(Button260_3) configure -state disable
-                $widget(Button260_4) configure -state disable
-                $widget(Button260_5) configure -state disable
-                $widget(Radiobutton260_1) configure -state disable
-                $widget(Radiobutton260_2) configure -state disable
+                set TrainingAreaToolLine "false"; set rect_color "white"; set VarStatToolLine "stop"                    
+                $widget(Button260a_1) configure -state disable
+                $widget(Button260a_2) configure -state disable
+                $widget(Button260a_3) configure -state disable
+                $widget(Button260a_4) configure -state disable
+                $widget(Button260a_5) configure -state disable
+                $widget(Button260a_6) configure -state disable
+                $widget(Button260a_7) configure -state disable
+                $widget(Radiobutton260a_1) configure -state disable
+                $widget(Radiobutton260a_2) configure -state disable
                 DeleteFile $TMPStatisticsTxt
                 DeleteFile $TMPStatisticsBin
                 DeleteFile $TMPStatResultsTxt
-                TextEditorRunTrace "Launch The Process Soft/data_process_sngl/statistics_histogram_extract.exe" "k"
+
+                set MapAlgebraSession [ MapAlgebra_session ]
+                set MapAlgebraConfigFileStatHistoROI "$TMPDir/$MapAlgebraSession"; append MapAlgebraConfigFileStatHistoROI "_mapalgebrapaths.txt"
+                set StatHistoROIFileTrainingArea $TMPStatisticsTxt
+                DeleteFile $StatHistoROIFileTrainingArea
+                MapAlgebra_init "StatHistoROI" $MapAlgebraSession $StatHistoROIFileTrainingArea
+                MapAlgebra_launch $MapAlgebraConfigFileStatHistoROI $MapAlgebraBMPFile
+
+                TextEditorRunTrace "Launch The Process Soft/bin/data_process_dual/statistics_histogram_extract.exe" "k"
                 TextEditorRunTrace "Arguments: \x22$TMPStatisticsTxt\x22 \x22$TMPStatisticsBin\x22" "k"
-                set HistoExecFid [ open "| Soft/data_process_sngl/statistics_histogram_extract.exe \x22$TMPStatisticsTxt\x22 \x22$TMPStatisticsBin\x22" r+]
-                set GnuplotPipeStat "";  set HistoFileInput ""; set HistoFileOpen 0
+                set HistoExecFid [ open "| Soft/bin/data_process_dual/statistics_histogram_extract.exe \x22$TMPStatisticsTxt\x22 \x22$TMPStatisticsBin\x22" r+]
+
+                set GnuplotPipeSave ""; set GnuplotPipeStat "";  set HistoFileInput ""; set HistoFileOpen 0
                 set GnuHistoTitle "HISTOGRAM"; set GnuHistoLabel "Label"; set GnuHistoStyle "lines"
                 set HistoInputFormat "float"; set HistoOutputFormat "real"
-                $widget(Radiobutton260_3) configure -state disable; $widget(Radiobutton260_4) configure -state disable
+                $widget(Radiobutton260a_3) configure -state disable; $widget(Radiobutton260a_4) configure -state disable
                 set MinMaxAutoHisto 1; set MinHisto "Auto"; set MaxHisto "Auto"
-                $widget(TitleFrame260_1) configure -state disable; $widget(Checkbutton260_1) configure -state disable
-                $widget(Label260_1) configure -state disable; $widget(Entry260_1) configure -state disable
-                $widget(Label260_2) configure -state disable; $widget(Entry260_2) configure -state disable
-                $widget(Button260_1) configure -state disable
-                #set xwindow [winfo x $widget(Toplevel319)]; set ywindow [winfo y $widget(Toplevel319)]
-                #set geometrie "500x300+"; append geometrie $xwindow; append geometrie "+"; append geometrie [expr $ywindow + 350]
-                #wm geometry $widget(Toplevel260) $geometrie; update
-                WidgetShowFromWidget $widget(Toplevel319) $widget(Toplevel260); TextEditorRunTrace "Open Window Histograms" "b"
+                $widget(TitleFrame260a_1) configure -state disable; $widget(Checkbutton260a_1) configure -state disable
+                $widget(Label260a_1) configure -state disable; $widget(Entry260a_1) configure -state disable
+                $widget(Label260a_2) configure -state disable; $widget(Entry260a_2) configure -state disable
+
+                WidgetShowFromWidget $widget(Toplevel319) $widget(Toplevel260a); TextEditorRunTrace "Open Window Histograms" "b"
+
+                set VarHistoSave "no"
+                WaitUntilCreated $TMPStatisticsTxt
+                if [file exists $TMPStatisticsTxt] {
+                    set VarHistoSave "ok"
+                    $widget(Button260a_2) configure -state normal
+                    $widget(Button260a_7) configure -state normal
+                    }
+                tkwait variable VarHistoSave
                 }
             }
         } else {
@@ -2044,14 +2079,16 @@ if [file exists "$HeightInvDirInput/config.txt"] {
     }
     button $site_3_0.but24 \
         -background #ffff00 \
-        -command {global OpenDirFile
+        -command {global OpenDirFile MapAlgebraConfigFileStatHistoROI
 global HistoExecFid GnuplotPipeFid GnuplotPipeHisto
-global Load_SaveHisto Load_Histograms
+global Load_SaveHisto Load_HistogramsDual Load_SaveDisplay1
+
 
 if {$OpenDirFile == 0} {
 
-if {$Load_Histograms == 1} {
-    if {$Load_SaveHisto == 1} {Window hide $widget(Toplevel261); TextEditorRunTrace "Close Window Save Histograms" "b"}
+if {$Load_HistogramsDual == 1} {
+    if {$Load_SaveDisplay1 == 1} {Window hide $widget(Toplevel456); TextEditorRunTrace "Close Window Save Display 1" "b"}
+
     if {$HistoExecFid != ""} {
         puts $HistoExecFid "exit\n"
         flush $HistoExecFid
@@ -2063,11 +2100,11 @@ if {$Load_Histograms == 1} {
         catch "close $HistoExecFid"
         set HistoExecFid ""
 
-        PlotHistoRAZ   
-        PlotHistoClose 
+        DualPlotHistoRAZ   
+        DualPlotHistoClose 
         ClosePSPViewer
-        Window hide $widget(Toplevel64); TextEditorRunTrace "Close Window PolSARpro Viewer" "b"
-        Window hide $widget(Toplevel260); TextEditorRunTrace "Close Window Histograms" "b"
+        if {$MapAlgebraConfigFileStatHistoROI != ""} { set MapAlgebraConfigFileStatHistoROI [MapAlgebra_command $MapAlgebraConfigFileStatHistoROI "quit" ""] }
+        Window hide $widget(Toplevel260a); TextEditorRunTrace "Close Window Histograms" "b"
         }
     }
 Window hide $widget(Toplevel319); TextEditorRunTrace "Close Window Height Estimation from Inversion Procedures" "b"

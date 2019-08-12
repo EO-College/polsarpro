@@ -950,7 +950,7 @@ proc ::PSPSIM_RGB_S2 {DirInputOutput} {
 global ConvertDirOutput BMPDirInput
 global VarError ErrorMessage Fonction Fonction2
 global NligFullSize NcolFullSize PSPViewGimpBMP
-global ProgressLine PSPMemory TMPMemoryAllocError
+global ProgressLine TMPMemoryAllocError
    
 set RGBDirInput $DirInputOutput
 set RGBDirOutput $DirInputOutput
@@ -1001,15 +1001,15 @@ if {"$config"=="true"} {
     set ProgressLine "0"
     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
     update
-    TextEditorRunTrace "Process The Function Soft/bmp_process/create_pauli_rgb_file.exe" "k"
-    TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf S2 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize $MaskCmd -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 -auto 1" "k"
-    set f [ open "| Soft/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf S2 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize $MaskCmd -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 -auto 1" r]
+    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_pauli_rgb_file.exe" "k"
+    TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf S2 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize $MaskCmd  -errf \x22$TMPMemoryAllocError\x22 -auto 1" "k"
+    set f [ open "| Soft/bin/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf S2 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize $MaskCmd  -errf \x22$TMPMemoryAllocError\x22 -auto 1" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError
     set BMPDirInput $RGBDirOutput
     WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-    if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+    if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
     }
 }
 #############################################################################
@@ -1019,7 +1019,7 @@ proc ::PSPSIM_RGB_SPP {DirInputOutput} {
 global ConvertDirOutput BMPDirInput PSPOutputFormat
 global VarError ErrorMessage Fonction Fonction2
 global NligFullSize NcolFullSize PSPViewGimpBMP
-global ProgressLine PSPMemory TMPMemoryAllocError
+global ProgressLine TMPMemoryAllocError
    
 set RGBDirInput $DirInputOutput
 set RGBDirOutput $DirInputOutput
@@ -1061,15 +1061,15 @@ if {"$config"=="true"} {
     set ProgressLine "0"
     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
     update
-    TextEditorRunTrace "Process The Function Soft/bmp_process/create_rgb_file_SPPIPPC2.exe" "k"
-    TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf SPP -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -rgbf RGB1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
-    set f [ open "| Soft/bmp_process/create_rgb_file_SPPIPPC2.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf SPP -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -rgbf RGB1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
+    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_rgb_file_SPPIPPC2.exe" "k"
+    TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf SPP -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -rgbf RGB1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
+    set f [ open "| Soft/bin/bmp_process/create_rgb_file_SPPIPPC2.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf SPP -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -rgbf RGB1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError
     set BMPDirInput $RGBDirOutput
     WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-    if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+    if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
     }
 }
 
@@ -1254,9 +1254,9 @@ if {$OpenDirFile == 0} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/PolSARproSIM/PolSARproSim.exe" "k"
+        TextEditorRunTrace "Process The Function Soft/bin/PolSARproSIM/PolSARproSim.exe" "k"
         TextEditorRunTrace "Arguments: \x22$PSPSIMConfig\x22 \x22$PSPSIMChannel1\x22 \x22$PSPSIMChannel2\x22" "k"
-        set f [ open "| Soft/PolSARproSIM/PolSARproSim.exe \x22$PSPSIMConfig\x22 \x22$PSPSIMChannel1\x22 \x22$PSPSIMChannel2\x22" r]
+        set f [ open "| Soft/bin/PolSARproSIM/PolSARproSim.exe \x22$PSPSIMConfig\x22 \x22$PSPSIMChannel1\x22 \x22$PSPSIMChannel2\x22" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError
@@ -1338,13 +1338,17 @@ if {$OpenDirFile == 0} {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/PolSARproSIM/PolSARproSim_FE_Kz.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/PolSARproSIM/PolSARproSim_FE_Kz.exe" "k"
             TextEditorRunTrace "Arguments: \x22$PSPSIMChannel2\x22 $PSPSIMNrows $PSPSIMNcols $PSPSIMDy $PSPSIMFrequency $PSPSIMIncAngle1 $PSPSIMAltitude $PSPSIMHorBaseline $PSPSIMVerBaseline" "k"
-            set f [ open "| Soft/PolSARproSIM/PolSARproSim_FE_Kz.exe \x22$PSPSIMChannel2\x22 $PSPSIMNrows $PSPSIMNcols $PSPSIMDy $PSPSIMFrequency $PSPSIMIncAngle1 $PSPSIMAltitude $PSPSIMHorBaseline $PSPSIMVerBaseline" r]
+            set f [ open "| Soft/bin/PolSARproSIM/PolSARproSim_FE_Kz.exe \x22$PSPSIMChannel2\x22 $PSPSIMNrows $PSPSIMNcols $PSPSIMDy $PSPSIMFrequency $PSPSIMIncAngle1 $PSPSIMAltitude $PSPSIMHorBaseline $PSPSIMVerBaseline" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
             WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
+            WaitUntilCreated "$PSPSIMChannel2/kz.bin"
+            EnviWriteConfig "$PSPSIMChannel2/kz.bin" $NligFullSize $NcolFullSize 4
+            WaitUntilCreated "$PSPSIMChannel2/flat_earth.bin"
+            EnviWriteConfig "$PSPSIMChannel2/flat_earth.bin" $NligFullSize $NcolFullSize 4
             }
  
         Window hide $widget(Toplevel400); TextEditorRunTrace "Close PolSARpro Forest Simulator" "b"
@@ -2195,9 +2199,9 @@ set TestVarName(12) "Random Number Generator"; set TestVarType(12) "int"; set Te
 TestVar 13
 
 if {$TestVarError == "ok"} {
-    TextEditorRunTrace "Process The Function Soft/PolSARproSIM/PolSARproSim_ImgSize.exe" "k"
+    TextEditorRunTrace "Process The Function Soft/bin/PolSARproSIM/PolSARproSim_ImgSize.exe" "k"
     TextEditorRunTrace "Arguments: \x22$TMPPolSARproSIM\x22 $PSPSIMTreeSpecies $PSPSIMTreeHeight $PSPSIMIncAngle1 $PSPSIMAzResol $PSPSIMRgResol $PSPSIMForestArea" "k"
-    set f [ open "| Soft/PolSARproSIM/PolSARproSim_ImgSize.exe \x22$TMPPolSARproSIM\x22 $PSPSIMTreeSpecies $PSPSIMTreeHeight $PSPSIMIncAngle1 $PSPSIMAzResol $PSPSIMRgResol $PSPSIMForestArea" r]
+    set f [ open "| Soft/bin/PolSARproSIM/PolSARproSim_ImgSize.exe \x22$TMPPolSARproSIM\x22 $PSPSIMTreeSpecies $PSPSIMTreeHeight $PSPSIMIncAngle1 $PSPSIMAzResol $PSPSIMRgResol $PSPSIMForestArea" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError

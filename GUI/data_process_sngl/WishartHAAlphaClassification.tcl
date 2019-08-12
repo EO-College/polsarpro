@@ -642,6 +642,9 @@ proc vTcl:project:info {} {
     namespace eval ::widgets::$site_7_0.che31 {
         array set save {-text 1 -variable 1}
     }
+    namespace eval ::widgets::$site_7_0.cpd78 {
+        array set save {-command 1 -text 1 -variable 1}
+    }
     namespace eval ::widgets::$site_6_0.fra39 {
         array set save {-borderwidth 1 -height 1 -width 1}
     }
@@ -671,6 +674,62 @@ proc vTcl:project:info {} {
     }
     namespace eval ::widgets::$site_8_0.lab54 {
         array set save {-foreground 1 -text 1}
+    }
+    namespace eval ::widgets::$site_7_0.cpd79 {
+        array set save {-borderwidth 1 -height 1 -width 1}
+    }
+    set site_8_0 $site_7_0.cpd79
+    namespace eval ::widgets::$site_8_0.lab52 {
+        array set save {-foreground 1 -text 1}
+    }
+    namespace eval ::widgets::$site_8_0.lab53 {
+        array set save {-foreground 1 -text 1}
+    }
+    namespace eval ::widgets::$site_8_0.lab54 {
+        array set save {-foreground 1 -text 1}
+    }
+    namespace eval ::widgets::$site_4_0.cpd80 {
+        array set save {-borderwidth 1 -height 1 -width 1}
+    }
+    set site_5_0 $site_4_0.cpd80
+    namespace eval ::widgets::$site_5_0.fra91 {
+        array set save {-borderwidth 1 -height 1 -width 1}
+    }
+    set site_6_0 $site_5_0.fra91
+    namespace eval ::widgets::$site_6_0.cpd94 {
+        array set save {-foreground 1 -text 1}
+    }
+    namespace eval ::widgets::$site_6_0.cpd95 {
+        array set save {-foreground 1 -text 1}
+    }
+    namespace eval ::widgets::$site_6_0.cpd81 {
+        array set save {-foreground 1 -text 1}
+    }
+    namespace eval ::widgets::$site_5_0.cpd77 {
+        array set save {-height 1 -width 1}
+    }
+    set site_6_0 $site_5_0.cpd77
+    namespace eval ::widgets::$site_6_0.but78 {
+        array set save {-_tooltip 1 -command 1 -image 1 -pady 1 -text 1}
+    }
+    namespace eval ::widgets::$site_6_0.but79 {
+        array set save {-_tooltip 1 -command 1 -image 1 -pady 1 -text 1}
+    }
+    namespace eval ::widgets::$site_6_0.cpd83 {
+        array set save {-_tooltip 1 -command 1 -image 1 -pady 1 -text 1}
+    }
+    namespace eval ::widgets::$site_5_0.fra93 {
+        array set save {-borderwidth 1 -height 1 -width 1}
+    }
+    set site_6_0 $site_5_0.fra93
+    namespace eval ::widgets::$site_6_0.cpd96 {
+        array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -state 1 -textvariable 1 -width 1}
+    }
+    namespace eval ::widgets::$site_6_0.cpd97 {
+        array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -state 1 -textvariable 1 -width 1}
+    }
+    namespace eval ::widgets::$site_6_0.cpd82 {
+        array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -state 1 -textvariable 1 -width 1}
     }
     namespace eval ::widgets::$base.fra42 {
         array set save {-height 1 -relief 1 -width 1}
@@ -935,9 +994,9 @@ proc vTclWindow. {base} {
     # CREATING WIDGETS
     ###################
     wm focusmodel $top passive
-    wm geometry $top 200x200+22+22; update
-    wm maxsize $top 1284 785
-    wm minsize $top 104 1
+    wm geometry $top 200x200+100+100; update
+    wm maxsize $top 3364 1032
+    wm minsize $top 116 1
     wm overrideredirect $top 0
     wm resizable $top 1 1
     wm withdraw $top
@@ -967,9 +1026,9 @@ proc vTclWindow.top26 {base} {
     vTcl:toplevel $top -class Toplevel
     wm withdraw $top
     wm focusmodel $top passive
-    wm geometry $top 500x430+10+110; update
+    wm geometry $top 500x530+10+110; update
     wm maxsize $top 1604 1184
-    wm minsize $top 113 1
+    wm minsize $top 116 1
     wm overrideredirect $top 0
     wm resizable $top 1 1
     wm title $top "Data Processing: Wishart H / A / Alpha Classification"
@@ -1584,31 +1643,48 @@ if {$FileName != ""} {
     set site_5_0 $site_4_0.cpd87
     checkbutton $site_5_0.che24 \
         \
-        -command {global ColorMapWishartCoded ColorMapWishartCodedPauli ColorMapWishartCodedSinclair
+        -command {global ColorMapWishartCoded ColorMapWishartCodedPauli ColorMapWishartCodedSinclair ColorMapWishartCodedRGB
 
 if {$ColorMapWishartCoded == "0"} {
     set ColorMapWishartCodedPauli "0"
     set ColorMapWishartCodedSinclair "0"
+    set ColorMapWishartCodedRGB "0"
     $widget(Checkbutton26_1) configure -state disable
     $widget(Checkbutton26_2) configure -state disable
+    $widget(Checkbutton26_3) configure -state disable
     $widget(Label26_1) configure -state disable
     $widget(Label26_2) configure -state disable
     $widget(Label26_3) configure -state disable
     $widget(Label26_4) configure -state disable
     $widget(Label26_5) configure -state disable
     $widget(Label26_6) configure -state disable
+    $widget(Label26_7) configure -state disable
+    $widget(Label26_8) configure -state disable
+    $widget(Label26_9) configure -state disable
+    $widget(Label26_10) configure -state disable
+    $widget(Label26_11) configure -state disable
+    $widget(Label26_12) configure -state disable
+    $widget(Entry26_1) configure -state disable
+    $widget(Entry26_2) configure -state disable
+    $widget(Entry26_3) configure -state disable
+    $widget(Button26_1) configure -state disable
+    $widget(Button26_2) configure -state disable
+    $widget(Button26_3) configure -state disable
     }
 if {$ColorMapWishartCoded == "1"} {
     $widget(Checkbutton26_1) configure -state normal
     $widget(Checkbutton26_2) configure -state normal
+    $widget(Checkbutton26_3) configure -state normal
     $widget(Label26_1) configure -state normal
     $widget(Label26_2) configure -state normal
     $widget(Label26_3) configure -state normal
     $widget(Label26_4) configure -state normal
     $widget(Label26_5) configure -state normal
     $widget(Label26_6) configure -state normal
-    }
-} \
+    $widget(Label26_7) configure -state normal
+    $widget(Label26_8) configure -state normal
+    $widget(Label26_9) configure -state normal
+    }} \
         -text {Coded Colormap} -variable ColorMapWishartCoded 
     vTcl:DefineAlias "$site_5_0.che24" "Checkbutton610" vTcl:WidgetProc "Toplevel26" 1
     frame $site_5_0.fra25 \
@@ -1620,15 +1696,48 @@ if {$ColorMapWishartCoded == "1"} {
     vTcl:DefineAlias "$site_6_0.fra38" "Frame85" vTcl:WidgetProc "Toplevel26" 1
     set site_7_0 $site_6_0.fra38
     checkbutton $site_7_0.che29 \
-        -text {Pauli    } -variable ColorMapWishartCodedPauli 
+        -text {Pauli      } -variable ColorMapWishartCodedPauli 
     vTcl:DefineAlias "$site_7_0.che29" "Checkbutton26_1" vTcl:WidgetProc "Toplevel26" 1
     checkbutton $site_7_0.che31 \
-        -text Sinclair -variable ColorMapWishartCodedSinclair 
+        -text {Sinclair  } -variable ColorMapWishartCodedSinclair 
     vTcl:DefineAlias "$site_7_0.che31" "Checkbutton26_2" vTcl:WidgetProc "Toplevel26" 1
+    checkbutton $site_7_0.cpd78 \
+        \
+        -command {global ColorMapWishartCodedRGB ColorMapWishartCodedRGBBlue ColorMapWishartCodedRGBGreen ColorMapWishartCodedRGBRed
+
+if {$ColorMapWishartCodedRGB == "0"} {
+    set ColorMapWishartCodedRGBBlue ""
+    set ColorMapWishartCodedRGBGreen ""
+    set ColorMapWishartCodedRGBRed ""
+    $widget(Label26_10) configure -state disable
+    $widget(Label26_11) configure -state disable
+    $widget(Label26_12) configure -state disable
+    $widget(Entry26_1) configure -state disable
+    $widget(Entry26_2) configure -state disable
+    $widget(Entry26_3) configure -state disable
+    $widget(Button26_1) configure -state disable
+    $widget(Button26_2) configure -state disable
+    $widget(Button26_3) configure -state disable
+    }
+if {$ColorMapWishartCodedRGB == "1"} {
+    $widget(Label26_10) configure -state normal
+    $widget(Label26_11) configure -state normal
+    $widget(Label26_12) configure -state normal
+    $widget(Entry26_1) configure -state normal
+    $widget(Entry26_2) configure -state normal
+    $widget(Entry26_3) configure -state normal
+    $widget(Button26_1) configure -state normal
+    $widget(Button26_2) configure -state normal
+    $widget(Button26_3) configure -state normal
+    }} \
+        -text Combine -variable ColorMapWishartCodedRGB 
+    vTcl:DefineAlias "$site_7_0.cpd78" "Checkbutton26_3" vTcl:WidgetProc "Toplevel26" 1
     pack $site_7_0.che29 \
         -in $site_7_0 -anchor center -expand 1 -fill none -side top 
     pack $site_7_0.che31 \
         -in $site_7_0 -anchor center -expand 1 -fill none -side top 
+    pack $site_7_0.cpd78 \
+        -in $site_7_0 -anchor center -expand 0 -fill none -side top 
     frame $site_6_0.fra39 \
         -borderwidth 2 -height 75 -width 125 
     vTcl:DefineAlias "$site_6_0.fra39" "Frame86" vTcl:WidgetProc "Toplevel26" 1
@@ -1671,22 +1780,193 @@ if {$ColorMapWishartCoded == "1"} {
         -in $site_8_0 -anchor center -expand 0 -fill none -side left 
     pack $site_8_0.lab54 \
         -in $site_8_0 -anchor center -expand 0 -fill none -side left 
+    frame $site_7_0.cpd79 \
+        -borderwidth 2 -height 75 -width 125 
+    vTcl:DefineAlias "$site_7_0.cpd79" "Frame70" vTcl:WidgetProc "Toplevel26" 1
+    set site_8_0 $site_7_0.cpd79
+    label $site_8_0.lab52 \
+        -foreground #0000ff -text {Blue File} 
+    vTcl:DefineAlias "$site_8_0.lab52" "Label26_7" vTcl:WidgetProc "Toplevel26" 1
+    label $site_8_0.lab53 \
+        -foreground #008000 -text {Green File} 
+    vTcl:DefineAlias "$site_8_0.lab53" "Label26_8" vTcl:WidgetProc "Toplevel26" 1
+    label $site_8_0.lab54 \
+        -foreground #ff0000 -text {Red File} 
+    vTcl:DefineAlias "$site_8_0.lab54" "Label26_9" vTcl:WidgetProc "Toplevel26" 1
+    pack $site_8_0.lab52 \
+        -in $site_8_0 -anchor center -expand 0 -fill none -side left 
+    pack $site_8_0.lab53 \
+        -in $site_8_0 -anchor center -expand 0 -fill none -side left 
+    pack $site_8_0.lab54 \
+        -in $site_8_0 -anchor center -expand 0 -fill none -side left 
     pack $site_7_0.fra42 \
         -in $site_7_0 -anchor center -expand 1 -fill none -side top 
     pack $site_7_0.fra43 \
         -in $site_7_0 -anchor center -expand 0 -fill none -side top 
+    pack $site_7_0.cpd79 \
+        -in $site_7_0 -anchor center -expand 0 -fill none -side top 
     pack $site_6_0.fra38 \
-        -in $site_6_0 -anchor center -expand 1 -fill none -side left 
+        -in $site_6_0 -anchor center -expand 0 -fill none -side left 
     pack $site_6_0.fra39 \
         -in $site_6_0 -anchor center -expand 1 -fill none -side left 
     pack $site_5_0.che24 \
-        -in $site_5_0 -anchor center -expand 1 -fill none -side left 
+        -in $site_5_0 -anchor center -expand 0 -fill none -side left 
     pack $site_5_0.fra25 \
-        -in $site_5_0 -anchor center -expand 1 -fill none -side left 
+        -in $site_5_0 -anchor center -expand 0 -fill none -side left 
+    frame $site_4_0.cpd80 \
+        -borderwidth 2 -height 75 -width 125 
+    vTcl:DefineAlias "$site_4_0.cpd80" "Frame8" vTcl:WidgetProc "Toplevel26" 1
+    set site_5_0 $site_4_0.cpd80
+    frame $site_5_0.fra91 \
+        -borderwidth 2 -height 75 -width 125 
+    vTcl:DefineAlias "$site_5_0.fra91" "Frame10" vTcl:WidgetProc "Toplevel26" 1
+    set site_6_0 $site_5_0.fra91
+    label $site_6_0.cpd94 \
+        -foreground #0000ff -text {Blue File} 
+    vTcl:DefineAlias "$site_6_0.cpd94" "Label26_10" vTcl:WidgetProc "Toplevel26" 1
+    label $site_6_0.cpd95 \
+        -foreground #009900 -text {Green File} 
+    vTcl:DefineAlias "$site_6_0.cpd95" "Label26_11" vTcl:WidgetProc "Toplevel26" 1
+    label $site_6_0.cpd81 \
+        -foreground #ff0000 -text {Red File} 
+    vTcl:DefineAlias "$site_6_0.cpd81" "Label26_12" vTcl:WidgetProc "Toplevel26" 1
+    pack $site_6_0.cpd94 \
+        -in $site_6_0 -anchor center -expand 1 -fill none -side top 
+    pack $site_6_0.cpd95 \
+        -in $site_6_0 -anchor center -expand 1 -fill none -side top 
+    pack $site_6_0.cpd81 \
+        -in $site_6_0 -anchor center -expand 0 -fill none -side top 
+    frame $site_5_0.cpd77 \
+        -height 75 -width 125 
+    vTcl:DefineAlias "$site_5_0.cpd77" "Frame12" vTcl:WidgetProc "Toplevel26" 1
+    set site_6_0 $site_5_0.cpd77
+    button $site_6_0.but78 \
+        \
+        -command {global FileName WishartDirInput ColorMapWishartCodedRGBBlue VarError ErrorMessage TMPFileNull
+
+if {"$WishartDirInput"!=""} {
+    set types {
+    {{BIN Files}        {.bin}        }
+    }
+    set FileName ""
+    OpenFile $WishartDirInput $types "BLUE INPUT FILE"
+    if {$FileName != ""} {
+        set ColorMapWishartCodedRGBBlue $FileName
+        } else {
+        set ColorMapWishartCodedRGBBlue $TMPFileNull
+        }
+    } else {
+    set VarError ""
+    set ErrorMessage "ENTER A VALID DIRECTORY" 
+    Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
+    tkwait variable VarError
+    }} \
+        -image [vTcl:image:get_image [file join . GUI Images OpenFile.gif]] \
+        -pady 0 -text button 
+    vTcl:DefineAlias "$site_6_0.but78" "Button26_1" vTcl:WidgetProc "Toplevel26" 1
+    bindtags $site_6_0.but78 "$site_6_0.but78 Button $top all _vTclBalloon"
+    bind $site_6_0.but78 <<SetBalloon>> {
+        set ::vTcl::balloon::%W {Open File}
+    }
+    button $site_6_0.but79 \
+        \
+        -command {global FileName WishartDirInput ColorMapWishartCodedRGBGreen VarError ErrorMessage TMPFileNull
+
+if {"$WishartDirInput"!=""} {
+    set types {
+    {{BIN Files}        {.bin}        }
+    }
+    set FileName ""
+    OpenFile $WishartDirInput $types "GREEN INPUT FILE"
+    if {$FileName != ""} {
+        set ColorMapWishartCodedRGBGreen $FileName
+        } else {
+        set ColorMapWishartCodedRGBGreen $TMPFileNull
+        }
+    } else {
+    set VarError ""
+    set ErrorMessage "ENTER A VALID DIRECTORY" 
+    Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
+    tkwait variable VarError
+    }} \
+        -image [vTcl:image:get_image [file join . GUI Images OpenFile.gif]] \
+        -pady 0 -text button 
+    vTcl:DefineAlias "$site_6_0.but79" "Button26_2" vTcl:WidgetProc "Toplevel26" 1
+    bindtags $site_6_0.but79 "$site_6_0.but79 Button $top all _vTclBalloon"
+    bind $site_6_0.but79 <<SetBalloon>> {
+        set ::vTcl::balloon::%W {Open File}
+    }
+    button $site_6_0.cpd83 \
+        \
+        -command {global FileName WishartDirInput ColorMapWishartCodedRGBRed VarError ErrorMessage TMPFileNull
+
+if {"$WishartDirInput"!=""} {
+    set types {
+    {{BIN Files}        {.bin}        }
+    }
+    set FileName ""
+    OpenFile $WishartDirInput $types "RED INPUT FILE"
+    if {$FileName != ""} {
+        set ColorMapWishartCodedRGBRed $FileName
+        } else {
+        set ColorMapWishartCodedRGBRed $TMPFileNull
+        }
+    } else {
+    set VarError ""
+    set ErrorMessage "ENTER A VALID DIRECTORY" 
+    Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
+    tkwait variable VarError
+    }} \
+        -image [vTcl:image:get_image [file join . GUI Images OpenFile.gif]] \
+        -pady 0 -text button 
+    vTcl:DefineAlias "$site_6_0.cpd83" "Button26_3" vTcl:WidgetProc "Toplevel26" 1
+    bindtags $site_6_0.cpd83 "$site_6_0.cpd83 Button $top all _vTclBalloon"
+    bind $site_6_0.cpd83 <<SetBalloon>> {
+        set ::vTcl::balloon::%W {Open File}
+    }
+    pack $site_6_0.but78 \
+        -in $site_6_0 -anchor center -expand 1 -fill none -side top 
+    pack $site_6_0.but79 \
+        -in $site_6_0 -anchor center -expand 1 -fill none -side top 
+    pack $site_6_0.cpd83 \
+        -in $site_6_0 -anchor center -expand 0 -fill none -side top 
+    frame $site_5_0.fra93 \
+        -borderwidth 2 -height 75 -width 125 
+    vTcl:DefineAlias "$site_5_0.fra93" "Frame13" vTcl:WidgetProc "Toplevel26" 1
+    set site_6_0 $site_5_0.fra93
+    entry $site_6_0.cpd96 \
+        -background white -disabledbackground #ffffff \
+        -disabledforeground #0000ff -foreground #0000ff -state disabled \
+        -textvariable ColorMapWishartCodedRGBBlue -width 40 
+    vTcl:DefineAlias "$site_6_0.cpd96" "Entry26_1" vTcl:WidgetProc "Toplevel26" 1
+    entry $site_6_0.cpd97 \
+        -background white -disabledbackground #ffffff \
+        -disabledforeground #0000ff -foreground #0000ff -state disabled \
+        -textvariable ColorMapWishartCodedRGBGreen -width 40 
+    vTcl:DefineAlias "$site_6_0.cpd97" "Entry26_2" vTcl:WidgetProc "Toplevel26" 1
+    entry $site_6_0.cpd82 \
+        -background white -disabledbackground #ffffff \
+        -disabledforeground #0000ff -foreground #0000ff -state disabled \
+        -textvariable ColorMapWishartCodedRGBRed -width 40 
+    vTcl:DefineAlias "$site_6_0.cpd82" "Entry26_3" vTcl:WidgetProc "Toplevel26" 1
+    pack $site_6_0.cpd96 \
+        -in $site_6_0 -anchor center -expand 1 -fill x -side top 
+    pack $site_6_0.cpd97 \
+        -in $site_6_0 -anchor center -expand 1 -fill x -side top 
+    pack $site_6_0.cpd82 \
+        -in $site_6_0 -anchor center -expand 1 -fill x -side top 
+    pack $site_5_0.fra91 \
+        -in $site_5_0 -anchor center -expand 0 -fill y -side left 
+    pack $site_5_0.cpd77 \
+        -in $site_5_0 -anchor center -expand 0 -fill y -side right 
+    pack $site_5_0.fra93 \
+        -in $site_5_0 -anchor center -expand 1 -fill both -side top 
     pack $site_4_0.fra90 \
         -in $site_4_0 -anchor center -expand 1 -fill both -side top 
     pack $site_4_0.cpd87 \
         -in $site_4_0 -anchor center -expand 1 -fill x -side top 
+    pack $site_4_0.cpd80 \
+        -in $site_4_0 -anchor center -expand 0 -fill x -side top 
     frame $top.fra42 \
         -relief groove -height 35 -width 125 
     vTcl:DefineAlias "$top.fra42" "Frame20" vTcl:WidgetProc "Toplevel26" 1
@@ -1695,9 +1975,10 @@ if {$ColorMapWishartCoded == "1"} {
         -background #ffff00 \
         -command {global WishartDirInput WishartDirOutput WishartOutputDir WishartOutputSubDir
 global WishartNwinL WishartNwinC WishartPourcentage WishartIteration BMPWishart
-global WishartHAAlpha WishartHAAlphaClassifFonction PSPMemory TMPMemoryAllocError
-global WishartEntropyFile WishartAnisotropyFile WishartAlphaFile
+global WishartHAAlpha WishartHAAlphaClassifFonction TMPMemoryAllocError
+global WishartEntropyFile WishartAnisotropyFile WishartAlphaFile PSPViewGimpBMP
 global ColorMapWishart8 ColorMapWishart16 ColorMapWishartCoded ColorMapWishartCodedPauli ColorMapWishartCodedSinclair
+global ColorMapWishartCodedRGB ColorMapWishartCodedRGBBlue ColorMapWishartCodedRGBGreen ColorMapWishartCodedRGBRed
 global Fonction Fonction2 ProgressLine VarWarning WarningMessage WarningMessage2 OpenDirFile
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
 
@@ -1727,7 +2008,14 @@ if {"$VarWarning"=="ok"} {
     set TestVarName(7) "ColorMap8"; set TestVarType(7) "file"; set TestVarValue(7) $ColorMapWishart8; set TestVarMin(7) ""; set TestVarMax(7) ""
     set TestVarName(8) "ColorMap16"; set TestVarType(8) "file"; set TestVarValue(8) $ColorMapWishart16; set TestVarMin(8) ""; set TestVarMax(8) ""
     set TestVarName(9) "Window Size Col"; set TestVarType(9) "int"; set TestVarValue(9) $WishartNwinC; set TestVarMin(9) "1"; set TestVarMax(9) "1000"
-    TestVar 10
+    if {$ColorMapWishartCodedRGB == "1"} {
+        set TestVarName(10) "Blue File"; set TestVarType(10) "file"; set TestVarValue(10) $ColorMapWishartCodedRGBBlue; set TestVarMin(10) ""; set TestVarMax(10) ""
+        set TestVarName(11) "Green File"; set TestVarType(11) "file"; set TestVarValue(11) $ColorMapWishartCodedRGBGreen; set TestVarMin(11) ""; set TestVarMax(11) ""
+        set TestVarName(12) "Red File"; set TestVarType(12) "file"; set TestVarValue(12) $ColorMapWishartCodedRGBRed; set TestVarMin(12) ""; set TestVarMax(12) ""
+        TestVar 13
+        } else {
+        TestVar 10
+        }
     if {$TestVarError == "ok"} {
 
     WishartOpenFile
@@ -1765,9 +2053,9 @@ if {"$VarWarning"=="ok"} {
         set WishartHAAlphaClassifF $WishartHAAlphaClassifFonction
         if {$WishartHAAlphaClassifFonction == "S2m"} { set WishartHAAlphaClassifF "S2" }
         if {$WishartHAAlphaClassifFonction == "S2b"} { set WishartHAAlphaClassifF "S2" }
-        TextEditorRunTrace "Process The Function Soft/data_process_sngl/wishart_h_a_alpha_classifier.exe" "k"
-        TextEditorRunTrace "Arguments: -id \x22$WishartDirInput\x22 -od \x22$WishartDirOutput\x22 -iodf $WishartHAAlphaClassifF -nwr $WishartNwinL -nwc $WishartNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -pct $WishartPourcentage -nit $WishartIteration -bmp $BMPWishart -co8 \x22$ColorMapWishart8\x22 -co16 \x22$ColorMapWishart16\x22 -hf \x22$WishartEntropyFile\x22 -af \x22$WishartAnisotropyFile\x22 -alf \x22$WishartAlphaFile\x22 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-        set f [ open "| Soft/data_process_sngl/wishart_h_a_alpha_classifier.exe -id \x22$WishartDirInput\x22 -od \x22$WishartDirOutput\x22 -iodf $WishartHAAlphaClassifF -nwr $WishartNwinL -nwc $WishartNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -pct $WishartPourcentage -nit $WishartIteration -bmp $BMPWishart -co8 \x22$ColorMapWishart8\x22 -co16 \x22$ColorMapWishart16\x22 -hf \x22$WishartEntropyFile\x22 -af \x22$WishartAnisotropyFile\x22 -alf \x22$WishartAlphaFile\x22 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+        TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/wishart_h_a_alpha_classifier.exe" "k"
+        TextEditorRunTrace "Arguments: -id \x22$WishartDirInput\x22 -od \x22$WishartDirOutput\x22 -iodf $WishartHAAlphaClassifF -nwr $WishartNwinL -nwc $WishartNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -pct $WishartPourcentage -nit $WishartIteration -bmp $BMPWishart -co8 \x22$ColorMapWishart8\x22 -co16 \x22$ColorMapWishart16\x22 -hf \x22$WishartEntropyFile\x22 -af \x22$WishartAnisotropyFile\x22 -alf \x22$WishartAlphaFile\x22  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+        set f [ open "| Soft/bin/data_process_sngl/wishart_h_a_alpha_classifier.exe -id \x22$WishartDirInput\x22 -od \x22$WishartDirOutput\x22 -iodf $WishartHAAlphaClassifF -nwr $WishartNwinL -nwc $WishartNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -pct $WishartPourcentage -nit $WishartIteration -bmp $BMPWishart -co8 \x22$ColorMapWishart8\x22 -co16 \x22$ColorMapWishart16\x22 -hf \x22$WishartEntropyFile\x22 -af \x22$WishartAnisotropyFile\x22 -alf \x22$WishartAlphaFile\x22  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError
@@ -1777,10 +2065,14 @@ if {"$VarWarning"=="ok"} {
         append ClassificationFile $WishartNwinL; append ClassificationFile "x"; append ClassificationFile $WishartNwinC
         set ClassificationInputFile "$ClassificationFile.bin"
         if [file exists $ClassificationInputFile] {EnviWriteConfigClassif $ClassificationInputFile $FinalNlig $FinalNcol 4 $ColorMapWishart8 8}
+        set ClassificationInputFile "$ClassificationFile.bmp"
+        if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $ClassificationInputFile }
         set ClassificationFile "$WishartDirOutput/wishart_H_A_alpha_class_"
         append ClassificationFile $WishartNwinL; append ClassificationFile "x"; append ClassificationFile $WishartNwinC
         set ClassificationInputFile "$ClassificationFile.bin"
         if [file exists $ClassificationInputFile] {EnviWriteConfigClassif $ClassificationInputFile $FinalNlig $FinalNcol 4 $ColorMapWishart16 16}
+        set ClassificationInputFile "$ClassificationFile.bmp"
+        if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $ClassificationInputFile }
         
         if {$ColorMapWishartCoded == "1"} {
             set ClassificationFile "$WishartDirOutput/wishart_H_alpha_class_"
@@ -1801,13 +2093,14 @@ if {"$VarWarning"=="ok"} {
                     set WishartHAAlphaClassifF $WishartHAAlphaClassifFonction
                     if {$WishartHAAlphaClassifFonction == "S2m"} { set WishartHAAlphaClassifF "S2" }
                     if {$WishartHAAlphaClassifFonction == "S2b"} { set WishartHAAlphaClassifF "S2" }
-                    TextEditorRunTrace "Process The Function Soft/bmp_process/classification_colormap_pauli.exe" "k"
-                    TextEditorRunTrace "Arguments: -id \x22$WishartDirInput\x22 -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -iodf $WishartHAAlphaClassifF -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                    set f [ open "| Soft/bmp_process/classification_colormap_pauli.exe -id \x22$WishartDirInput\x22 -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -iodf $WishartHAAlphaClassifF -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/classification_colormap_pauli.exe" "k"
+                    TextEditorRunTrace "Arguments: -id \x22$WishartDirInput\x22 -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -iodf $WishartHAAlphaClassifF -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                    set f [ open "| Soft/bin/bmp_process/classification_colormap_pauli.exe -id \x22$WishartDirInput\x22 -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -iodf $WishartHAAlphaClassifF -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                     PsPprogressBar $f
                     TextEditorRunTrace "Check RunTime Errors" "r"
                     CheckRunTimeError
                     WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
+                    if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $ClassificationOutputFile }
                     }
                 if {$ColorMapWishartCodedSinclair == "1"} {
                     set ClassificationOutputFile $ClassificationFile
@@ -1823,13 +2116,34 @@ if {"$VarWarning"=="ok"} {
                     set WishartHAAlphaClassifF $WishartHAAlphaClassifFonction
                     if {$WishartHAAlphaClassifFonction == "S2m"} { set WishartHAAlphaClassifF "S2" }
                     if {$WishartHAAlphaClassifFonction == "S2b"} { set WishartHAAlphaClassifF "S2" }
-                    TextEditorRunTrace "Process The Function Soft/bmp_process/classification_colormap_sinclair.exe" "k"
-                    TextEditorRunTrace "Arguments: -id \x22$WishartDirInput\x22 -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -iodf $WishartHAAlphaClassifF -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                    set f [ open "| Soft/bmp_process/classification_colormap_sinclair.exe -id \x22$WishartDirInput\x22 -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -iodf $WishartHAAlphaClassifF -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/classification_colormap_sinclair.exe" "k"
+                    TextEditorRunTrace "Arguments: -id \x22$WishartDirInput\x22 -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -iodf $WishartHAAlphaClassifF -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                    set f [ open "| Soft/bin/bmp_process/classification_colormap_sinclair.exe -id \x22$WishartDirInput\x22 -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -iodf $WishartHAAlphaClassifF -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                     PsPprogressBar $f
                     TextEditorRunTrace "Check RunTime Errors" "r"
                     CheckRunTimeError
                     WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
+                    if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $ClassificationOutputFile }
+                    }
+                if {$ColorMapWishartCodedRGB == "1"} {
+                    set ClassificationOutputFile $ClassificationFile
+                    append ClassificationOutputFile "_RGBcombine.bmp"
+                    set Fonction "Creation of the Wishart_H_Alpha Classification BMP File"
+                    set Fonction2 "Using an automatic color coded (RGB) ColorMap"
+                    set MaskCmd ""
+                    set MaskFile "$WishartDirInput/mask_valid_pixels.bin"
+                    if [file exists $MaskFile] {set MaskCmd "-mask \x22$MaskFile\x22"}
+                    set ProgressLine "0"
+                    WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
+                    update
+                    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/classification_colormap_rgb.exe" "k"
+                    TextEditorRunTrace "Arguments: -ifb \x22$ColorMapWishartCodedRGBBlue\x22 -ifg \x22$ColorMapWishartCodedRGBGreen\x22 -ifr \x22$ColorMapWishartCodedRGBRed\x22 -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                    set f [ open "| Soft/bin/bmp_process/classification_colormap_rgb.exe -ifb \x22$ColorMapWishartCodedRGBBlue\x22 -ifg \x22$ColorMapWishartCodedRGBGreen\x22 -ifr \x22$ColorMapWishartCodedRGBRed\x22 -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                    PsPprogressBar $f
+                    TextEditorRunTrace "Check RunTime Errors" "r"
+                    CheckRunTimeError
+                    WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
+                    if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $ClassificationOutputFile }
                     }
                 } else {
                 set VarError ""
@@ -1855,13 +2169,14 @@ if {"$VarWarning"=="ok"} {
                     set WishartHAAlphaClassifF $WishartHAAlphaClassifFonction
                     if {$WishartHAAlphaClassifFonction == "S2m"} { set WishartHAAlphaClassifF "S2" }
                     if {$WishartHAAlphaClassifFonction == "S2b"} { set WishartHAAlphaClassifF "S2" }
-                    TextEditorRunTrace "Process The Function Soft/bmp_process/classification_colormap_pauli.exe" "k"
-                    TextEditorRunTrace "Arguments: -id \x22$WishartDirInput\x22 -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -iodf $WishartHAAlphaClassifF -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                    set f [ open "| Soft/bmp_process/classification_colormap_pauli.exe -id \x22$WishartDirInput\x22 -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -iodf $WishartHAAlphaClassifF -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/classification_colormap_pauli.exe" "k"
+                    TextEditorRunTrace "Arguments: -id \x22$WishartDirInput\x22 -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -iodf $WishartHAAlphaClassifF -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                    set f [ open "| Soft/bin/bmp_process/classification_colormap_pauli.exe -id \x22$WishartDirInput\x22 -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -iodf $WishartHAAlphaClassifF -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                     PsPprogressBar $f
                     TextEditorRunTrace "Check RunTime Errors" "r"
                     CheckRunTimeError
                     WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
+                    if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $ClassificationOutputFile }
                     }
                 if {$ColorMapWishartCodedSinclair == "1"} {
                     set ClassificationOutputFile $ClassificationFile
@@ -1877,13 +2192,34 @@ if {"$VarWarning"=="ok"} {
                     set WishartHAAlphaClassifF $WishartHAAlphaClassifFonction
                     if {$WishartHAAlphaClassifFonction == "S2m"} { set WishartHAAlphaClassifF "S2" }
                     if {$WishartHAAlphaClassifFonction == "S2b"} { set WishartHAAlphaClassifF "S2" }
-                    TextEditorRunTrace "Process The Function Soft/bmp_process/classification_colormap_sinclair.exe" "k"
-                    TextEditorRunTrace "Arguments: -id \x22$WishartDirInput\x22 -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -iodf $WishartHAAlphaClassifF -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                    set f [ open "| Soft/bmp_process/classification_colormap_sinclair.exe -id \x22$WishartDirInput\x22 -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -iodf $WishartHAAlphaClassifF -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/classification_colormap_sinclair.exe" "k"
+                    TextEditorRunTrace "Arguments: -id \x22$WishartDirInput\x22 -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -iodf $WishartHAAlphaClassifF -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                    set f [ open "| Soft/bin/bmp_process/classification_colormap_sinclair.exe -id \x22$WishartDirInput\x22 -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -iodf $WishartHAAlphaClassifF -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                     PsPprogressBar $f
                     TextEditorRunTrace "Check RunTime Errors" "r"
                     CheckRunTimeError
                     WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
+                    if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $ClassificationOutputFile }
+                    }
+                if {$ColorMapWishartCodedRGB == "1"} {
+                    set ClassificationOutputFile $ClassificationFile
+                    append ClassificationOutputFile "_RGBcombine.bmp"
+                    set Fonction "Creation of the Wishart_H_A_Alpha Classification BMP File"
+                    set Fonction2 "Using an automatic color coded (RGB) ColorMap"
+                    set MaskCmd ""
+                    set MaskFile "$WishartDirInput/mask_valid_pixels.bin"
+                    if [file exists $MaskFile] {set MaskCmd "-mask \x22$MaskFile\x22"}
+                    set ProgressLine "0"
+                    WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
+                    update
+                    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/classification_colormap_rgb.exe" "k"
+                    TextEditorRunTrace "Arguments: -ifb \x22$ColorMapWishartCodedRGBBlue\x22 -ifg \x22$ColorMapWishartCodedRGBGreen\x22 -ifr \x22$ColorMapWishartCodedRGBRed\x22 -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                    set f [ open "| Soft/bin/bmp_process/classification_colormap_rgb.exe -ifb \x22$ColorMapWishartCodedRGBBlue\x22 -ifg \x22$ColorMapWishartCodedRGBGreen\x22 -ifr \x22$ColorMapWishartCodedRGBRed\x22 -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                    PsPprogressBar $f
+                    TextEditorRunTrace "Check RunTime Errors" "r"
+                    CheckRunTimeError
+                    WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
+                    if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $ClassificationOutputFile }
                     }
                 } else {
                 set VarError ""

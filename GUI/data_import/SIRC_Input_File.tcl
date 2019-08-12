@@ -771,9 +771,9 @@ if {"$VarWarning"=="ok"} {
 
 DeleteFile $TMPSIRCConfig
 
-TextEditorRunTrace "Process The Function Soft/data_import/sirc_header.exe" "k"
+TextEditorRunTrace "Process The Function Soft/bin/data_import/sirc_header.exe" "k"
 TextEditorRunTrace "Arguments: -id \x22$SIRCDirInput\x22 -od \x22$SIRCDirOutput\x22 -pro $SIRCRunNumber -ocf \x22$TMPSIRCConfig\x22" "k"
-set f [ open "| Soft/data_import/sirc_header.exe -id \x22$SIRCDirInput\x22 -od \x22$SIRCDirOutput\x22 -pro $SIRCRunNumber -ocf \x22$TMPSIRCConfig\x22" r]
+set f [ open "| Soft/bin/data_import/sirc_header.exe -id \x22$SIRCDirInput\x22 -od \x22$SIRCDirOutput\x22 -pro $SIRCRunNumber -ocf \x22$TMPSIRCConfig\x22" r]
 PsPprogressBar $f
 TextEditorRunTrace "Check RunTime Errors" "r"
 CheckRunTimeError

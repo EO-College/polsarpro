@@ -873,7 +873,7 @@ global PolSARapAgriIncAngFile PolSARapAgriMaskFile PolSARapAgriFsFdFile PolSARap
 global PolSARapAgriKsFile PolSARapAgriMvFile PolSARapAgriDcSoilFile PolSARapAgriDcTrunkFile
 global PolSARapAgriNwinL PolSARapAgriNwinC PolSARapAgriUnit PolSARapAgriSurfSoil PolSARapAgriSurfLUT
 global PolSARapAgriDihedSoil PolSARapAgriDihedTrunk PolSARapAgriDihedLUT
-global PSPMemory TMPMemoryAllocError
+global TMPMemoryAllocError
 global NligInit NcolInit NligEnd NcolEnd NligFullSize NcolFullSize
 global Fonction Fonction2 ProgressLine VarWarning WarningMessage WarningMessage2
 global OpenDirFile TestVarName TestVarType TestVarValue TestVarMin TestVarMax TestVarError
@@ -900,9 +900,9 @@ if {$OpenDirFile == 0} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/PolSARap/PolSARap_Agriculture_Decomposition.exe" "k"
-        TextEditorRunTrace "Arguments: -id \x22$PolSARapAgriDirInput\x22 -od \x22$PolSARapAgriDirOutput\x22 -iodf $PolSARapAgriFonction -nwr $PolSARapAgriNwinL -nwc $PolSARapAgriNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-        set f [ open "| Soft/PolSARap/PolSARap_Agriculture_Decomposition.exe -id \x22$PolSARapAgriDirInput\x22 -od \x22$PolSARapAgriDirOutput\x22 -iodf $PolSARapAgriFonction -nwr $PolSARapAgriNwinL -nwc $PolSARapAgriNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+        TextEditorRunTrace "Process The Function Soft/bin/PolSARap/PolSARap_Agriculture_Decomposition.exe" "k"
+        TextEditorRunTrace "Arguments: -id \x22$PolSARapAgriDirInput\x22 -od \x22$PolSARapAgriDirOutput\x22 -iodf $PolSARapAgriFonction -nwr $PolSARapAgriNwinL -nwc $PolSARapAgriNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+        set f [ open "| Soft/bin/PolSARap/PolSARap_Agriculture_Decomposition.exe -id \x22$PolSARapAgriDirInput\x22 -od \x22$PolSARapAgriDirOutput\x22 -iodf $PolSARapAgriFonction -nwr $PolSARapAgriNwinL -nwc $PolSARapAgriNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError
@@ -938,7 +938,7 @@ global PolSARapAgriIncAngFile PolSARapAgriMaskFile PolSARapAgriFsFdFile PolSARap
 global PolSARapAgriKsFile PolSARapAgriMvFile PolSARapAgriDcSoilFile PolSARapAgriDcTrunkFile
 global PolSARapAgriNwinL PolSARapAgriNwinC PolSARapAgriUnit PolSARapAgriSurfSoil PolSARapAgriSurfLUT
 global PolSARapAgriDihedSoil PolSARapAgriDihedTrunk PolSARapAgriDihedLUT
-global PSPMemory TMPMemoryAllocError
+global TMPMemoryAllocError
 global NligInit NcolInit NligEnd NcolEnd NligFullSize NcolFullSize
 global Fonction Fonction2 ProgressLine VarWarning WarningMessage WarningMessage2
 global OpenDirFile TestVarName TestVarType TestVarValue TestVarMin TestVarMax TestVarError
@@ -966,10 +966,10 @@ if {$OpenDirFile == 0} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/PolSARap/PolSARap_Agriculture_Inversion_Surface.exe" "k"
-        set PolSARapArguments "-ifs \x22$PolSARapAgriFsFdFile\x22 -itt \x22$PolSARapAgriIncAngFile\x22 -ibe \x22$PolSARapAgriAlphaBetaFile\x22 -imk \x22$PolSARapAgriMaskFile\x22 -od \x22$PolSARapAgriDirOutput\x22 -un $PolSARapAgriUnit -die $PolSARapAgriSurfSoil -inc $PolSARapAgriSurfLUT -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd"
+        TextEditorRunTrace "Process The Function Soft/bin/PolSARap/PolSARap_Agriculture_Inversion_Surface.exe" "k"
+        set PolSARapArguments "-ifs \x22$PolSARapAgriFsFdFile\x22 -itt \x22$PolSARapAgriIncAngFile\x22 -ibe \x22$PolSARapAgriAlphaBetaFile\x22 -imk \x22$PolSARapAgriMaskFile\x22 -od \x22$PolSARapAgriDirOutput\x22 -un $PolSARapAgriUnit -die $PolSARapAgriSurfSoil -inc $PolSARapAgriSurfLUT -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd"
         TextEditorRunTrace "Arguments: $PolSARapArguments" "k"
-        set f [ open "| Soft/PolSARap/PolSARap_Agriculture_Inversion_Surface.exe $PolSARapArguments" r]
+        set f [ open "| Soft/bin/PolSARap/PolSARap_Agriculture_Inversion_Surface.exe $PolSARapArguments" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError
@@ -995,7 +995,7 @@ global PolSARapAgriIncAngFile PolSARapAgriMaskFile PolSARapAgriFsFdFile PolSARap
 global PolSARapAgriKsFile PolSARapAgriMvFile PolSARapAgriDcSoilFile PolSARapAgriDcTrunkFile
 global PolSARapAgriNwinL PolSARapAgriNwinC PolSARapAgriUnit PolSARapAgriSurfSoil PolSARapAgriSurfLUT
 global PolSARapAgriDihedSoil PolSARapAgriDihedTrunk PolSARapAgriDihedLUT
-global PSPMemory TMPMemoryAllocError
+global TMPMemoryAllocError
 global NligInit NcolInit NligEnd NcolEnd NligFullSize NcolFullSize
 global Fonction Fonction2 ProgressLine VarWarning WarningMessage WarningMessage2
 global OpenDirFile TestVarName TestVarType TestVarValue TestVarMin TestVarMax TestVarError
@@ -1024,11 +1024,11 @@ if {$OpenDirFile == 0} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/PolSARap/PolSARap_Agriculture_Inversion_Dihedral.exe" "k"
-        set PolSARapArguments "-ifd \x22$PolSARapAgriFsFdFile\x22 -itt \x22$PolSARapAgriIncAngFile\x22 -ial \x22$PolSARapAgriAlphaBetaFile\x22 -imk \x22$PolSARapAgriMaskFile\x22 -od \x22$PolSARapAgriDirOutput\x22 -un $PolSARapAgriUnit -dis $PolSARapAgriDihedSoil -dit $PolSARapAgriDihedTrunk -inc $PolSARapAgriDihedLUT -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd"
+        TextEditorRunTrace "Process The Function Soft/bin/PolSARap/PolSARap_Agriculture_Inversion_Dihedral.exe" "k"
+        set PolSARapArguments "-ifd \x22$PolSARapAgriFsFdFile\x22 -itt \x22$PolSARapAgriIncAngFile\x22 -ial \x22$PolSARapAgriAlphaBetaFile\x22 -imk \x22$PolSARapAgriMaskFile\x22 -od \x22$PolSARapAgriDirOutput\x22 -un $PolSARapAgriUnit -dis $PolSARapAgriDihedSoil -dit $PolSARapAgriDihedTrunk -inc $PolSARapAgriDihedLUT -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd"
         if {$PolSARapAgriKsFile != "Enter 2D Ks File ( Optional )"} { append PolSARapArguments " -iks \x22$PolSARapAgriKsFile\x22" }
         TextEditorRunTrace "Arguments: $PolSARapArguments" "k"
-        set f [ open "| Soft/PolSARap/PolSARap_Agriculture_Inversion_Dihedral.exe $PolSARapArguments" r]
+        set f [ open "| Soft/bin/PolSARap/PolSARap_Agriculture_Inversion_Dihedral.exe $PolSARapArguments" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError
@@ -1368,7 +1368,7 @@ set PolSARapAgriDcSoilFile ""
 set PolSARapAgriDcTrunkFile ""
 set PolSARapAgriNwinL "7"
 set PolSARapAgriNwinC "7"
-set PolSARapAgriUnit ""
+set PolSARapAgriUnit " "
 set PolSARapAgriSurfSoil ""
 set PolSARapAgriSurfLUT ""
 set PolSARapAgriDihedSoil ""
@@ -2164,7 +2164,7 @@ if {$FileName != ""} {
     button $site_3_0.but93 \
         -background #ffff00 \
         -command {global PolSARapAgriDirOutput PolSARapAgriOutputDir PolSARapAgriOutputSubDir PolSARapAgriDirInput
-global PSPMemory TMPMemoryAllocError
+global TMPMemoryAllocError
 global Fonction Fonction2 ProgressLine VarWarning WarningMessage WarningMessage2
 global OpenDirFile PolSARapAgriFonc
 

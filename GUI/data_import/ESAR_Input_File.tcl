@@ -981,9 +981,9 @@ if {$ESARFileInputFlag == 1} {
         }
     if {$TestVarError == "ok"} {
         if {$EsarHeader == 1} {
-            TextEditorRunTrace "Process The Function Soft/data_import/esar_header.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/data_import/esar_header.exe" "k"
             TextEditorRunTrace "Arguments: -if \x22$FileInputHH\x22 -iee $IEEEFormat -of \x22$TMPEsarConfig\x22" "k"
-            set f [ open "| Soft/data_import/esar_header.exe -if \x22$FileInputHH\x22 -iee $IEEEFormat -of \x22$TMPEsarConfig\x22" r]
+            set f [ open "| Soft/bin/data_import/esar_header.exe -if \x22$FileInputHH\x22 -iee $IEEEFormat -of \x22$TMPEsarConfig\x22" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError

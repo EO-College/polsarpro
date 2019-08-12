@@ -7,20 +7,20 @@ if {![info exists vTcl(sourcing)]} {
     package require Tk
     switch $tcl_platform(platform) {
 	windows {
-            option add *Button.padY 0
+	    option add *Button.padY 0
 	}
 	default {
-            option add *Scrollbar.width 10
-            option add *Scrollbar.highlightThickness 0
-            option add *Scrollbar.elementBorderWidth 2
-            option add *Scrollbar.borderWidth 2
+	    option add *Scrollbar.width 10
+	    option add *Scrollbar.highlightThickness 0
+	    option add *Scrollbar.elementBorderWidth 2
+	    option add *Scrollbar.borderWidth 2
 	}
     }
     
 }
 
 #############################################################################
-# Visual Tcl v1.60 Project
+# Visual Tcl v8.6.0.5 Project
 #
 
 
@@ -136,7 +136,8 @@ proc ::vTcl:image:get_creation_type {filename} {
         .ppm -
         .jpg -
         .bmp -
-        .gif    {return photo}
+        .gif -
+	.png	{return photo}
         .xbm    {return bitmap}
         default {return photo}
     }
@@ -159,7 +160,6 @@ catch {package require Img}
 
 foreach img {
 
-        {{[file join . GUI Images Construction1.gif]} {user image} user {}}
         {{[file join . GUI Images Construction2.gif]} {user image} user {}}
 
             } {
@@ -190,24 +190,24 @@ proc ::Window {args} {
     if {$name == "."} { wm withdraw $name; return }
     set exists [winfo exists $newname]
     switch $cmd {
-        show {
-            if {$exists} {
-                wm deiconify $newname
-            } elseif {[info procs vTclWindow$name] != ""} {
-                eval "vTclWindow$name $newname $rest"
-            }
-            if {[winfo exists $newname] && [wm state $newname] == "normal"} {
-                vTcl:FireEvent $newname <<Show>>
-            }
-        }
-        hide    {
-            if {$exists} {
-                wm withdraw $newname
-                vTcl:FireEvent $newname <<Hide>>
-                return}
-        }
-        iconify { if $exists {wm iconify $newname; return} }
-        destroy { if $exists {destroy $newname; return} }
+	show {
+	    if {$exists} {
+		wm deiconify $newname
+	    } elseif {[info procs vTclWindow$name] != ""} {
+		eval "vTclWindow$name $newname $rest"
+	    }
+	    if {[winfo exists $newname] && [wm state $newname] == "normal"} {
+		vTcl:FireEvent $newname <<Show>>
+	    }
+	}
+	hide    {
+	    if {$exists} {
+		wm withdraw $newname
+		vTcl:FireEvent $newname <<Hide>>
+		return}
+	}
+	iconify { if $exists {wm iconify $newname; return} }
+	destroy { if $exists {destroy $newname; return} }
     }
 }
 #############################################################################
@@ -223,13 +223,13 @@ proc ::vTcl:DefineAlias {target alias widgetProc top_or_alias cmdalias} {
     set widget($alias) $target
     set widget(rev,$target) $alias
     if {$cmdalias} {
-        interp alias {} $alias {} $widgetProc $target
+	interp alias {} $alias {} $widgetProc $target
     }
     if {$top_or_alias != ""} {
-        set widget($top_or_alias,$alias) $target
-        if {$cmdalias} {
-            interp alias {} $top_or_alias.$alias {} $widgetProc $target
-        }
+	set widget($top_or_alias,$alias) $target
+	if {$cmdalias} {
+	    interp alias {} $top_or_alias.$alias {} $widgetProc $target
+	}
     }
 }
 #############################################################################
@@ -265,25 +265,25 @@ proc ::vTcl:FireEvent {target event {params {}}} {
     if {![winfo exists $target]} return
     ## Process each binding tag, looking for the event
     foreach bindtag [bindtags $target] {
-        set tag_events [bind $bindtag]
-        set stop_processing 0
-        foreach tag_event $tag_events {
-            if {$tag_event == $event} {
-                set bind_code [bind $bindtag $tag_event]
-                foreach rep "\{%W $target\} $params" {
-                    regsub -all [lindex $rep 0] $bind_code [lindex $rep 1] bind_code
-                }
-                set result [catch {uplevel #0 $bind_code} errortext]
-                if {$result == 3} {
-                    ## break exception, stop processing
-                    set stop_processing 1
-                } elseif {$result != 0} {
-                    bgerror $errortext
-                }
-                break
-            }
-        }
-        if {$stop_processing} {break}
+	set tag_events [bind $bindtag]
+	set stop_processing 0
+	foreach tag_event $tag_events {
+	    if {$tag_event == $event} {
+		set bind_code [bind $bindtag $tag_event]
+		foreach rep "\{%W $target\} $params" {
+		    regsub -all [lindex $rep 0] $bind_code [lindex $rep 1] bind_code
+		}
+		set result [catch {uplevel #0 $bind_code} errortext]
+		if {$result == 3} {
+		    ## break exception, stop processing
+		    set stop_processing 1
+		} elseif {$result != 0} {
+		    bgerror $errortext
+		}
+		break
+	    }
+	}
+	if {$stop_processing} {break}
     }
 }
 #############################################################################
@@ -344,8 +344,8 @@ proc ::vTcl:WidgetProc {w args} {
     ##    Please read their license agreements for details.
 
     if {[llength $args] == 0} {
-        ## If no arguments, returns the path the alias points to
-        return $w
+	## If no arguments, returns the path the alias points to
+	return $w
     }
 
     set command [lindex $args 0]
@@ -377,19 +377,7 @@ proc vTcl:project:info {} {
         set set,size 1
         set runvisible 1
     }
-    namespace eval ::widgets::$base.fra36 {
-        array set save {-borderwidth 1 -height 1 -width 1}
-    }
     set site_3_0 $base.fra36
-    namespace eval ::widgets::$site_3_0.lab39 {
-        array set save {-image 1 -text 1}
-    }
-    namespace eval ::widgets::$site_3_0.lab40 {
-        array set save {-image 1 -text 1}
-    }
-    namespace eval ::widgets::$base.but42 {
-        array set save {-_tooltip 1 -background 1 -command 1 -padx 1 -pady 1 -text 1}
-    }
     namespace eval ::widgets_bindings {
         set tagslist {_TopLevel _vTclBalloon}
     }
@@ -447,16 +435,16 @@ proc vTclWindow. {base} {
     # CREATING WIDGETS
     ###################
     wm focusmodel $top passive
-    wm geometry $top 200x200+110+110; update
-    wm maxsize $top 1604 1185
-    wm minsize $top 104 1
+    wm geometry $top 200x200+156+156; update
+    wm maxsize $top 5124 1421
+    wm minsize $top 120 1
     wm overrideredirect $top 0
     wm resizable $top 1 1
     wm withdraw $top
     wm title $top "vtcl"
     bindtags $top "$top Vtcl all"
     vTcl:FireEvent $top <<Create>>
-    wm protocol $top WM_DELETE_WINDOW "vTcl:FireEvent $top <<>>"
+    wm protocol $top WM_DELETE_WINDOW "vTcl:FireEvent $top <<DeleteWindow>>"
 
     ###################
     # SETTING GEOMETRY
@@ -481,37 +469,30 @@ proc vTclWindow.top35 {base} {
     wm focusmodel $top passive
     wm geometry $top 300x100+200+200; update
     wm maxsize $top 1284 1008
-    wm minsize $top 113 1
+    wm minsize $top 120 1
     wm overrideredirect $top 0
     wm resizable $top 1 1
     wm title $top "UNDER CONSTRUCTION"
     vTcl:DefineAlias "$top" "Toplevel35" vTcl:Toplevel:WidgetProc "" 1
     bindtags $top "$top Toplevel all _TopLevel"
     vTcl:FireEvent $top <<Create>>
-    wm protocol $top WM_DELETE_WINDOW "vTcl:FireEvent $top <<>>"
+    wm protocol $top WM_DELETE_WINDOW "vTcl:FireEvent $top <<DeleteWindow>>"
 
     frame $top.fra36 \
-        -borderwidth 2 -height 75 -width 125 
+		-borderwidth 2 -height 75 -width 125 
     vTcl:DefineAlias "$top.fra36" "Frame441" vTcl:WidgetProc "Toplevel35" 1
     set site_3_0 $top.fra36
-    label $site_3_0.lab39 \
-        \
-        -image [vTcl:image:get_image [file join . GUI Images Construction1.gif]] \
-        -text label 
-    vTcl:DefineAlias "$site_3_0.lab39" "Label479" vTcl:WidgetProc "Toplevel35" 1
     label $site_3_0.lab40 \
-        \
-        -image [vTcl:image:get_image [file join . GUI Images Construction2.gif]] \
-        -text label 
+		\
+		-image [vTcl:image:get_image [file join . GUI Images Construction2.gif]] \
+		-text label 
     vTcl:DefineAlias "$site_3_0.lab40" "Label480" vTcl:WidgetProc "Toplevel35" 1
-    pack $site_3_0.lab39 \
-        -in $site_3_0 -anchor center -expand 1 -fill none -side left 
     pack $site_3_0.lab40 \
-        -in $site_3_0 -anchor center -expand 1 -fill none -side left 
+		-in $site_3_0 -anchor center -expand 1 -fill none -side left 
     button $top.but42 \
-        -background #ffff00 \
-        -command {Window hide $widget(Toplevel35); TextEditorRunTrace "Close Window Under Construction" "b"} \
-        -padx 4 -pady 2 -text Exit 
+		-background {#ffff00} \
+		-command {Window hide $widget(Toplevel35); TextEditorRunTrace "Close Window Under Construction" "b"} \
+		-padx 4 -pady 2 -text Exit 
     bindtags $top.but42 "$top.but42 Button $top all _vTclBalloon"
     bind $top.but42 <<SetBalloon>> {
         set ::vTcl::balloon::%W {Exit the Function}
@@ -520,9 +501,9 @@ proc vTclWindow.top35 {base} {
     # SETTING GEOMETRY
     ###################
     pack $top.fra36 \
-        -in $top -anchor center -expand 1 -fill x -side top 
+		-in $top -anchor center -expand 1 -fill x -side top 
     pack $top.but42 \
-        -in $top -anchor center -expand 0 -fill none -side right 
+		-in $top -anchor center -expand 0 -fill none -side right 
 
     vTcl:FireEvent $base <<Ready>>
 }

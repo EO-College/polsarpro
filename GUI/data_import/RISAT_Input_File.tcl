@@ -969,8 +969,8 @@ if {$config == "true"} {
   set f [open $RISATBandMetaFile r]
   while { ![eof $f] } {
       gets $f tmp;
-      if {[string first "InputResolutionAlong" $tmp] != "-1"} { set RISATResRg [string range $tmp [expr [string first "=" $tmp] + 1 ] [string length $tmp] ] }
-      if {[string first "InputResolutionAcross" $tmp] != "-1"} { set RISATResAz [string range $tmp [expr [string first "=" $tmp] + 1 ] [string length $tmp] ] }
+      if {[string first "InputResolutionAlong" $tmp] != "-1"} { set RISATResAz [string range $tmp [expr [string first "=" $tmp] + 1 ] [string length $tmp] ] }
+      if {[string first "InputResolutionAcross" $tmp] != "-1"} { set RISATResRg [string range $tmp [expr [string first "=" $tmp] + 1 ] [string length $tmp] ] }
       if {[string first "OutputLineSpacing" $tmp] != "-1"} { set RISATPixAz [string range $tmp [expr [string first "=" $tmp] + 1 ] [string length $tmp] ] }
       if {[string first "OutputPixelSpacing" $tmp] != "-1"} { set RISATPixRg [string range $tmp [expr [string first "=" $tmp] + 1 ] [string length $tmp] ] }
       if {[string first "ImageFormat" $tmp] != "-1"} { set RISATImgFormat [string range $tmp [expr [string first "=" $tmp] + 1 ] [string length $tmp] ] }
@@ -1030,6 +1030,7 @@ if {$config == "true"} {
     set RISATImgModeTmp "0"
     if {$RISATImgMode == "CFRS1"} {set RISATImgModeTmp "1"}
     if {$RISATImgMode == "FRS1"}  {set RISATImgModeTmp "1"}
+    if {$RISATImgMode == "FRS2"}  {set RISATImgModeTmp "1"}
     if {$RISATImgMode == "MRS"}   {set RISATImgModeTmp "1"}
     if {$RISATImgMode == "MRS "}  {set RISATImgModeTmp "1"}
     if {$RISATImgModeTmp == "0"} {set configrisat "MODE"}
@@ -1039,252 +1040,230 @@ if {$config == "true"} {
         if {$RISATnoPol == 2} {set ModeRISAT "dual1.1"}
         if {$RISATnoPol == 4} {set ModeRISAT "quad1.1"}
 
-        if {$RISATDataFormat != $ModeRISAT} {
-            set ErrorMessage "ERROR IN THE RISAT-PALSAR DATA MODE and/or LEVEL"
-            Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
-            tkwait variable VarError
-            MenuRAZ
-            ClosePSPViewer
-            CloseAllWidget
-            if {$ActiveProgram == "RISAT"} {
-                if {$RISATDataFormat == "dual1.1"} { TextEditorRunTrace "Close EO-SI Dual Pol" "b" }
-                if {$RISATDataFormat == "quad1.1"} { TextEditorRunTrace "Close EO-SI" "b" }
-                if {$ModeRISAT == "dual1.1"} { TextEditorRunTrace "Open EO-SI Dual Pol" "b" }
-                if {$ModeRISAT == "quad1.1"} { TextEditorRunTrace "Open EO-SI" "b" }
-                set RISATDataFormat $ModeRISAT
-                $widget(MenubuttonRISAT) configure -background #FFFF00
-                MenuEnvImp
-                InitDataDir
-                CheckEnvironnement
+        set RISATDataFormat $ModeRISAT
+    
+        TextEditorRunTrace "Process The Function Soft/bin/data_import/risat_google.exe" "k"
+        TextEditorRunTrace "Arguments: -if \x22$TMPRISATConfig\x22 -od \x22$RISATDirOutput\x22" "k"
+        set f [ open "| Soft/bin/data_import/risat_google.exe -if \x22$TMPRISATConfig\x22 -od \x22$RISATDirOutput\x22" r]
+        PsPprogressBar $f
+        TextEditorRunTrace "Check RunTime Errors" "r"
+        CheckRunTimeError
+        set GoogleLatCenter $RISATLatCenter
+        set GoogleLongCenter $RISATLonCenter
+        set GoogleLat00 $RISATLat00
+        set GoogleLong00 $RISATLon00
+        set GoogleLat0N $RISATLat0N
+        set GoogleLong0N $RISATLon0N
+        set GoogleLatN0 $RISATLatN0
+        set GoogleLongN0 $RISATLonN0
+        set GoogleLatNN $RISATLatNN
+        set GoogleLongNN $RISATLonNN
+        $widget(Button449_20) configure -state normal
+
+        $widget(Entry449_12) configure -disabledbackground #FFFFFF
+        set RISATLeaderFile "$RISATDirInput/scene_"; append RISATLeaderFile $RISATPol1
+        append RISATLeaderFile "/lea_01.001"
+        if [file exists $RISATLeaderFile] {
+            $widget(TitleFrame449_1) configure -state normal
+            $widget(Label449_13) configure -state disable; $widget(Entry449_13) configure -disabledbackground $PSPBackgroundColor
+            $widget(Label449_14) configure -state disable; $widget(Entry449_14) configure -disabledbackground $PSPBackgroundColor
+            $widget(Label449_15) configure -state disable; $widget(Entry449_15) configure -disabledbackground $PSPBackgroundColor
+            $widget(Label449_16) configure -state disable; $widget(Entry449_16) configure -disabledbackground $PSPBackgroundColor
+            if {$RISATnoPol == "2"} {
+                if {$RISATPol1 == "RH" & $RISATPol2 == "RV"} {
+                    set FileHH "$RISATDirInput/scene_RH/dat_01.001"   
+                    set FileHV "$RISATDirInput/scene_RV/dat_01.001"   
+                    set PolarType "pp1"; set RISATMode "Compact - Pol"
+                    set RISATCalfac1 $RISATCalPol1; set RISATCalfac2 $RISATCalPol2
+                    }
+                if {$RISATPol1 == "RV" & $RISATPol2 == "RH"} {
+                    set FileHH "$RISATDirInput/scene_RH/dat_01.001"   
+                    set FileHV "$RISATDirInput/scene_RV/dat_01.001"   
+                    set PolarType "pp1"; set RISATMode "Compact - Pol"
+                    set RISATCalfac1 $RISATCalPol2; set RISATCalfac2 $RISATCalPol1
+                    }
+                if {$RISATPol1 == "LH" & $RISATPol2 == "LV"} {
+                    set FileHH "$RISATDirInput/scene_LH/dat_01.001"   
+                    set FileHV "$RISATDirInput/scene_LV/dat_01.001"   
+                    set PolarType "pp1"; set RISATMode "Compact - Pol"
+                    set RISATCalfac1 $RISATCalPol1; set RISATCalfac2 $RISATCalPol2
+                    }
+                if {$RISATPol1 == "LV" & $RISATPol2 == "LH"} {
+                    set FileHH "$RISATDirInput/scene_LH/dat_01.001"   
+                    set FileHV "$RISATDirInput/scene_LV/dat_01.001"   
+                    set PolarType "pp1"; set RISATMode "Compact - Pol"
+                    set RISATCalfac1 $RISATCalPol2; set RISATCalfac2 $RISATCalPol1
+                    }
+                if {$RISATPol1 == "HH" & $RISATPol2 == "HV"} {
+                    set FileHH "$RISATDirInput/scene_HH/dat_01.001"   
+                    set FileHV "$RISATDirInput/scene_HV/dat_01.001"   
+                    set PolarType "pp1"; set RISATMode "Dual - Pol (pp1)"
+                    set RISATCalfac1 $RISATCalPol1; set RISATCalfac2 $RISATCalPol2
+                    }
+                if {$RISATPol1 == "HV" & $RISATPol2 == "HH"} {
+                    set FileHH "$RISATDirInput/scene_HH/dat_01.001"   
+                    set FileHV "$RISATDirInput/scene_HV/dat_01.001"   
+                    set PolarType "pp1"; set RISATMode "Dual - Pol (pp1)"
+                    set RISATCalfac1 $RISATCalPol2; set RISATCalfac2 $RISATCalPol1
+                    }
+                if {$RISATPol1 == "VH" & $RISATPol2 == "VV"} {
+                    set FileHH "$RISATDirInput/scene_VV/dat_01.001"   
+                    set FileHV "$RISATDirInput/scene_VH/dat_01.001"   
+                    set PolarType "pp2"; set RISATMode "Dual - Pol (pp2)"
+                    set RISATCalfac1 $RISATCalPol2; set RISATCalfac2 $RISATCalPol1
+                    }
+                if {$RISATPol1 == "VV" & $RISATPol2 == "VH"} {
+                    set FileHH "$RISATDirInput/scene_VV/dat_01.001"   
+                    set FileHV "$RISATDirInput/scene_VH/dat_01.001"   
+                    set PolarType "pp2"; set RISATMode "Dual - Pol (pp2)"
+                    set RISATCalfac1 $RISATCalPol1; set RISATCalfac2 $RISATCalPol2
+                    }
+                if {$RISATPol1 == "HH" & $RISATPol2 == "VV"} {
+                    set FileHH "$RISATDirInput/scene_HH/dat_01.001"   
+                    set FileHV "$RISATDirInput/scene_VV/dat_01.001"   
+                    set PolarType "pp3"; set RISATMode "Dual - Pol (pp3)"
+                    set RISATCalfac1 $RISATCalPol1; set RISATCalfac2 $RISATCalPol2
+                    }
+                if {$RISATPol1 == "VV" & $RISATPol2 == "HH"} {
+                    set FileHH "$RISATDirInput/scene_HH/dat_01.001"   
+                    set FileHV "$RISATDirInput/scene_VV/dat_01.001"   
+                    set PolarType "pp3"; set RISATMode "Dual - Pol (pp3)"
+                    set RISATCalfac1 $RISATCalPol2; set RISATCalfac2 $RISATCalPol1
+                    }
+                set RISATCalfac3 ""; set RISATCalfac4 ""
+                set config "true"
+                if [file exists $FileHH] { } else { set config "false" }
+                if [file exists $FileHV] { } else { set config "false" }
+                if {$config == "true"} {
+                    $widget(TitleFrame449_2) configure -state normal
+                    set FileInput1 $FileHH
+                    $widget(Label449_13) configure -state normal; $widget(Entry449_13) configure -disabledbackground #FFFFFF
+                    set FileInput2 $FileHV
+                    $widget(Label449_14) configure -state normal; $widget(Entry449_14) configure -disabledbackground #FFFFFF
+                    } else {
+                    set FileInput1 ""; set FileInput2 ""; set FileInput3 ""; set FileInput4 ""
+                    set VarError ""
+                    set ErrorMessage "THE IMAGE DATA FILES DO NOT EXIST" 
+                    Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
+                    tkwait variable VarError
+                    Window hide $widget(Toplevel449); TextEditorRunTrace "Close Window RISAT Input File" "b"
+                    }
                 }
-            Window hide $widget(Toplevel449); TextEditorRunTrace "Close Window RISAT Input File" "b"
-    
-            } else {
-    
-            TextEditorRunTrace "Process The Function Soft/data_import/risat_google.exe" "k"
-            TextEditorRunTrace "Arguments: -if \x22$TMPRISATConfig\x22 -od \x22$RISATDirOutput\x22" "k"
-            set f [ open "| Soft/data_import/risat_google.exe -if \x22$TMPRISATConfig\x22 -od \x22$RISATDirOutput\x22" r]
+        
+            if {$RISATnoPol == "4"} {
+                set FileHH "$RISATDirInput/scene_HH/dat_01.001"   
+                set FileHV "$RISATDirInput/scene_HV/dat_01.001"   
+                set FileVH "$RISATDirInput/scene_VH/dat_01.001"   
+                set FileVV "$RISATDirInput/scene_VV/dat_01.001"   
+                set RISATCalfac1 $RISATCalPol1; set RISATCalfac2 $RISATCalPol2
+                set RISATCalfac3 $RISATCalPol3; set RISATCalfac4 $RISATCalPol4
+                set config "true"
+                if [file exists $FileHH] { } else { set config "false" }
+                if [file exists $FileHV] { } else { set config "false" }
+                if [file exists $FileVH] { } else { set config "false" }
+                if [file exists $FileVV] { } else { set config "false" }
+                if {$config == "true"} {
+                    set PolarType "full";  set RISATMode "Quad - Pol"
+                    $widget(TitleFrame449_2) configure -state normal
+                    set FileInput1 $FileHH
+                    $widget(Label449_13) configure -state normal; $widget(Entry449_13) configure -disabledbackground #FFFFFF
+                    set FileInput2 $FileVH
+                    $widget(Label449_14) configure -state normal; $widget(Entry449_14) configure -disabledbackground #FFFFFF
+                    set FileInput3 $FileHV
+                    $widget(Label449_15) configure -state normal; $widget(Entry449_15) configure -disabledbackground #FFFFFF
+                    set FileInput4 $FileVV
+                    $widget(Label449_16) configure -state normal; $widget(Entry449_16) configure -disabledbackground #FFFFFF
+                    } else {
+                    set FileInput1 ""; set FileInput2 ""; set FileInput3 ""; set FileInput4 ""
+                    set VarError ""
+                    set ErrorMessage "THE IMAGE DATA FILES DO NOT EXIST" 
+                    Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
+                    tkwait variable VarError
+                    Window hide $widget(Toplevel449); TextEditorRunTrace "Close Window RISAT Input File" "b"
+                    }
+                }
+
+            set RISATFileInputFlag 0
+
+            DeleteFile  $TMPRISATConfig
+
+            TextEditorRunTrace "Process The Function Soft/bin/data_import/risat_header.exe" "k"
+            TextEditorRunTrace "Arguments: -od \x22$RISATDirOutput\x22 -ilf \x22$RISATLeaderFile\x22 -iif \x22$FileInput1\x22 -ocf \x22$TMPRISATConfig\x22" "k"
+            set f [ open "| Soft/bin/data_import/risat_header.exe -od \x22$RISATDirOutput\x22 -ilf \x22$RISATLeaderFile\x22 -iif \x22$FileInput1\x22 -ocf \x22$TMPRISATConfig\x22" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
-            set GoogleLatCenter $RISATLatCenter
-            set GoogleLongCenter $RISATLonCenter
-            set GoogleLat00 $RISATLat00
-            set GoogleLong00 $RISATLon00
-            set GoogleLat0N $RISATLat0N
-            set GoogleLong0N $RISATLon0N
-            set GoogleLatN0 $RISATLatN0
-            set GoogleLongN0 $RISATLonN0
-            set GoogleLatNN $RISATLatNN
-            set GoogleLongNN $RISATLonNN
-            $widget(Button449_20) configure -state normal
+            WaitUntilCreated $TMPRISATConfig
 
-            $widget(Entry449_12) configure -disabledbackground #FFFFFF
-            set RISATLeaderFile "$RISATDirInput/scene_"; append RISATLeaderFile $RISATPol1
-            append RISATLeaderFile "/lea_01.001"
-            if [file exists $RISATLeaderFile] {
-                $widget(TitleFrame449_1) configure -state normal
-                $widget(Label449_13) configure -state disable; $widget(Entry449_13) configure -disabledbackground $PSPBackgroundColor
-                $widget(Label449_14) configure -state disable; $widget(Entry449_14) configure -disabledbackground $PSPBackgroundColor
-                $widget(Label449_15) configure -state disable; $widget(Entry449_15) configure -disabledbackground $PSPBackgroundColor
-                $widget(Label449_16) configure -state disable; $widget(Entry449_16) configure -disabledbackground $PSPBackgroundColor
-                if {$RISATnoPol == "2"} {
-                    if {$RISATPol1 == "RH" & $RISATPol2 == "RV"} {
-                        set FileHH "$RISATDirInput/scene_RH/dat_01.001"   
-                        set FileHV "$RISATDirInput/scene_RV/dat_01.001"   
-                        set PolarType "pp1"; set RISATMode "Compact - Pol"
-                        set RISATCalfac1 $RISATCalPol1; set RISATCalfac2 $RISATCalPol2
-                        }
-                    if {$RISATPol1 == "RV" & $RISATPol2 == "RH"} {
-                        set FileHH "$RISATDirInput/scene_RH/dat_01.001"   
-                        set FileHV "$RISATDirInput/scene_RV/dat_01.001"   
-                        set PolarType "pp1"; set RISATMode "Compact - Pol"
-                        set RISATCalfac1 $RISATCalPol2; set RISATCalfac2 $RISATCalPol1
-                        }
-                    if {$RISATPol1 == "LH" & $RISATPol2 == "LV"} {
-                        set FileHH "$RISATDirInput/scene_LH/dat_01.001"   
-                        set FileHV "$RISATDirInput/scene_LV/dat_01.001"   
-                        set PolarType "pp1"; set RISATMode "Compact - Pol"
-                        set RISATCalfac1 $RISATCalPol1; set RISATCalfac2 $RISATCalPol2
-                        }
-                    if {$RISATPol1 == "LV" & $RISATPol2 == "LH"} {
-                        set FileHH "$RISATDirInput/scene_LH/dat_01.001"   
-                        set FileHV "$RISATDirInput/scene_LV/dat_01.001"   
-                        set PolarType "pp1"; set RISATMode "Compact - Pol"
-                        set RISATCalfac1 $RISATCalPol2; set RISATCalfac2 $RISATCalPol1
-                        }
-                    if {$RISATPol1 == "HH" & $RISATPol2 == "HV"} {
-                        set FileHH "$RISATDirInput/scene_HH/dat_01.001"   
-                        set FileHV "$RISATDirInput/scene_HV/dat_01.001"   
-                        set PolarType "pp1"; set RISATMode "Dual - Pol (pp1)"
-                        set RISATCalfac1 $RISATCalPol1; set RISATCalfac2 $RISATCalPol2
-                        }
-                    if {$RISATPol1 == "HV" & $RISATPol2 == "HH"} {
-                        set FileHH "$RISATDirInput/scene_HH/dat_01.001"   
-                        set FileHV "$RISATDirInput/scene_HV/dat_01.001"   
-                        set PolarType "pp1"; set RISATMode "Dual - Pol (pp1)"
-                        set RISATCalfac1 $RISATCalPol2; set RISATCalfac2 $RISATCalPol1
-                        }
-                    if {$RISATPol1 == "VH" & $RISATPol2 == "VV"} {
-                        set FileHH "$RISATDirInput/scene_VV/dat_01.001"   
-                        set FileHV "$RISATDirInput/scene_VH/dat_01.001"   
-                        set PolarType "pp2"; set RISATMode "Dual - Pol (pp2)"
-                        set RISATCalfac1 $RISATCalPol2; set RISATCalfac2 $RISATCalPol1
-                        }
-                    if {$RISATPol1 == "VV" & $RISATPol2 == "VH"} {
-                        set FileHH "$RISATDirInput/scene_VV/dat_01.001"   
-                        set FileHV "$RISATDirInput/scene_VH/dat_01.001"   
-                        set PolarType "pp2"; set RISATMode "Dual - Pol (pp2)"
-                        set RISATCalfac1 $RISATCalPol1; set RISATCalfac2 $RISATCalPol2
-                        }
-                    if {$RISATPol1 == "HH" & $RISATPol2 == "VV"} {
-                        set FileHH "$RISATDirInput/scene_HH/dat_01.001"   
-                        set FileHV "$RISATDirInput/scene_VV/dat_01.001"   
-                        set PolarType "pp3"; set RISATMode "Dual - Pol (pp3)"
-                        set RISATCalfac1 $RISATCalPol1; set RISATCalfac2 $RISATCalPol2
-                        }
-                    if {$RISATPol1 == "VV" & $RISATPol2 == "HH"} {
-                        set FileHH "$RISATDirInput/scene_HH/dat_01.001"   
-                        set FileHV "$RISATDirInput/scene_VV/dat_01.001"   
-                        set PolarType "pp3"; set RISATMode "Dual - Pol (pp3)"
-                        set RISATCalfac1 $RISATCalPol2; set RISATCalfac2 $RISATCalPol1
-                        }
-                    set RISATCalfac3 ""; set RISATCalfac4 ""
-                    set config "true"
-                    if [file exists $FileHH] { } else { set config "false" }
-                    if [file exists $FileHV] { } else { set config "false" }
-                    if {$config == "true"} {
-                        $widget(TitleFrame449_2) configure -state normal
-                        set FileInput1 $FileHH
-                        $widget(Label449_13) configure -state normal; $widget(Entry449_13) configure -disabledbackground #FFFFFF
-                        set FileInput2 $FileHV
-                        $widget(Label449_14) configure -state normal; $widget(Entry449_14) configure -disabledbackground #FFFFFF
-                        } else {
-                        set FileInput1 ""; set FileInput2 ""; set FileInput3 ""; set FileInput4 ""
-                        set VarError ""
-                        set ErrorMessage "THE IMAGE DATA FILES DO NOT EXIST" 
-                        Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
-                        tkwait variable VarError
-                        Window hide $widget(Toplevel449); TextEditorRunTrace "Close Window RISAT Input File" "b"
-                        }
-                    }
-        
-                if {$RISATnoPol == "4"} {
-                    set FileHH "$RISATDirInput/scene_HH/dat_01.001"   
-                    set FileHV "$RISATDirInput/scene_HV/dat_01.001"   
-                    set FileVH "$RISATDirInput/scene_VH/dat_01.001"   
-                    set FileVV "$RISATDirInput/scene_VV/dat_01.001"   
-                    set RISATCalfac1 $RISATCalPol1; set RISATCalfac2 $RISATCalPol2
-                    set RISATCalfac3 $RISATCalPol3; set RISATCalfac4 $RISATCalPol4
-                    set config "true"
-                    if [file exists $FileHH] { } else { set config "false" }
-                    if [file exists $FileHV] { } else { set config "false" }
-                    if [file exists $FileVH] { } else { set config "false" }
-                    if [file exists $FileVV] { } else { set config "false" }
-                    if {$config == "true"} {
-                        set PolarType "full";  set RISATMode "Quad - Pol"
-                        $widget(TitleFrame449_2) configure -state normal
-                        set FileInput1 $FileHH
-                        $widget(Label449_13) configure -state normal; $widget(Entry449_13) configure -disabledbackground #FFFFFF
-                        set FileInput2 $FileVH
-                        $widget(Label449_14) configure -state normal; $widget(Entry449_14) configure -disabledbackground #FFFFFF
-                        set FileInput3 $FileHV
-                        $widget(Label449_15) configure -state normal; $widget(Entry449_15) configure -disabledbackground #FFFFFF
-                        set FileInput4 $FileVV
-                        $widget(Label449_16) configure -state normal; $widget(Entry449_16) configure -disabledbackground #FFFFFF
-                        $widget(Button449_9) configure -state normal
-                        } else {
-                        set FileInput1 ""; set FileInput2 ""; set FileInput3 ""; set FileInput4 ""
-                        set VarError ""
-                        set ErrorMessage "THE IMAGE DATA FILES DO NOT EXIST" 
-                        Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
-                        tkwait variable VarError
-                        Window hide $widget(Toplevel449); TextEditorRunTrace "Close Window RISAT Input File" "b"
-                        }
-                   }
+            set f [open $TMPRISATConfig r]
+            gets $f tmp1; gets $f tmp2; gets $f tmp3
+            gets $f tmp4; gets $f tmp5; gets $f tmp6
+            gets $f tmp7; gets $f tmp8;
+            close $f
+            set f [open $TMPRISATConfig w]
+            puts $f $tmp1; puts $f $tmp2; puts $f $tmp3
+            puts $f $tmp4; puts $f $tmp5; puts $f $tmp6
+            puts $f $tmp7; puts $f $tmp8;
+            puts $f $tmp3; puts $f "inc_angle"; puts $f $RISATincang
+            puts $f $tmp3; puts $f "cal_fac_pol1"; puts $f $RISATCalfac1
+            puts $f $tmp3; puts $f "cal_fac_pol2"; puts $f $RISATCalfac2
+            puts $f $tmp3; puts $f "cal_fac_pol3"; puts $f $RISATCalfac3
+            puts $f $tmp3; puts $f "cal_fac_pol4"; puts $f $RISATCalfac4
+            close $f
 
-                set RISATFileInputFlag 0
-
-                DeleteFile  $TMPRISATConfig
-
-                TextEditorRunTrace "Process The Function Soft/data_import/risat_header.exe" "k"
-                TextEditorRunTrace "Arguments: -od \x22$RISATDirOutput\x22 -ilf \x22$RISATLeaderFile\x22 -iif \x22$FileInput1\x22 -ocf \x22$TMPRISATConfig\x22" "k"
-                set f [ open "| Soft/data_import/risat_header.exe -od \x22$RISATDirOutput\x22 -ilf \x22$RISATLeaderFile\x22 -iif \x22$FileInput1\x22 -ocf \x22$TMPRISATConfig\x22" r]
+            set NligFullSize $RISATscans; set NcolFullSize $RISATpixels
+            set TestVarName(0) "Initial Number of Rows"; set TestVarType(0) "int"; set TestVarValue(0) $NligFullSize; set TestVarMin(0) "0"; set TestVarMax(0) ""
+            set TestVarName(1) "Initial Number of Cols"; set TestVarType(1) "int"; set TestVarValue(1) $NcolFullSize; set TestVarMin(1) "0"; set TestVarMax(1) ""
+            TestVar 2
+            if {$TestVarError == "ok"} {
+                $widget(TitleFrame449_3) configure -state normal
+                $widget(Entry449_25) configure -disabledbackground #FFFFFF
+                set RISATGridFile "$RISATDirInput/"; append RISATGridFile $RISATSceneID
+                append RISATGridFile "_"; append RISATGridFile "$RISATPol1"; append RISATGridFile "_L1_SlantRange_grid.txt"
+                set ProgressLine "0"
+                WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
+                update
+                TextEditorRunTrace "Process The Function Soft/bin/data_import/risat_inc_angle_extract.exe" "k"
+                TextEditorRunTrace "Arguments: -if \x22$RISATGridFile\x22 -od \x22$RISATDirOutput\x22 -fnr $NligFullSize -fnc $NcolFullSize" "k"
+                set f [ open "| Soft/bin/data_import/risat_inc_angle_extract.exe -if \x22$RISATGridFile\x22 -od \x22$RISATDirOutput\x22 -fnr $NligFullSize -fnc $NcolFullSize" r]
                 PsPprogressBar $f
                 TextEditorRunTrace "Check RunTime Errors" "r"
                 CheckRunTimeError
-                WaitUntilCreated $TMPRISATConfig
-
-                set f [open $TMPRISATConfig r]
-                gets $f tmp1; gets $f tmp2; gets $f tmp3
-                gets $f tmp4; gets $f tmp5; gets $f tmp6
-                gets $f tmp7; gets $f tmp8;
-                close $f
-                set f [open $TMPRISATConfig w]
-                puts $f $tmp1; puts $f $tmp2; puts $f $tmp3
-                puts $f $tmp4; puts $f $tmp5; puts $f $tmp6
-                puts $f $tmp7; puts $f $tmp8;
-                puts $f $tmp3; puts $f "inc_angle"; puts $f $RISATincang
-                puts $f $tmp3; puts $f "cal_fac_pol1"; puts $f $RISATCalfac1
-                puts $f $tmp3; puts $f "cal_fac_pol2"; puts $f $RISATCalfac2
-                puts $f $tmp3; puts $f "cal_fac_pol3"; puts $f $RISATCalfac3
-                puts $f $tmp3; puts $f "cal_fac_pol4"; puts $f $RISATCalfac4
-                close $f
-
-                set NligFullSize $RISATscans; set NcolFullSize $RISATpixels
-                set TestVarName(0) "Initial Number of Rows"; set TestVarType(0) "int"; set TestVarValue(0) $NligFullSize; set TestVarMin(0) "0"; set TestVarMax(0) ""
-                set TestVarName(1) "Initial Number of Cols"; set TestVarType(1) "int"; set TestVarValue(1) $NcolFullSize; set TestVarMin(1) "0"; set TestVarMax(1) ""
-                TestVar 2
-                if {$TestVarError == "ok"} {
-                    $widget(TitleFrame449_3) configure -state normal
-                    $widget(Entry449_25) configure -disabledbackground #FFFFFF
-                    set RISATGridFile "$RISATDirInput/"; append RISATGridFile $RISATSceneID
-                    append RISATGridFile "_"; append RISATGridFile "$RISATPol1"; append RISATGridFile "_L1_SlantRange_grid.txt"
-                    set ProgressLine "0"
-                    WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
-                    update
-                    TextEditorRunTrace "Process The Function Soft/data_import/risat_inc_angle_extract.exe" "k"
-                    TextEditorRunTrace "Arguments: -if \x22$RISATGridFile\x22 -od \x22$RISATDirOutput\x22 -fnr $NligFullSize -fnc $NcolFullSize" "k"
-                    set f [ open "| Soft/data_import/risat_inc_angle_extract.exe -if \x22$RISATGridFile\x22 -od \x22$RISATDirOutput\x22 -fnr $NligFullSize -fnc $NcolFullSize" r]
-                    PsPprogressBar $f
-                    TextEditorRunTrace "Check RunTime Errors" "r"
-                    CheckRunTimeError
-                    WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-                    set RISATIncAngFile "$RISATDirOutput/incidence_angle.bin"
-                    EnviWriteConfig $RISATIncAngFile $NligFullSize $NcolFullSize 4
-                    set RISATFileInputFlag 1
-                    set NligInit 1; set NligEnd $NligFullSize
-                    set NcolInit 1; set NcolEnd $NcolFullSize
-                    set NligFullSizeInput $NligFullSize
-                    set NcolFullSizeInput $NcolFullSize
-                    $widget(Label449_1) configure -state normal; $widget(Entry449_1) configure -disabledbackground #FFFFFF
-                    $widget(Label449_2) configure -state normal; $widget(Entry449_2) configure -disabledbackground #FFFFFF
-                    $widget(Button449_10) configure -state normal
-                    } else {
-                    set ErrorMessage "ROWS / COLS EXTRACTION ERROR"
-                    Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
-                    tkwait variable VarError
-                    set NligInit ""; set NligEnd ""; set NligFullSize ""; set NcolInit ""; set NcolEnd ""; set NcolFullSize ""
-                    set NligFullSizeInput ""; set NcolFullSizeInput ""
-                    set FileInput1 ""; set FileInput2 ""; set FileInput3 ""; set FileInput4 ""; 
-                    Window hide $widget(Toplevel449); TextEditorRunTrace "Close Window RISAT Input File" "b"
-                    }
+                WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
+                set RISATIncAngFile "$RISATDirOutput/incidence_angle.bin"
+                EnviWriteConfig $RISATIncAngFile $NligFullSize $NcolFullSize 4
+                set RISATFileInputFlag 1
+                set NligInit 1; set NligEnd $NligFullSize
+                set NcolInit 1; set NcolEnd $NcolFullSize
+                set NligFullSizeInput $NligFullSize
+                set NcolFullSizeInput $NcolFullSize
+                $widget(Label449_1) configure -state normal; $widget(Entry449_1) configure -disabledbackground #FFFFFF
+                $widget(Label449_2) configure -state normal; $widget(Entry449_2) configure -disabledbackground #FFFFFF
+                $widget(Button449_10) configure -state normal
                 } else {
-                set NligInit ""; set NligEnd ""; set NligFullSize ""; set NcolInit ""; set NcolEnd ""; set NcolFullSize ""
-                set NligFullSizeInput ""; set NcolFullSizeInput ""
-                set FileInput1 ""; set FileInput2 ""; set FileInput3 ""; set FileInput4 "" 
-                set VarError ""
-                set ErrorMessage "THE SAR LEADER FILE DOES NOT EXIST" 
+                set ErrorMessage "ROWS / COLS EXTRACTION ERROR"
                 Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
                 tkwait variable VarError
+                set NligInit ""; set NligEnd ""; set NligFullSize ""; set NcolInit ""; set NcolEnd ""; set NcolFullSize ""
+                set NligFullSizeInput ""; set NcolFullSizeInput ""
+                set FileInput1 ""; set FileInput2 ""; set FileInput3 ""; set FileInput4 ""; 
                 Window hide $widget(Toplevel449); TextEditorRunTrace "Close Window RISAT Input File" "b"
                 }
+            } else {
+            set NligInit ""; set NligEnd ""; set NligFullSize ""; set NcolInit ""; set NcolEnd ""; set NcolFullSize ""
+            set NligFullSizeInput ""; set NcolFullSizeInput ""
+            set FileInput1 ""; set FileInput2 ""; set FileInput3 ""; set FileInput4 "" 
+            set VarError ""
+            set ErrorMessage "THE SAR LEADER FILE DOES NOT EXIST" 
+            Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
+            tkwait variable VarError
+            Window hide $widget(Toplevel449); TextEditorRunTrace "Close Window RISAT Input File" "b"
             }
         } else {
         set VarError ""
         if {$configrisat == "CEOS"} {set ErrorMessage "THIS IS NOT A RISAT CEOS PRODUCT"}
         if {$configrisat == "SLC"} {set ErrorMessage "THIS IS NOT A RISAT LEVEL-1 SLC PRODUCT"}
-        if {$configrisat == "MODE"} {set ErrorMessage "THIS IS NOT A RISAT CFRS1 or FRS1 or MRS PRODUCT"}
+        if {$configrisat == "MODE"} {set ErrorMessage "THIS IS NOT A RISAT CFRS1 or FRS1 or FRS2 or MRS PRODUCT"}
         if {$configrisat == "1"} {set ErrorMessage "THIS IS NOT A RISAT POLARIMETRIC PRODUCT"}
         Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
         tkwait variable VarError

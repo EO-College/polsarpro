@@ -836,7 +836,7 @@ if {$DataFormatActive == "T3"} { append ChangeDetectorInputDir1 "/T3" }} \
         -command {global ChangeDetectorDirOutput ChangeDetectorOutputFile
 global ChangeDetectorInputDir1 ChangeDetectorInputDir2
 global ChangeDetectorName ChangeDetectorNwinL ChangeDetectorNwinC
-global PSPMemory TMPMemoryAllocError ChangeDetectorBMP DataFormatActive
+global TMPMemoryAllocError ChangeDetectorBMP DataFormatActive
 
 if {$OpenDirFile == 0} {
 
@@ -877,9 +877,9 @@ if {$OpenDirFile == 0} {
                 set ProgressLine "0"
                 WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                 update
-                TextEditorRunTrace "Process The Function Soft/data_process_sngl/change_detector_mat.exe" "k"
-                TextEditorRunTrace "Arguments: -id1 \x22$ChangeDetectorInputDir1\x22 -id2 \x22$ChangeDetectorInputDir2\x22 -idf $DataFormatActive -of \x22$ChangeDetectorOutputFile\x22 -nwr $ChangeDetectorNwinL -nwc $ChangeDetectorNwinC -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                set f [ open "| Soft/data_process_sngl/change_detector_mat.exe -id1 \x22$ChangeDetectorInputDir1\x22 -id2 \x22$ChangeDetectorInputDir2\x22 -idf $DataFormatActive -of \x22$ChangeDetectorOutputFile\x22 -nwr $ChangeDetectorNwinL -nwc $ChangeDetectorNwinC -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/change_detector_mat.exe" "k"
+                TextEditorRunTrace "Arguments: -id1 \x22$ChangeDetectorInputDir1\x22 -id2 \x22$ChangeDetectorInputDir2\x22 -idf $DataFormatActive -of \x22$ChangeDetectorOutputFile\x22 -nwr $ChangeDetectorNwinL -nwc $ChangeDetectorNwinC -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                set f [ open "| Soft/bin/data_process_sngl/change_detector_mat.exe -id1 \x22$ChangeDetectorInputDir1\x22 -id2 \x22$ChangeDetectorInputDir2\x22 -idf $DataFormatActive -of \x22$ChangeDetectorOutputFile\x22 -nwr $ChangeDetectorNwinL -nwc $ChangeDetectorNwinC -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                 PsPprogressBar $f
                 TextEditorRunTrace "Check RunTime Errors" "r"
                 CheckRunTimeError

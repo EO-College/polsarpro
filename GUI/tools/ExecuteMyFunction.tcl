@@ -668,7 +668,7 @@ set types {
 {{All Files}        *        }
 }
 set FileName ""
-OpenFile "Soft/tools/MyRoutines/" $types "MY FUNCTION NAME "
+OpenFile "Soft/bin/tools/MyRoutines/" $types "MY FUNCTION NAME "
 if {$FileName != ""} {
     set MyFunctionFullName $FileName
     set MyFunctionName [file tail $FileName]

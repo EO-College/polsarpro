@@ -718,7 +718,7 @@ proc ::CoRegRGB_SPP {Directory} {
 global BMPDirInput
 global VarError ErrorMessage Fonction Fonction2
 global NligFullSize NcolFullSize PSPViewGimpBMP
-global ProgressLine PSPMemory TMPMemoryAllocError 
+global ProgressLine TMPMemoryAllocError PolarType 
    
 set RGBDirInput $Directory
 set RGBDirOutput $Directory
@@ -761,15 +761,15 @@ if {"$config"=="true"} {
     set ProgressLine "0"
     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
     update
-    TextEditorRunTrace "Process The Function Soft/bmp_process/create_rgb_file_SPPIPPC2.exe" "k"
-    TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf SPP -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -rgbf RGB1 -mem $PSPMemory $MaskCmd -auto 1" "k"
-    set f [ open "| Soft/bmp_process/create_rgb_file_SPPIPPC2.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf SPP -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -rgbf RGB1 -mem $PSPMemory $MaskCmd -auto 1" r]
+    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_rgb_file_SPPIPPC2.exe" "k"
+    TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf SPP -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -rgbf RGB1  $MaskCmd -auto 1" "k"
+    set f [ open "| Soft/bin/bmp_process/create_rgb_file_SPPIPPC2.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf SPP -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -rgbf RGB1  $MaskCmd -auto 1" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError
     set BMPDirInput $RGBDirOutput
     WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-    if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+    if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
     }
 }
 #############################################################################
@@ -779,7 +779,7 @@ proc ::CoRegRGB_S2 {Directory} {
 global BMPDirInput
 global VarError ErrorMessage Fonction Fonction2
 global NligFullSize NcolFullSize PSPViewGimpBMP
-global ProgressLine PSPMemory TMPMemoryAllocError MaskCmd
+global ProgressLine TMPMemoryAllocError MaskCmd
    
 set RGBDirInput $Directory
 set RGBDirOutput $Directory
@@ -827,15 +827,15 @@ if {"$config"=="true"} {
     set ProgressLine "0"
     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
     update
-    TextEditorRunTrace "Process The Function Soft/bmp_process/create_pauli_rgb_file.exe" "k"
-    TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf S2 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
-    set f [ open "| Soft/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf S2 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
+    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_pauli_rgb_file.exe" "k"
+    TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf S2 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
+    set f [ open "| Soft/bin/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf S2 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError
     set BMPDirInput $RGBDirOutput
     WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-    if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+    if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
     }
 }
 
@@ -1152,9 +1152,9 @@ if {$OpenDirFile == 0} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/data_process_dual/coarse_coregistration_estimation.exe" "k"
+        TextEditorRunTrace "Process The Function Soft/bin/data_process_dual/coarse_coregistration_estimation.exe" "k"
         TextEditorRunTrace "Arguments: -imd \x22$CoRegMasterDirInput\x22 -isd \x22$CoRegSlaveDirInput\x22 -of \x22$TMPCoRegTxt\x22 -iodf $CoRegFonction -nwr $CoRegNwinRow -nwc $CoRegNwinCol" "k"
-        set f [ open "| Soft/data_process_dual/coarse_coregistration_estimation.exe -imd \x22$CoRegMasterDirInput\x22 -isd \x22$CoRegSlaveDirInput\x22 -of \x22$TMPCoRegTxt\x22 -iodf $CoRegFonction -nwr $CoRegNwinRow -nwc $CoRegNwinCol" r]
+        set f [ open "| Soft/bin/data_process_dual/coarse_coregistration_estimation.exe -imd \x22$CoRegMasterDirInput\x22 -isd \x22$CoRegSlaveDirInput\x22 -of \x22$TMPCoRegTxt\x22 -iodf $CoRegFonction -nwr $CoRegNwinRow -nwc $CoRegNwinCol" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError
@@ -1487,7 +1487,7 @@ global CoRegRAV CoRegCAV
 global Fonction2 ProgressLine VarFunction VarWarning WarningMessage WarningMessage2
 global ConfigFile FinalNlig FinalNcol PolarCase PolarType OpenDirFile
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
-global ProgressLine ConfigFile PolarCase PolarType PSPMemory TMPMemoryAllocError MaskCmd
+global ProgressLine ConfigFile PolarCase PolarType TMPMemoryAllocError MaskCmd
 
 if {$OpenDirFile == 0} {
 
@@ -1520,9 +1520,9 @@ if {$config =="ok"} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/data_process_dual/coarse_coregistration.exe" "k"
+        TextEditorRunTrace "Process The Function Soft/bin/data_process_dual/coarse_coregistration.exe" "k"
         TextEditorRunTrace "Arguments: -id \x22$CoRegSlaveDirInput\x22 -od \x22$CoRegSlaveDirOutput\x22 -iodf $CoRegFonction -sr $CoRegRAV -sc $CoRegCAV" "k"
-        set f [ open "| Soft/data_process_dual/coarse_coregistration.exe -id \x22$CoRegSlaveDirInput\x22 -od \x22$CoRegSlaveDirOutput\x22 -iodf $CoRegFonction -sr $CoRegRAV -sc $CoRegCAV" r]
+        set f [ open "| Soft/bin/data_process_dual/coarse_coregistration.exe -id \x22$CoRegSlaveDirInput\x22 -od \x22$CoRegSlaveDirOutput\x22 -iodf $CoRegFonction -sr $CoRegRAV -sc $CoRegCAV" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError
@@ -1538,14 +1538,14 @@ if {$config =="ok"} {
         set ErrorMessage ""
         LoadConfig
         if {"$ErrorMessage" == ""} {
-            set SourceFile "$CoRegSlaveDirInput/leader_ceos.txt"
+            set SourceFile "$CoRegSlaveDirInput/ceos_leader.txt"
             if [file exists $SourceFile] {
-                set TargetFile "$CoRegSlaveDirOutput/leader_ceos.txt"
+                set TargetFile "$CoRegSlaveDirOutput/ceos_leader.txt"
                 CopyFile $SourceFile $TargetFile
                 }
-            set SourceFile "$CoRegSlaveDirInput/image_ceos.txt"
+            set SourceFile "$CoRegSlaveDirInput/ceos_image.txt"
             if [file exists $SourceFile] {
-                set TargetFile "$CoRegSlaveDirOutput/image_ceos.txt"
+                set TargetFile "$CoRegSlaveDirOutput/ceos_image.txt"
                 CopyFile $SourceFile $TargetFile
                 }
             set DataDirChannel2 $CoRegSlaveDirOutput

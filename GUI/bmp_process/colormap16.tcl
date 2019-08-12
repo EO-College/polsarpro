@@ -391,114 +391,114 @@ proc vTclWindow.top77 {base} {
     set site_3_0 $top.fra35
     button $site_3_0.but37 \
         -background #ff9696 \
-        -command {global BMPCanvas
+        -command {
 
-UpdateColorMap $widget($BMPCanvas) .top77.fra35.but37 2} \
+UpdateColorMap .top77.fra35.but37 2} \
         -pady 0 -text {  } 
     vTcl:DefineAlias "$site_3_0.but37" "Button558" vTcl:WidgetProc "Toplevel77" 1
     button $site_3_0.but38 \
         -background #69ff69 \
-        -command {global BMPCanvas
+        -command {
 
-UpdateColorMap $widget($BMPCanvas) .top77.fra35.but38 3} \
+UpdateColorMap .top77.fra35.but38 3} \
         -pady 0 -text {  } 
     vTcl:DefineAlias "$site_3_0.but38" "Button559" vTcl:WidgetProc "Toplevel77" 1
     button $site_3_0.but39 \
         -background #000000 \
-        -command {global BMPCanvas
+        -command {
 
-UpdateColorMap $widget($BMPCanvas) .top77.fra35.but39 4} \
+UpdateColorMap .top77.fra35.but39 4} \
         -pady 0 -text {  } 
     vTcl:DefineAlias "$site_3_0.but39" "Button560" vTcl:WidgetProc "Toplevel77" 1
     button $site_3_0.but40 \
         -background #ff5050 \
-        -command {global BMPCanvas
+        -command {
 
-UpdateColorMap $widget($BMPCanvas) .top77.fra35.but40 5} \
+UpdateColorMap .top77.fra35.but40 5} \
         -pady 0 -text {  } 
     vTcl:DefineAlias "$site_3_0.but40" "Button561" vTcl:WidgetProc "Toplevel77" 1
     button $site_3_0.but41 \
         -background #50ff50 \
-        -command {global BMPCanvas
+        -command {
 
-UpdateColorMap $widget($BMPCanvas) .top77.fra35.but41 6} \
+UpdateColorMap .top77.fra35.but41 6} \
         -pady 0 -text {  } 
     vTcl:DefineAlias "$site_3_0.but41" "Button562" vTcl:WidgetProc "Toplevel77" 1
     button $site_3_0.but42 \
         -background #5050ff \
-        -command {global BMPCanvas
+        -command {
 
-UpdateColorMap $widget($BMPCanvas) .top77.fra35.but42 7} \
+UpdateColorMap .top77.fra35.but42 7} \
         -pady 0 -text {  } 
     vTcl:DefineAlias "$site_3_0.but42" "Button563" vTcl:WidgetProc "Toplevel77" 1
     button $site_3_0.but43 \
         -background #9a0000 \
-        -command {global BMPCanvas
+        -command {
 
-UpdateColorMap $widget($BMPCanvas) .top77.fra35.but43 8} \
+UpdateColorMap .top77.fra35.but43 8} \
         -pady 0 -text {  } 
     vTcl:DefineAlias "$site_3_0.but43" "Button564" vTcl:WidgetProc "Toplevel77" 1
     button $site_3_0.but44 \
         -background #009a00 \
-        -command {global BMPCanvas
+        -command {
 
-UpdateColorMap $widget($BMPCanvas) .top77.fra35.but44 9} \
+UpdateColorMap .top77.fra35.but44 9} \
         -pady 0 -text {  } 
     vTcl:DefineAlias "$site_3_0.but44" "Button565" vTcl:WidgetProc "Toplevel77" 1
     button $site_3_0.but45 \
         -background #ffff00 \
-        -command {global BMPCanvas
+        -command {
 
-UpdateColorMap $widget($BMPCanvas) .top77.fra35.but45 10} \
+UpdateColorMap .top77.fra35.but45 10} \
         -pady 0 -text {  } 
     vTcl:DefineAlias "$site_3_0.but45" "Button566" vTcl:WidgetProc "Toplevel77" 1
     button $site_3_0.but46 \
         -background #000000 \
-        -command {global BMPCanvas
+        -command {
 
-UpdateColorMap $widget($BMPCanvas) .top77.fra35.but46 11} \
+UpdateColorMap .top77.fra35.but46 11} \
         -pady 0 -text {  } 
     vTcl:DefineAlias "$site_3_0.but46" "Button567" vTcl:WidgetProc "Toplevel77" 1
     button $site_3_0.but47 \
         -background #000000 \
-        -command {global BMPCanvas
+        -command {
 
-UpdateColorMap $widget($BMPCanvas) .top77.fra35.but47 12} \
+UpdateColorMap .top77.fra35.but47 12} \
         -pady 0 -text {  } 
     vTcl:DefineAlias "$site_3_0.but47" "Button568" vTcl:WidgetProc "Toplevel77" 1
     button $site_3_0.but48 \
         -background #000000 \
-        -command {global BMPCanvas
+        -command {
 
-UpdateColorMap $widget($BMPCanvas) .top77.fra35.but48 13} \
+UpdateColorMap .top77.fra35.but48 13} \
         -pady 0 -text {  } 
     vTcl:DefineAlias "$site_3_0.but48" "Button569" vTcl:WidgetProc "Toplevel77" 1
     button $site_3_0.but49 \
         -background #000000 \
-        -command {global BMPCanvas
+        -command {
 
-UpdateColorMap $widget($BMPCanvas) .top77.fra35.but49 14} \
+UpdateColorMap .top77.fra35.but49 14} \
         -pady 0 -text {  } 
     vTcl:DefineAlias "$site_3_0.but49" "Button570" vTcl:WidgetProc "Toplevel77" 1
     button $site_3_0.but50 \
         -background #000000 \
-        -command {global BMPCanvas
+        -command {
 
-UpdateColorMap $widget($BMPCanvas) .top77.fra35.but50 15} \
+UpdateColorMap .top77.fra35.but50 15} \
         -pady 0 -text {  } 
     vTcl:DefineAlias "$site_3_0.but50" "Button571" vTcl:WidgetProc "Toplevel77" 1
     button $site_3_0.but51 \
         -background #000000 \
-        -command {global BMPCanvas
+        -command {
 
-UpdateColorMap $widget($BMPCanvas) .top77.fra35.but51 16} \
+UpdateColorMap .top77.fra35.but51 16} \
         -pady 0 -text {  } 
     vTcl:DefineAlias "$site_3_0.but51" "Button572" vTcl:WidgetProc "Toplevel77" 1
     button $site_3_0.but36 \
         -background #000000 \
-        -command {global BMPCanvas
+        -command {
 
-UpdateColorMap $widget($BMPCanvas) .top77.fra35.but36 17} \
+UpdateColorMap .top77.fra35.but36 17} \
         -pady 0 -text {  } 
     vTcl:DefineAlias "$site_3_0.but36" "Button557" vTcl:WidgetProc "Toplevel77" 1
     pack $site_3_0.but37 \

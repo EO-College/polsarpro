@@ -942,7 +942,7 @@ global FilterOutputSubDir FilterFonction FilterFunction ChannelFilter
 global Fonction2 ProgressLine VarFunction VarWarning WarningMessage WarningMessage2
 global ConfigFile FinalNlig FinalNcol PolarCase PolarType NwinFilterL NwinFilterC
 global NligFullSize NcolFullSize FilterNoise TMPDirectory
-global OpenDirFile FilterFonc FilterFoncPWF PSPMemory TMPMemoryAllocError DataFormatActive
+global OpenDirFile FilterFonc FilterFoncPWF TMPMemoryAllocError DataFormatActive
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax PSPViewGimpBMP
 
 if {$OpenDirFile == 0} {
@@ -986,29 +986,29 @@ if {"$VarWarning"=="ok"} {
         update
         if {$FilterFonction == "IDAN Speckle Filter"} {
             set FilterAmount [expr 1. / $Nlook]; if {$FilterAmount > 1.} { set FilterAmount "1." }
-            TextEditorRunTrace "Process The Function Soft/speckle_filter/idan_filter.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/speckle_filter/idan_filter.exe" "k"
             TextEditorRunTrace "Arguments: \x22$FilterDirInput\x22 \x22$FilterDirOutput\x22 $NligFullSize $NcolFullSize $OffsetLig $OffsetCol $FinalNlig $FinalNcol $FilterFonc $NwinFilterL $Nlook $FilterAmount" "k"
-            set f [ open "| Soft/speckle_filter/idan_filter.exe \x22$FilterDirInput\x22 \x22$FilterDirOutput\x22 $NligFullSize $NcolFullSize $OffsetLig $OffsetCol $FinalNlig $FinalNcol $FilterFonc $NwinFilterL $Nlook $FilterAmount" r]
+            set f [ open "| Soft/bin/speckle_filter/idan_filter.exe \x22$FilterDirInput\x22 \x22$FilterDirOutput\x22 $NligFullSize $NcolFullSize $OffsetLig $OffsetCol $FinalNlig $FinalNcol $FilterFonc $NwinFilterL $Nlook $FilterAmount" r]
             }
         if {$FilterFonction == "BOXCAR Speckle Filter"} {
-            TextEditorRunTrace "Process The Function Soft/speckle_filter/boxcar_filter.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$FilterDirInput\x22 -od \x22$FilterDirOutput\x22 -iodf $FilterFonc -nwr $NwinFilterL -nwc $NwinFilterC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/speckle_filter/boxcar_filter.exe -id \x22$FilterDirInput\x22 -od \x22$FilterDirOutput\x22 -iodf $FilterFonc -nwr $NwinFilterL -nwc $NwinFilterC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/speckle_filter/boxcar_filter.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$FilterDirInput\x22 -od \x22$FilterDirOutput\x22 -iodf $FilterFonc -nwr $NwinFilterL -nwc $NwinFilterC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/speckle_filter/boxcar_filter.exe -id \x22$FilterDirInput\x22 -od \x22$FilterDirOutput\x22 -iodf $FilterFonc -nwr $NwinFilterL -nwc $NwinFilterC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             }
         if {$FilterFonction == "GAUSSIAN Speckle Filter"} {
-            TextEditorRunTrace "Process The Function Soft/speckle_filter/gaussian_filter.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$FilterDirInput\x22 -od \x22$FilterDirOutput\x22 -iodf $FilterFonc -nwr $NwinFilterL -nwc $NwinFilterC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/speckle_filter/gaussian_filter.exe -id \x22$FilterDirInput\x22 -od \x22$FilterDirOutput\x22 -iodf $FilterFonc -nwr $NwinFilterL -nwc $NwinFilterC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/speckle_filter/gaussian_filter.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$FilterDirInput\x22 -od \x22$FilterDirOutput\x22 -iodf $FilterFonc -nwr $NwinFilterL -nwc $NwinFilterC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/speckle_filter/gaussian_filter.exe -id \x22$FilterDirInput\x22 -od \x22$FilterDirOutput\x22 -iodf $FilterFonc -nwr $NwinFilterL -nwc $NwinFilterC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             }
         if {$FilterFonction == "LEE Refined Speckle Filter"} {
-            TextEditorRunTrace "Process The Function Soft/speckle_filter/lee_refined_filter.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$FilterDirInput\x22 -od \x22$FilterDirOutput\x22 -iodf $FilterFonc -nw $NwinFilterL -nlk $Nlook -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/speckle_filter/lee_refined_filter.exe -id \x22$FilterDirInput\x22 -od \x22$FilterDirOutput\x22 -iodf $FilterFonc -nw $NwinFilterL -nlk $Nlook -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/speckle_filter/lee_refined_filter.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$FilterDirInput\x22 -od \x22$FilterDirOutput\x22 -iodf $FilterFonc -nw $NwinFilterL -nlk $Nlook -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/speckle_filter/lee_refined_filter.exe -id \x22$FilterDirInput\x22 -od \x22$FilterDirOutput\x22 -iodf $FilterFonc -nw $NwinFilterL -nlk $Nlook -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             }
         if {$FilterFonction == "PWF Speckle Filter"} {
-            TextEditorRunTrace "Process The Function Soft/speckle_filter/PWF_filter.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$FilterDirInput\x22 -od \x22$FilterDirOutput\x22 -iodf $FilterFoncPWF -nwr $NwinFilterL -nwc $NwinFilterC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/speckle_filter/PWF_filter.exe -id \x22$FilterDirInput\x22 -od \x22$FilterDirOutput\x22 -iodf $FilterFoncPWF -nwr $NwinFilterL -nwc $NwinFilterC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/speckle_filter/PWF_filter.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$FilterDirInput\x22 -od \x22$FilterDirOutput\x22 -iodf $FilterFoncPWF -nwr $NwinFilterL -nwc $NwinFilterC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/speckle_filter/PWF_filter.exe -id \x22$FilterDirInput\x22 -od \x22$FilterDirOutput\x22 -iodf $FilterFoncPWF -nwr $NwinFilterL -nwc $NwinFilterC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             }
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
@@ -1059,14 +1059,14 @@ if {"$VarWarning"=="ok"} {
                 set ProgressLine "0"
                 WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                 update
-                TextEditorRunTrace "Process The Function Soft/bmp_process/create_bmp_file.exe" "k"
+                TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_bmp_file.exe" "k"
                 TextEditorRunTrace "Arguments: -if \x22$BMPFileInput\x22 -of \x22$BMPFileOutput\x22 -ift float -oft db10 -clm gray -nc $FinalNcol -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -mm 1 -min 0 -max 0 $MaskCmd" "k"
-                set f [ open "| Soft/bmp_process/create_bmp_file.exe -if \x22$BMPFileInput\x22 -of \x22$BMPFileOutput\x22 -ift float -oft db10 -clm gray -nc $FinalNcol -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -mm 1 -min 0 -max 0 $MaskCmd" r]
+                set f [ open "| Soft/bin/bmp_process/create_bmp_file.exe -if \x22$BMPFileInput\x22 -of \x22$BMPFileOutput\x22 -ift float -oft db10 -clm gray -nc $FinalNcol -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -mm 1 -min 0 -max 0 $MaskCmd" r]
                 PsPprogressBar $f
                 TextEditorRunTrace "Check RunTime Errors" "r"
                 CheckRunTimeError
                 WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-                if {$PSPViewGimpBMP == 1} { Gimp $BMPFileOutput }
+                if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $BMPFileOutput }
                 }
             }           
         Window hide $widget(Toplevel25); TextEditorRunTrace "Close Window Speckle Filter" "b"
@@ -1143,24 +1143,24 @@ if {"$VarWarning"=="ok"} {
         update
         if {$FilterFonction == "IDAN Speckle Filter"} {
             set FilterAmount [expr 1. / $Nlook]; if {$FilterAmount > 1.} { set FilterAmount "1." }
-            TextEditorRunTrace "Process The Function Soft/speckle_filter/idan_filter.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/speckle_filter/idan_filter.exe" "k"
             TextEditorRunTrace "Arguments: \x22$FilterDirInput\x22 \x22$FilterDirOutputTmp\x22 $NligFullSize $NcolFullSize $OffsetLig $OffsetCol $FinalNlig $FinalNcol $FilterFonc $NwinFilterL $Nlook $FilterAmount" "k"
-            set f [ open "| Soft/speckle_filter/idan_filter.exe \x22$FilterDirInput\x22 \x22$FilterDirOutputTmp\x22 $NligFullSize $NcolFullSize $OffsetLig $OffsetCol $FinalNlig $FinalNcol $FilterFonc $NwinFilterL $Nlook $FilterAmount" r]
+            set f [ open "| Soft/bin/speckle_filter/idan_filter.exe \x22$FilterDirInput\x22 \x22$FilterDirOutputTmp\x22 $NligFullSize $NcolFullSize $OffsetLig $OffsetCol $FinalNlig $FinalNcol $FilterFonc $NwinFilterL $Nlook $FilterAmount" r]
             }
         if {$FilterFonction == "BOXCAR Speckle Filter"} {
-            TextEditorRunTrace "Process The Function Soft/speckle_filter/boxcar_filter.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$FilterDirInput\x22 -od \x22$FilterDirOutputTmp\x22 -iodf $FilterFonc -nwr $NwinFilterL -nwc $NwinFilterC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/speckle_filter/boxcar_filter.exe -id \x22$FilterDirInput\x22 -od \x22$FilterDirOutputTmp\x22 -iodf $FilterFonc -nwr $NwinFilterL -nwc $NwinFilterC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/speckle_filter/boxcar_filter.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$FilterDirInput\x22 -od \x22$FilterDirOutputTmp\x22 -iodf $FilterFonc -nwr $NwinFilterL -nwc $NwinFilterC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/speckle_filter/boxcar_filter.exe -id \x22$FilterDirInput\x22 -od \x22$FilterDirOutputTmp\x22 -iodf $FilterFonc -nwr $NwinFilterL -nwc $NwinFilterC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             }
         if {$FilterFonction == "GAUSSIAN Speckle Filter"} {
-            TextEditorRunTrace "Process The Function Soft/speckle_filter/gaussian_filter.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$FilterDirInput\x22 -od \x22$FilterDirOutputTmp\x22 -iodf $FilterFonc -nwr $NwinFilterL -nwc $NwinFilterC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/speckle_filter/gaussian_filter.exe -id \x22$FilterDirInput\x22 -od \x22$FilterDirOutputTmp\x22 -iodf $FilterFonc -nwr $NwinFilterL -nwc $NwinFilterC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/speckle_filter/gaussian_filter.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$FilterDirInput\x22 -od \x22$FilterDirOutputTmp\x22 -iodf $FilterFonc -nwr $NwinFilterL -nwc $NwinFilterC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/speckle_filter/gaussian_filter.exe -id \x22$FilterDirInput\x22 -od \x22$FilterDirOutputTmp\x22 -iodf $FilterFonc -nwr $NwinFilterL -nwc $NwinFilterC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             }
         if {$FilterFonction == "LEE Refined Speckle Filter"} {
-            TextEditorRunTrace "Process The Function Soft/speckle_filter/lee_refined_filter.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$FilterDirInput\x22 -od \x22$FilterDirOutputTmp\x22 -iodf $FilterFonc -nw $NwinFilterL -nlk $Nlook -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/speckle_filter/lee_refined_filter.exe -id \x22$FilterDirInput\x22 -od \x22$FilterDirOutputTmp\x22 -iodf $FilterFonc -nw $NwinFilterL -nlk $Nlook -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/speckle_filter/lee_refined_filter.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$FilterDirInput\x22 -od \x22$FilterDirOutputTmp\x22 -iodf $FilterFonc -nw $NwinFilterL -nlk $Nlook -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/speckle_filter/lee_refined_filter.exe -id \x22$FilterDirInput\x22 -od \x22$FilterDirOutputTmp\x22 -iodf $FilterFonc -nw $NwinFilterL -nlk $Nlook -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             }
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
@@ -1177,9 +1177,9 @@ if {"$VarWarning"=="ok"} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/speckle_filter/system_noise_filter.exe" "k"
-        TextEditorRunTrace "Arguments: -id \x22$FilterDirOutputTmp\x22 -od \x22$FilterDirOutput\x22 -iodf $FilterFoncNew -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-        set f [ open "| Soft/speckle_filter/system_noise_filter.exe -id \x22$FilterDirOutputTmp\x22 -od \x22$FilterDirOutput\x22 -iodf $FilterFoncNew -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+        TextEditorRunTrace "Process The Function Soft/bin/speckle_filter/system_noise_filter.exe" "k"
+        TextEditorRunTrace "Arguments: -id \x22$FilterDirOutputTmp\x22 -od \x22$FilterDirOutput\x22 -iodf $FilterFoncNew -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+        set f [ open "| Soft/bin/speckle_filter/system_noise_filter.exe -id \x22$FilterDirOutputTmp\x22 -od \x22$FilterDirOutput\x22 -iodf $FilterFoncNew -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError

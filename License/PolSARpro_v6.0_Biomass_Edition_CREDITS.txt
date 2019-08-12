@@ -1,0 +1,78 @@
+PolSARpro v6.0 (Biomass Edition) (Polarimetric SAR Data Processing and
+Educational Tool) is continued to be developed under contract to ESA-ESRIN
+by I.E.T.R (UMR CNRS 6164) at the University of Rennes 1, Rennes, France.
+ 
+PolSARpro v6.0 (Biomass Edition) is free software; you can redistribute 
+it and/or modify it under the terms of the GNU General Public License as
+published by the Free Software Foundation; either version 2 (1991) of the
+License, or any later version.
+This program is distributed in the hope that it will be useful, but 
+WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+or FITNESS FOR A PARTICULAR PURPOSE. 
+
+PolSARpro v6.0 (Biomass Edition) is linked to external softwares and libraries
+(ALGLIB, GnuWin32, OpenCPN, Free Image, Visual Tcl, glibc, 7zip Libraries, 
+p7zip, gnuplot, Eigen template library).
+The links to the different component Home Page are given to download the 
+component source code (CIG or dedicated text file)
+
+=========================================================================
+
+Credits
+This application uses Open Source components. You can find the source 
+code of their open source projects along with license information below. 
+We acknowledge and are grateful to these developers for their work. 
+See PolSARpro_v6.0_Biomass_Edition_LEGAL.txt for license copies.
+
+Project: cURL / libcURL 
+Copyright (c) 1996 - 2019, Daniel Stenberg, daniel@haxx.se, and many contributors.
+Source: https://github.com/curl/curl/
+License: https://curl.haxx.se/docs/copyright.html
+
+Project: ALGLIB 
+Copyright (c) Sergey Bochkanov (ALGLIB project).
+Source: http://www.alglib.net/download.php
+License: http://www.alglib.net/download.php
+
+Project: GnuWin32-Tiff (libTiff)
+Copyright (C) 2004, Andrey Kiselev <dron@ak4719.spb.edu>
+Copyright (c) 1988-1997 Sam Leffler (libTiff)
+Copyright (c) 1991-1997 Silicon Graphics, Inc. (libTiff)
+Source: http://gnuwin32.sourceforge.net/packages/tiff.htm
+Source: https://download.osgeo.org/libtiff/ (libTiff)
+License: http://gnuwin32.sourceforge.net/license.html
+
+Project: OpenCPN
+Copyright (C) 2010 by David S. Register (and others)
+Source: https://sourceforge.net/projects/opencpn/
+License: https://sourceforge.net/p/opencpn/code/ci/master/tree/data/license.txt
+
+Project: FreeImage
+Copyright: 2003-2007 FreeImage Group ? (many)
+Source: http://freeimage.sourceforge.net/download.html
+License: http://freeimage.sourceforge.net/license.html
+
+Project: 7zip, p7zip
+Copyright (C) 1999-2018 Igor Pavlov
+Source: https://www.7-zip.org/download.html ; https://sourceforge.net/projects/sevenzip/files/ ; https://sourceforge.net/projects/p7zip/files/ 
+License: https://www.7-zip.org/license.txt
+
+Project: glibc
+Copyright (C) 1991-2019 Free Software Foundation, Inc.
+Source: https://www.gnu.org/software/libc/sources.html
+License: https://www.gnu.org/software/libc/sources.html
+
+Project: gnuplot
+Copyright 1986 - 1993, 1998, 2004   Thomas Williams, Colin Kelley
+Source:  http://www.gnuplot.info/download.html
+License: https://sourceforge.net/p/gnuplot/gnuplot-main/ci/master/tree/Copyright
+
+Project: Eigen Template Library
+See http://eigen.tuxfamily.org/index.php?title=Main_Page#Credits
+Source:  https://bitbucket.org/eigen/eigen
+License: http://eigen.tuxfamily.org/index.php?title=Main_Page#License
+
+Project: Visual TCL
+See History on http://vtcl.sourceforge.net/?x=about
+Source:  https://sourceforge.net/projects/vtcl/files/
+License: GPLv2, see LICENSES.txt

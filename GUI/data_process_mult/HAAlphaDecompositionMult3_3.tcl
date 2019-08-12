@@ -1285,7 +1285,7 @@ $widget(Checkbutton507_14) configure -state disable} \
 global HAAlpDirInput HAAlpDirOutput HAAlpOutputDir HAAlpOutputSubDir
 global Fonction Fonction2 VarFunction VarWarning WarningMessage WarningMessage2 VarError ErrorMessage ProgressLine
 global HAAlphaDecompositionFonction EquivHAAlpDecomp
-global BMPDirInput OpenDirFile PSPMemory TMPMemoryAllocError
+global BMPDirInput OpenDirFile TMPMemoryAllocError
 
 if {$OpenDirFile == 0} {
 
@@ -1349,9 +1349,9 @@ if {"$config"=="true"} {
             update
             set HAAlphaDecompositionF $HAAlphaDecompositionFonction
             if {"$HAAlphaDecompositionFonction" == "S2"} { set HAAlphaDecompositionF "S2T3" }
-            TextEditorRunTrace "Process The Function Soft/data_process_sngl/h_a_alpha_eigenvalue_set.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$HAAlpDirInput\x22 -od \x22$HAAlpDirOutput\x22 -iodf $HAAlphaDecompositionF -nwr $NwinHAAlpL -nwc $NwinHAAlpC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -fl1 $eigenvalues -fl2 $probabilities -fl3 $anisotropy -fl4 $anisotropy12 -fl5 0 -fl6 $polarisationasymetry -fl7 $polarisationfraction -fl8 $erd -fl9 $vanzylrvi -fl10 $vanzylpedestal -fl11 $shannon -fl12 $lueneburganisotropy -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_sngl/h_a_alpha_eigenvalue_set.exe -id \x22$HAAlpDirInput\x22 -od \x22$HAAlpDirOutput\x22 -iodf $HAAlphaDecompositionF -nwr $NwinHAAlpL -nwc $NwinHAAlpC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -fl1 $eigenvalues -fl2 $probabilities -fl3 $anisotropy -fl4 $anisotropy12 -fl5 0 -fl6 $polarisationasymetry -fl7 $polarisationfraction -fl8 $erd -fl9 $vanzylrvi -fl10 $vanzylpedestal -fl11 $shannon -fl12 $lueneburganisotropy -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/h_a_alpha_eigenvalue_set.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$HAAlpDirInput\x22 -od \x22$HAAlpDirOutput\x22 -iodf $HAAlphaDecompositionF -nwr $NwinHAAlpL -nwc $NwinHAAlpC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -fl1 $eigenvalues -fl2 $probabilities -fl3 $anisotropy -fl4 $anisotropy12 -fl5 0 -fl6 $polarisationasymetry -fl7 $polarisationfraction -fl8 $erd -fl9 $vanzylrvi -fl10 $vanzylpedestal -fl11 $shannon -fl12 $lueneburganisotropy  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_sngl/h_a_alpha_eigenvalue_set.exe -id \x22$HAAlpDirInput\x22 -od \x22$HAAlpDirOutput\x22 -iodf $HAAlphaDecompositionF -nwr $NwinHAAlpL -nwc $NwinHAAlpC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -fl1 $eigenvalues -fl2 $probabilities -fl3 $anisotropy -fl4 $anisotropy12 -fl5 0 -fl6 $polarisationasymetry -fl7 $polarisationfraction -fl8 $erd -fl9 $vanzylrvi -fl10 $vanzylpedestal -fl11 $shannon -fl12 $lueneburganisotropy  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
     	  	TextEditorRunTrace "Check RunTime Errors" "r"
     	  	CheckRunTimeError
@@ -1444,15 +1444,15 @@ if {"$config"=="true"} {
                 set BMPDirInput $HAAlpDirOutput
                 set BMPFileInput "$HAAlpDirOutput/p1.bin"
                 set BMPFileOutput "$HAAlpDirOutput/p1.bmp"
-                PSPcreate_bmp_file black $BMPFileInput $BMPFileOutput float real jet  $FinalNcol  $OffsetLig  $OffsetCol  $FinalNlig  $FinalNcol 0 0 1
+                PSPcreate_bmp_file black $BMPFileInput $BMPFileOutput float real jet  $FinalNcol  $OffsetLig  $OffsetCol  $FinalNlig  $FinalNcol 0 0.33 1.0
                 set BMPDirInput $HAAlpDirOutput
                 set BMPFileInput "$HAAlpDirOutput/p2.bin"
                 set BMPFileOutput "$HAAlpDirOutput/p2.bmp"
-                PSPcreate_bmp_file black $BMPFileInput $BMPFileOutput float real jet  $FinalNcol  $OffsetLig  $OffsetCol  $FinalNlig  $FinalNcol 0 0 1
+                PSPcreate_bmp_file black $BMPFileInput $BMPFileOutput float real jet  $FinalNcol  $OffsetLig  $OffsetCol  $FinalNlig  $FinalNcol 0 0.0 0.5
                 set BMPDirInput $HAAlpDirOutput
                 set BMPFileInput "$HAAlpDirOutput/p3.bin"
                 set BMPFileOutput "$HAAlpDirOutput/p3.bmp"
-                PSPcreate_bmp_file black $BMPFileInput $BMPFileOutput float real jet  $FinalNcol  $OffsetLig  $OffsetCol  $FinalNlig  $FinalNcol 0 0 1
+                PSPcreate_bmp_file black $BMPFileInput $BMPFileOutput float real jet  $FinalNcol  $OffsetLig  $OffsetCol  $FinalNlig  $FinalNcol 0 0.0 0.33
                 } else {
                 set VarError ""
                 set ErrorMessage "IMPOSSIBLE TO OPEN THE BIN FILES" 

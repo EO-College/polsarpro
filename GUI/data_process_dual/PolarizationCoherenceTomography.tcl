@@ -794,7 +794,7 @@ proc vTcl:project:info {} {
             vTclWindow.
             vTclWindow.top342
             PCTUpdate
-            Gamma_Files
+            PCTGamma_Files
         }
         set compounds {
         }
@@ -929,6 +929,14 @@ if [file exists "$PCTDir/cmplx_coh_avg_Opt3.bin"] {
     incr NumList
     set PCTList($NumList) "OPT 3 (avg)"
     }
+if [file exists "$PCTDir/cmplx_coh_HHVV.bin"] {
+    incr NumList
+    set PCTList($NumList) "HHVV*"
+    }
+if [file exists "$PCTDir/cmplx_coh_avg_HHVV.bin"] {
+    incr NumList
+    set PCTList($NumList) "HHVV* (avg)"
+    }
 
 if {$NumList == 0} {              
     set VarError ""
@@ -943,9 +951,9 @@ if {$NumList == 0} {
     }
 }
 #############################################################################
-## Procedure:  Gamma_Files
+## Procedure:  PCTGamma_Files
 
-proc ::Gamma_Files {} {
+proc ::PCTGamma_Files {} {
 global PCTDir PCTChannel PCTChannelFile
 
 set PCTChannelFile ""
@@ -975,6 +983,8 @@ if {$PCTChannel == "OPT 2" } { set PCTChannelFile "$PCTDir/cmplx_coh_Opt2.bin" }
 if {$PCTChannel == "OPT 2 (avg)" } { set PCTChannelFile "$PCTDir/cmplx_coh_avg_Opt2.bin" }
 if {$PCTChannel == "OPT 3" } { set PCTChannelFile "$PCTDir/cmplx_coh_Opt3.bin" }
 if {$PCTChannel == "OPT 3 (avg)" } { set PCTChannelFile "$PCTDir/cmplx_coh_avg_Opt3.bin" }
+if {$PCTChannel == "HHVV*" } { set PCTChannelFile "$PCTDir/cmplx_coh_HHVV.bin" }
+if {$PCTChannel == "HHVV* (avg)" } { set PCTChannelFile "$PCTDir/cmplx_coh_avg_HHVV.bin" }
 }
 
 #############################################################################
@@ -1466,7 +1476,7 @@ if {$PCTNwinC == 23} {set PCTNwinC 1}} \
         -command {global DataDirChannel1 DataDirChannel2 DirName BMPDirInput
 global PCTMasterDirInput PCTSlaveDirInput PCTDirOutput PCTOutputDir PCTFonction
 global Fonction2 ProgressLine VarFunction VarWarning WarningMessage WarningMessage2
-global PCTNwinL PCTNwinC PCTEpsilon KzPCTFile PCTDir ConfigFile PSPMemory TMPMemoryAllocError
+global PCTNwinL PCTNwinC PCTEpsilon KzPCTFile PCTDir ConfigFile TMPMemoryAllocError
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
 global OpenDirFile ConfigFile FinalNlig FinalNcol PolarCase PolarType PSPViewGimpBMP 
 
@@ -1537,9 +1547,9 @@ if {"$VarWarning"=="ok"} {
                         set ProgressLine "0"
                         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                         update
-                        TextEditorRunTrace "Process The Function Soft/calculator/file_operand_file.exe" "k"
+                        TextEditorRunTrace "Process The Function Soft/bin/calculator/file_operand_file.exe" "k"
                         TextEditorRunTrace "Arguments: -if1 \x22$MaskFile1\x22 -it1 float -if2 \x22$MaskFile2\x22 -it2 float -of \x22$MaskFileOut\x22 -ot float -op mulfile -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
-                        set f [ open "| Soft/calculator/file_operand_file.exe -if1 \x22$MaskFile1\x22 -it1 float -if2 \x22$MaskFile2\x22 -it2 float -of \x22$MaskFileOut\x22 -ot float -op mulfile -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
+                        set f [ open "| Soft/bin/calculator/file_operand_file.exe -if1 \x22$MaskFile1\x22 -it1 float -if2 \x22$MaskFile2\x22 -it2 float -of \x22$MaskFileOut\x22 -ot float -op mulfile -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
                         PsPprogressBar $f
                         TextEditorRunTrace "Check RunTime Errors" "r"
                         CheckRunTimeError
@@ -1561,24 +1571,24 @@ if {"$VarWarning"=="ok"} {
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
         if {$PCTFonction == "SPP"} {
-            TextEditorRunTrace "Process The Function Soft/data_process_dual/PCT_prepare_PP.exe" "k"
-            TextEditorRunTrace "Arguments: -idm \x22$PCTMasterDirInput\x22 -ids \x22$PCTSlaveDirInput\x22 -od \x22$PCTDirOutput\x22 -iodf SPPT4 -kz \x22$KzPCTFile\x22 -nwr $PCTNwinL -nwc $PCTNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -eps $PCTEpsilon -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_dual/PCT_prepare_PP.exe -idm \x22$PCTMasterDirInput\x22 -ids \x22$PCTSlaveDirInput\x22 -od \x22$PCTDirOutput\x22 -iodf SPPT4 -kz \x22$KzPCTFile\x22 -nwr $PCTNwinL -nwc $PCTNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -eps $PCTEpsilon -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_dual/PCT_prepare_PP.exe" "k"
+            TextEditorRunTrace "Arguments: -idm \x22$PCTMasterDirInput\x22 -ids \x22$PCTSlaveDirInput\x22 -od \x22$PCTDirOutput\x22 -iodf SPPT4 -kz \x22$KzPCTFile\x22 -nwr $PCTNwinL -nwc $PCTNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -eps $PCTEpsilon  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_dual/PCT_prepare_PP.exe -idm \x22$PCTMasterDirInput\x22 -ids \x22$PCTSlaveDirInput\x22 -od \x22$PCTDirOutput\x22 -iodf SPPT4 -kz \x22$KzPCTFile\x22 -nwr $PCTNwinL -nwc $PCTNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -eps $PCTEpsilon  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             }
         if {$PCTFonction == "T4"} {
-            TextEditorRunTrace "Process The Function Soft/data_process_dual/PCT_prepare_PP.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$PCTMasterDirInput\x22 -od \x22$PCTDirOutput\x22 -iodf T4 -kz \x22$KzPCTFile\x22 -nwr $PCTNwinL -nwc $PCTNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -eps $PCTEpsilon -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_dual/PCT_prepare_PP.exe -id \x22$PCTMasterDirInput\x22 -od \x22$PCTDirOutput\x22 -iodf T4 -kz \x22$KzPCTFile\x22 -nwr $PCTNwinL -nwc $PCTNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -eps $PCTEpsilon -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_dual/PCT_prepare_PP.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$PCTMasterDirInput\x22 -od \x22$PCTDirOutput\x22 -iodf T4 -kz \x22$KzPCTFile\x22 -nwr $PCTNwinL -nwc $PCTNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -eps $PCTEpsilon  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_dual/PCT_prepare_PP.exe -id \x22$PCTMasterDirInput\x22 -od \x22$PCTDirOutput\x22 -iodf T4 -kz \x22$KzPCTFile\x22 -nwr $PCTNwinL -nwc $PCTNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -eps $PCTEpsilon  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             }
         if {$PCTFonction == "S2"} {
-            TextEditorRunTrace "Process The Function Soft/data_process_dual/PCT_prepare.exe" "k"
-            TextEditorRunTrace "Arguments: -idm \x22$PCTMasterDirInput\x22 -ids \x22$PCTSlaveDirInput\x22 -od \x22$PCTDirOutput\x22 -iodf S2T6 -kz \x22$KzPCTFile\x22 -nwr $PCTNwinL -nwc $PCTNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -eps $PCTEpsilon -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_dual/PCT_prepare.exe -idm \x22$PCTMasterDirInput\x22 -ids \x22$PCTSlaveDirInput\x22 -od \x22$PCTDirOutput\x22 -iodf S2T6 -kz \x22$KzPCTFile\x22 -nwr $PCTNwinL -nwc $PCTNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -eps $PCTEpsilon -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_dual/PCT_prepare.exe" "k"
+            TextEditorRunTrace "Arguments: -idm \x22$PCTMasterDirInput\x22 -ids \x22$PCTSlaveDirInput\x22 -od \x22$PCTDirOutput\x22 -iodf S2T6 -kz \x22$KzPCTFile\x22 -nwr $PCTNwinL -nwc $PCTNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -eps $PCTEpsilon  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_dual/PCT_prepare.exe -idm \x22$PCTMasterDirInput\x22 -ids \x22$PCTSlaveDirInput\x22 -od \x22$PCTDirOutput\x22 -iodf S2T6 -kz \x22$KzPCTFile\x22 -nwr $PCTNwinL -nwc $PCTNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -eps $PCTEpsilon  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             }
         if {$PCTFonction == "T6"} {
-            TextEditorRunTrace "Process The Function Soft/data_process_dual/PCT_prepare.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$PCTMasterDirInput\x22 -od \x22$PCTDirOutput\x22 -iodf T6 -kz \x22$KzPCTFile\x22 -nwr $PCTNwinL -nwc $PCTNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -eps $PCTEpsilon -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_dual/PCT_prepare.exe -id \x22$PCTMasterDirInput\x22 -od \x22$PCTDirOutput\x22 -iodf T6 -kz \x22$KzPCTFile\x22 -nwr $PCTNwinL -nwc $PCTNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -eps $PCTEpsilon -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_dual/PCT_prepare.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$PCTMasterDirInput\x22 -od \x22$PCTDirOutput\x22 -iodf T6 -kz \x22$KzPCTFile\x22 -nwr $PCTNwinL -nwc $PCTNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -eps $PCTEpsilon  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_dual/PCT_prepare.exe -id \x22$PCTMasterDirInput\x22 -od \x22$PCTDirOutput\x22 -iodf T6 -kz \x22$KzPCTFile\x22 -nwr $PCTNwinL -nwc $PCTNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -eps $PCTEpsilon  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             }
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
@@ -1617,7 +1627,7 @@ if {"$VarWarning"=="ok"} {
         if [file exists "$filename.bin"] {
             set BMPFileInput "$filename.bin"
             set BMPFileOutput "$filename.bmp"
-            PSPcreate_bmp_file black $BMPFileInput $BMPFileOutput float real jet $FinalNcol 0 0 $FinalNlig $FinalNcol 0 -25 25
+            PSPcreate_bmp_file black $BMPFileInput $BMPFileOutput float real jet $FinalNcol 0 0 $FinalNlig $FinalNcol 0 -5 25
             } else {
             set config "false"
             set VarError ""
@@ -1684,22 +1694,22 @@ if {"$VarWarning"=="ok"} {
         if {$PCTFonction == "SPP" || $PCTFonction == "T4"} {
           if {$PCTFonction == "SPP"} { set PCTFonc "SPP" }
           if {$PCTFonction == "T4"} { set PCTFonc "T2" }
-          TextEditorRunTrace "Process The Function Soft/bmp_process/create_rgb_file_SPPIPPC2.exe" "k"
-          TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $PCTFonc -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -rgbf RGB1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
-          set f [ open "| Soft/bmp_process/create_rgb_file_SPPIPPC2.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $PCTFonc -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -rgbf RGB1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
+          TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_rgb_file_SPPIPPC2.exe" "k"
+          TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $PCTFonc -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -rgbf RGB1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
+          set f [ open "| Soft/bin/bmp_process/create_rgb_file_SPPIPPC2.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $PCTFonc -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -rgbf RGB1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
           }
         if {$PCTFonction == "S2" || $PCTFonction == "T6"} {
           if {$PCTFonction == "S2"} { set PCTFonc "S2" }
           if {$PCTFonction == "T6"} { set PCTFonc "T3" }
-          TextEditorRunTrace "Process The Function Soft/bmp_process/create_pauli_rgb_file.exe" "k"
-          TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $PCTFonc -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
-          set f [ open "| Soft/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $PCTFonc -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
+          TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_pauli_rgb_file.exe" "k"
+          TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $PCTFonc -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
+          set f [ open "| Soft/bin/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $PCTFonc -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
           }
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError
         WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-        if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+        if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
 
         $widget(Button342_0) configure -state normal
         
@@ -2120,7 +2130,7 @@ if {$PCTOutputSubDir != ""} {append PCTDirOutput "/$PCTOutputSubDir"}
 
 if {"$VarWarning"=="ok"} {
 
-    Gamma_Files
+    PCTGamma_Files
 
     set TestVarName(0) "Init Row"; set TestVarType(0) "int"; set TestVarValue(0) $NligInit; set TestVarMin(0) "0"; set TestVarMax(0) $NligFullSize
     set TestVarName(1) "Init Col"; set TestVarType(1) "int"; set TestVarValue(1) $NcolInit; set TestVarMin(1) "0"; set TestVarMax(1) $NcolFullSize
@@ -2146,9 +2156,9 @@ if {"$VarWarning"=="ok"} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/data_process_dual/PCT_engine.exe" "k"
+        TextEditorRunTrace "Process The Function Soft/bin/data_process_dual/PCT_engine.exe" "k"
         TextEditorRunTrace "Arguments: -od \x22$PCTDirOutput\x22 -ifg \x22$PCTChannelFile\x22 -ifh \x22$PCTHeightFile\x22 -ift \x22$PCTTopoFile\x22 -ifkv \x22$PCTKvFile\x22 -ifkz \x22$PCTKzFile\x22 -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -oasc \x22$TMPPCTAsc\x22 -obin \x22$TMPPCTBin\x22" "k"
-        set f [ open "| Soft/data_process_dual/PCT_engine.exe -od \x22$PCTDirOutput\x22 -ifg \x22$PCTChannelFile\x22 -ifh \x22$PCTHeightFile\x22 -ift \x22$PCTTopoFile\x22 -ifkv \x22$PCTKvFile\x22 -ifkz \x22$PCTKzFile\x22 -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -oasc \x22$TMPPCTAsc\x22 -obin \x22$TMPPCTBin\x22" r]
+        set f [ open "| Soft/bin/data_process_dual/PCT_engine.exe -od \x22$PCTDirOutput\x22 -ifg \x22$PCTChannelFile\x22 -ifh \x22$PCTHeightFile\x22 -ift \x22$PCTTopoFile\x22 -ifkv \x22$PCTKvFile\x22 -ifkz \x22$PCTKzFile\x22 -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -oasc \x22$TMPPCTAsc\x22 -obin \x22$TMPPCTBin\x22" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError
@@ -2304,7 +2314,7 @@ global ZoomBMP BMPImage ImageSource BMPCanvas
 global TrainingAreaToolLine rect_color VarHistoSave VarStatToolLine                    
 
 #DATA PROCESS SNGL
-global Load_Histograms
+global Load_HistogramsDual
 #BMP PROCESS
 global Load_ViewBMPLens Load_DisplayPCT PSPTopLevel
 
@@ -2322,13 +2332,11 @@ if {$Load_DisplayPCT == 1} {
 
         ClosePSPViewer
         PCTcloseBMP
-        Window hide $widget(Toplevel64); TextEditorRunTrace "Close Window PolSARpro Viewer" "b"
         Window hide $widget(Toplevel343); TextEditorRunTrace "Close Window Display PCT" "b"
         }
     }
 
 ClosePSPViewer
-Window hide $widget(Toplevel64); TextEditorRunTrace "Close Window PolSARpro Viewer" "b"
 
 set config "true"
 if {$HistoExecFid != ""} {
@@ -2362,17 +2370,22 @@ if [file exists "$PCTDirOutput/config.txt"] {
             tkwait variable VarWarning
 
             if {$VarWarning == "ok"} {
-                LoadPSPViewer
-                Window show $widget(Toplevel64); TextEditorRunTrace "Open Window PolSARpro Viewer" "b"
-
-                if {$Load_Histograms == 0} {
-                    source "GUI/data_process_sngl/Histograms.tcl"
-                    set Load_Histograms 1
-                    WmTransient $widget(Toplevel260) $PSPTopLevel
+                ClosePSPViewer;
+                set types {
+                {{BMP Files}        {.bmp}        }
+                }
+                set filename ""
+                set filename [tk_getOpenFile -initialdir $HistoDirInput -filetypes $types -title "INPUT BMP FILE"]
+                if {$filename != ""} {
+                    set MapAlgebraBMPFile $filename
                     }
-                set line_color "white"
-                set b .top260.fra73.fra74.but77
-                $b configure -background $line_color -foreground $line_color
+
+                if {$Load_HistogramsDual == 0} {
+                    source "GUI/data_process_dual/HistogramsDual.tcl"
+                    set Load_HistogramsDual 1
+                    WmTransient $widget(Toplevel260a) $PSPTopLevel
+                    }
+
                 set GnuOutputFormat "SCREEN"
                 set GnuOutputFile ""; set HistoOutputFile ""
                 set NTrainingArea(0) 0; set AreaPoint(0) 0; set AreaPointLig(0) 0; set AreaPointCol(0) 0
@@ -2389,30 +2402,50 @@ if [file exists "$PCTDirOutput/config.txt"] {
                         }
                     }           
                 set AreaClassN 1; set NTrainingAreaClass 1; set AreaN 1; set NTrainingArea(1) 1; set AreaPointN ""
-                set TrainingAreaToolLine "false"; set rect_color "white"; set VarHistoSave "no"; set VarStatToolLine "stop"                    
-                set MouseInitX ""; set MouseInitY ""; set MouseEndX ""; set MouseEndY ""; set MouseNlig ""; set MouseNcol ""
-                $widget(Button260_2) configure -state disable
-                $widget(Button260_3) configure -state disable
-                $widget(Button260_4) configure -state disable
-                $widget(Button260_5) configure -state disable
-                $widget(Radiobutton260_1) configure -state disable
-                $widget(Radiobutton260_2) configure -state disable
+                set TrainingAreaToolLine "false"; set rect_color "white"; set VarStatToolLine "stop"                    
+                $widget(Button260a_1) configure -state disable
+                $widget(Button260a_2) configure -state disable
+                $widget(Button260a_3) configure -state disable
+                $widget(Button260a_4) configure -state disable
+                $widget(Button260a_5) configure -state disable
+                $widget(Button260a_6) configure -state disable
+                $widget(Button260a_7) configure -state disable
+                $widget(Radiobutton260a_1) configure -state disable
+                $widget(Radiobutton260a_2) configure -state disable
                 DeleteFile $TMPStatisticsTxt
                 DeleteFile $TMPStatisticsBin
                 DeleteFile $TMPStatResultsTxt
-                TextEditorRunTrace "Launch The Process Soft/data_process_sngl/statistics_histogram_extract.exe" "k"
+
+                set MapAlgebraSession [ MapAlgebra_session ]
+                set MapAlgebraConfigFileStatHistoROI "$TMPDir/$MapAlgebraSession"; append MapAlgebraConfigFileStatHistoROI "_mapalgebrapaths.txt"
+                set StatHistoROIFileTrainingArea $TMPStatisticsTxt
+                DeleteFile $StatHistoROIFileTrainingArea
+                MapAlgebra_init "StatHistoROI" $MapAlgebraSession $StatHistoROIFileTrainingArea
+                MapAlgebra_launch $MapAlgebraConfigFileStatHistoROI $MapAlgebraBMPFile
+
+                TextEditorRunTrace "Launch The Process Soft/bin/data_process_dual/statistics_histogram_extract.exe" "k"
                 TextEditorRunTrace "Arguments: \x22$TMPStatisticsTxt\x22 \x22$TMPStatisticsBin\x22" "k"
-                set HistoExecFid [ open "| Soft/data_process_sngl/statistics_histogram_extract.exe \x22$TMPStatisticsTxt\x22 \x22$TMPStatisticsBin\x22" r+]
-                set GnuplotPipeStat "";  set HistoFileInput ""; set HistoFileOpen 0
+                set HistoExecFid [ open "| Soft/bin/data_process_dual/statistics_histogram_extract.exe \x22$TMPStatisticsTxt\x22 \x22$TMPStatisticsBin\x22" r+]
+
+                set GnuplotPipeSave ""; set GnuplotPipeStat "";  set HistoFileInput ""; set HistoFileOpen 0
                 set GnuHistoTitle "HISTOGRAM"; set GnuHistoLabel "Label"; set GnuHistoStyle "lines"
                 set HistoInputFormat "float"; set HistoOutputFormat "real"
-                $widget(Radiobutton260_3) configure -state disable; $widget(Radiobutton260_4) configure -state disable
+                $widget(Radiobutton260a_3) configure -state disable; $widget(Radiobutton260a_4) configure -state disable
                 set MinMaxAutoHisto 1; set MinHisto "Auto"; set MaxHisto "Auto"
-                $widget(TitleFrame260_1) configure -state disable; $widget(Checkbutton260_1) configure -state disable
-                $widget(Label260_1) configure -state disable; $widget(Entry260_1) configure -state disable
-                $widget(Label260_2) configure -state disable; $widget(Entry260_2) configure -state disable
-                $widget(Button260_1) configure -state disable
-                WidgetShowFromWidget $widget(Toplevel342) $widget(Toplevel260); TextEditorRunTrace "Open Window Histograms" "b"
+                $widget(TitleFrame260a_1) configure -state disable; $widget(Checkbutton260a_1) configure -state disable
+                $widget(Label260a_1) configure -state disable; $widget(Entry260a_1) configure -state disable
+                $widget(Label260a_2) configure -state disable; $widget(Entry260a_2) configure -state disable
+
+                WidgetShowFromWidget $widget(Toplevel342) $widget(Toplevel260a); TextEditorRunTrace "Open Window Histograms" "b"
+
+                set VarHistoSave "no"
+                WaitUntilCreated $TMPStatisticsTxt
+                if [file exists $TMPStatisticsTxt] {
+                    set VarHistoSave "ok"
+                    $widget(Button260a_2) configure -state normal
+                    $widget(Button260a_7) configure -state normal
+                    }
+                tkwait variable VarHistoSave
                 }
             }
         } else {
@@ -2433,7 +2466,7 @@ if [file exists "$PCTDirOutput/config.txt"] {
     }
     button $site_3_0.but93 \
         -background #ffff00 \
-        -command {global DataDir FileName PCTDirOutput
+        -command {global DataDir FileName CONFIGDir PCTDirOutput
 global TMPPCTAsc TMPPCTBin TMPPCTBmp
 global BMPDirInput BMPViewFileInput
 global LineXLensInit LineYLensInit line_color
@@ -2451,15 +2484,17 @@ global VarWarning WarningMesage WarningMessage2
 global PCTExecFid PCTBMPImageOpen
 global PCTRedPalette PCTGreenPalette PCTBluePalette PCTColorNumber
 global HistoExecFid GnuplotPipeFid GnuplotPipeHisto
-global Load_SaveHisto Load_Histograms CONFIGDir
+global MapAlgebraConfigFileStatHistoROI
 
 #DATA PROCESS MULT
+global Load_SaveHisto Load_HistogramsDual Load_SaveDisplay1
 global Load_DisplayPCT
 #BMP PROCESS
 global Load_ViewBMPLens Load_ViewBMPPCT PSPTopLevel
 
-if {$Load_Histograms == 1} {
-    if {$Load_SaveHisto == 1} {Window hide $widget(Toplevel261); TextEditorRunTrace "Close Window Save Histograms" "b"}
+if {$Load_HistogramsDual == 1} {
+    if {$Load_SaveDisplay1 == 1} {Window hide $widget(Toplevel456); TextEditorRunTrace "Close Window Save Display 1" "b"}
+
     if {$HistoExecFid != ""} {
         puts $HistoExecFid "exit\n"
         flush $HistoExecFid
@@ -2470,11 +2505,12 @@ if {$Load_Histograms == 1} {
             }
         catch "close $HistoExecFid"
         set HistoExecFid ""
-        PlotHistoRAZ   
-        PlotHistoClose 
+
+        DualPlotHistoRAZ   
+        DualPlotHistoClose 
         ClosePSPViewer
-        Window hide $widget(Toplevel64); TextEditorRunTrace "Close Window PolSARpro Viewer" "b"
-        Window hide $widget(Toplevel260); TextEditorRunTrace "Close Window Histograms" "b"
+        if {$MapAlgebraConfigFileStatHistoROI != ""} { set MapAlgebraConfigFileStatHistoROI [MapAlgebra_command $MapAlgebraConfigFileStatHistoROI "quit" ""] }
+        Window hide $widget(Toplevel260a); TextEditorRunTrace "Close Window Histograms" "b"
         }
     }
 
@@ -2488,7 +2524,6 @@ if {$PCTExecFid != ""} {
             if [file exists "$PCTDirOutput/PauliRGB_PCT.bmp"] { 
                 set BMPDirInput $PCTDirOutput
                 ClosePSPViewer
-                Window hide $widget(Toplevel64); TextEditorRunTrace "Close Window PolSARpro Viewer" "b"
                 set BMPImageOpen "1"
                 set BMPViewFileInput "$PCTDirOutput/PauliRGB_PCT.bmp"
 
@@ -2517,7 +2552,7 @@ if {$PCTExecFid != ""} {
                 set b .top343.fra71.fra72.fra79.but80
                 $b configure -background $line_color -foreground $line_color
                 set BMPPCTX ""; set BMPPCTY ""; set BMPPCTValue ""
-                set PCTSlice ""; set BMPPCTZ ""; set BMPPCTinc ""
+                set PCTSlice "range"; set BMPPCTZ ""; set BMPPCTinc ""
                 set BMPPCTind ""; set BMPPCTval ""
                 set PCTRow ""; set PCTRowMin ""; set PCTRowMax ""
                 set PCTCol ""; set PCTColMin ""; set PCTColMax ""
@@ -2575,9 +2610,9 @@ if {$PCTExecFid != ""} {
                 MouseActiveFunction "LensPCT"
 
                 set ColMapPCT "$CONFIGDir/ColorMapJETPCT.pal"
-                TextEditorRunTrace "Launch The Process Soft/data_process_dual/PCT_display.exe" "k"
+                TextEditorRunTrace "Launch The Process Soft/bin/data_process_dual/PCT_display.exe" "k"
                 TextEditorRunTrace "Arguments: \x22$TMPPCTAsc\x22 \x22$TMPPCTBin\x22 \x22$TMPPCTBmp\x22 $ColMapPCT" "k"
-                set PCTExecFid [ open "| Soft/data_process_dual/PCT_display.exe \x22$TMPPCTAsc\x22 \x22$TMPPCTBin\x22 \x22$TMPPCTBmp\x22 $ColMapPCT" r+]
+                set PCTExecFid [ open "| Soft/bin/data_process_dual/PCT_display.exe \x22$TMPPCTAsc\x22 \x22$TMPPCTBin\x22 \x22$TMPPCTBmp\x22 $ColMapPCT" r+]
                 set ProgressLine ""
                 puts $PCTExecFid "load\n"
                 flush $PCTExecFid
@@ -2586,8 +2621,7 @@ if {$PCTExecFid != ""} {
                     gets $PCTExecFid ProgressLine
                     update
                     }
-                #WidgetShowFromWidget $widget(Toplevel342) $widget(Toplevel343); TextEditorRunTrace "Open Window Display PCT" "b"             
-                Window show $widget(Toplevel343); TextEditorRunTrace "Open Window Display PCT" "b"             
+                WidgetShowFromWidget $widget(Toplevel342) $widget(Toplevel343); TextEditorRunTrace "Open Window Display PCT" "b"             
                 } else {
                 set ErrorMessage "THE PauliRGB_PCT.bmp FILE DOES NOT EXIST" 
                 Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
@@ -2624,15 +2658,16 @@ set ProgressLine "0"; update
     }
     button $site_3_0.but24 \
         -background #ffff00 \
-        -command {global OpenDirFile
+        -command {global OpenDirFile MapAlgebraConfigFileStatHistoROI
 global HistoExecFid GnuplotPipeFid GnuplotPipeHisto
-global Load_SaveHisto Load_Histograms
+global Load_SaveHisto Load_HistogramsDual Load_SaveDisplay1
 global Load_DisplayPCT
 
 if {$OpenDirFile == 0} {
 
-if {$Load_Histograms == 1} {
-    if {$Load_SaveHisto == 1} {Window hide $widget(Toplevel261); TextEditorRunTrace "Close Window Save Histograms" "b"}
+if {$Load_HistogramsDual == 1} {
+    if {$Load_SaveDisplay1 == 1} {Window hide $widget(Toplevel456); TextEditorRunTrace "Close Window Save Display 1" "b"}
+
     if {$HistoExecFid != ""} {
         puts $HistoExecFid "exit\n"
         flush $HistoExecFid
@@ -2644,13 +2679,14 @@ if {$Load_Histograms == 1} {
         catch "close $HistoExecFid"
         set HistoExecFid ""
 
-        PlotHistoRAZ   
-        PlotHistoClose 
+        DualPlotHistoRAZ   
+        DualPlotHistoClose 
         ClosePSPViewer
-        Window hide $widget(Toplevel64); TextEditorRunTrace "Close Window PolSARpro Viewer" "b"
-        Window hide $widget(Toplevel260); TextEditorRunTrace "Close Window Histograms" "b"
+        if {$MapAlgebraConfigFileStatHistoROI != ""} { set MapAlgebraConfigFileStatHistoROI [MapAlgebra_command $MapAlgebraConfigFileStatHistoROI "quit" ""] }
+        Window hide $widget(Toplevel260a); TextEditorRunTrace "Close Window Histograms" "b"
         }
     }
+
 if {$Load_DisplayPCT == 1} {
     if {$PCTExecFid != ""} {
         puts $PCTExecFid "exit\n"
@@ -2665,7 +2701,6 @@ if {$Load_DisplayPCT == 1} {
 
         ClosePSPViewer
         PCTcloseBMP
-        Window hide $widget(Toplevel64); TextEditorRunTrace "Close Window PolSARpro Viewer" "b"
         Window hide $widget(Toplevel343); TextEditorRunTrace "Close Window Display PCT" "b"
         }
     }

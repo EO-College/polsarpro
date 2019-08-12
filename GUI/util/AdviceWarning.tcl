@@ -527,7 +527,7 @@ proc vTclWindow.top388 {base} {
         -textvariable WarningMessage 
     vTcl:DefineAlias "$site_4_0.lab38" "Label66" vTcl:WidgetProc "Toplevel388" 1
     label $site_4_0.lab39 \
-        -text {SELECT THE PolSARpro v5.0 MENU BUTTON} \
+        -text {SELECT THE PolSARpro Software MENU BUTTON} \
         -textvariable WarningMessage2 
     vTcl:DefineAlias "$site_4_0.lab39" "Label79" vTcl:WidgetProc "Toplevel388" 1
     pack $site_4_0.lab38 \

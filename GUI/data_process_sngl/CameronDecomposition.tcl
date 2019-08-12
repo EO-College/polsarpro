@@ -1315,7 +1315,7 @@ set VarColorMap "ok"
     button $site_3_0.but93 \
         -background #ffff00 \
         -command {global CameronDirInput CameronDirOutput CameronOutputDir CameronOutputSubDir
-global ColorMapCameron VarColorMap OpenDirFile PSPMemory TMPMemoryAllocError
+global ColorMapCameron VarColorMap OpenDirFile TMPMemoryAllocError
 global Fonction Fonction2 ProgressLine VarWarning WarningMessage WarningMessage2
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
 
@@ -1356,9 +1356,9 @@ if {"$VarWarning"=="ok"} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/data_process_sngl/cameron_decomposition.exe" "k"
-        TextEditorRunTrace "Arguments: -id \x22$CameronDirInput\x22 -od \x22$CameronDirOutput\x22 -iodf S2 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -col \x22$ColorMapCameron\x22 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-        set f [ open "| Soft/data_process_sngl/cameron_decomposition.exe -id \x22$CameronDirInput\x22 -od \x22$CameronDirOutput\x22 -iodf S2 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -col \x22$ColorMapCameron\x22 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+        TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/cameron_decomposition.exe" "k"
+        TextEditorRunTrace "Arguments: -id \x22$CameronDirInput\x22 -od \x22$CameronDirOutput\x22 -iodf S2 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -col \x22$ColorMapCameron\x22  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+        set f [ open "| Soft/bin/data_process_sngl/cameron_decomposition.exe -id \x22$CameronDirInput\x22 -od \x22$CameronDirOutput\x22 -iodf S2 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -col \x22$ColorMapCameron\x22  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError

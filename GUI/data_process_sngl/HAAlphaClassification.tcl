@@ -172,7 +172,6 @@ catch {package require Img}
 
 foreach img {
 
-        {{[file join . GUI Images OpenFile.gif]} {user image} user {}}
         {{[file join . GUI Images OpenDir.gif]} {user image} user {}}
         {{[file join . GUI Images help.gif]} {user image} user {}}
         {{[file join . GUI Images Transparent_Button.gif]} {user image} user {}}
@@ -542,22 +541,6 @@ proc vTcl:project:info {} {
     namespace eval ::widgets::$site_5_0.che38 {
         array set save {-command 1 -padx 1 -text 1 -variable 1}
     }
-    namespace eval ::widgets::$site_4_0.cpd76 {
-        array set save {-borderwidth 1 -height 1 -width 1}
-    }
-    set site_5_0 $site_4_0.cpd76
-    namespace eval ::widgets::$site_5_0.lab23 {
-        array set save {-text 1 -width 1}
-    }
-    namespace eval ::widgets::$site_5_0.ent25 {
-        array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -state 1 -textvariable 1 -width 1}
-    }
-    namespace eval ::widgets::$site_5_0.but26 {
-        array set save {-_tooltip 1 -background 1 -command 1 -padx 1 -pady 1 -text 1}
-    }
-    namespace eval ::widgets::$site_5_0.but76 {
-        array set save {-_tooltip 1 -command 1 -image 1 -pady 1 -text 1}
-    }
     namespace eval ::widgets::$base.cpd71 {
         array set save {-text 1}
     }
@@ -572,22 +555,6 @@ proc vTcl:project:info {} {
     set site_5_0 $site_4_0.cpd73
     namespace eval ::widgets::$site_5_0.che38 {
         array set save {-text 1 -variable 1}
-    }
-    namespace eval ::widgets::$site_4_0.cpd76 {
-        array set save {-borderwidth 1 -height 1 -width 1}
-    }
-    set site_5_0 $site_4_0.cpd76
-    namespace eval ::widgets::$site_5_0.lab23 {
-        array set save {-text 1 -width 1}
-    }
-    namespace eval ::widgets::$site_5_0.ent25 {
-        array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -state 1 -textvariable 1 -width 1}
-    }
-    namespace eval ::widgets::$site_5_0.but26 {
-        array set save {-_tooltip 1 -background 1 -command 1 -padx 1 -pady 1 -text 1}
-    }
-    namespace eval ::widgets::$site_5_0.but76 {
-        array set save {-_tooltip 1 -command 1 -image 1 -pady 1 -text 1}
     }
     namespace eval ::widgets::$base.fra82 {
         array set save {-borderwidth 1 -height 1 -width 1}
@@ -679,7 +646,7 @@ proc ::HAAlphaDecomposition {} {
 global HAAlpDirInput HAAlpDirOutput HAAlphaClassifFonction
 global OffsetLig OffsetCol FinalNlig FinalNcol 
 global NwinHAAlpL NwinHAAlpC entropy alpha anisotropy lambda CombHA CombH1mA Comb1mHA Comb1mH1mA
-global ProgressLine PSPMemory TMPMemoryAllocError
+global ProgressLine TMPMemoryAllocError
 
 set MaskCmd ""
 set MaskFile "$HAAlpDirInput/mask_valid_pixels.bin"
@@ -695,9 +662,9 @@ if {$HAAlphaClassifFonction == "C2"} { set HAAlphaClassifF "C2" }
 if {$HAAlphaClassifFonction == "C3"} { set HAAlphaClassifF "C3T3" }
 if {$HAAlphaClassifFonction == "T4"} { set HAAlphaClassifF "T4" }
 if {$HAAlphaClassifFonction == "C4"} { set HAAlphaClassifF "C4T4" }
-TextEditorRunTrace "Process The Function Soft/data_process_sngl/h_a_alpha_decomposition.exe" "k"
-TextEditorRunTrace "Arguments: -id \x22$HAAlpDirInput\x22 -od \x22$HAAlpDirOutput\x22 -iodf $HAAlphaClassifF -nwr $NwinHAAlpL -nwc $NwinHAAlpC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -fl1 0 -fl2 $lambda -fl3 $alpha -fl4 $entropy -fl5 $anisotropy -fl6 $CombHA -fl7 $CombH1mA -fl8 $Comb1mHA -fl9 $Comb1mH1mA -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-set f [ open "| Soft/data_process_sngl/h_a_alpha_decomposition.exe -id \x22$HAAlpDirInput\x22 -od \x22$HAAlpDirOutput\x22 -iodf $HAAlphaClassifF -nwr $NwinHAAlpL -nwc $NwinHAAlpC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -fl1 0 -fl2 $lambda -fl3 $alpha -fl4 $entropy -fl5 $anisotropy -fl6 $CombHA -fl7 $CombH1mA -fl8 $Comb1mHA -fl9 $Comb1mH1mA -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/h_a_alpha_decomposition.exe" "k"
+TextEditorRunTrace "Arguments: -id \x22$HAAlpDirInput\x22 -od \x22$HAAlpDirOutput\x22 -iodf $HAAlphaClassifF -nwr $NwinHAAlpL -nwc $NwinHAAlpC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -fl1 0 -fl2 $lambda -fl3 $alpha -fl4 $entropy -fl5 $anisotropy -fl6 $CombHA -fl7 $CombH1mA -fl8 $Comb1mHA -fl9 $Comb1mH1mA  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+set f [ open "| Soft/bin/data_process_sngl/h_a_alpha_decomposition.exe -id \x22$HAAlpDirInput\x22 -od \x22$HAAlpDirOutput\x22 -iodf $HAAlphaClassifF -nwr $NwinHAAlpL -nwc $NwinHAAlpC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -fl1 0 -fl2 $lambda -fl3 $alpha -fl4 $entropy -fl5 $anisotropy -fl6 $CombHA -fl7 $CombH1mA -fl8 $Comb1mHA -fl9 $Comb1mH1mA  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
 PsPprogressBar $f
 TextEditorRunTrace "Check RunTime Errors" "r"
 CheckRunTimeError
@@ -790,7 +757,7 @@ if {$Comb1mH1mA == 1} {
 ## Procedure:  HAAlphaClassification
 
 proc ::HAAlphaClassification {} {
-global HAAlpDirOutput ColorMapPlanes9 PSPMemory TMPMemoryAllocError
+global HAAlpDirOutput ColorMapPlanes9 TMPMemoryAllocError
 global Halpha_plane HA_plane Aalpha_plane HAAlphaClassifFonction
 global OffsetLig OffsetCol FinalNlig FinalNcol 
 global Fonction Fonction2 VarError ErrorMessage ProgressLine
@@ -860,12 +827,12 @@ if {"$conf"=="true"} {
     set ProgressLine "0"
     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
     update
-    set ProcessFunction "Soft/data_process_sngl/h_a_alpha_planes_classifier.exe"
-    if {$HAAlphaClassifFonction == "C2"} {set ProcessFunction "Soft/data_process_sngl/h_a_alpha_planes_classifier_dualpol.exe"}
-    if {$HAAlphaClassifFonction == "SPP"} {set ProcessFunction "Soft/data_process_sngl/h_a_alpha_planes_classifier_dualpol.exe"}
+    set ProcessFunction "Soft/bin/data_process_sngl/h_a_alpha_planes_classifier.exe"
+    if {$HAAlphaClassifFonction == "C2"} {set ProcessFunction "Soft/bin/data_process_sngl/h_a_alpha_planes_classifier_dualpol.exe"}
+    if {$HAAlphaClassifFonction == "SPP"} {set ProcessFunction "Soft/bin/data_process_sngl/h_a_alpha_planes_classifier_dualpol.exe"}
     TextEditorRunTrace "Process The Function $ProcessFunction" "k"
-    TextEditorRunTrace "Arguments: -id \x22$HAAlpDirOutput\x22 -od \x22$HAAlpDirOutput\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -hal $Halpha_plane -anal $Aalpha_plane -han $HA_plane -clm \x22$ColorMapPlanes9\x22 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-    set f [ open "| $ProcessFunction -id \x22$HAAlpDirOutput\x22 -od \x22$HAAlpDirOutput\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -hal $Halpha_plane -anal $Aalpha_plane -han $HA_plane -clm \x22$ColorMapPlanes9\x22 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+    TextEditorRunTrace "Arguments: -id \x22$HAAlpDirOutput\x22 -od \x22$HAAlpDirOutput\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -hal $Halpha_plane -anal $Aalpha_plane -han $HA_plane -clm \x22$ColorMapPlanes9\x22  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+    set f [ open "| $ProcessFunction -id \x22$HAAlpDirOutput\x22 -od \x22$HAAlpDirOutput\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -hal $Halpha_plane -anal $Aalpha_plane -han $HA_plane -clm \x22$ColorMapPlanes9\x22  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError
@@ -874,23 +841,35 @@ if {"$conf"=="true"} {
     if {"$Halpha_plane"=="1"} {
       if [file exists "$HAAlpDirOutput/H_alpha_class.bin"] { 
         EnviWriteConfigClassif "$HAAlpDirOutput/H_alpha_class.bin" $FinalNlig $FinalNcol 4 $ColorMapPlanes9 9
+        set BMPFileInput "$HAAlpDirOutput/H_alpha_class.bin"
+        set BMPFileOutput "$HAAlpDirOutput/H_alpha_class.bmp"
+        PSPcreate_bmp_file black $BMPFileInput $BMPFileOutput float real $ColorMapPlanes9 $FinalNcol  $OffsetLig  $OffsetCol  $FinalNlig  $FinalNcol 0 0 255
         set Bord "HAlpha"
         if {$HAAlphaClassifFonction == "C2" || $HAAlphaClassifFonction == "SPP"} {set Bord "HAlphaDual"}
         PsPScatterPlot "$HAAlpDirOutput/entropy.bin" "$HAAlpDirOutput/mask_valid_pixels.bin" float real 0 0 1 "$HAAlpDirOutput/alpha.bin" "$HAAlpDirOutput/mask_valid_pixels.bin" float real 0 0 90 $OffsetLig $OffsetCol $FinalNlig $FinalNcol $Bord "Entropy" "Alpha (deg)" "H - Alpha Plane" 1 .top74
+        PsPScatterPlotColor "$HAAlpDirOutput/entropy.bin" "$HAAlpDirOutput/mask_valid_pixels.bin" float real 0 0 1 "$HAAlpDirOutput/alpha.bin" "$HAAlpDirOutput/mask_valid_pixels.bin" float real 0 0 90 $OffsetLig $OffsetCol $FinalNlig $FinalNcol $Bord "Entropy" "Alpha (deg)" "H - Alpha Plane" 1 .top74
         }
       }
     if {"$Aalpha_plane"=="1"} {
       if [file exists "$HAAlpDirOutput/A_alpha_class.bin"] { 
         EnviWriteConfigClassif "$HAAlpDirOutput/A_alpha_class.bin" $FinalNlig $FinalNcol 4 $ColorMapPlanes9 9 
+        set BMPFileInput "$HAAlpDirOutput/A_alpha_class.bin"
+        set BMPFileOutput "$HAAlpDirOutput/A_alpha_class.bmp"
+        PSPcreate_bmp_file black $BMPFileInput $BMPFileOutput float real $ColorMapPlanes9 $FinalNcol  $OffsetLig  $OffsetCol  $FinalNlig  $FinalNcol 0 0 255
         set Bord "AAlpha"
         PsPScatterPlot "$HAAlpDirOutput/anisotropy.bin" "$HAAlpDirOutput/mask_valid_pixels.bin" float real 0 0 1 "$HAAlpDirOutput/alpha.bin" "$HAAlpDirOutput/mask_valid_pixels.bin" float real 0 0 90 $OffsetLig $OffsetCol $FinalNlig $FinalNcol $Bord "Anisotropy" "Alpha (deg)" "A - Alpha Plane" 2 .top74
+        PsPScatterPlotColor "$HAAlpDirOutput/anisotropy.bin" "$HAAlpDirOutput/mask_valid_pixels.bin" float real 0 0 1 "$HAAlpDirOutput/alpha.bin" "$HAAlpDirOutput/mask_valid_pixels.bin" float real 0 0 90 $OffsetLig $OffsetCol $FinalNlig $FinalNcol $Bord "Anisotropy" "Alpha (deg)" "A - Alpha Plane" 2 .top74
         }
       }
     if {"$HA_plane"=="1"} {
       if [file exists "$HAAlpDirOutput/H_A_class.bin"] { 
         EnviWriteConfigClassif "$HAAlpDirOutput/H_A_class.bin" $FinalNlig $FinalNcol 4 $ColorMapPlanes9 9
+        set BMPFileInput "$HAAlpDirOutput/H_A_class.bin"
+        set BMPFileOutput "$HAAlpDirOutput/H_A_class.bmp"
+        PSPcreate_bmp_file black $BMPFileInput $BMPFileOutput float real $ColorMapPlanes9 $FinalNcol  $OffsetLig  $OffsetCol  $FinalNlig  $FinalNcol 0 0 255
         set Bord "HA"
         PsPScatterPlot "$HAAlpDirOutput/entropy.bin" "$HAAlpDirOutput/mask_valid_pixels.bin" float real 0 0 1 "$HAAlpDirOutput/anisotropy.bin" "$HAAlpDirOutput/mask_valid_pixels.bin" float real 0 0 1 $OffsetLig $OffsetCol $FinalNlig $FinalNcol $Bord "Entropy" "Anisotropy" "H - A Plane" 3 .top74
+        PsPScatterPlotColor "$HAAlpDirOutput/entropy.bin" "$HAAlpDirOutput/mask_valid_pixels.bin" float real 0 0 1 "$HAAlpDirOutput/anisotropy.bin" "$HAAlpDirOutput/mask_valid_pixels.bin" float real 0 0 1 $OffsetLig $OffsetCol $FinalNlig $FinalNcol $Bord "Entropy" "Anisotropy" "H - A Plane" 3 .top74
         }
       }
     }
@@ -899,7 +878,7 @@ if {"$conf"=="true"} {
 ## Procedure:  RGBHAAlphaBMP
 
 proc ::RGBHAAlphaBMP {} {
-global HAAlpDirOutput BMPDirInput PSPMemory TMPMemoryAllocError
+global HAAlpDirOutput BMPDirInput TMPMemoryAllocError
 global OffsetLig OffsetCol FinalNlig FinalNcol NcolFullSize
 global Fonction Fonction2 VarError ErrorMessage ProgressLine PSPViewGimpBMP
 
@@ -943,22 +922,22 @@ if {$conf == "true"} {
     set ProgressLine "0"
     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
     update
-    TextEditorRunTrace "Process The Function Soft/bmp_process/create_rgb_file.exe" "k"
-    TextEditorRunTrace "Arguments: -ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$RGBFileOutput\x22 -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -auto 1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-    set f [ open "| Soft/bmp_process/create_rgb_file.exe -ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$RGBFileOutput\x22 -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -auto 1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_rgb_file.exe" "k"
+    TextEditorRunTrace "Arguments: -ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$RGBFileOutput\x22 -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -auto 1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+    set f [ open "| Soft/bin/bmp_process/create_rgb_file.exe -ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$RGBFileOutput\x22 -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -auto 1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError
     WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
     set BMPDirInput $HAAlpDirOutput
-    if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+    if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
     }
 }
 #############################################################################
 ## Procedure:  RGBHACombBMP
 
 proc ::RGBHACombBMP {} {
-global HAAlpDirOutput BMPDirInput PSPMemory TMPMemoryAllocError
+global HAAlpDirOutput BMPDirInput TMPMemoryAllocError
 global OffsetLig OffsetCol FinalNlig FinalNcol NcolFullSize
 global Fonction Fonction2 VarError ErrorMessage ProgressLine PSPViewGimpBMP
 
@@ -1003,22 +982,22 @@ if {$conf == "true"} {
     set ProgressLine "0"
     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
     update
-    TextEditorRunTrace "Process The Function Soft/bmp_process/create_rgb_file.exe" "k"
-    TextEditorRunTrace "Arguments: -ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$RGBFileOutput\x22 -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -auto 1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-    set f [ open "| Soft/bmp_process/create_rgb_file.exe -ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$RGBFileOutput\x22 -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -auto 1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_rgb_file.exe" "k"
+    TextEditorRunTrace "Arguments: -ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$RGBFileOutput\x22 -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -auto 1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+    set f [ open "| Soft/bin/bmp_process/create_rgb_file.exe -ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$RGBFileOutput\x22 -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -auto 1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError
     WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
     set BMPDirInput $HAAlpDirOutput
-    if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+    if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
     }
 }
 #############################################################################
 ## Procedure:  RGBTuoTuoBMP
 
 proc ::RGBTuoTuoBMP {} {
-global HAAlpDirOutput BMPDirInput PSPMemory TMPMemoryAllocError
+global HAAlpDirOutput BMPDirInput TMPMemoryAllocError
 global OffsetLig OffsetCol FinalNlig FinalNcol NcolFullSize
 global Fonction Fonction2 VarError ErrorMessage ProgressLine PSPViewGimpBMP
 
@@ -1058,23 +1037,23 @@ if {$conf == "true"} {
     set ProgressLine "0"
     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
     update
-    TextEditorRunTrace "Process The Function Soft/bmp_process/create_polar0_hsv_file.exe" "k"
-    TextEditorRunTrace "Arguments: -id \x22$HAAlpDirOutput\x22 -of \x22$HSVFileOutput\x22 -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-    set f [ open "| Soft/bmp_process/create_polar0_hsv_file.exe -id \x22$HAAlpDirOutput\x22 -of \x22$HSVFileOutput\x22 -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_polar0_hsv_file.exe" "k"
+    TextEditorRunTrace "Arguments: -id \x22$HAAlpDirOutput\x22 -of \x22$HSVFileOutput\x22 -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+    set f [ open "| Soft/bin/bmp_process/create_polar0_hsv_file.exe -id \x22$HAAlpDirOutput\x22 -of \x22$HSVFileOutput\x22 -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError
     WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
     set BMPDirInput $HAAlpDirOutput
-    if {$PSPViewGimpBMP == 1} { Gimp $HSVFileOutput }
+    if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $HSVFileOutput }
     }
 }
 #############################################################################
 ## Procedure:  HAlphaLambdaClassification
 
 proc ::HAlphaLambdaClassification {} {
-global HAAlpDirOutput ColorMapPlanes27 PSPMemory TMPMemoryAllocError
-global HalphaLambda_plane HAAlphaClassifFonction
+global HAAlpDirOutput ColorMapPlanes27 TMPMemoryAllocError
+global HalphaLambda_plane HAAlphaClassifFonction PSPViewGimpBMP
 global OffsetLig OffsetCol FinalNlig FinalNcol 
 global Fonction Fonction2 VarError ErrorMessage ProgressLine
 
@@ -1115,31 +1094,95 @@ if {"$conf"=="true"} {
     set ProgressLine "0"
     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
     update
-    set ProcessFunction "Soft/data_process_sngl/h_alpha_lambda_planes_classifier.exe"
-    if {$HAAlphaClassifFonction == "C2"} {set ProcessFunction "Soft/data_process_sngl/h_alpha_lambda_planes_classifier_dualpol.exe"}
-    if {$HAAlphaClassifFonction == "SPP"} {set ProcessFunction "Soft/data_process_sngl/h_alpha_lambda_planes_classifier_dualpol.exe"}
+    set ProcessFunction "Soft/bin/data_process_sngl/h_alpha_lambda_planes_classifier.exe"
+    if {$HAAlphaClassifFonction == "C2"} {set ProcessFunction "Soft/bin/data_process_sngl/h_alpha_lambda_planes_classifier_dualpol.exe"}
+    if {$HAAlphaClassifFonction == "SPP"} {set ProcessFunction "Soft/bin/data_process_sngl/h_alpha_lambda_planes_classifier_dualpol.exe"}
     TextEditorRunTrace "Process The Function $ProcessFunction" "k"
-    TextEditorRunTrace "Arguments: -id \x22$HAAlpDirOutput\x22 -od \x22$HAAlpDirOutput\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -clm \x22$ColorMapPlanes27\x22 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-    set f [ open "| $ProcessFunction -id \x22$HAAlpDirOutput\x22 -od \x22$HAAlpDirOutput\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -clm \x22$ColorMapPlanes27\x22 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+    TextEditorRunTrace "Arguments: -id \x22$HAAlpDirOutput\x22 -od \x22$HAAlpDirOutput\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -clm \x22$ColorMapPlanes27\x22  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+    set f [ open "| $ProcessFunction -id \x22$HAAlpDirOutput\x22 -od \x22$HAAlpDirOutput\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -clm \x22$ColorMapPlanes27\x22  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError
     WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
 
-    set Bord "HAlpha"
     if {$HAAlphaClassifFonction == "C2" || $HAAlphaClassifFonction == "SPP"} {set Bord "HAlphaDual"}
-    if [file exists "$HAAlpDirOutput/H_alpha_lambda_class.bin"] {EnviWriteConfigClassif "$HAAlpDirOutput/H_alpha_lambda_class.bin" $FinalNlig $FinalNcol 4 $ColorMapPlanes27 27}
+    if [file exists "$HAAlpDirOutput/H_alpha_lambda_class.bin"] {
+        EnviWriteConfigClassif "$HAAlpDirOutput/H_alpha_lambda_class.bin" $FinalNlig $FinalNcol 4 $ColorMapPlanes27 27
+        set BMPFileInput "$HAAlpDirOutput/H_alpha_lambda_class.bin"
+        set BMPFileOutput "$HAAlpDirOutput/H_alpha_lambda_class.bmp"
+        PSPcreate_bmp_file black $BMPFileInput $BMPFileOutput float real $ColorMapPlanes27 $FinalNcol  $OffsetLig  $OffsetCol  $FinalNlig  $FinalNcol 0 0 255
+        }
     if [file exists "$HAAlpDirOutput/H_alpha_lambda_class1.bin"] {
         EnviWriteConfigClassif "$HAAlpDirOutput/H_alpha_lambda_class1.bin" $FinalNlig $FinalNcol 4 $ColorMapPlanes27 27
-        PsPScatterPlot "$HAAlpDirOutput/entropy_low_lambda.bin" "$HAAlpDirOutput/mask_valid_pixels.bin" float real 0 0 1 "$HAAlpDirOutput/alpha_low_lambda.bin" "$HAAlpDirOutput/mask_valid_pixels.bin" float real 0 0 90 $OffsetLig $OffsetCol $FinalNlig $FinalNcol $Bord "Entropy" "Alpha (deg)" "H - Alpha Plane (Low Lambda)" 4 .top74
+        set BMPFileInput "$HAAlpDirOutput/H_alpha_lambda_class1.bin"
+        set BMPFileOutput "$HAAlpDirOutput/H_alpha_lambda_class1.bmp"
+        set MaskCmd ""
+        set MaskFile "$HAAlpDirOutput/mask_low_lambda.bin"
+        if [file exists $MaskFile] {set MaskCmd "-mask \x22$MaskFile\x22"}
+        set ProgressLine "0"
+        WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
+        update
+        set ProcessFunction "Soft/bin/bmp_process/create_bmp_file.exe"
+        TextEditorRunTrace "Process The Function $ProcessFunction" "k"
+        TextEditorRunTrace "Arguments: -if \x22$BMPFileInput\x22 -of \x22$BMPFileOutput\x22 -ift float -oft real -clm \x22$ColorMapPlanes27\x22 -nc $FinalNcol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mm 0 -min 0 -max 255 -mcol black  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+        set f [ open "| $ProcessFunction -if \x22$BMPFileInput\x22 -of \x22$BMPFileOutput\x22 -ift float -oft real -clm \x22$ColorMapPlanes27\x22 -nc $FinalNcol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mm 0 -min 0 -max 255 -mcol black  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+        PsPprogressBar $f
+        TextEditorRunTrace "Check RunTime Errors" "r"
+        CheckRunTimeError
+        WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
+        if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $BMPFileOutput }
+        set Bord "HAlpha"
+        PsPScatterPlot "$HAAlpDirOutput/entropy_low_lambda.bin" "$HAAlpDirOutput/mask_low_lambda.bin" float real 0 0 1 "$HAAlpDirOutput/alpha_low_lambda.bin" "$HAAlpDirOutput/mask_low_lambda.bin" float real 0 0 90 $OffsetLig $OffsetCol $FinalNlig $FinalNcol $Bord "Entropy" "Alpha (deg)" "H - Alpha Plane (Low Lambda)" 4 .top74
+        set Bord "HAlpha1"
+        PsPScatterPlotColor "$HAAlpDirOutput/entropy_low_lambda.bin" "$HAAlpDirOutput/mask_low_lambda.bin" float real 0 0 1 "$HAAlpDirOutput/alpha_low_lambda.bin" "$HAAlpDirOutput/mask_low_lambda.bin" float real 0 0 90 $OffsetLig $OffsetCol $FinalNlig $FinalNcol $Bord "Entropy" "Alpha (deg)" "H - Alpha Plane (Low Lambda)" 4 .top74
         }
     if [file exists "$HAAlpDirOutput/H_alpha_lambda_class2.bin"] {
         EnviWriteConfigClassif "$HAAlpDirOutput/H_alpha_lambda_class2.bin" $FinalNlig $FinalNcol 4 $ColorMapPlanes27 27
-        PsPScatterPlot "$HAAlpDirOutput/entropy_medium_lambda.bin" "$HAAlpDirOutput/mask_valid_pixels.bin" float real 0 0 1 "$HAAlpDirOutput/alpha_medium_lambda.bin" "$HAAlpDirOutput/mask_valid_pixels.bin" float real 0 0 90 $OffsetLig $OffsetCol $FinalNlig $FinalNcol $Bord "Entropy" "Alpha (deg)" "H - Alpha Plane (Medium Lambda)" 5 .top74
+        set BMPFileInput "$HAAlpDirOutput/H_alpha_lambda_class2.bin"
+        set BMPFileOutput "$HAAlpDirOutput/H_alpha_lambda_class2.bmp"
+        set MaskCmd ""
+        set MaskFile "$HAAlpDirOutput/mask_medium_lambda.bin"
+        if [file exists $MaskFile] {set MaskCmd "-mask \x22$MaskFile\x22"}
+        set ProgressLine "0"
+        WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
+        update
+        set ProcessFunction "Soft/bin/bmp_process/create_bmp_file.exe"
+        TextEditorRunTrace "Process The Function $ProcessFunction" "k"
+        TextEditorRunTrace "Arguments: -if \x22$BMPFileInput\x22 -of \x22$BMPFileOutput\x22 -ift float -oft real -clm \x22$ColorMapPlanes27\x22 -nc $FinalNcol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mm 0 -min 0 -max 255 -mcol black  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+        set f [ open "| $ProcessFunction -if \x22$BMPFileInput\x22 -of \x22$BMPFileOutput\x22 -ift float -oft real -clm \x22$ColorMapPlanes27\x22 -nc $FinalNcol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mm 0 -min 0 -max 255 -mcol black  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+        PsPprogressBar $f
+        TextEditorRunTrace "Check RunTime Errors" "r"
+        CheckRunTimeError
+        WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
+        if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $BMPFileOutput }
+        set Bord "HAlpha"
+        PsPScatterPlot "$HAAlpDirOutput/entropy_medium_lambda.bin" "$HAAlpDirOutput/mask_medium_lambda.bin" float real 0 0 1 "$HAAlpDirOutput/alpha_medium_lambda.bin" "$HAAlpDirOutput/mask_medium_lambda.bin" float real 0 0 90 $OffsetLig $OffsetCol $FinalNlig $FinalNcol $Bord "Entropy" "Alpha (deg)" "H - Alpha Plane (Medium Lambda)" 5 .top74
+        set Bord "HAlpha2"
+        PsPScatterPlotColor "$HAAlpDirOutput/entropy_medium_lambda.bin" "$HAAlpDirOutput/mask_medium_lambda.bin" float real 0 0 1 "$HAAlpDirOutput/alpha_medium_lambda.bin" "$HAAlpDirOutput/mask_medium_lambda.bin" float real 0 0 90 $OffsetLig $OffsetCol $FinalNlig $FinalNcol $Bord "Entropy" "Alpha (deg)" "H - Alpha Plane (Medium Lambda)" 5 .top74
         }
     if [file exists "$HAAlpDirOutput/H_alpha_lambda_class3.bin"] {
         EnviWriteConfigClassif "$HAAlpDirOutput/H_alpha_lambda_class3.bin" $FinalNlig $FinalNcol 4 $ColorMapPlanes27 27
-        PsPScatterPlot "$HAAlpDirOutput/entropy_high_lambda.bin" "$HAAlpDirOutput/mask_valid_pixels.bin" float real 0 0 1 "$HAAlpDirOutput/alpha_high_lambda.bin" "$HAAlpDirOutput/mask_valid_pixels.bin" float real 0 0 90 $OffsetLig $OffsetCol $FinalNlig $FinalNcol $Bord "Entropy" "Alpha (deg)" "H - Alpha Plane (High Lambda)" 6 .top74
+        set BMPFileInput "$HAAlpDirOutput/H_alpha_lambda_class3.bin"
+        set BMPFileOutput "$HAAlpDirOutput/H_alpha_lambda_class3.bmp"
+        set MaskCmd ""
+        set MaskFile "$HAAlpDirOutput/mask_high_lambda.bin"
+        if [file exists $MaskFile] {set MaskCmd "-mask \x22$MaskFile\x22"}
+        set ProgressLine "0"
+        WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
+        update
+        set ProcessFunction "Soft/bin/bmp_process/create_bmp_file.exe"
+        TextEditorRunTrace "Process The Function $ProcessFunction" "k"
+        TextEditorRunTrace "Arguments: -if \x22$BMPFileInput\x22 -of \x22$BMPFileOutput\x22 -ift float -oft real -clm \x22$ColorMapPlanes27\x22 -nc $FinalNcol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mm 0 -min 0 -max 255 -mcol black  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+        set f [ open "| $ProcessFunction -if \x22$BMPFileInput\x22 -of \x22$BMPFileOutput\x22 -ift float -oft real -clm \x22$ColorMapPlanes27\x22 -nc $FinalNcol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mm 0 -min 0 -max 255 -mcol black  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+        PsPprogressBar $f
+        TextEditorRunTrace "Check RunTime Errors" "r"
+        CheckRunTimeError
+        WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
+        if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $BMPFileOutput }
+        set Bord "HAlpha"
+        PsPScatterPlot "$HAAlpDirOutput/entropy_high_lambda.bin" "$HAAlpDirOutput/mask_high_lambda.bin" float real 0 0 1 "$HAAlpDirOutput/alpha_high_lambda.bin" "$HAAlpDirOutput/mask_high_lambda.bin" float real 0 0 90 $OffsetLig $OffsetCol $FinalNlig $FinalNcol $Bord "Entropy" "Alpha (deg)" "H - Alpha Plane (High Lambda)" 6 .top74
+        set Bord "HAlpha3"
+        PsPScatterPlotColor "$HAAlpDirOutput/entropy_high_lambda.bin" "$HAAlpDirOutput/mask_high_lambda.bin" float real 0 0 1 "$HAAlpDirOutput/alpha_high_lambda.bin" "$HAAlpDirOutput/mask_high_lambda.bin" float real 0 0 90 $OffsetLig $OffsetCol $FinalNlig $FinalNcol $Bord "Entropy" "Alpha (deg)" "H - Alpha Plane (High Lambda)" 6 .top74
         }
     }
 }
@@ -1173,9 +1216,9 @@ proc vTclWindow. {base} {
     # CREATING WIDGETS
     ###################
     wm focusmodel $top passive
-    wm geometry $top 200x200+75+75; update
-    wm maxsize $top 3360 1028
-    wm minsize $top 116 1
+    wm geometry $top 200x200+182+182; update
+    wm maxsize $top 1924 1061
+    wm minsize $top 120 1
     wm overrideredirect $top 0
     wm resizable $top 1 1
     wm withdraw $top
@@ -1205,9 +1248,9 @@ proc vTclWindow.top74 {base} {
     vTcl:toplevel $top -class Toplevel
     wm withdraw $top
     wm focusmodel $top passive
-    wm geometry $top 500x500+10+110; update
+    wm geometry $top 500x460+10+110; update
     wm maxsize $top 1604 1184
-    wm minsize $top 116 1
+    wm minsize $top 120 1
     wm overrideredirect $top 0
     wm resizable $top 1 1
     wm title $top "Data Processing: H / A / Alpha Classification"
@@ -1462,153 +1505,11 @@ if {$DirName != ""} {
     vTcl:DefineAlias "$site_5_0.che38" "Checkbutton35" vTcl:WidgetProc "Toplevel74" 1
     pack $site_5_0.che38 \
         -in $site_5_0 -anchor center -expand 0 -fill none -padx 20 -side left 
-    frame $site_4_0.cpd76 \
-        -borderwidth 2 -height 75 -width 159 
-    vTcl:DefineAlias "$site_4_0.cpd76" "Frame110" vTcl:WidgetProc "Toplevel74" 1
-    set site_5_0 $site_4_0.cpd76
-    label $site_5_0.lab23 \
-        -text {ColorMap 9} -width 10 
-    vTcl:DefineAlias "$site_5_0.lab23" "Label125" vTcl:WidgetProc "Toplevel74" 1
-    entry $site_5_0.ent25 \
-        -background white -disabledbackground #ffffff \
-        -disabledforeground #0000ff -foreground #0000ff -state disabled \
-        -textvariable ColorMapPlanes9 -width 40 
-    vTcl:DefineAlias "$site_5_0.ent25" "Entry53" vTcl:WidgetProc "Toplevel74" 1
-    button $site_5_0.but26 \
-        -background #ffff00 \
-        -command [list vTcl:DoCmdOption $site_5_0.but26 {global ColorMapPlanes9 VarColorMap ColorMapIn ColorMapOut ColorNumber ColorMapNumber RedPalette GreenPalette BluePalette OpenDirFile
-#BMP PROCESS
-global Load_colormap PSPTopLevel
- 
-if {$OpenDirFile == 0} {
-
-if {$Load_colormap == 0} {
-    source "GUI/bmp_process/colormap.tcl"
-    set Load_colormap 1
-    WmTransient .top38 $PSPTopLevel
-    }
-
-set ColorMapNumber 9
-set ColorNumber 256
-for {set i 0} {$i < 256} {incr i} {
-    set RedPalette($i) 1
-    set GreenPalette($i) 1
-    set BluePalette($i) 1
-    }
-if [file exists $ColorMapPlanes9] {
-    set f [open $ColorMapPlanes9 r]
-    gets $f tmp
-    gets $f tmp
-    gets $f tmp
-    for {set i 0} {$i < $ColorNumber} {incr i} {
-        gets $f couleur
-        set RedPalette($i) [lindex $couleur 0]
-        set GreenPalette($i) [lindex $couleur 1]
-        set BluePalette($i) [lindex $couleur 2]
-        }
-    close $f
-    }
-
-set c1 .top38.fra35.but36
-set couleur [format "#%02x%02x%02x" $RedPalette(1) $GreenPalette(1) $BluePalette(1)]    
-$c1 configure -background $couleur
-set c2 .top38.fra35.but37
-set couleur [format "#%02x%02x%02x" $RedPalette(2) $GreenPalette(2) $BluePalette(2)]    
-$c2 configure -background $couleur
-set c3 .top38.fra35.but38
-set couleur [format "#%02x%02x%02x" $RedPalette(3) $GreenPalette(3) $BluePalette(3)]    
-$c3 configure -background $couleur
-set c4 .top38.fra35.but39
-set couleur [format "#%02x%02x%02x" $RedPalette(4) $GreenPalette(4) $BluePalette(4)]    
-$c4 configure -background $couleur
-set c5 .top38.fra35.but40
-set couleur [format "#%02x%02x%02x" $RedPalette(5) $GreenPalette(5) $BluePalette(5)]    
-$c5 configure -background $couleur
-set c6 .top38.fra35.but41
-set couleur [format "#%02x%02x%02x" $RedPalette(6) $GreenPalette(6) $BluePalette(6)]    
-$c6 configure -background $couleur
-set c7 .top38.fra35.but42
-set couleur [format "#%02x%02x%02x" $RedPalette(7) $GreenPalette(7) $BluePalette(7)]    
-$c7 configure -background $couleur
-set c8 .top38.fra35.but43
-set couleur [format "#%02x%02x%02x" $RedPalette(8) $GreenPalette(8) $BluePalette(8)]    
-$c8 configure -background $couleur
-set c9 .top38.fra35.but44
-set couleur [format "#%02x%02x%02x" $RedPalette(9) $GreenPalette(9) $BluePalette(9)]    
-$c9 configure -background $couleur
-set c10 .top38.fra35.but45
-set couleur [format "#%02x%02x%02x" $RedPalette(10) $GreenPalette(10) $BluePalette(10)]    
-$c10 configure -background $couleur
-set c11 .top38.fra35.but46
-set couleur [format "#%02x%02x%02x" $RedPalette(11) $GreenPalette(11) $BluePalette(11)]    
-$c11 configure -background $couleur
-set c12 .top38.fra35.but47
-set couleur [format "#%02x%02x%02x" $RedPalette(12) $GreenPalette(12) $BluePalette(12)]    
-$c12 configure -background $couleur
-set c13 .top38.fra35.but48
-set couleur [format "#%02x%02x%02x" $RedPalette(13) $GreenPalette(13) $BluePalette(13)]    
-$c13 configure -background $couleur
-set c14 .top38.fra35.but49
-set couleur [format "#%02x%02x%02x" $RedPalette(14) $GreenPalette(14) $BluePalette(14)]    
-$c14 configure -background $couleur
-set c15 .top38.fra35.but50
-set couleur [format "#%02x%02x%02x" $RedPalette(15) $GreenPalette(15) $BluePalette(15)]    
-$c15 configure -background $couleur
-set c16 .top38.fra35.but51
-set couleur [format "#%02x%02x%02x" $RedPalette(16) $GreenPalette(16) $BluePalette(16)]    
-$c16 configure -background $couleur
-
-.top38.fra35.but38 configure -state disable
- 
-set VarColorMap ""
-set ColorMapIn $ColorMapPlanes9
-set ColorMapOut $ColorMapPlanes9
-WidgetShowFromWidget $widget(Toplevel74) $widget(Toplevel38); TextEditorRunTrace "Open Window Colormap" "b"
-tkwait variable VarColorMap
-if {"$VarColorMap"=="ok"} {
-   set ColorMapPlanes9 $ColorMapOut
-   }
-}}] \
-        -padx 4 -pady 2 -text Edit 
-    vTcl:DefineAlias "$site_5_0.but26" "Button41" vTcl:WidgetProc "Toplevel74" 1
-    bindtags $site_5_0.but26 "$site_5_0.but26 Button $top all _vTclBalloon"
-    bind $site_5_0.but26 <<SetBalloon>> {
-        set ::vTcl::balloon::%W {Edit ColorMap}
-    }
-    button $site_5_0.but76 \
-        \
-        -command {global FileName HAAlpDirInput ColorMapPlanes9
-
-set types {
-{{PAL Files}        {.pal}        }
-}
-set FileName ""
-OpenFile "$HAAlpDirInput" $types "INPUT COLORMAP FILE"
-if {$FileName != ""} {
-    set ColorMapPlanes9 $FileName
-    }} \
-        -image [vTcl:image:get_image [file join . GUI Images OpenFile.gif]] \
-        -pady 0 -text button 
-    vTcl:DefineAlias "$site_5_0.but76" "Button1" vTcl:WidgetProc "Toplevel74" 1
-    bindtags $site_5_0.but76 "$site_5_0.but76 Button $top all _vTclBalloon"
-    bind $site_5_0.but76 <<SetBalloon>> {
-        set ::vTcl::balloon::%W {Open File}
-    }
-    pack $site_5_0.lab23 \
-        -in $site_5_0 -anchor center -expand 0 -fill none -side left 
-    pack $site_5_0.ent25 \
-        -in $site_5_0 -anchor center -expand 1 -fill x -side left 
-    pack $site_5_0.but26 \
-        -in $site_5_0 -anchor center -expand 0 -fill none -side right 
-    pack $site_5_0.but76 \
-        -in $site_5_0 -anchor center -expand 0 -fill none -side right 
     pack $site_4_0.cpd73 \
         -in $site_4_0 -anchor center -expand 0 -fill x -side top 
     pack $site_4_0.cpd74 \
         -in $site_4_0 -anchor center -expand 0 -fill x -side top 
     pack $site_4_0.cpd75 \
-        -in $site_4_0 -anchor center -expand 0 -fill x -side top 
-    pack $site_4_0.cpd76 \
         -in $site_4_0 -anchor center -expand 0 -fill x -side top 
     TitleFrame $top.cpd71 \
         -text {Tuo-Tuo ( H / Alpha / Lambda ) Classification} 
@@ -1628,197 +1529,7 @@ if {$FileName != ""} {
     vTcl:DefineAlias "$site_5_0.che38" "Checkbutton36" vTcl:WidgetProc "Toplevel74" 1
     pack $site_5_0.che38 \
         -in $site_5_0 -anchor center -expand 0 -fill none -padx 20 -side left 
-    frame $site_4_0.cpd76 \
-        -borderwidth 2 -height 75 -width 159 
-    vTcl:DefineAlias "$site_4_0.cpd76" "Frame111" vTcl:WidgetProc "Toplevel74" 1
-    set site_5_0 $site_4_0.cpd76
-    label $site_5_0.lab23 \
-        -text {ColorMap 27} -width 10 
-    vTcl:DefineAlias "$site_5_0.lab23" "Label126" vTcl:WidgetProc "Toplevel74" 1
-    entry $site_5_0.ent25 \
-        -background white -disabledbackground #ffffff \
-        -disabledforeground #0000ff -foreground #0000ff -state disabled \
-        -textvariable ColorMapPlanes27 -width 40 
-    vTcl:DefineAlias "$site_5_0.ent25" "Entry54" vTcl:WidgetProc "Toplevel74" 1
-    button $site_5_0.but26 \
-        -background #ffff00 \
-        -command [list vTcl:DoCmdOption $site_5_0.but26 {global ColorMapPlanes27 VarColorMap ColorMapIn ColorMapOut ColorNumber ColorMapNumber RedPalette GreenPalette BluePalette OpenDirFile
-#BMP PROCESS
-global Load_colormap2 PSPTopLevel
- 
-if {$OpenDirFile == 0} {
-
-if {$Load_colormap2 == 0} {
-    source "GUI/bmp_process/colormap2.tcl"
-    set Load_colormap2 1
-    WmTransient .top254 $PSPTopLevel
-    }
-
-set ColorMapNumber 32
-set ColorNumber 256
-for {set i 0} {$i < 256} {incr i} {
-    set RedPalette($i) 1
-    set GreenPalette($i) 1
-    set BluePalette($i) 1
-    }
-if [file exists $ColorMapPlanes27] {
-    set f [open $ColorMapPlanes27 r]
-    gets $f tmp
-    gets $f tmp
-    gets $f tmp
-    for {set i 0} {$i < $ColorNumber} {incr i} {
-        gets $f couleur
-        set RedPalette($i) [lindex $couleur 0]
-        set GreenPalette($i) [lindex $couleur 1]
-        set BluePalette($i) [lindex $couleur 2]
-        }
-    close $f
-    }
- 
-set c1 .top254.fra35.but36
-set couleur [format "#%02x%02x%02x" $RedPalette(1) $GreenPalette(1) $BluePalette(1)]    
-$c1 configure -background $couleur
-set c2 .top254.fra35.but37
-set couleur [format "#%02x%02x%02x" $RedPalette(2) $GreenPalette(2) $BluePalette(2)]    
-$c2 configure -background $couleur
-set c3 .top254.fra35.but38
-set couleur [format "#%02x%02x%02x" $RedPalette(3) $GreenPalette(3) $BluePalette(3)]    
-$c3 configure -background $couleur
-set c4 .top254.fra35.but39
-set couleur [format "#%02x%02x%02x" $RedPalette(4) $GreenPalette(4) $BluePalette(4)]    
-$c4 configure -background $couleur
-set c5 .top254.fra35.but40
-set couleur [format "#%02x%02x%02x" $RedPalette(5) $GreenPalette(5) $BluePalette(5)]    
-$c5 configure -background $couleur
-set c6 .top254.fra35.but41
-set couleur [format "#%02x%02x%02x" $RedPalette(6) $GreenPalette(6) $BluePalette(6)]    
-$c6 configure -background $couleur
-set c7 .top254.fra35.but42
-set couleur [format "#%02x%02x%02x" $RedPalette(7) $GreenPalette(7) $BluePalette(7)]    
-$c7 configure -background $couleur
-set c8 .top254.fra35.but43
-set couleur [format "#%02x%02x%02x" $RedPalette(8) $GreenPalette(8) $BluePalette(8)]    
-$c8 configure -background $couleur
-set c9 .top254.fra35.but44
-set couleur [format "#%02x%02x%02x" $RedPalette(9) $GreenPalette(9) $BluePalette(9)]    
-$c9 configure -background $couleur
-set c10 .top254.fra35.but45
-set couleur [format "#%02x%02x%02x" $RedPalette(10) $GreenPalette(10) $BluePalette(10)]    
-$c10 configure -background $couleur
-set c11 .top254.fra35.but46
-set couleur [format "#%02x%02x%02x" $RedPalette(11) $GreenPalette(11) $BluePalette(11)]    
-$c11 configure -background $couleur
-set c12 .top254.fra35.but47
-set couleur [format "#%02x%02x%02x" $RedPalette(12) $GreenPalette(12) $BluePalette(12)]    
-$c12 configure -background $couleur
-set c13 .top254.fra35.but48
-set couleur [format "#%02x%02x%02x" $RedPalette(13) $GreenPalette(13) $BluePalette(13)]    
-$c13 configure -background $couleur
-set c14 .top254.fra35.but49
-set couleur [format "#%02x%02x%02x" $RedPalette(14) $GreenPalette(14) $BluePalette(14)]    
-$c14 configure -background $couleur
-set c15 .top254.fra35.but50
-set couleur [format "#%02x%02x%02x" $RedPalette(15) $GreenPalette(15) $BluePalette(15)]    
-$c15 configure -background $couleur
-set c16 .top254.fra35.but51
-set couleur [format "#%02x%02x%02x" $RedPalette(16) $GreenPalette(16) $BluePalette(16)]    
-$c16 configure -background $couleur
-set c17 .top254.cpd73.but36
-set couleur [format "#%02x%02x%02x" $RedPalette(17) $GreenPalette(17) $BluePalette(17)]    
-$c17 configure -background $couleur
-set c18 .top254.cpd73.but37
-set couleur [format "#%02x%02x%02x" $RedPalette(18) $GreenPalette(18) $BluePalette(18)]    
-$c18 configure -background $couleur
-set c19 .top254.cpd73.but38
-set couleur [format "#%02x%02x%02x" $RedPalette(19) $GreenPalette(19) $BluePalette(19)]    
-$c19 configure -background $couleur
-set c20 .top254.cpd73.but39
-set couleur [format "#%02x%02x%02x" $RedPalette(20) $GreenPalette(20) $BluePalette(20)]    
-$c20 configure -background $couleur
-set c21 .top254.cpd73.but40
-set couleur [format "#%02x%02x%02x" $RedPalette(21) $GreenPalette(21) $BluePalette(21)]    
-$c21 configure -background $couleur
-set c22 .top254.cpd73.but41
-set couleur [format "#%02x%02x%02x" $RedPalette(22) $GreenPalette(22) $BluePalette(22)]    
-$c22 configure -background $couleur
-set c23 .top254.cpd73.but42
-set couleur [format "#%02x%02x%02x" $RedPalette(23) $GreenPalette(23) $BluePalette(23)]    
-$c23 configure -background $couleur
-set c24 .top254.cpd73.but43
-set couleur [format "#%02x%02x%02x" $RedPalette(24) $GreenPalette(24) $BluePalette(24)]    
-$c24 configure -background $couleur
-set c25 .top254.cpd73.but44
-set couleur [format "#%02x%02x%02x" $RedPalette(25) $GreenPalette(25) $BluePalette(25)]    
-$c25 configure -background $couleur
-set c26 .top254.cpd73.but45
-set couleur [format "#%02x%02x%02x" $RedPalette(26) $GreenPalette(26) $BluePalette(26)]    
-$c26 configure -background $couleur
-set c27 .top254.cpd73.but46
-set couleur [format "#%02x%02x%02x" $RedPalette(27) $GreenPalette(27) $BluePalette(27)]    
-$c27 configure -background $couleur
-set c28 .top254.cpd73.but47
-set couleur [format "#%02x%02x%02x" $RedPalette(28) $GreenPalette(28) $BluePalette(28)]    
-$c28 configure -background $couleur
-set c29 .top254.cpd73.but48
-set couleur [format "#%02x%02x%02x" $RedPalette(29) $GreenPalette(29) $BluePalette(29)]    
-$c29 configure -background $couleur
-set c30 .top254.cpd73.but49
-set couleur [format "#%02x%02x%02x" $RedPalette(30) $GreenPalette(30) $BluePalette(30)]    
-$c30 configure -background $couleur
-set c31 .top254.cpd73.but50
-set couleur [format "#%02x%02x%02x" $RedPalette(31) $GreenPalette(31) $BluePalette(31)]    
-$c31 configure -background $couleur
-set c32 .top254.cpd73.but51
-set couleur [format "#%02x%02x%02x" $RedPalette(32) $GreenPalette(32) $BluePalette(32)]    
-$c32 configure -background $couleur
-
-.top254.fra35.but38 configure -state normal
-   
-set VarColorMap ""
-set ColorMapIn $ColorMapPlanes27 
-set ColorMapOut $ColorMapPlanes27 
-WidgetShowFromWidget $widget(Toplevel74) $widget(Toplevel254); TextEditorRunTrace "Open Window Colormap" "b"
-tkwait variable VarColorMap
-if {"$VarColorMap"=="ok"} {
-   set ColorMapPlanes27 $ColorMapOut
-   }
-}}] \
-        -padx 4 -pady 2 -text Edit 
-    vTcl:DefineAlias "$site_5_0.but26" "Button42" vTcl:WidgetProc "Toplevel74" 1
-    bindtags $site_5_0.but26 "$site_5_0.but26 Button $top all _vTclBalloon"
-    bind $site_5_0.but26 <<SetBalloon>> {
-        set ::vTcl::balloon::%W {Edit ColorMap}
-    }
-    button $site_5_0.but76 \
-        \
-        -command {global FileName HAAlpDirInput ColorMapPlanes27
-
-set types {
-{{PAL Files}        {.pal}        }
-}
-set FileName ""
-OpenFile "$HAAlpDirInput" $types "INPUT COLORMAP FILE"
-if {$FileName != ""} {
-    set ColorMapPlanes27 $FileName
-    }} \
-        -image [vTcl:image:get_image [file join . GUI Images OpenFile.gif]] \
-        -pady 0 -text button 
-    vTcl:DefineAlias "$site_5_0.but76" "Button2" vTcl:WidgetProc "Toplevel74" 1
-    bindtags $site_5_0.but76 "$site_5_0.but76 Button $top all _vTclBalloon"
-    bind $site_5_0.but76 <<SetBalloon>> {
-        set ::vTcl::balloon::%W {Open File}
-    }
-    pack $site_5_0.lab23 \
-        -in $site_5_0 -anchor center -expand 0 -fill none -side left 
-    pack $site_5_0.ent25 \
-        -in $site_5_0 -anchor center -expand 1 -fill x -side left 
-    pack $site_5_0.but26 \
-        -in $site_5_0 -anchor center -expand 0 -fill none -side right 
-    pack $site_5_0.but76 \
-        -in $site_5_0 -anchor center -expand 0 -fill none -side right 
     pack $site_4_0.cpd73 \
-        -in $site_4_0 -anchor center -expand 0 -fill x -side top 
-    pack $site_4_0.cpd76 \
         -in $site_4_0 -anchor center -expand 0 -fill x -side top 
     frame $top.fra82 \
         -borderwidth 2 -height 6 -width 125 
@@ -1927,6 +1638,9 @@ if {$OpenDirFile == 0} {
 Window hide .top401; Window hide .top402; Window hide .top419
 Window hide .top420; Window hide .top421; Window hide .top422
 Window hide .top423; Window hide .top424; Window hide .top425
+
+$widget(Button74_1) configure -state disable
+$widget(Button74_2) configure -state disable
 
 set entropy "0"
 set anisotropy "0"
@@ -2103,15 +1817,17 @@ if {"$HalphaLambda_plane"=="1"} {
         -background #ffffff \
         -command {global TMPGnuPlotTk1 TMPGnuPlotTk2 TMPGnuPlotTk3 
 global TMPGnuPlotTk4 TMPGnuPlotTk5 TMPGnuPlotTk6 
+global TMPGnuPlotTk11 TMPGnuPlotTk12 TMPGnuPlotTk13 
+global TMPGnuPlotTk14 TMPGnuPlotTk15 TMPGnuPlotTk16 
 global Halpha_plane HA_plane Aalpha_plane HalphaLambda_plane
 
-if {"$Halpha_plane"=="1"} { Gimp $TMPGnuPlotTk1 } 
-if {"$HA_plane"=="1"} { Gimp $TMPGnuPlotTk3 } 
-if {"$Aalpha_plane"=="1"} { Gimp $TMPGnuPlotTk2 } 
+if {"$Halpha_plane"=="1"} { Gimp $TMPGnuPlotTk1; Gimp $TMPGnuPlotTk11 } 
+if {"$HA_plane"=="1"} { Gimp $TMPGnuPlotTk3; Gimp $TMPGnuPlotTk13 } 
+if {"$Aalpha_plane"=="1"} { Gimp $TMPGnuPlotTk2; Gimp $TMPGnuPlotTk12 } 
 if {"$HalphaLambda_plane"=="1"} {
-    Gimp $TMPGnuPlotTk4
-    Gimp $TMPGnuPlotTk5
-    Gimp $TMPGnuPlotTk6 
+    Gimp $TMPGnuPlotTk4; Gimp $TMPGnuPlotTk14
+    Gimp $TMPGnuPlotTk5; Gimp $TMPGnuPlotTk15
+    Gimp $TMPGnuPlotTk6; Gimp $TMPGnuPlotTk16 
     }} \
         -image [vTcl:image:get_image [file join . GUI Images GIMPshortcut.gif]] \
         -pady 0 -text button 

@@ -754,7 +754,7 @@ proc vTclWindow. {base} {
     # CREATING WIDGETS
     ###################
     wm focusmodel $top passive
-    wm geometry $top 200x200+25+25; update
+    wm geometry $top 200x200+100+100; update
     wm maxsize $top 3360 1028
     wm minsize $top 116 1
     wm overrideredirect $top 0
@@ -798,7 +798,6 @@ proc vTclWindow.top454 {base} {
     wm protocol $top WM_DELETE_WINDOW "vTcl:FireEvent $top <<>>"
 
     label $top.lab49 \
-        \
         -image [vTcl:image:get_image [file join . GUI Images ALOS2.gif]] \
         -text label 
     vTcl:DefineAlias "$top.lab49" "Label73" vTcl:WidgetProc "Toplevel454" 1
@@ -996,19 +995,6 @@ if {$config == "true"} {
         MenuRAZ
         ClosePSPViewer
         CloseAllWidget
-        if {$ActiveProgram == "ALOS2"} {
-            if {$ALOSDataFormat == "dual1.1"} { TextEditorRunTrace "Close EO-SI Dual Pol" "b" }
-            if {$ALOSDataFormat == "quad1.1"} { TextEditorRunTrace "Close EO-SI" "b" }
-
-            if {$ModeALOS == "dual1.1"} { TextEditorRunTrace "Open EO-SI Dual Pol" "b" }
-            if {$ModeALOS == "quad1.1"} { TextEditorRunTrace "Open EO-SI" "b" }
-
-            set ALOSDataFormat $ModeALOS
-            $widget(MenubuttonALOS2) configure -background #FFFF00
-            MenuEnvImp
-            InitDataDir
-            CheckEnvironnement
-            }
         Window hide $widget(Toplevel454); TextEditorRunTrace "Close Window ALOS2 Input File" "b"
 
         } else {
@@ -1208,7 +1194,7 @@ if {$config == "true"} {
     entry $site_6_0.cpd95 \
         -background white -disabledbackground #ffffff \
         -disabledforeground #0000ff -foreground #0000ff -justify center \
-        -state disabled -textvariable ALOSMode -width 12 
+        -state disabled -textvariable ALOSMode -width 14 
     vTcl:DefineAlias "$site_6_0.cpd95" "Entry454_18" vTcl:WidgetProc "Toplevel454" 1
     pack $site_6_0.cpd94 \
         -in $site_6_0 -anchor center -expand 0 -fill none -side left 
@@ -1389,9 +1375,9 @@ if {"$VarWarning"=="ok"} {
 
 DeleteFile  $TMPALOSConfig
 
-TextEditorRunTrace "Process The Function Soft/data_import/alos2_header.exe" "k"
+TextEditorRunTrace "Process The Function Soft/bin/data_import/alos2_header.exe" "k"
 TextEditorRunTrace "Arguments: -od \x22$ALOSDirOutput\x22 -ilf \x22$ALOSLeaderFile\x22 -iif \x22$FileInput1\x22 -itf \x22$ALOSTrailerFile\x22 -ocf \x22$TMPALOSConfig\x22" "k"
-set f [ open "| Soft/data_import/alos2_header.exe -od \x22$ALOSDirOutput\x22 -ilf \x22$ALOSLeaderFile\x22 -iif \x22$FileInput1\x22 -itf \x22$ALOSTrailerFile\x22 -ocf \x22$TMPALOSConfig\x22" r]
+set f [ open "| Soft/bin/data_import/alos2_header.exe -od \x22$ALOSDirOutput\x22 -ilf \x22$ALOSLeaderFile\x22 -iif \x22$FileInput1\x22 -itf \x22$ALOSTrailerFile\x22 -ocf \x22$TMPALOSConfig\x22" r]
 PsPprogressBar $f
 TextEditorRunTrace "Check RunTime Errors" "r"
 CheckRunTimeError
@@ -1417,31 +1403,28 @@ if [file exists $ConfigFile] {
     gets $f tmp
     gets $f NcolFullSize
     gets $f tmp
-    gets $f tmp
-    gets $f tmp
-    gets $f tmp
-    gets $f tmp
-    gets $f tmp
-    gets $f tmp
-    gets $f tmp
-    gets $f tmp
-    gets $f tmp
-    gets $f tmp
-    gets $f tmp
-    gets $f tmp
-    gets $f tmp
-    gets $f tmp
-    gets $f tmp
-    gets $f tmp
-    gets $f ALOSPixRow
-    gets $f tmp
-    gets $f tmp
-    gets $f ALOSPixCol
+    gets $f tmp; gets $f tmp; gets $f tmp
+    gets $f tmp; gets $f tmp; gets $f tmp
+    gets $f tmp; gets $f tmp; gets $f tmp
+    gets $f tmp; gets $f tmp; gets $f tmp
+    gets $f tmp; gets $f tmp; gets $f tmp
+    gets $f ALOSAntennaPass
+    gets $f ALOSIncAng
+    gets $f ALOSResAz; set ALOSPixRow $ALOSResAz
+    gets $f ALOSResRg; set ALOSPixCol $ALOSResRg
     close $f
     set TestVarName(0) "Initial Number of Rows"; set TestVarType(0) "int"; set TestVarValue(0) $NligFullSize; set TestVarMin(0) "0"; set TestVarMax(0) ""
     set TestVarName(1) "Initial Number of Cols"; set TestVarType(1) "int"; set TestVarValue(1) $NcolFullSize; set TestVarMin(1) "0"; set TestVarMax(1) ""
     TestVar 2
     if {$TestVarError == "ok"} {
+        if { $ALOSAntennaPass == "ASCEND"} {set ALOSAntennaPass "AR"} else {set ALOSAntennaPass "DR"} 
+        set f [open "$ALOSDirOutput/config_acquisition.txt" w]
+        puts $f $ALOSAntennaPass
+        puts $f $ALOSIncAng
+        puts $f $ALOSResRg
+        puts $f $ALOSResAz
+        close $f
+
         set ALOSFileInputFlag 1
         if {$ALOSDataLevel == "1.1" } { set ALOSDataType "COMPLEX SAR IMAGE" }
         if {$ALOSDataLevel == "1.5" } { set ALOSDataType "GEOREFERENCED SAR IMAGE" }
@@ -1503,7 +1486,7 @@ if {$Load_TextEdit == 0} {
     WmTransient $widget(Toplevel95) $PSPTopLevel
     }
 
-set ALOSFile "$ALOSDirOutput/leader_ceos.txt"
+set ALOSFile "$ALOSDirOutput/ceos_leader.txt"
 if [file exists $ALOSFile] {
     TextEditorRunTrace "Open Window Text Editor" "b"
     TextEditorFromWidget .top454 $ALOSFile
@@ -1520,7 +1503,7 @@ if {$Load_TextEdit == 0} {
     WmTransient $widget(Toplevel95) $PSPTopLevel
     }
 
-set ALOSFile "$ALOSDirOutput/trailer_ceos.txt"
+set ALOSFile "$ALOSDirOutput/ceos_trailer.txt"
 if [file exists $ALOSFile] {
     TextEditorRunTrace "Open Window Text Editor" "b"
     TextEditorFromWidget .top454 $ALOSFile
@@ -1537,7 +1520,7 @@ if {$Load_TextEdit == 0} {
     WmTransient $widget(Toplevel95) $PSPTopLevel
     }
 
-set ALOSFile "$ALOSDirOutput/image_ceos.txt"
+set ALOSFile "$ALOSDirOutput/ceos_image.txt"
 if [file exists $ALOSFile] {
     TextEditorRunTrace "Open Window Text Editor" "b"
     TextEditorFromWidget .top454 $ALOSFile
@@ -1577,7 +1560,7 @@ if [file exists $ALOSFile] {
     entry $site_5_0.ent41 \
         -background white -disabledbackground #ffffff \
         -disabledforeground #0000ff -foreground #0000ff -justify center \
-        -state disabled -textvariable NligFullSize -width 7 
+        -state disabled -textvariable NligFullSize -width 9 
     vTcl:DefineAlias "$site_5_0.ent41" "Entry454_1" vTcl:WidgetProc "Toplevel454" 1
     pack $site_5_0.lab40 \
         -in $site_5_0 -anchor center -expand 0 -fill none -padx 10 -side left 
@@ -1589,12 +1572,12 @@ if [file exists $ALOSFile] {
     vTcl:DefineAlias "$site_4_0.cpd72" "Frame109" vTcl:WidgetProc "Toplevel454" 1
     set site_5_0 $site_4_0.cpd72
     label $site_5_0.lab42 \
-        -text {Row pixel spacing} 
+        -text {Row Pixel Spacing} 
     vTcl:DefineAlias "$site_5_0.lab42" "Label454_3" vTcl:WidgetProc "Toplevel454" 1
     entry $site_5_0.ent43 \
         -background white -disabledbackground #ffffff \
         -disabledforeground #0000ff -foreground #0000ff -justify center \
-        -state disabled -textvariable ALOSPixRow -width 7 
+        -state disabled -textvariable ALOSPixRow -width 9 
     vTcl:DefineAlias "$site_5_0.ent43" "Entry454_3" vTcl:WidgetProc "Toplevel454" 1
     pack $site_5_0.lab42 \
         -in $site_5_0 -anchor center -expand 0 -fill none -padx 10 -side left 
@@ -1614,12 +1597,12 @@ if [file exists $ALOSFile] {
     vTcl:DefineAlias "$site_4_0.fra39" "Frame110" vTcl:WidgetProc "Toplevel454" 1
     set site_5_0 $site_4_0.fra39
     label $site_5_0.lab40 \
-        -text {Row pixel spacing} 
+        -text {Col Pixel Spacing} 
     vTcl:DefineAlias "$site_5_0.lab40" "Label454_4" vTcl:WidgetProc "Toplevel454" 1
     entry $site_5_0.ent41 \
         -background white -disabledbackground #ffffff \
         -disabledforeground #0000ff -foreground #0000ff -justify center \
-        -state disabled -textvariable ALOSPixCol -width 7 
+        -state disabled -textvariable ALOSPixCol -width 9 
     vTcl:DefineAlias "$site_5_0.ent41" "Entry454_4" vTcl:WidgetProc "Toplevel454" 1
     pack $site_5_0.lab40 \
         -in $site_5_0 -anchor center -expand 0 -fill none -padx 10 -side left 
@@ -1636,7 +1619,7 @@ if [file exists $ALOSFile] {
     entry $site_5_0.ent43 \
         -background white -disabledbackground #ffffff \
         -disabledforeground #0000ff -foreground #0000ff -justify center \
-        -state disabled -textvariable NcolFullSize -width 7 
+        -state disabled -textvariable NcolFullSize -width 9 
     vTcl:DefineAlias "$site_5_0.ent43" "Entry454_2" vTcl:WidgetProc "Toplevel454" 1
     pack $site_5_0.lab42 \
         -in $site_5_0 -anchor center -expand 0 -fill none -padx 10 -side left 
@@ -1678,7 +1661,8 @@ if {$OpenDirFile == 0} {
         set ::vTcl::balloon::%W {Run and Exit the Function}
     }
     button $site_3_0.but23 \
-        -background #ff8000 -command {HelpPdfEdit "Help/ALOS2_Input_File.pdf"} \
+        -background #ff8000 \
+        -command {HelpPdfEdit "Help/ALOS2_Input_File.pdf"} \
         -image [vTcl:image:get_image [file join . GUI Images help.gif]] \
         -pady 0 -width 20 
     vTcl:DefineAlias "$site_3_0.but23" "Button15" vTcl:WidgetProc "Toplevel454" 1

@@ -953,7 +953,7 @@ global SIRVOutputSubDir SIRVFonction SIRVFunction ChannelSIRV
 global Fonction2 ProgressLine VarFunction VarWarning WarningMessage WarningMessage2
 global ConfigFile FinalNlig FinalNcol PolarCase PolarType NwinSIRVL NwinSIRVC
 global NligFullSize NcolFullSize TMPDirectory SIRVNormFlag 
-global OpenDirFile SIRVFonc PSPMemory TMPMemoryAllocError DataFormatActive
+global OpenDirFile SIRVFonc TMPMemoryAllocError DataFormatActive
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
 
 if {$OpenDirFile == 0} {
@@ -994,9 +994,9 @@ if {"$VarWarning"=="ok"} {
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
         if {$SIRVFonction == "SIRV Model Estimation"} {
-            TextEditorRunTrace "Process The Function Soft/speckle_filter/sirv_model_estimation.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$SIRVDirInput\x22 -od \x22$SIRVDirOutput\x22 -iodf $SIRVFonc -nwr $NwinSIRVL -nwc $NwinSIRVC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -norm $SIRVNormFlag -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/speckle_filter/sirv_model_estimation.exe -id \x22$SIRVDirInput\x22 -od \x22$SIRVDirOutput\x22 -iodf $SIRVFonc -nwr $NwinSIRVL -nwc $NwinSIRVC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -norm $SIRVNormFlag -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/speckle_filter/sirv_model_estimation.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$SIRVDirInput\x22 -od \x22$SIRVDirOutput\x22 -iodf $SIRVFonc -nwr $NwinSIRVL -nwc $NwinSIRVC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -norm $SIRVNormFlag  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/speckle_filter/sirv_model_estimation.exe -id \x22$SIRVDirInput\x22 -od \x22$SIRVDirOutput\x22 -iodf $SIRVFonc -nwr $NwinSIRVL -nwc $NwinSIRVC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -norm $SIRVNormFlag  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             }
         if {$SIRVFonction == "J. Skou - H. Skriver Restoration"} {
             set SIRVDirOutputTmp $TMPDirectory
@@ -1010,9 +1010,9 @@ if {"$VarWarning"=="ok"} {
                 }
             set ConfigFile "$SIRVDirOutputTmp/config.txt"
             WriteConfig
-            TextEditorRunTrace "Process The Function Soft/speckle_filter/boxcar_filter.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$SIRVDirInput\x22 -od \x22$SIRVDirOutputTmp\x22 -iodf $SIRVFonc -nwr $NwinSIRVL -nwc $NwinSIRVC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/speckle_filter/boxcar_filter.exe -id \x22$SIRVDirInput\x22 -od \x22$SIRVDirOutputTmp\x22 -iodf $SIRVFonc -nwr $NwinSIRVL -nwc $NwinSIRVC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/speckle_filter/boxcar_filter.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$SIRVDirInput\x22 -od \x22$SIRVDirOutputTmp\x22 -iodf $SIRVFonc -nwr $NwinSIRVL -nwc $NwinSIRVC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/speckle_filter/boxcar_filter.exe -id \x22$SIRVDirInput\x22 -od \x22$SIRVDirOutputTmp\x22 -iodf $SIRVFonc -nwr $NwinSIRVL -nwc $NwinSIRVC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1029,9 +1029,9 @@ if {"$VarWarning"=="ok"} {
             if {"$SIRVFonc" ==  "C4"} {EnviWriteConfigC $SIRVDirOutputTmp $FinalNlig $FinalNcol}
             set ProgressLine "0"
             update
-            TextEditorRunTrace "Process The Function Soft/speckle_filter/skou_skriver_restoration.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$SIRVDirInput\x22 -od \x22$SIRVDirOutput\x22 -idtmp \x22$SIRVDirOutputTmp\x22 -iodf $SIRVFonc -nlk $Nlook -nwr $NwinSIRVL -nwc $NwinSIRVC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/speckle_filter/skou_skriver_restoration.exe -id \x22$SIRVDirInput\x22 -od \x22$SIRVDirOutput\x22 -idtmp \x22$SIRVDirOutputTmp\x22 -iodf $SIRVFonc -nlk $Nlook -nwr $NwinSIRVL -nwc $NwinSIRVC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/speckle_filter/skou_skriver_restoration.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$SIRVDirInput\x22 -od \x22$SIRVDirOutput\x22 -idtmp \x22$SIRVDirOutputTmp\x22 -iodf $SIRVFonc -nlk $Nlook -nwr $NwinSIRVL -nwc $NwinSIRVC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/speckle_filter/skou_skriver_restoration.exe -id \x22$SIRVDirInput\x22 -od \x22$SIRVDirOutput\x22 -idtmp \x22$SIRVDirOutputTmp\x22 -iodf $SIRVFonc -nlk $Nlook -nwr $NwinSIRVL -nwc $NwinSIRVC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             }
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"

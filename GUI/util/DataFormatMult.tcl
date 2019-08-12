@@ -337,7 +337,7 @@ proc vTclWindow.top003 {base} {
     vTcl:toplevel $top -class Toplevel
     wm withdraw $top
     wm focusmodel $top passive
-    wm geometry $top 340x40+30+70; update
+    wm geometry $top 340x40+30+130; update
     wm maxsize $top 1604 1184
     wm minsize $top 113 1
     wm overrideredirect $top 0

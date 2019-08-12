@@ -994,9 +994,9 @@ if {"$VarWarning"=="ok"} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/data_process_sngl/zdr_elements.exe" "k"
-        TextEditorRunTrace "Arguments: -id \x22$ParametersDirInput\x22 -od \x22$ParametersDirOutput\x22 -iodf $ParametersF -nwr $ParaNwinL -nwc $ParaNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -rat $ParaRatio($i) -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-        set f [ open "| Soft/data_process_sngl/zdr_elements.exe -id \x22$ParametersDirInput\x22 -od \x22$ParametersDirOutput\x22 -iodf $ParametersF -nwr $ParaNwinL -nwc $ParaNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -rat $ParaRatio($i) -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+        TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/zdr_elements.exe" "k"
+        TextEditorRunTrace "Arguments: -id \x22$ParametersDirInput\x22 -od \x22$ParametersDirOutput\x22 -iodf $ParametersF -nwr $ParaNwinL -nwc $ParaNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -rat $ParaRatio($i)  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+        set f [ open "| Soft/bin/data_process_sngl/zdr_elements.exe -id \x22$ParametersDirInput\x22 -od \x22$ParametersDirOutput\x22 -iodf $ParametersF -nwr $ParaNwinL -nwc $ParaNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -rat $ParaRatio($i)  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError

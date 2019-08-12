@@ -1345,7 +1345,7 @@ $widget(Checkbutton93_16) configure -state disable} \
         -command {global HAAlpDirInput HAAlpDirOutput HAAlpOutputDir HAAlpOutputSubDir
 global Fonction Fonction2 VarFunction VarWarning WarningMessage WarningMessage2 VarError ErrorMessage
 global ProgressLine HAAlphaDecompositionFonction HAAlphaDecompositionFunction
-global BMPDirInput OpenDirFile NwinHAAlpL NwinHAAlpC PSPMemory TMPMemoryAllocError
+global BMPDirInput OpenDirFile NwinHAAlpL NwinHAAlpC TMPMemoryAllocError
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
 
 if {$OpenDirFile == 0} {
@@ -1396,9 +1396,9 @@ if {"$config"=="true"} {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/data_process_sngl/h_a_alpha_decompositionSPPC2.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$HAAlpDirInput\x22 -od \x22$HAAlpDirOutput\x22 -iodf $HAAlphaDecompositionFonction -nwr $NwinHAAlpL -nwc $NwinHAAlpC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -fl1 $eigenvalues -fl2 $probabilities -fl3 $alpha12 -fl4 $delta12 -fl5 $alpdel -fl6 $alpha -fl7 $delta -fl8 $lambda -fl9 $entropy -fl10 $anisotropy -fl11 $CombHA -fl12 $CombH1mA -fl13 $Comb1mHA -fl14 $Comb1mH1mA -fl15 $shannon -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_sngl/h_a_alpha_decompositionSPPC2.exe -id \x22$HAAlpDirInput\x22 -od \x22$HAAlpDirOutput\x22 -iodf $HAAlphaDecompositionFonction -nwr $NwinHAAlpL -nwc $NwinHAAlpC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -fl1 $eigenvalues -fl2 $probabilities -fl3 $alpha12 -fl4 $delta12 -fl5 $alpdel -fl6 $alpha -fl7 $delta -fl8 $lambda -fl9 $entropy -fl10 $anisotropy -fl11 $CombHA -fl12 $CombH1mA -fl13 $Comb1mHA -fl14 $Comb1mH1mA -fl15 $shannon -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/h_a_alpha_decompositionSPPC2.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$HAAlpDirInput\x22 -od \x22$HAAlpDirOutput\x22 -iodf $HAAlphaDecompositionFonction -nwr $NwinHAAlpL -nwc $NwinHAAlpC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -fl1 $eigenvalues -fl2 $probabilities -fl3 $alpha12 -fl4 $delta12 -fl5 $alpdel -fl6 $alpha -fl7 $delta -fl8 $lambda -fl9 $entropy -fl10 $anisotropy -fl11 $CombHA -fl12 $CombH1mA -fl13 $Comb1mHA -fl14 $Comb1mH1mA -fl15 $shannon  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_sngl/h_a_alpha_decompositionSPPC2.exe -id \x22$HAAlpDirInput\x22 -od \x22$HAAlpDirOutput\x22 -iodf $HAAlphaDecompositionFonction -nwr $NwinHAAlpL -nwc $NwinHAAlpC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -fl1 $eigenvalues -fl2 $probabilities -fl3 $alpha12 -fl4 $delta12 -fl5 $alpdel -fl6 $alpha -fl7 $delta -fl8 $lambda -fl9 $entropy -fl10 $anisotropy -fl11 $CombHA -fl12 $CombH1mA -fl13 $Comb1mHA -fl14 $Comb1mH1mA -fl15 $shannon  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1491,11 +1491,11 @@ if {"$config"=="true"} {
                 set BMPDirInput $HAAlpDirOutput
                 set BMPFileInput "$HAAlpDirOutput/p1.bin"
                 set BMPFileOutput "$HAAlpDirOutput/p1.bmp"
-                PSPcreate_bmp_file black $BMPFileInput $BMPFileOutput float real jet  $FinalNcol  $OffsetLig  $OffsetCol  $FinalNlig  $FinalNcol 0 0 1
+                PSPcreate_bmp_file black $BMPFileInput $BMPFileOutput float real jet  $FinalNcol  $OffsetLig  $OffsetCol  $FinalNlig  $FinalNcol 0 0.5 1.0
                 set BMPDirInput $HAAlpDirOutput
                 set BMPFileInput "$HAAlpDirOutput/p2.bin"
                 set BMPFileOutput "$HAAlpDirOutput/p2.bmp"
-                PSPcreate_bmp_file black $BMPFileInput $BMPFileOutput float real jet  $FinalNcol  $OffsetLig  $OffsetCol  $FinalNlig  $FinalNcol 0 0 1
+                PSPcreate_bmp_file black $BMPFileInput $BMPFileOutput float real jet  $FinalNcol  $OffsetLig  $OffsetCol  $FinalNlig  $FinalNcol 0 0.0 0.5
                 } else {
                 set VarError ""
                 set ErrorMessage "IMPOSSIBLE TO OPEN THE BIN FILES" 

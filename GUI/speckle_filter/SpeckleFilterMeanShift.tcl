@@ -1363,7 +1363,7 @@ if {$MeanShiftSigma == 0.4} { set MeanShiftSigma 0.9 }} \
 global FilterFonction FilterFunction OpenDirFile FilterNoise TMPDirectory
 global Fonction2 ProgressLine VarFunction VarWarning VarAdvice WarningMessage WarningMessage2
 global ConfigFile FinalNlig FinalNcol PolarCase PolarType 
-global PSPMemory TMPMemoryAllocError DataFormatActive NligFullSize NcolFullSize 
+global TMPMemoryAllocError DataFormatActive NligFullSize NcolFullSize 
 global MeanShiftLook MeanShiftNwin MeanShiftNwinPix MeanShiftThreshold
 global MeanShiftSigma MeanShiftKernelS MeanShiftKernelR
 global MeanShiftPixel MeanShiftBeta MeanShiftLambdaS MeanShiftLambdaR
@@ -1409,9 +1409,9 @@ if {"$VarWarning"=="ok"} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/speckle_filter/generalized_mean_shift_filter.exe" "k"
-        TextEditorRunTrace "Arguments: -id \x22$FilterDirInput\x22 -od \x22$FilterDirOutput\x22 -iodf $FilterFonc -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -nlk $MeanShiftLook -nw $MeanShiftNwin -ncw $MeanShiftNwinPix -ct $MeanShiftThreshold -sig $MeanShiftSigma0 -sk $MeanShiftKernelS -rk $MeanShiftKernelR -ce $MeanShiftPixel -gam $MeanShiftBeta -ls $MeanShiftLambdaS -lr $MeanShiftLambdaR -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-        set f [ open "| Soft/speckle_filter/generalized_mean_shift_filter.exe -id \x22$FilterDirInput\x22 -od \x22$FilterDirOutput\x22 -iodf $FilterFonc -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -nlk $MeanShiftLook -nw $MeanShiftNwin -ncw $MeanShiftNwinPix -ct $MeanShiftThreshold -sig $MeanShiftSigma0 -sk $MeanShiftKernelS -rk $MeanShiftKernelR -ce $MeanShiftPixel -gam $MeanShiftBeta -ls $MeanShiftLambdaS -lr $MeanShiftLambdaR -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+        TextEditorRunTrace "Process The Function Soft/bin/speckle_filter/generalized_mean_shift_filter.exe" "k"
+        TextEditorRunTrace "Arguments: -id \x22$FilterDirInput\x22 -od \x22$FilterDirOutput\x22 -iodf $FilterFonc -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -nlk $MeanShiftLook -nw $MeanShiftNwin -ncw $MeanShiftNwinPix -ct $MeanShiftThreshold -sig $MeanShiftSigma0 -sk $MeanShiftKernelS -rk $MeanShiftKernelR -ce $MeanShiftPixel -gam $MeanShiftBeta -ls $MeanShiftLambdaS -lr $MeanShiftLambdaR  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+        set f [ open "| Soft/bin/speckle_filter/generalized_mean_shift_filter.exe -id \x22$FilterDirInput\x22 -od \x22$FilterDirOutput\x22 -iodf $FilterFonc -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -nlk $MeanShiftLook -nw $MeanShiftNwin -ncw $MeanShiftNwinPix -ct $MeanShiftThreshold -sig $MeanShiftSigma0 -sk $MeanShiftKernelS -rk $MeanShiftKernelR -ce $MeanShiftPixel -gam $MeanShiftBeta -ls $MeanShiftLambdaS -lr $MeanShiftLambdaR  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError

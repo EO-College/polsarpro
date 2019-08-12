@@ -715,6 +715,13 @@ proc vTcl:project:info {} {
     namespace eval ::widgets::$site_10_0.cpd76 {
         array set save {-text 1 -variable 1}
     }
+    namespace eval ::widgets::$site_9_0.cpd66 {
+        array set save {-height 1 -relief 1 -width 1}
+    }
+    set site_10_0 $site_9_0.cpd66
+    namespace eval ::widgets::$site_10_0.che74 {
+        array set save {-text 1 -variable 1}
+    }
     namespace eval ::widgets::$site_7_0.cpd74 {
         array set save {-borderwidth 1 -height 1 -relief 1 -width 1}
     }
@@ -816,7 +823,7 @@ global CmplxPlaneMaxMag CmplxPlaneMinMag
 global CmplxPlaneMaxPha CmplxPlaneMinPha
 global CmplxPlaneMagHigh CmplxPlaneMagLow
 global CmplxPlanePhaHigh CmplxPlanePhaLow
-global CmplxPlaneNopen
+global CmplxPlaneNopen CmplxPlaneHHVV
 
 set CB_HH .top330.fra71.fra72.cpd77.f.cpd85.cpd86.cpd75.fra84.che74
 set CB_HV .top330.fra71.fra72.cpd77.f.cpd85.cpd86.cpd72.fra84.cpd77
@@ -843,6 +850,7 @@ set CB_MagHigh .top330.fra71.fra72.cpd77.f.cpd85.cpd86.cpd75.cpd73.cpd76
 set CB_MagLow .top330.fra71.fra72.cpd77.f.cpd85.cpd86.cpd72.cpd81.cpd76
 set CB_PhaHigh .top330.fra71.fra72.cpd77.f.cpd85.cpd86.cpd75.cpd74.cpd76 
 set CB_PhaLow .top330.fra71.fra72.cpd77.f.cpd85.cpd86.cpd72.cpd82.cpd76
+set CB_HHVV .top330.fra71.fra72.cpd77.f.cpd85.cpd86.cpd73.cpd66.che74
 
 if {$CmplxPlaneExecFid != "" } {
     set ProgressLine ""
@@ -869,6 +877,7 @@ if {$CmplxPlaneExecFid != "" } {
     $CB_MaxPha configure -state disable; $CB_MinPha configure -state disable;
     $CB_MagHigh configure -state disable; $CB_MagLow configure -state disable;
     $CB_PhaHigh configure -state disable; $CB_PhaLow configure -state disable;
+    $CB_HHVV configure -state disable
     .top330.fra71.fra72.cpd77.f.cpd85.cpd74.fra77.lab78 configure -state disable
     .top330.fra71.fra72.cpd77.f.cpd85.cpd74.fra77.ent79 configure -state disable
     set CmplxPlaneRepresentation "point"; set CmplxPlaneLength "11"
@@ -882,7 +891,7 @@ if {$CmplxPlaneExecFid != "" } {
     set CmplxPlaneMaxPha 0; set CmplxPlaneMinPha 0
     set CmplxPlaneMagHigh 0; set CmplxPlaneMagLow 0
     set CmplxPlanePhaHigh 0; set CmplxPlanePhaLow 0
-    set CmplxPlaneNopen 0
+    set CmplxPlaneNopen 0; set CmplxPlaneHHVV 0
     }
 }
 #############################################################################
@@ -896,7 +905,7 @@ global CmplxPlaneHHpVV CmplxPlaneHHmVV CmplxPlaneHVpVH
 global CmplxPlaneOpt1 CmplxPlaneOpt2 CmplxPlaneOpt3
 global CmplxPlaneRR CmplxPlaneLR CmplxPlaneLL
 global CmplxPlaneNR1 CmplxPlaneNR2 CmplxPlaneNR3
-global CmplxPlanePDH CmplxPlanePDL 
+global CmplxPlanePDH CmplxPlanePDL CmplxPlaneHHVV
 global CmplxPlaneMaxMag CmplxPlaneMinMag
 global CmplxPlaneMaxPha CmplxPlaneMinPha
 global CmplxPlaneMagHigh CmplxPlaneMagLow
@@ -930,7 +939,7 @@ set CB_MagHigh .top330.fra71.fra72.cpd77.f.cpd85.cpd86.cpd75.cpd73.cpd76
 set CB_MagLow .top330.fra71.fra72.cpd77.f.cpd85.cpd86.cpd72.cpd81.cpd76
 set CB_PhaHigh .top330.fra71.fra72.cpd77.f.cpd85.cpd86.cpd75.cpd74.cpd76 
 set CB_PhaLow .top330.fra71.fra72.cpd77.f.cpd85.cpd86.cpd72.cpd82.cpd76
-
+set CB_HHVV .top330.fra71.fra72.cpd77.f.cpd85.cpd86.cpd73.cpd66.che74
 
 if {$CmplxPlaneAvgCoh == 0} {
     set CmplxPlaneNopen 0
@@ -1057,6 +1066,11 @@ if {$CmplxPlaneAvgCoh == 0} {
     if [file exists "$CmplxPlaneDirInput/cmplx_coh_maxdiff_PhaLow.bin"] {
         set CmplxPlaneTitle($CmplxPlaneNopen) "PhaLow"
         set CmplxPlanePhaLow 1; $CB_PhaLow configure -state normal
+        incr CmplxPlaneNopen
+        }
+    if [file exists "$CmplxPlaneDirInput/cmplx_coh_HHVV.bin"] {
+        set CmplxPlaneTitle($CmplxPlaneNopen) "HHVV*"
+        set CmplxPlaneHHVV 1; $CB_HHVV configure -state normal
         incr CmplxPlaneNopen
         }
 
@@ -1187,6 +1201,11 @@ if {$CmplxPlaneAvgCoh == 0} {
         set CmplxPlanePhaLow 1; $CB_PhaLow configure -state normal
         incr CmplxPlaneNopen
         }
+    if [file exists "$CmplxPlaneDirInput/cmplx_coh_avg_HHVV.bin"] {
+        set CmplxPlaneTitle($CmplxPlaneNopen) "HHVV*"
+        set CmplxPlaneHHVV 1; $CB_HHVV configure -state normal
+        incr CmplxPlaneNopen
+        }
     }
     
 if {$CmplxPlaneNopen == 0} {
@@ -1249,7 +1268,7 @@ global CmplxPlaneHHpVV CmplxPlaneHHmVV CmplxPlaneHVpVH
 global CmplxPlaneOpt1 CmplxPlaneOpt2 CmplxPlaneOpt3
 global CmplxPlaneRR CmplxPlaneLR CmplxPlaneLL
 global CmplxPlaneNR1 CmplxPlaneNR2 CmplxPlaneNR3
-global CmplxPlanePDH CmplxPlanePDL 
+global CmplxPlanePDH CmplxPlanePDL CmplxPlaneHHVV
 global CmplxPlaneMaxMag CmplxPlaneMinMag
 global CmplxPlaneMaxPha CmplxPlaneMinPha
 global CmplxPlaneMagHigh CmplxPlaneMagLow
@@ -1284,6 +1303,7 @@ if {$CmplxPlaneMagHigh == 1} { incr config }
 if {$CmplxPlaneMagLow == 1} { incr config }
 if {$CmplxPlanePhaHigh == 1} { incr config }
 if {$CmplxPlanePhaLow == 1} { incr config }
+if {$CmplxPlaneHHVV == 1} { incr config }
 if {$config == 0} {
     set VarError ""
     set ErrorMessage "SELECT A COMPLEX COHERENCE CHANNEL" 
@@ -1437,6 +1457,10 @@ if {$CmplxPlaneExecFid != ""} {
         set CmplxPlaneTitle($CmplxPlaneN) "Pha Low"
         incr CmplxPlaneN
         }
+    if {$CmplxPlaneHHVV == 1} {
+        set CmplxPlaneTitle($CmplxPlaneN) "HHVV*"
+        incr CmplxPlaneN
+        }
     set ProgressLine ""
     puts $CmplxPlaneExecFid "$CmplxPlaneN\n"
     flush $CmplxPlaneExecFid
@@ -1487,6 +1511,7 @@ if {$CmplxPlaneExecFid != ""} {
     if {$namefile == "Mag Low"} { set nf "MagLow" } 
     if {$namefile == "Pha High"} { set nf "PhaHigh" } 
     if {$namefile == "Pha Low"} { set nf "PhaLow" } 
+    if {$namefile == "HHVV*"} { set nf "HHVV" } 
     puts $CmplxPlaneExecFid "$nf\n"
     flush $CmplxPlaneExecFid
     fconfigure $CmplxPlaneExecFid -buffering line
@@ -1515,7 +1540,7 @@ global CmplxPlaneExtractVar
 global CmplxPlaneN TMPCmplxPlaneTxt
 global CmplxPlaneRepresentation
 global CONFIGDir
-global ImageMagickMaker TMPGnuPlotTk1 TMPGnuPlot1Tk
+global TMPGnuPlotTk1 TMPGnuPlot1Tk
 
 
 set CmplxPlaneLabel(0) ""; for {set i 0} {$i <= 20} {incr i} {set CmplxPlaneLabel($i) ""}
@@ -1534,7 +1559,9 @@ if {$CmplxPlaneExtractVar == "true"} {
         GnuPlotInit 0 0 1 1
         set GnuplotPipeCmplxPlane $GnuplotPipeFid
         }
-    CmplxPlaneExtractPlotThumb
+
+    #CmplxPlaneExtractPlotThumb
+
     set GnuOutputFile $TMPGnuPlotTk1
     set GnuOutputFormat "gif"
     GnuPlotTerm $GnuplotPipeCmplxPlane $GnuOutputFormat
@@ -1576,7 +1603,8 @@ if {$CmplxPlaneExtractVar == "true"} {
     .top330.fra71.fra72.fra79.but66 configure -state normal
 
     WaitUntilCreated $TMPGnuPlotTk1
-    ViewGnuPlotTK 1 .top330 "Complex Plane"
+    Gimp $TMPGnuPlotTk1
+    #ViewGnuPlotTKThumb 1 .top330 "Complex Plane"
     }
     
 }
@@ -1591,7 +1619,7 @@ global CmplxPlaneExtractVar
 global CmplxPlaneN TMPCmplxPlaneTxt
 global CmplxPlaneRepresentation
 global CONFIGDir
-global ImageMagickMaker TMPGnuPlotTk1 TMPGnuPlot1Tk
+global TMPGnuPlotTk1 TMPGnuPlot1Tk
 
     set xwindow [winfo x .top330]; set ywindow [winfo y .top330]
 
@@ -1659,9 +1687,9 @@ proc vTclWindow. {base} {
     # CREATING WIDGETS
     ###################
     wm focusmodel $top passive
-    wm geometry $top 200x200+250+250; update
-    wm maxsize $top 3360 1028
-    wm minsize $top 116 1
+    wm geometry $top 200x200+260+260; update
+    wm maxsize $top 1916 1053
+    wm minsize $top 120 1
     wm overrideredirect $top 0
     wm resizable $top 1 1
     wm withdraw $top
@@ -1694,7 +1722,7 @@ proc vTclWindow.top330 {base} {
     wm focusmodel $top passive
     wm geometry $top 500x410+10+110; update
     wm maxsize $top 1604 1184
-    wm minsize $top 116 1
+    wm minsize $top 120 1
     wm overrideredirect $top 0
     wm resizable $top 1 1
     wm title $top "Coherences - Complex Plane"
@@ -1777,7 +1805,6 @@ if [file exists "$CmplxPlaneDirInput/config.txt"] {
 
             if {$VarWarning == "ok"} {
                 ClosePSPViewer
-                Window hide $widget(Toplevel64); TextEditorRunTrace "Close Window PolSARpro Viewer" "b"
 
                 set types {
                     {{BMP Files}        {.bmp}        }
@@ -1786,6 +1813,32 @@ if [file exists "$CmplxPlaneDirInput/config.txt"] {
                 OpenFile $BMPDirInput $types "INPUT BMP FILE"
 
                 if {$FileName != ""} {
+
+                  set bmphdr "OK"
+                  set FileNameHdr "$FileName.hdr"
+                  if [file exists $FileNameHdr] {
+                    set f [open $FileNameHdr "r"]
+                    gets $f tmp
+                    gets $f tmp
+                    gets $f tmp
+                    if {[string first "PolSARpro" $tmp] != "-1"} {
+                      set bmphdr "OK"
+                      } else {
+                      set ErrorMessage "NOT A PolSARpro BMP FILE TYPE"
+                      Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
+                      tkwait variable VarError
+                      set bmphdr "KO"
+                      }    
+                    close $f
+                    } else {
+                    set ErrorMessage "THE HDR FILE $FileNameHdr DOES NOT EXIST"
+                    Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
+                    tkwait variable VarError
+                    set bmphdr "KO"
+                    }    
+        
+                  if {$bmphdr == "OK"} {
+
                     set BMPImageOpen "1"
                     set BMPViewFileInput $FileName
 
@@ -1853,9 +1906,9 @@ if [file exists "$CmplxPlaneDirInput/config.txt"] {
                     load_bmp_lens_line $widget(Toplevel330) $widget(CANVASLENSCMPLXPLANE)
                     MouseActiveFunction "LensCMPLXPLANE"
                     WidgetShow $widget(Toplevel330); TextEditorRunTrace "Open Window Coherence - Complex Plane" "b"
-                    TextEditorRunTrace "Launch The Process Soft/data_process_dual/cmplx_plane_extract.exe" "k"
+                    TextEditorRunTrace "Launch The Process Soft/bin/data_process_dual/cmplx_plane_extract.exe" "k"
                     TextEditorRunTrace "Arguments: -id \x22$CmplxPlaneDirInput\x22 -of \x22$TMPCmplxPlaneTxt\x22" "k"
-                    set CmplxPlaneExecFid [ open "| Soft/data_process_dual/cmplx_plane_extract.exe -id \x22$CmplxPlaneDirInput\x22 -of \x22$TMPCmplxPlaneTxt\x22" r+]
+                    set CmplxPlaneExecFid [ open "| Soft/bin/data_process_dual/cmplx_plane_extract.exe -id \x22$CmplxPlaneDirInput\x22 -of \x22$TMPCmplxPlaneTxt\x22" r+]
                     set CmplxPlaneHH 0; set CmplxPlaneHV 0; set CmplxPlaneVV 0
                     set CmplxPlaneHHpVV 0; set CmplxPlaneHHmVV 0; set CmplxPlaneHVpVH 0
                     set CmplxPlaneOpt1 0; set CmplxPlaneOpt2 0; set CmplxPlaneOpt3 0
@@ -1869,6 +1922,7 @@ if [file exists "$CmplxPlaneDirInput/config.txt"] {
                     set CmplxPlaneGHigh 0; set CmplxPlaneGLow 0; set CmplxPlaneAvgCoh 0
                     CmplxPlaneOpenFiles
                     }
+                  }
                 }
             }
         } else {
@@ -2348,6 +2402,15 @@ CmplxPlaneOpenFiles} \
     vTcl:DefineAlias "$site_10_0.cpd76" "Checkbutton330_15" vTcl:WidgetProc "Toplevel330" 1
     pack $site_10_0.cpd76 \
         -in $site_10_0 -anchor center -expand 0 -fill none -side left 
+    frame $site_9_0.cpd66 \
+        -relief groove -height 75 -width 125 
+    vTcl:DefineAlias "$site_9_0.cpd66" "Frame80" vTcl:WidgetProc "Toplevel330" 1
+    set site_10_0 $site_9_0.cpd66
+    checkbutton $site_10_0.che74 \
+        -text HHVV* -variable CmplxPlaneHHVV 
+    vTcl:DefineAlias "$site_10_0.che74" "Checkbutton330_26" vTcl:WidgetProc "Toplevel330" 1
+    pack $site_10_0.che74 \
+        -in $site_10_0 -anchor center -expand 0 -fill none -side left 
     pack $site_9_0.fra84 \
         -in $site_9_0 -anchor center -expand 0 -fill x -side top 
     pack $site_9_0.cpd71 \
@@ -2357,6 +2420,8 @@ CmplxPlaneOpenFiles} \
     pack $site_9_0.cpd91 \
         -in $site_9_0 -anchor center -expand 0 -fill x -side top 
     pack $site_9_0.cpd83 \
+        -in $site_9_0 -anchor center -expand 0 -fill x -side top 
+    pack $site_9_0.cpd66 \
         -in $site_9_0 -anchor center -expand 0 -fill x -side top 
     pack $site_8_0.cpd75 \
         -in $site_8_0 -anchor center -expand 1 -fill both -side left 
@@ -2571,7 +2636,6 @@ if {$GnuplotPipeCmplxPlane != ""} {
 set GnuplotPipeFid ""
 Window hide .top401
 ClosePSPViewer
-Window hide $widget(Toplevel64); TextEditorRunTrace "Close Window PolSARpro Viewer" "b"
 Window hide $widget(Toplevel330); TextEditorRunTrace "Close Window Coherences - Complex Plane" "b"
 set ProgressLine "0"; update
 }} \

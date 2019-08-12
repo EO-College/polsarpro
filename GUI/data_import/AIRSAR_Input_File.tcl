@@ -596,13 +596,13 @@ proc vTcl:project:info {} {
         array set save {-text 1}
     }
     namespace eval ::widgets::$site_4_0.ent41 {
-        array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -justify 1 -state 1 -textvariable 1 -width 1}
+        array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -justify 1 -textvariable 1 -width 1}
     }
     namespace eval ::widgets::$site_4_0.lab42 {
         array set save {-text 1}
     }
     namespace eval ::widgets::$site_4_0.ent43 {
-        array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -justify 1 -state 1 -textvariable 1 -width 1}
+        array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -justify 1 -textvariable 1 -width 1}
     }
     namespace eval ::widgets::$base.che71 {
         array set save {-text 1 -variable 1}
@@ -677,9 +677,9 @@ proc vTclWindow. {base} {
     # CREATING WIDGETS
     ###################
     wm focusmodel $top passive
-    wm geometry $top 200x200+22+22; update
-    wm maxsize $top 1284 785
-    wm minsize $top 104 1
+    wm geometry $top 200x200+256+256; update
+    wm maxsize $top 1924 1055
+    wm minsize $top 148 1
     wm overrideredirect $top 0
     wm resizable $top 1 1
     wm withdraw $top
@@ -711,7 +711,7 @@ proc vTclWindow.top223 {base} {
     wm focusmodel $top passive
     wm geometry $top 500x610+10+110; update
     wm maxsize $top 1604 1184
-    wm minsize $top 113 1
+    wm minsize $top 148 1
     wm overrideredirect $top 0
     wm resizable $top 1 1
     wm title $top "AIRSAR Input Data File"
@@ -1565,9 +1565,9 @@ if {$config == "true"} {
         if {$AIRSARDataFormat == "MLC"} {set AirsarFile $FileInputSTK }
         }
     if {$AIRSARProcessor == "TOPSAR"} {set AirsarFile $FileInputSTK }
-    TextEditorRunTrace "Process The Function Soft/data_import/airsar_header.exe" "k"
+    TextEditorRunTrace "Process The Function Soft/bin/data_import/airsar_header.exe" "k"
     TextEditorRunTrace "Arguments: -idf \x22$AirsarFile\x22 -ocf \x22$TMPAirsarConfig\x22 -ohf \x22$TMPAirsarFstHeader\x22 -opf \x22$TMPAirsarParHeader\x22 -okf \x22$TMPAirsarCalHeader\x22 -odf \x22$TMPAirsarDemHeader\x22 -pro $AIRSARProcessor -df $AIRSARDataFormat" "k"
-    set f [ open "| Soft/data_import/airsar_header.exe -idf \x22$AirsarFile\x22 -ocf \x22$TMPAirsarConfig\x22 -ohf \x22$TMPAirsarFstHeader\x22 -opf \x22$TMPAirsarParHeader\x22 -okf \x22$TMPAirsarCalHeader\x22 -odf \x22$TMPAirsarDemHeader\x22 -pro $AIRSARProcessor -df $AIRSARDataFormat" r]
+    set f [ open "| Soft/bin/data_import/airsar_header.exe -idf \x22$AirsarFile\x22 -ocf \x22$TMPAirsarConfig\x22 -ohf \x22$TMPAirsarFstHeader\x22 -opf \x22$TMPAirsarParHeader\x22 -okf \x22$TMPAirsarCalHeader\x22 -odf \x22$TMPAirsarDemHeader\x22 -pro $AIRSARProcessor -df $AIRSARDataFormat" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError
@@ -1762,7 +1762,7 @@ if [file exists $TMPAirsarDemHeader] {
     entry $site_4_0.ent41 \
         -background white -disabledbackground #ffffff \
         -disabledforeground #0000ff -foreground #ff0000 -justify center \
-        -state disabled -textvariable NligFullSize -width 5 
+        -textvariable NligFullSize -width 5 
     vTcl:DefineAlias "$site_4_0.ent41" "Entry223_1" vTcl:WidgetProc "Toplevel223" 1
     label $site_4_0.lab42 \
         -text {Initial Number of Cols} 
@@ -1770,7 +1770,7 @@ if [file exists $TMPAirsarDemHeader] {
     entry $site_4_0.ent43 \
         -background white -disabledbackground #ffffff \
         -disabledforeground #0000ff -foreground #ff0000 -justify center \
-        -state disabled -textvariable NcolFullSize -width 5 
+        -textvariable NcolFullSize -width 5 
     vTcl:DefineAlias "$site_4_0.ent43" "Entry223_2" vTcl:WidgetProc "Toplevel223" 1
     pack $site_4_0.lab40 \
         -in $site_4_0 -anchor center -expand 1 -fill none -padx 10 -side left 

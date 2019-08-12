@@ -478,32 +478,42 @@ proc vTcl:project:info {} {
     }
     set site_4_0 $site_3_0.fra85
     namespace eval ::widgets::$site_4_0.fra86 {
-        array set save {-borderwidth 1 -height 1 -width 1}
+        array set save {-height 1 -width 1}
     }
     set site_5_0 $site_4_0.fra86
     namespace eval ::widgets::$site_5_0.fra90 {
-        array set save {-borderwidth 1 -height 1 -width 1}
+        array set save {-height 1 -width 1}
     }
     set site_6_0 $site_5_0.fra90
     namespace eval ::widgets::$site_6_0.cpd92 {
         array set save {-text 1}
     }
+    namespace eval ::widgets::$site_6_0.cpd66 {
+        array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -state 1 -textvariable 1 -width 1}
+    }
     namespace eval ::widgets::$site_5_0.fra91 {
-        array set save {-borderwidth 1 -height 1 -width 1}
+        array set save {-height 1 -width 1}
     }
     set site_6_0 $site_5_0.fra91
-    namespace eval ::widgets::$site_6_0.cpd93 {
-        array set save {-text 1}
-    }
-    namespace eval ::widgets::$site_4_0.fra87 {
+    namespace eval ::widgets::$site_6_0.cpd67 {
         array set save {-borderwidth 1 -height 1 -width 1}
     }
-    set site_5_0 $site_4_0.fra87
-    namespace eval ::widgets::$site_5_0.ent95 {
-        array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -state 1 -textvariable 1}
+    set site_7_0 $site_6_0.cpd67
+    namespace eval ::widgets::$site_7_0.cpd68 {
+        array set save {-borderwidth 1 -text 1}
     }
-    namespace eval ::widgets::$site_5_0.cpd97 {
-        array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -state 1 -textvariable 1}
+    namespace eval ::widgets::$site_7_0.cpd97 {
+        array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -justify 1 -state 1 -textvariable 1 -width 1}
+    }
+    namespace eval ::widgets::$site_6_0.cpd69 {
+        array set save {-borderwidth 1 -height 1 -width 1}
+    }
+    set site_7_0 $site_6_0.cpd69
+    namespace eval ::widgets::$site_7_0.cpd68 {
+        array set save {-text 1}
+    }
+    namespace eval ::widgets::$site_7_0.cpd97 {
+        array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -justify 1 -state 1 -textvariable 1 -width 1}
     }
     namespace eval ::widgets::$site_4_0.cpd98 {
         array set save {-borderwidth 1 -height 1 -width 1}
@@ -636,7 +646,7 @@ proc vTcl:project:info {} {
         array set save {-_tooltip 1 -background 1 -command 1 -image 1 -pady 1 -width 1}
     }
     namespace eval ::widgets::$site_3_0.but67 {
-        array set save {-command 1 -image 1 -pady 1}
+        array set save {-command 1 -image 1 -pady 1 -text 1}
     }
     namespace eval ::widgets::$site_3_0.but24 {
         array set save {-_tooltip 1 -background 1 -command 1 -padx 1 -pady 1 -text 1}
@@ -698,9 +708,9 @@ proc vTclWindow. {base} {
     # CREATING WIDGETS
     ###################
     wm focusmodel $top passive
-    wm geometry $top 200x200+22+22; update
-    wm maxsize $top 1284 785
-    wm minsize $top 104 1
+    wm geometry $top 200x200+50+50; update
+    wm maxsize $top 3360 1028
+    wm minsize $top 116 1
     wm overrideredirect $top 0
     wm resizable $top 1 1
     wm withdraw $top
@@ -902,6 +912,9 @@ set NcolEnd 0
 set NligFullSizeInput 0
 set NcolFullSizeInput 0
 
+set TSXSpacingSlant ""
+set TSXSpacingAzimuth ""
+
 set config "true"
 if {$TERRASARXProductFile == ""} { set config "false" }
 if {$config == "true"} {
@@ -941,20 +954,6 @@ if {$config == "true"} {
         ClosePSPViewer
         CloseAllWidget
         set WindowShow "false"
-        if {$ActiveProgram == "TERRASARX"} {
-            if {$TERRASARXDataFormat == "dual"} { TextEditorRunTrace "Close EO-SI Dual Pol" "b" }
-            if {$TERRASARXDataFormat == "twin"} { }
-            if {$TERRASARXDataFormat == "quad"} { TextEditorRunTrace "Close EO-SI Quad Pol" "b" }
-            if {$TSXDD == "dual"} { TextEditorRunTrace "Open EO-SI Dual Pol" "b" }
-            if {$TSXDD == "twin"} { }
-            if {$TSXDD == "quad"} { TextEditorRunTrace "Open EO-SI Quad Pol" "b" }
-            set TERRASARXDataFormat $TSXDD
-            set TERRASARXDataLevel $TSXAA
-            $widget(MenubuttonTSX) configure -background #FFFF00
-            MenuEnvImp
-            InitDataDir
-            CheckEnvironnement
-            }
         Window hide $widget(Toplevel221); TextEditorRunTrace "Close Window TERRASARX Input File" "b"
         } else {
 
@@ -1068,11 +1067,28 @@ if [file exists $TERRASARXProductFile] {
                     $widget(Entry221_4) configure -disabledbackground #FFFFFF; $widget(Button221_4) configure -state normal
                     $widget(TitleFrame221_4) configure -text "Input Data File (s22)"
                     }
+
+                gets $f TSXlookDirection
+                gets $f TSXorbitDirection
+                gets $f TSXTeta0
+                gets $f TSXSpacingAzimuth; set TSXSpacingAzimuth [expr round(10000. * $TSXSpacingAzimuth) / 10000.]
+                gets $f TSXSpacingSlant; set TSXSpacingSlant [expr round(10000. * $TSXSpacingSlant) / 10000.]
                 close $f
+
+                if {$TSXorbitDirection == "ASCENDING" } { set TSXAntennaPass "A" } else { set TSXAntennaPass "D" }
+                if {$TSXlookDirection == "RIGHT" } { append TSXAntennaPass "R" } else { append TSXAntennaPass "L" }
+
+                set f [open "$TERRASARXDirOutput/config_acquisition.txt" w]
+                puts $f $TSXAntennaPass
+                puts $f $TSXTeta0
+                puts $f $TSXSpacingSlant
+                puts $f $TSXSpacingAzimuth
+                close $f
+
                 $widget(Button221_5) configure -state normal; $widget(Button221_6) configure -state normal; 
-                TextEditorRunTrace "Process The Function Soft/data_import/terrasarx_google.exe" "k"
+                TextEditorRunTrace "Process The Function Soft/bin/data_import/terrasarx_google.exe" "k"
                 TextEditorRunTrace "Arguments: -id \x22$TERRASARXDirOutput\x22 -of \x22$TMPGoogle\x22" "k"
-                set f [ open "| Soft/data_import/terrasarx_google.exe -id \x22$TERRASARXDirOutput\x22 -of \x22$TMPGoogle\x22" r]
+                set f [ open "| Soft/bin/data_import/terrasarx_google.exe -id \x22$TERRASARXDirOutput\x22 -of \x22$TMPGoogle\x22" r]
                 PsPprogressBar $f
                 TextEditorRunTrace "Check RunTime Errors" "r"
                 CheckRunTimeError
@@ -1131,16 +1147,6 @@ if {$datalevelerror == 1 } {
     MenuRAZ
     ClosePSPViewer
     CloseAllWidget
-    if {$ActiveProgram == "TERRASARX"} {
-        if {$TERRASARXDataFormat == "dual"} { TextEditorRunTrace "Close EO-SI Dual Pol" "b" }
-        if {$TERRASARXDataFormat == "quad"} { TextEditorRunTrace "Close EO-SI Quad Pol" "b" }
-        if {$TERRASARXDataFormat == "twin"} { }
-        set ActiveProgram ""
-        set TERRASARXDataFormat ""
-        set TERRASARXDataLevel ""
-        $widget(MenubuttonTSX) configure -background $couleur_fond
-        MenuEnvImp
-        }
     Window hide $widget(Toplevel221); TextEditorRunTrace "Close Window TERRASARX Input File" "b"
     }
 }
@@ -1202,48 +1208,68 @@ if [file exists $TERRASARXFile] {
     vTcl:DefineAlias "$site_3_0.fra85" "Frame7" vTcl:WidgetProc "Toplevel221" 1
     set site_4_0 $site_3_0.fra85
     frame $site_4_0.fra86 \
-        -borderwidth 2 -height 75 -width 125 
+        -height 75 -width 125 
     vTcl:DefineAlias "$site_4_0.fra86" "Frame6" vTcl:WidgetProc "Toplevel221" 1
     set site_5_0 $site_4_0.fra86
     frame $site_5_0.fra90 \
-        -borderwidth 2 -height 75 -width 125 
+        -height 75 -width 125 
     vTcl:DefineAlias "$site_5_0.fra90" "Frame9" vTcl:WidgetProc "Toplevel221" 1
     set site_6_0 $site_5_0.fra90
     label $site_6_0.cpd92 \
         -text Product 
     vTcl:DefineAlias "$site_6_0.cpd92" "Label1" vTcl:WidgetProc "Toplevel221" 1
+    entry $site_6_0.cpd66 \
+        -background white -disabledbackground #ffffff \
+        -disabledforeground #0000ff -foreground #0000ff -state disabled \
+        -textvariable TSXProduct -width 40 
+    vTcl:DefineAlias "$site_6_0.cpd66" "Entry5" vTcl:WidgetProc "Toplevel221" 1
     pack $site_6_0.cpd92 \
         -in $site_6_0 -anchor center -expand 0 -fill none -side left 
+    pack $site_6_0.cpd66 \
+        -in $site_6_0 -anchor center -expand 0 -fill x -side right 
     frame $site_5_0.fra91 \
-        -borderwidth 2 -height 75 -width 125 
+        -height 75 -width 125 
     vTcl:DefineAlias "$site_5_0.fra91" "Frame10" vTcl:WidgetProc "Toplevel221" 1
     set site_6_0 $site_5_0.fra91
-    label $site_6_0.cpd93 \
-        -text Resolution 
-    vTcl:DefineAlias "$site_6_0.cpd93" "Label2" vTcl:WidgetProc "Toplevel221" 1
-    pack $site_6_0.cpd93 \
-        -in $site_6_0 -anchor center -expand 0 -fill none -side left 
+    frame $site_6_0.cpd67 \
+        -borderwidth 2 -height 75 -width 125 
+    vTcl:DefineAlias "$site_6_0.cpd67" "Frame16" vTcl:WidgetProc "Toplevel221" 1
+    set site_7_0 $site_6_0.cpd67
+    label $site_7_0.cpd68 \
+        -borderwidth 0 -text {Row Pixel Spacing} 
+    vTcl:DefineAlias "$site_7_0.cpd68" "Label5" vTcl:WidgetProc "Toplevel221" 1
+    entry $site_7_0.cpd97 \
+        -background white -disabledbackground #ffffff \
+        -disabledforeground #0000ff -foreground #0000ff -justify center \
+        -state disabled -textvariable TSXSpacingAzimuth -width 8 
+    vTcl:DefineAlias "$site_7_0.cpd97" "Entry6" vTcl:WidgetProc "Toplevel221" 1
+    pack $site_7_0.cpd68 \
+        -in $site_7_0 -anchor center -expand 0 -fill none -side left 
+    pack $site_7_0.cpd97 \
+        -in $site_7_0 -anchor center -expand 0 -fill none -side right 
+    frame $site_6_0.cpd69 \
+        -borderwidth 2 -height 75 -width 125 
+    vTcl:DefineAlias "$site_6_0.cpd69" "Frame17" vTcl:WidgetProc "Toplevel221" 1
+    set site_7_0 $site_6_0.cpd69
+    label $site_7_0.cpd68 \
+        -text {Col Pixel Spacing} 
+    vTcl:DefineAlias "$site_7_0.cpd68" "Label6" vTcl:WidgetProc "Toplevel221" 1
+    entry $site_7_0.cpd97 \
+        -background white -disabledbackground #ffffff \
+        -disabledforeground #0000ff -foreground #0000ff -justify center \
+        -state disabled -textvariable TSXSpacingSlant -width 8 
+    vTcl:DefineAlias "$site_7_0.cpd97" "Entry7" vTcl:WidgetProc "Toplevel221" 1
+    pack $site_7_0.cpd68 \
+        -in $site_7_0 -anchor center -expand 0 -fill none -side left 
+    pack $site_7_0.cpd97 \
+        -in $site_7_0 -anchor center -expand 0 -fill none -side right 
+    pack $site_6_0.cpd67 \
+        -in $site_6_0 -anchor center -expand 1 -fill x -side left 
+    pack $site_6_0.cpd69 \
+        -in $site_6_0 -anchor center -expand 1 -fill x -side left 
     pack $site_5_0.fra90 \
         -in $site_5_0 -anchor center -expand 1 -fill x -side top 
     pack $site_5_0.fra91 \
-        -in $site_5_0 -anchor center -expand 1 -fill x -side top 
-    frame $site_4_0.fra87 \
-        -borderwidth 2 -height 75 -width 125 
-    vTcl:DefineAlias "$site_4_0.fra87" "Frame8" vTcl:WidgetProc "Toplevel221" 1
-    set site_5_0 $site_4_0.fra87
-    entry $site_5_0.ent95 \
-        -background white -disabledbackground #ffffff \
-        -disabledforeground #0000ff -foreground #0000ff -state disabled \
-        -textvariable TSXProduct 
-    vTcl:DefineAlias "$site_5_0.ent95" "Entry1" vTcl:WidgetProc "Toplevel221" 1
-    entry $site_5_0.cpd97 \
-        -background white -disabledbackground #ffffff \
-        -disabledforeground #0000ff -foreground #0000ff -state disabled \
-        -textvariable TSXResolution 
-    vTcl:DefineAlias "$site_5_0.cpd97" "Entry2" vTcl:WidgetProc "Toplevel221" 1
-    pack $site_5_0.ent95 \
-        -in $site_5_0 -anchor center -expand 1 -fill x -side top 
-    pack $site_5_0.cpd97 \
         -in $site_5_0 -anchor center -expand 1 -fill x -side top 
     frame $site_4_0.cpd98 \
         -borderwidth 2 -height 75 -width 125 
@@ -1290,8 +1316,6 @@ if [file exists $TERRASARXFile] {
     pack $site_5_0.fra91 \
         -in $site_5_0 -anchor center -expand 1 -fill x -side top 
     pack $site_4_0.fra86 \
-        -in $site_4_0 -anchor center -expand 0 -fill y -side left 
-    pack $site_4_0.fra87 \
         -in $site_4_0 -anchor center -expand 1 -fill both -side left 
     pack $site_4_0.cpd98 \
         -in $site_4_0 -anchor center -expand 0 -fill y -padx 5 -side right 
@@ -1560,17 +1584,17 @@ if {$TERRASARXFileInputFlag == 1} {
             set FileBMP "$TERRASARXDirOutput/";
             append FileBMP [file rootname [file tail $QLFileInput1]]
             append FileBMP ".bmp"
-            TextEditorRunTrace "Process The Function Soft/bmp_process/tiff_2_bmp.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/tiff_2_bmp.exe" "k"
             TextEditorRunTrace "Arguments: -if \x22$QLFileInput1\x22 -of \x22$FileBMP\x22" "k"
-            set f [ open "| Soft/bmp_process/tiff_2_bmp.exe -if \x22$QLFileInput1\x22 -of \x22$FileBMP\x22" r]
+            set f [ open "| Soft/bin/bmp_process/tiff_2_bmp.exe -if \x22$QLFileInput1\x22 -of \x22$FileBMP\x22" r]
             }
         if [file exists $QLFileInput2] {
             set FileBMP "$TERRASARXDirOutput/";
             append FileBMP [file rootname [file tail $QLFileInput2]]
             append FileBMP ".bmp"
-            TextEditorRunTrace "Process The Function Soft/bmp_process/tiff_2_bmp.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/tiff_2_bmp.exe" "k"
             TextEditorRunTrace "Arguments: -if \x22$QLFileInput2\x22 -of \x22$FileBMP\x22" "k"
-            set f [ open "| Soft/bmp_process/tiff_2_bmp.exe -if \x22$QLFileInput2\x22 -of \x22$FileBMP\x22" r]
+            set f [ open "| Soft/bin/bmp_process/tiff_2_bmp.exe -if \x22$QLFileInput2\x22 -of \x22$FileBMP\x22" r]
             }
         }
     if {$TERRASARXDataFormat == "quad"} {
@@ -1578,33 +1602,33 @@ if {$TERRASARXFileInputFlag == 1} {
             set FileBMP "$TERRASARXDirOutput/";
             append FileBMP [file rootname [file tail $QLFileInput1]]
             append FileBMP ".bmp"
-            TextEditorRunTrace "Process The Function Soft/bmp_process/tiff_2_bmp.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/tiff_2_bmp.exe" "k"
             TextEditorRunTrace "Arguments: -if \x22$QLFileInput1\x22 -of \x22$FileBMP\x22" "k"
-            set f [ open "| Soft/bmp_process/tiff_2_bmp.exe -if \x22$QLFileInput1\x22 -of \x22$FileBMP\x22" r]
+            set f [ open "| Soft/bin/bmp_process/tiff_2_bmp.exe -if \x22$QLFileInput1\x22 -of \x22$FileBMP\x22" r]
             }
         if [file exists $QLFileInput2] {
             set FileBMP "$TERRASARXDirOutput/";
             append FileBMP [file rootname [file tail $QLFileInput2]]
             append FileBMP ".bmp"
-            TextEditorRunTrace "Process The Function Soft/bmp_process/tiff_2_bmp.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/tiff_2_bmp.exe" "k"
             TextEditorRunTrace "Arguments: -if \x22$QLFileInput2\x22 -of \x22$FileBMP\x22" "k"
-            set f [ open "| Soft/bmp_process/tiff_2_bmp.exe -if \x22$QLFileInput2\x22 -of \x22$FileBMP\x22" r]
+            set f [ open "| Soft/bin/bmp_process/tiff_2_bmp.exe -if \x22$QLFileInput2\x22 -of \x22$FileBMP\x22" r]
             }
         if [file exists $QLFileInput3] {
             set FileBMP "$TERRASARXDirOutput/";
             append FileBMP [file rootname [file tail $QLFileInput3]]
             append FileBMP ".bmp"
-            TextEditorRunTrace "Process The Function Soft/bmp_process/tiff_2_bmp.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/tiff_2_bmp.exe" "k"
             TextEditorRunTrace "Arguments: -if \x22$QLFileInput3\x22 -of \x22$FileBMP\x22" "k"
-            set f [ open "| Soft/bmp_process/tiff_2_bmp.exe -if \x22$QLFileInput3\x22 -of \x22$FileBMP\x22" r]
+            set f [ open "| Soft/bin/bmp_process/tiff_2_bmp.exe -if \x22$QLFileInput3\x22 -of \x22$FileBMP\x22" r]
             }
         if [file exists $QLFileInput4] {
             set FileBMP "$TERRASARXDirOutput/";
             append FileBMP [file rootname [file tail $QLFileInput4]]
             append FileBMP ".bmp"
-            TextEditorRunTrace "Process The Function Soft/bmp_process/tiff_2_bmp.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/tiff_2_bmp.exe" "k"
             TextEditorRunTrace "Arguments: -if \x22$QLFileInput4\x22 -of \x22$FileBMP\x22" "k"
-            set f [ open "| Soft/bmp_process/tiff_2_bmp.exe -if \x22$QLFileInput4\x22 -of \x22$FileBMP\x22" r]
+            set f [ open "| Soft/bin/bmp_process/tiff_2_bmp.exe -if \x22$QLFileInput4\x22 -of \x22$FileBMP\x22" r]
             }
         }
 
@@ -1661,7 +1685,7 @@ if {$TERRASARXDataLevel == "SSC"} {
     }
 }} \
         -image [vTcl:image:get_image [file join . GUI Images tools.gif]] \
-        -pady 0 
+        -pady 0 -text {Check Binary Data File Size} 
     vTcl:DefineAlias "$site_3_0.but67" "Button2" vTcl:WidgetProc "Toplevel221" 1
     button $site_3_0.but24 \
         -background #ffff00 \

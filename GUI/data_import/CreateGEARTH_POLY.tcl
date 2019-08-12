@@ -934,9 +934,9 @@ if {$KMLoutputFile != ""} {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/data_import/create_gearth_poly.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/data_import/create_gearth_poly.exe" "k"
             TextEditorRunTrace "Arguments: -of \x22$KMLoutputFile\x22 -lac $GoogleLatCenter -loc $GoogleLongCenter -la00 $GoogleLat00 -lo00 $GoogleLong00 -la0N $GoogleLat0N -lo0N $GoogleLong0N -laN0 $GoogleLatN0 -loN0 $GoogleLongN0 -laNN $GoogleLatNN -loNN $GoogleLongNN" "k"
-            set f [ open "| Soft/data_import/create_gearth_poly.exe -of \x22$KMLoutputFile\x22 -lac $GoogleLatCenter -loc $GoogleLongCenter -la00 $GoogleLat00 -lo00 $GoogleLong00 -la0N $GoogleLat0N -lo0N $GoogleLong0N -laN0 $GoogleLatN0 -loN0 $GoogleLongN0 -laNN $GoogleLatNN -loNN $GoogleLongNN" r]
+            set f [ open "| Soft/bin/data_import/create_gearth_poly.exe -of \x22$KMLoutputFile\x22 -lac $GoogleLatCenter -loc $GoogleLongCenter -la00 $GoogleLat00 -lo00 $GoogleLong00 -la0N $GoogleLat0N -lo0N $GoogleLong0N -laN0 $GoogleLatN0 -loN0 $GoogleLongN0 -laNN $GoogleLatNN -loNN $GoogleLongNN" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError

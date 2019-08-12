@@ -1014,7 +1014,7 @@ global FilterFonction FilterFunction OpenDirFile FilterNoise TMPDirectory
 global NitFilter ImprovedFilter WeightFilter StrgFilter
 global ChannelFilter Fonction2 ProgressLine VarFunction VarWarning VarAdvice WarningMessage WarningMessage2
 global ConfigFile FinalNlig FinalNcol PolarCase PolarType BestHVFilter 
-global NligFullSize NcolFullSize NwinFilterL NwinFilterC PSPMemory TMPMemoryAllocError DataFormatActive
+global NligFullSize NcolFullSize NwinFilterL NwinFilterC TMPMemoryAllocError DataFormatActive
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
 
 if {$OpenDirFile == 0} {
@@ -1058,9 +1058,9 @@ if {"$VarWarning"=="ok"} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/speckle_filter/lopez_filter.exe" "k"
-        TextEditorRunTrace "Arguments: -id \x22$FilterDirInput\x22 -od \x22$FilterDirOutput\x22 -iodf $FilterFonc -nwr $NwinFilterL -nwc $NwinFilterC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -nit $NitFilter -rho $ImprovedFilter -fcw $WeightFilter -str $StrgFilter -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-        set f [ open "| Soft/speckle_filter/lopez_filter.exe -id \x22$FilterDirInput\x22 -od \x22$FilterDirOutput\x22 -iodf $FilterFonc -nwr $NwinFilterL -nwc $NwinFilterC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -nit $NitFilter -rho $ImprovedFilter -fcw $WeightFilter -str $StrgFilter -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+        TextEditorRunTrace "Process The Function Soft/bin/speckle_filter/lopez_filter.exe" "k"
+        TextEditorRunTrace "Arguments: -id \x22$FilterDirInput\x22 -od \x22$FilterDirOutput\x22 -iodf $FilterFonc -nwr $NwinFilterL -nwc $NwinFilterC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -nit $NitFilter -rho $ImprovedFilter -fcw $WeightFilter -str $StrgFilter  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+        set f [ open "| Soft/bin/speckle_filter/lopez_filter.exe -id \x22$FilterDirInput\x22 -od \x22$FilterDirOutput\x22 -iodf $FilterFonc -nwr $NwinFilterL -nwc $NwinFilterC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -nit $NitFilter -rho $ImprovedFilter -fcw $WeightFilter -str $StrgFilter  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError
@@ -1165,9 +1165,9 @@ if {"$VarWarning"=="ok"} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/speckle_filter/lopez_filter.exe" "k"
-        TextEditorRunTrace "Arguments: -id \x22$FilterDirInput\x22 -od \x22$FilterDirOutputTmp\x22 -iodf $FilterFonc -nwr $NwinFilterL -nwc $NwinFilterC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -nit $NitFilter -rho $ImprovedFilter -fcw $WeightFilter -str $StrgFilter -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-        set f [ open "| Soft/speckle_filter/lopez_filter.exe -id \x22$FilterDirInput\x22 -od \x22$FilterDirOutputTmp\x22 -iodf $FilterFonc -nwr $NwinFilterL -nwc $NwinFilterC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -nit $NitFilter -rho $ImprovedFilter -fcw $WeightFilter -str $StrgFilter -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+        TextEditorRunTrace "Process The Function Soft/bin/speckle_filter/lopez_filter.exe" "k"
+        TextEditorRunTrace "Arguments: -id \x22$FilterDirInput\x22 -od \x22$FilterDirOutputTmp\x22 -iodf $FilterFonc -nwr $NwinFilterL -nwc $NwinFilterC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -nit $NitFilter -rho $ImprovedFilter -fcw $WeightFilter -str $StrgFilter  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+        set f [ open "| Soft/bin/speckle_filter/lopez_filter.exe -id \x22$FilterDirInput\x22 -od \x22$FilterDirOutputTmp\x22 -iodf $FilterFonc -nwr $NwinFilterL -nwc $NwinFilterC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -nit $NitFilter -rho $ImprovedFilter -fcw $WeightFilter -str $StrgFilter  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError
@@ -1183,9 +1183,9 @@ if {"$VarWarning"=="ok"} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/speckle_filter/system_noise_filter.exe" "k"
-        TextEditorRunTrace "Arguments: -id \x22$FilterDirOutputTmp\x22 -od \x22$FilterDirOutput\x22 -iodf $FilterFoncNew -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-        set f [ open "| Soft/speckle_filter/system_noise_filter.exe -id \x22$FilterDirOutputTmp\x22 -od \x22$FilterDirOutput\x22 -iodf $FilterFoncNew -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+        TextEditorRunTrace "Process The Function Soft/bin/speckle_filter/system_noise_filter.exe" "k"
+        TextEditorRunTrace "Arguments: -id \x22$FilterDirOutputTmp\x22 -od \x22$FilterDirOutput\x22 -iodf $FilterFoncNew -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+        set f [ open "| Soft/bin/speckle_filter/system_noise_filter.exe -id \x22$FilterDirOutputTmp\x22 -od \x22$FilterDirOutput\x22 -iodf $FilterFoncNew -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError

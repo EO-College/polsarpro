@@ -625,17 +625,53 @@ proc vTclWindow.top371 {base} {
     set site_6_0 $site_5_0.cpd92
     button $site_6_0.cpd107 \
         \
-        -command {global DataDir FileName DataFileSourceName DataFileSourceDir
+        -command {global DataDir FileName
+global DataFileSourceName DataFileSourceDir DataFileFormat 
+global NligEndTools NligInitTools NcolEndTools NcolInitTools
+global VarError ErrorMessage
 
 set types {
+    {{BIN Files}        {.bin}        }
     {{All Files}        *        }
     }
 set FileName ""
 OpenFile $DataDir $types "SOURCE FILE"
-set DataFileSourceName $FileName
-if {$DataFileSourceName != ""} {
-    set DataFileSourceDir [file dirname $DataFileSourceName]
-    }} \
+if {$FileName != ""} {
+    set FileNameHdr "$FileName.hdr"
+    if [file exists $FileNameHdr] {
+        set f [open $FileNameHdr "r"]
+        gets $f tmp
+        gets $f tmp
+        gets $f tmp
+        if {[string first "PolSARpro" $tmp] != "-1"} {
+            gets $f tmp; set NcolEndTools [string range $tmp [expr [string first "=" $tmp] + 2 ] [string length $tmp] ]
+            gets $f tmp; set NligEndTools [string range $tmp [expr [string first "=" $tmp] + 2 ] [string length $tmp] ]
+            set NligInitTools 1
+            set NcolInitTools 1
+            gets $f tmp
+            gets $f tmp
+            gets $f tmp
+            gets $f tmp
+            if {$tmp == "data type = 2"} {set DataFileFormat "int"}
+            if {$tmp == "data type = 4"} {set DataFileFormat "float"}
+            if {$tmp == "data type = 6"} {set DataFileFormat "cmplx"}
+            set DataFileSourceName $FileName
+            set DataFileSourceDir [file dirname $DataFileSourceName]
+            } else {
+            set ErrorMessage "NOT A PolSARpro BINARY DATA FILE TYPE"
+            Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
+            tkwait variable VarError
+            if {$VarError == "cancel"} {Window hide $widget(Toplevel371); TextEditorRunTrace "Close Window Data File Management" "b"}
+            }    
+        close $f
+        } else {
+        set ErrorMessage "THE HDR FILE $FileNameHdr DOES NOT EXIST"
+        Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
+        tkwait variable VarError
+        if {$VarError == "cancel"} {Window hide $widget(Toplevel371); TextEditorRunTrace "Close Window Data File Management" "b"}
+        }    
+    }
+} \
         -image [vTcl:image:get_image [file join . GUI Images OpenFile.gif]] \
         -pady 0 -text button 
     vTcl:DefineAlias "$site_6_0.cpd107" "Button27" vTcl:WidgetProc "Toplevel371" 1
@@ -732,7 +768,7 @@ if {$DataFileSourceName != ""} {
     entry $site_3_0.ent75 \
         -background white -disabledbackground #ffffff \
         -disabledforeground #ff0000 -foreground #ff0000 -justify center \
-        -textvariable NligInit -width 5 
+        -textvariable NligInitTools -width 5 
     vTcl:DefineAlias "$site_3_0.ent75" "Entry1" vTcl:WidgetProc "Toplevel371" 1
     label $site_3_0.cpd72 \
         -text {End Row} 
@@ -740,7 +776,7 @@ if {$DataFileSourceName != ""} {
     entry $site_3_0.cpd76 \
         -background white -disabledbackground #ffffff \
         -disabledforeground #ff0000 -foreground #ff0000 -justify center \
-        -textvariable NligEnd -width 5 
+        -textvariable NligEndTools -width 5 
     vTcl:DefineAlias "$site_3_0.cpd76" "Entry2" vTcl:WidgetProc "Toplevel371" 1
     label $site_3_0.cpd73 \
         -text {Init Col} 
@@ -748,7 +784,7 @@ if {$DataFileSourceName != ""} {
     entry $site_3_0.cpd77 \
         -background white -disabledbackground #ffffff \
         -disabledforeground #ff0000 -foreground #ff0000 -justify center \
-        -textvariable NcolInit -width 5 
+        -textvariable NcolInitTools -width 5 
     vTcl:DefineAlias "$site_3_0.cpd77" "Entry3" vTcl:WidgetProc "Toplevel371" 1
     label $site_3_0.cpd74 \
         -text {End Col} 
@@ -756,7 +792,7 @@ if {$DataFileSourceName != ""} {
     entry $site_3_0.cpd78 \
         -background white -disabledbackground #ffffff \
         -disabledforeground #ff0000 -foreground #ff0000 -justify center \
-        -textvariable NcolEnd -width 5 
+        -textvariable NcolEndTools -width 5 
     vTcl:DefineAlias "$site_3_0.cpd78" "Entry4" vTcl:WidgetProc "Toplevel371" 1
     pack $site_3_0.lab71 \
         -in $site_3_0 -anchor center -expand 1 -fill none -padx 10 -side left 
@@ -813,7 +849,7 @@ global DataFileSourceName DataFileTargetName
 global DataFileFormat DataFileOperation DataFileFunction
 global Fonction2 VarFunction VarWarning WarningMessage WarningMessage2 ProgressLine
 global OffsetLig OffsetCol FinalNlig FinalNcol
-global NligEnd NligInit NcolEnd NcolInit
+global NligEndTools NligInitTools NcolEndTools NcolInitTools
 
 if {$OpenDirFile == 0} {
 
@@ -824,18 +860,18 @@ if {$DataFileTargetName == ""} { set config "false" }
 if {$config == "true" } {
     set Fonction $DataFileFunction
     set Fonction2 $DataFileSourceName
-    set OffsetLig [expr $NligInit - 1]
-    set OffsetCol [expr $NcolInit - 1]
-    set FinalNlig [expr $NligEnd - $NligInit + 1]
-    set FinalNcol [expr $NcolEnd - $NcolInit + 1]
+    set OffsetLig [expr $NligInitTools - 1]
+    set OffsetCol [expr $NcolInitTools - 1]
+    set FinalNlig [expr $NligEndTools - $NligInitTools + 1]
+    set FinalNcol [expr $NcolEndTools - $NcolInitTools + 1]
 
     if {$DataFileFormat == "cmplx"} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/tools/cmplx_tools.exe" "k"
+        TextEditorRunTrace "Process The Function Soft/bin/tools/cmplx_tools.exe" "k"
         TextEditorRunTrace "Arguments: -id \x22$DataFileSourceDir\x22 -od \x22$DataFileTargetDir\x22 -if \x22$DataFileSourceName\x22 -of \x22$DataFileTargetName\x22 -op $DataFileOperation -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
-        set f [ open "| Soft/tools/cmplx_tools.exe -id \x22$DataFileSourceDir\x22 -od \x22$DataFileTargetDir\x22 -if \x22$DataFileSourceName\x22 -of \x22$DataFileTargetName\x22 -op $DataFileOperation -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
+        set f [ open "| Soft/bin/tools/cmplx_tools.exe -id \x22$DataFileSourceDir\x22 -od \x22$DataFileTargetDir\x22 -if \x22$DataFileSourceName\x22 -of \x22$DataFileTargetName\x22 -op $DataFileOperation -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError
@@ -846,9 +882,9 @@ if {$config == "true" } {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/tools/float_tools.exe" "k"
+        TextEditorRunTrace "Process The Function Soft/bin/tools/float_tools.exe" "k"
         TextEditorRunTrace "Arguments: -id \x22$DataFileSourceDir\x22 -od \x22$DataFileTargetDir\x22 -if \x22$DataFileSourceName\x22 -of \x22$DataFileTargetName\x22 -op $DataFileOperation -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
-        set f [ open "| Soft/tools/float_tools.exe -id \x22$DataFileSourceDir\x22 -od \x22$DataFileTargetDir\x22 -if \x22$DataFileSourceName\x22 -of \x22$DataFileTargetName\x22 -op $DataFileOperation -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
+        set f [ open "| Soft/bin/tools/float_tools.exe -id \x22$DataFileSourceDir\x22 -od \x22$DataFileTargetDir\x22 -if \x22$DataFileSourceName\x22 -of \x22$DataFileTargetName\x22 -op $DataFileOperation -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError
@@ -859,9 +895,9 @@ if {$config == "true" } {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/tools/int_tools.exe" "k"
+        TextEditorRunTrace "Process The Function Soft/bin/tools/int_tools.exe" "k"
         TextEditorRunTrace "Arguments: -id \x22$DataFileSourceDir\x22 -od \x22$DataFileTargetDir\x22 -if \x22$DataFileSourceName\x22 -of \x22$DataFileTargetName\x22 -op $DataFileOperation -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
-        set f [ open "| Soft/tools/int_tools.exe -id \x22$DataFileSourceDir\x22 -od \x22$DataFileTargetDir\x22 -if \x22$DataFileSourceName\x22 -of \x22$DataFileTargetName\x22 -op $DataFileOperation -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
+        set f [ open "| Soft/bin/tools/int_tools.exe -id \x22$DataFileSourceDir\x22 -od \x22$DataFileTargetDir\x22 -if \x22$DataFileSourceName\x22 -of \x22$DataFileTargetName\x22 -op $DataFileOperation -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError

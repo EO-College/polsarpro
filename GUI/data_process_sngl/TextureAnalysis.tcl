@@ -823,9 +823,9 @@ if {$OpenDirFile == 0} {
 set TextStatFileInput ""
 set TextStatFileOutput ""
 set TextStatFileOutputTmp ""
-set InputFormat ""
-set OutputFormat ""
-set TextStatFonc ""
+set InputFormat "float"
+set OutputFormat "real"
+set TextStatFonc " "
 $widget(Radiobutton390_1) configure -state disable
 $widget(Radiobutton390_2) configure -state disable
 $widget(Radiobutton390_3) configure -state disable
@@ -839,7 +839,43 @@ set types {
 set FileName ""
 OpenFile $TextStatDirInput $types "INPUT FILE"
 if {$FileName != ""} {
-    set TextStatFileInput $FileName
+    set FileNameHdr "$FileName.hdr"
+    if [file exists $FileNameHdr] {
+        set f [open $FileNameHdr "r"]
+        gets $f tmp
+        gets $f tmp
+        gets $f tmp
+        if {[string first "PolSARpro" $tmp] != "-1"} {
+            gets $f tmp; gets $f tmp
+            gets $f tmp; gets $f tmp
+            gets $f tmp; gets $f tmp
+            if {$tmp == "data type = 2"} {set InputFormat "int"; set OutputFormat "real"}
+            if {$tmp == "data type = 4"} {set InputFormat "float"; set OutputFormat "real"}
+            if {$tmp == "data type = 6"} {set InputFormat "cmplx"; set OutputFormat "mod"}
+            set TextStatDirInput [file dirname $FileName]
+            set ConfigFile "$TextStatDirInput/config.txt"
+            set ErrorMessage ""
+            LoadConfig
+            if {"$ErrorMessage" == ""} {
+                set TextStatFileInput $FileName
+                } else {
+                Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
+                tkwait variable VarError
+                if {$VarError == "cancel"} {Window hide $widget(Toplevel390); TextEditorRunTrace "Close Window Texture Analysis" "b"}
+                }    
+            } else {
+            set ErrorMessage "NOT A PolSARpro BINARY DATA FILE TYPE"
+            Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
+            tkwait variable VarError
+            if {$VarError == "cancel"} {Window hide $widget(Toplevel390); TextEditorRunTrace "Close Window Texture Analysis" "b"}
+            }    
+        close $f
+        } else {
+        set ErrorMessage "THE HDR FILE $FileNameHdr DOES NOT EXIST"
+        Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
+        tkwait variable VarError
+        if {$VarError == "cancel"} {Window hide $widget(Toplevel390); TextEditorRunTrace "Close Window Texture Analysis" "b"}
+        }    
     }
 }} \
         -image [vTcl:image:get_image [file join . GUI Images OpenFile.gif]] \
@@ -1588,7 +1624,7 @@ if {$TextNcolor == 16} { set TextNcolor 256}} \
         -command {global TextStatDirOutput TextStatFileInput TextStatFileOutput InputFormat OutputFormat TextStatOutputFormat
 global VarError ErrorMessage Fonction Fonction2 ProgressLine TextStatFonc TextOrient TextNcolor
 global OpenDirFile NwinTextStatL NwinTextStatC BMPTextStat BMPFileInput BMPFileOutput BMPDirInput
-global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax PSPMemory TMPMemoryAllocError
+global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax TMPMemoryAllocError
 
 if {$OpenDirFile == 0} {
 
@@ -1679,14 +1715,14 @@ if {"$NligInit"!="0"} {
                 WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                 update
                 if {$config == 1 }  {
-                    TextEditorRunTrace "Process The Function Soft/data_process_sngl/texture_statistics.exe" "k"
-                    TextEditorRunTrace "Arguments: -if \x22$TextStatFileInput\x22 -of \x22$TextStatFileOutput\x22 -ta $TextStatFonc -idf $InputFormat -odf $OutputFormat -nwr $NwinTextStatL -nwc $NwinTextStatC -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -dir $TextOrient -col $TextNcolor -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                    set f [ open "| Soft/data_process_sngl/texture_statistics.exe -if \x22$TextStatFileInput\x22 -of \x22$TextStatFileOutput\x22 -ta $TextStatFonc -idf $InputFormat -odf $OutputFormat -nwr $NwinTextStatL -nwc $NwinTextStatC  -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -dir $TextOrient -col $TextNcolor -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                    TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/texture_statistics.exe" "k"
+                    TextEditorRunTrace "Arguments: -if \x22$TextStatFileInput\x22 -of \x22$TextStatFileOutput\x22 -ta $TextStatFonc -idf $InputFormat -odf $OutputFormat -nwr $NwinTextStatL -nwc $NwinTextStatC -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -dir $TextOrient -col $TextNcolor  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                    set f [ open "| Soft/bin/data_process_sngl/texture_statistics.exe -if \x22$TextStatFileInput\x22 -of \x22$TextStatFileOutput\x22 -ta $TextStatFonc -idf $InputFormat -odf $OutputFormat -nwr $NwinTextStatL -nwc $NwinTextStatC  -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -dir $TextOrient -col $TextNcolor  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                     }
                 if {$config == 2 }  {
-                    TextEditorRunTrace "Process The Function Soft/data_process_sngl/texture_analysis.exe" "k"
-                    TextEditorRunTrace "Arguments: -if \x22$TextStatFileInput\x22 -of \x22$TextStatFileOutput\x22 -ta $TextStatFonc -idf $InputFormat -odf $OutputFormat -nwr $NwinTextStatL -nwc $NwinTextStatC -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                    set f [ open "| Soft/data_process_sngl/texture_analysis.exe -if \x22$TextStatFileInput\x22 -of \x22$TextStatFileOutput\x22 -ta $TextStatFonc -idf $InputFormat -odf $OutputFormat -nwr $NwinTextStatL -nwc $NwinTextStatC -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                    TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/texture_analysis.exe" "k"
+                    TextEditorRunTrace "Arguments: -if \x22$TextStatFileInput\x22 -of \x22$TextStatFileOutput\x22 -ta $TextStatFonc -idf $InputFormat -odf $OutputFormat -nwr $NwinTextStatL -nwc $NwinTextStatC -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                    set f [ open "| Soft/bin/data_process_sngl/texture_analysis.exe -if \x22$TextStatFileInput\x22 -of \x22$TextStatFileOutput\x22 -ta $TextStatFonc -idf $InputFormat -odf $OutputFormat -nwr $NwinTextStatL -nwc $NwinTextStatC -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                     }
                 PsPprogressBar $f
                 TextEditorRunTrace "Check RunTime Errors" "r"

@@ -1165,7 +1165,7 @@ $widget(Checkbutton444_14) configure -state disable} \
 global DiversityDirInput DiversityDirOutput DiversityOutputDir DiversityOutputSubDir
 global Fonction Fonction2 VarFunction VarWarning WarningMessage WarningMessage2 VarError ErrorMessage ProgressLine
 global NwinDiversityL NwinDiversityC
-global BMPDirInput OpenDirFile PSPMemory TMPMemoryAllocError
+global BMPDirInput OpenDirFile TMPMemoryAllocError
 global NwinDiversityL NwinDiversityC 
 global DiversityShannon DiversitySimpson DiversityInvSimpson 
 global DiversityGini DiversityReyni2 DiversityReyni3
@@ -1219,9 +1219,9 @@ if {"$config"=="true"} {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/data_process_sngl/diversity_index.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$DiversityDirInput\x22 -od \x22$DiversityDirOutput\x22 -iodf $DataFormatActive -nwr $NwinDiversityL -nwc $NwinDiversityC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -fl1 $DiversityShannon -fl2 $DiversitySimpson -fl3 $DiversityInvSimpson -fl4 $DiversityGini -fl5 $DiversityReyni2 -fl6 $DiversityReyni3 -fl7 $DiversityReyni4 -fl8 $DiversityIQV -fl9 $DiversityPerplexity -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_sngl/diversity_index.exe -id \x22$DiversityDirInput\x22 -od \x22$DiversityDirOutput\x22 -iodf $DataFormatActive -nwr $NwinDiversityL -nwc $NwinDiversityC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -fl1 $DiversityShannon -fl2 $DiversitySimpson -fl3 $DiversityInvSimpson -fl4 $DiversityGini -fl5 $DiversityReyni2 -fl6 $DiversityReyni3 -fl7 $DiversityReyni4 -fl8 $DiversityIQV -fl9 $DiversityPerplexity -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/diversity_index.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$DiversityDirInput\x22 -od \x22$DiversityDirOutput\x22 -iodf $DataFormatActive -nwr $NwinDiversityL -nwc $NwinDiversityC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -fl1 $DiversityShannon -fl2 $DiversitySimpson -fl3 $DiversityInvSimpson -fl4 $DiversityGini -fl5 $DiversityReyni2 -fl6 $DiversityReyni3 -fl7 $DiversityReyni4 -fl8 $DiversityIQV -fl9 $DiversityPerplexity  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_sngl/diversity_index.exe -id \x22$DiversityDirInput\x22 -od \x22$DiversityDirOutput\x22 -iodf $DataFormatActive -nwr $NwinDiversityL -nwc $NwinDiversityC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -fl1 $DiversityShannon -fl2 $DiversitySimpson -fl3 $DiversityInvSimpson -fl4 $DiversityGini -fl5 $DiversityReyni2 -fl6 $DiversityReyni3 -fl7 $DiversityReyni4 -fl8 $DiversityIQV -fl9 $DiversityPerplexity  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError

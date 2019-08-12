@@ -471,16 +471,24 @@ proc vTcl:project:info {} {
     namespace eval ::widgets::$site_4_0.ent72 {
         array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -justify 1 -state 1 -textvariable 1 -width 1}
     }
-    namespace eval ::widgets::$site_4_0.lab73 {
+    namespace eval ::widgets::$site_4_0.cpd67 {
+        array set save {-borderwidth 1 -height 1 -width 1}
+    }
+    set site_5_0 $site_4_0.cpd67
+    namespace eval ::widgets::$site_5_0.lab73 {
         array set save {-text 1}
     }
-    namespace eval ::widgets::$site_4_0.ent74 {
+    namespace eval ::widgets::$site_5_0.ent74 {
         array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -justify 1 -state 1 -textvariable 1 -width 1}
     }
-    namespace eval ::widgets::$site_4_0.lab75 {
+    namespace eval ::widgets::$site_4_0.cpd68 {
+        array set save {-borderwidth 1 -height 1 -width 1}
+    }
+    set site_5_0 $site_4_0.cpd68
+    namespace eval ::widgets::$site_5_0.lab75 {
         array set save {-text 1}
     }
-    namespace eval ::widgets::$site_4_0.ent76 {
+    namespace eval ::widgets::$site_5_0.ent76 {
         array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -justify 1 -state 1 -textvariable 1 -width 1}
     }
     namespace eval ::widgets::$site_3_0.cpd71 {
@@ -491,6 +499,16 @@ proc vTcl:project:info {} {
         array set save {-borderwidth 1 -height 1 -width 1}
     }
     set site_5_0 $site_4_0.fra38
+    namespace eval ::widgets::$site_5_0.rad67 {
+        array set save {-anchor 1 -command 1 -text 1 -value 1 -variable 1}
+    }
+    namespace eval ::widgets::$site_5_0.rad68 {
+        array set save {-command 1 -text 1 -value 1 -variable 1}
+    }
+    namespace eval ::widgets::$site_4_0.cpd66 {
+        array set save {-borderwidth 1 -height 1 -width 1}
+    }
+    set site_5_0 $site_4_0.cpd66
     namespace eval ::widgets::$site_5_0.rad67 {
         array set save {-anchor 1 -command 1 -text 1 -value 1 -variable 1}
     }
@@ -766,7 +784,7 @@ global FileInputBlue FileInputGreen FileInputRed RGBCCCE MinMaxAutoRGB
 global RGBMinBlue RGBMaxBlue RGBMinRed RGBMaxRed RGBMinGreen RGBMaxGreen
 global OffsetLig OffsetCol FinalNlig FinalNcol PSPViewGimpBMP
 global VarError ErrorMessage Fonction Fonction2 ProgressLine PSPViewGimpBMP
-global Channel1 Channel2 OpenDirFile MaskCmd PSPMemory TMPMemoryAllocError
+global Channel1 Channel2 OpenDirFile MaskCmd TMPMemoryAllocError
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
 
 set config "true"
@@ -798,51 +816,51 @@ if [file exists $fichier] {
     tkwait variable VarError
     }
 if {"$config"=="true"} {
-    if {$RGBFormat == "RGB1" || $RGBFormat == "RGB2"} {
-        if {$MinMaxAutoRGB == 1} { set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf C2 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 -rgbf $RGBFormat -auto $MinMaxAutoRGB" }
-        if {$MinMaxAutoRGB == 0} { set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf C2 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 -rgbf $RGBFormat -auto $MinMaxAutoRGB -minb $RGBMinBlue -maxb $RGBMaxBlue -minr $RGBMinRed -maxr $RGBMaxRed -ming $RGBMinGreen -maxg $RGBMaxGreen"}
+    if {$RGBFormat == "RGB1" || $RGBFormat == "RGB2" || $RGBFormat == "RGB3" || $RGBFormat == "RGB4"} {
+        if {$MinMaxAutoRGB == 1} { set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf C2 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd  -errf \x22$TMPMemoryAllocError\x22 -rgbf $RGBFormat -auto $MinMaxAutoRGB" }
+        if {$MinMaxAutoRGB == 0} { set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf C2 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd  -errf \x22$TMPMemoryAllocError\x22 -rgbf $RGBFormat -auto $MinMaxAutoRGB -minb $RGBMinBlue -maxb $RGBMaxBlue -minr $RGBMinRed -maxr $RGBMaxRed -ming $RGBMinGreen -maxg $RGBMaxGreen"}
         if {"$RGBCCCE"=="independant"} {
-            TextEditorRunTrace "Process The Function Soft/bmp_process/create_rgb_file_SPPIPPC2.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_rgb_file_SPPIPPC2.exe" "k"
             TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-            set f [ open "| Soft/bmp_process/create_rgb_file_SPPIPPC2 $ArgumentRGB" r]
+            set f [ open "| Soft/bin/bmp_process/create_rgb_file_SPPIPPC2 $ArgumentRGB" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
             set BMPDirInput $RGBDirOutput
-            if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+            if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
             }
         if {"$RGBCCCE"=="common"} {
-            TextEditorRunTrace "Process The Function Soft/bmp_process/create_rgb_cce_file_SPPIPPC2.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_rgb_cce_file_SPPIPPC2.exe" "k"
             TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-            set f [ open "| Soft/bmp_process/create_rgb_cce_file_SPPIPPC2 $ArgumentRGB" r]
+            set f [ open "| Soft/bin/bmp_process/create_rgb_cce_file_SPPIPPC2 $ArgumentRGB" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
             set BMPDirInput $RGBDirOutput
-            if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+            if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
             }
         } else {
-        if {$MinMaxAutoRGB == 1} { set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf C2 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 -auto $MinMaxAutoRGB" }
-        if {$MinMaxAutoRGB == 0} { set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf C2 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 -auto $MinMaxAutoRGB -minb $RGBMinBlue -maxb $RGBMaxBlue -minr $RGBMinRed -maxr $RGBMaxRed -ming $RGBMinGreen -maxg $RGBMaxGreen"}
+        if {$MinMaxAutoRGB == 1} { set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf C2 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd  -errf \x22$TMPMemoryAllocError\x22 -auto $MinMaxAutoRGB" }
+        if {$MinMaxAutoRGB == 0} { set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf C2 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd  -errf \x22$TMPMemoryAllocError\x22 -auto $MinMaxAutoRGB -minb $RGBMinBlue -maxb $RGBMaxBlue -minr $RGBMinRed -maxr $RGBMaxRed -ming $RGBMinGreen -maxg $RGBMaxGreen"}
         if {$RGBFormat == "Stokes1"} {
-            TextEditorRunTrace "Process The Function Soft/bmp_process/create_rgb_file_Stokes.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_rgb_file_Stokes.exe" "k"
             TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-            set f [ open "| Soft/bmp_process/create_rgb_file_Stokes $ArgumentRGB" r]
+            set f [ open "| Soft/bin/bmp_process/create_rgb_file_Stokes $ArgumentRGB" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
             set BMPDirInput $RGBDirOutput
-            if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+            if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
             }
         if {$RGBFormat == "Stokes2"} {
-            TextEditorRunTrace "Process The Function Soft/bmp_process/create_hsv_file_Stokes.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_hsv_file_Stokes.exe" "k"
             TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-            set f [ open "| Soft/bmp_process/create_hsv_file_Stokes $ArgumentRGB" r]
+            set f [ open "| Soft/bin/bmp_process/create_hsv_file_Stokes $ArgumentRGB" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
             set BMPDirInput $RGBDirOutput
-            if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+            if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
             }
         }
     }                                 
@@ -856,7 +874,7 @@ global FileInputBlue FileInputGreen FileInputRed RGBCCCE MinMaxAutoRGB
 global RGBMinBlue RGBMaxBlue RGBMinRed RGBMaxRed RGBMinGreen RGBMaxGreen
 global OffsetLig OffsetCol FinalNlig FinalNcol PSPViewGimpBMP
 global VarError ErrorMessage Fonction Fonction2 ProgressLine
-global Channel1 Channel2 OpenDirFile MaskCmd PSPMemory TMPMemoryAllocError PolarType
+global Channel1 Channel2 OpenDirFile MaskCmd TMPMemoryAllocError PolarType
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
 
 set config "true"
@@ -879,23 +897,23 @@ if {$PolarType == "pp4"} {
         set config "false"
         }
     if {"$config"=="true"} {
-        if {$MinMaxAutoRGB == 1} { set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf IPP -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 -rgbf $RGBFormat -auto $MinMaxAutoRGB" }
-        if {$MinMaxAutoRGB == 0} { set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf IPP -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 -rgbf $RGBFormat -auto $MinMaxAutoRGB -minb $RGBMinBlue -maxb $RGBMaxBlue -minr $RGBMinRed -maxr $RGBMaxRed -ming $RGBMinGreen -maxg $RGBMaxGreen"}
+        if {$MinMaxAutoRGB == 1} { set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf IPP -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd  -errf \x22$TMPMemoryAllocError\x22 -rgbf $RGBFormat -auto $MinMaxAutoRGB" }
+        if {$MinMaxAutoRGB == 0} { set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf IPP -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd  -errf \x22$TMPMemoryAllocError\x22 -rgbf $RGBFormat -auto $MinMaxAutoRGB -minb $RGBMinBlue -maxb $RGBMaxBlue -minr $RGBMinRed -maxr $RGBMaxRed -ming $RGBMinGreen -maxg $RGBMaxGreen"}
         if {"$RGBCCCE"=="independant"} {
-            TextEditorRunTrace "Process The Function Soft/bmp_process/create_rgb_file_SPPIPPC2.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_rgb_file_SPPIPPC2.exe" "k"
             TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-            set f [ open "| Soft/bmp_process/create_rgb_file_SPPIPPC2 $ArgumentRGB" r]
+            set f [ open "| Soft/bin/bmp_process/create_rgb_file_SPPIPPC2 $ArgumentRGB" r]
             }
         if {"$RGBCCCE"=="common"} {
-            TextEditorRunTrace "Process The Function Soft/bmp_process/create_rgb_cce_file_SPPIPPC2.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_rgb_cce_file_SPPIPPC2.exe" "k"
             TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-            set f [ open "| Soft/bmp_process/create_rgb_cce_file_SPPIPPC2 $ArgumentRGB" r]
+            set f [ open "| Soft/bin/bmp_process/create_rgb_cce_file_SPPIPPC2 $ArgumentRGB" r]
             }
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError
         set BMPDirInput $RGBDirOutput
-        if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+        if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
         } else {
         set VarError ""
         set ErrorMessage "THE FILES $Channel1 AND $Channel2 MUST BE CREATED FIRST"
@@ -913,7 +931,7 @@ global FileInputBlue FileInputGreen FileInputRed RGBCCCE MinMaxAutoRGB
 global RGBMinBlue RGBMaxBlue RGBMinRed RGBMaxRed RGBMinGreen RGBMaxGreen
 global OffsetLig OffsetCol FinalNlig FinalNcol PSPViewGimpBMP
 global VarError ErrorMessage Fonction Fonction2 ProgressLine 
-global Channel1 Channel2 OpenDirFile MaskCmd PSPMemory TMPMemoryAllocError PolarType
+global Channel1 Channel2 OpenDirFile MaskCmd TMPMemoryAllocError PolarType
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
 
 set config "true"
@@ -936,51 +954,51 @@ if {$PolarType == "pp4"} {
         set config "false"
         }
     if {"$config"=="true"} {
-        if {$RGBFormat == "RGB1" || $RGBFormat == "RGB2"} {
-            if {$MinMaxAutoRGB == 1} { set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf SPP -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 -rgbf $RGBFormat -auto $MinMaxAutoRGB" }
-            if {$MinMaxAutoRGB == 0} { set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf SPP -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 -rgbf $RGBFormat -auto $MinMaxAutoRGB -minb $RGBMinBlue -maxb $RGBMaxBlue -minr $RGBMinRed -maxr $RGBMaxRed -ming $RGBMinGreen -maxg $RGBMaxGreen"}
+        if {$RGBFormat == "RGB1" || $RGBFormat == "RGB2" || $RGBFormat == "RGB3" || $RGBFormat == "RGB4"} {
+            if {$MinMaxAutoRGB == 1} { set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf SPP -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd  -errf \x22$TMPMemoryAllocError\x22 -rgbf $RGBFormat -auto $MinMaxAutoRGB" }
+            if {$MinMaxAutoRGB == 0} { set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf SPP -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd  -errf \x22$TMPMemoryAllocError\x22 -rgbf $RGBFormat -auto $MinMaxAutoRGB -minb $RGBMinBlue -maxb $RGBMaxBlue -minr $RGBMinRed -maxr $RGBMaxRed -ming $RGBMinGreen -maxg $RGBMaxGreen"}
             if {"$RGBCCCE"=="independant"} {
-                TextEditorRunTrace "Process The Function Soft/bmp_process/create_rgb_file_SPPIPPC2.exe" "k"
+                TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_rgb_file_SPPIPPC2.exe" "k"
                 TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-                set f [ open "| Soft/bmp_process/create_rgb_file_SPPIPPC2 $ArgumentRGB" r]
+                set f [ open "| Soft/bin/bmp_process/create_rgb_file_SPPIPPC2 $ArgumentRGB" r]
                 PsPprogressBar $f
                 TextEditorRunTrace "Check RunTime Errors" "r"
                 CheckRunTimeError
                 set BMPDirInput $RGBDirOutput
-                if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+                if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
                 }
             if {"$RGBCCCE"=="common"} {
-                TextEditorRunTrace "Process The Function Soft/bmp_process/create_rgb_cce_file_SPPIPPC2.exe" "k"
+                TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_rgb_cce_file_SPPIPPC2.exe" "k"
                 TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-                set f [ open "| Soft/bmp_process/create_rgb_cce_file_SPPIPPC2 $ArgumentRGB" r]
+                set f [ open "| Soft/bin/bmp_process/create_rgb_cce_file_SPPIPPC2 $ArgumentRGB" r]
                 PsPprogressBar $f
                 TextEditorRunTrace "Check RunTime Errors" "r"
                 CheckRunTimeError
                 set BMPDirInput $RGBDirOutput
-                if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+                if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
                 }
             } else {
-            if {$MinMaxAutoRGB == 1} { set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf SPP -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 -auto $MinMaxAutoRGB" }
-            if {$MinMaxAutoRGB == 0} { set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf SPP -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 -auto $MinMaxAutoRGB -minb $RGBMinBlue -maxb $RGBMaxBlue -minr $RGBMinRed -maxr $RGBMaxRed -ming $RGBMinGreen -maxg $RGBMaxGreen"}
+            if {$MinMaxAutoRGB == 1} { set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf SPP -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd  -errf \x22$TMPMemoryAllocError\x22 -auto $MinMaxAutoRGB" }
+            if {$MinMaxAutoRGB == 0} { set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf SPP -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd  -errf \x22$TMPMemoryAllocError\x22 -auto $MinMaxAutoRGB -minb $RGBMinBlue -maxb $RGBMaxBlue -minr $RGBMinRed -maxr $RGBMaxRed -ming $RGBMinGreen -maxg $RGBMaxGreen"}
             if {$RGBFormat == "Stokes1"} {
-                TextEditorRunTrace "Process The Function Soft/bmp_process/create_rgb_file_Stokes.exe" "k"
+                TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_rgb_file_Stokes.exe" "k"
                 TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-                set f [ open "| Soft/bmp_process/create_rgb_file_Stokes $ArgumentRGB" r]
+                set f [ open "| Soft/bin/bmp_process/create_rgb_file_Stokes $ArgumentRGB" r]
                 PsPprogressBar $f
                 TextEditorRunTrace "Check RunTime Errors" "r"
                 CheckRunTimeError
                 set BMPDirInput $RGBDirOutput
-                if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+                if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
                 }
             if {$RGBFormat == "Stokes2"} {
-                TextEditorRunTrace "Process The Function Soft/bmp_process/create_hsv_file_Stokes.exe" "k"
+                TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_hsv_file_Stokes.exe" "k"
                 TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-                set f [ open "| Soft/bmp_process/create_hsv_file_Stokes $ArgumentRGB" r]
+                set f [ open "| Soft/bin/bmp_process/create_hsv_file_Stokes $ArgumentRGB" r]
                 PsPprogressBar $f
                 TextEditorRunTrace "Check RunTime Errors" "r"
                 CheckRunTimeError
                 set BMPDirInput $RGBDirOutput
-                if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+                if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
                 }
             }
         } else {
@@ -1000,7 +1018,7 @@ global FileInputBlue FileInputGreen FileInputRed RGBCCCE MinMaxAutoRGB TMPMinMax
 global RGBMinBlue RGBMaxBlue RGBMinRed RGBMaxRed RGBMinGreen RGBMaxGreen
 global OffsetLig OffsetCol FinalNlig FinalNcol
 global VarError ErrorMessage Fonction Fonction2 ProgressLine
-global Channel1 Channel2 OpenDirFile MaskCmd PSPMemory TMPMemoryAllocError
+global Channel1 Channel2 OpenDirFile MaskCmd TMPMemoryAllocError
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
 
 set config "true"
@@ -1032,30 +1050,30 @@ if [file exists $fichier] {
     tkwait variable VarError
     }
 if {"$config"=="true"} {
-    if {$RGBFormat == "RGB1" || $RGBFormat == "RGB2"} {
-        set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$TMPMinMaxBmp\x22 -iodf C2 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 -rgbf $RGBFormat"
+    if {$RGBFormat == "RGB1" || $RGBFormat == "RGB2" || $RGBFormat == "RGB3" || $RGBFormat == "RGB4"} {
+        set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$TMPMinMaxBmp\x22 -iodf C2 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd  -errf \x22$TMPMemoryAllocError\x22 -rgbf $RGBFormat"
         if {"$RGBCCCE"=="independant"} {
-            TextEditorRunTrace "Process The Function Soft/bmp_process/minmax_rgb_file_SPPIPPC2.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/minmax_rgb_file_SPPIPPC2.exe" "k"
             TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-            set f [ open "| Soft/bmp_process/minmax_rgb_file_SPPIPPC2 $ArgumentRGB" r]
+            set f [ open "| Soft/bin/bmp_process/minmax_rgb_file_SPPIPPC2 $ArgumentRGB" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
             }
         if {"$RGBCCCE"=="common"} {
-            TextEditorRunTrace "Process The Function Soft/bmp_process/minmax_rgb_cce_file_SPPIPPC2.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/minmax_rgb_cce_file_SPPIPPC2.exe" "k"
             TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-            set f [ open "| Soft/bmp_process/minmax_rgb_cce_file_SPPIPPC2 $ArgumentRGB" r]
+            set f [ open "| Soft/bin/bmp_process/minmax_rgb_cce_file_SPPIPPC2 $ArgumentRGB" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
             }
         } else {
-        set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf C2 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22"
+        set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf C2 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd  -errf \x22$TMPMemoryAllocError\x22"
         if {$RGBFormat == "Stokes1"} {
-            TextEditorRunTrace "Process The Function Soft/bmp_process/minmax_rgb_file_Stokes.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/minmax_rgb_file_Stokes.exe" "k"
             TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-            set f [ open "| Soft/bmp_process/minmax_rgb_file_Stokes $ArgumentRGB" r]
+            set f [ open "| Soft/bin/bmp_process/minmax_rgb_file_Stokes $ArgumentRGB" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1074,7 +1092,7 @@ global FileInputBlue FileInputGreen FileInputRed RGBCCCE MinMaxAutoRGB TMPMinMax
 global RGBMinBlue RGBMaxBlue RGBMinRed RGBMaxRed RGBMinGreen RGBMaxGreen
 global OffsetLig OffsetCol FinalNlig FinalNcol
 global VarError ErrorMessage Fonction Fonction2 ProgressLine
-global Channel1 Channel2 OpenDirFile MaskCmd PSPMemory TMPMemoryAllocError PolarType
+global Channel1 Channel2 OpenDirFile MaskCmd TMPMemoryAllocError PolarType
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
 
 set config "true"
@@ -1097,19 +1115,19 @@ if {$PolarType == "pp4"} {
         set config "false"
         }
     if {"$config"=="true"} {
-        set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$TMPMinMaxBmp\x22 -iodf IPP -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 -rgbf $RGBFormat"
+        set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$TMPMinMaxBmp\x22 -iodf IPP -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd  -errf \x22$TMPMemoryAllocError\x22 -rgbf $RGBFormat"
         if {"$RGBCCCE"=="independant"} {
-            TextEditorRunTrace "Process The Function Soft/bmp_process/minmax_rgb_file_SPPIPPC2.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/minmax_rgb_file_SPPIPPC2.exe" "k"
             TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-            set f [ open "| Soft/bmp_process/minmax_rgb_file_SPPIPPC2 $ArgumentRGB" r]
+            set f [ open "| Soft/bin/bmp_process/minmax_rgb_file_SPPIPPC2 $ArgumentRGB" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
             }
         if {"$RGBCCCE"=="common"} {
-            TextEditorRunTrace "Process The Function Soft/bmp_process/minmax_rgb_cce_file_SPPIPPC2.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/minmax_rgb_cce_file_SPPIPPC2.exe" "k"
             TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-            set f [ open "| Soft/bmp_process/minmax_rgb_cce_file_SPPIPPC2 $ArgumentRGB" r]
+            set f [ open "| Soft/bin/bmp_process/minmax_rgb_cce_file_SPPIPPC2 $ArgumentRGB" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1131,7 +1149,7 @@ global FileInputBlue FileInputGreen FileInputRed RGBCCCE MinMaxAutoRGB TMPMinMax
 global RGBMinBlue RGBMaxBlue RGBMinRed RGBMaxRed RGBMinGreen RGBMaxGreen
 global OffsetLig OffsetCol FinalNlig FinalNcol
 global VarError ErrorMessage Fonction Fonction2 ProgressLine
-global Channel1 Channel2 OpenDirFile MaskCmd PSPMemory TMPMemoryAllocError PolarType
+global Channel1 Channel2 OpenDirFile MaskCmd TMPMemoryAllocError PolarType
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
 
 set config "true"
@@ -1154,30 +1172,30 @@ if {$PolarType == "pp4"} {
         set config "false"
         }
     if {"$config"=="true"} {
-        if {$RGBFormat == "RGB1" || $RGBFormat == "RGB2"} {
-            set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$TMPMinMaxBmp\x22 -iodf SPP -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 -rgbf $RGBFormat"
+        if {$RGBFormat == "RGB1" || $RGBFormat == "RGB2" || $RGBFormat == "RGB3" || $RGBFormat == "RGB4"} {
+            set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$TMPMinMaxBmp\x22 -iodf SPP -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd  -errf \x22$TMPMemoryAllocError\x22 -rgbf $RGBFormat"
             if {"$RGBCCCE"=="independant"} {
-                TextEditorRunTrace "Process The Function Soft/bmp_process/minmax_rgb_file_SPPIPPC2.exe" "k"
+                TextEditorRunTrace "Process The Function Soft/bin/bmp_process/minmax_rgb_file_SPPIPPC2.exe" "k"
                 TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-                set f [ open "| Soft/bmp_process/minmax_rgb_file_SPPIPPC2 $ArgumentRGB" r]
+                set f [ open "| Soft/bin/bmp_process/minmax_rgb_file_SPPIPPC2 $ArgumentRGB" r]
                 PsPprogressBar $f
                 TextEditorRunTrace "Check RunTime Errors" "r"
                 CheckRunTimeError
                 }
             if {"$RGBCCCE"=="common"} {
-                TextEditorRunTrace "Process The Function Soft/bmp_process/minmax_rgb_cce_file_SPPIPPC2.exe" "k"
+                TextEditorRunTrace "Process The Function Soft/bin/bmp_process/minmax_rgb_cce_file_SPPIPPC2.exe" "k"
                 TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-                set f [ open "| Soft/bmp_process/minmax_rgb_cce_file_SPPIPPC2 $ArgumentRGB" r]
+                set f [ open "| Soft/bin/bmp_process/minmax_rgb_cce_file_SPPIPPC2 $ArgumentRGB" r]
                 PsPprogressBar $f
                 TextEditorRunTrace "Check RunTime Errors" "r"
                 CheckRunTimeError
                 }
             } else {
-            set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$TMPMinMaxBmp\x22 -iodf SPP -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22"
+            set ArgumentRGB "-id \x22$RGBDirInput\x22 -of \x22$TMPMinMaxBmp\x22 -iodf SPP -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd  -errf \x22$TMPMemoryAllocError\x22"
             if {$RGBFormat == "Stokes1"} {
-                TextEditorRunTrace "Process The Function Soft/bmp_process/minmax_rgb_file_Stokes.exe" "k"
+                TextEditorRunTrace "Process The Function Soft/bin/bmp_process/minmax_rgb_file_Stokes.exe" "k"
                 TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-                set f [ open "| Soft/bmp_process/minmax_rgb_file_Stokes $ArgumentRGB" r]
+                set f [ open "| Soft/bin/bmp_process/minmax_rgb_file_Stokes $ArgumentRGB" r]
                 PsPprogressBar $f
                 TextEditorRunTrace "Check RunTime Errors" "r"
                 CheckRunTimeError
@@ -1202,7 +1220,7 @@ global FileInputBlue FileInputGreen FileInputRed RGBCCCE MinMaxAutoRGB
 global RGBMinBlue RGBMaxBlue RGBMinRed RGBMaxRed RGBMinGreen RGBMaxGreen
 global OffsetLig OffsetCol FinalNlig FinalNcol NcolFullSize
 global VarError ErrorMessage Fonction Fonction2 ProgressLine PSPViewGimpBMP 
-global Channel1 Channel2 OpenDirFile MaskCmd PSPMemory TMPMemoryAllocError
+global Channel1 Channel2 OpenDirFile MaskCmd TMPMemoryAllocError
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
 
 
@@ -1211,27 +1229,27 @@ if {"$FileInputBlue"=="$TMPFileNull"} {set config "true"}
 if {"$FileInputRed"=="$TMPFileNull"} {set config "true"}
 if {"$FileInputGreen"=="$TMPFileNull"} {set config "true"}
 if {"$config"=="true"} {
-    TextEditorRunTrace "Process The Function Soft/bmp_process/create_null_file.exe" "k"
+    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_null_file.exe" "k"
     TextEditorRunTrace "Arguments: -of \x22$TMPFileNull\x22 -fnr $FinalNlig -fnc $FinalNcol" "k"
-    set f [ open "| Soft/bmp_process/create_null_file.exe -of \x22$TMPFileNull\x22 -fnr $FinalNlig -fnc $FinalNcol" r]
+    set f [ open "| Soft/bin/bmp_process/create_null_file.exe -of \x22$TMPFileNull\x22 -fnr $FinalNlig -fnc $FinalNcol" r]
     }
-if {$MinMaxAutoRGB == 1} { set ArgumentRGB "-ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$RGBFileOutput\x22 -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 -auto $MinMaxAutoRGB"}
-if {$MinMaxAutoRGB == 0} { set ArgumentRGB "-ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$RGBFileOutput\x22 -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 -auto $MinMaxAutoRGB -minb $RGBMinBlue -maxb $RGBMaxBlue -minr $RGBMinRed -maxr $RGBMaxRed -ming $RGBMinGreen -maxg $RGBMaxGreen"}
+if {$MinMaxAutoRGB == 1} { set ArgumentRGB "-ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$RGBFileOutput\x22 -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd  -errf \x22$TMPMemoryAllocError\x22 -auto $MinMaxAutoRGB"}
+if {$MinMaxAutoRGB == 0} { set ArgumentRGB "-ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$RGBFileOutput\x22 -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd  -errf \x22$TMPMemoryAllocError\x22 -auto $MinMaxAutoRGB -minb $RGBMinBlue -maxb $RGBMaxBlue -minr $RGBMinRed -maxr $RGBMaxRed -ming $RGBMinGreen -maxg $RGBMaxGreen"}
 if {"$RGBCCCE"=="independant"} {
-    TextEditorRunTrace "Process The Function Soft/bmp_process/create_rgb_file.exe" "k"
+    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_rgb_file.exe" "k"
     TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-    set f [ open "| Soft/bmp_process/create_rgb_file.exe $ArgumentRGB" r]
+    set f [ open "| Soft/bin/bmp_process/create_rgb_file.exe $ArgumentRGB" r]
     }
 if {"$RGBCCCE"=="common"} {
-    TextEditorRunTrace "Process The Function Soft/bmp_process/create_rgb_cce_file.exe" "k"
+    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_rgb_cce_file.exe" "k"
     TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-    set f [ open "| Soft/bmp_process/create_rgb_cce_file.exe $ArgumentRGB" r]
+    set f [ open "| Soft/bin/bmp_process/create_rgb_cce_file.exe $ArgumentRGB" r]
     }
 PsPprogressBar $f
 TextEditorRunTrace "Check RunTime Errors" "r"
 CheckRunTimeError
 set BMPDirInput $RGBDirOutput
-if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
 }
 #############################################################################
 ## Procedure:  MinMaxRGBCombinePP
@@ -1242,7 +1260,7 @@ global FileInputBlue FileInputGreen FileInputRed RGBCCCE MinMaxAutoRGB TMPMinMax
 global RGBMinBlue RGBMaxBlue RGBMinRed RGBMaxRed RGBMinGreen RGBMaxGreen
 global OffsetLig OffsetCol FinalNlig FinalNcol NcolFullSize
 global VarError ErrorMessage Fonction Fonction2 ProgressLine
-global Channel1 Channel2 OpenDirFile MaskCmd PSPMemory TMPMemoryAllocError
+global Channel1 Channel2 OpenDirFile MaskCmd TMPMemoryAllocError
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
 
 
@@ -1251,20 +1269,20 @@ if {"$FileInputBlue"=="$TMPFileNull"} {set config "true"}
 if {"$FileInputRed"=="$TMPFileNull"} {set config "true"}
 if {"$FileInputGreen"=="$TMPFileNull"} {set config "true"}
 if {"$config"=="true"} {
-    TextEditorRunTrace "Process The Function Soft/bmp_process/create_null_file.exe" "k"
+    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_null_file.exe" "k"
     TextEditorRunTrace "Arguments: -of \x22$TMPFileNull\x22 -fnr $FinalNlig -fnc $FinalNcol" "k"
-    set f [ open "| Soft/bmp_process/create_null_file.exe -of \x22$TMPFileNull\x22 -fnr $FinalNlig -fnc $FinalNcol" r]
+    set f [ open "| Soft/bin/bmp_process/create_null_file.exe -of \x22$TMPFileNull\x22 -fnr $FinalNlig -fnc $FinalNcol" r]
     }
-set ArgumentRGB "-ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$TMPMinMaxBmp\x22 -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22"
+set ArgumentRGB "-ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$TMPMinMaxBmp\x22 -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol $MaskCmd  -errf \x22$TMPMemoryAllocError\x22"
 if {"$RGBCCCE"=="independant"} {
-    TextEditorRunTrace "Process The Function Soft/bmp_process/minmax_rgb_file.exe" "k"
+    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/minmax_rgb_file.exe" "k"
     TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-    set f [ open "| Soft/bmp_process/minmax_rgb_file.exe $ArgumentRGB" r]
+    set f [ open "| Soft/bin/bmp_process/minmax_rgb_file.exe $ArgumentRGB" r]
     }
 if {"$RGBCCCE"=="common"} {
-    TextEditorRunTrace "Process The Function Soft/bmp_process/minmax_rgb_cce_file.exe" "k"
+    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/minmax_rgb_cce_file.exe" "k"
     TextEditorRunTrace "Arguments: $ArgumentRGB" "k"
-    set f [ open "| Soft/bmp_process/minmax_rgb_cce_file.exe $ArgumentRGB" r]
+    set f [ open "| Soft/bin/bmp_process/minmax_rgb_cce_file.exe $ArgumentRGB" r]
     }
 PsPprogressBar $f
 TextEditorRunTrace "Check RunTime Errors" "r"
@@ -1300,8 +1318,8 @@ proc vTclWindow. {base} {
     # CREATING WIDGETS
     ###################
     wm focusmodel $top passive
-    wm geometry $top 200x200+75+75; update
-    wm maxsize $top 3360 1028
+    wm geometry $top 200x200+175+175; update
+    wm maxsize $top 3364 1032
     wm minsize $top 116 1
     wm overrideredirect $top 0
     wm resizable $top 1 1
@@ -1577,31 +1595,43 @@ if {$RGBFormat == "combine"} {set RGBFileOutput "$RGBDirOutput/CombineRGB.bmp"}}
         -disabledforeground #0000ff -foreground #0000ff -justify center \
         -state disabled -textvariable PolarType -width 4 
     vTcl:DefineAlias "$site_4_0.ent72" "Entry1" vTcl:WidgetProc "Toplevel201" 1
-    label $site_4_0.lab73 \
+    frame $site_4_0.cpd67 \
+        -borderwidth 2 -height 75 -width 125 
+    vTcl:DefineAlias "$site_4_0.cpd67" "Frame14" vTcl:WidgetProc "Toplevel201" 1
+    set site_5_0 $site_4_0.cpd67
+    label $site_5_0.lab73 \
         -text {Channel 1} 
-    vTcl:DefineAlias "$site_4_0.lab73" "Label1" vTcl:WidgetProc "Toplevel201" 1
-    entry $site_4_0.ent74 \
+    vTcl:DefineAlias "$site_5_0.lab73" "Label3" vTcl:WidgetProc "Toplevel201" 1
+    entry $site_5_0.ent74 \
         -background white -disabledbackground #ffffff \
         -disabledforeground #0000ff -foreground #0000ff -justify center \
         -state disabled -textvariable Channel1 -width 4 
-    vTcl:DefineAlias "$site_4_0.ent74" "Entry2" vTcl:WidgetProc "Toplevel201" 1
-    label $site_4_0.lab75 \
+    vTcl:DefineAlias "$site_5_0.ent74" "Entry5" vTcl:WidgetProc "Toplevel201" 1
+    pack $site_5_0.lab73 \
+        -in $site_5_0 -anchor center -expand 1 -fill none -side left 
+    pack $site_5_0.ent74 \
+        -in $site_5_0 -anchor center -expand 1 -fill none -side left 
+    frame $site_4_0.cpd68 \
+        -borderwidth 2 -height 75 -width 125 
+    vTcl:DefineAlias "$site_4_0.cpd68" "Frame15" vTcl:WidgetProc "Toplevel201" 1
+    set site_5_0 $site_4_0.cpd68
+    label $site_5_0.lab75 \
         -text {Channel 2} 
-    vTcl:DefineAlias "$site_4_0.lab75" "Label2" vTcl:WidgetProc "Toplevel201" 1
-    entry $site_4_0.ent76 \
+    vTcl:DefineAlias "$site_5_0.lab75" "Label2" vTcl:WidgetProc "Toplevel201" 1
+    entry $site_5_0.ent76 \
         -background white -disabledbackground #ffffff \
         -disabledforeground #0000ff -foreground #0000ff -justify center \
         -state disabled -textvariable Channel2 -width 4 
-    vTcl:DefineAlias "$site_4_0.ent76" "Entry3" vTcl:WidgetProc "Toplevel201" 1
+    vTcl:DefineAlias "$site_5_0.ent76" "Entry4" vTcl:WidgetProc "Toplevel201" 1
+    pack $site_5_0.lab75 \
+        -in $site_5_0 -anchor center -expand 1 -fill none -side left 
+    pack $site_5_0.ent76 \
+        -in $site_5_0 -anchor center -expand 1 -fill none -side left 
     pack $site_4_0.ent72 \
         -in $site_4_0 -anchor center -expand 1 -fill none -side left 
-    pack $site_4_0.lab73 \
+    pack $site_4_0.cpd67 \
         -in $site_4_0 -anchor center -expand 1 -fill none -side left 
-    pack $site_4_0.ent74 \
-        -in $site_4_0 -anchor center -expand 1 -fill none -side left 
-    pack $site_4_0.lab75 \
-        -in $site_4_0 -anchor center -expand 1 -fill none -side left 
-    pack $site_4_0.ent76 \
+    pack $site_4_0.cpd68 \
         -in $site_4_0 -anchor center -expand 1 -fill none -side left 
     frame $site_3_0.cpd71 \
         -borderwidth 2 -height 75 -width 125 
@@ -1721,6 +1751,120 @@ set RGBMinGreen "Auto"; set RGBMaxGreen "Auto"} \
         -in $site_5_0 -anchor w -expand 0 -fill none -side top 
     pack $site_5_0.rad68 \
         -in $site_5_0 -anchor center -expand 0 -fill none -side top 
+    frame $site_4_0.cpd66 \
+        -borderwidth 2 -height 75 -width 125 
+    vTcl:DefineAlias "$site_4_0.cpd66" "Frame89" vTcl:WidgetProc "Toplevel201" 1
+    set site_5_0 $site_4_0.cpd66
+    radiobutton $site_5_0.rad67 \
+        -anchor center \
+        -command {global ActiveProgram RGBDirOutput RGBDirInput RGBFileOutput RGBFormat PolarType RGBFunction Channel1 Channel2
+global RGBMinBlue RGBMaxBlue RGBMinRed RGBMaxRed RGBMinGreen RGBMaxGreen
+global MinMaxAutoRGB RGBFormat
+
+if {$PolarType != "full"} {
+    set RGBFormat "RGB3"
+    set RGBFileOutput "$RGBDirOutput/RGB3.bmp"
+    if {$ActiveProgram == "ASAR"} {set RGBFileOutput "$RGBDirOutput/AsarRGB1.bmp"}
+    set FileInputBlue "|$Channel1|"
+    set FileInputGreen "|$Channel1 - $Channel2|"
+    set FileInputRed "|$Channel2|"
+    if {"$RGBFunction"=="C2"} {
+        set FileInputBlue "C11"
+        set FileInputGreen "|C11 - C22|"
+        set FileInputRed "C22"
+        }
+    } else {
+    set ErrorMessage "INPUT DATA MUST BE PARTIAL POLAR"
+    Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
+    tkwait variable VarError
+    set RGBFormat "combine"
+    set RGBDirInput ""
+    set RGBDirOutput ""
+    set RGBFileOutput ""
+    set FileInputBlue ""
+    set FileInputGreen ""
+    set FileInputRed ""
+    }
+set MinMaxAutoRGB "1"
+$widget(TitleFrame201_1) configure -state disable
+$widget(TitleFrame201_2) configure -state disable
+$widget(TitleFrame201_3) configure -state disable
+$widget(Label201_1) configure -state disable
+$widget(Entry201_1) configure -state disable
+$widget(Label201_2) configure -state disable
+$widget(Entry201_2) configure -state disable
+$widget(Label201_3) configure -state disable
+$widget(Entry201_3) configure -state disable
+$widget(Label201_4) configure -state disable
+$widget(Entry201_4) configure -state disable
+$widget(Label201_5) configure -state disable
+$widget(Entry201_5) configure -state disable
+$widget(Label201_6) configure -state disable
+$widget(Entry201_6) configure -state disable
+$widget(Button201_1) configure -state disable
+$widget(Button201_2) configure -state normal
+set RGBMinBlue "Auto"; set RGBMaxBlue "Auto"
+set RGBMinRed "Auto"; set RGBMaxRed "Auto"
+set RGBMinGreen "Auto"; set RGBMaxGreen "Auto"} \
+        -text {RGB Color Composition 3} -value RGB3 -variable RGBFormat 
+    vTcl:DefineAlias "$site_5_0.rad67" "Radiobutton40" vTcl:WidgetProc "Toplevel201" 1
+    radiobutton $site_5_0.rad68 \
+        \
+        -command {global ActiveProgram RGBDirOutput RGBDirInput RGBFileOutput RGBFormat PolarType RGBFunction Channel1 Channel2
+global RGBMinBlue RGBMaxBlue RGBMinRed RGBMaxRed RGBMinGreen RGBMaxGreen
+global MinMaxAutoRGB RGBFormat
+
+if {$PolarType != "full"} {
+    set RGBFormat "RGB4"
+    set RGBFileOutput "$RGBDirOutput/RGB4.bmp"
+    if {$ActiveProgram == "ASAR"} {set RGBFileOutput "$RGBDirOutput/AsarRGB2.bmp"}
+    set FileInputBlue "|$Channel2|"
+    set FileInputGreen "|$Channel2 - $Channel1|"
+    set FileInputRed "|$Channel1|"
+    if {"$RGBFunction"=="C2"} {
+        set FileInputBlue "C22"
+        set FileInputGreen "|C22 - C11|"
+        set FileInputRed "C11"
+        }
+    } else {
+    set ErrorMessage "INPUT DATA MUST BE PARTIAL POLAR"
+    Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
+    tkwait variable VarError
+    set RGBFormat "combine"
+    set RGBDirInput ""
+    set RGBDirOutput ""
+    set RGBFileOutput ""
+    set FileInputBlue ""
+    set FileInputGreen ""
+    set FileInputRed ""
+    }
+set MinMaxAutoRGB "1"
+$widget(TitleFrame201_1) configure -state disable
+$widget(TitleFrame201_2) configure -state disable
+$widget(TitleFrame201_3) configure -state disable
+$widget(Label201_1) configure -state disable
+$widget(Entry201_1) configure -state disable
+$widget(Label201_2) configure -state disable
+$widget(Entry201_2) configure -state disable
+$widget(Label201_3) configure -state disable
+$widget(Entry201_3) configure -state disable
+$widget(Label201_4) configure -state disable
+$widget(Entry201_4) configure -state disable
+$widget(Label201_5) configure -state disable
+$widget(Entry201_5) configure -state disable
+$widget(Label201_6) configure -state disable
+$widget(Entry201_6) configure -state disable
+$widget(Button201_1) configure -state disable
+$widget(Button201_2) configure -state normal
+set RGBMinBlue "Auto"; set RGBMaxBlue "Auto"
+set RGBMinRed "Auto"; set RGBMaxRed "Auto"
+set RGBMinGreen "Auto"; set RGBMaxGreen "Auto"} \
+        -text {RGB Color Composition 4} -value RGB4 -variable RGBFormat 
+    vTcl:DefineAlias "$site_5_0.rad68" "Radiobutton41" vTcl:WidgetProc "Toplevel201" 1
+    pack $site_5_0.rad67 \
+        -in $site_5_0 -anchor w -expand 0 -fill none -side top 
+    pack $site_5_0.rad68 \
+        -in $site_5_0 -anchor center -expand 0 -fill none -side top 
     frame $site_4_0.cpd73 \
         -borderwidth 2 -height 75 -width 125 
     vTcl:DefineAlias "$site_4_0.cpd73" "Frame88" vTcl:WidgetProc "Toplevel201" 1
@@ -1824,6 +1968,8 @@ set RGBMinGreen "Auto"; set RGBMaxGreen "Auto"} \
     pack $site_5_0.rad68 \
         -in $site_5_0 -anchor center -expand 0 -fill none -side top 
     pack $site_4_0.fra38 \
+        -in $site_4_0 -anchor center -expand 1 -fill none -side left 
+    pack $site_4_0.cpd66 \
         -in $site_4_0 -anchor center -expand 1 -fill none -side left 
     pack $site_4_0.cpd73 \
         -in $site_4_0 -anchor center -expand 1 -fill none -side left 
@@ -2107,7 +2253,7 @@ global FileInputBlue FileInputGreen FileInputRed RGBCCCE MinMaxAutoRGB TMPMinMax
 global RGBMinBlue RGBMaxBlue RGBMinRed RGBMaxRed RGBMinGreen RGBMaxGreen
 global OffsetLig OffsetCol FinalNlig FinalNcol NcolFullSize NligFullSize
 global VarError ErrorMessage Fonction Fonction2 ProgressLine
-global Channel1 Channel2 OpenDirFile MaskCmd PSPMemory TMPMemoryAllocError
+global Channel1 Channel2 OpenDirFile MaskCmd TMPMemoryAllocError
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
 
 $widget(Button201_2) configure -state disable
@@ -2199,7 +2345,7 @@ if {$OpenDirFile == 0} {
                 }
             }
         } else {
-        set RGBFormat ""
+        set RGBFormat " "
         set VarError ""
         set ErrorMessage "ENTER A VALID DIRECTORY"
         Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
@@ -2405,7 +2551,7 @@ global FileInputBlue FileInputGreen FileInputRed RGBCCCE MinMaxAutoRGB
 global RGBMinBlue RGBMaxBlue RGBMinRed RGBMaxRed RGBMinGreen RGBMaxGreen
 global OffsetLig OffsetCol FinalNlig FinalNcol NcolFullSize NligFullSize
 global VarError ErrorMessage Fonction Fonction2 ProgressLine
-global Channel1 Channel2 OpenDirFile MaskCmd PSPMemory TMPMemoryAllocError
+global Channel1 Channel2 OpenDirFile MaskCmd TMPMemoryAllocError
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
 
 if {$OpenDirFile == 0} {
@@ -2470,7 +2616,7 @@ if {"$RGBDirInput"!=""} {
                     if {"$RGBFunction"=="IPP"} { CreateRGBIPP }                 
                     if {"$RGBFunction"=="C2"} { CreateRGBC2 }
                     }                                  
-                set RGBFormat ""
+                set RGBFormat " "
                 WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
                 Window hide $widget(Toplevel201); TextEditorRunTrace "Close Window Create RGB File PP" "b"
                 }
@@ -2479,7 +2625,7 @@ if {"$RGBDirInput"!=""} {
         if {"$VarWarning"=="no"} {Window hide $widget(Toplevel201); TextEditorRunTrace "Close Window Create RGB File PP" "b"}
         }
     } else {
-    set RGBFormat ""
+    set RGBFormat " "
     set VarError ""
     set ErrorMessage "ENTER A VALID DIRECTORY"
     Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
@@ -2539,7 +2685,7 @@ Window hide $widget(Toplevel201); TextEditorRunTrace "Close Window Create RGB Fi
     pack $top.cpd124 \
         -in $top -anchor center -expand 0 -fill x -side top 
     pack $top.fra59 \
-        -in $top -anchor center -expand 1 -fill x -pady 10 -side bottom 
+        -in $top -anchor center -expand 1 -fill x -pady 5 -side bottom 
 
     vTcl:FireEvent $base <<Ready>>
 }

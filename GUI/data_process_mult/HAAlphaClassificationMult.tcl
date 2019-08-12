@@ -678,7 +678,7 @@ proc ::MultHAAlphaDecomposition {} {
 global HAAlpDirInput HAAlpDirOutput HAAlphaClassifFonction
 global OffsetLig OffsetCol FinalNlig FinalNcol 
 global NwinHAAlpL NwinHAAlpC entropy alpha anisotropy lambda CombHA CombH1mA Comb1mHA Comb1mH1mA
-global ProgressLine PSPMemory TMPMemoryAllocError
+global ProgressLine TMPMemoryAllocError
 
 set MaskCmd ""
 set MaskFile "$HAAlpDirInput/mask_valid_pixels.bin"
@@ -690,9 +690,9 @@ if {$HAAlphaClassifFonction == "S2m"} { set HAAlphaClassifF "S2T3" }
 if {$HAAlphaClassifFonction == "SPP"} { set HAAlphaClassifF "SPPC2" }
 if {$HAAlphaClassifFonction == "T3"} { set HAAlphaClassifF "T3" }
 if {$HAAlphaClassifFonction == "C2"} { set HAAlphaClassifF "C2" }
-TextEditorRunTrace "Process The Function Soft/data_process_sngl/h_a_alpha_decomposition.exe" "k"
-TextEditorRunTrace "Arguments: -id \x22$HAAlpDirInput\x22 -od \x22$HAAlpDirOutput\x22 -iodf $HAAlphaClassifF -nwr $NwinHAAlpL -nwc $NwinHAAlpC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -fl1 0 -fl2 $lambda -fl3 $alpha -fl4 $entropy -fl5 $anisotropy -fl6 $CombHA -fl7 $CombH1mA -fl8 $Comb1mHA -fl9 $Comb1mH1mA -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-set f [ open "| Soft/data_process_sngl/h_a_alpha_decomposition.exe -id \x22$HAAlpDirInput\x22 -od \x22$HAAlpDirOutput\x22 -iodf $HAAlphaClassifF -nwr $NwinHAAlpL -nwc $NwinHAAlpC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -fl1 0 -fl2 $lambda -fl3 $alpha -fl4 $entropy -fl5 $anisotropy -fl6 $CombHA -fl7 $CombH1mA -fl8 $Comb1mHA -fl9 $Comb1mH1mA -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/h_a_alpha_decomposition.exe" "k"
+TextEditorRunTrace "Arguments: -id \x22$HAAlpDirInput\x22 -od \x22$HAAlpDirOutput\x22 -iodf $HAAlphaClassifF -nwr $NwinHAAlpL -nwc $NwinHAAlpC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -fl1 0 -fl2 $lambda -fl3 $alpha -fl4 $entropy -fl5 $anisotropy -fl6 $CombHA -fl7 $CombH1mA -fl8 $Comb1mHA -fl9 $Comb1mH1mA  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+set f [ open "| Soft/bin/data_process_sngl/h_a_alpha_decomposition.exe -id \x22$HAAlpDirInput\x22 -od \x22$HAAlpDirOutput\x22 -iodf $HAAlphaClassifF -nwr $NwinHAAlpL -nwc $NwinHAAlpC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -fl1 0 -fl2 $lambda -fl3 $alpha -fl4 $entropy -fl5 $anisotropy -fl6 $CombHA -fl7 $CombH1mA -fl8 $Comb1mHA -fl9 $Comb1mH1mA  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
 PsPprogressBar $f
 TextEditorRunTrace "Check RunTime Errors" "r"
 CheckRunTimeError
@@ -787,7 +787,7 @@ if {$Comb1mH1mA == 1} {
 ## Procedure:  MultHAAlphaClassification
 
 proc ::MultHAAlphaClassification {} {
-global HAAlpDirOutput ColorMapPlanes9 PSPMemory TMPMemoryAllocError
+global HAAlpDirOutput ColorMapPlanes9 TMPMemoryAllocError
 global Halpha_plane HA_plane Aalpha_plane HAAlphaClassifFonction
 global OffsetLig OffsetCol FinalNlig FinalNcol 
 global Fonction Fonction2 VarError ErrorMessage ProgressLine
@@ -857,12 +857,12 @@ if {"$conf"=="true"} {
     set ProgressLine "0"
     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
     update
-    set ProcessFunction "Soft/data_process_sngl/h_a_alpha_planes_classifier.exe"
-    if {$HAAlphaClassifFonction == "C2"} {set ProcessFunction "Soft/data_process_sngl/h_a_alpha_planes_classifier_dualpol.exe"}
-    if {$HAAlphaClassifFonction == "SPP"} {set ProcessFunction "Soft/data_process_sngl/h_a_alpha_planes_classifier_dualpol.exe"}
+    set ProcessFunction "Soft/bin/data_process_sngl/h_a_alpha_planes_classifier.exe"
+    if {$HAAlphaClassifFonction == "C2"} {set ProcessFunction "Soft/bin/data_process_sngl/h_a_alpha_planes_classifier_dualpol.exe"}
+    if {$HAAlphaClassifFonction == "SPP"} {set ProcessFunction "Soft/bin/data_process_sngl/h_a_alpha_planes_classifier_dualpol.exe"}
     TextEditorRunTrace "Process The Function $ProcessFunction" "k"
-    TextEditorRunTrace "Arguments: -id \x22$HAAlpDirOutput\x22 -od \x22$HAAlpDirOutput\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -hal $Halpha_plane -anal $Aalpha_plane -han $HA_plane -clm \x22$ColorMapPlanes9\x22 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-    set f [ open "| $ProcessFunction -id \x22$HAAlpDirOutput\x22 -od \x22$HAAlpDirOutput\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -hal $Halpha_plane -anal $Aalpha_plane -han $HA_plane -clm \x22$ColorMapPlanes9\x22 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+    TextEditorRunTrace "Arguments: -id \x22$HAAlpDirOutput\x22 -od \x22$HAAlpDirOutput\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -hal $Halpha_plane -anal $Aalpha_plane -han $HA_plane -clm \x22$ColorMapPlanes9\x22  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+    set f [ open "| $ProcessFunction -id \x22$HAAlpDirOutput\x22 -od \x22$HAAlpDirOutput\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -hal $Halpha_plane -anal $Aalpha_plane -han $HA_plane -clm \x22$ColorMapPlanes9\x22  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError
@@ -896,7 +896,7 @@ if {"$conf"=="true"} {
 ## Procedure:  MultRGBHAAlphaBMP
 
 proc ::MultRGBHAAlphaBMP {} {
-global HAAlpDirOutput BMPDirInput PSPMemory TMPMemoryAllocError
+global HAAlpDirOutput BMPDirInput TMPMemoryAllocError
 global OffsetLig OffsetCol FinalNlig FinalNcol NcolFullSize
 global Fonction Fonction2 VarError ErrorMessage ProgressLine PSPViewGimpBMP
 
@@ -940,22 +940,22 @@ if {$conf == "true"} {
     set ProgressLine "0"
     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
     update
-    TextEditorRunTrace "Process The Function Soft/bmp_process/create_rgb_file.exe" "k"
-    TextEditorRunTrace "Arguments: -ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$RGBFileOutput\x22 -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -auto 1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-    set f [ open "| Soft/bmp_process/create_rgb_file.exe -ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$RGBFileOutput\x22 -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -auto 1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_rgb_file.exe" "k"
+    TextEditorRunTrace "Arguments: -ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$RGBFileOutput\x22 -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -auto 1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+    set f [ open "| Soft/bin/bmp_process/create_rgb_file.exe -ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$RGBFileOutput\x22 -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -auto 1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError
     WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
     set BMPDirInput $HAAlpDirOutput
-    if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+    if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
     }
 }
 #############################################################################
 ## Procedure:  MultRGBHACombBMP
 
 proc ::MultRGBHACombBMP {} {
-global HAAlpDirOutput BMPDirInput PSPMemory TMPMemoryAllocError
+global HAAlpDirOutput BMPDirInput TMPMemoryAllocError
 global OffsetLig OffsetCol FinalNlig FinalNcol NcolFullSize
 global Fonction Fonction2 VarError ErrorMessage ProgressLine PSPViewGimpBMP
 
@@ -1000,14 +1000,14 @@ if {$conf == "true"} {
     set ProgressLine "0"
     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
     update
-    TextEditorRunTrace "Process The Function Soft/bmp_process/create_rgb_file.exe" "k"
-    TextEditorRunTrace "Arguments: -ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$RGBFileOutput\x22 -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -auto 1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-    set f [ open "| Soft/bmp_process/create_rgb_file.exe -ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$RGBFileOutput\x22 -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -auto 1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_rgb_file.exe" "k"
+    TextEditorRunTrace "Arguments: -ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$RGBFileOutput\x22 -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -auto 1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+    set f [ open "| Soft/bin/bmp_process/create_rgb_file.exe -ifb \x22$FileInputBlue\x22 -ifg \x22$FileInputGreen\x22 -ifr \x22$FileInputRed\x22 -of \x22$RGBFileOutput\x22 -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -auto 1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError
     WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-    if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+    if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
     set BMPDirInput $HAAlpDirOutput
     }
 }
@@ -1015,7 +1015,7 @@ if {$conf == "true"} {
 ## Procedure:  MultRGBTuoTuoBMP
 
 proc ::MultRGBTuoTuoBMP {} {
-global HAAlpDirOutput BMPDirInput PSPMemory TMPMemoryAllocError
+global HAAlpDirOutput BMPDirInput TMPMemoryAllocError
 global OffsetLig OffsetCol FinalNlig FinalNcol NcolFullSize
 global Fonction Fonction2 VarError ErrorMessage ProgressLine PSPViewGimpBMP
 
@@ -1055,22 +1055,22 @@ if {$conf == "true"} {
     set ProgressLine "0"
     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
     update
-    TextEditorRunTrace "Process The Function Soft/bmp_process/create_polar0_hsv_file.exe" "k"
-    TextEditorRunTrace "Arguments: -id \x22$HAAlpDirOutput\x22 -of \x22$HSVFileOutput\x22 -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-    set f [ open "| Soft/bmp_process/create_polar0_hsv_file.exe -id \x22$HAAlpDirOutput\x22 -of \x22$HSVFileOutput\x22 -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_polar0_hsv_file.exe" "k"
+    TextEditorRunTrace "Arguments: -id \x22$HAAlpDirOutput\x22 -of \x22$HSVFileOutput\x22 -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+    set f [ open "| Soft/bin/bmp_process/create_polar0_hsv_file.exe -id \x22$HAAlpDirOutput\x22 -of \x22$HSVFileOutput\x22 -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError
     WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
     set BMPDirInput $HAAlpDirOutput
-    if {$PSPViewGimpBMP == 1} { Gimp $HSVFileOutput }
+    if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $HSVFileOutput }
     }
 }
 #############################################################################
 ## Procedure:  MultHAlphaLambdaClassification
 
 proc ::MultHAlphaLambdaClassification {} {
-global HAAlpDirOutput ColorMapPlanes27 PSPMemory TMPMemoryAllocError
+global HAAlpDirOutput ColorMapPlanes27 TMPMemoryAllocError
 global HalphaLambda_plane HAAlphaClassifFonction
 global OffsetLig OffsetCol FinalNlig FinalNcol 
 global Fonction Fonction2 VarError ErrorMessage ProgressLine
@@ -1112,12 +1112,12 @@ if {"$conf"=="true"} {
     set ProgressLine "0"
     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
     update
-    set ProcessFunction "Soft/data_process_sngl/h_alpha_lambda_planes_classifier.exe"
-    if {$HAAlphaClassifFonction == "C2"} {set ProcessFunction "Soft/data_process_sngl/h_alpha_lambda_planes_classifier_dualpol.exe"}
-    if {$HAAlphaClassifFonction == "SPP"} {set ProcessFunction "Soft/data_process_sngl/h_alpha_lambda_planes_classifier_dualpol.exe"}
+    set ProcessFunction "Soft/bin/data_process_sngl/h_alpha_lambda_planes_classifier.exe"
+    if {$HAAlphaClassifFonction == "C2"} {set ProcessFunction "Soft/bin/data_process_sngl/h_alpha_lambda_planes_classifier_dualpol.exe"}
+    if {$HAAlphaClassifFonction == "SPP"} {set ProcessFunction "Soft/bin/data_process_sngl/h_alpha_lambda_planes_classifier_dualpol.exe"}
     TextEditorRunTrace "Process The Function $ProcessFunction" "k"
-    TextEditorRunTrace "Arguments: -id \x22$HAAlpDirOutput\x22 -od \x22$HAAlpDirOutput\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -clm \x22$ColorMapPlanes27\x22 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-    set f [ open "| $ProcessFunction -id \x22$HAAlpDirOutput\x22 -od \x22$HAAlpDirOutput\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -clm \x22$ColorMapPlanes27\x22 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+    TextEditorRunTrace "Arguments: -id \x22$HAAlpDirOutput\x22 -od \x22$HAAlpDirOutput\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -clm \x22$ColorMapPlanes27\x22  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+    set f [ open "| $ProcessFunction -id \x22$HAAlpDirOutput\x22 -od \x22$HAAlpDirOutput\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -clm \x22$ColorMapPlanes27\x22  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError

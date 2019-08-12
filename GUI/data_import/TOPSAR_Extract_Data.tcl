@@ -670,7 +670,7 @@ proc ::RGB_C3 {} {
 global EOSIDirOutput BMPDirInput
 global VarError ErrorMessage Fonction Fonction2
 global NligFullSize NcolFullSize PSPViewGimpBMP
-global ProgressLine PSPMemory TMPMemoryAllocError 
+global ProgressLine TMPMemoryAllocError 
    
 set RGBDirInput $EOSIDirOutput
 set RGBDirOutput $EOSIDirOutput
@@ -723,15 +723,15 @@ if {"$config"=="true"} {
     set ProgressLine "0"
     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
     update
-    TextEditorRunTrace "Process The Function Soft/bmp_process/create_pauli_rgb_file.exe" "k"
-    TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf C3 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
-    set f [ open "| Soft/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf C3 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
+    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_pauli_rgb_file.exe" "k"
+    TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf C3 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
+    set f [ open "| Soft/bin/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf C3 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError
     set BMPDirInput $RGBDirOutput
     WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-    if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+    if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
     }
 }
 #############################################################################
@@ -741,7 +741,7 @@ proc ::RGB_T3 {} {
 global EOSIDirOutput BMPDirInput
 global VarError ErrorMessage Fonction Fonction2
 global NligFullSize NcolFullSize PSPViewGimpBMP
-global ProgressLine PSPMemory TMPMemoryAllocError 
+global ProgressLine TMPMemoryAllocError 
    
 set RGBDirInput $EOSIDirOutput
 set RGBDirOutput $EOSIDirOutput
@@ -785,15 +785,15 @@ if {"$config"=="true"} {
     set ProgressLine "0"
     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
     update
-    TextEditorRunTrace "Process The Function Soft/bmp_process/create_pauli_rgb_file.exe" "k"
-    TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf T3 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
-    set f [ open "| Soft/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf T3 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
+    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_pauli_rgb_file.exe" "k"
+    TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf T3 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
+    set f [ open "| Soft/bin/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf T3 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError
     set BMPDirInput $RGBDirOutput
     WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-    if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+    if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
     }
 }
 #############################################################################
@@ -804,9 +804,9 @@ global TMPTopsarConfig TopsarHeader TopsarNlig TopsarNcol
 
 DeleteFile $TMPTopsarConfig
 
-TextEditorRunTrace "Process The Function Soft/data_import/topsar_header.exe" "k"
+TextEditorRunTrace "Process The Function Soft/bin/data_import/topsar_header.exe" "k"
 TextEditorRunTrace "Arguments: -if \x22$TopsarFile\x22 -of \x22$TMPTopsarConfig\x22" "k"
-set f [ open "| Soft/data_import/topsar_header.exe -if \x22$TopsarFile\x22 -of \x22$TMPTopsarConfig\x22" r]
+set f [ open "| Soft/bin/data_import/topsar_header.exe -if \x22$TopsarFile\x22 -of \x22$TMPTopsarConfig\x22" r]
 PsPprogressBar $f
 TextEditorRunTrace "Check RunTime Errors" "r"
 CheckRunTimeError
@@ -1003,10 +1003,10 @@ if {$DirName != "" } {
         set EOSIOutputDirBis $EOSIOutputDir
         set EOSIExtractFonction "Full"
         set EOSIConvertMLKName 0
-        set MultiLookCol ""
-        set MultiLookRow ""
-        set SubSampCol ""
-        set SubSampRow ""
+        set MultiLookCol " "
+        set MultiLookRow " "
+        set SubSampCol " "
+        set SubSampRow " "
         $widget(Label251_1) configure -state disable
         $widget(Label251_2) configure -state disable
         $widget(Label251_3) configure -state disable
@@ -1106,10 +1106,10 @@ if {$DirName != "" } {
         \
         -command {global MultiLookCol MultiLookRow SubSampCol SubSampRow
 
-set MultiLookCol ""
-set MultiLookRow ""
-set SubSampCol ""
-set SubSampRow ""
+set MultiLookCol " "
+set MultiLookRow " "
+set SubSampCol " "
+set SubSampRow " "
 $widget(Label251_1) configure -state disable
 $widget(Label251_2) configure -state disable
 $widget(Label251_3) configure -state disable
@@ -1130,8 +1130,8 @@ $widget(Entry251_4) configure -state disable} \
         \
         -command {global MultiLookCol MultiLookRow SubSampCol SubSampRow
 
-set MultiLookCol ""
-set MultiLookRow ""
+set MultiLookCol " "
+set MultiLookRow " "
 set SubSampCol " ? "
 set SubSampRow " ? "
 $widget(Label251_1) configure -state normal
@@ -1156,8 +1156,8 @@ $widget(Entry251_4) configure -state disable} \
 
 set MultiLookCol " ? "
 set MultiLookRow " ? "
-set SubSampCol ""
-set SubSampRow ""
+set SubSampCol " "
+set SubSampRow " "
 $widget(Label251_1) configure -state disable
 $widget(Label251_2) configure -state disable
 $widget(Label251_3) configure -state normal
@@ -1424,9 +1424,9 @@ if {$EOSIOutputSubDir != ""} {append EOSIDirOutput "/$EOSIOutputSubDir"}
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/data_import/airsar_convert.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/data_import/airsar_convert.exe" "k"
             TextEditorRunTrace "Arguments: -if \x22$FileInputSTK\x22 -od \x22$EOSIDirOutput\x22 -odf $TOPSAROutputFormat -nr $NligFullSize -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -cf $TMPAirsarConfig $MultiLookSubSamp" "k"
-            set f [ open "| Soft/data_import/airsar_convert.exe -if \x22$FileInputSTK\x22 -od \x22$EOSIDirOutput\x22 -odf $TOPSAROutputFormat -nr $NligFullSize -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -cf $TMPAirsarConfig $MultiLookSubSamp" r]
+            set f [ open "| Soft/bin/data_import/airsar_convert.exe -if \x22$FileInputSTK\x22 -od \x22$EOSIDirOutput\x22 -odf $TOPSAROutputFormat -nr $NligFullSize -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -cf $TMPAirsarConfig $MultiLookSubSamp" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1441,9 +1441,9 @@ if {$EOSIOutputSubDir != ""} {append EOSIDirOutput "/$EOSIOutputSubDir"}
                     set ProgressLine "0"
                     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                     update
-                    TextEditorRunTrace "Process The Function Soft/data_import/topsar_CbandVV.exe" "k"
+                    TextEditorRunTrace "Process The Function Soft/bin/data_import/topsar_CbandVV.exe" "k"
                     TextEditorRunTrace "Arguments: -if \x22$FileInputSTK1\x22 -od \x22$EOSIDirOutput\x22 -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -hf \x22$TMPTopsarConfig\x22" "k"
-                    set f [ open "| Soft/data_import/topsar_CbandVV.exe -if \x22$FileInputSTK1\x22 -od \x22$EOSIDirOutput\x22 -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -hf \x22$TMPTopsarConfig\x22" r]
+                    set f [ open "| Soft/bin/data_import/topsar_CbandVV.exe -if \x22$FileInputSTK1\x22 -od \x22$EOSIDirOutput\x22 -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -hf \x22$TMPTopsarConfig\x22" r]
                     PsPprogressBar $f
                     TextEditorRunTrace "Check RunTime Errors" "r"
                     CheckRunTimeError
@@ -1461,14 +1461,14 @@ if {$EOSIOutputSubDir != ""} {append EOSIDirOutput "/$EOSIOutputSubDir"}
                     set ProgressLine "0"
                     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                     update
-                    TextEditorRunTrace "Process The Function Soft/bmp_process/create_bmp_file.exe" "k"
+                    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_bmp_file.exe" "k"
                     TextEditorRunTrace "Arguments: -if \x22$BMPFileInput\x22 -of \x22$BMPFileOutput\x22 -ift float -oft db10 -clm gray -nc $FinalNcol -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -mm 1 -min 0 -max 0 $MaskCmd" "k"
-                    set f [ open "| Soft/bmp_process/create_bmp_file.exe -if \x22$BMPFileInput\x22 -of \x22$BMPFileOutput\x22 -ift float -oft db10 -clm gray -nc $FinalNcol -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -mm 1 -min 0 -max 0 $MaskCmd" r]
+                    set f [ open "| Soft/bin/bmp_process/create_bmp_file.exe -if \x22$BMPFileInput\x22 -of \x22$BMPFileOutput\x22 -ift float -oft db10 -clm gray -nc $FinalNcol -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -mm 1 -min 0 -max 0 $MaskCmd" r]
                     PsPprogressBar $f
                     TextEditorRunTrace "Check RunTime Errors" "r"
                     CheckRunTimeError
                     WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-                    if {$PSPViewGimpBMP == 1} { Gimp $BMPFileOutput }
+                    if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $BMPFileOutput }
                     }
                 }
     
@@ -1480,9 +1480,9 @@ if {$EOSIOutputSubDir != ""} {append EOSIDirOutput "/$EOSIOutputSubDir"}
                     set ProgressLine "0"
                     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                     update
-                    TextEditorRunTrace "Process The Function Soft/data_import/topsar_CbandDEM.exe" "k"
+                    TextEditorRunTrace "Process The Function Soft/bin/data_import/topsar_CbandDEM.exe" "k"
                     TextEditorRunTrace "Arguments: -if \x22$FileInputSTK2\x22 -od \x22$EOSIDirOutput\x22 -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -hf \x22$TMPTopsarConfig\x22" "k"
-                    set f [ open "| Soft/data_import/topsar_CbandDEM.exe -if \x22$FileInputSTK2\x22 -od \x22$EOSIDirOutput\x22 -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -hf \x22$TMPTopsarConfig\x22" r]
+                    set f [ open "| Soft/bin/data_import/topsar_CbandDEM.exe -if \x22$FileInputSTK2\x22 -od \x22$EOSIDirOutput\x22 -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -hf \x22$TMPTopsarConfig\x22" r]
                     PsPprogressBar $f
                     TextEditorRunTrace "Check RunTime Errors" "r"
                     CheckRunTimeError
@@ -1500,14 +1500,14 @@ if {$EOSIOutputSubDir != ""} {append EOSIDirOutput "/$EOSIOutputSubDir"}
                     set ProgressLine "0"
                     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                     update
-                    TextEditorRunTrace "Process The Function Soft/bmp_process/create_bmp_file.exe" "k"
+                    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_bmp_file.exe" "k"
                     TextEditorRunTrace "Arguments: -if \x22$BMPFileInput\x22 -of \x22$BMPFileOutput\x22 -ift float -oft real -clm jet -nc $FinalNcol -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -mm 3 -min 0 -max 0 $MaskCmd" "k"
-                    set f [ open "| Soft/bmp_process/create_bmp_file.exe -if \x22$BMPFileInput\x22 -of \x22$BMPFileOutput\x22 -ift float -oft real -clm jet -nc $FinalNcol -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -mm 3 -min 0 -max 0 $MaskCmd" r]
+                    set f [ open "| Soft/bin/bmp_process/create_bmp_file.exe -if \x22$BMPFileInput\x22 -of \x22$BMPFileOutput\x22 -ift float -oft real -clm jet -nc $FinalNcol -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -mm 3 -min 0 -max 0 $MaskCmd" r]
                     PsPprogressBar $f
                     TextEditorRunTrace "Check RunTime Errors" "r"
                     CheckRunTimeError
                     WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-                    if {$PSPViewGimpBMP == 1} { Gimp $BMPFileOutput }
+                    if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $BMPFileOutput }
                     }
                 }
     
@@ -1519,9 +1519,9 @@ if {$EOSIOutputSubDir != ""} {append EOSIDirOutput "/$EOSIOutputSubDir"}
                     set ProgressLine "0"
                     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                     update
-                    TextEditorRunTrace "Process The Function Soft/data_import/topsar_corr_coeff_map.exe" "k"
+                    TextEditorRunTrace "Process The Function Soft/bin/data_import/topsar_corr_coeff_map.exe" "k"
                     TextEditorRunTrace "Arguments: -if \x22$FileInputSTK3\x22 -od \x22$EOSIDirOutput\x22 -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -hf \x22$TMPTopsarConfig\x22" "k"
-                    set f [ open "| Soft/data_import/topsar_corr_coeff_map.exe -if \x22$FileInputSTK3\x22 -od \x22$EOSIDirOutput\x22 -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -hf \x22$TMPTopsarConfig\x22" r]
+                    set f [ open "| Soft/bin/data_import/topsar_corr_coeff_map.exe -if \x22$FileInputSTK3\x22 -od \x22$EOSIDirOutput\x22 -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -hf \x22$TMPTopsarConfig\x22" r]
                     PsPprogressBar $f
                     TextEditorRunTrace "Check RunTime Errors" "r"
                     CheckRunTimeError
@@ -1539,14 +1539,14 @@ if {$EOSIOutputSubDir != ""} {append EOSIDirOutput "/$EOSIOutputSubDir"}
                     set ProgressLine "0"
                     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                     update
-                    TextEditorRunTrace "Process The Function Soft/bmp_process/create_bmp_file.exe" "k"
+                    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_bmp_file.exe" "k"
                     TextEditorRunTrace "Arguments: -if \x22$BMPFileInput\x22 -of \x22$BMPFileOutput\x22 -ift float -oft real -clm jet -nc $FinalNcol -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -mm 3 -min 0 -max 0 $MaskCmd" "k"
-                    set f [ open "| Soft/bmp_process/create_bmp_file.exe -if \x22$BMPFileInput\x22 -of \x22$BMPFileOutput\x22 -ift float -oft real -clm jet -nc $FinalNcol -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -mm 3 -min 0 -max 0 $MaskCmd" r]
+                    set f [ open "| Soft/bin/bmp_process/create_bmp_file.exe -if \x22$BMPFileInput\x22 -of \x22$BMPFileOutput\x22 -ift float -oft real -clm jet -nc $FinalNcol -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -mm 3 -min 0 -max 0 $MaskCmd" r]
                     PsPprogressBar $f
                     TextEditorRunTrace "Check RunTime Errors" "r"
                     CheckRunTimeError
                     WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-                    if {$PSPViewGimpBMP == 1} { Gimp $BMPFileOutput }
+                    if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $BMPFileOutput }
                     }
                 }
 
@@ -1558,9 +1558,9 @@ if {$EOSIOutputSubDir != ""} {append EOSIDirOutput "/$EOSIOutputSubDir"}
                     set ProgressLine "0"
                     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                     update
-                    TextEditorRunTrace "Process The Function Soft/data_import/topsar_loc_inc_angle.exe" "k"
+                    TextEditorRunTrace "Process The Function Soft/bin/data_import/topsar_loc_inc_angle.exe" "k"
                     TextEditorRunTrace "Arguments: -if \x22$FileInputSTK4\x22 -od \x22$EOSIDirOutput\x22 -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -hf \x22$TMPTopsarConfig\x22" "k"
-                    set f [ open "| Soft/data_import/topsar_loc_inc_angle.exe -if \x22$FileInputSTK4\x22 -od \x22$EOSIDirOutput\x22 -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -hf \x22$TMPTopsarConfig\x22" r]
+                    set f [ open "| Soft/bin/data_import/topsar_loc_inc_angle.exe -if \x22$FileInputSTK4\x22 -od \x22$EOSIDirOutput\x22 -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -hf \x22$TMPTopsarConfig\x22" r]
                     PsPprogressBar $f
                     TextEditorRunTrace "Check RunTime Errors" "r"
                     CheckRunTimeError
@@ -1578,14 +1578,14 @@ if {$EOSIOutputSubDir != ""} {append EOSIDirOutput "/$EOSIOutputSubDir"}
                     set ProgressLine "0"
                     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                     update
-                    TextEditorRunTrace "Process The Function Soft/bmp_process/create_bmp_file.exe" "k"
+                    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_bmp_file.exe" "k"
                     TextEditorRunTrace "Arguments: -if \x22$BMPFileInput\x22 -of \x22$BMPFileOutput\x22 -ift float -oft real -clm jet -nc $FinalNcol -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -mm 3 -min 0 -max 0 $MaskCmd" "k"
-                    set f [ open "| Soft/bmp_process/create_bmp_file.exe -if \x22$BMPFileInput\x22 -of \x22$BMPFileOutput\x22 -ift float -oft real -clm jet -nc $FinalNcol -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -mm 3 -min 0 -max 0 $MaskCmd" r]
+                    set f [ open "| Soft/bin/bmp_process/create_bmp_file.exe -if \x22$BMPFileInput\x22 -of \x22$BMPFileOutput\x22 -ift float -oft real -clm jet -nc $FinalNcol -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -mm 3 -min 0 -max 0 $MaskCmd" r]
                     PsPprogressBar $f
                     TextEditorRunTrace "Check RunTime Errors" "r"
                     CheckRunTimeError
                     WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-                    if {$PSPViewGimpBMP == 1} { Gimp $BMPFileOutput }
+                    if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $BMPFileOutput }
                     }
                 }
     

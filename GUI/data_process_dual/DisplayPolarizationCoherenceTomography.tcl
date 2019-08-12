@@ -404,38 +404,6 @@ proc vTcl:project:info {} {
     namespace eval ::widgets::$site_4_0.can73 {
         array set save {-borderwidth 1 -closeenough 1 -height 1 -relief 1 -width 1}
     }
-    namespace eval ::widgets::$site_4_0.cpd80 {
-        array set save {-ipad 1 -text 1}
-    }
-    set site_6_0 [$site_4_0.cpd80 getframe]
-    namespace eval ::widgets::$site_6_0 {
-        array set save {}
-    }
-    set site_6_0 $site_6_0
-    namespace eval ::widgets::$site_6_0.cpd75 {
-        array set save {-height 1 -relief 1 -width 1}
-    }
-    set site_7_0 $site_6_0.cpd75
-    namespace eval ::widgets::$site_7_0.fra84 {
-        array set save {-height 1 -relief 1 -width 1}
-    }
-    set site_8_0 $site_7_0.fra84
-    namespace eval ::widgets::$site_8_0.lab76 {
-        array set save {-relief 1 -text 1 -width 1}
-    }
-    namespace eval ::widgets::$site_8_0.ent78 {
-        array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -justify 1 -state 1 -textvariable 1 -width 1}
-    }
-    namespace eval ::widgets::$site_7_0.fra85 {
-        array set save {-height 1 -relief 1 -width 1}
-    }
-    set site_8_0 $site_7_0.fra85
-    namespace eval ::widgets::$site_8_0.lab76 {
-        array set save {-relief 1 -text 1 -width 1}
-    }
-    namespace eval ::widgets::$site_8_0.ent78 {
-        array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -justify 1 -state 1 -textvariable 1 -width 1}
-    }
     namespace eval ::widgets::$site_4_0.cpd73 {
         array set save {-ipad 1 -text 1}
     }
@@ -472,6 +440,38 @@ proc vTcl:project:info {} {
         array set save {-height 1 -relief 1 -width 1}
     }
     set site_8_0 $site_7_0.cpd75
+    namespace eval ::widgets::$site_8_0.lab76 {
+        array set save {-relief 1 -text 1 -width 1}
+    }
+    namespace eval ::widgets::$site_8_0.ent78 {
+        array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -justify 1 -state 1 -textvariable 1 -width 1}
+    }
+    namespace eval ::widgets::$site_4_0.cpd80 {
+        array set save {-ipad 1 -text 1}
+    }
+    set site_6_0 [$site_4_0.cpd80 getframe]
+    namespace eval ::widgets::$site_6_0 {
+        array set save {}
+    }
+    set site_6_0 $site_6_0
+    namespace eval ::widgets::$site_6_0.cpd75 {
+        array set save {-height 1 -relief 1 -width 1}
+    }
+    set site_7_0 $site_6_0.cpd75
+    namespace eval ::widgets::$site_7_0.fra84 {
+        array set save {-height 1 -relief 1 -width 1}
+    }
+    set site_8_0 $site_7_0.fra84
+    namespace eval ::widgets::$site_8_0.lab76 {
+        array set save {-relief 1 -text 1 -width 1}
+    }
+    namespace eval ::widgets::$site_8_0.ent78 {
+        array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -justify 1 -state 1 -textvariable 1 -width 1}
+    }
+    namespace eval ::widgets::$site_7_0.fra85 {
+        array set save {-height 1 -relief 1 -width 1}
+    }
+    set site_8_0 $site_7_0.fra85
     namespace eval ::widgets::$site_8_0.lab76 {
         array set save {-relief 1 -text 1 -width 1}
     }
@@ -561,25 +561,6 @@ proc vTcl:project:info {} {
     }
     namespace eval ::widgets::$site_8_0.cpd78 {
         array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -justify 1 -textvariable 1 -width 1}
-    }
-    namespace eval ::widgets::$site_4_0.fra79 {
-        array set save {-borderwidth 1 -height 1 -width 1}
-    }
-    set site_5_0 $site_4_0.fra79
-    namespace eval ::widgets::$site_5_0.but80 {
-        array set save {-command 1 -pady 1 -relief 1 -text 1}
-    }
-    namespace eval ::widgets::$site_5_0.but71 {
-        array set save {-_tooltip 1 -background 1 -command 1 -padx 1 -pady 1 -text 1}
-    }
-    namespace eval ::widgets::$site_5_0.men75 {
-        array set save {-_tooltip 1 -background 1 -image 1 -menu 1 -padx 1 -pady 1 -relief 1}
-    }
-    namespace eval ::widgets::$site_5_0.men75.m {
-        array set save {-activeborderwidth 1 -borderwidth 1 -tearoff 1}
-        namespace eval subOptions {
-            array set save {-command 1 -label 1}
-        }
     }
     namespace eval ::widgets::$site_4_0.cpd84 {
         array set save {-ipad 1 -text 1}
@@ -698,14 +679,29 @@ proc vTcl:project:info {} {
     namespace eval ::widgets::$site_8_0.ent78 {
         array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -justify 1 -state 1 -textvariable 1 -width 1}
     }
-    namespace eval ::widgets::$base.fra92 {
-        array set save {-height 1 -relief 1 -width 1}
+    namespace eval ::widgets::$site_4_0.fra79 {
+        array set save {-borderwidth 1 -height 1 -width 1}
     }
-    set site_3_0 $base.fra92
-    namespace eval ::widgets::$site_3_0.but23 {
+    set site_5_0 $site_4_0.fra79
+    namespace eval ::widgets::$site_5_0.but80 {
+        array set save {-command 1 -pady 1 -relief 1 -text 1}
+    }
+    namespace eval ::widgets::$site_5_0.but71 {
+        array set save {-_tooltip 1 -background 1 -command 1 -padx 1 -pady 1 -text 1}
+    }
+    namespace eval ::widgets::$site_5_0.men75 {
+        array set save {-_tooltip 1 -background 1 -image 1 -menu 1 -padx 1 -pady 1 -relief 1}
+    }
+    namespace eval ::widgets::$site_5_0.men75.m {
+        array set save {-activeborderwidth 1 -borderwidth 1 -tearoff 1}
+        namespace eval subOptions {
+            array set save {-command 1 -label 1}
+        }
+    }
+    namespace eval ::widgets::$site_5_0.cpd66 {
         array set save {-_tooltip 1 -background 1 -command 1 -image 1 -pady 1 -width 1}
     }
-    namespace eval ::widgets::$site_3_0.but24 {
+    namespace eval ::widgets::$site_5_0.cpd68 {
         array set save {-_tooltip 1 -background 1 -command 1 -padx 1 -pady 1 -text 1}
     }
     namespace eval ::widgets::$base.m71 {
@@ -876,7 +872,8 @@ if {$OpenDirFile == 0} {
 if { $PCTBMPImageOpen == 1 } {
     set PCTSourceWidth ""; set PCTSourceHeight ""
     set PCTBMPMouseX ""; set PCTBMPMouseY ""
-    set PCTZMax ""; set PCTZMin ""; set PCTZValue ""
+    #set PCTZMax ""; set PCTZMin "";
+    set PCTZValue ""
     set PCTZoomBMP "0:0"; set PCTBMPImageOpen "0"
     image delete PCTImageSource
     image delete PCTBMPImage
@@ -901,83 +898,81 @@ package require Img
 global Load_ViewBMPPCT
 
 if { $Load_ViewBMPPCT == 1 } {
+    if { $PCTBMPImageOpen == 1 } {
+        image delete PCTImageSource
+        image delete PCTBMPImage
+        }
+    set PCTSourceWidth ""; set PCTSourceHeight ""
+    set PCTBMPMouseX ""; set PCTBMPMouseY ""
+    #set PCTZMax "+ 1.0"
+    #set PCTZMin "- 1.0"
+    set PCTZValue ""
+    set PCTZoomBMP "0:0"
+    set PCTColorNumberUtil $PCTColorNumber
+    set PCTBMPImageOpen "1"
 
-if { $PCTBMPImageOpen == 1 } {
-    image delete PCTImageSource
-    image delete PCTBMPImage
-    }
-set PCTSourceWidth ""; set PCTSourceHeight ""
-set PCTBMPMouseX ""; set PCTBMPMouseY ""
-#set PCTZMax "+ 1.0"
-#set PCTZMin "- 1.0"
-set PCTZValue ""
-set PCTZoomBMP "0:0"
-set PCTColorNumberUtil $PCTColorNumber
-set PCTBMPImageOpen "1"
-
-PCTload_bmp_file $TMPPCTBmp
+    PCTload_bmp_file $TMPPCTBmp
    
-#set xwindow [winfo x .top343]; set ywindow [winfo y .top343]
-#set geometrie "200x200+"; append geometrie $xwindow; append geometrie "+"; append geometrie $ywindow
-#wm geometry .top344 $geometrie; update
-.top344.cpd79.cpd80 configure -width $PCTBMPWidth -height $PCTBMPHeight
-.top344.cpd79.cpd80 create image 0 0 -anchor nw -image PCTBMPImage
+    #set xwindow [winfo x .top343]; set ywindow [winfo y .top343]
+    #set geometrie "200x200+"; append geometrie $xwindow; append geometrie "+"; append geometrie $ywindow
+    #wm geometry .top344 $geometrie; update
+    .top344.cpd79.cpd80 configure -width $PCTBMPWidth -height $PCTBMPHeight
+    .top344.cpd79.cpd80 create image 0 0 -anchor nw -image PCTBMPImage
 
-###############################################################
-set geoscreenwidth [winfo width .top2]
-set geoscreenheight [winfo height .top2]
-set geoscreenwidths2 [expr $geoscreenwidth / 2]
-set geoscreenheights2 [expr $geoscreenheight / 2]
+    ###############################################################
+    set geoscreenwidth [winfo width .top2]
+    set geoscreenheight [winfo height .top2]
+    set geoscreenwidths2 [expr $geoscreenwidth / 2]
+    set geoscreenheights2 [expr $geoscreenheight / 2]
 
-set tx [winfo rootx .top2]
-set ty [winfo rooty .top2]
-set x [winfo x .top2]
-set y [winfo y .top2]
-set geoscreenborderw [expr {$tx-$x}]
-set geoscreentitleh [expr {$ty-$y}]
+    set tx [winfo rootx .top2]
+    set ty [winfo rooty .top2]
+    set x [winfo x .top2]
+    set y [winfo y .top2]
+    set geoscreenborderw [expr {$tx-$x}]
+    set geoscreentitleh [expr {$ty-$y}]
 
-set geomenuwidth [winfo width .top343]
-set geomenuheight [winfo height .top343]
-set geomenuX [winfo x .top343]
-set geomenuY [winfo y .top343]
+    set geomenuwidth [winfo width .top343]
+    set geomenuheight [winfo height .top343]
+    set geomenuX [winfo x .top343]
+    set geomenuY [winfo y .top343]
 
-set geowidgetwidth [winfo width .top344]
-set geowidgetheight [winfo height .top344]
-set geowidgetwidths2 [expr $geowidgetwidth / 2]
-set geowidgetheights2 [expr $geowidgetheight / 2]
+    set geowidgetwidth [winfo width .top344]
+    set geowidgetheight [winfo height .top344]
+    set geowidgetwidths2 [expr $geowidgetwidth / 2]
+    set geowidgetheights2 [expr $geowidgetheight / 2]
 
-set positionheight $geomenuY
+    set positionheight $geomenuY
 
-#Positionnement a Droite
-set positionwidth [expr $geomenuX + $geomenuwidth]; set positionwidth [expr $positionwidth + (3 * $geoscreenborderw)];
-set limitwidth [expr $positionwidth + $geowidgetwidth]
-set config "true"
-if {$limitwidth > $geoscreenwidth} {set config "false"}
-
-if {$config == "false"} {
-    #Positionnement a Gauche
-    set positionwidth [expr $geomenuX - $geowidgetwidth]; set positionwidth [expr $positionwidth - (3 * $geoscreenborderw)];
-    set limitwidth $positionwidth
+    #Positionnement a Droite
+    set positionwidth [expr $geomenuX + $geomenuwidth]; set positionwidth [expr $positionwidth + (3 * $geoscreenborderw)];
+    set limitwidth [expr $positionwidth + $geowidgetwidth]
     set config "true"
-    set limit [expr $geoscreenborderw + $geoscreenborderw]
-    if {$limitwidth < $limit} {set config "false"}
+    if {$limitwidth > $geoscreenwidth} {set config "false"}
 
     if {$config == "false"} {
-        #Positionnement au Centre
-        set positionwidth $geoscreenwidths2; set positionwidth [expr $positionwidth - $geowidgetwidths2]
-        set positionheight $geoscreenheights2; set positionheight [expr $positionheight - $geowidgetheights2]
+        #Positionnement a Gauche
+        set positionwidth [expr $geomenuX - $geowidgetwidth]; set positionwidth [expr $positionwidth - (3 * $geoscreenborderw)];
+        set limitwidth $positionwidth
+        set config "true"
+        set limit [expr $geoscreenborderw + $geoscreenborderw]
+        if {$limitwidth < $limit} {set config "false"}
+        if {$config == "false"} {
+            #Positionnement au Centre
+            set positionwidth $geoscreenwidths2; set positionwidth [expr $positionwidth - $geowidgetwidths2]
+            set positionheight $geoscreenheights2; set positionheight [expr $positionheight - $geowidgetheights2]
+            }  
         }  
-    }  
 
-set geometrie $geowidgetwidth; append geometrie "x"; append geometrie $geowidgetheight; append geometrie "+";
-append geometrie $positionwidth; append geometrie "+"; append geometrie $positionheight
+    set geometrie $geowidgetwidth; append geometrie "x"; append geometrie $geowidgetheight; append geometrie "+";
+    append geometrie $positionwidth; append geometrie "+"; append geometrie $positionheight
 
-wm geometry .top344 $geometrie; update
+    wm geometry .top344 $geometrie; update
 
-###############################################################
-catch {wm geometry .top344 {}} 
-Window show .top344; TextEditorRunTrace "Open Window View BMP PCT" "b"
-}
+    ###############################################################
+    catch {wm geometry .top344 {}} 
+    Window show .top344; TextEditorRunTrace "Open Window View BMP PCT" "b"
+    }
 }
 #############################################################################
 ## Procedure:  PCTload_bmp_file
@@ -1121,8 +1116,8 @@ proc vTclWindow. {base} {
     # CREATING WIDGETS
     ###################
     wm focusmodel $top passive
-    wm geometry $top 200x200+150+150; update
-    wm maxsize $top 1924 1062
+    wm geometry $top 200x200+250+250; update
+    wm maxsize $top 3364 1032
     wm minsize $top 116 1
     wm overrideredirect $top 0
     wm resizable $top 1 1
@@ -1154,7 +1149,7 @@ proc vTclWindow.top343 {base} {
         -menu "$top.m71" 
     wm withdraw $top
     wm focusmodel $top passive
-    wm geometry $top 500x370+10+110; update
+    wm geometry $top 500x300+10+110; update
     wm maxsize $top 1604 1184
     wm minsize $top 116 1
     wm overrideredirect $top 0
@@ -1179,55 +1174,6 @@ proc vTclWindow.top343 {base} {
     bind $site_4_0.can73 <Button-1> {
         MouseButtonDownLens %x %y
     }
-    TitleFrame $site_4_0.cpd80 \
-        -ipad 2 -text {Mouse Position} 
-    vTcl:DefineAlias "$site_4_0.cpd80" "TitleFrame3" vTcl:WidgetProc "Toplevel343" 1
-    bind $site_4_0.cpd80 <Destroy> {
-        Widget::destroy %W; rename %W {}
-    }
-    set site_6_0 [$site_4_0.cpd80 getframe]
-    frame $site_6_0.cpd75 \
-        -relief groove -height 75 -width 125 
-    vTcl:DefineAlias "$site_6_0.cpd75" "Frame29" vTcl:WidgetProc "Toplevel343" 1
-    set site_7_0 $site_6_0.cpd75
-    frame $site_7_0.fra84 \
-        -relief groove -height 75 -width 125 
-    vTcl:DefineAlias "$site_7_0.fra84" "Frame30" vTcl:WidgetProc "Toplevel343" 1
-    set site_8_0 $site_7_0.fra84
-    label $site_8_0.lab76 \
-        -relief groove -text X -width 2 
-    vTcl:DefineAlias "$site_8_0.lab76" "Label27" vTcl:WidgetProc "Toplevel343" 1
-    entry $site_8_0.ent78 \
-        -background white -disabledbackground #ffffff \
-        -disabledforeground #0000ff -foreground #0000ff -justify center \
-        -state disabled -textvariable BMPMouseX -width 4 
-    vTcl:DefineAlias "$site_8_0.ent78" "Entry52" vTcl:WidgetProc "Toplevel343" 1
-    pack $site_8_0.lab76 \
-        -in $site_8_0 -anchor center -expand 1 -fill none -padx 5 -side left 
-    pack $site_8_0.ent78 \
-        -in $site_8_0 -anchor center -expand 1 -fill none -side right 
-    frame $site_7_0.fra85 \
-        -relief groove -height 75 -width 125 
-    vTcl:DefineAlias "$site_7_0.fra85" "Frame31" vTcl:WidgetProc "Toplevel343" 1
-    set site_8_0 $site_7_0.fra85
-    label $site_8_0.lab76 \
-        -relief groove -text Y -width 2 
-    vTcl:DefineAlias "$site_8_0.lab76" "Label28" vTcl:WidgetProc "Toplevel343" 1
-    entry $site_8_0.ent78 \
-        -background white -disabledbackground #ffffff \
-        -disabledforeground #0000ff -foreground #0000ff -justify center \
-        -state disabled -textvariable BMPMouseY -width 4 
-    vTcl:DefineAlias "$site_8_0.ent78" "Entry53" vTcl:WidgetProc "Toplevel343" 1
-    pack $site_8_0.lab76 \
-        -in $site_8_0 -anchor center -expand 1 -fill none -padx 5 -side left 
-    pack $site_8_0.ent78 \
-        -in $site_8_0 -anchor center -expand 1 -fill none -side right 
-    pack $site_7_0.fra84 \
-        -in $site_7_0 -anchor center -expand 1 -fill none -side left 
-    pack $site_7_0.fra85 \
-        -in $site_7_0 -anchor center -expand 1 -fill none -padx 5 -side left 
-    pack $site_6_0.cpd75 \
-        -in $site_6_0 -anchor center -expand 1 -fill x -side left 
     TitleFrame $site_4_0.cpd73 \
         -ipad 2 -text {3-D Tomo Size} 
     vTcl:DefineAlias "$site_4_0.cpd73" "TitleFrame4" vTcl:WidgetProc "Toplevel343" 1
@@ -1295,12 +1241,61 @@ proc vTclWindow.top343 {base} {
         -in $site_7_0 -anchor center -expand 1 -fill x -side left 
     pack $site_6_0.cpd75 \
         -in $site_6_0 -anchor center -expand 1 -fill x -side left 
+    TitleFrame $site_4_0.cpd80 \
+        -ipad 2 -text {Mouse Position} 
+    vTcl:DefineAlias "$site_4_0.cpd80" "TitleFrame3" vTcl:WidgetProc "Toplevel343" 1
+    bind $site_4_0.cpd80 <Destroy> {
+        Widget::destroy %W; rename %W {}
+    }
+    set site_6_0 [$site_4_0.cpd80 getframe]
+    frame $site_6_0.cpd75 \
+        -relief groove -height 75 -width 125 
+    vTcl:DefineAlias "$site_6_0.cpd75" "Frame29" vTcl:WidgetProc "Toplevel343" 1
+    set site_7_0 $site_6_0.cpd75
+    frame $site_7_0.fra84 \
+        -relief groove -height 75 -width 125 
+    vTcl:DefineAlias "$site_7_0.fra84" "Frame30" vTcl:WidgetProc "Toplevel343" 1
+    set site_8_0 $site_7_0.fra84
+    label $site_8_0.lab76 \
+        -relief groove -text X -width 2 
+    vTcl:DefineAlias "$site_8_0.lab76" "Label27" vTcl:WidgetProc "Toplevel343" 1
+    entry $site_8_0.ent78 \
+        -background white -disabledbackground #ffffff \
+        -disabledforeground #0000ff -foreground #0000ff -justify center \
+        -state disabled -textvariable BMPMouseX -width 4 
+    vTcl:DefineAlias "$site_8_0.ent78" "Entry52" vTcl:WidgetProc "Toplevel343" 1
+    pack $site_8_0.lab76 \
+        -in $site_8_0 -anchor center -expand 1 -fill none -padx 5 -side left 
+    pack $site_8_0.ent78 \
+        -in $site_8_0 -anchor center -expand 1 -fill none -side right 
+    frame $site_7_0.fra85 \
+        -relief groove -height 75 -width 125 
+    vTcl:DefineAlias "$site_7_0.fra85" "Frame31" vTcl:WidgetProc "Toplevel343" 1
+    set site_8_0 $site_7_0.fra85
+    label $site_8_0.lab76 \
+        -relief groove -text Y -width 2 
+    vTcl:DefineAlias "$site_8_0.lab76" "Label28" vTcl:WidgetProc "Toplevel343" 1
+    entry $site_8_0.ent78 \
+        -background white -disabledbackground #ffffff \
+        -disabledforeground #0000ff -foreground #0000ff -justify center \
+        -state disabled -textvariable BMPMouseY -width 4 
+    vTcl:DefineAlias "$site_8_0.ent78" "Entry53" vTcl:WidgetProc "Toplevel343" 1
+    pack $site_8_0.lab76 \
+        -in $site_8_0 -anchor center -expand 1 -fill none -padx 5 -side left 
+    pack $site_8_0.ent78 \
+        -in $site_8_0 -anchor center -expand 1 -fill none -side right 
+    pack $site_7_0.fra84 \
+        -in $site_7_0 -anchor center -expand 1 -fill none -side left 
+    pack $site_7_0.fra85 \
+        -in $site_7_0 -anchor center -expand 1 -fill none -padx 5 -side left 
+    pack $site_6_0.cpd75 \
+        -in $site_6_0 -anchor center -expand 1 -fill x -side left 
     pack $site_4_0.can73 \
         -in $site_4_0 -anchor center -expand 0 -fill none -side top 
-    pack $site_4_0.cpd80 \
-        -in $site_4_0 -anchor center -expand 0 -fill x -side bottom 
     pack $site_4_0.cpd73 \
-        -in $site_4_0 -anchor center -expand 0 -fill x -side bottom 
+        -in $site_4_0 -anchor center -expand 0 -fill x -side top 
+    pack $site_4_0.cpd80 \
+        -in $site_4_0 -anchor center -expand 0 -fill x -side top 
     frame $site_3_0.fra72 \
         -borderwidth 2 -height 60 -width 125 
     vTcl:DefineAlias "$site_3_0.fra72" "Frame4" vTcl:WidgetProc "Toplevel343" 1
@@ -1573,155 +1568,6 @@ PCTcreateBMP} \
         -in $site_6_0 -anchor center -expand 1 -fill x -side top 
     pack $site_6_0.cpd77 \
         -in $site_6_0 -anchor center -expand 1 -fill none -side top 
-    frame $site_4_0.fra79 \
-        -borderwidth 2 -height 75 -width 125 
-    vTcl:DefineAlias "$site_4_0.fra79" "Frame5" vTcl:WidgetProc "Toplevel343" 1
-    set site_5_0 $site_4_0.fra79
-    button $site_5_0.but80 \
-        \
-        -command {global BMPLens LineXLensInit LineYLensInit LineXLens LineYLens plot2 line_color
-
-if {$line_color == "white"} {
-    set line_color "black"
-    } else {
-    set line_color "white"
-    }
-
-set b .top343.fra71.fra72.fra79.but80
-$b configure -background $line_color -foreground $line_color
-
-$widget(CANVASLENSPCT) dtag LineXLensInit
-$widget(CANVASLENSPCT) dtag LineYLensInit
-$widget(CANVASLENSPCT) create image 0 0 -anchor nw -image BMPLens
-set LineXLensInit {0 0}
-set LineYLensInit {0 0}
-set LineXLens [$widget(CANVASLENSPCT) create line 0 0 0 $SizeLens -fill $line_color -width 2]
-set LineYLens [$widget(CANVASLENSPCT) create line 0 0 $SizeLens 0 -fill $line_color -width 2]
-$widget(CANVASLENSPCT) addtag LineXLensInit withtag $LineXLens
-$widget(CANVASLENSPCT) addtag LineYLensInit withtag $LineYLens
-set plot2(lastX) 0
-set plot2(lastY) 0} \
-        -pady 0 -relief ridge -text {   } 
-    vTcl:DefineAlias "$site_5_0.but80" "Button1" vTcl:WidgetProc "Toplevel343" 1
-    button $site_5_0.but71 \
-        -background #ffff00 -command PCTcloseBMP -padx 4 -pady 2 -text Close 
-    vTcl:DefineAlias "$site_5_0.but71" "Button343_5" vTcl:WidgetProc "Toplevel343" 1
-    bindtags $site_5_0.but71 "$site_5_0.but71 Button $top all _vTclBalloon"
-    bind $site_5_0.but71 <<SetBalloon>> {
-        set ::vTcl::balloon::%W {Close BMP Image}
-    }
-    menubutton $site_5_0.men75 \
-        -background #ffff00 \
-        -image [vTcl:image:get_image [file join . GUI Images SaveFile.gif]] \
-        -menu "$site_5_0.men75.m" -padx 5 -pady 4 -relief raised 
-    vTcl:DefineAlias "$site_5_0.men75" "Menubutton1" vTcl:WidgetProc "Toplevel343" 1
-    bindtags $site_5_0.men75 "$site_5_0.men75 Menubutton $top all _vTclBalloon"
-    bind $site_5_0.men75 <<SetBalloon>> {
-        set ::vTcl::balloon::%W {Save BMP Image}
-    }
-    menu $site_5_0.men75.m \
-        -activeborderwidth 1 -borderwidth 1 -tearoff 0 
-    $site_5_0.men75.m add command \
-        \
-        -command {global FileName PCTDirOutput TMPPCTBmp
-global PCTSlice PCTBMPImageOpen OpenDirFile
-
-if {$OpenDirFile == 0} {
-
-if {$PCTBMPImageOpen == 1} {
-
-    set Types {
-        {{BMP Files}        {.bmp}        }
-        }
-
-    if {$PCTSlice == "azimut" } { set BMPFileOutput "PCTsliceAzimut.bmp" }
-    if {$PCTSlice == "range" } { set BMPFileOutput "PCTsliceRange.bmp" }
-    if {$PCTSlice == "height" } { set BMPFileOutput "PCTsliceHeight.bmp" }
-    set FileName ""
-    set FileName [tk_getSaveFile -initialdir $PCTDirOutput -filetypes $Types -title "BMP OUTPUT FILE" -defaultextension .bmp -initialfile $BMPFileOutput]
-    if {"$FileName" != ""} { CopyFile $TMPPCTBmp $FileName }        
-    }
-}} \
-        -label {BMP Format} 
-    $site_5_0.men75.m add separator \
-        
-    $site_5_0.men75.m add command \
-        \
-        -command {global FileName PCTDirOutput PCTImageSource
-global PCTSlice PCTBMPImageOpen OpenDirFile
-
-if {$OpenDirFile == 0} {
-
-if {$PCTBMPImageOpen == 1} {
-
-    set Types {
-        {{GIF Files}        {.gif}        }
-        }
-
-    if {$PCTSlice == "azimut" } { set BMPFileOutput "PCTsliceAzimut.gif" }
-    if {$PCTSlice == "range" } { set BMPFileOutput "PCTsliceRange.gif" }
-    if {$PCTSlice == "height" } { set BMPFileOutput "PCTsliceHeight.gif" }
-    set FileName ""
-    set FileName [tk_getSaveFile -initialdir $PCTDirOutput -filetypes $Types -title "GIF OUTPUT FILE" -defaultextension .gif -initialfile $BMPFileOutput]
-    if {"$FileName" != ""} { PCTImageSource write $FileName -format gif }        
-    }
-}} \
-        -label {GIF Format} 
-    $site_5_0.men75.m add separator \
-        
-    $site_5_0.men75.m add command \
-        \
-        -command {global FileName PCTDirOutput PCTImageSource
-global PCTSlice PCTBMPImageOpen OpenDirFile
-
-if {$OpenDirFile == 0} {
-
-if {$PCTBMPImageOpen == 1} {
-
-    set Types {
-        {{JPG Files}        {.jpg}        }
-        }
-
-    if {$PCTSlice == "azimut" } { set BMPFileOutput "PCTsliceAzimut.jpg" }
-    if {$PCTSlice == "range" } { set BMPFileOutput "PCTsliceRange.jpg" }
-    if {$PCTSlice == "height" } { set BMPFileOutput "PCTsliceHeight.jpg" }
-    set FileName ""
-    set FileName [tk_getSaveFile -initialdir $PCTDirOutput -filetypes $Types -title "JPG OUTPUT FILE" -defaultextension .jpg -initialfile $BMPFileOutput]
-    if {"$FileName" != ""} { PCTImageSource write $FileName -format jpeg }        
-    }
-}} \
-        -label {JPG Format} 
-    $site_5_0.men75.m add separator \
-        
-    $site_5_0.men75.m add command \
-        \
-        -command {global FileName PCTDirOutput PCTImageSource
-global PCTSlice PCTBMPImageOpen OpenDirFile
-
-if {$OpenDirFile == 0} {
-
-if {$PCTBMPImageOpen == 1} {
-
-    set Types {
-        {{TIF Files}        {.tif}        }
-        }
-
-    if {$PCTSlice == "azimut" } { set BMPFileOutput "PCTsliceAzimut.tif" }
-    if {$PCTSlice == "range" } { set BMPFileOutput "PCTsliceRange.tif" }
-    if {$PCTSlice == "height" } { set BMPFileOutput "PCTsliceHeight.tif" }
-    set FileName ""
-    set FileName [tk_getSaveFile -initialdir $PCTDirOutput -filetypes $Types -title "TIF OUTPUT FILE" -defaultextension .tif -initialfile $BMPFileOutput]
-    if {"$FileName" != ""} { PCTImageSource write $FileName -format tiff }        
-    }
-}} \
-        -label {TIF Format} 
-    pack $site_5_0.but80 \
-        -in $site_5_0 -anchor center -expand 1 -fill none -side left 
-    pack $site_5_0.but71 \
-        -in $site_5_0 -anchor center -expand 1 -fill none -side left 
-    pack $site_5_0.men75 \
-        -in $site_5_0 -anchor center -expand 1 -fill none -ipadx 1 -ipady 1 \
-        -side left 
     TitleFrame $site_4_0.cpd84 \
         -ipad 2 -text Representation 
     vTcl:DefineAlias "$site_4_0.cpd84" "TitleFrame8" vTcl:WidgetProc "Toplevel343" 1
@@ -1915,37 +1761,159 @@ if {$PCTBMPImageOpen == 1} {
         -in $site_7_0 -anchor center -expand 1 -fill x -side left 
     pack $site_6_0.cpd75 \
         -in $site_6_0 -anchor center -expand 1 -fill x -side left 
-    pack $site_4_0.cpd74 \
-        -in $site_4_0 -anchor center -expand 0 -fill x -side top 
-    pack $site_4_0.cpd77 \
-        -in $site_4_0 -anchor center -expand 1 -fill x -side top 
-    pack $site_4_0.fra79 \
-        -in $site_4_0 -anchor center -expand 0 -fill x -pady 6 -side bottom 
-    pack $site_4_0.cpd84 \
-        -in $site_4_0 -anchor center -expand 1 -fill x -side top 
-    pack $site_4_0.fra80 \
-        -in $site_4_0 -anchor center -expand 1 -fill x -side top 
-    pack $site_4_0.cpd79 \
-        -in $site_4_0 -anchor center -expand 0 -fill x -side bottom 
-    pack $site_3_0.cpd78 \
-        -in $site_3_0 -anchor center -expand 1 -fill y -side left 
-    pack $site_3_0.fra72 \
-        -in $site_3_0 -anchor center -expand 1 -fill y -side right 
-    frame $top.fra92 \
-        -relief groove -height 35 -width 125 
-    vTcl:DefineAlias "$top.fra92" "Frame20" vTcl:WidgetProc "Toplevel343" 1
-    set site_3_0 $top.fra92
-    button $site_3_0.but23 \
+    frame $site_4_0.fra79 \
+        -borderwidth 2 -height 75 -width 125 
+    vTcl:DefineAlias "$site_4_0.fra79" "Frame5" vTcl:WidgetProc "Toplevel343" 1
+    set site_5_0 $site_4_0.fra79
+    button $site_5_0.but80 \
+        \
+        -command {global BMPLens LineXLensInit LineYLensInit LineXLens LineYLens plot2 line_color
+
+if {$line_color == "white"} {
+    set line_color "black"
+    } else {
+    set line_color "white"
+    }
+
+set b .top343.fra71.fra72.fra79.but80
+$b configure -background $line_color -foreground $line_color
+
+$widget(CANVASLENSPCT) dtag LineXLensInit
+$widget(CANVASLENSPCT) dtag LineYLensInit
+$widget(CANVASLENSPCT) create image 0 0 -anchor nw -image BMPLens
+set LineXLensInit {0 0}
+set LineYLensInit {0 0}
+set LineXLens [$widget(CANVASLENSPCT) create line 0 0 0 $SizeLens -fill $line_color -width 2]
+set LineYLens [$widget(CANVASLENSPCT) create line 0 0 $SizeLens 0 -fill $line_color -width 2]
+$widget(CANVASLENSPCT) addtag LineXLensInit withtag $LineXLens
+$widget(CANVASLENSPCT) addtag LineYLensInit withtag $LineYLens
+set plot2(lastX) 0
+set plot2(lastY) 0} \
+        -pady 0 -relief ridge -text {   } 
+    vTcl:DefineAlias "$site_5_0.but80" "Button1" vTcl:WidgetProc "Toplevel343" 1
+    button $site_5_0.but71 \
+        -background #ffff00 -command PCTcloseBMP -padx 4 -pady 2 -text Close 
+    vTcl:DefineAlias "$site_5_0.but71" "Button343_5" vTcl:WidgetProc "Toplevel343" 1
+    bindtags $site_5_0.but71 "$site_5_0.but71 Button $top all _vTclBalloon"
+    bind $site_5_0.but71 <<SetBalloon>> {
+        set ::vTcl::balloon::%W {Close BMP Image}
+    }
+    menubutton $site_5_0.men75 \
+        -background #ffff00 \
+        -image [vTcl:image:get_image [file join . GUI Images SaveFile.gif]] \
+        -menu "$site_5_0.men75.m" -padx 5 -pady 4 -relief raised 
+    vTcl:DefineAlias "$site_5_0.men75" "Menubutton1" vTcl:WidgetProc "Toplevel343" 1
+    bindtags $site_5_0.men75 "$site_5_0.men75 Menubutton $top all _vTclBalloon"
+    bind $site_5_0.men75 <<SetBalloon>> {
+        set ::vTcl::balloon::%W {Save BMP Image}
+    }
+    menu $site_5_0.men75.m \
+        -activeborderwidth 1 -borderwidth 1 -tearoff 0 
+    $site_5_0.men75.m add command \
+        \
+        -command {global FileName PCTDirOutput TMPPCTBmp
+global PCTSlice PCTBMPImageOpen OpenDirFile
+
+if {$OpenDirFile == 0} {
+
+if {$PCTBMPImageOpen == 1} {
+
+    set Types {
+        {{BMP Files}        {.bmp}        }
+        }
+
+    if {$PCTSlice == "azimut" } { set BMPFileOutput "PCTsliceAzimut.bmp" }
+    if {$PCTSlice == "range" } { set BMPFileOutput "PCTsliceRange.bmp" }
+    if {$PCTSlice == "height" } { set BMPFileOutput "PCTsliceHeight.bmp" }
+    set FileName ""
+    set FileName [tk_getSaveFile -initialdir $PCTDirOutput -filetypes $Types -title "BMP OUTPUT FILE" -defaultextension .bmp -initialfile $BMPFileOutput]
+    if {"$FileName" != ""} { CopyFile $TMPPCTBmp $FileName }        
+    }
+}} \
+        -label {BMP Format} 
+    $site_5_0.men75.m add separator \
+        
+    $site_5_0.men75.m add command \
+        \
+        -command {global FileName PCTDirOutput PCTImageSource
+global PCTSlice PCTBMPImageOpen OpenDirFile
+
+if {$OpenDirFile == 0} {
+
+if {$PCTBMPImageOpen == 1} {
+
+    set Types {
+        {{GIF Files}        {.gif}        }
+        }
+
+    if {$PCTSlice == "azimut" } { set BMPFileOutput "PCTsliceAzimut.gif" }
+    if {$PCTSlice == "range" } { set BMPFileOutput "PCTsliceRange.gif" }
+    if {$PCTSlice == "height" } { set BMPFileOutput "PCTsliceHeight.gif" }
+    set FileName ""
+    set FileName [tk_getSaveFile -initialdir $PCTDirOutput -filetypes $Types -title "GIF OUTPUT FILE" -defaultextension .gif -initialfile $BMPFileOutput]
+    if {"$FileName" != ""} { PCTImageSource write $FileName -format gif }        
+    }
+}} \
+        -label {GIF Format} 
+    $site_5_0.men75.m add separator \
+        
+    $site_5_0.men75.m add command \
+        \
+        -command {global FileName PCTDirOutput PCTImageSource
+global PCTSlice PCTBMPImageOpen OpenDirFile
+
+if {$OpenDirFile == 0} {
+
+if {$PCTBMPImageOpen == 1} {
+
+    set Types {
+        {{JPG Files}        {.jpg}        }
+        }
+
+    if {$PCTSlice == "azimut" } { set BMPFileOutput "PCTsliceAzimut.jpg" }
+    if {$PCTSlice == "range" } { set BMPFileOutput "PCTsliceRange.jpg" }
+    if {$PCTSlice == "height" } { set BMPFileOutput "PCTsliceHeight.jpg" }
+    set FileName ""
+    set FileName [tk_getSaveFile -initialdir $PCTDirOutput -filetypes $Types -title "JPG OUTPUT FILE" -defaultextension .jpg -initialfile $BMPFileOutput]
+    if {"$FileName" != ""} { PCTImageSource write $FileName -format jpeg }        
+    }
+}} \
+        -label {JPG Format} 
+    $site_5_0.men75.m add separator \
+        
+    $site_5_0.men75.m add command \
+        \
+        -command {global FileName PCTDirOutput PCTImageSource
+global PCTSlice PCTBMPImageOpen OpenDirFile
+
+if {$OpenDirFile == 0} {
+
+if {$PCTBMPImageOpen == 1} {
+
+    set Types {
+        {{TIF Files}        {.tif}        }
+        }
+
+    if {$PCTSlice == "azimut" } { set BMPFileOutput "PCTsliceAzimut.tif" }
+    if {$PCTSlice == "range" } { set BMPFileOutput "PCTsliceRange.tif" }
+    if {$PCTSlice == "height" } { set BMPFileOutput "PCTsliceHeight.tif" }
+    set FileName ""
+    set FileName [tk_getSaveFile -initialdir $PCTDirOutput -filetypes $Types -title "TIF OUTPUT FILE" -defaultextension .tif -initialfile $BMPFileOutput]
+    if {"$FileName" != ""} { PCTImageSource write $FileName -format tiff }        
+    }
+}} \
+        -label {TIF Format} 
+    button $site_5_0.cpd66 \
         -background #ff8000 \
         -command {HelpPdfEdit "Help/DisplayPolarizationCoherenceTomography.pdf"} \
         -image [vTcl:image:get_image [file join . GUI Images help.gif]] \
         -pady 0 -width 20 
-    vTcl:DefineAlias "$site_3_0.but23" "Button15" vTcl:WidgetProc "Toplevel343" 1
-    bindtags $site_3_0.but23 "$site_3_0.but23 Button $top all _vTclBalloon"
-    bind $site_3_0.but23 <<SetBalloon>> {
+    vTcl:DefineAlias "$site_5_0.cpd66" "Button16" vTcl:WidgetProc "Toplevel343" 1
+    bindtags $site_5_0.cpd66 "$site_5_0.cpd66 Button $top all _vTclBalloon"
+    bind $site_5_0.cpd66 <<SetBalloon>> {
         set ::vTcl::balloon::%W {Help File}
     }
-    button $site_3_0.but24 \
+    button $site_5_0.cpd68 \
         -background #ffff00 \
         -command {global OpenDirFile PCTExecFid
 
@@ -1968,20 +1936,42 @@ set PCTExecFid ""
 
 ClosePSPViewer
 PCTcloseBMP
-Window hide $widget(Toplevel64); TextEditorRunTrace "Close Window PolSARpro Viewer" "b"
 Window hide $widget(Toplevel343); TextEditorRunTrace "Close Window Display PCT" "b"
 set ProgressLine "0"; update
 }} \
         -padx 4 -pady 2 -text Exit 
-    vTcl:DefineAlias "$site_3_0.but24" "Button343_0" vTcl:WidgetProc "Toplevel343" 1
-    bindtags $site_3_0.but24 "$site_3_0.but24 Button $top all _vTclBalloon"
-    bind $site_3_0.but24 <<SetBalloon>> {
+    vTcl:DefineAlias "$site_5_0.cpd68" "Button343" vTcl:WidgetProc "Toplevel343" 1
+    bindtags $site_5_0.cpd68 "$site_5_0.cpd68 Button $top all _vTclBalloon"
+    bind $site_5_0.cpd68 <<SetBalloon>> {
         set ::vTcl::balloon::%W {Exit the Function}
     }
-    pack $site_3_0.but23 \
-        -in $site_3_0 -anchor center -expand 1 -fill none -side left 
-    pack $site_3_0.but24 \
-        -in $site_3_0 -anchor center -expand 1 -fill none -side left 
+    pack $site_5_0.but80 \
+        -in $site_5_0 -anchor center -expand 1 -fill none -side left 
+    pack $site_5_0.but71 \
+        -in $site_5_0 -anchor center -expand 1 -fill none -side left 
+    pack $site_5_0.men75 \
+        -in $site_5_0 -anchor center -expand 1 -fill none -ipadx 1 -ipady 1 \
+        -side left 
+    pack $site_5_0.cpd66 \
+        -in $site_5_0 -anchor center -expand 1 -fill none -side left 
+    pack $site_5_0.cpd68 \
+        -in $site_5_0 -anchor center -expand 1 -fill none -side left 
+    pack $site_4_0.cpd74 \
+        -in $site_4_0 -anchor center -expand 0 -fill x -side top 
+    pack $site_4_0.cpd77 \
+        -in $site_4_0 -anchor center -expand 0 -fill x -side top 
+    pack $site_4_0.cpd84 \
+        -in $site_4_0 -anchor center -expand 0 -fill x -side top 
+    pack $site_4_0.fra80 \
+        -in $site_4_0 -anchor center -expand 0 -fill x -side top 
+    pack $site_4_0.cpd79 \
+        -in $site_4_0 -anchor center -expand 0 -fill x -side top 
+    pack $site_4_0.fra79 \
+        -in $site_4_0 -anchor center -expand 1 -fill x -pady 6 -side top 
+    pack $site_3_0.cpd78 \
+        -in $site_3_0 -anchor center -expand 1 -fill y -side left 
+    pack $site_3_0.fra72 \
+        -in $site_3_0 -anchor center -expand 1 -fill y -side right 
     menu $top.m71 \
         -activeborderwidth 1 -borderwidth 1 -tearoff 1 
     ###################
@@ -1989,8 +1979,6 @@ set ProgressLine "0"; update
     ###################
     pack $top.fra71 \
         -in $top -anchor center -expand 1 -fill both -side top 
-    pack $top.fra92 \
-        -in $top -anchor center -expand 1 -fill x -side top 
 
     vTcl:FireEvent $base <<Ready>>
 }

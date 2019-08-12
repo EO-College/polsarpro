@@ -914,7 +914,7 @@ if {$DirName != "" } {
     button $site_3_0.but93 \
         -background #ffff00 \
         -command {global DEMDirInput DEMDirOutput DEMOutputDir DEMOutputSubDir
-global DEMFonction DEMFunction PSPMemory TMPMemoryAllocError
+global DEMFonction DEMFunction TMPMemoryAllocError
 global DEMflight DEMincang DEMrearrg DEMfarrg
 global DEMresolaz DEMresolrg DEMGS DEMFMG
 global DEMrefrow DEMrefcol DEMrefheight
@@ -960,9 +960,9 @@ if {"$VarWarning"=="ok"} {
     set ProgressLine "0"
     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
     update
-    TextEditorRunTrace "Process The Function Soft/data_process_sngl/dem_estimation.exe" "k"
-    TextEditorRunTrace "Arguments: -id \x22$DEMDirInput\x22 -od \x22$DEMDirOutput\x22 -iodf $DEMFonction -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -alt $DEMflight -rmin $DEMnearrg -rmax $DEMfarrg -imax $DEMincang -resa $DEMresolaz -resr $DEMresolrg -v1 $DEMGS -v2 $DEMGS -rr $DEMrefrow -rc $DEMrefcol -refp $DEMrefheight -nf $DEMFMG -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-    set f [ open "| Soft/data_process_sngl/dem_estimation.exe -id \x22$DEMDirInput\x22 -od \x22$DEMDirOutput\x22 -iodf $DEMFonction -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -alt $DEMflight -rmin $DEMnearrg -rmax $DEMfarrg -imax $DEMincang -resa $DEMresolaz -resr $DEMresolrg -v1 $DEMGS -v2 $DEMGS -rr $DEMrefrow -rc $DEMrefcol -refp $DEMrefheight -nf $DEMFMG -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+    TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/dem_estimation.exe" "k"
+    TextEditorRunTrace "Arguments: -id \x22$DEMDirInput\x22 -od \x22$DEMDirOutput\x22 -iodf $DEMFonction -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -alt $DEMflight -rmin $DEMnearrg -rmax $DEMfarrg -imax $DEMincang -resa $DEMresolaz -resr $DEMresolrg -v1 $DEMGS -v2 $DEMGS -rr $DEMrefrow -rc $DEMrefcol -refp $DEMrefheight -nf $DEMFMG  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+    set f [ open "| Soft/bin/data_process_sngl/dem_estimation.exe -id \x22$DEMDirInput\x22 -od \x22$DEMDirOutput\x22 -iodf $DEMFonction -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -alt $DEMflight -rmin $DEMnearrg -rmax $DEMfarrg -imax $DEMincang -resa $DEMresolaz -resr $DEMresolrg -v1 $DEMGS -v2 $DEMGS -rr $DEMrefrow -rc $DEMrefcol -refp $DEMrefheight -nf $DEMFMG  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError

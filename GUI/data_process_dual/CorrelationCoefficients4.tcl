@@ -1057,7 +1057,7 @@ set BMPmodphaRo "0"} \
 global RoMasterDirInput RoSlaveDirInput RoDirOutput RoOutputDir RoOutputSubDir
 global CorrelationFonction NwinLRo NwinCRo BMPmodphaRo
 global Fonction Fonction2 ProgressLine VarWarning WarningMessage WarningMessage2
-global BMPDirInput PSPMemory TMPMemoryAllocError
+global BMPDirInput TMPMemoryAllocError
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
 global OpenDirFile ConfigFile FinalNlig FinalNcol PolarCase PolarType 
 
@@ -1102,9 +1102,9 @@ if {"$VarWarning"=="ok"} {
                     set ProgressLine "0"
                     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                     update
-                    TextEditorRunTrace "Process The Function Soft/calculator/file_operand_file.exe" "k"
+                    TextEditorRunTrace "Process The Function Soft/bin/calculator/file_operand_file.exe" "k"
                     TextEditorRunTrace "Arguments: -if1 \x22$MaskFile1\x22 -it1 float -if2 \x22$MaskFile2\x22 -it2 float -of \x22$MaskFileOut\x22 -ot float -op mulfile -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
-                    set f [ open "| Soft/calculator/file_operand_file.exe -if1 \x22$MaskFile1\x22 -it1 float -if2 \x22$MaskFile2\x22 -it2 float -of \x22$MaskFileOut\x22 -ot float -op mulfile -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
+                    set f [ open "| Soft/bin/calculator/file_operand_file.exe -if1 \x22$MaskFile1\x22 -it1 float -if2 \x22$MaskFile2\x22 -it2 float -of \x22$MaskFileOut\x22 -ot float -op mulfile -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
                     PsPprogressBar $f
                     TextEditorRunTrace "Check RunTime Errors" "r"
                     CheckRunTimeError
@@ -1131,14 +1131,14 @@ if {"$VarWarning"=="ok"} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/data_process_dual/process_corr_PP.exe" "k"
+        TextEditorRunTrace "Process The Function Soft/bin/data_process_dual/process_corr_PP.exe" "k"
         if {$CorrelationFonction == "SPP"} {
-           TextEditorRunTrace "Arguments: -idm \x22$RoMasterDirInput\x22 -ids \x22$RoSlaveDirInput\x22 -od \x22$RoDirOutput\x22 -iodf $CorrelFonction -elt $RoElmt -nwr $NwinLRo -nwc $NwinCRo -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-           set f [ open "| Soft/data_process_dual/process_corr_PP.exe -idm \x22$RoMasterDirInput\x22 -ids \x22$RoSlaveDirInput\x22 -od \x22$RoDirOutput\x22 -iodf $CorrelFonction -elt $RoElmt -nwr $NwinLRo -nwc $NwinCRo -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+           TextEditorRunTrace "Arguments: -idm \x22$RoMasterDirInput\x22 -ids \x22$RoSlaveDirInput\x22 -od \x22$RoDirOutput\x22 -iodf $CorrelFonction -elt $RoElmt -nwr $NwinLRo -nwc $NwinCRo -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+           set f [ open "| Soft/bin/data_process_dual/process_corr_PP.exe -idm \x22$RoMasterDirInput\x22 -ids \x22$RoSlaveDirInput\x22 -od \x22$RoDirOutput\x22 -iodf $CorrelFonction -elt $RoElmt -nwr $NwinLRo -nwc $NwinCRo -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
            }
         if {$CorrelationFonction == "T4"} {
-           TextEditorRunTrace "Arguments: -id \x22$RoMasterDirInput\x22 -od \x22$RoDirOutput\x22 -iodf $CorrelFonction -elt $RoElmt -nwr $NwinLRo -nwc $NwinCRo -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-           set f [ open "| Soft/data_process_dual/process_corr_PP.exe -id \x22$RoMasterDirInput\x22 -od \x22$RoDirOutput\x22 -iodf $CorrelFonction -elt $RoElmt -nwr $NwinLRo -nwc $NwinCRo -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+           TextEditorRunTrace "Arguments: -id \x22$RoMasterDirInput\x22 -od \x22$RoDirOutput\x22 -iodf $CorrelFonction -elt $RoElmt -nwr $NwinLRo -nwc $NwinCRo -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+           set f [ open "| Soft/bin/data_process_dual/process_corr_PP.exe -id \x22$RoMasterDirInput\x22 -od \x22$RoDirOutput\x22 -iodf $CorrelFonction -elt $RoElmt -nwr $NwinLRo -nwc $NwinCRo -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
            }
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
@@ -1163,14 +1163,14 @@ if {"$VarWarning"=="ok"} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/data_process_dual/process_corr_PP.exe" "k"
+        TextEditorRunTrace "Process The Function Soft/bin/data_process_dual/process_corr_PP.exe" "k"
         if {$CorrelationFonction == "SPP"} {
-           TextEditorRunTrace "Arguments: -idm \x22$RoMasterDirInput\x22 -ids \x22$RoSlaveDirInput\x22 -od \x22$RoDirOutput\x22 -iodf $CorrelFonction -elt $RoElmt -nwr $NwinLRo -nwc $NwinCRo -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-           set f [ open "| Soft/data_process_dual/process_corr_PP.exe -idm \x22$RoMasterDirInput\x22 -ids \x22$RoSlaveDirInput\x22 -od \x22$RoDirOutput\x22 -iodf $CorrelFonction -elt $RoElmt -nwr $NwinLRo -nwc $NwinCRo -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+           TextEditorRunTrace "Arguments: -idm \x22$RoMasterDirInput\x22 -ids \x22$RoSlaveDirInput\x22 -od \x22$RoDirOutput\x22 -iodf $CorrelFonction -elt $RoElmt -nwr $NwinLRo -nwc $NwinCRo -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+           set f [ open "| Soft/bin/data_process_dual/process_corr_PP.exe -idm \x22$RoMasterDirInput\x22 -ids \x22$RoSlaveDirInput\x22 -od \x22$RoDirOutput\x22 -iodf $CorrelFonction -elt $RoElmt -nwr $NwinLRo -nwc $NwinCRo -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
            }
         if {$CorrelationFonction == "T4"} {
-           TextEditorRunTrace "Arguments: -id \x22$RoMasterDirInput\x22 -od \x22$RoDirOutput\x22 -iodf $CorrelFonction -elt $RoElmt -nwr $NwinLRo -nwc $NwinCRo -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-           set f [ open "| Soft/data_process_dual/process_corr_PP.exe -id \x22$RoMasterDirInput\x22 -od \x22$RoDirOutput\x22 -iodf $CorrelFonction -elt $RoElmt -nwr $NwinLRo -nwc $NwinCRo -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+           TextEditorRunTrace "Arguments: -id \x22$RoMasterDirInput\x22 -od \x22$RoDirOutput\x22 -iodf $CorrelFonction -elt $RoElmt -nwr $NwinLRo -nwc $NwinCRo -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+           set f [ open "| Soft/bin/data_process_dual/process_corr_PP.exe -id \x22$RoMasterDirInput\x22 -od \x22$RoDirOutput\x22 -iodf $CorrelFonction -elt $RoElmt -nwr $NwinLRo -nwc $NwinCRo -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
            }
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
@@ -1195,14 +1195,14 @@ if {"$VarWarning"=="ok"} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/data_process_dual/process_corr_PP.exe" "k"
+        TextEditorRunTrace "Process The Function Soft/bin/data_process_dual/process_corr_PP.exe" "k"
         if {$CorrelationFonction == "SPP"} {
-           TextEditorRunTrace "Arguments: -idm \x22$RoMasterDirInput\x22 -ids \x22$RoSlaveDirInput\x22 -od \x22$RoDirOutput\x22 -iodf $CorrelFonction -elt $RoElmt -nwr $NwinLRo -nwc $NwinCRo -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-           set f [ open "| Soft/data_process_dual/process_corr_PP.exe -idm \x22$RoMasterDirInput\x22 -ids \x22$RoSlaveDirInput\x22 -od \x22$RoDirOutput\x22 -iodf $CorrelFonction -elt $RoElmt -nwr $NwinLRo -nwc $NwinCRo -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+           TextEditorRunTrace "Arguments: -idm \x22$RoMasterDirInput\x22 -ids \x22$RoSlaveDirInput\x22 -od \x22$RoDirOutput\x22 -iodf $CorrelFonction -elt $RoElmt -nwr $NwinLRo -nwc $NwinCRo -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+           set f [ open "| Soft/bin/data_process_dual/process_corr_PP.exe -idm \x22$RoMasterDirInput\x22 -ids \x22$RoSlaveDirInput\x22 -od \x22$RoDirOutput\x22 -iodf $CorrelFonction -elt $RoElmt -nwr $NwinLRo -nwc $NwinCRo -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
            }
         if {$CorrelationFonction == "T4"} {
-           TextEditorRunTrace "Arguments: -id \x22$RoMasterDirInput\x22 -od \x22$RoDirOutput\x22 -iodf $CorrelFonction -elt $RoElmt -nwr $NwinLRo -nwc $NwinCRo -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-           set f [ open "| Soft/data_process_dual/process_corr_PP.exe -id \x22$RoMasterDirInput\x22 -od \x22$RoDirOutput\x22 -iodf $CorrelFonction -elt $RoElmt -nwr $NwinLRo -nwc $NwinCRo -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+           TextEditorRunTrace "Arguments: -id \x22$RoMasterDirInput\x22 -od \x22$RoDirOutput\x22 -iodf $CorrelFonction -elt $RoElmt -nwr $NwinLRo -nwc $NwinCRo -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+           set f [ open "| Soft/bin/data_process_dual/process_corr_PP.exe -id \x22$RoMasterDirInput\x22 -od \x22$RoDirOutput\x22 -iodf $CorrelFonction -elt $RoElmt -nwr $NwinLRo -nwc $NwinCRo -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
            }
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
@@ -1227,14 +1227,14 @@ if {"$VarWarning"=="ok"} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/data_process_dual/process_corr_PP.exe" "k"
+        TextEditorRunTrace "Process The Function Soft/bin/data_process_dual/process_corr_PP.exe" "k"
         if {$CorrelationFonction == "SPP"} {
-           TextEditorRunTrace "Arguments: -idm \x22$RoMasterDirInput\x22 -ids \x22$RoSlaveDirInput\x22 -od \x22$RoDirOutput\x22 -iodf $CorrelFonction -elt $RoElmt -nwr $NwinLRo -nwc $NwinCRo -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-           set f [ open "| Soft/data_process_dual/process_corr_PP.exe -idm \x22$RoMasterDirInput\x22 -ids \x22$RoSlaveDirInput\x22 -od \x22$RoDirOutput\x22 -iodf $CorrelFonction -elt $RoElmt -nwr $NwinLRo -nwc $NwinCRo -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+           TextEditorRunTrace "Arguments: -idm \x22$RoMasterDirInput\x22 -ids \x22$RoSlaveDirInput\x22 -od \x22$RoDirOutput\x22 -iodf $CorrelFonction -elt $RoElmt -nwr $NwinLRo -nwc $NwinCRo -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+           set f [ open "| Soft/bin/data_process_dual/process_corr_PP.exe -idm \x22$RoMasterDirInput\x22 -ids \x22$RoSlaveDirInput\x22 -od \x22$RoDirOutput\x22 -iodf $CorrelFonction -elt $RoElmt -nwr $NwinLRo -nwc $NwinCRo -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
            }
         if {$CorrelationFonction == "T4"} {
-           TextEditorRunTrace "Arguments: -id \x22$RoMasterDirInput\x22 -od \x22$RoDirOutput\x22 -iodf $CorrelFonction -elt $RoElmt -nwr $NwinLRo -nwc $NwinCRo -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-           set f [ open "| Soft/data_process_dual/process_corr_PP.exe -id \x22$RoMasterDirInput\x22 -od \x22$RoDirOutput\x22 -iodf $CorrelFonction -elt $RoElmt -nwr $NwinLRo -nwc $NwinCRo -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+           TextEditorRunTrace "Arguments: -id \x22$RoMasterDirInput\x22 -od \x22$RoDirOutput\x22 -iodf $CorrelFonction -elt $RoElmt -nwr $NwinLRo -nwc $NwinCRo -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+           set f [ open "| Soft/bin/data_process_dual/process_corr_PP.exe -id \x22$RoMasterDirInput\x22 -od \x22$RoDirOutput\x22 -iodf $CorrelFonction -elt $RoElmt -nwr $NwinLRo -nwc $NwinCRo -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
            }
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
@@ -1260,14 +1260,14 @@ if {"$VarWarning"=="ok"} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/data_process_dual/process_corr_PP.exe" "k"
+        TextEditorRunTrace "Process The Function Soft/bin/data_process_dual/process_corr_PP.exe" "k"
         if {$CorrelationFonction == "SPP"} {
-           TextEditorRunTrace "Arguments: -idm \x22$RoMasterDirInput\x22 -ids \x22$RoSlaveDirInput\x22 -od \x22$RoDirOutput\x22 -iodf $CorrelFonction -elt $RoElmt -nwr $NwinLRo -nwc $NwinCRo -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-           set f [ open "| Soft/data_process_dual/process_corr_PP.exe -idm \x22$RoMasterDirInput\x22 -ids \x22$RoSlaveDirInput\x22 -od \x22$RoDirOutput\x22 -iodf $CorrelFonction -elt $RoElmt -nwr $NwinLRo -nwc $NwinCRo -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+           TextEditorRunTrace "Arguments: -idm \x22$RoMasterDirInput\x22 -ids \x22$RoSlaveDirInput\x22 -od \x22$RoDirOutput\x22 -iodf $CorrelFonction -elt $RoElmt -nwr $NwinLRo -nwc $NwinCRo -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+           set f [ open "| Soft/bin/data_process_dual/process_corr_PP.exe -idm \x22$RoMasterDirInput\x22 -ids \x22$RoSlaveDirInput\x22 -od \x22$RoDirOutput\x22 -iodf $CorrelFonction -elt $RoElmt -nwr $NwinLRo -nwc $NwinCRo -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
            }
         if {$CorrelationFonction == "T4"} {
-           TextEditorRunTrace "Arguments: -id \x22$RoMasterDirInput\x22 -od \x22$RoDirOutput\x22 -iodf $CorrelFonction -elt $RoElmt -nwr $NwinLRo -nwc $NwinCRo -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-           set f [ open "| Soft/data_process_dual/process_corr_PP.exe -id \x22$RoMasterDirInput\x22 -od \x22$RoDirOutput\x22 -iodf $CorrelFonction -elt $RoElmt -nwr $NwinLRo -nwc $NwinCRo -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+           TextEditorRunTrace "Arguments: -id \x22$RoMasterDirInput\x22 -od \x22$RoDirOutput\x22 -iodf $CorrelFonction -elt $RoElmt -nwr $NwinLRo -nwc $NwinCRo -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+           set f [ open "| Soft/bin/data_process_dual/process_corr_PP.exe -id \x22$RoMasterDirInput\x22 -od \x22$RoDirOutput\x22 -iodf $CorrelFonction -elt $RoElmt -nwr $NwinLRo -nwc $NwinCRo -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
            }
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
@@ -1293,14 +1293,14 @@ if {"$VarWarning"=="ok"} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/data_process_dual/process_corr_PP.exe" "k"
+        TextEditorRunTrace "Process The Function Soft/bin/data_process_dual/process_corr_PP.exe" "k"
         if {$CorrelationFonction == "SPP"} {
-           TextEditorRunTrace "Arguments: -idm \x22$RoMasterDirInput\x22 -ids \x22$RoSlaveDirInput\x22 -od \x22$RoDirOutput\x22 -iodf $CorrelFonction -elt $RoElmt -nwr $NwinLRo -nwc $NwinCRo -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-           set f [ open "| Soft/data_process_dual/process_corr_PP.exe -idm \x22$RoMasterDirInput\x22 -ids \x22$RoSlaveDirInput\x22 -od \x22$RoDirOutput\x22 -iodf $CorrelFonction -elt $RoElmt -nwr $NwinLRo -nwc $NwinCRo -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+           TextEditorRunTrace "Arguments: -idm \x22$RoMasterDirInput\x22 -ids \x22$RoSlaveDirInput\x22 -od \x22$RoDirOutput\x22 -iodf $CorrelFonction -elt $RoElmt -nwr $NwinLRo -nwc $NwinCRo -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+           set f [ open "| Soft/bin/data_process_dual/process_corr_PP.exe -idm \x22$RoMasterDirInput\x22 -ids \x22$RoSlaveDirInput\x22 -od \x22$RoDirOutput\x22 -iodf $CorrelFonction -elt $RoElmt -nwr $NwinLRo -nwc $NwinCRo -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
            }
         if {$CorrelationFonction == "T4"} {
-           TextEditorRunTrace "Arguments: -id \x22$RoMasterDirInput\x22 -od \x22$RoDirOutput\x22 -iodf $CorrelFonction -elt $RoElmt -nwr $NwinLRo -nwc $NwinCRo -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-           set f [ open "| Soft/data_process_dual/process_corr_PP.exe -id \x22$RoMasterDirInput\x22 -od \x22$RoDirOutput\x22 -iodf $CorrelFonction -elt $RoElmt -nwr $NwinLRo -nwc $NwinCRo -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+           TextEditorRunTrace "Arguments: -id \x22$RoMasterDirInput\x22 -od \x22$RoDirOutput\x22 -iodf $CorrelFonction -elt $RoElmt -nwr $NwinLRo -nwc $NwinCRo -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+           set f [ open "| Soft/bin/data_process_dual/process_corr_PP.exe -id \x22$RoMasterDirInput\x22 -od \x22$RoDirOutput\x22 -iodf $CorrelFonction -elt $RoElmt -nwr $NwinLRo -nwc $NwinCRo -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
            }
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"

@@ -981,7 +981,7 @@ if {$NwinFilter == 5} { set NwinFilter 11 }} \
 global FilterOutputSubDir FilterFonction FilterFunction 
 global Fonction2 ProgressLine VarFunction VarWarning WarningMessage WarningMessage2
 global ConfigFile FinalNlig FinalNcol PolarCase PolarType 
-global NligFullSize NcolFullSize PSPMemory TMPMemoryAllocError DataFormatActive 
+global NligFullSize NcolFullSize TMPMemoryAllocError DataFormatActive 
 global OpenDirFile FilterFonc NlookSigma Sigma NwinTgt NwinFilter
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
 
@@ -1038,9 +1038,9 @@ if {"$VarWarning"=="ok"} {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/speckle_filter/lee_sigma_filter.exe" "k"
+            TextEditorRunTrace "Process The Function Soft/bin/speckle_filter/lee_sigma_filter.exe" "k"
             TextEditorRunTrace "Arguments: -id \x22$FilterDirInput\x22 -od \x22$FilterDirOutput\x22 -iodf $FilterFonc -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -nlk $NlookSigma -sig $Sigma0 -nwe $NwinFilter -nwt $NwinTgt" "k"
-            set f [ open "| Soft/speckle_filter/lee_sigma_filter.exe -id \x22$FilterDirInput\x22 -od \x22$FilterDirOutput\x22 -iodf $FilterFonc -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -nlk $NlookSigma -sig $Sigma0 -nwe $NwinFilter -nwt $NwinTgt" r]
+            set f [ open "| Soft/bin/speckle_filter/lee_sigma_filter.exe -id \x22$FilterDirInput\x22 -od \x22$FilterDirOutput\x22 -iodf $FilterFonc -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -nlk $NlookSigma -sig $Sigma0 -nwe $NwinFilter -nwt $NwinTgt" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError

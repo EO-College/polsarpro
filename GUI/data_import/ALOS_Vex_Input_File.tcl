@@ -980,10 +980,10 @@ if [file exists $ALOSProductFile] {
                     }
 
                 $widget(Button350_6) configure -state normal
-                TextEditorRunTrace "Process The Function Soft/data_import/alos_vex_google.exe" "k"
+                TextEditorRunTrace "Process The Function Soft/bin/data_import/alos_vex_google.exe" "k"
                 set ALOSFile $FileInput1; append ALOSFile ".par"
                 TextEditorRunTrace "Arguments: -if \x22$ALOSFile\x22 -od \x22$ALOSDirOutput\x22 -of \x22$TMPGoogle\x22" "k"
-                set f [ open "| Soft/data_import/alos_vex_google.exe -if \x22$ALOSFile\x22 -od \x22$ALOSDirOutput\x22 -of \x22$TMPGoogle\x22" r]
+                set f [ open "| Soft/bin/data_import/alos_vex_google.exe -if \x22$ALOSFile\x22 -od \x22$ALOSDirOutput\x22 -of \x22$TMPGoogle\x22" r]
                 PsPprogressBar $f
                 TextEditorRunTrace "Check RunTime Errors" "r"
                 CheckRunTimeError

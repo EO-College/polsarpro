@@ -384,10 +384,10 @@ proc vTcl:project:info {} {
     }
     set site_3_0 $base.fra59
     namespace eval ::widgets::$site_3_0.but23 {
-        array set save {-_tooltip 1 -activebackground 1 -activeforeground 1 -background 1 -command 1 -foreground 1 -highlightcolor 1 -image 1 -pady 1 -takefocus 1 -width 1}
+        array set save {-_tooltip 1 -background 1 -command 1 -foreground 1 -highlightcolor 1 -image 1 -pady 1 -takefocus 1 -width 1}
     }
     namespace eval ::widgets::$site_3_0.but24 {
-        array set save {-_tooltip 1 -activebackground 1 -activeforeground 1 -background 1 -command 1 -foreground 1 -highlightcolor 1 -padx 1 -pady 1 -takefocus 1 -text 1}
+        array set save {-_tooltip 1 -background 1 -command 1 -foreground 1 -highlightcolor 1 -padx 1 -pady 1 -takefocus 1 -text 1}
     }
     namespace eval ::widgets::$base.fra55 {
         array set save {-borderwidth 1 -height 1 -highlightcolor 1 -relief 1 -width 1}
@@ -406,10 +406,10 @@ proc vTcl:project:info {} {
     }
     set site_6_0 $site_5_0.cpd126
     namespace eval ::widgets::$site_6_0.cpd124 {
-        array set save {-activebackground 1 -activeforeground 1 -foreground 1 -highlightcolor 1 -text 1}
+        array set save {-foreground 1 -highlightcolor 1 -text 1}
     }
     namespace eval ::widgets::$site_6_0.cpd125 {
-        array set save {-activebackground 1 -activeforeground 1 -foreground 1 -highlightcolor 1 -text 1}
+        array set save {-foreground 1 -highlightcolor 1 -text 1}
     }
     namespace eval ::widgets::$site_5_0.cpd118 {
         array set save {-height 1 -highlightcolor 1 -relief 1 -width 1}
@@ -422,17 +422,17 @@ proc vTcl:project:info {} {
         array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -highlightcolor 1 -insertbackground 1 -justify 1 -selectbackground 1 -selectforeground 1 -state 1 -takefocus 1 -textvariable 1 -width 1}
     }
     namespace eval ::widgets::$site_6_0.cpd70 {
-        array set save {-activebackground 1 -activeforeground 1 -foreground 1 -highlightcolor 1 -text 1}
+        array set save {-foreground 1 -highlightcolor 1 -text 1}
     }
     namespace eval ::widgets::$site_6_0.fra90 {
         array set save {-borderwidth 1 -height 1 -highlightcolor 1 -relief 1 -width 1}
     }
     set site_7_0 $site_6_0.fra90
     namespace eval ::widgets::$site_7_0.cpd92 {
-        array set save {-activebackground 1 -activeforeground 1 -command 1 -foreground 1 -highlightcolor 1 -image 1 -pady 1 -text 1}
+        array set save {-command 1 -foreground 1 -highlightcolor 1 -image 1 -pady 1 -text 1}
     }
     namespace eval ::widgets::$site_7_0.cpd91 {
-        array set save {-activebackground 1 -activeforeground 1 -command 1 -foreground 1 -highlightcolor 1 -image 1 -pady 1 -text 1}
+        array set save {-command 1 -foreground 1 -highlightcolor 1 -image 1 -pady 1 -text 1}
     }
     namespace eval ::widgets::$site_5_0.cpd119 {
         array set save {-height 1 -highlightcolor 1 -relief 1 -width 1}
@@ -445,17 +445,17 @@ proc vTcl:project:info {} {
         array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -highlightcolor 1 -insertbackground 1 -justify 1 -selectbackground 1 -selectforeground 1 -state 1 -takefocus 1 -textvariable 1 -width 1}
     }
     namespace eval ::widgets::$site_6_0.cpd71 {
-        array set save {-activebackground 1 -activeforeground 1 -foreground 1 -highlightcolor 1 -text 1}
+        array set save {-foreground 1 -highlightcolor 1 -text 1}
     }
     namespace eval ::widgets::$site_6_0.fra90 {
         array set save {-borderwidth 1 -height 1 -highlightcolor 1 -relief 1 -width 1}
     }
     set site_7_0 $site_6_0.fra90
     namespace eval ::widgets::$site_7_0.cpd92 {
-        array set save {-activebackground 1 -activeforeground 1 -command 1 -foreground 1 -highlightcolor 1 -image 1 -pady 1 -text 1}
+        array set save {-command 1 -foreground 1 -highlightcolor 1 -image 1 -pady 1 -text 1}
     }
     namespace eval ::widgets::$site_7_0.cpd91 {
-        array set save {-activebackground 1 -activeforeground 1 -command 1 -foreground 1 -highlightcolor 1 -image 1 -pady 1 -text 1}
+        array set save {-command 1 -foreground 1 -highlightcolor 1 -image 1 -pady 1 -text 1}
     }
     namespace eval ::widgets::$site_5_0.cpd121 {
         array set save {-height 1 -highlightcolor 1 -relief 1 -width 1}
@@ -465,17 +465,17 @@ proc vTcl:project:info {} {
         array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -highlightcolor 1 -insertbackground 1 -justify 1 -selectbackground 1 -selectforeground 1 -state 1 -takefocus 1 -textvariable 1 -width 1}
     }
     namespace eval ::widgets::$site_6_0.cpd72 {
-        array set save {-activebackground 1 -activeforeground 1 -foreground 1 -highlightcolor 1 -text 1}
+        array set save {-foreground 1 -highlightcolor 1 -text 1}
     }
     namespace eval ::widgets::$site_6_0.fra90 {
         array set save {-borderwidth 1 -height 1 -highlightcolor 1 -relief 1 -width 1}
     }
     set site_7_0 $site_6_0.fra90
     namespace eval ::widgets::$site_7_0.cpd92 {
-        array set save {-activebackground 1 -activeforeground 1 -command 1 -foreground 1 -highlightcolor 1 -image 1 -pady 1 -text 1}
+        array set save {-command 1 -foreground 1 -highlightcolor 1 -image 1 -pady 1 -text 1}
     }
     namespace eval ::widgets::$site_7_0.cpd91 {
-        array set save {-activebackground 1 -activeforeground 1 -command 1 -foreground 1 -highlightcolor 1 -image 1 -pady 1 -text 1}
+        array set save {-command 1 -foreground 1 -highlightcolor 1 -image 1 -pady 1 -text 1}
     }
     namespace eval ::widgets::$site_4_0.cpd86 {
         array set save {-borderwidth 1 -height 1 -highlightcolor 1 -relief 1 -width 1}
@@ -486,10 +486,10 @@ proc vTcl:project:info {} {
     }
     set site_6_0 $site_5_0.cpd126
     namespace eval ::widgets::$site_6_0.cpd124 {
-        array set save {-activebackground 1 -activeforeground 1 -foreground 1 -highlightcolor 1 -text 1}
+        array set save {-foreground 1 -highlightcolor 1 -text 1}
     }
     namespace eval ::widgets::$site_6_0.cpd125 {
-        array set save {-activebackground 1 -activeforeground 1 -foreground 1 -highlightcolor 1 -text 1}
+        array set save {-foreground 1 -highlightcolor 1 -text 1}
     }
     namespace eval ::widgets::$site_5_0.cpd118 {
         array set save {-height 1 -highlightcolor 1 -relief 1 -width 1}
@@ -502,17 +502,17 @@ proc vTcl:project:info {} {
         array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -highlightcolor 1 -insertbackground 1 -justify 1 -selectbackground 1 -selectforeground 1 -state 1 -takefocus 1 -textvariable 1 -width 1}
     }
     namespace eval ::widgets::$site_6_0.cpd73 {
-        array set save {-activebackground 1 -activeforeground 1 -foreground 1 -highlightcolor 1 -text 1}
+        array set save {-foreground 1 -highlightcolor 1 -text 1}
     }
     namespace eval ::widgets::$site_6_0.fra90 {
         array set save {-borderwidth 1 -height 1 -highlightcolor 1 -relief 1 -width 1}
     }
     set site_7_0 $site_6_0.fra90
     namespace eval ::widgets::$site_7_0.cpd92 {
-        array set save {-activebackground 1 -activeforeground 1 -command 1 -foreground 1 -highlightcolor 1 -image 1 -pady 1 -text 1}
+        array set save {-command 1 -foreground 1 -highlightcolor 1 -image 1 -pady 1 -text 1}
     }
     namespace eval ::widgets::$site_7_0.cpd91 {
-        array set save {-activebackground 1 -activeforeground 1 -command 1 -foreground 1 -highlightcolor 1 -image 1 -pady 1 -text 1}
+        array set save {-command 1 -foreground 1 -highlightcolor 1 -image 1 -pady 1 -text 1}
     }
     namespace eval ::widgets::$site_5_0.cpd119 {
         array set save {-height 1 -highlightcolor 1 -relief 1 -width 1}
@@ -525,17 +525,17 @@ proc vTcl:project:info {} {
         array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -highlightcolor 1 -insertbackground 1 -justify 1 -selectbackground 1 -selectforeground 1 -state 1 -takefocus 1 -textvariable 1 -width 1}
     }
     namespace eval ::widgets::$site_6_0.cpd74 {
-        array set save {-activebackground 1 -activeforeground 1 -foreground 1 -highlightcolor 1 -text 1}
+        array set save {-foreground 1 -highlightcolor 1 -text 1}
     }
     namespace eval ::widgets::$site_6_0.fra90 {
         array set save {-borderwidth 1 -height 1 -highlightcolor 1 -relief 1 -width 1}
     }
     set site_7_0 $site_6_0.fra90
     namespace eval ::widgets::$site_7_0.cpd92 {
-        array set save {-activebackground 1 -activeforeground 1 -command 1 -foreground 1 -highlightcolor 1 -image 1 -pady 1 -text 1}
+        array set save {-command 1 -foreground 1 -highlightcolor 1 -image 1 -pady 1 -text 1}
     }
     namespace eval ::widgets::$site_7_0.cpd91 {
-        array set save {-activebackground 1 -activeforeground 1 -command 1 -foreground 1 -highlightcolor 1 -image 1 -pady 1 -text 1}
+        array set save {-command 1 -foreground 1 -highlightcolor 1 -image 1 -pady 1 -text 1}
     }
     namespace eval ::widgets::$site_5_0.cpd121 {
         array set save {-height 1 -highlightcolor 1 -relief 1 -width 1}
@@ -545,20 +545,20 @@ proc vTcl:project:info {} {
         array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -highlightcolor 1 -insertbackground 1 -justify 1 -selectbackground 1 -selectforeground 1 -state 1 -takefocus 1 -textvariable 1 -width 1}
     }
     namespace eval ::widgets::$site_6_0.cpd75 {
-        array set save {-activebackground 1 -activeforeground 1 -foreground 1 -highlightcolor 1 -text 1}
+        array set save {-foreground 1 -highlightcolor 1 -text 1}
     }
     namespace eval ::widgets::$site_6_0.fra90 {
         array set save {-borderwidth 1 -height 1 -highlightcolor 1 -relief 1 -width 1}
     }
     set site_7_0 $site_6_0.fra90
     namespace eval ::widgets::$site_7_0.cpd92 {
-        array set save {-activebackground 1 -activeforeground 1 -command 1 -foreground 1 -highlightcolor 1 -image 1 -pady 1 -text 1}
+        array set save {-command 1 -foreground 1 -highlightcolor 1 -image 1 -pady 1 -text 1}
     }
     namespace eval ::widgets::$site_7_0.cpd91 {
-        array set save {-activebackground 1 -activeforeground 1 -command 1 -foreground 1 -highlightcolor 1 -image 1 -pady 1 -text 1}
+        array set save {-command 1 -foreground 1 -highlightcolor 1 -image 1 -pady 1 -text 1}
     }
     namespace eval ::widgets::$site_4_0.cpd85 {
-        array set save {-activebackground 1 -activeforeground 1 -borderwidth 1 -foreground 1 -highlightcolor 1 -image 1 -pady 1 -text 1}
+        array set save {-borderwidth 1 -foreground 1 -highlightcolor 1 -image 1 -pady 1 -text 1}
     }
     namespace eval ::widgets::$site_3_0.fra81 {
         array set save {-height 1 -highlightcolor 1 -relief 1 -width 1}
@@ -569,26 +569,26 @@ proc vTcl:project:info {} {
     }
     set site_5_0 $site_4_0.cpd83
     namespace eval ::widgets::$site_5_0.cpd80 {
-        array set save {-activebackground 1 -activeforeground 1 -foreground 1 -highlightcolor 1 -text 1}
+        array set save {-foreground 1 -highlightcolor 1 -text 1}
     }
     namespace eval ::widgets::$site_5_0.cpd88 {
         array set save {-height 1 -highlightcolor 1 -relief 1 -width 1}
     }
     set site_6_0 $site_5_0.cpd88
     namespace eval ::widgets::$site_6_0.cpd82 {
-        array set save {-activebackground 1 -activeforeground 1 -foreground 1 -highlightcolor 1 -text 1}
+        array set save {-foreground 1 -highlightcolor 1 -text 1}
     }
     namespace eval ::widgets::$site_6_0.cpd85 {
         array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -highlightcolor 1 -insertbackground 1 -justify 1 -selectbackground 1 -selectforeground 1 -state 1 -takefocus 1 -textvariable 1 -width 1}
     }
     namespace eval ::widgets::$site_6_0.cpd84 {
-        array set save {-activebackground 1 -activeforeground 1 -foreground 1 -highlightcolor 1 -text 1}
+        array set save {-foreground 1 -highlightcolor 1 -text 1}
     }
     namespace eval ::widgets::$site_6_0.cpd83 {
         array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -highlightcolor 1 -insertbackground 1 -justify 1 -selectbackground 1 -selectforeground 1 -state 1 -takefocus 1 -textvariable 1 -width 1}
     }
     namespace eval ::widgets::$site_4_0.cpd71 {
-        array set save {-activebackground 1 -activeforeground 1 -background 1 -command 1 -foreground 1 -highlightcolor 1 -padx 1 -pady 1 -takefocus 1 -text 1}
+        array set save {-background 1 -command 1 -foreground 1 -highlightcolor 1 -padx 1 -pady 1 -takefocus 1 -text 1}
     }
     namespace eval ::widgets_bindings {
         set tagslist {_TopLevel _vTclBalloon}
@@ -647,8 +647,8 @@ proc vTclWindow. {base} {
     # CREATING WIDGETS
     ###################
     wm focusmodel $top passive
-    wm geometry $top 200x200+25+25; update
-    wm maxsize $top 1676 1024
+    wm geometry $top 200x200+175+175; update
+    wm maxsize $top 3356 1024
     wm minsize $top 116 1
     wm overrideredirect $top 0
     wm resizable $top 1 1
@@ -696,10 +696,8 @@ proc vTclWindow.top395 {base} {
     vTcl:DefineAlias "$top.fra59" "Frame20" vTcl:WidgetProc "Toplevel395" 1
     set site_3_0 $top.fra59
     button $site_3_0.but23 \
-        -activebackground SystemButtonFace -activeforeground SystemButtonText \
         -background #ff8000 \
         -command {HelpPdfEdit "Help/data_process_sngl/SVMSupervisedClassification.pdf"} \
-        -foreground SystemButtonText -highlightcolor SystemWindowFrame \
         -image [vTcl:image:get_image [file join . GUI Images help.gif]] \
         -pady 0 -takefocus 0 -width 20 
     vTcl:DefineAlias "$site_3_0.but23" "Button15" vTcl:WidgetProc "Toplevel395" 1
@@ -708,7 +706,6 @@ proc vTclWindow.top395 {base} {
         set ::vTcl::balloon::%W {Help File}
     }
     button $site_3_0.but24 \
-        -activebackground SystemButtonFace -activeforeground SystemButtonText \
         -background #ffff00 \
         -command {WidgetHideTop399; TextEditorRunTrace "Close Window Processing" "b"
 $widget(Button394_1) configure -state normal
@@ -743,11 +740,9 @@ Window hide $widget(Toplevel395); TextEditorRunTrace "Close Window SVM RBF Cross
     vTcl:DefineAlias "$site_5_0.cpd126" "Frame5" vTcl:WidgetProc "Toplevel395" 1
     set site_6_0 $site_5_0.cpd126
     label $site_6_0.cpd124 \
-        -activebackground SystemButtonFace -activeforeground SystemButtonText \
         -foreground black -highlightcolor black -text Log2(C) 
     vTcl:DefineAlias "$site_6_0.cpd124" "Label139" vTcl:WidgetProc "Toplevel395" 1
     label $site_6_0.cpd125 \
-        -activebackground SystemButtonFace -activeforeground SystemButtonText \
         -foreground black -highlightcolor black -text C 
     vTcl:DefineAlias "$site_6_0.cpd125" "Label140" vTcl:WidgetProc "Toplevel395" 1
     pack $site_6_0.cpd124 \
@@ -774,7 +769,6 @@ Window hide $widget(Toplevel395); TextEditorRunTrace "Close Window SVM RBF Cross
         -textvariable Log2cBegin -width 2 
     vTcl:DefineAlias "$site_6_0.cpd88" "Entry63" vTcl:WidgetProc "Toplevel395" 1
     label $site_6_0.cpd70 \
-        -activebackground SystemButtonFace -activeforeground SystemButtonText \
         -foreground black -highlightcolor black -text {Min  } 
     vTcl:DefineAlias "$site_6_0.cpd70" "Label144" vTcl:WidgetProc "Toplevel395" 1
     frame $site_6_0.fra90 \
@@ -783,7 +777,7 @@ Window hide $widget(Toplevel395); TextEditorRunTrace "Close Window SVM RBF Cross
     vTcl:DefineAlias "$site_6_0.fra90" "Frame53" vTcl:WidgetProc "Toplevel395" 1
     set site_7_0 $site_6_0.fra90
     button $site_7_0.cpd92 \
-        -activebackground SystemButtonFace -activeforeground SystemButtonText \
+        \
         -command {global RBFCV Kernel 
 global Log2cBegin Log2cEnd Log2cStep
 global Log2gBegin Log2gEnd Log2gStep
@@ -807,7 +801,7 @@ set CBegin [expr pow(2,$Log2cBegin)]
         -text button 
     vTcl:DefineAlias "$site_7_0.cpd92" "Button46" vTcl:WidgetProc "Toplevel395" 1
     button $site_7_0.cpd91 \
-        -activebackground SystemButtonFace -activeforeground SystemButtonText \
+        \
         -command {global RBFCV Kernel 
 global Log2cBegin Log2cEnd Log2cStep
 global Log2gBegin Log2gEnd Log2gStep
@@ -870,7 +864,6 @@ set CBegin [expr pow(2,$Log2cBegin)]
         -textvariable Log2cEnd -width 2 
     vTcl:DefineAlias "$site_6_0.cpd88" "Entry65" vTcl:WidgetProc "Toplevel395" 1
     label $site_6_0.cpd71 \
-        -activebackground SystemButtonFace -activeforeground SystemButtonText \
         -foreground black -highlightcolor black -text {Max } 
     vTcl:DefineAlias "$site_6_0.cpd71" "Label145" vTcl:WidgetProc "Toplevel395" 1
     frame $site_6_0.fra90 \
@@ -879,7 +872,7 @@ set CBegin [expr pow(2,$Log2cBegin)]
     vTcl:DefineAlias "$site_6_0.fra90" "Frame55" vTcl:WidgetProc "Toplevel395" 1
     set site_7_0 $site_6_0.fra90
     button $site_7_0.cpd92 \
-        -activebackground SystemButtonFace -activeforeground SystemButtonText \
+        \
         -command {global RBFCV Kernel 
 global Log2cBegin Log2cEnd Log2cStep
 global Log2gBegin Log2gEnd Log2gStep
@@ -901,7 +894,7 @@ set CEnd [expr pow(2,$Log2cEnd)]
         -text button 
     vTcl:DefineAlias "$site_7_0.cpd92" "Button48" vTcl:WidgetProc "Toplevel395" 1
     button $site_7_0.cpd91 \
-        -activebackground SystemButtonFace -activeforeground SystemButtonText \
+        \
         -command {global RBFCV Kernel 
 global Log2cBegin Log2cEnd Log2cStep
 global Log2gBegin Log2gEnd Log2gStep
@@ -957,7 +950,6 @@ set CEnd [expr pow(2,$Log2cEnd)]
         -textvariable Log2cStep -width 2 
     vTcl:DefineAlias "$site_6_0.cpd88" "Entry67" vTcl:WidgetProc "Toplevel395" 1
     label $site_6_0.cpd72 \
-        -activebackground SystemButtonFace -activeforeground SystemButtonText \
         -foreground black -highlightcolor black -text Step 
     vTcl:DefineAlias "$site_6_0.cpd72" "Label146" vTcl:WidgetProc "Toplevel395" 1
     frame $site_6_0.fra90 \
@@ -966,7 +958,7 @@ set CEnd [expr pow(2,$Log2cEnd)]
     vTcl:DefineAlias "$site_6_0.fra90" "Frame57" vTcl:WidgetProc "Toplevel395" 1
     set site_7_0 $site_6_0.fra90
     button $site_7_0.cpd92 \
-        -activebackground SystemButtonFace -activeforeground SystemButtonText \
+        \
         -command {global RBFCV Kernel 
 global Log2cBegin Log2cEnd Log2cStep
 global Log2gBegin Log2gEnd Log2gStep
@@ -987,7 +979,7 @@ set Log2cStep $tmp
         -text button 
     vTcl:DefineAlias "$site_7_0.cpd92" "Button50" vTcl:WidgetProc "Toplevel395" 1
     button $site_7_0.cpd91 \
-        -activebackground SystemButtonFace -activeforeground SystemButtonText \
+        \
         -command {global RBFCV Kernel 
 global Log2cBegin Log2cEnd Log2cStep
 global Log2gBegin Log2gEnd Log2gStep
@@ -1035,11 +1027,9 @@ set Log2cStep $tmp
     vTcl:DefineAlias "$site_5_0.cpd126" "Frame6" vTcl:WidgetProc "Toplevel395" 1
     set site_6_0 $site_5_0.cpd126
     label $site_6_0.cpd124 \
-        -activebackground SystemButtonFace -activeforeground SystemButtonText \
         -foreground black -highlightcolor black -text Log2(G) 
     vTcl:DefineAlias "$site_6_0.cpd124" "Label141" vTcl:WidgetProc "Toplevel395" 1
     label $site_6_0.cpd125 \
-        -activebackground SystemButtonFace -activeforeground SystemButtonText \
         -foreground black -highlightcolor black -text G 
     vTcl:DefineAlias "$site_6_0.cpd125" "Label142" vTcl:WidgetProc "Toplevel395" 1
     pack $site_6_0.cpd124 \
@@ -1066,7 +1056,6 @@ set Log2cStep $tmp
         -textvariable Log2gBegin -width 2 
     vTcl:DefineAlias "$site_6_0.cpd88" "Entry69" vTcl:WidgetProc "Toplevel395" 1
     label $site_6_0.cpd73 \
-        -activebackground SystemButtonFace -activeforeground SystemButtonText \
         -foreground black -highlightcolor black -text {Min  } 
     vTcl:DefineAlias "$site_6_0.cpd73" "Label147" vTcl:WidgetProc "Toplevel395" 1
     frame $site_6_0.fra90 \
@@ -1075,7 +1064,7 @@ set Log2cStep $tmp
     vTcl:DefineAlias "$site_6_0.fra90" "Frame60" vTcl:WidgetProc "Toplevel395" 1
     set site_7_0 $site_6_0.fra90
     button $site_7_0.cpd92 \
-        -activebackground SystemButtonFace -activeforeground SystemButtonText \
+        \
         -command {global RBFCV Kernel 
 global Log2cBegin Log2cEnd Log2cStep
 global Log2gBegin Log2gEnd Log2gStep
@@ -1099,7 +1088,7 @@ set GBegin [expr pow(2,$Log2gBegin)]
         -text button 
     vTcl:DefineAlias "$site_7_0.cpd92" "Button52" vTcl:WidgetProc "Toplevel395" 1
     button $site_7_0.cpd91 \
-        -activebackground SystemButtonFace -activeforeground SystemButtonText \
+        \
         -command {global RBFCV Kernel 
 global Log2cBegin Log2cEnd Log2cStep
 global Log2gBegin Log2gEnd Log2gStep
@@ -1162,7 +1151,6 @@ set GBegin [expr pow(2,$Log2gBegin)]
         -textvariable Log2gEnd -width 2 
     vTcl:DefineAlias "$site_6_0.cpd88" "Entry71" vTcl:WidgetProc "Toplevel395" 1
     label $site_6_0.cpd74 \
-        -activebackground SystemButtonFace -activeforeground SystemButtonText \
         -foreground black -highlightcolor black -text {Max } 
     vTcl:DefineAlias "$site_6_0.cpd74" "Label151" vTcl:WidgetProc "Toplevel395" 1
     frame $site_6_0.fra90 \
@@ -1171,7 +1159,7 @@ set GBegin [expr pow(2,$Log2gBegin)]
     vTcl:DefineAlias "$site_6_0.fra90" "Frame62" vTcl:WidgetProc "Toplevel395" 1
     set site_7_0 $site_6_0.fra90
     button $site_7_0.cpd92 \
-        -activebackground SystemButtonFace -activeforeground SystemButtonText \
+        \
         -command {global RBFCV Kernel 
 global Log2cBegin Log2cEnd Log2cStep
 global Log2gBegin Log2gEnd Log2gStep
@@ -1193,7 +1181,7 @@ set GEnd [expr pow(2,$Log2gEnd)]
         -text button 
     vTcl:DefineAlias "$site_7_0.cpd92" "Button55" vTcl:WidgetProc "Toplevel395" 1
     button $site_7_0.cpd91 \
-        -activebackground SystemButtonFace -activeforeground SystemButtonText \
+        \
         -command {global RBFCV Kernel 
 global Log2cBegin Log2cEnd Log2cStep
 global Log2gBegin Log2gEnd Log2gStep
@@ -1249,7 +1237,6 @@ set GEnd [expr pow(2,$Log2gEnd)]
         -textvariable Log2gStep -width 2 
     vTcl:DefineAlias "$site_6_0.cpd88" "Entry73" vTcl:WidgetProc "Toplevel395" 1
     label $site_6_0.cpd75 \
-        -activebackground SystemButtonFace -activeforeground SystemButtonText \
         -foreground black -highlightcolor black -text Step 
     vTcl:DefineAlias "$site_6_0.cpd75" "Label152" vTcl:WidgetProc "Toplevel395" 1
     frame $site_6_0.fra90 \
@@ -1258,7 +1245,7 @@ set GEnd [expr pow(2,$Log2gEnd)]
     vTcl:DefineAlias "$site_6_0.fra90" "Frame64" vTcl:WidgetProc "Toplevel395" 1
     set site_7_0 $site_6_0.fra90
     button $site_7_0.cpd92 \
-        -activebackground SystemButtonFace -activeforeground SystemButtonText \
+        \
         -command {global RBFCV Kernel 
 global Log2cBegin Log2cEnd Log2cStep
 global Log2gBegin Log2gEnd Log2gStep
@@ -1279,7 +1266,7 @@ set Log2gStep $tmp
         -text button 
     vTcl:DefineAlias "$site_7_0.cpd92" "Button57" vTcl:WidgetProc "Toplevel395" 1
     button $site_7_0.cpd91 \
-        -activebackground SystemButtonFace -activeforeground SystemButtonText \
+        \
         -command {global RBFCV Kernel 
 global Log2cBegin Log2cEnd Log2cStep
 global Log2gBegin Log2gEnd Log2gStep
@@ -1318,7 +1305,6 @@ set Log2gStep $tmp
     pack $site_5_0.cpd121 \
         -in $site_5_0 -anchor w -expand 0 -fill none -side top 
     button $site_4_0.cpd85 \
-        -activebackground SystemButtonFace -activeforeground SystemButtonText \
         -borderwidth 0 -foreground black -highlightcolor black \
         -image [vTcl:image:get_image [file join . GUI Images cv_small.png]] \
         -pady 0 -text button 
@@ -1339,7 +1325,6 @@ set Log2gStep $tmp
     vTcl:DefineAlias "$site_4_0.cpd83" "Frame7" vTcl:WidgetProc "Toplevel395" 1
     set site_5_0 $site_4_0.cpd83
     label $site_5_0.cpd80 \
-        -activebackground SystemButtonFace -activeforeground SystemButtonText \
         -foreground black -highlightcolor black -text {One best couple (C,G)} 
     vTcl:DefineAlias "$site_5_0.cpd80" "Label148" vTcl:WidgetProc "Toplevel395" 1
     frame $site_5_0.cpd88 \
@@ -1347,7 +1332,6 @@ set Log2gStep $tmp
     vTcl:DefineAlias "$site_5_0.cpd88" "Frame8" vTcl:WidgetProc "Toplevel395" 1
     set site_6_0 $site_5_0.cpd88
     label $site_6_0.cpd82 \
-        -activebackground SystemButtonFace -activeforeground SystemButtonText \
         -foreground black -highlightcolor black -text C 
     vTcl:DefineAlias "$site_6_0.cpd82" "Label149" vTcl:WidgetProc "Toplevel395" 1
     entry $site_6_0.cpd85 \
@@ -1358,7 +1342,6 @@ set Log2gStep $tmp
         -textvariable BestRBFGamma -width 5 
     vTcl:DefineAlias "$site_6_0.cpd85" "Entry79" vTcl:WidgetProc "Toplevel395" 1
     label $site_6_0.cpd84 \
-        -activebackground SystemButtonFace -activeforeground SystemButtonText \
         -foreground black -highlightcolor black -text G 
     vTcl:DefineAlias "$site_6_0.cpd84" "Label150" vTcl:WidgetProc "Toplevel395" 1
     entry $site_6_0.cpd83 \
@@ -1381,7 +1364,6 @@ set Log2gStep $tmp
     pack $site_5_0.cpd88 \
         -in $site_5_0 -anchor center -expand 0 -fill none -pady 2 -side top 
     button $site_4_0.cpd71 \
-        -activebackground SystemButtonFace -activeforeground SystemButtonText \
         -background #ffff00 \
         -command [list vTcl:DoCmdOption $site_4_0.cpd71 {global SupervisedDirInput SupervisedDirOutput SupervisedOutputDir SupervisedOutputSubDir SupervisedTrainingProcess
 global SupervisedClusterFonction SupervisedSVMClassifierFonction WriteBestCVResultsFunction SupervisedClassifierConfusionMatrixFonction
@@ -1400,7 +1382,7 @@ global ProbOut DistOut SVMColorMapSupervised16
 
 global PolarIndic PolarFiles Npolar PolarIndicSaveList PolarIndicFloatNum
 
-set WriteBestCVResultsFunction "Soft/SVM/write_best_cv_results.exe"
+set WriteBestCVResultsFunction "Soft/bin/SVM/write_best_cv_results.exe"
 
 set PolsarProDir [pwd]; append PolsarProDir "/"
 

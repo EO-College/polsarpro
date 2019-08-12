@@ -893,9 +893,9 @@ if {"$VarWarning"=="ok"} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/PolSARap/PolSARap_Urban.exe" "k"
-        TextEditorRunTrace "Arguments: -if \x22$PolSARapUrbanCmplxCohFile\x22 -of \x22$PolSARapUrbanOutputFile\x22 -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-        set f [ open "| Soft/PolSARap/PolSARap_Urban.exe -if \x22$PolSARapUrbanCmplxCohFile\x22 -of \x22$PolSARapUrbanOutputFile\x22 -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+        TextEditorRunTrace "Process The Function Soft/bin/PolSARap/PolSARap_Urban.exe" "k"
+        TextEditorRunTrace "Arguments: -if \x22$PolSARapUrbanCmplxCohFile\x22 -of \x22$PolSARapUrbanOutputFile\x22 -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+        set f [ open "| Soft/bin/PolSARap/PolSARap_Urban.exe -if \x22$PolSARapUrbanCmplxCohFile\x22 -of \x22$PolSARapUrbanOutputFile\x22 -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError

@@ -1558,7 +1558,7 @@ proc vTclWindow.top256 {base} {
     wm minsize $top 116 1
     wm overrideredirect $top 0
     wm resizable $top 1 1
-    wm title $top "PolSARpro v5.0 Contributors"
+    wm title $top "PolSARpro Contributors"
     vTcl:DefineAlias "$top" "Toplevel256" vTcl:Toplevel:WidgetProc "" 1
     bindtags $top "$top Toplevel all _TopLevel"
     vTcl:FireEvent $top <<Create>>
@@ -1570,7 +1570,7 @@ proc vTclWindow.top256 {base} {
     set site_3_0 $top.fra102
     button $site_3_0.but106 \
         -background #ffff00 \
-        -command {Window hide $widget(Toplevel256); TextEditorRunTrace "Close Window PolSARpro v5.0 Contributors" "b"} \
+        -command {Window hide $widget(Toplevel256); TextEditorRunTrace "Close Window PolSARpro v6.0 (Biomass Edition) Contributors" "b"} \
         -padx 4 -pady 2 -text Exit -width 4 
     vTcl:DefineAlias "$site_3_0.but106" "Button35" vTcl:WidgetProc "Toplevel256" 1
     bindtags $site_3_0.but106 "$site_3_0.but106 Button $top all _vTclBalloon"

@@ -341,7 +341,7 @@ proc vTclWindow.top344 {base} {
     wm protocol $top WM_DELETE_WINDOW "vTcl:FireEvent $top <<>>"
 
     frame $top.cpd79
-    vTcl:DefineAlias "$top.cpd79" "FRAMEBMP1" vTcl:WidgetProc "VIEWBMPPCT" 1
+    vTcl:DefineAlias "$top.cpd79" "FRAMEBMPPCT" vTcl:WidgetProc "VIEWBMPPCT" 1
     set site_3_0 $top.cpd79
     canvas $site_3_0.cpd80 \
         -closeenough 1.0 -cursor {} -height 200 -highlightthickness 0 \

@@ -821,6 +821,7 @@ proc vTcl:project:info {} {
             ProfilePlot3D
             ProfilePlot1DThumb
             ProfilePlot3DThumb
+            ProfileInitInputDataFormat
         }
         set compounds {
         }
@@ -950,7 +951,7 @@ $But257(7) configure -state disable
 $But257(8) configure -state disable
 $But257(9) configure -state disable
 set ProfileLength ""; set GnuXview ""; set GnuZview ""
-set ProfileRepresentation ""; set ProfileRepresentation3D ""
+set ProfileRepresentation " "; set ProfileRepresentation3D " "
 
 set ProfileShow 0
 set ProfileFileInput ""
@@ -961,7 +962,7 @@ $RBut257(16) configure -state disable
 set NligInit ""; set NligEnd ""
 set NcolInit ""; set NcolEnd ""
 set NligFullSize ""; set NcolFullSize ""
-set ProfileInputFormat ""
+set ProfileInputFormat " "
 $TF257(4) configure -state disable
 $RBut257(5) configure -state disable
 $RBut257(6) configure -state disable
@@ -971,7 +972,7 @@ $RBut257(12) configure -state disable
 $RBut257(13) configure -state disable
 $Ent257(5) configure -disabledbackground $PSPBackgroundColor
 $Lbl257(5) configure -state disable
-set ProfileOutputFormat ""
+set ProfileOutputFormat " "
 $Ent257(8) configure -disabledbackground $PSPBackgroundColor
 $Lbl257(8) configure -state disable
 set MinMaxAutoProfile 0
@@ -1251,7 +1252,7 @@ $But257(8) configure -state normal
 $But257(9) configure -state normal
 set ProfileLength "30"
 set ProfileRepresentation "xrange"
-set ProfileRepresentation3D ""
+set ProfileRepresentation3D " "
 
 $TF257(4) configure -state normal
 if {$ProfileInputFormat == "cmplx"} { $RBut257(5) configure -state normal}
@@ -1413,7 +1414,7 @@ global TMPProfileXTxt TMPProfileXBin TMPProfileYTxt TMPProfileYBin
 global ProfileOutputFormat ProfileRepresentation
 global GnuplotPipeFid GnuplotPipeProfile GnuOutputFormat
 global GnuProfileTitle GnuOutputFile 
-global ImageMagickMaker TMPGnuPlotTk1 TMPGnuPlot1Tk
+global TMPGnuPlotTk1 TMPGnuPlot1Tk
 
 set xwindow [winfo x .top257]; set ywindow [winfo y .top257]
 
@@ -1425,7 +1426,7 @@ if {$GnuplotPipeProfile == ""} {
     set GnuplotPipeProfile $GnuplotPipeFid
     }
     
-ProfilePlot1DThumb
+#ProfilePlot1DThumb
 
 set GnuOutputFile $TMPGnuPlotTk1
 set GnuOutputFormat "gif"
@@ -1487,8 +1488,9 @@ catch "close $GnuplotPipeProfile"
 set GnuplotPipeProfile ""
 
 WaitUntilCreated $TMPGnuPlotTk1
+Gimp $TMPGnuPlotTk1
 
-ViewGnuPlotTK 1 .top257 $GnuProfileTitle
+#ViewGnuPlotTKThumb 1 .top257 $GnuProfileTitle
 }
 #############################################################################
 ## Procedure:  ProfilePlot3D
@@ -1499,7 +1501,7 @@ global ProfileOutputFormat ProfileRepresentation ProfileRepresentation3D
 global GnuplotPipeFid GnuplotPipeProfile GnuOutputFormat GnuOutputFile 
 global GnuProfileTitle GnuXview GnuZview
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
-global ImageMagickMaker TMPGnuPlotTk1 TMPGnuPlot1Tk
+global TMPGnuPlotTk1 TMPGnuPlot1Tk
 
 set TestVarName(0) "Orientation Elevation (°)"; set TestVarType(0) "float"; set TestVarValue(0) $GnuXview; set TestVarMin(0) "0.0"; set TestVarMax(0) "180.0"
 set TestVarName(1) "Orientation Azimut (°)"; set TestVarType(1) "float"; set TestVarValue(1) $GnuZview; set TestVarMin(1) "0.0"; set TestVarMax(1) "360.0"
@@ -1519,7 +1521,7 @@ if {$GnuplotPipeProfile == ""} {
     set GnuplotPipeProfile $GnuplotPipeFid
     }
     
-ProfilePlot3DThumb
+#ProfilePlot3DThumb
 
 set GnuOutputFile $TMPGnuPlotTk1
 set GnuOutputFormat "gif"
@@ -1542,8 +1544,8 @@ catch "close $GnuplotPipeProfile"
 set GnuplotPipeProfile ""
 
 WaitUntilCreated $TMPGnuPlotTk1
-
-ViewGnuPlotTK 1 .top257 $GnuProfileTitle
+Gimp $TMPGnuPlotTk1
+#ViewGnuPlotTKThumb 1 .top257 $GnuProfileTitle
 #file
 }
 #VarError
@@ -1557,7 +1559,7 @@ global TMPProfileXTxt TMPProfileXBin TMPProfileYTxt TMPProfileYBin
 global ProfileOutputFormat ProfileRepresentation
 global GnuplotPipeFid GnuplotPipeProfile GnuOutputFormat
 global GnuProfileTitle GnuOutputFile 
-global ImageMagickMaker TMPGnuPlotTk1 TMPGnuPlot1Tk
+global TMPGnuPlotTk1 TMPGnuPlot1Tk
 
 set xwindow [winfo x .top257]; set ywindow [winfo y .top257]
 
@@ -1626,7 +1628,7 @@ global ProfileOutputFormat ProfileRepresentation ProfileRepresentation3D
 global GnuplotPipeFid GnuplotPipeProfile GnuOutputFormat GnuOutputFile 
 global GnuProfileTitle GnuXview GnuZview
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
-global ImageMagickMaker TMPGnuPlotTk1 TMPGnuPlot1Tk
+global TMPGnuPlotTk1 TMPGnuPlot1Tk
 
 if [file exists $TMPProfileXYTxt] {
 
@@ -1650,6 +1652,34 @@ puts $GnuplotPipeProfile "unset output"; flush $GnuplotPipeProfile
 WaitUntilCreated $TMPGnuPlot1Tk
 #file
 }
+}
+#############################################################################
+## Procedure:  ProfileInitInputDataFormat
+
+proc ::ProfileInitInputDataFormat {WidgetEntry257_5 WidgetLabel257_5} {
+global ProfileInputFormat ProfileOutputFormat
+global ProfileShow ProfileImagValue PSPBackgroundColor
+
+ProfileFileOpenClose
+if {$ProfileInputFormat == "cmplx"} {
+    $WidgetEntry257_5 configure -disabledbackground #FFFFFF
+    $WidgetLabel257_5 configure -state normal
+    if {$ProfileShow == 1} {
+        $widget(Radiobutton257_5) configure -state normal
+        $widget(Radiobutton257_6) configure -state normal
+        set ProfileImagValue ""
+        set ProfileOutputFormat "mod"
+        }
+    } else {
+    $WidgetEntry257_5 configure -disabledbackground $PSPBackgroundColor
+    $WidgetLabel257_5 configure -state disable
+    if {$ProfileShow == 1} {
+        $widget(Radiobutton257_5) configure -state disable
+        $widget(Radiobutton257_6) configure -state disable
+        set ProfileImagValue ""
+        set ProfileOutputFormat "real"
+        }
+    }
 }
 
 #############################################################################
@@ -1714,7 +1744,7 @@ proc vTclWindow.top257 {base} {
         -menu "$top.m71" 
     wm withdraw $top
     wm focusmodel $top passive
-    wm geometry $top 500x410+10+110; update
+    wm geometry $top 600x410+10+110; update
     wm maxsize $top 1604 1184
     wm minsize $top 116 1
     wm overrideredirect $top 0
@@ -1745,7 +1775,7 @@ proc vTclWindow.top257 {base} {
         \
         -command {global FileName ProfileDirInput ProfileFileInput
 global ProfileExecFid ProfileFileOpen
-global ProfileInputFormat ProfileInputFormatOld
+global ProfileInputFormat ProfileOutputFormat ProfileInputFormatOld
 global ConfigFile VarError ErrorMessage
 
 if {$ProfileFileOpen == 1 } {
@@ -1775,26 +1805,54 @@ if {$ProfileFileOpen == 1 } {
     }
 
 ProfileReset
+set ProfileInputFormat "float"
+set ProfileOutputFormat "real"
 
 set types {
 {{BIN Files}        {.bin}        }
 }
 set FileName ""
 OpenFile $ProfileDirInput $types "INPUT FILE"
-    
+
 if {$FileName != ""} {
-    set ProfileDirInput [file dirname $FileName]
-    set ConfigFile "$ProfileDirInput/config.txt"
-    set ErrorMessage ""
-    LoadConfig
-    if {"$ErrorMessage" == ""} {
-        set ProfileFileInput $FileName
-        set ProfileInputFormat ""
-        $widget(TitleFrame257_6) configure -state normal
-        $widget(Radiobutton257_14) configure -state normal
-        $widget(Radiobutton257_15) configure -state normal
-        $widget(Radiobutton257_16) configure -state normal
+    set FileNameHdr "$FileName.hdr"
+    if [file exists $FileNameHdr] {
+        set f [open $FileNameHdr "r"]
+        gets $f tmp
+        gets $f tmp
+        gets $f tmp
+        if {[string first "PolSARpro" $tmp] != "-1"} {
+            gets $f tmp; gets $f tmp
+            gets $f tmp; gets $f tmp
+            gets $f tmp; gets $f tmp
+            if {$tmp == "data type = 2"} {set ProfileInputFormat "int"; set ProfileOutputFormat "real"}
+            if {$tmp == "data type = 4"} {set ProfileInputFormat "float"; set ProfileOutputFormat "real"}
+            if {$tmp == "data type = 6"} {set ProfileInputFormat "cmplx"; set ProfileOutputFormat "mod"}
+            set ProfileDirInput [file dirname $FileName]
+            set ConfigFile "$ProfileDirInput/config.txt"
+            set ErrorMessage ""
+            LoadConfig
+            if {"$ErrorMessage" == ""} {
+                set ProfileFileInput $FileName
+                $widget(TitleFrame257_6) configure -state normal
+                $widget(Radiobutton257_14) configure -state normal
+                $widget(Radiobutton257_15) configure -state normal
+                $widget(Radiobutton257_16) configure -state normal
+                ProfileInitInputDataFormat $widget(Entry257_5) $widget(Label257_5)
+                } else {
+                Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
+                tkwait variable VarError
+                if {$VarError == "cancel"} {Window hide $widget(Toplevel257); TextEditorRunTrace "Close Window Data Value - Profile" "b"}
+                }    
+            } else {
+            set ErrorMessage "NOT A PolSARpro BINARY DATA FILE TYPE"
+            Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
+            tkwait variable VarError
+            if {$VarError == "cancel"} {Window hide $widget(Toplevel257); TextEditorRunTrace "Close Window Data Value - Profile" "b"}
+            }    
+        close $f
         } else {
+        set ErrorMessage "THE HDR FILE $FileNameHdr DOES NOT EXIST"
         Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
         tkwait variable VarError
         if {$VarError == "cancel"} {Window hide $widget(Toplevel257); TextEditorRunTrace "Close Window Data Value - Profile" "b"}
@@ -2143,17 +2201,8 @@ Window hide .top401} \
     set site_8_0 $site_7_0.fra84
     radiobutton $site_8_0.rad78 \
         \
-        -command {global ProfileShow ProfileImagValue ProfileOutputFormat
-
-ProfileFileOpenClose
-$widget(Entry257_5) configure -disabledbackground #FFFFFF
-$widget(Label257_5) configure -state normal
-if {$ProfileShow == 1} {
-    $widget(Radiobutton257_5) configure -state normal
-    $widget(Radiobutton257_6) configure -state normal
-    set ProfileImagValue ""
-    set ProfileOutputFormat "real"
-    }} \
+        -command {ProfileInitInputDataFormat $widget(Entry257_5) $widget(Label257_5)
+} \
         -text Complex -value cmplx -variable ProfileInputFormat 
     vTcl:DefineAlias "$site_8_0.rad78" "Radiobutton257_14" vTcl:WidgetProc "Toplevel257" 1
     pack $site_8_0.rad78 \
@@ -2164,17 +2213,8 @@ if {$ProfileShow == 1} {
     set site_8_0 $site_7_0.cpd71
     radiobutton $site_8_0.rad78 \
         \
-        -command {global ProfileShow ProfileImagValue ProfileOutputFormat PSPBackgroundColor
-
-ProfileFileOpenClose
-$widget(Entry257_5) configure -disabledbackground $PSPBackgroundColor
-$widget(Label257_5) configure -state disable
-if {$ProfileShow == 1} {
-    $widget(Radiobutton257_5) configure -state disable
-    $widget(Radiobutton257_6) configure -state disable
-    set ProfileImagValue ""
-    set ProfileOutputFormat "real"
-    }} \
+        -command {ProfileInitInputDataFormat $widget(Entry257_5) $widget(Label257_5)
+} \
         -text Float -value float -variable ProfileInputFormat 
     vTcl:DefineAlias "$site_8_0.rad78" "Radiobutton257_15" vTcl:WidgetProc "Toplevel257" 1
     pack $site_8_0.rad78 \
@@ -2185,17 +2225,8 @@ if {$ProfileShow == 1} {
     set site_8_0 $site_7_0.cpd72
     radiobutton $site_8_0.rad78 \
         \
-        -command {global ProfileShow ProfileImagValue ProfileOutputFormat PSPBackgroundColor
-
-ProfileFileOpenClose
-$widget(Entry257_5) configure -disabledbackground $PSPBackgroundColor
-$widget(Label257_5) configure -state disable
-if {$ProfileShow == 1} {
-    $widget(Radiobutton257_5) configure -state disable
-    $widget(Radiobutton257_6) configure -state disable
-    set ProfileImagValue ""
-    set ProfileOutputFormat "real"
-    }} \
+        -command {ProfileInitInputDataFormat $widget(Entry257_5) $widget(Label257_5)
+} \
         -text Integer -value int -variable ProfileInputFormat 
     vTcl:DefineAlias "$site_8_0.rad78" "Radiobutton257_16" vTcl:WidgetProc "Toplevel257" 1
     pack $site_8_0.rad78 \
@@ -2417,7 +2448,7 @@ global GnuXview GnuZview ProfileRepresentation3D PSPBackgroundColor
     $widget(Radiobutton257_3) configure -state disable
     $widget(Radiobutton257_4) configure -state disable
     set GnuXview ""; set GnuZview ""
-    set ProfileRepresentation3D ""
+    set ProfileRepresentation3D " "
     ProfileCreateXYBin} \
         -text {X Range} -value xrange -variable ProfileRepresentation 
     vTcl:DefineAlias "$site_8_0.rad78" "Radiobutton257_7" vTcl:WidgetProc "Toplevel257" 1
@@ -2446,7 +2477,7 @@ global GnuXview GnuZview ProfileRepresentation3D PSPBackgroundColor
     $widget(Radiobutton257_3) configure -state disable
     $widget(Radiobutton257_4) configure -state disable
     set GnuXview ""; set GnuZview ""
-    set ProfileRepresentation3D ""
+    set ProfileRepresentation3D " "
     ProfileCreateXYBin
 } \
         -text {Y Range} -value yrange -variable ProfileRepresentation 
@@ -2607,9 +2638,9 @@ if {$ProfileRepresentation == "xyrange"} {
         set ProgressLine ""
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/bmp_process/MinMaxBMP.exe" "k"
+        TextEditorRunTrace "Process The Function Soft/bin/bmp_process/MinMaxBMP.exe" "k"
         TextEditorRunTrace "Arguments: -if \x22$TMPProfile3DBin\x22 -ift $FormatIn -oft real -nc $ProfileLength -ofr 0 -ofc 0 -fnr $ProfileLength -fnc $ProfileLength -of \x22$TMPMinMaxBmp\x22" "k"
-        set f [ open "| Soft/bmp_process/MinMaxBMP.exe -if \x22$TMPProfile3DBin\x22 -ift $FormatIn -oft real -nc $ProfileLength -ofr 0 -ofc 0 -fnr $ProfileLength -fnc $ProfileLength -of \x22$TMPMinMaxBmp\x22" r]
+        set f [ open "| Soft/bin/bmp_process/MinMaxBMP.exe -if \x22$TMPProfile3DBin\x22 -ift $FormatIn -oft real -nc $ProfileLength -ofr 0 -ofc 0 -fnr $ProfileLength -fnc $ProfileLength -of \x22$TMPMinMaxBmp\x22" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError
@@ -2641,9 +2672,9 @@ if {$ProfileRepresentation == "xrange"} {
             }
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/bmp_process/MinMaxBMP.exe" "k"
+        TextEditorRunTrace "Process The Function Soft/bin/bmp_process/MinMaxBMP.exe" "k"
         TextEditorRunTrace "Arguments: -if \x22$TMPProfile1DXBin\x22 -ift $FormatIn -oft real -nc 1 -ofr 0 -ofc 0 -fnr $ProfileLength -fnc 1 -of \x22$TMPMinMaxBmp\x22" "k"
-        set f [ open "| Soft/bmp_process/MinMaxBMP.exe -if \x22$TMPProfile1DXBin\x22 -ift $FormatIn -oft real -nc 1 -ofr 0 -ofc 0 -fnr $ProfileLength -fnc 1 -of \x22$TMPMinMaxBmp\x22" r]
+        set f [ open "| Soft/bin/bmp_process/MinMaxBMP.exe -if \x22$TMPProfile1DXBin\x22 -ift $FormatIn -oft real -nc 1 -ofr 0 -ofc 0 -fnr $ProfileLength -fnc 1 -of \x22$TMPMinMaxBmp\x22" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError
@@ -2675,9 +2706,9 @@ if {$ProfileRepresentation == "yrange"} {
             }
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/bmp_process/MinMaxBMP.exe" "k"
+        TextEditorRunTrace "Process The Function Soft/bin/bmp_process/MinMaxBMP.exe" "k"
         TextEditorRunTrace "Arguments: -if \x22$TMPProfile1DYBin\x22 -ift $FormatIn -oft real -nc 1 -ofr 0 -ofc 0 -fnr $ProfileLength -fnc 1 -of \x22$TMPMinMaxBmp\x22" "k"
-        set f [ open "| Soft/bmp_process/MinMaxBMP.exe -if \x22$TMPProfile1DYBin\x22 -ift $FormatIn -oft real -nc 1 -ofr 0 -ofc 0 -fnr $ProfileLength -fnc 1 -of \x22$TMPMinMaxBmp\x22" r]
+        set f [ open "| Soft/bin/bmp_process/MinMaxBMP.exe -if \x22$TMPProfile1DYBin\x22 -ift $FormatIn -oft real -nc 1 -ofr 0 -ofc 0 -fnr $ProfileLength -fnc 1 -of \x22$TMPMinMaxBmp\x22" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError
@@ -2802,7 +2833,6 @@ if {$GnuplotPipeProfile != ""} {
 set GnuplotPipeFid ""    
 Window hide .top401
 ClosePSPViewer
-Window hide $widget(Toplevel64); TextEditorRunTrace "Close Window PolSARpro Viewer" "b"
 Window hide $widget(Toplevel257); TextEditorRunTrace "Close Window Data Value - Profile" "b"
 }} \
         -padx 4 -pady 2 -text Exit 

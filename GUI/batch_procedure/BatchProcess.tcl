@@ -991,7 +991,7 @@ if {"$BatchFilter"=="0"} {
     $widget(Label230_4b) configure -state disable
     $widget(Entry230_4b) configure -state disable
     set BatchOutputDir $BatchDataDir
-    set BatchFilterCase ""
+    set BatchFilterCase " "
     set BatchNlook ""
     set BatchNwinFilterL ""
     set BatchNwinFilterC ""
@@ -1884,7 +1884,7 @@ global BatchFilter BatchFilterCase BatchNlook BatchNwinFilterL BatchNwinFilterC
 global BatchDecomp BatchNwinDecompL BatchNwinDecompC BatchBMPDecomp BatchHAalpha_planes
 global BatchWishart BatchNwinWishartL BatchNwinWishartC BatchWishartPourcentage BatchWishartIteration BatchBMPWishart
 global ColorMapWishart8 ColorMapWishart16 ColorMapPlanes9
-global BMPDirInput BatchProcessFonction PSPMemory TMPMemoryAllocError 
+global BMPDirInput BatchProcessFonction TMPMemoryAllocError 
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
 global OpenDirFile ConfigFile FinalNlig FinalNcol PolarCase PolarType 
 
@@ -1932,10 +1932,10 @@ if {$BatchFilter=="1"} {
                 set ProgressLine "0"
                 WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                 update
-                set BatchFilterFunction "Soft/speckle_filter/boxcar_filter.exe"
+                set BatchFilterFunction "Soft/bin/speckle_filter/boxcar_filter.exe"
                 TextEditorRunTrace "Process The Function $BatchFilterFunction" "k"
-                TextEditorRunTrace "Arguments: -id \x22$BatchFilterDirInput\x22 -od \x22$BatchFilterDirOutput\x22 -iodf $BatchProcessFonction -nwr $BatchNwinFilterL -nwc $BatchNwinFilterC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                set f [ open "| Soft/speckle_filter/boxcar_filter.exe -id \x22$BatchFilterDirInput\x22 -od \x22$BatchFilterDirOutput\x22 -iodf $BatchProcessFonction -nwr $BatchNwinFilterL -nwc $BatchNwinFilterC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                TextEditorRunTrace "Arguments: -id \x22$BatchFilterDirInput\x22 -od \x22$BatchFilterDirOutput\x22 -iodf $BatchProcessFonction -nwr $BatchNwinFilterL -nwc $BatchNwinFilterC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                set f [ open "| Soft/bin/speckle_filter/boxcar_filter.exe -id \x22$BatchFilterDirInput\x22 -od \x22$BatchFilterDirOutput\x22 -iodf $BatchProcessFonction -nwr $BatchNwinFilterL -nwc $BatchNwinFilterC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                 }
             if {$BatchFilterCase == "lee"} {
                 set Fonction "LEE Refined Speckle Filter"
@@ -1943,10 +1943,10 @@ if {$BatchFilter=="1"} {
                 set ProgressLine "0"
                 WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                 update
-                set BatchFilterFunction "Soft/speckle_filter/lee_refined_filter.exe"
+                set BatchFilterFunction "Soft/bin/speckle_filter/lee_refined_filter.exe"
                 TextEditorRunTrace "Process The Function $BatchFilterFunction" "k"
-                TextEditorRunTrace "Arguments: -id \x22$BatchFilterDirInput\x22 -od \x22$BatchFilterDirOutput\x22 -iodf $BatchProcessFonction -nw $BatchNwinFilterL -nlk $BatchNlook -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                set f [ open "| Soft/speckle_filter/lee_refined_filter.exe -id \x22$BatchFilterDirInput\x22 -od \x22$BatchFilterDirOutput\x22 -iodf $BatchProcessFonction -nw $BatchNwinFilterL -nlk $BatchNlook -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                TextEditorRunTrace "Arguments: -id \x22$BatchFilterDirInput\x22 -od \x22$BatchFilterDirOutput\x22 -iodf $BatchProcessFonction -nw $BatchNwinFilterL -nlk $BatchNlook -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                set f [ open "| Soft/bin/speckle_filter/lee_refined_filter.exe -id \x22$BatchFilterDirInput\x22 -od \x22$BatchFilterDirOutput\x22 -iodf $BatchProcessFonction -nw $BatchNwinFilterL -nlk $BatchNlook -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                 }
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
@@ -2017,9 +2017,9 @@ if {$BatchDecomp=="1"} {
             set BatchProcessF $BatchProcessFonction
             if {"$BatchProcessFonction" == "C3"} { set BatchProcessF "C3T3" }
             if {"$BatchProcessFonction" == "C4"} { set BatchProcessF "C4T4" }
-            TextEditorRunTrace "Process The Function Soft/data_process_sngl/h_a_alpha_decomposition.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$BatchDecompDirInput\x22 -od \x22$BatchDecompDirOutput\x22 -iodf $BatchProcessF -nwr $BatchNwinDecompL -nwc $BatchNwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -fl1 0 -fl2 0 -fl3 1 -fl4 1 -fl5 1 -fl6 0 -fl7 0 -fl8 0 -fl9 0 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_sngl/h_a_alpha_decomposition.exe -id \x22$BatchDecompDirInput\x22 -od \x22$BatchDecompDirOutput\x22 -iodf $BatchProcessF -nwr $BatchNwinDecompL -nwc $BatchNwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -fl1 0 -fl2 0 -fl3 1 -fl4 1 -fl5 1 -fl6 0 -fl7 0 -fl8 0 -fl9 0 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/h_a_alpha_decomposition.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$BatchDecompDirInput\x22 -od \x22$BatchDecompDirOutput\x22 -iodf $BatchProcessF -nwr $BatchNwinDecompL -nwc $BatchNwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -fl1 0 -fl2 0 -fl3 1 -fl4 1 -fl5 1 -fl6 0 -fl7 0 -fl8 0 -fl9 0  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_sngl/h_a_alpha_decomposition.exe -id \x22$BatchDecompDirInput\x22 -od \x22$BatchDecompDirOutput\x22 -iodf $BatchProcessF -nwr $BatchNwinDecompL -nwc $BatchNwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -fl1 0 -fl2 0 -fl3 1 -fl4 1 -fl5 1 -fl6 0 -fl7 0 -fl8 0 -fl9 0  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -2096,9 +2096,9 @@ if {$BatchDecomp=="1"} {
                     set ProgressLine "0"
                     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                     update
-                    TextEditorRunTrace "Process The Function Soft/data_process_sngl/h_a_alpha_planes_classifier.exe" "k"
-                    TextEditorRunTrace "Arguments: -id \x22$BatchDecompDirOutput\x22 -od \x22$BatchDecompDirOutput\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -hal 1 -anal 1 -han 1 -clm \x22$ColorMapPlanes9\x22 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                    set f [ open "| Soft/data_process_sngl/h_a_alpha_planes_classifier.exe -id \x22$BatchDecompDirOutput\x22 -od \x22$BatchDecompDirOutput\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -hal 1 -anal 1 -han 1 -clm \x22$ColorMapPlanes9\x22 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                    TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/h_a_alpha_planes_classifier.exe" "k"
+                    TextEditorRunTrace "Arguments: -id \x22$BatchDecompDirOutput\x22 -od \x22$BatchDecompDirOutput\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -hal 1 -anal 1 -han 1 -clm \x22$ColorMapPlanes9\x22  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                    set f [ open "| Soft/bin/data_process_sngl/h_a_alpha_planes_classifier.exe -id \x22$BatchDecompDirOutput\x22 -od \x22$BatchDecompDirOutput\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -hal 1 -anal 1 -han 1 -clm \x22$ColorMapPlanes9\x22  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                     PsPprogressBar $f
                     TextEditorRunTrace "Check RunTime Errors" "r"
                     CheckRunTimeError
@@ -2197,9 +2197,9 @@ if {$BatchWishart=="1"} {
                 WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                 update
 
-                TextEditorRunTrace "Process The Function Soft/data_process_sngl/wishart_h_a_alpha_classifier.exe" "k"
-                TextEditorRunTrace "Arguments: -id \x22$BatchWishartDirInput\x22 -od \x22$BatchWishartDirOutput\x22 -iodf $BatchProcessFonction -nwr $BatchNwinWishartL -nwc $BatchNwinWishartC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -pct $BatchWishartPourcentage -nit $BatchWishartIteration -bmp $BatchBMPWishart -co8 \x22$ColorMapWishart8\x22 -co16 \x22$ColorMapWishart16\x22 -hf \x22$WishartEntropyFile\x22 -af \x22$WishartAnisotropyFile\x22 -alf \x22$WishartAlphaFile\x22 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                set f [ open "| Soft/data_process_sngl/wishart_h_a_alpha_classifier.exe -id \x22$BatchWishartDirInput\x22 -od \x22$BatchWishartDirOutput\x22 -iodf $BatchProcessFonction -nwr $BatchNwinWishartL -nwc $BatchNwinWishartC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -pct $BatchWishartPourcentage -nit $BatchWishartIteration -bmp $BatchBMPWishart -co8 \x22$ColorMapWishart8\x22 -co16 \x22$ColorMapWishart16\x22 -hf \x22$WishartEntropyFile\x22 -af \x22$WishartAnisotropyFile\x22 -alf \x22$WishartAlphaFile\x22 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/wishart_h_a_alpha_classifier.exe" "k"
+                TextEditorRunTrace "Arguments: -id \x22$BatchWishartDirInput\x22 -od \x22$BatchWishartDirOutput\x22 -iodf $BatchProcessFonction -nwr $BatchNwinWishartL -nwc $BatchNwinWishartC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -pct $BatchWishartPourcentage -nit $BatchWishartIteration -bmp $BatchBMPWishart -co8 \x22$ColorMapWishart8\x22 -co16 \x22$ColorMapWishart16\x22 -hf \x22$WishartEntropyFile\x22 -af \x22$WishartAnisotropyFile\x22 -alf \x22$WishartAlphaFile\x22  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                set f [ open "| Soft/bin/data_process_sngl/wishart_h_a_alpha_classifier.exe -id \x22$BatchWishartDirInput\x22 -od \x22$BatchWishartDirOutput\x22 -iodf $BatchProcessFonction -nwr $BatchNwinWishartL -nwc $BatchNwinWishartC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -pct $BatchWishartPourcentage -nit $BatchWishartIteration -bmp $BatchBMPWishart -co8 \x22$ColorMapWishart8\x22 -co16 \x22$ColorMapWishart16\x22 -hf \x22$WishartEntropyFile\x22 -af \x22$WishartAnisotropyFile\x22 -alf \x22$WishartAlphaFile\x22  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                 PsPprogressBar $f
                 TextEditorRunTrace "Check RunTime Errors" "r"
                 CheckRunTimeError

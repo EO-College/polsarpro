@@ -656,7 +656,7 @@ if {$FileName != ""} {
     set MyFunctionFullName $FileName
     set MyFunctionName [file tail $FileName]
     set MyFunctionName [file rootname $MyFunctionName]
-    set MyFunctionPath "Soft/tools/MyRoutines/"
+    set MyFunctionPath "Soft/bin/tools/MyRoutines/"
     append MyFunctionPath $MyFunctionName
     append MyFunctionPath ".exe"  
     $widget(TitleFrame101_1) configure -state normal
@@ -790,7 +790,7 @@ if {$MyFunctionVar < "20"} {
     incr MyFunctionVar
     incr MyFunctionVarN
     set VarName "?"
-    set VarType ""
+    set VarType " "
     $widget(TitleFrame101_2) configure -state normal
     $widget(TitleFrame101_3) configure -state normal
     $widget(Entry101_2) configure -state normal
@@ -830,7 +830,7 @@ if {$MyFunctionVarN != "1"} {
     set MyFunctionVarN "0"
     set MyFunctionVar "0"
     set VarName "?"
-    set VarType ""
+    set VarType " "
     }} \
         -padx 4 -pady 2 -text Del 
     vTcl:DefineAlias "$site_5_0.cpd114" "Button101_2" vTcl:WidgetProc "Toplevel101" 1
@@ -897,7 +897,7 @@ if {$MyFunctionVar > "1"} {
 set MyFunctionVarName($MyFunctionVar) ""
 set MyFunctionVarType($MyFunctionVar) ""
 set VarName "?"
-set VarType ""} \
+set VarType " "} \
         -padx 4 -pady 2 -text Clear 
     vTcl:DefineAlias "$site_5_0.cpd116" "Button101_5" vTcl:WidgetProc "Toplevel101" 1
     bindtags $site_5_0.cpd116 "$site_5_0.cpd116 Button $top all _vTclBalloon"
@@ -915,7 +915,7 @@ for {set i 0} {$i <= 20} {incr i} {
     set MyFunctionVarType($i) ""
     }
 set VarName ""
-set VarType ""
+set VarType " "
 $widget(TitleFrame101_2) configure -state disable
 $widget(TitleFrame101_3) configure -state disable
 $widget(Entry101_2) configure -state disable

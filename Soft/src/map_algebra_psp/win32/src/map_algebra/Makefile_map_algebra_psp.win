@@ -1,0 +1,47 @@
+
+CC = gcc
+CPP = g++
+CCFLAGS = -Wall -I..\..\external\include -L..\..\external\lib -L..\..\external\lib\mingw -L.
+LDFLAGS = -lglew32s -lglu32 -lopengl32  -lfreeglut -lfreeimage  -static -lcomdlg32 -lole32 -Wl,-subsystem,windows
+
+SOURCES = $(wildcard *.c)
+OBJECTS = $(SOURCES:.c=.o)
+EXECUTABLE = map_algebra_psp.exe
+
+# Debug build flags
+ifeq ($(dbg),1)
+      CCFLAGS += -g -G
+      TARGET := debug
+else
+      TARGET := map_algebra
+endif
+
+APP = "..\..\..\..\..\bin\$(TARGET)\win32\$(EXECUTABLE)"
+
+all:  $(APP)
+
+$(APP): $(OBJECTS) 	
+	echo "Building $(TARGET)"
+	IF NOT EXIST "..\..\..\..\..\bin\$(TARGET)" mkdir "..\..\..\..\..\bin\$(TARGET)"
+	IF NOT EXIST "..\..\..\..\..\bin\$(TARGET)\win32" mkdir "..\..\..\..\..\bin\$(TARGET)\win32"
+	IF NOT EXIST "..\..\..\..\..\bin\$(TARGET)\win32\shaders" mkdir "..\..\..\..\..\bin\$(TARGET)\win32\shaders"
+	IF NOT EXIST "..\..\..\..\..\bin\$(TARGET)\win32\colormaps" mkdir "..\..\..\..\..\bin\$(TARGET)\win32\colormaps"
+	
+	$(CPP) -Wall $(OBJECTS) $(CCFLAGS) $(LDFLAGS) -fopenmp  -o $@
+	
+	copy ..\..\external\bin\FreeImage.dll "..\..\..\..\..\bin\$(TARGET)\win32"
+	copy ..\..\external\bin\freeglut.dll  "..\..\..\..\..\bin\$(TARGET)\win32"
+	copy ..\..\external\bin\glew32MinGW.dll  "..\..\..\..\..\bin\$(TARGET)\win32\glew32.dll"		
+	
+	copy "shaders\*"  "..\..\..\..\..\bin\$(TARGET)\win32\shaders\*"
+	copy "colormaps\*"  "..\..\..\..\..\bin\$(TARGET)\win32\colormaps\*"
+.c.o:
+	
+	$(CPP) -c $< $(CCFLAGS) $(LDFLAGS) -lpthread -o $@
+	
+clean:
+	@echo "Cleaning..."
+	@rd /S /Q "..\..\..\..\..\bin\$(TARGET)\win32\"
+	@del $(OBJECTS)
+
+clobber: clean

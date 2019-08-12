@@ -1166,24 +1166,24 @@ if {$config == "true"} {
     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
     update
     if {$DEMNfile == 1} {
-        TextEditorRunTrace "Process The Function Soft/data_import/extract_dem_1.exe" "k"
+        TextEditorRunTrace "Process The Function Soft/bin/data_import/extract_dem_1.exe" "k"
         TextEditorRunTrace "Arguments: -la00 $GoogleLat00 -lo00 $GoogleLong00 -la0N $GoogleLat0N -lo0N $GoogleLong0N -laN0 $GoogleLatN0 -loN0 $GoogleLongN0 -laNN $GoogleLatNN -loNN $GoogleLongNN -od \x22$DEMoutputDir\x22 -if \x22$DEMInputFile1\x22" "k"
-        set f [ open "| Soft/data_import/extract_dem_1.exe -la00 $GoogleLat00 -lo00 $GoogleLong00 -la0N $GoogleLat0N -lo0N $GoogleLong0N -laN0 $GoogleLatN0 -loN0 $GoogleLongN0 -laNN $GoogleLatNN -loNN $GoogleLongNN -od \x22$DEMoutputDir\x22 -if \x22$DEMInputFile1\x22" r]
+        set f [ open "| Soft/bin/data_import/extract_dem_1.exe -la00 $GoogleLat00 -lo00 $GoogleLong00 -la0N $GoogleLat0N -lo0N $GoogleLong0N -laN0 $GoogleLatN0 -loN0 $GoogleLongN0 -laNN $GoogleLatNN -loNN $GoogleLongNN -od \x22$DEMoutputDir\x22 -if \x22$DEMInputFile1\x22" r]
         }
     if {$DEMNfile == "2TB"} {
-        TextEditorRunTrace "Process The Function Soft/data_import/extract_dem_2.exe" "k"
+        TextEditorRunTrace "Process The Function Soft/bin/data_import/extract_dem_2.exe" "k"
         TextEditorRunTrace "Arguments: -la00 $GoogleLat00 -lo00 $GoogleLong00 -la0N $GoogleLat0N -lo0N $GoogleLong0N -laN0 $GoogleLatN0 -loN0 $GoogleLongN0 -laNN $GoogleLatNN -loNN $GoogleLongNN -od \x22$DEMoutputDir\x22 -if1 \x22$DEMInputFile1\x22 -if2 \x22$DEMInputFile2\x22 -cfg 0" "k"
-        set f [ open "| Soft/data_import/extract_dem_2.exe -la00 $GoogleLat00 -lo00 $GoogleLong00 -la0N $GoogleLat0N -lo0N $GoogleLong0N -laN0 $GoogleLatN0 -loN0 $GoogleLongN0 -laNN $GoogleLatNN -loNN $GoogleLongNN -od \x22$DEMoutputDir\x22 -if1 \x22$DEMInputFile1\x22 -if2 \x22$DEMInputFile2\x22 -cfg 0" r]
+        set f [ open "| Soft/bin/data_import/extract_dem_2.exe -la00 $GoogleLat00 -lo00 $GoogleLong00 -la0N $GoogleLat0N -lo0N $GoogleLong0N -laN0 $GoogleLatN0 -loN0 $GoogleLongN0 -laNN $GoogleLatNN -loNN $GoogleLongNN -od \x22$DEMoutputDir\x22 -if1 \x22$DEMInputFile1\x22 -if2 \x22$DEMInputFile2\x22 -cfg 0" r]
         }
     if {$DEMNfile == "2LR"} {
-        TextEditorRunTrace "Process The Function Soft/data_import/extract_dem_2.exe" "k"
+        TextEditorRunTrace "Process The Function Soft/bin/data_import/extract_dem_2.exe" "k"
         TextEditorRunTrace "Arguments: -la00 $GoogleLat00 -lo00 $GoogleLong00 -la0N $GoogleLat0N -lo0N $GoogleLong0N -laN0 $GoogleLatN0 -loN0 $GoogleLongN0 -laNN $GoogleLatNN -loNN $GoogleLongNN -od \x22$DEMoutputDir\x22 -if1 \x22$DEMInputFile1\x22 -if2 \x22$DEMInputFile2\x22 -cfg 1" "k"
-        set f [ open "| Soft/data_import/extract_dem_2.exe -la00 $GoogleLat00 -lo00 $GoogleLong00 -la0N $GoogleLat0N -lo0N $GoogleLong0N -laN0 $GoogleLatN0 -loN0 $GoogleLongN0 -laNN $GoogleLatNN -loNN $GoogleLongNN -od \x22$DEMoutputDir\x22 -if1 \x22$DEMInputFile1\x22 -if2 \x22$DEMInputFile2\x22 -cfg 1" r]
+        set f [ open "| Soft/bin/data_import/extract_dem_2.exe -la00 $GoogleLat00 -lo00 $GoogleLong00 -la0N $GoogleLat0N -lo0N $GoogleLong0N -laN0 $GoogleLatN0 -loN0 $GoogleLongN0 -laNN $GoogleLatNN -loNN $GoogleLongNN -od \x22$DEMoutputDir\x22 -if1 \x22$DEMInputFile1\x22 -if2 \x22$DEMInputFile2\x22 -cfg 1" r]
         }
     if {$DEMNfile == 4} {
-        TextEditorRunTrace "Process The Function Soft/data_import/extract_dem_4.exe" "k"
+        TextEditorRunTrace "Process The Function Soft/bin/data_import/extract_dem_4.exe" "k"
         TextEditorRunTrace "Arguments: -la00 $GoogleLat00 -lo00 $GoogleLong00 -la0N $GoogleLat0N -lo0N $GoogleLong0N -laN0 $GoogleLatN0 -loN0 $GoogleLongN0 -laNN $GoogleLatNN -loNN $GoogleLongNN -od \x22$DEMoutputDir\x22 -if1 \x22$DEMInputFile1\x22 -if2 \x22$DEMInputFile2\x22 -if3 \x22$DEMInputFile3\x22 -if4 \x22$DEMInputFile4\x22" "k"
-        set f [ open "| Soft/data_import/extract_dem_4.exe -la00 $GoogleLat00 -lo00 $GoogleLong00 -la0N $GoogleLat0N -lo0N $GoogleLong0N -laN0 $GoogleLatN0 -loN0 $GoogleLongN0 -laNN $GoogleLatNN -loNN $GoogleLongNN -od \x22$DEMoutputDir\x22 -if1 \x22$DEMInputFile1\x22 -if2 \x22$DEMInputFile2\x22 -if3 \x22$DEMInputFile3\x22 -if4 \x22$DEMInputFile4\x22" r]
+        set f [ open "| Soft/bin/data_import/extract_dem_4.exe -la00 $GoogleLat00 -lo00 $GoogleLong00 -la0N $GoogleLat0N -lo0N $GoogleLong0N -laN0 $GoogleLatN0 -loN0 $GoogleLongN0 -laNN $GoogleLatNN -loNN $GoogleLongNN -od \x22$DEMoutputDir\x22 -if1 \x22$DEMInputFile1\x22 -if2 \x22$DEMInputFile2\x22 -if3 \x22$DEMInputFile3\x22 -if4 \x22$DEMInputFile4\x22" r]
         }
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
@@ -1226,14 +1226,14 @@ if {$config == "true"} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/bmp_process/create_bmp_file.exe" "k"
+        TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_bmp_file.exe" "k"
         TextEditorRunTrace "Arguments: -if \x22$BMPFileInput\x22 -of \x22$BMPFileOutput\x22 -ift float -oft real -clm jet -nc $DEMNcol -ofr 0 -ofc 0 -fnr $DEMNlig -fnc $DEMNcol -mm 3 -min 0 -max 0 $MaskCmd" "k"
-        set f [ open "| Soft/bmp_process/create_bmp_file.exe -if \x22$BMPFileInput\x22 -of \x22$BMPFileOutput\x22 -ift float -oft real -clm jet -nc $DEMNcol -ofr 0 -ofc 0 -fnr $DEMNlig -fnc $DEMNcol -mm 3 -min 0 -max 0 $MaskCmd" r]
+        set f [ open "| Soft/bin/bmp_process/create_bmp_file.exe -if \x22$BMPFileInput\x22 -of \x22$BMPFileOutput\x22 -ift float -oft real -clm jet -nc $DEMNcol -ofr 0 -ofc 0 -fnr $DEMNlig -fnc $DEMNcol -mm 3 -min 0 -max 0 $MaskCmd" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError
         WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-        if {$PSPViewGimpBMP == 1} { Gimp $BMPFileOutput }
+        if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $BMPFileOutput }
         }
 
     if [file exists "$DEMoutputDir/DEM.bin"] { Dem_Kml $DEMoutputDir }

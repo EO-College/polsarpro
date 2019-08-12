@@ -1044,9 +1044,9 @@ set NColorBMPGray ""; set NColorBMPColor ""
 DeleteFile $TMPColorMapBMPGray
 DeleteFile $TMPBmpColorBarGray
 
-TextEditorRunTrace "Process The Function Soft/bmp_process/extract_bmp_colormap.exe" "k"
+TextEditorRunTrace "Process The Function Soft/bin/bmp_process/extract_bmp_colormap.exe" "k"
 TextEditorRunTrace "Arguments: -if \x22$BMPFileInputGray\x22 -ofh \x22$TMPBmpTmpHeaderGray\x22 -ofd \x22$TMPBmpTmpDataGray\x22 -ofd24 \x22$TMPBmp24TmpDataGray\x22 -ofcm \x22$TMPBmpTmpColormapGray\x22 -ofcb \x22$TMPBmpColorBarGray\x22 -ocf \x22$TMPColorMapBMPGray\x22" "k"
-set f [ open "| Soft/bmp_process/extract_bmp_colormap.exe -if \x22$BMPFileInputGray\x22 -ofh \x22$TMPBmpTmpHeaderGray\x22 -ofd \x22$TMPBmpTmpDataGray\x22 -ofd24 \x22$TMPBmp24TmpDataGray\x22 -ofcm \x22$TMPBmpTmpColormapGray\x22 -ofcb \x22$TMPBmpColorBarGray\x22 -ocf \x22$TMPColorMapBMPGray\x22" r]
+set f [ open "| Soft/bin/bmp_process/extract_bmp_colormap.exe -if \x22$BMPFileInputGray\x22 -ofh \x22$TMPBmpTmpHeaderGray\x22 -ofd \x22$TMPBmpTmpDataGray\x22 -ofd24 \x22$TMPBmp24TmpDataGray\x22 -ofcm \x22$TMPBmpTmpColormapGray\x22 -ofcb \x22$TMPBmpColorBarGray\x22 -ocf \x22$TMPColorMapBMPGray\x22" r]
 PsPprogressBar $f
 TextEditorRunTrace "Check RunTime Errors" "r"
 CheckRunTimeError
@@ -1072,9 +1072,9 @@ if [file exists $TMPBmpTmpHeaderGray] {
 DeleteFile $TMPColorMapBMPColor
 DeleteFile $TMPBmpColorBarColor
 
-TextEditorRunTrace "Process The Function Soft/bmp_process/extract_bmp_colormap.exe" "k"
+TextEditorRunTrace "Process The Function Soft/bin/bmp_process/extract_bmp_colormap.exe" "k"
 TextEditorRunTrace "Arguments: -if \x22$BMPFileInputColor\x22 -ofh \x22$TMPBmpTmpHeaderColor\x22 -ofd \x22$TMPBmpTmpDataColor\x22 -ofd24 \x22$TMPBmp24TmpDataColor\x22 -ofcm \x22$TMPBmpTmpColormapColor\x22 -ofcb \x22$TMPBmpColorBarColor\x22 -ocf \x22$TMPColorMapBMPColor\x22" "k"
-set f [ open "| Soft/bmp_process/extract_bmp_colormap.exe -if \x22$BMPFileInputColor\x22 -ofh \x22$TMPBmpTmpHeaderColor\x22 -ofd \x22$TMPBmpTmpDataColor\x22 -ofd24 \x22$TMPBmp24TmpDataColor\x22 -ofcm \x22$TMPBmpTmpColormapColor\x22 -ofcb \x22$TMPBmpColorBarColor\x22 -ocf \x22$TMPColorMapBMPColor\x22" r]
+set f [ open "| Soft/bin/bmp_process/extract_bmp_colormap.exe -if \x22$BMPFileInputColor\x22 -ofh \x22$TMPBmpTmpHeaderColor\x22 -ofd \x22$TMPBmpTmpDataColor\x22 -ofd24 \x22$TMPBmp24TmpDataColor\x22 -ofcm \x22$TMPBmpTmpColormapColor\x22 -ofcb \x22$TMPBmpColorBarColor\x22 -ocf \x22$TMPColorMapBMPColor\x22" r]
 PsPprogressBar $f
 TextEditorRunTrace "Check RunTime Errors" "r"
 CheckRunTimeError
@@ -1233,18 +1233,19 @@ global NligEnd NcolEnd NLigBMPGray NLigBMPColor NLigBMPMask NColBMPGray NColBMPC
 global TMPBmpTmpHeaderGray TMPBmpTmpDataGray TMPBmp24TmpDataGray TMPBmpTmpColormapGray TMPBmpColorBarGray TMPColorMapBMPGray
 global TMPBmpTmpHeaderColor TMPBmpTmpDataColor TMPBmp24TmpDataColor TMPBmpTmpColormapColor TMPBmpColorBarColor TMPColorMapBMPColor
 global BMPFileInputGray BMPFileInputColor BMPFileInputMask BMPInvertMask TMPBmpTmpColormapGrayColor
-global VarError ErrorMessage OpenDirFile
+global VarError ErrorMessage OpenDirFile PSPViewGimpBMP
 
 if {$OpenDirFile == 0} {
 
 DeleteFile $TMPBmpTmpColormapGrayColor
 
-TextEditorRunTrace "Process The Function Soft/bmp_process/create_gray_color_bmp_file.exe" "k"
+TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_gray_color_bmp_file.exe" "k"
 TextEditorRunTrace "Arguments: -of \x22$BMPFileOutput\x22 -msk \x22$BMPFileInputMask\x22 -imsk $BMPInvertMask -nl $NLigBMPMask -nc $NColBMPMask -ifhg \x22$TMPBmpTmpHeaderGray\x22 -ifhc \x22$TMPBmpTmpHeaderColor\x22 -ifdg \x22$TMPBmpTmpDataGray\x22 -ifdc \x22$TMPBmpTmpDataColor\x22 -ifcg \x22$TMPBmpTmpColormapGray\x22 -ifcc \x22$TMPBmpTmpColormapColor\x22 -ofcg \x22$TMPBmpTmpColormapGrayColor\x22" "k"
-set f [ open "| Soft/bmp_process/create_gray_color_bmp_file.exe -of \x22$BMPFileOutput\x22 -msk \x22$BMPFileInputMask\x22 -imsk $BMPInvertMask -nl $NLigBMPMask -nc $NColBMPMask -ifhg \x22$TMPBmpTmpHeaderGray\x22 -ifhc \x22$TMPBmpTmpHeaderColor\x22 -ifdg \x22$TMPBmpTmpDataGray\x22 -ifdc \x22$TMPBmpTmpDataColor\x22 -ifcg \x22$TMPBmpTmpColormapGray\x22 -ifcc \x22$TMPBmpTmpColormapColor\x22 -ofcg \x22$TMPBmpTmpColormapGrayColor\x22" r]
+set f [ open "| Soft/bin/bmp_process/create_gray_color_bmp_file.exe -of \x22$BMPFileOutput\x22 -msk \x22$BMPFileInputMask\x22 -imsk $BMPInvertMask -nl $NLigBMPMask -nc $NColBMPMask -ifhg \x22$TMPBmpTmpHeaderGray\x22 -ifhc \x22$TMPBmpTmpHeaderColor\x22 -ifdg \x22$TMPBmpTmpDataGray\x22 -ifdc \x22$TMPBmpTmpDataColor\x22 -ifcg \x22$TMPBmpTmpColormapGray\x22 -ifcc \x22$TMPBmpTmpColormapColor\x22 -ofcg \x22$TMPBmpTmpColormapGrayColor\x22" r]
 PsPprogressBar $f
 TextEditorRunTrace "Check RunTime Errors" "r"
 CheckRunTimeError
+if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $BMPFileOutput }
 
 }} \
         -padx 4 -pady 2 -text Run 

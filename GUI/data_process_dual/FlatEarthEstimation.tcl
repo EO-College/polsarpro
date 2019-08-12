@@ -1037,9 +1037,9 @@ if {"$VarWarning"=="ok"} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/data_process_dual/flat_earth_estimation.exe" "k"
+        TextEditorRunTrace "Process The Function Soft/bin/data_process_dual/flat_earth_estimation.exe" "k"
         TextEditorRunTrace "Arguments: -ifm \x22$FlatEarthMasterFile\x22 -ifs \x22$FlatEarthSlaveFile\x22 -od \x22$FlatEarthSlaveDirOutput\x22 -nr $FinalNlig -nc $FinalNcol -nwr $FlatEarthNwinRow -nwc $FlatEarthNwinCol -fmt $FlatEarthFormat" "k"
-        set f [ open "| Soft/data_process_dual/flat_earth_estimation.exe -ifm \x22$FlatEarthMasterFile\x22 -ifs \x22$FlatEarthSlaveFile\x22 -od \x22$FlatEarthSlaveDirOutput\x22 -nr $FinalNlig -nc $FinalNcol -nwr $FlatEarthNwinRow -nwc $FlatEarthNwinCol -fmt $FlatEarthFormat" r]
+        set f [ open "| Soft/bin/data_process_dual/flat_earth_estimation.exe -ifm \x22$FlatEarthMasterFile\x22 -ifs \x22$FlatEarthSlaveFile\x22 -od \x22$FlatEarthSlaveDirOutput\x22 -nr $FinalNlig -nc $FinalNcol -nwr $FlatEarthNwinRow -nwc $FlatEarthNwinCol -fmt $FlatEarthFormat" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError

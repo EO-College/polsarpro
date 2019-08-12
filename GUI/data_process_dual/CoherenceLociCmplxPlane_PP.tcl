@@ -808,7 +808,7 @@ global LociCmplxPlaneLoci LociCmplxPlaneTriplet
 global LociCmplxPlaneTitle LociCmplxPlaneLabel
 global LociCmplxPlaneExtractVar CohPlot CONFIGDir
 global TMPLociCmplxPlaneTxt TMPLociCmplxPlaneLineTxt TMPLociCmplxPlaneLociTxt TMPLociCmplxPlaneTripletTxt
-global ImageMagickMaker TMPGnuPlotTk1 TMPGnuPlot1Tk
+global TMPGnuPlotTk1 TMPGnuPlot1Tk
 
 set LociCmplxPlaneExtractVar "false"
 if {$LociCmplxPlaneExecFid != ""} { LociCmplxPlaneExtractPP }
@@ -823,7 +823,7 @@ if {$LociCmplxPlaneExtractVar == "true"} {
         GnuPlotInit 0 0 1 1
         set GnuplotPipeLociCmplxPlane $GnuplotPipeFid
         }
-    LociCmplxPlaneExtractPPPlotThumb
+    #LociCmplxPlaneExtractPPPlotThumb
     set GnuOutputFile $TMPGnuPlotTk1
     set GnuOutputFormat "gif"
     GnuPlotTerm $GnuplotPipeLociCmplxPlane $GnuOutputFormat
@@ -869,7 +869,8 @@ if {$LociCmplxPlaneExtractVar == "true"} {
     .top332PP.fra92.cpd76.but69 configure -state normal
 
     WaitUntilCreated $TMPGnuPlotTk1
-    ViewGnuPlotTK 1 .top332PP "Complex Plane"
+    Gimp $TMPGnuPlotTk1
+    #ViewGnuPlotTKThumb 1 .top332PP "Complex Plane"
     }
     
 }
@@ -1140,7 +1141,7 @@ global LociCmplxPlaneLoci LociCmplxPlaneTriplet
 global LociCmplxPlaneTitle LociCmplxPlaneLabel
 global LociCmplxPlaneExtractVar CohPlot CONFIGDir
 global TMPLociCmplxPlaneTxt TMPLociCmplxPlaneLineTxt TMPLociCmplxPlaneLociTxt TMPLociCmplxPlaneTripletTxt
-global ImageMagickMaker TMPGnuPlotTk1 TMPGnuPlot1Tk
+global TMPGnuPlotTk1 TMPGnuPlot1Tk
 
     set xwindow [winfo x .top332PP]; set ywindow [winfo y .top332PP]
 
@@ -1541,7 +1542,7 @@ if {$LociCmplxPlaneLoci == 1 } {
     $widget(Entry332PP_1) configure -state disable
     $widget(Radiobutton332PP_1) configure -state disable
     $widget(Radiobutton332PP_2) configure -state disable
-    set LociCmplxPlaneLength ""; set CohPlot ""
+    set LociCmplxPlaneLength ""; set CohPlot " "
     }} \
         -text {Estimated Standard Coherence Region} \
         -variable LociCmplxPlaneLoci 
@@ -1840,7 +1841,6 @@ if {$GnuplotPipeLociCmplxPlane != ""} {
 set GnuplotPipeFid ""
 Window hide .top401
 ClosePSPViewer
-Window hide $widget(Toplevel64); TextEditorRunTrace "Close Window PolSARpro Viewer" "b"
 Window hide $widget(Toplevel332PP); TextEditorRunTrace "Close Window Coherences - Complex Plane" "b"
 set ProgressLine "0"; update
 }} \

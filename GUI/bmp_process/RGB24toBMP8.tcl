@@ -636,9 +636,9 @@ if {$FileName != ""} {
     DeleteFile $TMPColorMapBMPColor
     DeleteFile $TMPBmpColorBarColor
 
-    TextEditorRunTrace "Process The Function Soft/bmp_process/extract_bmp_colormap.exe" "k"
+    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/extract_bmp_colormap.exe" "k"
     TextEditorRunTrace "Arguments: -if \x22$BMPFileInputColor\x22 -ofh \x22$TMPBmpTmpHeaderColor\x22 -ofd \x22$TMPBmpTmpDataColor\x22 -ofd24 \x22$TMPBmp24TmpDataColor\x22 -ofcm \x22$TMPBmpTmpColormapColor\x22 -ofcb \x22$TMPBmpColorBarColor\x22 -ocf \x22$TMPColorMapBMPColor\x22" "k"
-    set f [ open "| Soft/bmp_process/extract_bmp_colormap.exe -if \x22$BMPFileInputColor\x22 -ofh \x22$TMPBmpTmpHeaderColor\x22 -ofd \x22$TMPBmpTmpDataColor\x22 -ofd24 \x22$TMPBmp24TmpDataColor\x22 -ofcm \x22$TMPBmpTmpColormapColor\x22 -ofcb \x22$TMPBmpColorBarColor\x22 -ocf \x22$TMPColorMapBMPColor\x22" r]
+    set f [ open "| Soft/bin/bmp_process/extract_bmp_colormap.exe -if \x22$BMPFileInputColor\x22 -ofh \x22$TMPBmpTmpHeaderColor\x22 -ofd \x22$TMPBmpTmpDataColor\x22 -ofd24 \x22$TMPBmp24TmpDataColor\x22 -ofcm \x22$TMPBmpTmpColormapColor\x22 -ofcb \x22$TMPBmpColorBarColor\x22 -ocf \x22$TMPColorMapBMPColor\x22" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError
@@ -813,9 +813,9 @@ set Fonction2 "$BMPFileOutputColorBIN"
 set ProgressLine "0"
 WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
 update
-TextEditorRunTrace "Process The Function Soft/bmp_process/rgb24_to_bmp8.exe" "k"
+TextEditorRunTrace "Process The Function Soft/bin/bmp_process/rgb24_to_bmp8.exe" "k"
 TextEditorRunTrace "Arguments: -if \x22$BMPFileInputColor\x22 -ofb \x22$BMPFileOutputColorBIN\x22 -ofc \x22$BMPFileOutputColorPAL\x22" "k"
-set f [ open "| Soft/bmp_process/rgb24_to_bmp8.exe -if \x22$BMPFileInputColor\x22 -ofb \x22$BMPFileOutputColorBIN\x22 -ofc \x22$BMPFileOutputColorPAL\x22" r]
+set f [ open "| Soft/bin/bmp_process/rgb24_to_bmp8.exe -if \x22$BMPFileInputColor\x22 -ofb \x22$BMPFileOutputColorBIN\x22 -ofc \x22$BMPFileOutputColorPAL\x22" r]
 PsPprogressBar $f
 TextEditorRunTrace "Check RunTime Errors" "r"
 CheckRunTimeError
@@ -832,14 +832,14 @@ if [file exists $BMPFileOutputColorBIN] {
     set MaskCmdMask $MaskCmd
     if {$MaskCmd != ""} { append MaskCmdMask " -mcol black" }
     set InputFormat "float"; set OutputFormat "real"
-    TextEditorRunTrace "Process The Function Soft/bmp_process/create_bmp_file.exe" "k"
+    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_bmp_file.exe" "k"
     TextEditorRunTrace "Arguments: -if \x22$BMPFileOutputColorBIN\x22 -of \x22$BMPFileOutputColorBMP\x22 -ift $InputFormat -oft $OutputFormat -clm \x22$BMPFileOutputColorPAL\x22 -nc $NColBMPColor -ofr 0 -ofc 0 -fnr $NLigBMPColor -fnc $NColBMPColor -mm 0 -min 0 -max 255 $MaskCmdMask" "k"
-    set f [ open "| Soft/bmp_process/create_bmp_file.exe -if \x22$BMPFileOutputColorBIN\x22 -of \x22$BMPFileOutputColorBMP\x22 -ift $InputFormat -oft $OutputFormat -clm \x22$BMPFileOutputColorPAL\x22 -nc $NColBMPColor -ofr 0 -ofc 0 -fnr $NLigBMPColor -fnc $NColBMPColor -mm 0 -min 0 -max 255 $MaskCmdMask" r]
+    set f [ open "| Soft/bin/bmp_process/create_bmp_file.exe -if \x22$BMPFileOutputColorBIN\x22 -of \x22$BMPFileOutputColorBMP\x22 -ift $InputFormat -oft $OutputFormat -clm \x22$BMPFileOutputColorPAL\x22 -nc $NColBMPColor -ofr 0 -ofc 0 -fnr $NLigBMPColor -fnc $NColBMPColor -mm 0 -min 0 -max 255 $MaskCmdMask" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError
     WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-    if {$PSPViewGimpBMP == 1} { Gimp $BMPFileOutputColorBMP }
+    if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $BMPFileOutputColorBMP }
     }
 }} \
         -padx 4 -pady 2 -text Run 

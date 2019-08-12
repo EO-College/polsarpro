@@ -1,0 +1,37 @@
+
+CC = gcc
+CPP = g++
+CCFLAGS = -w -Wall
+LDFLAGS = -lm -fopenmp -pthread
+SOURCES = $(wildcard *.c)
+LIB_SOURCE = ../lib/PolSARproLib.c
+LIBO = ../lib/PolSARproLib.o
+OBJECTS := $(SOURCES:.c=.o)
+EXECUTABLE = $(SOURCES:.c=.exe)
+
+mkfile_path := $(abspath $(lastword $(MAKEFILE_LIST)))
+current_dir := $(notdir $(patsubst %/,%,$(lastword $(dir $(mkfile_path)))))
+
+# Debug build flags
+ifeq ($(dbg),1)
+      CCFLAGS += -g -G
+      TARGET := debug
+else
+      TARGET := data_process_dual
+endif
+
+all:$(LIBO) $(EXECUTABLE)
+
+.SECONDARY: $(OBJECTS)
+
+%.exe : %.o
+	mkdir -p "../../bin/$(TARGET)"
+	$(CPP) $(CCFLAGS) $< $(LIBO) $(LDFLAGS) -o ../../bin/$(TARGET)/$@
+
+%.o : %.c
+	$(CC) -c $< $(CCFLAGS) $(LDFLAGS) -o $@
+
+$(LIBO): $(LIB_SOURCE)
+	$(CC) -c $< $(CCFLAGS) $(LDFLAGS) -o $@
+
+

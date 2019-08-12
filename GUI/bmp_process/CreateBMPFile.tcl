@@ -670,7 +670,7 @@ proc vTcl:project:info {} {
     }
     set site_6_0 $site_5_0.cpd70
     namespace eval ::widgets::$site_6_0.ent71 {
-        array set save {-background 1 -foreground 1 -justify 1 -textvariable 1 -width 1}
+        array set save {-background 1 -foreground 1 -justify 1 -state 1 -textvariable 1 -width 1}
     }
     namespace eval ::widgets::$site_6_0.cpd73 {
         array set save {-background 1 -disabledforeground 1 -foreground 1 -justify 1 -state 1 -textvariable 1 -width 1}
@@ -690,7 +690,7 @@ proc vTcl:project:info {} {
     }
     set site_6_0 $site_5_0.cpd75
     namespace eval ::widgets::$site_6_0.ent71 {
-        array set save {-background 1 -foreground 1 -justify 1 -textvariable 1 -width 1}
+        array set save {-background 1 -foreground 1 -justify 1 -state 1 -textvariable 1 -width 1}
     }
     namespace eval ::widgets::$site_6_0.cpd73 {
         array set save {-background 1 -disabledforeground 1 -foreground 1 -justify 1 -state 1 -textvariable 1 -width 1}
@@ -729,23 +729,6 @@ proc vTcl:project:info {} {
     }
     namespace eval ::widgets::$site_5_0.cpd75 {
         array set save {-background 1 -borderwidth 1 -padx 1 -pady 1 -relief 1 -value 1 -variable 1}
-    }
-    namespace eval ::widgets::$base.cpd90 {
-        array set save {-ipad 1 -text 1}
-    }
-    set site_4_0 [$base.cpd90 getframe]
-    namespace eval ::widgets::$site_4_0 {
-        array set save {}
-    }
-    set site_4_0 $site_4_0
-    namespace eval ::widgets::$site_4_0.cpd82 {
-        array set save {-command 1 -padx 1 -text 1 -value 1 -variable 1}
-    }
-    namespace eval ::widgets::$site_4_0.cpd83 {
-        array set save {-command 1 -padx 1 -text 1 -value 1 -variable 1}
-    }
-    namespace eval ::widgets::$site_4_0.cpd84 {
-        array set save {-command 1 -padx 1 -text 1 -value 1 -variable 1}
     }
     namespace eval ::widgets::$base.cpd72 {
         array set save {-height 1 -width 1}
@@ -832,9 +815,9 @@ proc vTclWindow. {base} {
     # CREATING WIDGETS
     ###################
     wm focusmodel $top passive
-    wm geometry $top 200x200+22+22; update
-    wm maxsize $top 1284 785
-    wm minsize $top 104 1
+    wm geometry $top 200x200+250+250; update
+    wm maxsize $top 3364 1032
+    wm minsize $top 116 1
     wm overrideredirect $top 0
     wm resizable $top 1 1
     wm withdraw $top
@@ -864,7 +847,7 @@ proc vTclWindow.top43 {base} {
     vTcl:toplevel $top -class Toplevel
     wm withdraw $top
     wm focusmodel $top passive
-    wm geometry $top 500x590+10+110; update
+    wm geometry $top 500x560+10+110; update
     wm maxsize $top 1604 1184
     wm minsize $top 116 1
     wm overrideredirect $top 0
@@ -898,8 +881,8 @@ proc vTclWindow.top43 {base} {
     button $site_6_0.cpd79 \
         \
         -command {global FileName BMPDirInput BMPDirOutput BMPFileInput BMPFileOutput BMPFileOutputTmp BMPOutputFormat
-global ValidMaskFile ValidMaskColor
-global VarError ErrorMessage MaskCmd 
+global ValidMaskFile ValidMaskColor ColorMapFile
+global VarError ErrorMessage MaskCmd CONFIGDir
 global NligInit NligEnd NligFullSize NcolInit NcolEnd NcolFullSize
 
 set BMPFileInput ""
@@ -911,8 +894,9 @@ set NcolInit ""
 set NcolEnd ""
 set NcolFullSize ""
 set NligFullSize ""
-set InputFormat ""
-set OutputFormat ""
+set InputFormat "float"
+set OutputFormat "real"
+set ColorMapFile "$CONFIGDir/ColorMapJET.pal"
 set ColorMap "jet"
 set MinMaxAutoBMP 1
 set MinMaxContrastBMP 0
@@ -928,6 +912,8 @@ $widget(Label43_4) configure -state disable
 $widget(Entry43_4) configure -state disable
 $widget(Entry43_4) configure -disabledbackground $PSPBackgroundColor
 $widget(Button43_1) configure -state disable
+$widget(Checkbutton43_1) configure -state normal
+$widget(Checkbutton43_2) configure -state normal
 set MinBMP "Auto"
 set MaxBMP "Auto"
 set MinCBMP ""
@@ -1799,9 +1785,9 @@ set Fonction2 "$BMPFileInput"
 set ProgressLine "0"
 WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
 update
-TextEditorRunTrace "Process The Function Soft/bmp_process/MinMaxBMP.exe" "k"
+TextEditorRunTrace "Process The Function Soft/bin/bmp_process/MinMaxBMP.exe" "k"
 TextEditorRunTrace "Arguments: -if \x22$BMPFileInput\x22 -ift $InputFormat -oft $OutputFormat -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -of \x22$TMPMinMaxBmp\x22 $MaskCmd" "k"
-set f [ open "| Soft/bmp_process/MinMaxBMP.exe -if \x22$BMPFileInput\x22 -ift $InputFormat -oft $OutputFormat -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -of \x22$TMPMinMaxBmp\x22 $MaskCmd" r]
+set f [ open "| Soft/bin/bmp_process/MinMaxBMP.exe -if \x22$BMPFileInput\x22 -ift $InputFormat -oft $OutputFormat -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -of \x22$TMPMinMaxBmp\x22 $MaskCmd" r]
 PsPprogressBar $f
 TextEditorRunTrace "Check RunTime Errors" "r"
 CheckRunTimeError
@@ -1848,7 +1834,7 @@ if [file exists $MinMaxBMPvalues] {
     vTcl:DefineAlias "$site_5_0.cpd70" "Frame6" vTcl:WidgetProc "Toplevel43" 1
     set site_6_0 $site_5_0.cpd70
     entry $site_6_0.ent71 \
-        -background white -foreground #ff0000 -justify center \
+        -background white -foreground #ff0000 -justify center -state disabled \
         -textvariable MinBMP -width 12 
     vTcl:DefineAlias "$site_6_0.ent71" "Entry43_1" vTcl:WidgetProc "Toplevel43" 1
     entry $site_6_0.cpd73 \
@@ -1878,7 +1864,7 @@ if [file exists $MinMaxBMPvalues] {
     vTcl:DefineAlias "$site_5_0.cpd75" "Frame8" vTcl:WidgetProc "Toplevel43" 1
     set site_6_0 $site_5_0.cpd75
     entry $site_6_0.ent71 \
-        -background white -foreground #ff0000 -justify center \
+        -background white -foreground #ff0000 -justify center -state disabled \
         -textvariable MaxBMP -width 12 
     vTcl:DefineAlias "$site_6_0.ent71" "Entry43_2" vTcl:WidgetProc "Toplevel43" 1
     entry $site_6_0.cpd73 \
@@ -1980,61 +1966,6 @@ if {$FileName != ""} {
         -in $site_4_0 -anchor center -expand 1 -fill x -side left 
     pack $site_4_0.cpd76 \
         -in $site_4_0 -anchor center -expand 0 -fill none -padx 3 -side right 
-    TitleFrame $top.cpd90 \
-        -ipad 0 -text {Output Format} 
-    vTcl:DefineAlias "$top.cpd90" "TitleFrame10" vTcl:WidgetProc "Toplevel43" 1
-    bind $top.cpd90 <Destroy> {
-        Widget::destroy %W; rename %W {}
-    }
-    set site_4_0 [$top.cpd90 getframe]
-    radiobutton $site_4_0.cpd82 \
-        \
-        -command {global BMPFileOutput ColorMapFile ColorMap CONFIGDir
-
-set FileTmp $BMPFileOutput
-set BMPFileOutput [file rootname $FileTmp]
-append BMPFileOutput ".bmp"
-
-$widget(Entry43_5) configure -state disable
-$widget(Entry43_5) configure -disabledbackground #FFFFFF
-$widget(Button43_5) configure -state normal
-set ColorMapFile "$CONFIGDir/ColorMapJET.pal"
-set ColorMap "jet"} \
-        -padx 1 -text {8-bits BMP} -value bmp8 -variable BMPOutputFormat 
-    radiobutton $site_4_0.cpd83 \
-        \
-        -command {global BMPFileOutput ColorMapFile ColorMap
-
-set FileTmp $BMPFileOutput
-set BMPFileOutput [file rootname $FileTmp]
-append BMPFileOutput ".bmp"
-
-$widget(Entry43_5) configure -state disable
-$widget(Entry43_5) configure -disabledbackground $PSPBackgroundColor
-$widget(Button43_5) configure -state disable
-set ColorMapFile ""
-set ColorMap "jet"} \
-        -padx 1 -text {24-bits BMP} -value bmp24 -variable BMPOutputFormat 
-    radiobutton $site_4_0.cpd84 \
-        \
-        -command {global BMPFileOutput ColorMapFile ColorMap
-
-set FileTmp $BMPFileOutput
-set BMPFileOutput [file rootname $FileTmp]
-append BMPFileOutput ".tif"
-
-$widget(Entry43_5) configure -state disable
-$widget(Entry43_5) configure -disabledbackground $PSPBackgroundColor
-$widget(Button43_5) configure -state disable
-set ColorMapFile ""
-set ColorMap "jet"} \
-        -padx 1 -text {24-bits TIFF} -value tiff24 -variable BMPOutputFormat 
-    pack $site_4_0.cpd82 \
-        -in $site_4_0 -anchor center -expand 1 -fill none -side left 
-    pack $site_4_0.cpd83 \
-        -in $site_4_0 -anchor center -expand 1 -fill none -side left 
-    pack $site_4_0.cpd84 \
-        -in $site_4_0 -anchor center -expand 1 -fill none -side left 
     frame $top.cpd72 \
         -height 75 -width 125 
     vTcl:DefineAlias "$top.cpd72" "Frame5" vTcl:WidgetProc "Toplevel43" 1
@@ -2054,7 +1985,7 @@ set ColorMap "jet"} \
     pack $site_5_0.cpd85 \
         -in $site_5_0 -anchor center -expand 1 -fill x -side left 
     pack $site_3_0.cpd99 \
-        -in $site_3_0 -anchor center -expand 1 -fill x -side top 
+        -in $site_3_0 -anchor center -expand 1 -fill x -pady 10 -side top 
     frame $top.fra38 \
         -relief groove -height 35 -width 125 
     vTcl:DefineAlias "$top.fra38" "Frame20" vTcl:WidgetProc "Toplevel43" 1
@@ -2122,25 +2053,25 @@ if {"$NligInit"!="0"} {
                 if {$BMPOutputFormat == "bmp8"} {
                     set MaskCmdMask $MaskCmd
                     if {$MaskCmd != ""} { append MaskCmdMask " -mcol $ValidMaskColor" }
-                    TextEditorRunTrace "Process The Function Soft/bmp_process/create_bmp_file.exe" "k"
+                    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_bmp_file.exe" "k"
                     TextEditorRunTrace "Arguments: -if \x22$BMPFileInput\x22 -of \x22$BMPFileOutput\x22 -ift $InputFormat -oft $OutputFormat -clm \x22$ColorMap\x22 -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mm $MinMaxBMP -min $MinBMP -max $MaxBMP $MaskCmdMask" "k"
-                    set f [ open "| Soft/bmp_process/create_bmp_file.exe -if \x22$BMPFileInput\x22 -of \x22$BMPFileOutput\x22 -ift $InputFormat -oft $OutputFormat -clm \x22$ColorMap\x22 -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mm $MinMaxBMP -min $MinBMP -max $MaxBMP $MaskCmdMask" r]
+                    set f [ open "| Soft/bin/bmp_process/create_bmp_file.exe -if \x22$BMPFileInput\x22 -of \x22$BMPFileOutput\x22 -ift $InputFormat -oft $OutputFormat -clm \x22$ColorMap\x22 -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mm $MinMaxBMP -min $MinBMP -max $MaxBMP $MaskCmdMask" r]
                     }
                 if {$BMPOutputFormat == "bmp24"} {
-                    TextEditorRunTrace "Process The Function Soft/bmp_process/create_bmp24_file.exe" "k"
+                    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_bmp24_file.exe" "k"
                     TextEditorRunTrace "Arguments: -if \x22$BMPFileInput\x22 -of \x22$BMPFileOutput\x22 -ift $InputFormat -oft $OutputFormat -clm \x22$ColorMap\x22 -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mm $MinMaxBMP -min $MinBMP -max $MaxBMP $MaskCmd" "k"
-                    set f [ open "| Soft/bmp_process/create_bmp24_file.exe -if \x22$BMPFileInput\x22 -of \x22$BMPFileOutput\x22 -ift $InputFormat -oft $OutputFormat -clm \x22$ColorMap\x22 -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mm $MinMaxBMP -min $MinBMP -max $MaxBMP $MaskCmd" r]
+                    set f [ open "| Soft/bin/bmp_process/create_bmp24_file.exe -if \x22$BMPFileInput\x22 -of \x22$BMPFileOutput\x22 -ift $InputFormat -oft $OutputFormat -clm \x22$ColorMap\x22 -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mm $MinMaxBMP -min $MinBMP -max $MaxBMP $MaskCmd" r]
                     }
                 if {$BMPOutputFormat == "tiff24"} {
-                    TextEditorRunTrace "Process The Function Soft/bmp_process/create_tiff24_file.exe" "k"
+                    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_tiff24_file.exe" "k"
                     TextEditorRunTrace "Arguments: -if \x22$BMPFileInput\x22 -of \x22$BMPFileOutput\x22 -ift $InputFormat -oft $OutputFormat -clm \x22$ColorMap\x22 -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mm $MinMaxBMP -min $MinBMP -max $MaxBMP $MaskCmd" "k"
-                    set f [ open "| Soft/bmp_process/create_tiff24_file.exe -if \x22$BMPFileInput\x22 -of \x22$BMPFileOutput\x22 -ift $InputFormat -oft $OutputFormat -clm \x22$ColorMap\x22 -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mm $MinMaxBMP -min $MinBMP -max $MaxBMP $MaskCmd" r]
+                    set f [ open "| Soft/bin/bmp_process/create_tiff24_file.exe -if \x22$BMPFileInput\x22 -of \x22$BMPFileOutput\x22 -ift $InputFormat -oft $OutputFormat -clm \x22$ColorMap\x22 -nc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mm $MinMaxBMP -min $MinBMP -max $MaxBMP $MaskCmd" r]
                     }
                 PsPprogressBar $f
                 TextEditorRunTrace "Check RunTime Errors" "r"
                 CheckRunTimeError
                 WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-                if {$PSPViewGimpBMP == 1} { Gimp $BMPFileOutput }
+                if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $BMPFileOutput }
                 }
             } else {
             if {"$VarWarning"=="no"} {Window hide $widget(Toplevel43); TextEditorRunTrace "Close Window Create BMP File" "b"}
@@ -2160,8 +2091,7 @@ if {"$NligInit"!="0"} {
         set ::vTcl::balloon::%W {Run the Function}
     }
     button $site_3_0.but23 \
-        -background #ff8000 \
-        -command {HelpPdfEdit "Help/CreateBMPFile.pdf"} \
+        -background #ff8000 -command {HelpPdfEdit "Help/CreateBMPFile.pdf"} \
         -image [vTcl:image:get_image [file join . GUI Images help.gif]] \
         -pady 0 -width 20 
     vTcl:DefineAlias "$site_3_0.but23" "Button15" vTcl:WidgetProc "Toplevel43" 1
@@ -2210,8 +2140,6 @@ if {$DisplayMainMenu == 1} { set DisplayMainMenu 0 }
         -in $top -anchor center -expand 0 -fill x -side top 
     pack $top.cpd67 \
         -in $top -anchor center -expand 0 -fill x -side top 
-    pack $top.cpd90 \
-        -in $top -anchor center -expand 0 -fill x -pady 3 -side top 
     pack $top.cpd72 \
         -in $top -anchor center -expand 0 -fill x -side top 
     pack $top.fra38 \

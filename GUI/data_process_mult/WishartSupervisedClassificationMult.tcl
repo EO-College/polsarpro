@@ -660,9 +660,6 @@ proc vTcl:project:info {} {
     namespace eval ::widgets::$site_6_0.but67 {
         array set save {-_tooltip 1 -background 1 -command 1 -padx 1 -pady 1 -text 1}
     }
-    namespace eval ::widgets::$site_6_0.but68 {
-        array set save {-_tooltip 1 -background 1 -command 1 -padx 1 -pady 1 -text 1}
-    }
     namespace eval ::widgets::$site_5_0.but68 {
         array set save {-_tooltip 1 -background 1 -command 1 -padx 1 -pady 1 -text 1}
     }
@@ -753,9 +750,9 @@ proc vTclWindow. {base} {
     # CREATING WIDGETS
     ###################
     wm focusmodel $top passive
-    wm geometry $top 200x200+66+66; update
-    wm maxsize $top 1284 785
-    wm minsize $top 104 1
+    wm geometry $top 200x200+260+260; update
+    wm maxsize $top 1924 1061
+    wm minsize $top 120 1
     wm overrideredirect $top 0
     wm resizable $top 1 1
     wm withdraw $top
@@ -787,7 +784,7 @@ proc vTclWindow.top516 {base} {
     wm focusmodel $top passive
     wm geometry $top 500x470+10+110; update
     wm maxsize $top 1604 1184
-    wm minsize $top 113 1
+    wm minsize $top 120 1
     wm overrideredirect $top 0
     wm resizable $top 1 1
     wm title $top "Data Processing: Wishart Supervised Classification"
@@ -1475,12 +1472,10 @@ if [file exists $FileTrainingArea] {
     button $site_6_0.but67 \
         -background #ffff00 \
         -command {global VarTrainingArea NTrainingAreaClass AreaClassN NTrainingArea AreaN AreaPointLig AreaPointCol AreaPoint AreaPointN
-global BMPDirInput rect_color OpenDirFile GraphicEditorType
-global MouseInitX MouseInitY MouseEndX MouseEndY MouseNlig MouseNcol TrainingAreaToolLine
+global BMPDirInput OpenDirFile SupervisedDirInput FileTrainingArea
+global MapAlgebraBMPFile MapAlgebraConfigFileSupervised
 
 if {$OpenDirFile == 0} {
-
-ClosePSPViewer
 
 set WarningMessage "OPEN A BMP FILE TO SELECT"
 set WarningMessage2 "THE TRAINING AREAS"
@@ -1490,7 +1485,14 @@ tkwait variable VarWarning
 
 if {$VarWarning == "ok"} {
 
-LoadPSPViewer
+set types {
+{{BMP Files}        {.bmp}        }
+}
+set filename ""
+set filename [tk_getOpenFile -initialdir $SupervisedDirInput -filetypes $types -title "INPUT BMP FILE"]
+if {$filename != ""} {
+    set MapAlgebraBMPFile $filename
+    }
 
 set NTrainingAreaClassTmp $NTrainingAreaClass
 for {set i 1} {$i <= $NTrainingAreaClass} {incr i} {
@@ -1506,28 +1508,26 @@ for {set i 1} {$i <= $NTrainingAreaClass} {incr i} {
             }
         }
     }
-
-set BMPDirInput $SupervisedDirInput
-Window show $widget(Toplevel64); TextEditorRunTrace "Open Window PolSARpro Viewer" "b"
-
-set MouseInitX $AreaPointCol(10101)
-set MouseInitY $AreaPointLig(10101)
-set MouseEndX [expr $AreaPointCol(10101) + $MouseInitX -1]
-set MouseEndY [expr $AreaPointLig(10101) + $MouseInitY -1]
-set MouseNlig [expr abs($MouseEndY - $MouseInitY) +1]
-set MouseNcol [expr abs($MouseEndX - $MouseInitX) +1]
 set AreaClassN 1
 set AreaN 1
 set AreaPointN ""
 set TrainingAreaToolLine "false"
 
-set rect_color "white"
-set b .top47.fra41.but29
-$b configure -background $rect_color -foreground $rect_color
-
 set VarTrainingArea "no"
-set GraphicEditorType "wishart_"
-WidgetShowFromWidget $widget(Toplevel516) $widget(Toplevel47); TextEditorRunTrace "Open Window Training Areas Graphic Editor" "b"
+set MapAlgebraSession [ MapAlgebra_session ]
+set MapAlgebraConfigFileSupervised "$TMPDir/$MapAlgebraSession"; append MapAlgebraConfigFileSupervised "_mapalgebrapaths.txt"
+set FileTrainingArea "$SupervisedDirInput/$MapAlgebraSession"; append FileTrainingArea "_wishart_training_areas.txt"
+DeleteFile $FileTrainingArea
+$widget(Button516_3) configure -state disable
+MapAlgebra_init "TrainingArea" $MapAlgebraSession $FileTrainingArea
+MapAlgebra_launch $MapAlgebraConfigFileSupervised $MapAlgebraBMPFile
+WaitUntilCreated $FileTrainingArea
+if [file exists $FileTrainingArea] {
+    set VarTrainingArea "ok"
+    set MapAlgebraConfigFileSupervised [MapAlgebra_command $MapAlgebraConfigFileSupervised "quit" ""]
+    set MapAlgebraConfigFileSupervised ""
+    $widget(Button516_3) configure -state normal
+    }
 tkwait variable VarTrainingArea
 
 #Return after Graphic Editor Exit
@@ -1549,11 +1549,7 @@ if {"$VarTrainingArea"=="no"} {
     set AreaClassN 1
     set AreaN 1
     }
-
-MouseActiveFunction ""
-if {"$VarTrainingArea"=="ok"} { $widget(Button516_3) configure -state normal }
-
-}
+  }
 }} \
         -padx 4 -pady 2 -text {Graphic Editor} 
     vTcl:DefineAlias "$site_6_0.but67" "Button642" vTcl:WidgetProc "Toplevel516" 1
@@ -1561,32 +1557,7 @@ if {"$VarTrainingArea"=="ok"} { $widget(Button516_3) configure -state normal }
     bind $site_6_0.but67 <<SetBalloon>> {
         set ::vTcl::balloon::%W {Training Areas Graphic Editor}
     }
-    button $site_6_0.but68 \
-        -background #ffff00 \
-        -command {global FileTrainingArea OpenDirFile
-#UTIL
-global Load_TextEdit PSPTopLevel
-
-if {$OpenDirFile == 0} {
-
-if {$Load_TextEdit == 0} {
-    source "GUI/util/TextEdit.tcl"
-    set Load_TextEdit 1
-    WmTransient $widget(Toplevel95) $PSPTopLevel
-    }
-
-TextEditorFromWidget .top516 $FileTrainingArea
-
-}} \
-        -padx 4 -pady 2 -text {Text Editor} 
-    vTcl:DefineAlias "$site_6_0.but68" "Button643" vTcl:WidgetProc "Toplevel516" 1
-    bindtags $site_6_0.but68 "$site_6_0.but68 Button $top all _vTclBalloon"
-    bind $site_6_0.but68 <<SetBalloon>> {
-        set ::vTcl::balloon::%W {Training Areas Text Editor}
-    }
     pack $site_6_0.but67 \
-        -in $site_6_0 -anchor center -expand 1 -fill none -side left 
-    pack $site_6_0.but68 \
         -in $site_6_0 -anchor center -expand 1 -fill none -side left 
     button $site_5_0.but68 \
         -background #ffff00 \
@@ -1595,7 +1566,7 @@ global SupervisedDirInput SupervisedDirOutput SupervisedOutputDir SupervisedOutp
 global SupervisedClusterFonction SupervisedClassifierFonction NwinSupervisedL NwinSupervisedC BMPSupervised SupervisedTrainingProcess
 global ColorMapSupervised16 FileTrainingArea FileTrainingSet RejectClass RejectRatio ConfusionMatrix
 global Fonction Fonction2 ProgressLine VarWarning WarningMessage WarningMessage2 OpenDirFile CONFIGDir
-global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax PSPMemory TMPMemoryAllocError
+global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax TMPMemoryAllocError
 
 if {$OpenDirFile == 0} {
 
@@ -1655,9 +1626,9 @@ if {"$VarWarning"=="ok"} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/data_process_sngl/wishart_training_set_sampler.exe" "k"
-        TextEditorRunTrace "Arguments: -id \x22$SuperDirInput\x22 -od \x22$SuperDirOutput\x22 -iodf $SupervisedF -af \x22$FileTrainingArea\x22 -cf \x22$FileTrainingSet\x22 -bmp $BMPSupervised -col \x22$ColorMapSupervised16\x22 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-        set f [ open "| Soft/data_process_sngl/wishart_training_set_sampler.exe -id \x22$SuperDirInput\x22 -od \x22$SuperDirOutput\x22 -iodf $SupervisedF -af \x22$FileTrainingArea\x22 -cf \x22$FileTrainingSet\x22 -bmp $BMPSupervised -col \x22$ColorMapSupervised16\x22 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+        TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/wishart_training_set_sampler.exe" "k"
+        TextEditorRunTrace "Arguments: -id \x22$SuperDirInput\x22 -od \x22$SuperDirOutput\x22 -iodf $SupervisedF -af \x22$FileTrainingArea\x22 -cf \x22$FileTrainingSet\x22 -bmp $BMPSupervised -col \x22$ColorMapSupervised16\x22  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+        set f [ open "| Soft/bin/data_process_sngl/wishart_training_set_sampler.exe -id \x22$SuperDirInput\x22 -od \x22$SuperDirOutput\x22 -iodf $SupervisedF -af \x22$FileTrainingArea\x22 -cf \x22$FileTrainingSet\x22 -bmp $BMPSupervised -col \x22$ColorMapSupervised16\x22  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError
@@ -1793,7 +1764,7 @@ if {$FileName != ""} {
         -command {global DataDirMult NDataDirMult
 global SupervisedDirInput SupervisedDirOutput SupervisedOutputDir SupervisedOutputSubDir SupervisedTrainingProcess
 global SupervisedClusterFonction SupervisedClassifierFonction SupervisedClassifierConfusionMatrixFonction
-global NwinSupervisedL NwinSupervisedC BMPSupervised ColorMapSupervised16 FileTrainingArea FileTrainingSet PSPMemory TMPMemoryAllocError
+global NwinSupervisedL NwinSupervisedC BMPSupervised ColorMapSupervised16 FileTrainingArea FileTrainingSet TMPMemoryAllocError
 global RejectClass RejectRatio ConfusionMatrix Fonction Fonction2 ProgressLine VarWarning WarningMessage WarningMessage2
 global OpenDirFile
 
@@ -1870,9 +1841,9 @@ if {"$VarWarning"=="ok"} {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/data_process_sngl/wishart_supervised_classifier.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$SuperDirInput\x22 -od \x22$SuperDirOutput\x22 -iodf $SupervisedF -af \x22$FileTrainingArea\x22 -nwr $NwinSupervisedL -nwc $NwinSupervisedC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -rej $RejectRatio -std $RejectClass -bmp $BMPSupervised -col \x22$ColorMapSupervised16\x22 -cf \x22$FileTrainingSet\x22 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_sngl/wishart_supervised_classifier.exe -id \x22$SuperDirInput\x22 -od \x22$SuperDirOutput\x22 -iodf $SupervisedF -af \x22$FileTrainingArea\x22 -nwr $NwinSupervisedL -nwc $NwinSupervisedC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -rej $RejectRatio -std $RejectClass -bmp $BMPSupervised -col \x22$ColorMapSupervised16\x22 -cf \x22$FileTrainingSet\x22 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/wishart_supervised_classifier.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$SuperDirInput\x22 -od \x22$SuperDirOutput\x22 -iodf $SupervisedF -af \x22$FileTrainingArea\x22 -nwr $NwinSupervisedL -nwc $NwinSupervisedC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -rej $RejectRatio -std $RejectClass -bmp $BMPSupervised -col \x22$ColorMapSupervised16\x22 -cf \x22$FileTrainingSet\x22  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_sngl/wishart_supervised_classifier.exe -id \x22$SuperDirInput\x22 -od \x22$SuperDirOutput\x22 -iodf $SupervisedF -af \x22$FileTrainingArea\x22 -nwr $NwinSupervisedL -nwc $NwinSupervisedC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -rej $RejectRatio -std $RejectClass -bmp $BMPSupervised -col \x22$ColorMapSupervised16\x22 -cf \x22$FileTrainingSet\x22  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1896,9 +1867,9 @@ if {"$VarWarning"=="ok"} {
                 set MaskFile "$SuperDirInput/mask_valid_pixels.bin"
                 if [file exists $MaskFile] {set MaskCmd "-mask \x22$MaskFile\x22"}
                 WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
-                TextEditorRunTrace "Process The Function Soft/data_process_sngl/wishart_confusion_matrix.exe" "k"
-                TextEditorRunTrace "Arguments: -id \x22$SuperDirInput\x22 -od \x22$SuperDirOutput\x22 -af \x22$FileTrainingArea\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -nwr $NwinSupervisedL -nwc $NwinSupervisedC -bmp $BMPSupervised -rej 0 -col \x22$ColorMapSupervised16\x22 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                set f [ open "| Soft/data_process_sngl/wishart_confusion_matrix.exe -id \x22$SuperDirInput\x22 -od \x22$SuperDirOutput\x22 -af \x22$FileTrainingArea\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -nwr $NwinSupervisedL -nwc $NwinSupervisedC -bmp $BMPSupervised -rej 0 -col \x22$ColorMapSupervised16\x22 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/wishart_confusion_matrix.exe" "k"
+                TextEditorRunTrace "Arguments: -id \x22$SuperDirInput\x22 -od \x22$SuperDirOutput\x22 -af \x22$FileTrainingArea\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -nwr $NwinSupervisedL -nwc $NwinSupervisedC -bmp $BMPSupervised -rej 0 -col \x22$ColorMapSupervised16\x22  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                set f [ open "| Soft/bin/data_process_sngl/wishart_confusion_matrix.exe -id \x22$SuperDirInput\x22 -od \x22$SuperDirOutput\x22 -af \x22$FileTrainingArea\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -nwr $NwinSupervisedL -nwc $NwinSupervisedC -bmp $BMPSupervised -rej 0 -col \x22$ColorMapSupervised16\x22  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                 TextEditorRunTrace "Check RunTime Errors" "r"
                 CheckRunTimeError
                 WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
@@ -1908,9 +1879,9 @@ if {"$VarWarning"=="ok"} {
                     set MaskFile "$SuperDirInput/mask_valid_pixels.bin"
                     if [file exists $MaskFile] {set MaskCmd "-mask \x22$MaskFile\x22"}
                     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
-                    TextEditorRunTrace "Process The Function Soft/data_process_sngl/wishart_confusion_matrix.exe" "k"
-                    TextEditorRunTrace "Arguments: -id \x22$SuperDirInput\x22 -od \x22$SuperDirOutput\x22 -af \x22$FileTrainingArea\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -nwr $NwinSupervisedL -nwc $NwinSupervisedC -bmp $BMPSupervised -rej 1 -col \x22$ColorMapSupervised16\x22 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                    set f [ open "| Soft/data_process_sngl/wishart_confusion_matrix.exe -id \x22$SuperDirInput\x22 -od \x22$SuperDirOutput\x22 -af \x22$FileTrainingArea\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -nwr $NwinSupervisedL -nwc $NwinSupervisedC -bmp $BMPSupervised -rej 1 -col \x22$ColorMapSupervised16\x22 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                    TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/wishart_confusion_matrix.exe" "k"
+                    TextEditorRunTrace "Arguments: -id \x22$SuperDirInput\x22 -od \x22$SuperDirOutput\x22 -af \x22$FileTrainingArea\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -nwr $NwinSupervisedL -nwc $NwinSupervisedC -bmp $BMPSupervised -rej 1 -col \x22$ColorMapSupervised16\x22  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                    set f [ open "| Soft/bin/data_process_sngl/wishart_confusion_matrix.exe -id \x22$SuperDirInput\x22 -od \x22$SuperDirOutput\x22 -af \x22$FileTrainingArea\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -nwr $NwinSupervisedL -nwc $NwinSupervisedC -bmp $BMPSupervised -rej 1 -col \x22$ColorMapSupervised16\x22  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                     TextEditorRunTrace "Check RunTime Errors" "r"
                     CheckRunTimeError
                     WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
@@ -1937,9 +1908,9 @@ if {"$VarWarning"=="ok"} {
                         set SupervisedF $SupervisedFonction
                         if {$SupervisedFonction == "S2m"} { set SupervisedF "S2" }
                         if {$SupervisedFonction == "S2b"} { set SupervisedF "S2" }
-                        TextEditorRunTrace "Process The Function Soft/bmp_process/classification_colormap_pauli.exe" "k"
-                        TextEditorRunTrace "Arguments: -id \x22$SuperDirInput\x22 -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -iodf $SupervisedF -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                        set f [ open "| Soft/bmp_process/classification_colormap_pauli.exe -id \x22$SuperDirInput\x22 -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -iodf $SupervisedF -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                        TextEditorRunTrace "Process The Function Soft/bin/bmp_process/classification_colormap_pauli.exe" "k"
+                        TextEditorRunTrace "Arguments: -id \x22$SuperDirInput\x22 -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -iodf $SupervisedF -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                        set f [ open "| Soft/bin/bmp_process/classification_colormap_pauli.exe -id \x22$SuperDirInput\x22 -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -iodf $SupervisedF -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                         PsPprogressBar $f
                         TextEditorRunTrace "Check RunTime Errors" "r"
                         CheckRunTimeError
@@ -1959,9 +1930,9 @@ if {"$VarWarning"=="ok"} {
                         set SupervisedF $SupervisedFonction
                         if {$SupervisedFonction == "S2m"} { set SupervisedF "S2" }
                         if {$SupervisedFonction == "S2b"} { set SupervisedF "S2" }
-                        TextEditorRunTrace "Process The Function Soft/bmp_process/classification_colormap_sinclair.exe" "k"
-                        TextEditorRunTrace "Arguments: -id \x22$SuperDirInput\x22 -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -iodf $SupervisedF -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                        set f [ open "| Soft/bmp_process/classification_colormap_sinclair.exe -id \x22$SuperDirInput\x22 -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -iodf $SupervisedF -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                        TextEditorRunTrace "Process The Function Soft/bin/bmp_process/classification_colormap_sinclair.exe" "k"
+                        TextEditorRunTrace "Arguments: -id \x22$SuperDirInput\x22 -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -iodf $SupervisedF -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                        set f [ open "| Soft/bin/bmp_process/classification_colormap_sinclair.exe -id \x22$SuperDirInput\x22 -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -iodf $SupervisedF -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                         PsPprogressBar $f
                         TextEditorRunTrace "Check RunTime Errors" "r"
                         CheckRunTimeError
@@ -1991,9 +1962,9 @@ if {"$VarWarning"=="ok"} {
                         set SupervisedF $SupervisedFonction
                         if {$SupervisedFonction == "S2m"} { set SupervisedF "S2" }
                         if {$SupervisedFonction == "S2b"} { set SupervisedF "S2" }
-                        TextEditorRunTrace "Process The Function Soft/bmp_process/classification_colormap_pauli.exe" "k"
-                        TextEditorRunTrace "Arguments: -id \x22$SuperDirInput\x22 -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -iodf $SupervisedF -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                        set f [ open "| Soft/bmp_process/classification_colormap_pauli.exe -id \x22$SuperDirInput\x22 -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -iodf $SupervisedF -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                        TextEditorRunTrace "Process The Function Soft/bin/bmp_process/classification_colormap_pauli.exe" "k"
+                        TextEditorRunTrace "Arguments: -id \x22$SuperDirInput\x22 -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -iodf $SupervisedF -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                        set f [ open "| Soft/bin/bmp_process/classification_colormap_pauli.exe -id \x22$SuperDirInput\x22 -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -iodf $SupervisedF -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                         PsPprogressBar $f
                         TextEditorRunTrace "Check RunTime Errors" "r"
                         CheckRunTimeError
@@ -2013,9 +1984,9 @@ if {"$VarWarning"=="ok"} {
                         set SupervisedF $SupervisedFonction
                         if {$SupervisedFonction == "S2m"} { set SupervisedF "S2" }
                         if {$SupervisedFonction == "S2b"} { set SupervisedF "S2" }
-                        TextEditorRunTrace "Process The Function Soft/bmp_process/classification_colormap_sinclair.exe" "k"
-                        TextEditorRunTrace "Arguments: -id \x22$SuperDirInput\x22 -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -iodf $SupervisedF -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                        set f [ open "| Soft/bmp_process/classification_colormap_sinclair.exe -id \x22$SuperDirInput\x22 -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -iodf $SupervisedF -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                        TextEditorRunTrace "Process The Function Soft/bin/bmp_process/classification_colormap_sinclair.exe" "k"
+                        TextEditorRunTrace "Arguments: -id \x22$SuperDirInput\x22 -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -iodf $SupervisedF -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                        set f [ open "| Soft/bin/bmp_process/classification_colormap_sinclair.exe -id \x22$SuperDirInput\x22 -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -iodf $SupervisedF -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                         PsPprogressBar $f
                         TextEditorRunTrace "Check RunTime Errors" "r"
                         CheckRunTimeError
@@ -2062,10 +2033,8 @@ if {$OpenDirFile == 0} {
 
 if {$BMPImageOpen == 1} {
     ClosePSPViewer
-    Window hide $widget(Toplevel64); TextEditorRunTrace "Close Window PolSARpro Viewer" "b"
     }
 if {$BMPImageOpen == 0} {
-    Window hide $widget(Toplevel47); TextEditorRunTrace "Close Window Training Areas Graphic Editor" "b"
     Window hide $widget(Toplevel516); TextEditorRunTrace "Close Window Wishart Supervised Classification Mult" "b"
     }
 }} \

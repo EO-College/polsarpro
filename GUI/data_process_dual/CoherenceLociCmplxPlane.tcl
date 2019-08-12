@@ -808,7 +808,7 @@ global LociCmplxPlaneLoci LociCmplxPlaneTriplet
 global LociCmplxPlaneTitle LociCmplxPlaneLabel
 global LociCmplxPlaneExtractVar CohPlot CONFIGDir
 global TMPLociCmplxPlaneTxt TMPLociCmplxPlaneLineTxt TMPLociCmplxPlaneLociTxt TMPLociCmplxPlaneTripletTxt
-global ImageMagickMaker TMPGnuPlotTk1 TMPGnuPlot1Tk
+global TMPGnuPlotTk1 TMPGnuPlot1Tk
 
 set LociCmplxPlaneExtractVar "false"
 if {$LociCmplxPlaneExecFid != ""} { LociCmplxPlaneExtract }
@@ -823,7 +823,7 @@ if {$LociCmplxPlaneExtractVar == "true"} {
         GnuPlotInit 0 0 1 1
         set GnuplotPipeLociCmplxPlane $GnuplotPipeFid
         }
-    LociCmplxPlaneExtractPlotThumb        
+    #LociCmplxPlaneExtractPlotThumb        
     set GnuOutputFile $TMPGnuPlotTk1
     set GnuOutputFormat "gif"
     GnuPlotTerm $GnuplotPipeLociCmplxPlane $GnuOutputFormat
@@ -869,7 +869,8 @@ if {$LociCmplxPlaneExtractVar == "true"} {
     .top332.fra92.cpd76.but68 configure -state normal
 
     WaitUntilCreated $TMPGnuPlotTk1
-    ViewGnuPlotTK 1 .top332 "Complex Plane"
+    Gimp $TMPGnuPlotTk1
+    #ViewGnuPlotTKThumb 1 .top332 "Complex Plane"
     }
     
 }
@@ -1087,6 +1088,14 @@ if [file exists "$LociCmplxPlaneDirInput/cmplx_coh_avg_maxdiff_PhaLow.bin"] {
     incr NumList
     set LociCmplxPlaneList($NumList) "Pha Low (avg)"
     }
+if [file exists "$LociCmplxPlaneDirInput/cmplx_coh_HHVV.bin"] {
+    incr NumList
+    set LociCmplxPlaneList($NumList) "HHVV*"
+    }
+if [file exists "$LociCmplxPlaneDirInput/cmplx_coh_avg_HHVV.bin"] {
+    incr NumList
+    set LociCmplxPlaneList($NumList) "HHVV* (avg)"
+    }
 
 if {$NumList == 1} {              
     set VarError ""
@@ -1161,6 +1170,8 @@ if {$PhaseTopChannel == "Pha High" } { set GammaHighFile "$LociCmplxPlaneDirInpu
 if {$PhaseTopChannel == "Pha High (avg)" } { set GammaHighFile "$LociCmplxPlaneDirInput/cmplx_coh_avg_maxdiff_PhaHigh.bin" }
 if {$PhaseTopChannel == "Pha Low" } { set GammaHighFile "$LociCmplxPlaneDirInput/cmplx_coh_maxdiff_PhaLow.bin" }
 if {$PhaseTopChannel == "Pha Low (avg)" } { set GammaHighFile "$LociCmplxPlaneDirInput/cmplx_coh_avg_maxdiff_PhaLow.bin" }
+if {$PhaseTopChannel == "HHVV*" } { set GammaHighFile "$LociCmplxPlaneDirInput/cmplx_coh_HHVV.bin" }
+if {$PhaseTopChannel == "HHVV* (avg)" } { set GammaHighFile "$LociCmplxPlaneDirInput/cmplx_coh_avg_HHVV.bin" }
 
 set GammaLowFile ""
 if {$PhaseGroundChannel == "HH" } { set GammaLowFile "$LociCmplxPlaneDirInput/cmplx_coh_HH.bin" }
@@ -1187,32 +1198,34 @@ if {$PhaseGroundChannel == "OPT 2" } { set GammaLowFile "$LociCmplxPlaneDirInput
 if {$PhaseGroundChannel == "OPT 2 (avg)" } { set GammaLowFile "$LociCmplxPlaneDirInput/cmplx_coh_avg_Opt2.bin" }
 if {$PhaseGroundChannel == "OPT 3" } { set GammaLowFile "$LociCmplxPlaneDirInput/cmplx_coh_Opt3.bin" }
 if {$PhaseGroundChannel == "OPT 3 (avg)" } { set GammaLowFile "$LociCmplxPlaneDirInput/cmplx_coh_avg_Opt3.bin" }
-if {$PhaseTopChannel == "NR 1" } { set GammaLowFile "$LociCmplxPlaneDirInput/cmplx_coh_Opt_NR1.bin" }
-if {$PhaseTopChannel == "NR 1 (avg)" } { set GammaLowFile "$LociCmplxPlaneDirInput/cmplx_coh_avg_Opt_NR1.bin" }
-if {$PhaseTopChannel == "NR 2" } { set GammaLowFile "$LociCmplxPlaneDirInput/cmplx_coh_Opt_NR2.bin" }
-if {$PhaseTopChannel == "NR 2 (avg)" } { set GammaLowFile "$LociCmplxPlaneDirInput/cmplx_coh_avg_Opt_NR2.bin" }
-if {$PhaseTopChannel == "NR 3" } { set GammaLowFile "$LociCmplxPlaneDirInput/cmplx_coh_Opt_NR3.bin" }
-if {$PhaseTopChannel == "NR 3 (avg)" } { set GammaLowFile "$LociCmplxPlaneDirInput/cmplx_coh_avg_Opt_NR3.bin" }
-if {$PhaseTopChannel == "PD High" } { set GammaLowFile "$LociCmplxPlaneDirInput/cmplx_coh_PDHigh.bin" }
-if {$PhaseTopChannel == "PD High (avg)" } { set GammaLowFile "$LociCmplxPlaneDirInput/cmplx_coh_avg_PDHigh.bin" }
-if {$PhaseTopChannel == "PD Low" } { set GammaLowFile "$LociCmplxPlaneDirInput/cmplx_coh_PDLow.bin" }
-if {$PhaseTopChannel == "PD Low (avg)" } { set GammaLowFile "$LociCmplxPlaneDirInput/cmplx_coh_avg_PDLow.bin" }
-if {$PhaseTopChannel == "Max Mag" } { set GammaLowFile "$LociCmplxPlaneDirInput/cmplx_coh_MaxMag.bin" }
-if {$PhaseTopChannel == "Max Mag (avg)" } { set GammaLowFile "$LociCmplxPlaneDirInput/cmplx_coh_avg_MaxMag.bin" }
-if {$PhaseTopChannel == "Min Mag" } { set GammaLowFile "$LociCmplxPlaneDirInput/cmplx_coh_MinMag.bin" }
-if {$PhaseTopChannel == "Min Mag (avg)" } { set GammaLowFile "$LociCmplxPlaneDirInput/cmplx_coh_avg_MinMag.bin" }
-if {$PhaseTopChannel == "Max Pha" } { set GammaLowFile "$LociCmplxPlaneDirInput/cmplx_coh_MaxPha.bin" }
-if {$PhaseTopChannel == "Max Pha (avg)" } { set GammaLowFile "$LociCmplxPlaneDirInput/cmplx_coh_avg_MaxPha.bin" }
-if {$PhaseTopChannel == "Min Pha" } { set GammaLowFile "$LociCmplxPlaneDirInput/cmplx_coh_MinPha.bin" }
-if {$PhaseTopChannel == "Min Pha (avg)" } { set GammaLowFile "$LociCmplxPlaneDirInput/cmplx_coh_avg_MinPha.bin" }
-if {$PhaseTopChannel == "Mag High" } { set GammaLowFile "$LociCmplxPlaneDirInput/cmplx_coh_maxdiff_MagHigh.bin" }
-if {$PhaseTopChannel == "Mag High (avg)" } { set GammaLowFile "$LociCmplxPlaneDirInput/cmplx_coh_avg_maxdiff_MagHigh.bin" }
-if {$PhaseTopChannel == "Mag Low" } { set GammaLowFile "$LociCmplxPlaneDirInput/cmplx_coh_maxdiff_MagLow.bin" }
-if {$PhaseTopChannel == "Mag Low (avg)" } { set GammaLowFile "$LociCmplxPlaneDirInput/cmplx_coh_avg_maxdiff_MagLow.bin" }
-if {$PhaseTopChannel == "Pha High" } { set GammaLowFile "$LociCmplxPlaneDirInput/cmplx_coh_maxdiff_PhaHigh.bin" }
-if {$PhaseTopChannel == "Pha High (avg)" } { set GammaLowFile "$LociCmplxPlaneDirInput/cmplx_coh_avg_maxdiff_PhaHigh.bin" }
-if {$PhaseTopChannel == "Pha Low" } { set GammaLowFile "$LociCmplxPlaneDirInput/cmplx_coh_maxdiff_PhaLow.bin" }
-if {$PhaseTopChannel == "Pha Low (avg)" } { set GammaLowFile "$LociCmplxPlaneDirInput/cmplx_coh_avg_maxdiff_PhaLow.bin" }
+if {$PhaseGroundChannel == "NR 1" } { set GammaLowFile "$LociCmplxPlaneDirInput/cmplx_coh_Opt_NR1.bin" }
+if {$PhaseGroundChannel == "NR 1 (avg)" } { set GammaLowFile "$LociCmplxPlaneDirInput/cmplx_coh_avg_Opt_NR1.bin" }
+if {$PhaseGroundChannel == "NR 2" } { set GammaLowFile "$LociCmplxPlaneDirInput/cmplx_coh_Opt_NR2.bin" }
+if {$PhaseGroundChannel == "NR 2 (avg)" } { set GammaLowFile "$LociCmplxPlaneDirInput/cmplx_coh_avg_Opt_NR2.bin" }
+if {$PhaseGroundChannel == "NR 3" } { set GammaLowFile "$LociCmplxPlaneDirInput/cmplx_coh_Opt_NR3.bin" }
+if {$PhaseGroundChannel == "NR 3 (avg)" } { set GammaLowFile "$LociCmplxPlaneDirInput/cmplx_coh_avg_Opt_NR3.bin" }
+if {$PhaseGroundChannel == "PD High" } { set GammaLowFile "$LociCmplxPlaneDirInput/cmplx_coh_PDHigh.bin" }
+if {$PhaseGroundChannel == "PD High (avg)" } { set GammaLowFile "$LociCmplxPlaneDirInput/cmplx_coh_avg_PDHigh.bin" }
+if {$PhaseGroundChannel == "PD Low" } { set GammaLowFile "$LociCmplxPlaneDirInput/cmplx_coh_PDLow.bin" }
+if {$PhaseGroundChannel == "PD Low (avg)" } { set GammaLowFile "$LociCmplxPlaneDirInput/cmplx_coh_avg_PDLow.bin" }
+if {$PhaseGroundChannel == "Max Mag" } { set GammaLowFile "$LociCmplxPlaneDirInput/cmplx_coh_MaxMag.bin" }
+if {$PhaseGroundChannel == "Max Mag (avg)" } { set GammaLowFile "$LociCmplxPlaneDirInput/cmplx_coh_avg_MaxMag.bin" }
+if {$PhaseGroundChannel == "Min Mag" } { set GammaLowFile "$LociCmplxPlaneDirInput/cmplx_coh_MinMag.bin" }
+if {$PhaseGroundChannel == "Min Mag (avg)" } { set GammaLowFile "$LociCmplxPlaneDirInput/cmplx_coh_avg_MinMag.bin" }
+if {$PhaseGroundChannel == "Max Pha" } { set GammaLowFile "$LociCmplxPlaneDirInput/cmplx_coh_MaxPha.bin" }
+if {$PhaseGroundChannel == "Max Pha (avg)" } { set GammaLowFile "$LociCmplxPlaneDirInput/cmplx_coh_avg_MaxPha.bin" }
+if {$PhaseGroundChannel == "Min Pha" } { set GammaLowFile "$LociCmplxPlaneDirInput/cmplx_coh_MinPha.bin" }
+if {$PhaseGroundChannel == "Min Pha (avg)" } { set GammaLowFile "$LociCmplxPlaneDirInput/cmplx_coh_avg_MinPha.bin" }
+if {$PhaseGroundChannel == "Mag High" } { set GammaLowFile "$LociCmplxPlaneDirInput/cmplx_coh_maxdiff_MagHigh.bin" }
+if {$PhaseGroundChannel == "Mag High (avg)" } { set GammaLowFile "$LociCmplxPlaneDirInput/cmplx_coh_avg_maxdiff_MagHigh.bin" }
+if {$PhaseGroundChannel == "Mag Low" } { set GammaLowFile "$LociCmplxPlaneDirInput/cmplx_coh_maxdiff_MagLow.bin" }
+if {$PhaseGroundChannel == "Mag Low (avg)" } { set GammaLowFile "$LociCmplxPlaneDirInput/cmplx_coh_avg_maxdiff_MagLow.bin" }
+if {$PhaseGroundChannel == "Pha High" } { set GammaLowFile "$LociCmplxPlaneDirInput/cmplx_coh_maxdiff_PhaHigh.bin" }
+if {$PhaseGroundChannel == "Pha High (avg)" } { set GammaLowFile "$LociCmplxPlaneDirInput/cmplx_coh_avg_maxdiff_PhaHigh.bin" }
+if {$PhaseGroundChannel == "Pha Low" } { set GammaLowFile "$LociCmplxPlaneDirInput/cmplx_coh_maxdiff_PhaLow.bin" }
+if {$PhaseGroundChannel == "Pha Low (avg)" } { set GammaLowFile "$LociCmplxPlaneDirInput/cmplx_coh_avg_maxdiff_PhaLow.bin" }
+if {$PhaseGroundChannel == "HHVV*" } { set GammaLowFile "$LociCmplxPlaneDirInput/cmplx_coh_HHVV.bin" }
+if {$PhaseGroundChannel == "HHVV* (avg)" } { set GammaLowFile "$LociCmplxPlaneDirInput/cmplx_coh_avg_HHVV.bin" }
 }
 #############################################################################
 ## Procedure:  LociCmplxPlaneExtractPlotThumb
@@ -1224,7 +1237,7 @@ global LociCmplxPlaneLoci LociCmplxPlaneTriplet
 global LociCmplxPlaneTitle LociCmplxPlaneLabel
 global LociCmplxPlaneExtractVar CohPlot CONFIGDir
 global TMPLociCmplxPlaneTxt TMPLociCmplxPlaneLineTxt TMPLociCmplxPlaneLociTxt TMPLociCmplxPlaneTripletTxt
-global ImageMagickMaker TMPGnuPlotTk1 TMPGnuPlot1Tk
+global TMPGnuPlotTk1 TMPGnuPlot1Tk
 
     set xwindow [winfo x .top332]; set ywindow [winfo y .top332]
 
@@ -1625,7 +1638,7 @@ if {$LociCmplxPlaneLoci == 1 } {
     $widget(Entry332_1) configure -state disable
     $widget(Radiobutton332_1) configure -state disable
     $widget(Radiobutton332_2) configure -state disable
-    set LociCmplxPlaneLength ""; set CohPlot ""
+    set LociCmplxPlaneLength ""; set CohPlot " "
     }} \
         -text {Estimated Standard Coherence Region} \
         -variable LociCmplxPlaneLoci 
@@ -1924,7 +1937,6 @@ if {$GnuplotPipeLociCmplxPlane != ""} {
 set GnuplotPipeFid ""
 Window hide .top401
 ClosePSPViewer
-Window hide $widget(Toplevel64); TextEditorRunTrace "Close Window PolSARpro Viewer" "b"
 Window hide $widget(Toplevel332); TextEditorRunTrace "Close Window Coherences - Complex Plane" "b"
 set ProgressLine "0"; update
 }} \

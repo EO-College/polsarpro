@@ -657,7 +657,7 @@ for {set i 1} {$i <= 4} {incr i} {
     set TMPCompareBinaryDataTmp $TMPCompareBinaryData; append TMPCompareBinaryDataTmp $FileCompare($i); append TMPCompareBinaryDataTmp ".txt"
     if [file exists $CompareFile1] { 
         set CompareFile $FileCompare($i)
-        set ff [ open "| Soft/tools/compare_binary_data.exe -if1 \x22$CompareFile1\x22 -if2 \x22$CompareFile2\x22 -ofr $CompareOffLig -ofc $CompareOffCol -fnr $CompareSubNlig -fnc $CompareSubNcol -inc $CompareSample1 -idf $CompareFormat -of \x22$TMPCompareBinaryDataTmp\x22" r]
+        set ff [ open "| Soft/bin/tools/compare_binary_data.exe -if1 \x22$CompareFile1\x22 -if2 \x22$CompareFile2\x22 -ofr $CompareOffLig -ofc $CompareOffCol -fnr $CompareSubNlig -fnc $CompareSubNcol -inc $CompareSample1 -idf $CompareFormat -of \x22$TMPCompareBinaryDataTmp\x22" r]
         WaitUntilCreated $TMPCompareBinaryDataTmp
         if [file exists $TMPCompareBinaryDataTmp] {
             set f [open $TMPCompareBinaryDataTmp "r"]
@@ -714,7 +714,7 @@ for {set i 1} {$i <= 16} {incr i} {
     set TMPCompareBinaryDataTmp $TMPCompareBinaryData; append TMPCompareBinaryDataTmp $FileCompare($i); append TMPCompareBinaryDataTmp ".txt"
     if [file exists $CompareFile1] { 
         set CompareFile $FileCompare($i)
-        set ff [ open "| Soft/tools/compare_binary_data.exe -if1 \x22$CompareFile1\x22 -if2 \x22$CompareFile2\x22 -ofr $CompareOffLig -ofc $CompareOffCol -fnr $CompareSubNlig -fnc $CompareSubNcol -inc $CompareSample1 -idf $CompareFormat -of \x22$TMPCompareBinaryDataTmp\x22" r]
+        set ff [ open "| Soft/bin/tools/compare_binary_data.exe -if1 \x22$CompareFile1\x22 -if2 \x22$CompareFile2\x22 -ofr $CompareOffLig -ofc $CompareOffCol -fnr $CompareSubNlig -fnc $CompareSubNcol -inc $CompareSample1 -idf $CompareFormat -of \x22$TMPCompareBinaryDataTmp\x22" r]
         WaitUntilCreated $TMPCompareBinaryDataTmp
         if [file exists $TMPCompareBinaryDataTmp] {
             set f [open $TMPCompareBinaryDataTmp "r"]
@@ -791,7 +791,7 @@ for {set i 1} {$i <= 36} {incr i} {
     set TMPCompareBinaryDataTmp $TMPCompareBinaryData; append TMPCompareBinaryDataTmp $FileCompare($i); append TMPCompareBinaryDataTmp ".txt"
     if [file exists $CompareFile1] { 
         set CompareFile $FileCompare($i)
-        set ff [ open "| Soft/tools/compare_binary_data.exe -if1 \x22$CompareFile1\x22 -if2 \x22$CompareFile2\x22 -ofr $CompareOffLig -ofc $CompareOffCol -fnr $CompareSubNlig -fnc $CompareSubNcol -inc $CompareSample1 -idf $CompareFormat -of \x22$TMPCompareBinaryDataTmp\x22" r]
+        set ff [ open "| Soft/bin/tools/compare_binary_data.exe -if1 \x22$CompareFile1\x22 -if2 \x22$CompareFile2\x22 -ofr $CompareOffLig -ofc $CompareOffCol -fnr $CompareSubNlig -fnc $CompareSubNcol -inc $CompareSample1 -idf $CompareFormat -of \x22$TMPCompareBinaryDataTmp\x22" r]
         WaitUntilCreated $TMPCompareBinaryDataTmp
         if [file exists $TMPCompareBinaryDataTmp] {
             set f [open $TMPCompareBinaryDataTmp "r"]
@@ -836,7 +836,7 @@ for {set i 1} {$i <= 4} {incr i} {
     set TMPCompareBinaryDataTmp $TMPCompareBinaryData; append TMPCompareBinaryDataTmp $FileCompare($i); append TMPCompareBinaryDataTmp ".txt"
     if [file exists $CompareFile1] { 
         set CompareFile $FileCompare($i)
-        set ff [ open "| Soft/tools/compare_binary_data.exe -if1 \x22$CompareFile1\x22 -if2 \x22$CompareFile2\x22 -ofr $CompareOffLig -ofc $CompareOffCol -fnr $CompareSubNlig -fnc $CompareSubNcol -inc $CompareSample1 -idf $CompareFormat -of \x22$TMPCompareBinaryDataTmp\x22" r]
+        set ff [ open "| Soft/bin/tools/compare_binary_data.exe -if1 \x22$CompareFile1\x22 -if2 \x22$CompareFile2\x22 -ofr $CompareOffLig -ofc $CompareOffCol -fnr $CompareSubNlig -fnc $CompareSubNcol -inc $CompareSample1 -idf $CompareFormat -of \x22$TMPCompareBinaryDataTmp\x22" r]
         WaitUntilCreated $TMPCompareBinaryDataTmp
         if [file exists $TMPCompareBinaryDataTmp] {
             set f [open $TMPCompareBinaryDataTmp "r"]

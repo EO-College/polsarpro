@@ -411,7 +411,7 @@ proc vTcl:project:info {} {
     }
     set site_6_0 $site_5_0.cpd92
     namespace eval ::widgets::$site_6_0.cpd84 {
-        array set save {-activebackground 1 -activeforeground 1 -foreground 1 -highlightcolor 1 -image 1 -pady 1 -relief 1 -takefocus 1 -text 1}
+        array set save {-foreground 1 -highlightcolor 1 -image 1 -pady 1 -relief 1 -takefocus 1 -text 1}
     }
     namespace eval ::widgets::$site_3_0.cpd98 {
         array set save {-foreground 1 -ipad 1 -text 1}
@@ -429,7 +429,7 @@ proc vTcl:project:info {} {
     }
     set site_6_0 $site_5_0.cpd72
     namespace eval ::widgets::$site_6_0.lab73 {
-        array set save {-activebackground 1 -activeforeground 1 -foreground 1 -highlightcolor 1 -text 1}
+        array set save {-foreground 1 -highlightcolor 1 -text 1}
     }
     namespace eval ::widgets::$site_6_0.cpd75 {
         array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -highlightcolor 1 -insertbackground 1 -justify 1 -selectbackground 1 -selectforeground 1 -state 1 -takefocus 1 -textvariable 1 -width 1}
@@ -439,32 +439,32 @@ proc vTcl:project:info {} {
     }
     set site_6_0 $site_5_0.cpd91
     namespace eval ::widgets::$site_6_0.cpd89 {
-        array set save {-_tooltip 1 -activebackground 1 -activeforeground 1 -command 1 -foreground 1 -highlightcolor 1 -image 1 -pady 1 -takefocus 1 -text 1}
+        array set save {-_tooltip 1 -command 1 -foreground 1 -highlightcolor 1 -image 1 -pady 1 -takefocus 1 -text 1}
     }
     namespace eval ::widgets::$base.fra55 {
         array set save {-borderwidth 1 -height 1 -highlightcolor 1 -relief 1 -width 1}
     }
     set site_3_0 $base.fra55
     namespace eval ::widgets::$site_3_0.lab57 {
-        array set save {-activebackground 1 -activeforeground 1 -foreground 1 -highlightcolor 1 -text 1}
+        array set save {-foreground 1 -highlightcolor 1 -text 1}
     }
     namespace eval ::widgets::$site_3_0.ent58 {
         array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -highlightcolor 1 -insertbackground 1 -justify 1 -selectbackground 1 -selectforeground 1 -state 1 -takefocus 1 -textvariable 1 -width 1}
     }
     namespace eval ::widgets::$site_3_0.lab59 {
-        array set save {-activebackground 1 -activeforeground 1 -foreground 1 -highlightcolor 1 -text 1}
+        array set save {-foreground 1 -highlightcolor 1 -text 1}
     }
     namespace eval ::widgets::$site_3_0.ent60 {
         array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -highlightcolor 1 -insertbackground 1 -justify 1 -selectbackground 1 -selectforeground 1 -state 1 -takefocus 1 -textvariable 1 -width 1}
     }
     namespace eval ::widgets::$site_3_0.lab61 {
-        array set save {-activebackground 1 -activeforeground 1 -foreground 1 -highlightcolor 1 -text 1}
+        array set save {-foreground 1 -highlightcolor 1 -text 1}
     }
     namespace eval ::widgets::$site_3_0.ent62 {
         array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -highlightcolor 1 -insertbackground 1 -justify 1 -selectbackground 1 -selectforeground 1 -state 1 -takefocus 1 -textvariable 1 -width 1}
     }
     namespace eval ::widgets::$site_3_0.lab63 {
-        array set save {-activebackground 1 -activeforeground 1 -foreground 1 -highlightcolor 1 -text 1}
+        array set save {-foreground 1 -highlightcolor 1 -text 1}
     }
     namespace eval ::widgets::$site_3_0.ent64 {
         array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -highlightcolor 1 -insertbackground 1 -justify 1 -selectbackground 1 -selectforeground 1 -state 1 -takefocus 1 -textvariable 1 -width 1}
@@ -474,10 +474,10 @@ proc vTcl:project:info {} {
     }
     set site_3_0 $base.fra59
     namespace eval ::widgets::$site_3_0.but93 {
-        array set save {-_tooltip 1 -activebackground 1 -activeforeground 1 -background 1 -command 1 -foreground 1 -highlightcolor 1 -padx 1 -pady 1 -text 1}
+        array set save {-_tooltip 1 -background 1 -command 1 -foreground 1 -highlightcolor 1 -padx 1 -pady 1 -text 1}
     }
     namespace eval ::widgets::$site_3_0.but24 {
-        array set save {-_tooltip 1 -activebackground 1 -activeforeground 1 -background 1 -command 1 -foreground 1 -highlightcolor 1 -padx 1 -pady 1 -takefocus 1 -text 1}
+        array set save {-_tooltip 1 -background 1 -command 1 -foreground 1 -highlightcolor 1 -padx 1 -pady 1 -takefocus 1 -text 1}
     }
     namespace eval ::widgets::$base.cpd66 {
         array set save {-foreground 1 -ipad 1 -text 1}
@@ -488,7 +488,7 @@ proc vTcl:project:info {} {
     }
     set site_4_0 $site_4_0
     namespace eval ::widgets::$site_4_0.cpd72 {
-        array set save {-activebackground 1 -activeforeground 1 -foreground 1 -highlightcolor 1 -text 1}
+        array set save {-foreground 1 -highlightcolor 1 -text 1}
     }
     namespace eval ::widgets::$site_4_0.cpd73 {
         array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -highlightcolor 1 -insertbackground 1 -selectbackground 1 -selectforeground 1 -state 1 -takefocus 1 -textvariable 1 -width 1}
@@ -498,17 +498,14 @@ proc vTcl:project:info {} {
     }
     set site_5_0 $site_4_0.cpd74
     namespace eval ::widgets::$site_5_0.cpd105 {
-        array set save {-_tooltip 1 -activebackground 1 -activeforeground 1 -command 1 -foreground 1 -highlightcolor 1 -image 1 -pady 1 -takefocus 1 -text 1}
+        array set save {-_tooltip 1 -command 1 -foreground 1 -highlightcolor 1 -image 1 -pady 1 -takefocus 1 -text 1}
     }
     namespace eval ::widgets::$site_4_0.cpd69 {
         array set save {}
     }
     set site_5_0 $site_4_0.cpd69
     namespace eval ::widgets::$site_5_0.cpd75 {
-        array set save {-_tooltip 1 -activebackground 1 -activeforeground 1 -background 1 -command 1 -foreground 1 -highlightcolor 1 -padx 1 -pady 1 -takefocus 1 -text 1}
-    }
-    namespace eval ::widgets::$site_5_0.cpd76 {
-        array set save {-_tooltip 1 -activebackground 1 -activeforeground 1 -background 1 -command 1 -foreground 1 -highlightcolor 1 -padx 1 -pady 1 -takefocus 1 -text 1}
+        array set save {-_tooltip 1 -background 1 -command 1 -foreground 1 -highlightcolor 1 -padx 1 -pady 1 -takefocus 1 -text 1}
     }
     namespace eval ::widgets::$base.cpd67 {
         array set save {-foreground 1 -ipad 1 -text 1}
@@ -527,17 +524,17 @@ proc vTcl:project:info {} {
     }
     set site_6_0 $site_5_0.fra23
     namespace eval ::widgets::$site_6_0.che24 {
-        array set save {-activebackground 1 -activeforeground 1 -foreground 1 -highlightcolor 1 -takefocus 1 -text 1 -variable 1}
+        array set save {-foreground 1 -highlightcolor 1 -takefocus 1 -text 1 -variable 1}
     }
     namespace eval ::widgets::$site_5_0.fra29 {
         array set save {-height 1 -highlightcolor 1 -width 1}
     }
     set site_6_0 $site_5_0.fra29
     namespace eval ::widgets::$site_6_0.che30 {
-        array set save {-activebackground 1 -activeforeground 1 -foreground 1 -highlightcolor 1 -takefocus 1 -text 1 -variable 1}
+        array set save {-foreground 1 -highlightcolor 1 -takefocus 1 -text 1 -variable 1}
     }
     namespace eval ::widgets::$site_6_0.but31 {
-        array set save {-_tooltip 1 -activebackground 1 -activeforeground 1 -background 1 -command 1 -foreground 1 -highlightcolor 1 -padx 1 -pady 1 -takefocus 1 -text 1}
+        array set save {-_tooltip 1 -background 1 -command 1 -foreground 1 -highlightcolor 1 -padx 1 -pady 1 -takefocus 1 -text 1}
     }
     namespace eval ::widgets::$base.cpd68 {
         array set save {-foreground 1 -ipad 1 -text 1}
@@ -556,17 +553,17 @@ proc vTcl:project:info {} {
     }
     set site_6_0 $site_5_0.fra91
     namespace eval ::widgets::$site_6_0.cpd95 {
-        array set save {-activebackground 1 -activeforeground 1 -foreground 1 -highlightcolor 1 -text 1}
+        array set save {-foreground 1 -highlightcolor 1 -text 1}
     }
     namespace eval ::widgets::$site_5_0.fra92 {
         array set save {-borderwidth 1 -height 1 -highlightcolor 1 -width 1}
     }
     set site_6_0 $site_5_0.fra92
     namespace eval ::widgets::$site_6_0.but80 {
-        array set save {-_tooltip 1 -activebackground 1 -activeforeground 1 -command 1 -foreground 1 -highlightcolor 1 -image 1 -pady 1 -takefocus 1 -text 1}
+        array set save {-_tooltip 1 -command 1 -foreground 1 -highlightcolor 1 -image 1 -pady 1 -takefocus 1 -text 1}
     }
     namespace eval ::widgets::$site_6_0.cpd102 {
-        array set save {-_tooltip 1 -activebackground 1 -activeforeground 1 -background 1 -command 1 -foreground 1 -highlightcolor 1 -padx 1 -pady 1 -takefocus 1 -text 1}
+        array set save {-_tooltip 1 -background 1 -command 1 -foreground 1 -highlightcolor 1 -padx 1 -pady 1 -takefocus 1 -text 1}
     }
     namespace eval ::widgets::$site_5_0.fra93 {
         array set save {-borderwidth 1 -height 1 -highlightcolor 1 -width 1}
@@ -580,7 +577,7 @@ proc vTcl:project:info {} {
     }
     set site_5_0 $site_4_0.cpd101
     namespace eval ::widgets::$site_5_0.che24 {
-        array set save {-activebackground 1 -activeforeground 1 -command 1 -foreground 1 -highlightcolor 1 -takefocus 1 -text 1 -variable 1}
+        array set save {-command 1 -foreground 1 -highlightcolor 1 -takefocus 1 -text 1 -variable 1}
     }
     namespace eval ::widgets::$site_5_0.fra25 {
         array set save {-borderwidth 1 -height 1 -highlightcolor 1 -width 1}
@@ -591,10 +588,10 @@ proc vTcl:project:info {} {
     }
     set site_7_0 $site_6_0.fra38
     namespace eval ::widgets::$site_7_0.che29 {
-        array set save {-activebackground 1 -activeforeground 1 -foreground 1 -highlightcolor 1 -takefocus 1 -text 1 -variable 1}
+        array set save {-foreground 1 -highlightcolor 1 -takefocus 1 -text 1 -variable 1}
     }
     namespace eval ::widgets::$site_7_0.che31 {
-        array set save {-activebackground 1 -activeforeground 1 -foreground 1 -highlightcolor 1 -takefocus 1 -text 1 -variable 1}
+        array set save {-foreground 1 -highlightcolor 1 -takefocus 1 -text 1 -variable 1}
     }
     namespace eval ::widgets::$site_6_0.fra39 {
         array set save {-borderwidth 1 -height 1 -highlightcolor 1 -width 1}
@@ -605,26 +602,26 @@ proc vTcl:project:info {} {
     }
     set site_8_0 $site_7_0.fra42
     namespace eval ::widgets::$site_8_0.lab47 {
-        array set save {-activebackground 1 -activeforeground 1 -foreground 1 -highlightcolor 1 -text 1}
+        array set save {-foreground 1 -highlightcolor 1 -text 1}
     }
     namespace eval ::widgets::$site_8_0.lab48 {
-        array set save {-activebackground 1 -activeforeground 1 -foreground 1 -highlightcolor 1 -text 1}
+        array set save {-foreground 1 -highlightcolor 1 -text 1}
     }
     namespace eval ::widgets::$site_8_0.lab49 {
-        array set save {-activebackground 1 -activeforeground 1 -foreground 1 -highlightcolor 1 -text 1}
+        array set save {-foreground 1 -highlightcolor 1 -text 1}
     }
     namespace eval ::widgets::$site_7_0.fra43 {
         array set save {-borderwidth 1 -height 1 -highlightcolor 1 -width 1}
     }
     set site_8_0 $site_7_0.fra43
     namespace eval ::widgets::$site_8_0.lab52 {
-        array set save {-activebackground 1 -activeforeground 1 -foreground 1 -highlightcolor 1 -text 1}
+        array set save {-foreground 1 -highlightcolor 1 -text 1}
     }
     namespace eval ::widgets::$site_8_0.lab53 {
-        array set save {-activebackground 1 -activeforeground 1 -foreground 1 -highlightcolor 1 -text 1}
+        array set save {-foreground 1 -highlightcolor 1 -text 1}
     }
     namespace eval ::widgets::$site_8_0.lab54 {
-        array set save {-activebackground 1 -activeforeground 1 -foreground 1 -highlightcolor 1 -text 1}
+        array set save {-foreground 1 -highlightcolor 1 -text 1}
     }
     namespace eval ::widgets::$base.tit69 {
         array set save {-text 1}
@@ -651,17 +648,17 @@ proc vTcl:project:info {} {
     }
     set site_8_0 $site_7_0.cpd77
     namespace eval ::widgets::$site_8_0.rad91 {
-        array set save {-activebackground 1 -activeforeground 1 -borderwidth 1 -command 1 -foreground 1 -highlightcolor 1 -value 1 -variable 1}
+        array set save {-borderwidth 1 -command 1 -foreground 1 -highlightcolor 1 -value 1 -variable 1}
     }
     namespace eval ::widgets::$site_7_0.fra70 {
         array set save {-height 1 -highlightcolor 1 -relief 1 -width 1}
     }
     set site_8_0 $site_7_0.fra70
     namespace eval ::widgets::$site_8_0.cpd71 {
-        array set save {-activebackground 1 -activeforeground 1 -command 1 -foreground 1 -highlightcolor 1 -text 1 -value 1 -variable 1}
+        array set save {-command 1 -foreground 1 -highlightcolor 1 -text 1 -value 1 -variable 1}
     }
     namespace eval ::widgets::$site_8_0.cpd72 {
-        array set save {-_tooltip 1 -activebackground 1 -activeforeground 1 -background 1 -command 1 -foreground 1 -highlightcolor 1 -padx 1 -pady 1 -takefocus 1 -text 1}
+        array set save {-_tooltip 1 -background 1 -command 1 -foreground 1 -highlightcolor 1 -padx 1 -pady 1 -takefocus 1 -text 1}
     }
     namespace eval ::widgets::$site_5_0.cpd75 {
         array set save {-foreground 1 -ipad 1 -text 1}
@@ -680,10 +677,10 @@ proc vTcl:project:info {} {
     }
     set site_9_0 $site_8_0.fra23
     namespace eval ::widgets::$site_9_0.cpd79 {
-        array set save {-activebackground 1 -activeforeground 1 -foreground 1 -highlightcolor 1 -takefocus 1 -text 1 -variable 1}
+        array set save {-foreground 1 -highlightcolor 1 -takefocus 1 -text 1 -variable 1}
     }
     namespace eval ::widgets::$site_9_0.cpd77 {
-        array set save {-activebackground 1 -activeforeground 1 -command 1 -foreground 1 -highlightcolor 1 -takefocus 1 -text 1 -variable 1}
+        array set save {-command 1 -foreground 1 -highlightcolor 1 -takefocus 1 -text 1 -variable 1}
     }
     namespace eval ::widgets::$site_9_0.cpd78 {
         array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -highlightcolor 1 -insertbackground 1 -justify 1 -selectbackground 1 -selectforeground 1 -takefocus 1 -textvariable 1 -width 1}
@@ -709,10 +706,10 @@ proc vTcl:project:info {} {
     }
     set site_10_0 $site_9_0.fra74
     namespace eval ::widgets::$site_10_0.cpd75 {
-        array set save {-activebackground 1 -activeforeground 1 -borderwidth 1 -command 1 -foreground 1 -highlightcolor 1 -takefocus 1 -text 1 -variable 1}
+        array set save {-borderwidth 1 -command 1 -foreground 1 -highlightcolor 1 -takefocus 1 -text 1 -variable 1}
     }
     namespace eval ::widgets::$site_10_0.cpd76 {
-        array set save {-activebackground 1 -activeforeground 1 -borderwidth 1 -command 1 -foreground 1 -highlightcolor 1 -selectcolor 1 -takefocus 1 -text 1 -variable 1}
+        array set save {-borderwidth 1 -command 1 -foreground 1 -highlightcolor 1 -selectcolor 1 -takefocus 1 -text 1 -variable 1}
     }
     namespace eval ::widgets::$site_10_0.lab77 {
         array set save {-borderwidth 1 -text 1}
@@ -722,10 +719,10 @@ proc vTcl:project:info {} {
     }
     set site_10_0 $site_9_0.fra77
     namespace eval ::widgets::$site_10_0.cpd78 {
-        array set save {-activebackground 1 -activeforeground 1 -foreground 1 -highlightcolor 1 -takefocus 1 -text 1 -variable 1}
+        array set save {-foreground 1 -highlightcolor 1 -takefocus 1 -text 1 -variable 1}
     }
     namespace eval ::widgets::$site_10_0.cpd79 {
-        array set save {-activebackground 1 -activeforeground 1 -foreground 1 -highlightcolor 1 -takefocus 1 -text 1 -variable 1}
+        array set save {-foreground 1 -highlightcolor 1 -takefocus 1 -text 1 -variable 1}
     }
     namespace eval ::widgets::$site_4_0.cpd71 {
         array set save {-foreground 1 -ipad 1 -relief 1 -text 1}
@@ -744,7 +741,7 @@ proc vTcl:project:info {} {
     }
     set site_8_0 $site_7_0.fra72
     namespace eval ::widgets::$site_8_0.cpd79 {
-        array set save {-activebackground 1 -activeforeground 1 -foreground 1 -highlightcolor 1 -text 1}
+        array set save {-foreground 1 -highlightcolor 1 -text 1}
     }
     namespace eval ::widgets::$site_8_0.cpd78 {
         array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -highlightcolor 1 -insertbackground 1 -justify 1 -selectbackground 1 -selectforeground 1 -takefocus 1 -textvariable 1 -width 1}
@@ -766,23 +763,23 @@ proc vTcl:project:info {} {
     }
     set site_11_0 $site_10_0.cpd68
     namespace eval ::widgets::$site_11_0.cpd69 {
-        array set save {-activebackground 1 -activeforeground 1 -borderwidth 1 -command 1 -foreground 1 -highlightcolor 1 -takefocus 1 -text 1 -variable 1}
+        array set save {-borderwidth 1 -command 1 -foreground 1 -highlightcolor 1 -takefocus 1 -text 1 -variable 1}
     }
     namespace eval ::widgets::$site_11_0.lab71 {
         array set save {-borderwidth 1 -text 1}
     }
     namespace eval ::widgets::$site_10_0.cpd70 {
-        array set save {-_tooltip 1 -activebackground 1 -activeforeground 1 -background 1 -command 1 -foreground 1 -highlightcolor 1 -padx 1 -pady 1 -takefocus 1 -text 1}
+        array set save {-_tooltip 1 -background 1 -command 1 -foreground 1 -highlightcolor 1 -padx 1 -pady 1 -takefocus 1 -text 1}
     }
     namespace eval ::widgets::$site_9_0.fra72 {
         array set save {-height 1 -relief 1 -width 1}
     }
     set site_10_0 $site_9_0.fra72
     namespace eval ::widgets::$site_10_0.cpd73 {
-        array set save {-activebackground 1 -activeforeground 1 -borderwidth 1 -command 1 -foreground 1 -highlightcolor 1 -text 1 -value 1 -variable 1}
+        array set save {-borderwidth 1 -command 1 -foreground 1 -highlightcolor 1 -text 1 -value 1 -variable 1}
     }
     namespace eval ::widgets::$site_10_0.cpd74 {
-        array set save {-activebackground 1 -activeforeground 1 -borderwidth 1 -foreground 1 -highlightcolor 1 -text 1}
+        array set save {-borderwidth 1 -foreground 1 -highlightcolor 1 -text 1}
     }
     namespace eval ::widgets::$site_10_0.cpd75 {
         array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -highlightcolor 1 -insertbackground 1 -justify 1 -selectbackground 1 -selectforeground 1 -takefocus 1 -textvariable 1 -width 1}
@@ -796,10 +793,10 @@ proc vTcl:project:info {} {
     }
     set site_10_0 $site_9_0.cpd67
     namespace eval ::widgets::$site_10_0.cpd104 {
-        array set save {-activebackground 1 -activeforeground 1 -borderwidth 1 -command 1 -disabledforeground 1 -foreground 1 -highlightcolor 1 -text 1 -value 1 -variable 1}
+        array set save {-borderwidth 1 -command 1 -disabledforeground 1 -foreground 1 -highlightcolor 1 -text 1 -value 1 -variable 1}
     }
     namespace eval ::widgets::$site_10_0.cpd90 {
-        array set save {-activebackground 1 -activeforeground 1 -foreground 1 -highlightcolor 1 -text 1}
+        array set save {-foreground 1 -highlightcolor 1 -text 1}
     }
     namespace eval ::widgets::$site_10_0.cpd89 {
         array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -highlightcolor 1 -insertbackground 1 -justify 1 -selectbackground 1 -selectforeground 1 -takefocus 1 -textvariable 1 -width 1}
@@ -809,7 +806,7 @@ proc vTcl:project:info {} {
     }
     set site_9_0 $site_8_0.fra79
     namespace eval ::widgets::$site_9_0.cpd80 {
-        array set save {-activebackground 1 -activeforeground 1 -borderwidth 1 -command 1 -foreground 1 -highlightcolor 1 -text 1 -value 1 -variable 1}
+        array set save {-borderwidth 1 -command 1 -foreground 1 -highlightcolor 1 -text 1 -value 1 -variable 1}
     }
     namespace eval ::widgets::$base.m66 {
         array set save {-activeborderwidth 1 -borderwidth 1 -tearoff 1}
@@ -940,8 +937,8 @@ proc vTclWindow. {base} {
     # CREATING WIDGETS
     ###################
     wm focusmodel $top passive
-    wm geometry $top 200x200+200+200; update
-    wm maxsize $top 3360 1028
+    wm geometry $top 200x200+175+175; update
+    wm maxsize $top 3356 1024
     wm minsize $top 116 1
     wm overrideredirect $top 0
     wm resizable $top 1 1
@@ -973,7 +970,7 @@ proc vTclWindow.top394 {base} {
         -menu "$top.m66" -highlightcolor black 
     wm withdraw $top
     wm focusmodel $top passive
-    wm geometry $top 600x570+10+110; update
+    wm geometry $top 600x540+10+110; update
     wm maxsize $top 1604 1184
     wm minsize $top 116 1
     wm overrideredirect $top 0
@@ -1007,7 +1004,6 @@ proc vTclWindow.top394 {base} {
     vTcl:DefineAlias "$site_5_0.cpd92" "Frame19" vTcl:WidgetProc "Toplevel394" 1
     set site_6_0 $site_5_0.cpd92
     button $site_6_0.cpd84 \
-        -activebackground SystemButtonFace -activeforeground SystemButtonText \
         -foreground black -highlightcolor black \
         -image [vTcl:image:get_image [file join . GUI Images Transparent_Button.gif]] \
         -pady 0 -relief flat -takefocus 0 -text {    } 
@@ -1037,7 +1033,6 @@ proc vTclWindow.top394 {base} {
     vTcl:DefineAlias "$site_5_0.cpd72" "Frame1" vTcl:WidgetProc "Toplevel394" 1
     set site_6_0 $site_5_0.cpd72
     label $site_6_0.lab73 \
-        -activebackground SystemButtonFace -activeforeground SystemButtonText \
         -foreground black -highlightcolor black -text / 
     vTcl:DefineAlias "$site_6_0.lab73" "Label2" vTcl:WidgetProc "Toplevel394" 1
     entry $site_6_0.cpd75 \
@@ -1056,7 +1051,7 @@ proc vTclWindow.top394 {base} {
     vTcl:DefineAlias "$site_5_0.cpd91" "Frame21" vTcl:WidgetProc "Toplevel394" 1
     set site_6_0 $site_5_0.cpd91
     button $site_6_0.cpd89 \
-        -activebackground SystemButtonFace -activeforeground SystemButtonText \
+        \
         -command {global DirName DataDir SupervisedOutputDir SupervisedOutputSubDir FileTrainingArea FileTrainingSet
 global NTrainingAreaClass AreaClassN NTrainingArea AreaN AreaPoint AreaPointLig AreaPointCol
 
@@ -1136,7 +1131,6 @@ set AreaN 1} \
     vTcl:DefineAlias "$top.fra55" "Frame9" vTcl:WidgetProc "Toplevel394" 1
     set site_3_0 $top.fra55
     label $site_3_0.lab57 \
-        -activebackground SystemButtonFace -activeforeground SystemButtonText \
         -foreground black -highlightcolor black -text {Init Row} 
     vTcl:DefineAlias "$site_3_0.lab57" "Label10" vTcl:WidgetProc "Toplevel394" 1
     entry $site_3_0.ent58 \
@@ -1147,7 +1141,6 @@ set AreaN 1} \
         -textvariable NligInit -width 5 
     vTcl:DefineAlias "$site_3_0.ent58" "Entry6" vTcl:WidgetProc "Toplevel394" 1
     label $site_3_0.lab59 \
-        -activebackground SystemButtonFace -activeforeground SystemButtonText \
         -foreground black -highlightcolor black -text {End Row} 
     vTcl:DefineAlias "$site_3_0.lab59" "Label11" vTcl:WidgetProc "Toplevel394" 1
     entry $site_3_0.ent60 \
@@ -1158,7 +1151,6 @@ set AreaN 1} \
         -textvariable NligEnd -width 5 
     vTcl:DefineAlias "$site_3_0.ent60" "Entry7" vTcl:WidgetProc "Toplevel394" 1
     label $site_3_0.lab61 \
-        -activebackground SystemButtonFace -activeforeground SystemButtonText \
         -foreground black -highlightcolor black -text {Init Col} 
     vTcl:DefineAlias "$site_3_0.lab61" "Label12" vTcl:WidgetProc "Toplevel394" 1
     entry $site_3_0.ent62 \
@@ -1169,7 +1161,6 @@ set AreaN 1} \
         -textvariable NcolInit -width 5 
     vTcl:DefineAlias "$site_3_0.ent62" "Entry8" vTcl:WidgetProc "Toplevel394" 1
     label $site_3_0.lab63 \
-        -activebackground SystemButtonFace -activeforeground SystemButtonText \
         -foreground black -highlightcolor black -text {End Col} 
     vTcl:DefineAlias "$site_3_0.lab63" "Label13" vTcl:WidgetProc "Toplevel394" 1
     entry $site_3_0.ent64 \
@@ -1201,13 +1192,12 @@ set AreaN 1} \
     vTcl:DefineAlias "$top.fra59" "Frame20" vTcl:WidgetProc "Toplevel394" 1
     set site_3_0 $top.fra59
     button $site_3_0.but93 \
-        -activebackground SystemButtonFace -activeforeground SystemButtonText \
         -background #ffff00 \
         -command [list vTcl:DoCmdOption $site_3_0.but93 {global SupervisedDirInput SupervisedDirOutput SupervisedOutputDir SupervisedOutputSubDir SupervisedTrainingProcess
 global SupervisedClusterFonction SupervisedSVMClassifierFonction
 global BMPSupervised ColorMapSupervised16 FileTrainingArea
 global RejectClass RejectRatio ConfusionMatrix Fonction Fonction2 ProgressLine VarWarning WarningMessage WarningMessage2
-global OpenDirFile  DataDir Fonction Fonction2 PSPMemory TMPMemoryAllocError
+global OpenDirFile  DataDir Fonction Fonction2 TMPMemoryAllocError
 
 global SVMBatch TMPScriptSVM  TMPTrainingSetNorm  TMPTrainingSet SVMConfigFile SVMRangeFile SVMModelFile ClassificationFile
 global TrainingSamplingVal TrainingSampling UnbalanceTraining OldModel NewModel DataFormatActive
@@ -1269,16 +1259,16 @@ if {$config == "true"} {
   #####################################################################       
 
   if {$OldModel == "0"} {
-    set SVMConfigFile "$SupervisedDirOutput/svm_config_file_$SessionName.txt"
-    set SVMRangeFile "$SupervisedDirOutput/svm_range_file_$SessionName.txt"
-    set SVMModelFile "$SupervisedDirOutput/svm_model_file_$SessionName.txt"
+    set SVMConfigFile "$SupervisedDirOutput/svm_config_file.txt"
+    set SVMRangeFile "$SupervisedDirOutput/svm_range_file.txt"
+    set SVMModelFile "$SupervisedDirOutput/svm_model_file.txt"
     }
-  set ClassificationFile "$SupervisedDirOutput/svm_classification_file_$SessionName.bin"
-  set ClassificationFileName "$SupervisedDirOutput/svm_classification_file_$SessionName"
-  set InProbClassificationFile "$SupervisedDirOutput/svm_classification_file_$SessionName.bin"; append InProbClassificationFile "_prob"
-  set OutProbClassificationFile "$SupervisedDirOutput/svm_classification_file_$SessionName"; append OutProbClassificationFile "_prob.bin"
-  set InDistClassificationFile "$SupervisedDirOutput/svm_classification_file_$SessionName.bin"; append InDistClassificationFile "_dist"
-  set OutDistClassificationFile "$SupervisedDirOutput/svm_classification_file_$SessionName"; append OutDistClassificationFile "_dist.bin"
+  set ClassificationFile "$SupervisedDirOutput/svm_classification_file.bin"
+  set ClassificationFileName "$SupervisedDirOutput/svm_classification_file"
+  set InProbClassificationFile "$SupervisedDirOutput/svm_classification_file.bin"; append InProbClassificationFile "_prob"
+  set OutProbClassificationFile "$SupervisedDirOutput/svm_classification_file"; append OutProbClassificationFile "_prob.bin"
+  set InDistClassificationFile "$SupervisedDirOutput/svm_classification_file.bin"; append InDistClassificationFile "_dist"
+  set OutDistClassificationFile "$SupervisedDirOutput/svm_classification_file"; append OutDistClassificationFile "_dist.bin"
     
   set SVMSupervisedDirInput $SupervisedDirInput; append SVMSupervisedDirInput "/"
   set SVMSupervisedDirOutput $SupervisedDirOutput; append SVMSupervisedDirOutput "/"
@@ -1307,37 +1297,37 @@ if {$config == "true"} {
     if {$PolarIndic == "Ipp"} {
       set Npolar "4"
       set PolarFiles "I11.bin I22.bin I12.bin I21.bin"
-      set ClassificationColormapFunction "Soft/bmp_process/classification_colormap_SPPIPPC2.exe"
+      set ClassificationColormapFunction "Soft/bin/bmp_process/classification_colormap_SPPIPPC2.exe"
       }
 
     if {$PolarIndic == "C2"} {
       set Npolar "4"
       set PolarFiles "C11.bin C22.bin C12_real.bin C12_imag.bin"
-      set ClassificationColormapFunction "Soft/bmp_process/classification_colormap_SPPIPPC2.exe"
+      set ClassificationColormapFunction "Soft/bin/bmp_process/classification_colormap_SPPIPPC2.exe"
       }
 
     if {$PolarIndic == "C3"} {
       set Npolar "9"
       set PolarFiles "C11.bin C22.bin C33.bin C12_real.bin C12_imag.bin C13_real.bin C13_imag.bin C23_real.bin C23_imag.bin"
-      set ClassificationColormapFunction "Soft/bmp_process/classification_colormap_pauli.exe"
+      set ClassificationColormapFunction "Soft/bin/bmp_process/classification_colormap_pauli.exe"
       }
 
     if {$PolarIndic == "C4"} {
       set Npolar "16"
       set PolarFiles "C11.bin C22.bin C33.bin C44.bin C12_real.bin C12_imag.bin C13_real.bin C13_imag.bin C14_real.bin C14_imag.bin C23_real.bin C23_imag.bin C24_real.bin C24_imag.bin C34_real.bin C34_imag.bin"
-      set ClassificationColormapFunction "Soft/bmp_process/classification_colormap_pauli.exe"
+      set ClassificationColormapFunction "Soft/bin/bmp_process/classification_colormap_pauli.exe"
       }
 
     if {$PolarIndic == "T3"} {
       set Npolar "9"
       set PolarFiles "T11.bin T22.bin T33.bin T12_real.bin T12_imag.bin T13_real.bin T13_imag.bin T23_real.bin T23_imag.bin"
-      set ClassificationColormapFunction "Soft/bmp_process/classification_colormap_pauli.exe"
+      set ClassificationColormapFunction "Soft/bin/bmp_process/classification_colormap_pauli.exe"
       }
 
     if {$PolarIndic == "T4"} {
       set Npolar "16"
       set PolarFiles "T11.bin T22.bin T33.bin T44.bin T12_real.bin T12_imag.bin T13_real.bin T13_imag.bin T14_real.bin T14_imag.bin T23_real.bin T23_imag.bin T24_real.bin T24_imag.bin T34_real.bin T34_imag.bin"
-      set ClassificationColormapFunction "Soft/bmp_process/classification_colormap_pauli.exe"
+      set ClassificationColormapFunction "Soft/bin/bmp_process/classification_colormap_pauli.exe"
       }
 
     if {$PolarIndic == "Other"} {
@@ -1417,7 +1407,7 @@ if {$config == "true"} {
       # Je teste si l'utilisateur à bien creer le fichier des zones d'entrainement
       if [file exists $FileTrainingArea] {
 	if {$OldModel == "0"} {
-          set MaskFile "$SupervisedDirInput/mask_valid_pixels.bin"
+        set MaskFile "$SupervisedDirInput/mask_valid_pixels.bin"
 	  set Fonction ""; set Fonction2 "Supervised Classification"
 	  set ProgressLine "0"
 	  WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
@@ -1468,19 +1458,19 @@ if {$config == "true"} {
 	  set PolyDeg "DISABLE"
 	  set PolyDegVar ""
 	  set RBFGamma "DISABLE"
-          set RBFGammaVar ""
+        set RBFGammaVar ""
 	
 	  set PolarFiles ""
 
 	  if [file exists $SVMConfigFile] {
             set fileID [open $SVMConfigFile r]
-	    set fileData [read $fileID]
-	    set fileLines [split $fileData "\n"]
+	      set fileData [read $fileID]
+	      set fileLines [split $fileData "\n"]
             close $fileID
             set i 0
             foreach line $fileLines {
               if {$i == 15} {
-	        set line_Npolar [split $line " "]
+	          set line_Npolar [split $line " "]
                 foreach j $line_Npolar {
                   set Npolar $j
                   }
@@ -1531,23 +1521,23 @@ if {$config == "true"} {
 	  if [file exists $SVMRangeFile] {
             if [file exists $SVMModelFile] {
               set MaskFile "$SupervisedDirInput/mask_valid_pixels.bin"
-	      set SVMConfigFile "$SupervisedDirOutput/svm_config_file_$SessionName.txt"
-	      set Fonction ""; set Fonction2 "Supervised Classification"
-    	      set ProgressLine "0"
+              set SVMConfigFile "$SupervisedDirOutput/svm_config_file.txt"
+              set Fonction ""; set Fonction2 "Supervised Classification"
+    	        set ProgressLine "0"
               WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
               update
-	      TextEditorRunTrace "Process The Function $SupervisedSVMClassifierFonction" "k"        
+	        TextEditorRunTrace "Process The Function $SupervisedSVMClassifierFonction" "k"        
               TextEditorRunTrace "Arguments: $SVMBatch \x22$PolsarProDir\x22 \x22$TMPScriptSVM\x22 \x22$SVMSupervisedDirInput\x22 $BMPSupervised \x22$SVMColorMapSupervised16\x22 \x22$SVMConfigFile\x22 \x22$MaskFile\x22 \x22$SVMSupervisedDirOutput\x22 \x22$FileTrainingArea\x22 \x22$TMPTrainingSet\x22 \x22$SVMRangeFile\x22 \x22$TMPTrainingSetNorm\x22 \x22$SVMModelFile\x22 \x22$ClassificationFile\x22 $TrainingSamplingVal $UnbalanceTraining $NewModel $RBFCV $Log2cBegin $Log2cEnd $Log2cStep $Log2gBegin $Log2gEnd $Log2gStep $Kernel $CostVal $PolyDeg $RBFGamma $ProbOut $DistOut $Npolar $PolarFiles" "k"
               set f [ open "| $SupervisedClassifierFonction $SVMBatch \x22$PolsarProDir\x22 \x22$TMPScriptSVM\x22 \x22$SVMSupervisedDirInput\x22 $BMPSupervised \x22$SVMColorMapSupervised16\x22 \x22$SVMConfigFile\x22 \x22$MaskFile\x22 \x22$SVMSupervisedDirOutput\x22 \x22$FileTrainingArea\x22 \x22$TMPTrainingSet\x22 \x22$SVMRangeFile\x22 \x22$TMPTrainingSetNorm\x22 \x22$SVMModelFile\x22 \x22$ClassificationFile\x22 $TrainingSamplingVal $UnbalanceTraining $NewModel $RBFCV $Log2cBegin $Log2cEnd $Log2cStep $Log2gBegin $Log2gEnd $Log2gStep $Kernel $CostVal $PolyDeg $RBFGamma $ProbOut $DistOut $Npolar $PolarFiles" r]
-	      PsPprogressBar $f
+	        PsPprogressBar $f
               TextEditorRunTrace "Check RunTime Errors" "r"
               CheckRunTimeError
               WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
               }
 	    } else {
 	    set VarError ""
-            set ErrorMessage "SVM RANGE and/or MODEL FILE DOES NOT EXIST" 
-            Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
+          set ErrorMessage "SVM RANGE and/or MODEL FILE DOES NOT EXIST" 
+          Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
 	    tkwait variable VarError 
 	    }
 
@@ -1567,18 +1557,18 @@ if {$config == "true"} {
 	  set Log2gStep $Save_Log2gStep
 	  set CostVal $Save_CostVal
 	  set PolyDeg $Save_PolyDeg
-          set PolyDegVar ""; if {$PolyDeg != "DISABLE"} { set PolyDeg $PolyDegVar }
+        set PolyDegVar ""; if {$PolyDeg != "DISABLE"} { set PolyDeg $PolyDegVar }
 	  set RBFGamma $Save_RBFGamma
-          set RBFGammaVar ""; if {$RBFGamma != "DISABLE"} { set RBFGamma $RBFGammaVar }
+        set RBFGammaVar ""; if {$RBFGamma != "DISABLE"} { set RBFGamma $RBFGammaVar }
 	
 	  set Save_PolarFiles $Save_PolarFiles 
-          }
+        }
 
         set ClassificationInputFile "$ClassificationFile"
         if [file exists $ClassificationInputFile] {EnviWriteConfigClassif $ClassificationInputFile $FinalNlig $FinalNcol 4 $ColorMapSupervised16 16}
         
-        set InClassificationFileBmp "$SupervisedDirOutput/svm_classification_file_$SessionName.bin.bmp"
-        set OutClassificationFileBmp "$SupervisedDirOutput/svm_classification_file_$SessionName.bmp"
+        set InClassificationFileBmp "$SupervisedDirOutput/svm_classification_file.bin.bmp"
+        set OutClassificationFileBmp "$SupervisedDirOutput/svm_classification_file.bmp"
         file rename -force -- $InClassificationFileBmp $OutClassificationFileBmp
 
         if {$ProbOut == "1"} {
@@ -1588,7 +1578,7 @@ if {$config == "true"} {
             if [file exists "$OutProbClassificationFile"] {
               set BMPDirInput $SupervisedDirOutput
               set BMPFileInput "$OutProbClassificationFile"
-              set BMPFileOutput "$SupervisedDirOutput/svm_classification_file_$SessionName"; append BMPFileOutput "_prob.bmp"
+              set BMPFileOutput "$SupervisedDirOutput/svm_classification_file"; append BMPFileOutput "_prob.bmp"
               PSPcreate_bmp_file black $BMPFileInput $BMPFileOutput float real jet  $FinalNcol  $OffsetLig  $OffsetCol  $FinalNlig  $FinalNcol 0 0 1
               } else {
               set VarError ""
@@ -1606,7 +1596,7 @@ if {$config == "true"} {
             if [file exists "$OutDistClassificationFile"] {
               set BMPDirInput $SupervisedDirOutput
               set BMPFileInput "$OutDistClassificationFile"
-              set BMPFileOutput "$SupervisedDirOutput/svm_classification_file_$SessionName"; append BMPFileOutput "_dist.bmp"
+              set BMPFileOutput "$SupervisedDirOutput/svm_classification_file"; append BMPFileOutput "_dist.bmp"
               PSPcreate_bmp_file black $BMPFileInput $BMPFileOutput float real jet  $FinalNcol  $OffsetLig  $OffsetCol  $FinalNlig  $FinalNcol 1 0 0
               } else {
               set VarError ""
@@ -1620,7 +1610,7 @@ if {$config == "true"} {
         if {$ConfusionMatrix == "1"} {
           set tmp_classification_name "svm_classification_file_"; append tmp_classification_name "$SessionName"
           append tmp_classification_name ".bin"
-	  set SVMSupervisedClassifierConfusionMatrixFonction "Soft/SVM/svm_confusion_matrix.exe"
+          set SVMSupervisedClassifierConfusionMatrixFonction "Soft/bin/SVM/svm_confusion_matrix.exe"
           set Fonction ""; set Fonction2 "Confusion Matrix Determination"
           WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
           TextEditorRunTrace "Process The Function $SVMSupervisedClassifierConfusionMatrixFonction" "k"
@@ -1649,9 +1639,9 @@ if {$config == "true"} {
                 update
                 set ClassificationOutputFile $ClassificationFileName
                 append ClassificationOutputFile "_pauli.bmp"
-                TextEditorRunTrace "Process The Function Soft/bmp_process/classification_colormap_pauli.exe" "k"
-                TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -iodf $DataFormatActive -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                set f [ open "| Soft/bmp_process/classification_colormap_pauli.exe -id \x22$SupervisedDirInput\x22 -iodf $DataFormatActive -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                TextEditorRunTrace "Process The Function Soft/bin/bmp_process/classification_colormap_pauli.exe" "k"
+                TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -iodf $DataFormatActive -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                set f [ open "| Soft/bin/bmp_process/classification_colormap_pauli.exe -id \x22$SupervisedDirInput\x22 -iodf $DataFormatActive -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                 PsPprogressBar $f
                 TextEditorRunTrace "Check RunTime Errors" "r"
                 CheckRunTimeError
@@ -1668,9 +1658,9 @@ if {$config == "true"} {
                 update
                 set ClassificationOutputFile $ClassificationFileName
                 append ClassificationOutputFile "_sinclair.bmp"
-                TextEditorRunTrace "Process The Function Soft/bmp_process/classification_colormap_sinclair.exe" "k"
-                TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -iodf $DataFormatActive -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-                set f [ open "| Soft/bmp_process/classification_colormap_sinclair.exe -id \x22$SupervisedDirInput\x22 -iodf $DataFormatActive -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+                TextEditorRunTrace "Process The Function Soft/bin/bmp_process/classification_colormap_sinclair.exe" "k"
+                TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -iodf $DataFormatActive -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+                set f [ open "| Soft/bin/bmp_process/classification_colormap_sinclair.exe -id \x22$SupervisedDirInput\x22 -iodf $DataFormatActive -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
                 PsPprogressBar $f
                 TextEditorRunTrace "Check RunTime Errors" "r"
                 CheckRunTimeError
@@ -1687,9 +1677,9 @@ if {$config == "true"} {
               update
               set ClassificationOutputFile $ClassificationFileName
               append ClassificationOutputFile "_pauli.bmp"
-              TextEditorRunTrace "Process The Function Soft/bmp_process/classification_colormap_SPPIPPC2.exe" "k"
-              TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -iodf $DataFormatActive -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -rgbf RGB1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-              set f [ open "| Soft/bmp_process/classification_colormap_SPPIPPC2.exe -id \x22$SupervisedDirInput\x22 -iodf $DataFormatActive -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -rgbf RGB1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+              TextEditorRunTrace "Process The Function Soft/bin/bmp_process/classification_colormap_SPPIPPC2.exe" "k"
+              TextEditorRunTrace "Arguments: -id \x22$SupervisedDirInput\x22 -iodf $DataFormatActive -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -rgbf RGB1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+              set f [ open "| Soft/bin/bmp_process/classification_colormap_SPPIPPC2.exe -id \x22$SupervisedDirInput\x22 -iodf $DataFormatActive -if \x22$ClassificationInputFile\x22 -of \x22$ClassificationOutputFile\x22 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -rgbf RGB1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
               PsPprogressBar $f
               TextEditorRunTrace "Check RunTime Errors" "r"
               CheckRunTimeError
@@ -1731,26 +1721,20 @@ if {$config == "true"} {
         set ::vTcl::balloon::%W {Run the Function}
     }
     button $site_3_0.but24 \
-        -activebackground SystemButtonFace -activeforeground SystemButtonText \
         -background #ffff00 \
-        -command {global BMPImageOpen OpenDirFile
+        -command {global OpenDirFile MapAlgebraConfigFileSupervised
 global PSPTopLevel Load_SVM_PolarIndic Load_SVM_RBFCrossVal
 
 if {$OpenDirFile == 0} {
-
-if {$BMPImageOpen == 1} {
-    ClosePSPViewer
-    Window hide $widget(Toplevel64); TextEditorRunTrace "Close Window PolSARpro Viewer" "b"
-    }
-if {$BMPImageOpen == 0} {
-    Window hide $widget(Toplevel47); TextEditorRunTrace "Close Window Graphic Editor" "b"
+    if {$MapAlgebraConfigFileSupervised != ""} { set MapAlgebraConfigFileSupervised [MapAlgebra_command $MapAlgebraConfigFileSupervised "quit" ""] }
     Window hide $widget(Toplevel394); TextEditorRunTrace "Close Window SVM Supervised Classification" "b"
-    }
-} 
+}
+
 if {$Load_SVM_RBFCrossVal == 1} {
 WidgetHideTop399; TextEditorRunTrace "Close Window Processing" "b"
 Window hide $widget(Toplevel395); TextEditorRunTrace "Close Window SVM RBF Cross Validation" "b"
 }
+
 if {$Load_SVM_PolarIndic == 1} {
     Window hide $widget(Toplevel396); TextEditorRunTrace "Close Window SVM Polarimetric Indicator Selection" "b"
 }} \
@@ -1773,7 +1757,6 @@ if {$Load_SVM_PolarIndic == 1} {
     }
     set site_4_0 [$top.cpd66 getframe]
     label $site_4_0.cpd72 \
-        -activebackground SystemButtonFace -activeforeground SystemButtonText \
         -foreground #000000 -highlightcolor #ff0000 -text {Areas File  } 
     vTcl:DefineAlias "$site_4_0.cpd72" "Label278" vTcl:WidgetProc "Toplevel394" 1
     entry $site_4_0.cpd73 \
@@ -1788,8 +1771,8 @@ if {$Load_SVM_PolarIndic == 1} {
     vTcl:DefineAlias "$site_4_0.cpd74" "Frame30" vTcl:WidgetProc "Toplevel394" 1
     set site_5_0 $site_4_0.cpd74
     button $site_5_0.cpd105 \
-        -activebackground SystemButtonFace -activeforeground SystemButtonText \
-        -command {global FileName SupervisedDirInput FileTrainingArea
+        \
+        -command {global FileName SupervisedDirInput FileTrainingArea MapAlgebraConfigFileSupervised 
 global NTrainingAreaClass AreaClassN NTrainingArea AreaN AreaPoint AreaPointLig AreaPointCol
 
 set FileTrainingAreaTmp $FileTrainingArea
@@ -1800,48 +1783,24 @@ set types {
 set FileName ""
 OpenFile "$SupervisedDirInput" $types "TRAINING AREAS FILE"
 if {$FileName != ""} {
-    set FileTrainingArea $FileName
-    }
-
-WaitUntilCreated $FileTrainingArea 
-if [file exists $FileTrainingArea] {
-    set f [open $FileTrainingArea r]
+    set f [open $FileName r]
     gets $f tmp
     if {$tmp == "NB_TRAINING_CLASSES"} {
-        gets $f NTrainingAreaClass
-        gets $f tmp
-        for {set i 1} {$i <= $NTrainingAreaClass} {incr i} {
-            gets $f tmp
-            gets $f tmp
-            gets $f NTrainingArea($i)
-            gets $f tmp
-            for {set j 1} {$j <= $NTrainingArea($i)} {incr j} {
-                gets $f tmp
-                gets $f NAreaPoint
-                set Argument [expr (100*$i + $j)]
-                set AreaPoint($Argument) $NAreaPoint
-                for {set k 1} {$k <= $NAreaPoint} {incr k} {
-                    gets $f tmp
-                    set Argument1 [expr (10000*$i + 100*$j + $k)]
-                    gets $f tmp
-                    gets $f AreaPointLig($Argument1)
-                    gets $f tmp
-                    gets $f AreaPointCol($Argument1)
-                    }
-                gets $f tmp
-                }
+        set FileTrainingArea $FileName
+        if {$MapAlgebraConfigFileSupervised != ""} {
+            set MapAlgebraConfigFileSupervised [MapAlgebra_command $MapAlgebraConfigFileSupervised "quit" ""]
+            set MapAlgebraConfigFileSupervised ""
             }
-        close $f
-        set AreaClassN 1
-        set AreaN 1
+        $widget(Button394_1) configure -state normal
+        $widget(Checkbutton394_5) configure -state normal
         } else {
         set ErrorMessage "TRAINING AREAS FILE NOT VALID"
         Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
         tkwait variable VarError
         set FileTrainingArea $FileTrainingAreaTmp
+        $widget(Button394_1) configure -state disable
+        $widget(Checkbutton394_5) configure -state disable
         }
-        $widget(Button394_1) configure -state normal
-        $widget(Checkbutton394_5) configure -state normal
     }} \
         -foreground black -highlightcolor black \
         -image [vTcl:image:get_image [file join . GUI Images OpenFile.gif]] \
@@ -1856,15 +1815,12 @@ if [file exists $FileTrainingArea] {
     frame $site_4_0.cpd69
     set site_5_0 $site_4_0.cpd69
     button $site_5_0.cpd75 \
-        -activebackground SystemButtonFace -activeforeground SystemButtonText \
         -background #ffff00 \
         -command {global VarTrainingArea NTrainingAreaClass AreaClassN NTrainingArea AreaN AreaPointLig AreaPointCol AreaPoint AreaPointN
-global BMPDirInput rect_color OpenDirFile GraphicEditorType
-global MouseInitX MouseInitY MouseEndX MouseEndY MouseNlig MouseNcol TrainingAreaToolLine
+global BMPDirInput OpenDirFile SupervisedDirInput FileTrainingArea
+global MapAlgebraBMPFile MapAlgebraConfigFileSupervised
 
 if {$OpenDirFile == 0} {
-
-ClosePSPViewer
 
 set WarningMessage "OPEN A BMP FILE TO SELECT"
 set WarningMessage2 "THE TRAINING AREAS"
@@ -1874,7 +1830,14 @@ tkwait variable VarWarning
 
 if {$VarWarning == "ok"} {
 
-LoadPSPViewer
+set types {
+{{BMP Files}        {.bmp}        }
+}
+set filename ""
+set filename [tk_getOpenFile -initialdir $SupervisedDirInput -filetypes $types -title "INPUT BMP FILE"]
+if {$filename != ""} {
+    set MapAlgebraBMPFile $filename
+    }
 
 set NTrainingAreaClassTmp $NTrainingAreaClass
 for {set i 1} {$i <= $NTrainingAreaClass} {incr i} {
@@ -1890,28 +1853,28 @@ for {set i 1} {$i <= $NTrainingAreaClass} {incr i} {
             }
         }
     }
-
-set BMPDirInput $SupervisedDirInput
-Window show $widget(Toplevel64); TextEditorRunTrace "Open Window PolSARpro Viewer" "b"
-
-set MouseInitX $AreaPointCol(10101)
-set MouseInitY $AreaPointLig(10101)
-set MouseEndX [expr $AreaPointCol(10101) + $MouseInitX -1]
-set MouseEndY [expr $AreaPointLig(10101) + $MouseInitY -1]
-set MouseNlig [expr abs($MouseEndY - $MouseInitY) +1]
-set MouseNcol [expr abs($MouseEndX - $MouseInitX) +1]
 set AreaClassN 1
 set AreaN 1
 set AreaPointN ""
 set TrainingAreaToolLine "false"
 
-set rect_color "white"
-set b .top47.fra41.but29
-$b configure -background $rect_color -foreground $rect_color
-
 set VarTrainingArea "no"
-set GraphicEditorType "svm_"
-WidgetShowFromWidget $widget(Toplevel394) $widget(Toplevel47); TextEditorRunTrace "Open Window Graphic Editor" "b"
+set MapAlgebraSession [ MapAlgebra_session ]
+set MapAlgebraConfigFileSupervised "$TMPDir/$MapAlgebraSession"; append MapAlgebraConfigFileSupervised "_mapalgebrapaths.txt"
+set FileTrainingArea "$SupervisedDirInput/$MapAlgebraSession"; append FileTrainingArea "_svm_training_areas.txt"
+DeleteFile $FileTrainingArea
+$widget(Button394_1) configure -state disable
+$widget(Checkbutton394_5) configure -state disable
+MapAlgebra_init "TrainingArea" $MapAlgebraSession $FileTrainingArea
+MapAlgebra_launch $MapAlgebraConfigFileSupervised $MapAlgebraBMPFile
+WaitUntilCreated $FileTrainingArea
+if [file exists $FileTrainingArea] {
+    set VarTrainingArea "ok"
+    set MapAlgebraConfigFileSupervised [MapAlgebra_command $MapAlgebraConfigFileSupervised "quit" ""]
+    set MapAlgebraConfigFileSupervised ""
+    $widget(Button394_1) configure -state normal
+    $widget(Checkbutton394_5) configure -state normal
+    }
 tkwait variable VarTrainingArea
 
 #Return after Graphic Editor Exit
@@ -1933,13 +1896,7 @@ if {"$VarTrainingArea"=="no"} {
     set AreaClassN 1
     set AreaN 1
     }
-
-MouseActiveFunction ""
-#$widget(Button394_3) configure -state normal
-$widget(Button394_1) configure -state normal
-$widget(Checkbutton394_5) configure -state normal
-
-}
+  }
 }} \
         -foreground black -highlightcolor black -padx 4 -pady 2 -takefocus 0 \
         -text {Graphic Editor} 
@@ -1948,37 +1905,8 @@ $widget(Checkbutton394_5) configure -state normal
     bind $site_5_0.cpd75 <<SetBalloon>> {
         set ::vTcl::balloon::%W {Training Areas Graphic Editor}
     }
-    button $site_5_0.cpd76 \
-        -activebackground SystemButtonFace -activeforeground SystemButtonText \
-        -background #ffff00 \
-        -command {global FileTrainingArea OpenDirFile
-#UTIL
-global Load_TextEdit PSPTopLevel
-
-if {$OpenDirFile == 0} {
-
-if {$Load_TextEdit == 0} {
-    source "GUI/util/TextEdit.tcl"
-    set Load_TextEdit 1
-    WmTransient $widget(Toplevel95) $PSPTopLevel
-    }
-
-TextEditorFromWidget .top394 $FileTrainingArea
-#$widget(Button394_3) configure -state normal
-$widget(Button394_1) configure -state normal
-$widget(Checkbutton394_5) configure -state normal
-}} \
-        -foreground black -highlightcolor black -padx 4 -pady 2 -takefocus 0 \
-        -text {Text Editor} 
-    vTcl:DefineAlias "$site_5_0.cpd76" "Button651" vTcl:WidgetProc "Toplevel394" 1
-    bindtags $site_5_0.cpd76 "$site_5_0.cpd76 Button $top all _vTclBalloon"
-    bind $site_5_0.cpd76 <<SetBalloon>> {
-        set ::vTcl::balloon::%W {Training Areas Text Editor}
-    }
     pack $site_5_0.cpd75 \
         -in $site_5_0 -anchor center -expand 0 -fill x -pady 1 -side top 
-    pack $site_5_0.cpd76 \
-        -in $site_5_0 -anchor center -expand 0 -fill x -side top 
     pack $site_4_0.cpd72 \
         -in $site_4_0 -anchor center -expand 0 -fill none -side left 
     pack $site_4_0.cpd73 \
@@ -2004,7 +1932,6 @@ $widget(Checkbutton394_5) configure -state normal
     vTcl:DefineAlias "$site_5_0.fra23" "Frame270" vTcl:WidgetProc "Toplevel394" 1
     set site_6_0 $site_5_0.fra23
     checkbutton $site_6_0.che24 \
-        -activebackground SystemButtonFace -activeforeground SystemWindowText \
         -foreground black -highlightcolor black -takefocus 0 -text BMP \
         -variable BMPSupervised 
     vTcl:DefineAlias "$site_6_0.che24" "Checkbutton89" vTcl:WidgetProc "Toplevel394" 1
@@ -2015,12 +1942,10 @@ $widget(Checkbutton394_5) configure -state normal
     vTcl:DefineAlias "$site_5_0.fra29" "Frame273" vTcl:WidgetProc "Toplevel394" 1
     set site_6_0 $site_5_0.fra29
     checkbutton $site_6_0.che30 \
-        -activebackground SystemButtonFace -activeforeground SystemWindowText \
         -foreground black -highlightcolor black -takefocus 0 \
         -text {Confusion Matrix} -variable ConfusionMatrix 
     vTcl:DefineAlias "$site_6_0.che30" "Checkbutton94" vTcl:WidgetProc "Toplevel394" 1
     button $site_6_0.but31 \
-        -activebackground SystemButtonFace -activeforeground SystemButtonText \
         -background #ffff00 \
         -command {global ConfusionMatrix NwinSupervised SupervisedDirOutput OpenDirFile
 #UTIL
@@ -2088,7 +2013,6 @@ if {$ConfusionMatrix == 1} {
     vTcl:DefineAlias "$site_5_0.fra91" "Frame42" vTcl:WidgetProc "Toplevel394" 1
     set site_6_0 $site_5_0.fra91
     label $site_6_0.cpd95 \
-        -activebackground SystemButtonFace -activeforeground SystemButtonText \
         -foreground black -highlightcolor black -text {ColorMap 16} 
     vTcl:DefineAlias "$site_6_0.cpd95" "Label131" vTcl:WidgetProc "Toplevel394" 1
     pack $site_6_0.cpd95 \
@@ -2098,7 +2022,7 @@ if {$ConfusionMatrix == 1} {
     vTcl:DefineAlias "$site_5_0.fra92" "Frame43" vTcl:WidgetProc "Toplevel394" 1
     set site_6_0 $site_5_0.fra92
     button $site_6_0.but80 \
-        -activebackground SystemButtonFace -activeforeground SystemButtonText \
+        \
         -command {global FileName SupervisedDirInput ColorMapSupervised16
 
 set types {
@@ -2118,7 +2042,6 @@ if {$FileName != ""} {
         set ::vTcl::balloon::%W {Open File}
     }
     button $site_6_0.cpd102 \
-        -activebackground SystemButtonFace -activeforeground SystemButtonText \
         -background #ffff00 \
         -command {global ColorMapSupervised16 VarColorMap
 global ColorMapIn ColorMapOut ColorNumber ColorMapNumber
@@ -2250,7 +2173,7 @@ if {"$VarColorMap"=="ok"} {
     vTcl:DefineAlias "$site_4_0.cpd101" "Frame663" vTcl:WidgetProc "Toplevel394" 1
     set site_5_0 $site_4_0.cpd101
     checkbutton $site_5_0.che24 \
-        -activebackground SystemButtonFace -activeforeground SystemWindowText \
+        \
         -command {global ColorMapSupervisedCoded ColorMapSupervisedCodedPauli ColorMapSupervisedCodedSinclair
 
 if {$ColorMapSupervisedCoded == "0"} {
@@ -2287,12 +2210,10 @@ if {$ColorMapSupervisedCoded == "1"} {
     vTcl:DefineAlias "$site_6_0.fra38" "Frame93" vTcl:WidgetProc "Toplevel394" 1
     set site_7_0 $site_6_0.fra38
     checkbutton $site_7_0.che29 \
-        -activebackground SystemButtonFace -activeforeground SystemWindowText \
         -foreground black -highlightcolor black -takefocus 0 \
         -text {Pauli    } -variable ColorMapSupervisedCodedPauli 
     vTcl:DefineAlias "$site_7_0.che29" "Checkbutton394_1" vTcl:WidgetProc "Toplevel394" 1
     checkbutton $site_7_0.che31 \
-        -activebackground SystemButtonFace -activeforeground SystemWindowText \
         -foreground black -highlightcolor black -takefocus 0 -text Sinclair \
         -variable ColorMapSupervisedCodedSinclair 
     vTcl:DefineAlias "$site_7_0.che31" "Checkbutton394_2" vTcl:WidgetProc "Toplevel394" 1
@@ -2309,15 +2230,12 @@ if {$ColorMapSupervisedCoded == "1"} {
     vTcl:DefineAlias "$site_7_0.fra42" "Frame82" vTcl:WidgetProc "Toplevel394" 1
     set site_8_0 $site_7_0.fra42
     label $site_8_0.lab47 \
-        -activebackground SystemButtonFace -activeforeground SystemButtonText \
         -foreground #0000ff -highlightcolor black -text |S11+S22| 
     vTcl:DefineAlias "$site_8_0.lab47" "Label394_1" vTcl:WidgetProc "Toplevel394" 1
     label $site_8_0.lab48 \
-        -activebackground SystemButtonFace -activeforeground SystemButtonText \
         -foreground #008000 -highlightcolor black -text |S12+S21| 
     vTcl:DefineAlias "$site_8_0.lab48" "Label394_2" vTcl:WidgetProc "Toplevel394" 1
     label $site_8_0.lab49 \
-        -activebackground SystemButtonFace -activeforeground SystemButtonText \
         -foreground #ff0000 -highlightcolor black -text |S11-S22| 
     vTcl:DefineAlias "$site_8_0.lab49" "Label394_3" vTcl:WidgetProc "Toplevel394" 1
     pack $site_8_0.lab47 \
@@ -2331,15 +2249,12 @@ if {$ColorMapSupervisedCoded == "1"} {
     vTcl:DefineAlias "$site_7_0.fra43" "Frame86" vTcl:WidgetProc "Toplevel394" 1
     set site_8_0 $site_7_0.fra43
     label $site_8_0.lab52 \
-        -activebackground SystemButtonFace -activeforeground SystemButtonText \
         -foreground #0000ff -highlightcolor black -text |S11| 
     vTcl:DefineAlias "$site_8_0.lab52" "Label394_4" vTcl:WidgetProc "Toplevel394" 1
     label $site_8_0.lab53 \
-        -activebackground SystemButtonFace -activeforeground SystemButtonText \
         -foreground #008000 -highlightcolor black -text |(S12+S21)/2| 
     vTcl:DefineAlias "$site_8_0.lab53" "Label394_5" vTcl:WidgetProc "Toplevel394" 1
     label $site_8_0.lab54 \
-        -activebackground SystemButtonFace -activeforeground SystemButtonText \
         -foreground #ff0000 -highlightcolor black -text |S22| 
     vTcl:DefineAlias "$site_8_0.lab54" "Label394_6" vTcl:WidgetProc "Toplevel394" 1
     pack $site_8_0.lab52 \
@@ -2387,7 +2302,6 @@ if {$ColorMapSupervisedCoded == "1"} {
     vTcl:DefineAlias "$site_7_0.cpd77" "Frame53" vTcl:WidgetProc "Toplevel394" 1
     set site_8_0 $site_7_0.cpd77
     radiobutton $site_8_0.rad91 \
-        -activebackground SystemButtonFace -activeforeground SystemWindowText \
         -borderwidth 0 \
         -command {global PolarIndic DataFormatActive StandardPol
 global PolarIndicFloatFlag Load_SVM_PolarIndic RBFGamma RBFGammaVar 
@@ -2442,7 +2356,7 @@ if {$Load_SVM_PolarIndic == 1} {
     vTcl:DefineAlias "$site_7_0.fra70" "Frame54" vTcl:WidgetProc "Toplevel394" 1
     set site_8_0 $site_7_0.fra70
     radiobutton $site_8_0.cpd71 \
-        -activebackground SystemButtonFace -activeforeground SystemWindowText \
+        \
         -command {global PolarIndic StandardPol PolarIndicFloatFlag
 
 set StandardPol "0"
@@ -2454,7 +2368,6 @@ InitRBF} \
         -variable StandardPol 
     vTcl:DefineAlias "$site_8_0.cpd71" "Radiobutton394_2" vTcl:WidgetProc "Toplevel394" 1
     button $site_8_0.cpd72 \
-        -activebackground SystemButtonFace -activeforeground SystemButtonText \
         -background #ffff00 \
         -command {global OpenDirFile SupervisedDirInput
 global PolarIndicBinFile RBFGamma RBFGammaVar
@@ -2517,13 +2430,12 @@ set TMPBinFiles ""
     vTcl:DefineAlias "$site_8_0.fra23" "Frame383" vTcl:WidgetProc "Toplevel394" 1
     set site_9_0 $site_8_0.fra23
     checkbutton $site_9_0.cpd79 \
-        -activebackground SystemButtonFace -activeforeground SystemWindowText \
         -foreground black -highlightcolor black -takefocus 0 \
         -text {If important unbalanced training point} \
         -variable UnbalanceTraining 
     vTcl:DefineAlias "$site_9_0.cpd79" "Checkbutton394_4" vTcl:WidgetProc "Toplevel394" 1
     checkbutton $site_9_0.cpd77 \
-        -activebackground SystemButtonFace -activeforeground SystemWindowText \
+        \
         -command {global TrainingSampling
 
 if {$TrainingSampling == "0"} {
@@ -2574,7 +2486,6 @@ $widget(Entry394_4) configure -disabledbackground #FFFFFF
     vTcl:DefineAlias "$site_9_0.fra74" "Frame55" vTcl:WidgetProc "Toplevel394" 1
     set site_10_0 $site_9_0.fra74
     checkbutton $site_10_0.cpd75 \
-        -activebackground SystemButtonFace -activeforeground SystemWindowText \
         -borderwidth 0 \
         -command {global ProbOut
 
@@ -2588,7 +2499,6 @@ $widget(Checkbutton394_6) configure -state normal
         -text {Class Probability} -variable ProbOut 
     vTcl:DefineAlias "$site_10_0.cpd75" "Checkbutton172" vTcl:WidgetProc "Toplevel394" 1
     checkbutton $site_10_0.cpd76 \
-        -activebackground SystemButtonFace -activeforeground SystemWindowText \
         -borderwidth 0 \
         -command {global DistOut
 
@@ -2615,12 +2525,10 @@ $widget(Checkbutton394_7) configure -state normal
     vTcl:DefineAlias "$site_9_0.fra77" "Frame56" vTcl:WidgetProc "Toplevel394" 1
     set site_10_0 $site_9_0.fra77
     checkbutton $site_10_0.cpd78 \
-        -activebackground SystemButtonFace -activeforeground SystemWindowText \
         -foreground black -highlightcolor black -takefocus 0 -text BMP \
         -variable BMPProb 
     vTcl:DefineAlias "$site_10_0.cpd78" "Checkbutton394_6" vTcl:WidgetProc "Toplevel394" 1
     checkbutton $site_10_0.cpd79 \
-        -activebackground SystemButtonFace -activeforeground SystemWindowText \
         -foreground black -highlightcolor black -takefocus 0 -text BMP \
         -variable BMPDist 
     vTcl:DefineAlias "$site_10_0.cpd79" "Checkbutton394_7" vTcl:WidgetProc "Toplevel394" 1
@@ -2660,7 +2568,6 @@ $widget(Checkbutton394_7) configure -state normal
     vTcl:DefineAlias "$site_7_0.fra72" "Frame87" vTcl:WidgetProc "Toplevel394" 1
     set site_8_0 $site_7_0.fra72
     label $site_8_0.cpd79 \
-        -activebackground SystemButtonFace -activeforeground SystemButtonText \
         -foreground black -highlightcolor black -text Cost 
     vTcl:DefineAlias "$site_8_0.cpd79" "Label394_10" vTcl:WidgetProc "Toplevel394" 1
     entry $site_8_0.cpd78 \
@@ -2691,7 +2598,6 @@ $widget(Checkbutton394_7) configure -state normal
     vTcl:DefineAlias "$site_10_0.cpd68" "Frame6" vTcl:WidgetProc "Toplevel394" 1
     set site_11_0 $site_10_0.cpd68
     checkbutton $site_11_0.cpd69 \
-        -activebackground SystemButtonFace -activeforeground SystemWindowText \
         -borderwidth 0 \
         -command {global FileTrainingArea RBFCV
 
@@ -2718,7 +2624,6 @@ if {$RBFCV == 1} {
     pack $site_11_0.lab71 \
         -in $site_11_0 -anchor center -expand 0 -fill none -side top 
     button $site_10_0.cpd70 \
-        -activebackground SystemButtonFace -activeforeground SystemButtonText \
         -background #ffff00 \
         -command {global OpenDirFile SupervisedDirInput FileTrainingArea
 global PolarIndicBinFile ENVIHdrFile ENVICommonFormatFlag
@@ -2775,7 +2680,6 @@ if [file exists $FileTrainingArea] {
     vTcl:DefineAlias "$site_9_0.fra72" "Frame7" vTcl:WidgetProc "Toplevel394" 1
     set site_10_0 $site_9_0.fra72
     radiobutton $site_10_0.cpd73 \
-        -activebackground SystemButtonFace -activeforeground SystemWindowText \
         -borderwidth 0 \
         -command {global TrainingSamplingVal TrainingSampling UnbalanceTraining OldModel NewModel
 global CostVal PolyDeg RBFGamma PolyDegVar RBFGammaVar Npolar
@@ -2797,7 +2701,6 @@ if {$Npolar == 0} {
         -variable Kernel 
     vTcl:DefineAlias "$site_10_0.cpd73" "Radiobutton394_3" vTcl:WidgetProc "Toplevel394" 1
     label $site_10_0.cpd74 \
-        -activebackground SystemButtonFace -activeforeground SystemButtonText \
         -borderwidth 0 -foreground black -highlightcolor black \
         -text {Gamma = 1/sigma} 
     vTcl:DefineAlias "$site_10_0.cpd74" "Label394_11" vTcl:WidgetProc "Toplevel394" 1
@@ -2828,7 +2731,6 @@ if {$Npolar == 0} {
     vTcl:DefineAlias "$site_9_0.cpd67" "Frame95" vTcl:WidgetProc "Toplevel394" 1
     set site_10_0 $site_9_0.cpd67
     radiobutton $site_10_0.cpd104 \
-        -activebackground SystemButtonFace -activeforeground SystemWindowText \
         -borderwidth 0 \
         -command {global TrainingSamplingVal TrainingSampling UnbalanceTraining OldModel NewModel
 global CostVal PolyDeg RBFGamma PolyDegVar RBFGammaVar Npolar
@@ -2874,7 +2776,6 @@ Window hide $widget(Toplevel395); TextEditorRunTrace "Close Window SVM RBF Cross
         -text Polynomial -value 1 -variable Kernel 
     vTcl:DefineAlias "$site_10_0.cpd104" "Radiobutton394_4" vTcl:WidgetProc "Toplevel394" 1
     label $site_10_0.cpd90 \
-        -activebackground SystemButtonFace -activeforeground SystemButtonText \
         -foreground black -highlightcolor black -text Degree 
     vTcl:DefineAlias "$site_10_0.cpd90" "Label394_13" vTcl:WidgetProc "Toplevel394" 1
     entry $site_10_0.cpd89 \
@@ -2898,7 +2799,6 @@ Window hide $widget(Toplevel395); TextEditorRunTrace "Close Window SVM RBF Cross
     vTcl:DefineAlias "$site_8_0.fra79" "Frame13" vTcl:WidgetProc "Toplevel394" 1
     set site_9_0 $site_8_0.fra79
     radiobutton $site_9_0.cpd80 \
-        -activebackground SystemButtonFace -activeforeground SystemWindowText \
         -borderwidth 0 \
         -command {global TrainingSamplingVal TrainingSampling UnbalanceTraining OldModel NewModel
 global CostVal PolyDeg RBFGamma PolyDegVar RBFGammaVar

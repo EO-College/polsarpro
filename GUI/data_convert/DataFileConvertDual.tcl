@@ -735,7 +735,7 @@ global VarError ErrorMessage VarWarning WarningMessage WarningMessage2
 global NligInit NligEnd NligFullSize NcolInit NcolEnd NcolFullSize
 global MultiLookRow MultiLookCol SubSampRow SubSampCol
 global OffsetLig OffsetCol FinalNlig FinalNcol 
-global ProgressLine ConfigFile PolarCase PolarType PSPMemory TMPMemoryAllocError
+global ProgressLine ConfigFile PolarCase PolarType TMPMemoryAllocError
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
 
 if {$OpenDirFile == 0} {
@@ -844,21 +844,21 @@ if {$config == "okok"} {
             update
             set ConvertSymmetrisation "1"   
 
-            set ExtractFunction "Soft/data_convert/data_convert.exe"
+            set ExtractFunction "Soft/bin/data_convert/data_convert.exe"
             TextEditorRunTrace "Process The Function $ExtractFunction" "k"
-            set ExtractCommand "-id \x22$ConvertMasterDirInput\x22 -od \x22$ConvertMasterDirOutput\x22 -iodf $ConvertOutputFormat -sym $ConvertSymmetrisation "
+            set ExtractCommand "-id \x22$ConvertMasterDirInput\x22 -od \x22$ConvertMasterOutputDir\x22 -iodf $ConvertOutputFormat -sym $ConvertSymmetrisation "
             append ExtractCommand "-ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol "
             if {$ConvertExtractFonction == "Full"} {append ExtractCommand "-nlr 1 -nlc 1 -ssr 1 -ssc 1"}
             if {$ConvertExtractFonction == "SubSamp"} {append ExtractCommand "-nlr 1 -nlc 1 -ssr $SubSampRow -ssc $SubSampCol"}
             if {$ConvertExtractFonction == "MultiLook"} {append ExtractCommand "-nlr $MultiLookRow -nlc $MultiLookCol -ssr 1 -ssc 1"}
 
-            TextEditorRunTrace "Arguments: $ExtractCommand -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22" "k"
-            set f [ open "| $ExtractFunction $ExtractCommand -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22" r]
+            TextEditorRunTrace "Arguments: $ExtractCommand  -errf \x22$TMPMemoryAllocError\x22" "k"
+            set f [ open "| $ExtractFunction $ExtractCommand  -errf \x22$TMPMemoryAllocError\x22" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
             
-            set ExtractFunction "Soft/data_convert/data_convert.exe"
+            set ExtractFunction "Soft/bin/data_convert/data_convert.exe"
             TextEditorRunTrace "Process The Function $ExtractFunction" "k"
             set ExtractCommand "-id \x22$ConvertSlaveDirInput\x22 -od \x22$ConvertSlaveDirOutput\x22 -iodf $ConvertOutputFormat -sym $ConvertSymmetrisation "
             append ExtractCommand "-ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol "
@@ -866,8 +866,8 @@ if {$config == "okok"} {
             if {$ConvertExtractFonction == "SubSamp"} {append ExtractCommand "-nlr 1 -nlc 1 -ssr $SubSampRow -ssc $SubSampCol"}
             if {$ConvertExtractFonction == "MultiLook"} {append ExtractCommand "-nlr $MultiLookRow -nlc $MultiLookCol -ssr 1 -ssc 1"}
 
-            TextEditorRunTrace "Arguments: $ExtractCommand -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22" "k"
-            set f [ open "| $ExtractFunction $ExtractCommand -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22" r]
+            TextEditorRunTrace "Arguments: $ExtractCommand  -errf \x22$TMPMemoryAllocError\x22" "k"
+            set f [ open "| $ExtractFunction $ExtractCommand  -errf \x22$TMPMemoryAllocError\x22" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -931,7 +931,7 @@ global VarError ErrorMessage VarWarning WarningMessage WarningMessage2
 global NligInit NligEnd NligFullSize NcolInit NcolEnd NcolFullSize
 global MultiLookRow MultiLookCol SubSampRow SubSampCol
 global OffsetLig OffsetCol FinalNlig FinalNcol 
-global ProgressLine ConfigFile PolarCase PolarType PSPMemory TMPMemoryAllocError
+global ProgressLine ConfigFile PolarCase PolarType TMPMemoryAllocError
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
 
 if {$OpenDirFile == 0} {
@@ -1003,7 +1003,7 @@ if {$ConvertDirOutput == $ConvertMasterDirInput} {
             update
             set ConvertSymmetrisation "1"   
             
-            set ExtractFunction "Soft/data_convert/data_convert.exe"
+            set ExtractFunction "Soft/bin/data_convert/data_convert.exe"
             TextEditorRunTrace "Process The Function $ExtractFunction" "k"
             set ExtractCommand "-id \x22$ConvertMasterDirInput\x22 -od \x22$ConvertDirOutput\x22 -iodf $ConvertOutputFormat -sym $ConvertSymmetrisation "
             append ExtractCommand "-ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol "
@@ -1011,8 +1011,8 @@ if {$ConvertDirOutput == $ConvertMasterDirInput} {
             if {$ConvertExtractFonction == "SubSamp"} {append ExtractCommand "-nlr 1 -nlc 1 -ssr $SubSampRow -ssc $SubSampCol"}
             if {$ConvertExtractFonction == "MultiLook"} {append ExtractCommand "-nlr $MultiLookRow -nlc $MultiLookCol -ssr 1 -ssc 1"}
 
-            TextEditorRunTrace "Arguments: $ExtractCommand -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22" "k"
-            set f [ open "| $ExtractFunction $ExtractCommand -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22" r]
+            TextEditorRunTrace "Arguments: $ExtractCommand  -errf \x22$TMPMemoryAllocError\x22" "k"
+            set f [ open "| $ExtractFunction $ExtractCommand  -errf \x22$TMPMemoryAllocError\x22" r]
             PsPprogressBar $f           
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1059,7 +1059,7 @@ global VarError ErrorMessage VarWarning WarningMessage WarningMessage2
 global NligInit NligEnd NligFullSize NcolInit NcolEnd NcolFullSize
 global MultiLookRow MultiLookCol SubSampRow SubSampCol
 global OffsetLig OffsetCol FinalNlig FinalNcol 
-global ProgressLine ConfigFile PolarCase PolarType PSPMemory TMPMemoryAllocError
+global ProgressLine ConfigFile PolarCase PolarType TMPMemoryAllocError
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
 
 if {$OpenDirFile == 0} {
@@ -1144,7 +1144,7 @@ if {$config == "okok"} {
             update
             set ConvertSymmetrisation "1"   
             
-            set ExtractFunction "Soft/data_convert/data_convert_dual.exe"
+            set ExtractFunction "Soft/bin/data_convert/data_convert_dual.exe"
             TextEditorRunTrace "Process The Function $ExtractFunction" "k"
             set ExtractCommand "-idm \x22$ConvertMasterDirInput\x22 -ids \x22$ConvertSlaveDirInput\x22 -od \x22$ConvertDirOutput\x22 -iodf $ConvertOutputFormat -sym $ConvertSymmetrisation "
             append ExtractCommand "-ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol "
@@ -1152,8 +1152,8 @@ if {$config == "okok"} {
             if {$ConvertExtractFonction == "SubSamp"} {append ExtractCommand "-nlr 1 -nlc 1 -ssr $SubSampRow -ssc $SubSampCol"}
             if {$ConvertExtractFonction == "MultiLook"} {append ExtractCommand "-nlr $MultiLookRow -nlc $MultiLookCol -ssr 1 -ssc 1"}
 
-            TextEditorRunTrace "Arguments: $ExtractCommand -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22" "k"
-            set f [ open "| $ExtractFunction $ExtractCommand -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22" r]
+            TextEditorRunTrace "Arguments: $ExtractCommand  -errf \x22$TMPMemoryAllocError\x22" "k"
+            set f [ open "| $ExtractFunction $ExtractCommand  -errf \x22$TMPMemoryAllocError\x22" r]
             PsPprogressBar $f           
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1195,7 +1195,7 @@ proc ::DualConvertRGB_S2 {Directory} {
 global BMPDirInput
 global VarError ErrorMessage Fonction Fonction2
 global NligFullSize NcolFullSize PSPViewGimpBMP
-global ProgressLine PSPMemory TMPMemoryAllocError 
+global ProgressLine TMPMemoryAllocError 
    
 set RGBDirInput $Directory
 set RGBDirOutput $Directory
@@ -1248,15 +1248,15 @@ if {"$config"=="true"} {
     set ProgressLine "0"
     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
     update
-    TextEditorRunTrace "Process The Function Soft/bmp_process/create_pauli_rgb_file.exe" "k"
-    TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf S2 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
-    set f [ open "| Soft/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf S2 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
+    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_pauli_rgb_file.exe" "k"
+    TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf S2 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
+    set f [ open "| Soft/bin/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf S2 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError
     set BMPDirInput $RGBDirOutput
     WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-    if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+    if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
     }
 }
 #############################################################################
@@ -1266,7 +1266,7 @@ proc ::DualConvertRGB_T6 {} {
 global ConvertDirOutput BMPDirInput
 global VarError ErrorMessage Fonction Fonction2
 global NligFullSize NcolFullSize PSPViewGimpBMP
-global ProgressLine PSPMemory TMPMemoryAllocError 
+global ProgressLine TMPMemoryAllocError 
    
 set RGBDirInput $ConvertDirOutput
 set RGBDirOutput $ConvertDirOutput
@@ -1310,15 +1310,15 @@ if {"$config"=="true"} {
     set ProgressLine "0"
     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
     update
-    TextEditorRunTrace "Process The Function Soft/bmp_process/create_pauli_rgb_file_T6.exe" "k"
-    TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -ch 1 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-    set f [ open "| Soft/bmp_process/create_pauli_rgb_file_T6.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -ch 1 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_pauli_rgb_file_T6.exe" "k"
+    TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -ch 1 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+    set f [ open "| Soft/bin/bmp_process/create_pauli_rgb_file_T6.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -ch 1 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError
     set BMPDirInput $RGBDirOutput
     WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-    if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+    if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
     }
 set RGBDirInput $ConvertDirOutput
 set RGBDirOutput $ConvertDirOutput
@@ -1362,15 +1362,15 @@ if {"$config"=="true"} {
     set ProgressLine "0"
     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
     update
-    TextEditorRunTrace "Process The Function Soft/bmp_process/create_pauli_rgb_file_T6.exe" "k"
-    TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -ch 2 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-    set f [ open "| Soft/bmp_process/create_pauli_rgb_file_T6.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -ch 2 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_pauli_rgb_file_T6.exe" "k"
+    TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -ch 2 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+    set f [ open "| Soft/bin/bmp_process/create_pauli_rgb_file_T6.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -ch 2 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError
     set BMPDirInput $RGBDirOutput
     WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-    if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+    if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
     }
 }
 #############################################################################
@@ -1384,7 +1384,7 @@ global VarError ErrorMessage VarWarning WarningMessage WarningMessage2
 global NligInit NligEnd NligFullSize NcolInit NcolEnd NcolFullSize
 global MultiLookRow MultiLookCol SubSampRow SubSampCol
 global OffsetLig OffsetCol FinalNlig FinalNcol 
-global ProgressLine ConfigFile PolarCase PolarType PSPMemory TMPMemoryAllocError
+global ProgressLine ConfigFile PolarCase PolarType TMPMemoryAllocError
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
 
 if {$OpenDirFile == 0} {
@@ -1493,21 +1493,21 @@ if {$config == "okok"} {
             update
             set ConvertSymmetrisation "1"   
 
-            set ExtractFunction "Soft/data_convert/data_convert.exe"
+            set ExtractFunction "Soft/bin/data_convert/data_convert.exe"
             TextEditorRunTrace "Process The Function $ExtractFunction" "k"
-            set ExtractCommand "-id \x22$ConvertMasterDirInput\x22 -od \x22$ConvertMasterDirOutput\x22 -iodf $ConvertOutputFormat -sym $ConvertSymmetrisation "
+            set ExtractCommand "-id \x22$ConvertMasterDirInput\x22 -od \x22$ConvertMasterOutputDir\x22 -iodf $ConvertOutputFormat -sym $ConvertSymmetrisation "
             append ExtractCommand "-ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol "
             if {$ConvertExtractFonction == "Full"} {append ExtractCommand "-nlr 1 -nlc 1 -ssr 1 -ssc 1"}
             if {$ConvertExtractFonction == "SubSamp"} {append ExtractCommand "-nlr 1 -nlc 1 -ssr $SubSampRow -ssc $SubSampCol"}
             if {$ConvertExtractFonction == "MultiLook"} {append ExtractCommand "-nlr $MultiLookRow -nlc $MultiLookCol -ssr 1 -ssc 1"}
 
-            TextEditorRunTrace "Arguments: $ExtractCommand -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22" "k"
-            set f [ open "| $ExtractFunction $ExtractCommand -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22" r]
+            TextEditorRunTrace "Arguments: $ExtractCommand  -errf \x22$TMPMemoryAllocError\x22" "k"
+            set f [ open "| $ExtractFunction $ExtractCommand  -errf \x22$TMPMemoryAllocError\x22" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
             
-            set ExtractFunction "Soft/data_convert/data_convert.exe"
+            set ExtractFunction "Soft/bin/data_convert/data_convert.exe"
             TextEditorRunTrace "Process The Function $ExtractFunction" "k"
             set ExtractCommand "-id \x22$ConvertSlaveDirInput\x22 -od \x22$ConvertSlaveDirOutput\x22 -iodf $ConvertOutputFormat -sym $ConvertSymmetrisation "
             append ExtractCommand "-ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol "
@@ -1515,8 +1515,8 @@ if {$config == "okok"} {
             if {$ConvertExtractFonction == "SubSamp"} {append ExtractCommand "-nlr 1 -nlc 1 -ssr $SubSampRow -ssc $SubSampCol"}
             if {$ConvertExtractFonction == "MultiLook"} {append ExtractCommand "-nlr $MultiLookRow -nlc $MultiLookCol -ssr 1 -ssc 1"}
 
-            TextEditorRunTrace "Arguments: $ExtractCommand -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22" "k"
-            set f [ open "| $ExtractFunction $ExtractCommand -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22" r]
+            TextEditorRunTrace "Arguments: $ExtractCommand  -errf \x22$TMPMemoryAllocError\x22" "k"
+            set f [ open "| $ExtractFunction $ExtractCommand  -errf \x22$TMPMemoryAllocError\x22" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1581,7 +1581,7 @@ global VarError ErrorMessage VarWarning WarningMessage WarningMessage2
 global NligInit NligEnd NligFullSize NcolInit NcolEnd NcolFullSize
 global MultiLookRow MultiLookCol SubSampRow SubSampCol
 global OffsetLig OffsetCol FinalNlig FinalNcol 
-global ProgressLine ConfigFile PolarCase PolarType PSPMemory TMPMemoryAllocError
+global ProgressLine ConfigFile PolarCase PolarType TMPMemoryAllocError
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
 
 if {$OpenDirFile == 0} {
@@ -1666,7 +1666,7 @@ if {$config == "okok"} {
             update
             set ConvertSymmetrisation "1"   
             
-            set ExtractFunction "Soft/data_convert/data_convert_dual_pp.exe"
+            set ExtractFunction "Soft/bin/data_convert/data_convert_dual_pp.exe"
             TextEditorRunTrace "Process The Function $ExtractFunction" "k"
             set ExtractCommand "-idm \x22$ConvertMasterDirInput\x22 -ids \x22$ConvertSlaveDirInput\x22 -od \x22$ConvertDirOutput\x22 -iodf $ConvertOutputFormat -sym $ConvertSymmetrisation "
             append ExtractCommand "-ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol "
@@ -1674,8 +1674,8 @@ if {$config == "okok"} {
             if {$ConvertExtractFonction == "SubSamp"} {append ExtractCommand "-nlr 1 -nlc 1 -ssr $SubSampRow -ssc $SubSampCol"}
             if {$ConvertExtractFonction == "MultiLook"} {append ExtractCommand "-nlr $MultiLookRow -nlc $MultiLookCol -ssr 1 -ssc 1"}
 
-            TextEditorRunTrace "Arguments: $ExtractCommand -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22" "k"
-            set f [ open "| $ExtractFunction $ExtractCommand -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22" r]
+            TextEditorRunTrace "Arguments: $ExtractCommand  -errf \x22$TMPMemoryAllocError\x22" "k"
+            set f [ open "| $ExtractFunction $ExtractCommand  -errf \x22$TMPMemoryAllocError\x22" r]
             PsPprogressBar $f           
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1721,7 +1721,7 @@ global VarError ErrorMessage VarWarning WarningMessage WarningMessage2
 global NligInit NligEnd NligFullSize NcolInit NcolEnd NcolFullSize
 global MultiLookRow MultiLookCol SubSampRow SubSampCol
 global OffsetLig OffsetCol FinalNlig FinalNcol 
-global ProgressLine ConfigFile PolarCase PolarType PSPMemory TMPMemoryAllocError
+global ProgressLine ConfigFile PolarCase PolarType TMPMemoryAllocError
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
 
 if {$OpenDirFile == 0} {
@@ -1793,7 +1793,7 @@ if {$ConvertDirOutput == $ConvertMasterDirInput} {
             update
             set ConvertSymmetrisation "1"   
             
-            set ExtractFunction "Soft/data_convert/data_convert.exe"
+            set ExtractFunction "Soft/bin/data_convert/data_convert.exe"
             TextEditorRunTrace "Process The Function $ExtractFunction" "k"
             set ExtractCommand "-id \x22$ConvertMasterDirInput\x22 -od \x22$ConvertDirOutput\x22 -iodf $ConvertOutputFormat -sym $ConvertSymmetrisation "
             append ExtractCommand "-ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol "
@@ -1801,8 +1801,8 @@ if {$ConvertDirOutput == $ConvertMasterDirInput} {
             if {$ConvertExtractFonction == "SubSamp"} {append ExtractCommand "-nlr 1 -nlc 1 -ssr $SubSampRow -ssc $SubSampCol"}
             if {$ConvertExtractFonction == "MultiLook"} {append ExtractCommand "-nlr $MultiLookRow -nlc $MultiLookCol -ssr 1 -ssc 1"}
 
-            TextEditorRunTrace "Arguments: $ExtractCommand -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22" "k"
-            set f [ open "| $ExtractFunction $ExtractCommand -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22" r]
+            TextEditorRunTrace "Arguments: $ExtractCommand  -errf \x22$TMPMemoryAllocError\x22" "k"
+            set f [ open "| $ExtractFunction $ExtractCommand  -errf \x22$TMPMemoryAllocError\x22" r]
             PsPprogressBar $f           
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1844,7 +1844,7 @@ proc ::DualConvertRGB_T4 {} {
 global ConvertDirOutput BMPDirInput
 global VarError ErrorMessage Fonction Fonction2
 global NligFullSize NcolFullSize PSPViewGimpBMP
-global ProgressLine PSPMemory TMPMemoryAllocError 
+global ProgressLine TMPMemoryAllocError 
    
 set RGBDirInput $ConvertDirOutput
 set RGBDirOutput $ConvertDirOutput
@@ -1888,15 +1888,15 @@ if {"$config"=="true"} {
     set ProgressLine "0"
     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
     update
-    TextEditorRunTrace "Process The Function Soft/bmp_process/create_pauli_rgb_file_T4.exe" "k"
-    TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -ch 1 -rgbf RGB1 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-    set f [ open "| Soft/bmp_process/create_pauli_rgb_file_T4.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -ch 1 -rgbf RGB1 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_pauli_rgb_file_T4.exe" "k"
+    TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -ch 1 -rgbf RGB1 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+    set f [ open "| Soft/bin/bmp_process/create_pauli_rgb_file_T4.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -ch 1 -rgbf RGB1 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError
     set BMPDirInput $RGBDirOutput
     WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-    if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+    if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
     }
 set RGBDirInput $ConvertDirOutput
 set RGBDirOutput $ConvertDirOutput
@@ -1940,15 +1940,15 @@ if {"$config"=="true"} {
     set ProgressLine "0"
     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
     update
-    TextEditorRunTrace "Process The Function Soft/bmp_process/create_pauli_rgb_file_T4.exe" "k"
-    TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -ch 2 -rgbf RGB1 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-    set f [ open "| Soft/bmp_process/create_pauli_rgb_file_T4.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -ch 2 -rgbf RGB1 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_pauli_rgb_file_T4.exe" "k"
+    TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -ch 2 -rgbf RGB1 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+    set f [ open "| Soft/bin/bmp_process/create_pauli_rgb_file_T4.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -ch 2 -rgbf RGB1 -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError
     set BMPDirInput $RGBDirOutput
     WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-    if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+    if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
     }
 }
 #############################################################################
@@ -1958,7 +1958,7 @@ proc ::DualConvertRGB_SPP {Directory} {
 global BMPDirInput
 global VarError ErrorMessage Fonction Fonction2
 global NligFullSize NcolFullSize PSPViewGimpBMP
-global ProgressLine PSPMemory TMPMemoryAllocError 
+global ProgressLine TMPMemoryAllocError 
    
 set RGBDirInput $Directory
 set RGBDirOutput $Directory
@@ -2001,15 +2001,15 @@ if {"$config"=="true"} {
     set ProgressLine "0"
     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
     update
-    TextEditorRunTrace "Process The Function Soft/bmp_process/create_rgb_file_SPPIPPC2.exe" "k"
-    TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf SPP -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -rgbf RGB1 -mem $PSPMemory $MaskCmd -auto 1" "k"
-    set f [ open "| Soft/bmp_process/create_rgb_file_SPPIPPC2.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf SPP -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -rgbf RGB1 -mem $PSPMemory $MaskCmd -auto 1" r]
+    TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_rgb_file_SPPIPPC2.exe" "k"
+    TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf SPP -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -rgbf RGB1  $MaskCmd -auto 1" "k"
+    set f [ open "| Soft/bin/bmp_process/create_rgb_file_SPPIPPC2.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf SPP -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -rgbf RGB1  $MaskCmd -auto 1" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError
     set BMPDirInput $RGBDirOutput
     WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-    if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+    if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
     }
 }
 
@@ -2220,10 +2220,10 @@ global ConvertMasterOutputDir ConvertSlaveOutputDir
 global MasterOutputDir SlaveOutputDir
 global DataFormatActive ConvertOutputFormat
 
-set MultiLookRow ""
-set MultiLookCol ""
-set SubSampRow ""
-set SubSampCol ""
+set MultiLookRow " "
+set MultiLookCol " "
+set SubSampRow " "
+set SubSampCol " "
 $widget(Label302_1) configure -state disable
 $widget(Label302_2) configure -state disable
 $widget(Label302_3) configure -state disable
@@ -2233,7 +2233,7 @@ $widget(Entry302_2) configure -state disable
 $widget(Entry302_3) configure -state disable
 $widget(Entry302_4) configure -state disable
 
-set ConvertOutputFormat ""
+set ConvertOutputFormat " "
 set ConvertMasterOutputDir ""
 set ConvertSlaveOutputDir ""
 set ConvertMasterSlaveOutputDir ""
@@ -2275,8 +2275,8 @@ global ConvertMasterOutputDir ConvertSlaveOutputDir
 global MasterOutputDir SlaveOutputDir
 global DataFormatActive ConvertOutputFormat
 
-set MultiLookRow ""
-set MultiLookCol ""
+set MultiLookRow " "
+set MultiLookCol " "
 set SubSampRow " ? "
 set SubSampCol " ? "
 $widget(Label302_1) configure -state normal
@@ -2288,7 +2288,7 @@ $widget(Entry302_2) configure -state normal
 $widget(Entry302_3) configure -state disable
 $widget(Entry302_4) configure -state disable
 
-set ConvertOutputFormat ""
+set ConvertOutputFormat " "
 set ConvertMasterOutputDir ""
 set ConvertSlaveOutputDir ""
 set ConvertMasterSlaveOutputDir ""
@@ -2333,8 +2333,8 @@ global DataFormatActive ConvertOutputFormat
 
 set MultiLookRow " ? "
 set MultiLookCol " ? "
-set SubSampRow ""
-set SubSampCol ""
+set SubSampRow " "
+set SubSampCol " "
 $widget(Label302_1) configure -state disable
 $widget(Label302_2) configure -state disable
 $widget(Label302_3) configure -state normal
@@ -2344,7 +2344,7 @@ $widget(Entry302_2) configure -state disable
 $widget(Entry302_3) configure -state normal
 $widget(Entry302_4) configure -state normal
 
-set ConvertOutputFormat ""
+set ConvertOutputFormat " "
 set ConvertMasterOutputDir ""
 set ConvertSlaveOutputDir ""
 set ConvertMasterSlaveOutputDir ""
@@ -2495,7 +2495,7 @@ global ConvertMasterOutputDir ConvertSlaveOutputDir
 global MasterOutputDir SlaveOutputDir ConvertExtractFonction
 
 if {$ConvertExtractFonction == ""} {
-    set ConvertOutputFormat ""
+    set ConvertOutputFormat " "
     } else {
     set ConvertOutputSubDir ""
     if {$ConvertExtractFonction == "Full"} {
@@ -2536,7 +2536,7 @@ global ConvertMasterOutputDir ConvertSlaveOutputDir
 global MasterOutputDir SlaveOutputDir ConvertExtractFonction
 
 if {$ConvertExtractFonction == ""} {
-    set ConvertOutputFormat ""
+    set ConvertOutputFormat " "
     } else {
     set ConvertOutputSubDir ""
     if {$ConvertExtractFonction == "Full"} {
@@ -2582,7 +2582,7 @@ global ConvertMasterOutputDir ConvertSlaveOutputDir
 global MasterOutputDir SlaveOutputDir ConvertExtractFonction
 
 if {$ConvertExtractFonction == ""} {
-    set ConvertOutputFormat ""
+    set ConvertOutputFormat " "
     } else {
     set ConvertOutputSubDir "T4"
     set ConvertMasterOutputDir ""
@@ -2624,7 +2624,7 @@ global ConvertMasterOutputDir ConvertSlaveOutputDir
 global MasterOutputDir SlaveOutputDir ConvertExtractFonction
 
 if {$ConvertExtractFonction == ""} {
-    set ConvertOutputFormat ""
+    set ConvertOutputFormat " "
     } else {
     set ConvertOutputSubDir "T6"
     set ConvertMasterOutputDir ""
@@ -2672,7 +2672,7 @@ global ConvertMasterOutputDir ConvertSlaveOutputDir
 global MasterOutputDir SlaveOutputDir ConvertExtractFonction
 
 if {$ConvertExtractFonction == ""} {
-    set ConvertOutputFormat ""
+    set ConvertOutputFormat " "
     } else {
     set ConvertOutputSubDir "T4"
     set ConvertMasterOutputDir ""
@@ -2714,7 +2714,7 @@ global ConvertMasterOutputDir ConvertSlaveOutputDir
 global MasterOutputDir SlaveOutputDir ConvertExtractFonction
 
 if {$ConvertExtractFonction == ""} {
-    set ConvertOutputFormat ""
+    set ConvertOutputFormat " "
     } else {
     set ConvertOutputSubDir "T6"
     set ConvertMasterOutputDir ""
@@ -2795,10 +2795,10 @@ if {$DirName != "" } {
         set ConvertMasterOutputDir $DirName
         set MasterOutputDir $DirName
         set ConvertExtractFonction "Full"
-        set MultiLookRow ""
-        set MultiLookCol ""
-        set SubSampRow ""
-        set SubSampCol ""
+        set MultiLookRow " "
+        set MultiLookCol " "
+        set SubSampRow " "
+        set SubSampCol " "
         $widget(Label302_1) configure -state disable
         $widget(Label302_2) configure -state disable
         $widget(Label302_3) configure -state disable
@@ -2860,10 +2860,10 @@ if {$DirName != "" } {
         set ConvertSlaveOutputDir $DirName
         set SlaveOutputDir $DirName
         set ConvertExtractFonction "Full"
-        set MultiLookRow ""
-        set MultiLookCol ""
-        set SubSampRow ""
-        set SubSampCol ""
+        set MultiLookRow " "
+        set MultiLookCol " "
+        set SubSampRow " "
+        set SubSampCol " "
         $widget(Label302_1) configure -state disable
         $widget(Label302_2) configure -state disable
         $widget(Label302_3) configure -state disable
@@ -2941,10 +2941,10 @@ if {$DirName != "" } {
         set ConvertMasterSlaveOutputDir $DirName
         set MasterSlaveOutputDir $DirName
         set ConvertExtractFonction "Full"
-        set MultiLookRow ""
-        set MultiLookCol ""
-        set SubSampRow ""
-        set SubSampCol ""
+        set MultiLookRow " "
+        set MultiLookCol " "
+        set SubSampRow " "
+        set SubSampCol " "
         $widget(Label302_1) configure -state disable
         $widget(Label302_2) configure -state disable
         $widget(Label302_3) configure -state disable

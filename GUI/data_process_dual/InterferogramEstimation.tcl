@@ -999,7 +999,7 @@ if {$CmplxCohAvg == "1" } {
     $widget(Entry315_4) configure -state normal; $widget(Entry315_4) configure -disabledbackground #FFFFFF; $widget(Label315_4) configure -state normal 
     $widget(Entry315_5) configure -state normal; $widget(Entry315_5) configure -disabledbackground #FFFFFF; $widget(Label315_5) configure -state normal 
     } else {
-    set FiltRow ""; set FiltCol ""
+    set FiltRow " "; set FiltCol " "
     $widget(TitleFrame315_4) configure -state disable; $widget(TitleFrame315_4) configure -text ""
     $widget(Entry315_4) configure -state disable; $widget(Entry315_4) configure -disabledbackground $PSPBackgroundColor; $widget(Label315_4) configure -state disable 
     $widget(Entry315_5) configure -state disable; $widget(Entry315_5) configure -disabledbackground $PSPBackgroundColor; $widget(Label315_5) configure -state disable 
@@ -1067,7 +1067,7 @@ if {$CmplxCohAvg == "1" } {
 global CmplxCohMasterDirInput CmplxCohSlaveDirInput CmplxCohDirOutput CmplxCohOutputDir CmplxCohOutputSubDir
 global Fonction2 ProgressLine VarFunction VarWarning WarningMessage WarningMessage2
 global CmplxCohFonc CmplxCohI1 CmplxCohI2
-global FiltRow FiltCol CmplxCohAvg TMPDir PSPMemory TMPMemoryAllocError
+global FiltRow FiltCol CmplxCohAvg TMPDir TMPMemoryAllocError
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
 global OpenDirFile ConfigFile FinalNlig FinalNcol PolarCase PolarType 
 
@@ -1146,9 +1146,9 @@ if {"$VarWarning"=="ok"} {
                         set ProgressLine "0"
                         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                         update
-                        TextEditorRunTrace "Process The Function Soft/calculator/file_operand_file.exe" "k"
+                        TextEditorRunTrace "Process The Function Soft/bin/calculator/file_operand_file.exe" "k"
                         TextEditorRunTrace "Arguments: -if1 \x22$MaskFile1\x22 -it1 float -if2 \x22$MaskFile2\x22 -it2 float -of \x22$MaskFileOut\x22 -ot float -op mulfile -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
-                        set f [ open "| Soft/calculator/file_operand_file.exe -if1 \x22$MaskFile1\x22 -it1 float -if2 \x22$MaskFile2\x22 -it2 float -of \x22$MaskFileOut\x22 -ot float -op mulfile -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
+                        set f [ open "| Soft/bin/calculator/file_operand_file.exe -if1 \x22$MaskFile1\x22 -it1 float -if2 \x22$MaskFile2\x22 -it2 float -of \x22$MaskFileOut\x22 -ot float -op mulfile -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
                         PsPprogressBar $f
                         TextEditorRunTrace "Check RunTime Errors" "r"
                         CheckRunTimeError
@@ -1169,14 +1169,14 @@ if {"$VarWarning"=="ok"} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/data_process_dual/interferogram_estimation.exe" "k"
+        TextEditorRunTrace "Process The Function Soft/bin/data_process_dual/interferogram_estimation.exe" "k"
         if {$CmplxCohFonc == "S2"} {
-            TextEditorRunTrace "Arguments: -idm \x22$CmplxCohMasterDirInput\x22 -ids \x22$CmplxCohSlaveDirInput\x22 -od \x22$TMPDir\x22 -iodf S2T6 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -im1 $CmplxCohI1 -im2 $CmplxCohI2 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_dual/interferogram_estimation.exe -idm \x22$CmplxCohMasterDirInput\x22 -ids \x22$CmplxCohSlaveDirInput\x22 -od \x22$TMPDir\x22 -iodf S2T6 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -im1 $CmplxCohI1 -im2 $CmplxCohI2 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Arguments: -idm \x22$CmplxCohMasterDirInput\x22 -ids \x22$CmplxCohSlaveDirInput\x22 -od \x22$TMPDir\x22 -iodf S2T6 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -im1 $CmplxCohI1 -im2 $CmplxCohI2  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_dual/interferogram_estimation.exe -idm \x22$CmplxCohMasterDirInput\x22 -ids \x22$CmplxCohSlaveDirInput\x22 -od \x22$TMPDir\x22 -iodf S2T6 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -im1 $CmplxCohI1 -im2 $CmplxCohI2  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             }
         if {$CmplxCohFonc == "T6"} {
-            TextEditorRunTrace "Arguments: -id \x22$CmplxCohMasterDirInput\x22 -od \x22$TMPDir\x22 -iodf T6 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -im1 $CmplxCohI1 -im2 $CmplxCohI2 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_dual/interferogram_estimation.exe -id \x22$CmplxCohMasterDirInput\x22 -od \x22$TMPDir\x22 -iodf T6 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -im1 $CmplxCohI1 -im2 $CmplxCohI2 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Arguments: -id \x22$CmplxCohMasterDirInput\x22 -od \x22$TMPDir\x22 -iodf T6 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -im1 $CmplxCohI1 -im2 $CmplxCohI2  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_dual/interferogram_estimation.exe -id \x22$CmplxCohMasterDirInput\x22 -od \x22$TMPDir\x22 -iodf T6 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -im1 $CmplxCohI1 -im2 $CmplxCohI2  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             }
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
@@ -1196,9 +1196,9 @@ if {"$VarWarning"=="ok"} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/calculator/file_operand.exe" "k"
-        TextEditorRunTrace "Arguments: -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -ot float -op arg -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-        set f [ open "| Soft/calculator/file_operand.exe -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -ot float -op arg -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+        TextEditorRunTrace "Process The Function Soft/bin/calculator/file_operand.exe" "k"
+        TextEditorRunTrace "Arguments: -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -ot float -op arg -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+        set f [ open "| Soft/bin/calculator/file_operand.exe -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -ot float -op arg -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError
@@ -1225,9 +1225,9 @@ if {"$VarWarning"=="ok"} {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/calculator/file_boxcar.exe" "k"
-            TextEditorRunTrace "Arguments: -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/calculator/file_boxcar.exe -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/calculator/file_boxcar.exe" "k"
+            TextEditorRunTrace "Arguments: -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/calculator/file_boxcar.exe -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -nwr $RowFilt -nwc $ColFilt -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1241,9 +1241,9 @@ if {"$VarWarning"=="ok"} {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/calculator/file_operand.exe" "k"
-            TextEditorRunTrace "Arguments: -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -ot float -op arg -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/calculator/file_operand.exe -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -ot float -op arg -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/calculator/file_operand.exe" "k"
+            TextEditorRunTrace "Arguments: -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -ot float -op arg -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/calculator/file_operand.exe -if \x22$CmplxFileIn\x22 -it cmplx -of \x22$CmplxFileOut\x22 -ot float -op arg -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError

@@ -733,7 +733,7 @@ global DecompDecompositionFonction DecompFonction
 global NwinDecompL NwinDecompC RGBPolarDecomp BMPPolarDecomp
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
 global Fonction Fonction2 VarFunction VarWarning WarningMessage WarningMessage2 VarError ErrorMessage ProgressLine 
-global NligInit NligFullSize NcolInit NcolFullSize NligEnd NcolEnd PSPMemory TMPMemoryAllocError TestVarErrorTGT
+global NligInit NligFullSize NcolInit NcolFullSize NligEnd NcolEnd TMPMemoryAllocError TestVarErrorTGT
 global OpenDirFile ConfigFile FinalNlig FinalNcol PolarCase PolarType 
 
     if {"$VarWarning"=="ok"} {
@@ -773,9 +773,9 @@ global OpenDirFile ConfigFile FinalNlig FinalNcol PolarCase PolarType
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/data_process_sngl/huynen_decomposition.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od \x22$TMPDecompDir\x22 -iodf $DecompDecompositionF -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_sngl/huynen_decomposition.exe -id \x22$DecompDirInput\x22 -od \x22$TMPDecompDir\x22 -iodf $DecompDecompositionF -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/huynen_decomposition.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od \x22$TMPDecompDir\x22 -iodf $DecompDecompositionF -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_sngl/huynen_decomposition.exe -id \x22$DecompDirInput\x22 -od \x22$TMPDecompDir\x22 -iodf $DecompDecompositionF -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -789,9 +789,9 @@ global OpenDirFile ConfigFile FinalNlig FinalNcol PolarCase PolarType
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/data_process_sngl/barnes1_decomposition.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od \x22$TMPDecompDir\x22 -iodf $DecompDecompositionF -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_sngl/barnes1_decomposition.exe -id \x22$DecompDirInput\x22 -od \x22$TMPDecompDir\x22 -iodf $DecompDecompositionF -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/barnes1_decomposition.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od \x22$TMPDecompDir\x22 -iodf $DecompDecompositionF -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_sngl/barnes1_decomposition.exe -id \x22$DecompDirInput\x22 -od \x22$TMPDecompDir\x22 -iodf $DecompDecompositionF -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -805,9 +805,9 @@ global OpenDirFile ConfigFile FinalNlig FinalNcol PolarCase PolarType
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/data_process_sngl/barnes2_decomposition.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od \x22$TMPDecompDir\x22 -iodf $DecompDecompositionF -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_sngl/barnes2_decomposition.exe -id \x22$DecompDirInput\x22 -od \x22$TMPDecompDir\x22 -iodf $DecompDecompositionF -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/barnes2_decomposition.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od \x22$TMPDecompDir\x22 -iodf $DecompDecompositionF -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_sngl/barnes2_decomposition.exe -id \x22$DecompDirInput\x22 -od \x22$TMPDecompDir\x22 -iodf $DecompDecompositionF -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -821,9 +821,9 @@ global OpenDirFile ConfigFile FinalNlig FinalNcol PolarCase PolarType
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/data_process_sngl/cloude_decomposition.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od \x22$TMPDecompDir\x22 -iodf $DecompDecompositionF -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_sngl/cloude_decomposition.exe -id \x22$DecompDirInput\x22 -od \x22$TMPDecompDir\x22 -iodf $DecompDecompositionF -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/cloude_decomposition.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od \x22$TMPDecompDir\x22 -iodf $DecompDecompositionF -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_sngl/cloude_decomposition.exe -id \x22$DecompDirInput\x22 -od \x22$TMPDecompDir\x22 -iodf $DecompDecompositionF -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -837,9 +837,9 @@ global OpenDirFile ConfigFile FinalNlig FinalNcol PolarCase PolarType
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/data_process_sngl/holm1_decomposition.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od \x22$TMPDecompDir\x22 -iodf $DecompDecompositionF -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_sngl/holm1_decomposition.exe -id \x22$DecompDirInput\x22 -od \x22$TMPDecompDir\x22 -iodf $DecompDecompositionF -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/holm1_decomposition.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od \x22$TMPDecompDir\x22 -iodf $DecompDecompositionF -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_sngl/holm1_decomposition.exe -id \x22$DecompDirInput\x22 -od \x22$TMPDecompDir\x22 -iodf $DecompDecompositionF -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -853,9 +853,9 @@ global OpenDirFile ConfigFile FinalNlig FinalNcol PolarCase PolarType
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/data_process_sngl/holm2_decomposition.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od \x22$TMPDecompDir\x22 -iodf $DecompDecompositionF -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_sngl/holm2_decomposition.exe -id \x22$DecompDirInput\x22 -od \x22$TMPDecompDir\x22 -iodf $DecompDecompositionF -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/holm2_decomposition.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od \x22$TMPDecompDir\x22 -iodf $DecompDecompositionF -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_sngl/holm2_decomposition.exe -id \x22$DecompDirInput\x22 -od \x22$TMPDecompDir\x22 -iodf $DecompDecompositionF -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -869,9 +869,9 @@ global OpenDirFile ConfigFile FinalNlig FinalNcol PolarCase PolarType
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/data_process_sngl/haalpha_decomposition.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od \x22$TMPDecompDir\x22 -iodf $DecompDecompositionF -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_sngl/haalpha_decomposition.exe -id \x22$DecompDirInput\x22 -od \x22$TMPDecompDir\x22 -iodf $DecompDecompositionF -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/haalpha_decomposition.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od \x22$TMPDecompDir\x22 -iodf $DecompDecompositionF -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_sngl/haalpha_decomposition.exe -id \x22$DecompDirInput\x22 -od \x22$TMPDecompDir\x22 -iodf $DecompDecompositionF -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -886,9 +886,9 @@ global OpenDirFile ConfigFile FinalNlig FinalNcol PolarCase PolarType
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/data_process_sngl/an_yang_3components_decomposition.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_sngl/an_yang_3components_decomposition.exe -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/an_yang_3components_decomposition.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_sngl/an_yang_3components_decomposition.exe -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -902,9 +902,9 @@ global OpenDirFile ConfigFile FinalNlig FinalNcol PolarCase PolarType
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/data_process_sngl/an_yang_4components_decomposition.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_sngl/an_yang_4components_decomposition.exe -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/an_yang_4components_decomposition.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_sngl/an_yang_4components_decomposition.exe -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -919,9 +919,9 @@ global OpenDirFile ConfigFile FinalNlig FinalNcol PolarCase PolarType
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/data_process_sngl/freeman_2components_decomposition.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_sngl/freeman_2components_decomposition.exe -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/freeman_2components_decomposition.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_sngl/freeman_2components_decomposition.exe -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -934,9 +934,9 @@ global OpenDirFile ConfigFile FinalNlig FinalNcol PolarCase PolarType
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/data_process_sngl/freeman_decomposition.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_sngl/freeman_decomposition.exe -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/freeman_decomposition.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_sngl/freeman_decomposition.exe -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -950,9 +950,9 @@ global OpenDirFile ConfigFile FinalNlig FinalNcol PolarCase PolarType
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/data_process_sngl/vanzyl92_3components_decomposition.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_sngl/vanzyl92_3components_decomposition.exe -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/vanzyl92_3components_decomposition.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_sngl/vanzyl92_3components_decomposition.exe -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -966,9 +966,9 @@ global OpenDirFile ConfigFile FinalNlig FinalNcol PolarCase PolarType
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/data_process_sngl/arii_nned_3components_decomposition.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_sngl/arii_nned_3components_decomposition.exe -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/arii_nned_3components_decomposition.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_sngl/arii_nned_3components_decomposition.exe -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -982,9 +982,9 @@ global OpenDirFile ConfigFile FinalNlig FinalNcol PolarCase PolarType
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/data_process_sngl/arii_anned_3components_decomposition.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_sngl/arii_anned_3components_decomposition.exe -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/arii_anned_3components_decomposition.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_sngl/arii_anned_3components_decomposition.exe -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -998,9 +998,9 @@ global OpenDirFile ConfigFile FinalNlig FinalNcol PolarCase PolarType
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/data_process_sngl/yamaguchi_3components_decomposition.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_sngl/yamaguchi_3components_decomposition.exe -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/yamaguchi_3components_decomposition.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_sngl/yamaguchi_3components_decomposition.exe -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1014,9 +1014,9 @@ global OpenDirFile ConfigFile FinalNlig FinalNcol PolarCase PolarType
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/data_process_sngl/neumann_decomposition.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_sngl/neumann_decomposition.exe -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/neumann_decomposition.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_sngl/neumann_decomposition.exe -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1031,9 +1031,9 @@ global OpenDirFile ConfigFile FinalNlig FinalNcol PolarCase PolarType
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/data_process_sngl/krogager_decomposition.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_sngl/krogager_decomposition.exe -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/krogager_decomposition.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_sngl/krogager_decomposition.exe -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1047,9 +1047,9 @@ global OpenDirFile ConfigFile FinalNlig FinalNcol PolarCase PolarType
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/data_process_sngl/raney_decomposition.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_sngl/raney_decomposition.exe -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/raney_decomposition.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_sngl/raney_decomposition.exe -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1066,9 +1066,9 @@ global OpenDirFile ConfigFile FinalNlig FinalNcol PolarCase PolarType
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/data_process_sngl/mcsm_5components_decomposition.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_sngl/mcsm_5components_decomposition.exe -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/mcsm_5components_decomposition.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_sngl/mcsm_5components_decomposition.exe -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1079,6 +1079,38 @@ global OpenDirFile ConfigFile FinalNlig FinalNcol PolarCase PolarType
             if [file exists "$DecompDirOutput/MCSM_Hlx.bin"] {EnviWriteConfig "$DecompDirOutput/MCSM_Hlx.bin" $FinalNlig $FinalNcol 4}
             if [file exists "$DecompDirOutput/MCSM_Wire.bin"] {EnviWriteConfig "$DecompDirOutput/MCSM_Wire.bin" $FinalNlig $FinalNcol 4}
             if [file exists "$DecompDirOutput/MCSM_DblHlx.bin"] {EnviWriteConfig "$DecompDirOutput/MCSM_DblHlx.bin" $FinalNlig $FinalNcol 4}
+            }
+        if {"$DecompFonction"=="Aghababaee"} {
+            set Fonction2 "of the Aghababaee Decomposition"
+            set ProgressLine "0"
+            WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
+            update
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/Aghababaee_decomposition.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionF -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_sngl/Aghababaee_decomposition.exe -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionF -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            PsPprogressBar $f
+            TextEditorRunTrace "Check RunTime Errors" "r"
+            CheckRunTimeError
+            WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
+            if [file exists "$DecompDirOutput/Aghababaee_Alphap_SM3.bin"] {EnviWriteConfig "$DecompDirOutput/Aghababaee_Alphap_SM3.bin" $FinalNlig $FinalNcol 4}
+            if [file exists "$DecompDirOutput/Aghababaee_Alphap_SM2.bin"] {EnviWriteConfig "$DecompDirOutput/Aghababaee_Alphap_SM2.bin" $FinalNlig $FinalNcol 4}
+            if [file exists "$DecompDirOutput/Aghababaee_Alphap_SM1.bin"] {EnviWriteConfig "$DecompDirOutput/Aghababaee_Alphap_SM1.bin" $FinalNlig $FinalNcol 4}
+            if [file exists "$DecompDirOutput/Aghababaee_Alphap_mean.bin"] {EnviWriteConfig "$DecompDirOutput/Aghababaee_Alphap_mean.bin" $FinalNlig $FinalNcol 4}
+            if [file exists "$DecompDirOutput/Aghababaee_Phip_SM3.bin"] {EnviWriteConfig "$DecompDirOutput/Aghababaee_Phip_SM3.bin" $FinalNlig $FinalNcol 4}
+            if [file exists "$DecompDirOutput/Aghababaee_Phip_SM2.bin"] {EnviWriteConfig "$DecompDirOutput/Aghababaee_Phip_SM2.bin" $FinalNlig $FinalNcol 4}
+            if [file exists "$DecompDirOutput/Aghababaee_Phip_SM1.bin"] {EnviWriteConfig "$DecompDirOutput/Aghababaee_Phip_SM1.bin" $FinalNlig $FinalNcol 4}
+            if [file exists "$DecompDirOutput/Aghababaee_Phip_mean.bin"] {EnviWriteConfig "$DecompDirOutput/Aghababaee_Phip_mean.bin" $FinalNlig $FinalNcol 4}
+            if [file exists "$DecompDirOutput/Aghababaee_Tawp_SM3.bin"] {EnviWriteConfig "$DecompDirOutput/Aghababaee_Tawp_SM3.bin" $FinalNlig $FinalNcol 4}
+            if [file exists "$DecompDirOutput/Aghababaee_Tawp_SM2.bin"] {EnviWriteConfig "$DecompDirOutput/Aghababaee_Tawp_SM2.bin" $FinalNlig $FinalNcol 4}
+            if [file exists "$DecompDirOutput/Aghababaee_Tawp_SM1.bin"] {EnviWriteConfig "$DecompDirOutput/Aghababaee_Tawp_SM1.bin" $FinalNlig $FinalNcol 4}
+            if [file exists "$DecompDirOutput/Aghababaee_Tawp_mean.bin"] {EnviWriteConfig "$DecompDirOutput/Aghababaee_Tawp_mean.bin" $FinalNlig $FinalNcol 4}
+            if [file exists "$DecompDirOutput/Aghababaee_Orientation_max_SM3.bin"] {EnviWriteConfig "$DecompDirOutput/Aghababaee_Orientation_max_SM3.bin" $FinalNlig $FinalNcol 4}
+            if [file exists "$DecompDirOutput/Aghababaee_Orientation_max_SM2.bin"] {EnviWriteConfig "$DecompDirOutput/Aghababaee_Orientation_max_SM2.bin" $FinalNlig $FinalNcol 4}
+            if [file exists "$DecompDirOutput/Aghababaee_Orientation_max_SM1.bin"] {EnviWriteConfig "$DecompDirOutput/Aghababaee_Orientation_max_SM1.bin" $FinalNlig $FinalNcol 4}
+            if [file exists "$DecompDirOutput/Aghababaee_Orientation_max_mean.bin"] {EnviWriteConfig "$DecompDirOutput/Aghababaee_Orientation_max_mean.bin" $FinalNlig $FinalNcol 4}
+            if [file exists "$DecompDirOutput/Aghababaee_M_SM3.bin"] {EnviWriteConfig "$DecompDirOutput/Aghababaee_M_SM3.bin" $FinalNlig $FinalNcol 4}
+            if [file exists "$DecompDirOutput/Aghababaee_M_SM2.bin"] {EnviWriteConfig "$DecompDirOutput/Aghababaee_M_SM2.bin" $FinalNlig $FinalNcol 4}
+            if [file exists "$DecompDirOutput/Aghababaee_M_SM1.bin"] {EnviWriteConfig "$DecompDirOutput/Aghababaee_M_SM1.bin" $FinalNlig $FinalNcol 4}
             }
         }
         #TestVar
@@ -1091,7 +1123,7 @@ global OpenDirFile ConfigFile FinalNlig FinalNcol PolarCase PolarType
 proc ::DecompRGB {} {
 global DecompDirInput DecompDirOutput
 global DecompDecompositionFonction DecompFonction
-global RGBPolarDecomp TMPDecompDir PSPMemory TMPMemoryAllocError
+global RGBPolarDecomp TMPDecompDir TMPMemoryAllocError
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
 global Fonction Fonction2 VarFunction VarWarning WarningMessage WarningMessage2 VarError ErrorMessage ProgressLine 
 global NligInit NligFullSize NcolInit NcolFullSize NligEnd NcolEnd FinalNlig FinalNcol PSPViewGimpBMP
@@ -1231,6 +1263,14 @@ if {"$RGBPolarDecomp"=="1"} {
             set RGBFileOutput "$DecompDirOutput/MCSM_DVS_RGB.bmp"
             set RGBstyle "combine"
             }
+        if {"$DecompFonction"=="Aghababaee"} {
+            set RGBDirInput $DecompDirOutput
+            set FileInputBlue "$DecompDirOutput/Aghababaee_M_SM3.bin"
+            set FileInputGreen "$DecompDirOutput/Aghababaee_M_SM1.bin"
+            set FileInputRed "$DecompDirOutput/Aghababaee_M_SM2.bin"
+            set RGBFileOutput "$DecompDirOutput/Aghababaee_M_RGB.bmp"
+            set RGBstyle "combine"
+            }
 
         set MaskCmd ""
         set MaskFile "$RGBDirInput/mask_valid_pixels.bin"
@@ -1241,21 +1281,21 @@ if {"$RGBPolarDecomp"=="1"} {
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
         if {$RGBstyle == "pauli"} {
-            TextEditorRunTrace "Process The Function Soft/bmp_process/create_pauli_rgb_file.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $DecompDecompositionF -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
-            set f [ open "| Soft/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $DecompDecompositionF -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_pauli_rgb_file.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $DecompDecompositionF -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
+            set f [ open "| Soft/bin/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $DecompDecompositionF -ofr 0 -ofc 0 -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
             }
         if {$RGBstyle == "combine"} {
-            TextEditorRunTrace "Process The Function Soft/bmp_process/create_rgb_file.exe" "k"
-            TextEditorRunTrace "Arguments: -ifb $FileInputBlue -ifg $FileInputGreen -ifr $FileInputRed -of $RGBFileOutput -inc $FinalNcol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
-            set f [ open "| Soft/bmp_process/create_rgb_file.exe -ifb $FileInputBlue -ifg $FileInputGreen -ifr $FileInputRed -of $RGBFileOutput -inc $FinalNcol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_rgb_file.exe" "k"
+            TextEditorRunTrace "Arguments: -ifb $FileInputBlue -ifg $FileInputGreen -ifr $FileInputRed -of $RGBFileOutput -inc $FinalNcol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
+            set f [ open "| Soft/bin/bmp_process/create_rgb_file.exe -ifb $FileInputBlue -ifg $FileInputGreen -ifr $FileInputRed -of $RGBFileOutput -inc $FinalNcol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
             }
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError
         set BMPDirInput $DecompDirOutput
         WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-        if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+        if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
 
         if {"$DecompFonction"=="MCSM5"} {
             set MaskCmd ""
@@ -1272,13 +1312,13 @@ if {"$RGBPolarDecomp"=="1"} {
             set RGBFileOutput "$DecompDirOutput/MCSM_DHVS_RGB.bmp"
             set ProgressLine "0"
             update
-            TextEditorRunTrace "Process The Function Soft/bmp_process/create_rgb_file.exe" "k"
-            TextEditorRunTrace "Arguments: -ifb $FileInputBlue -ifg $FileInputGreen -ifr $FileInputRed -of $RGBFileOutput -inc $FinalNcol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
-            set f [ open "| Soft/bmp_process/create_rgb_file.exe -ifb $FileInputBlue -ifg $FileInputGreen -ifr $FileInputRed -of $RGBFileOutput -inc $FinalNcol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_rgb_file.exe" "k"
+            TextEditorRunTrace "Arguments: -ifb $FileInputBlue -ifg $FileInputGreen -ifr $FileInputRed -of $RGBFileOutput -inc $FinalNcol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
+            set f [ open "| Soft/bin/bmp_process/create_rgb_file.exe -ifb $FileInputBlue -ifg $FileInputGreen -ifr $FileInputRed -of $RGBFileOutput -inc $FinalNcol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
-            if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+            if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
 
             set FileInputBlue "$DecompDirOutput/MCSM_Odd.bin"
             set FileInputGreen "$DecompDirOutput/MCSM_Vol.bin"
@@ -1286,13 +1326,13 @@ if {"$RGBPolarDecomp"=="1"} {
             set RGBFileOutput "$DecompDirOutput/MCSM_WVS_RGB.bmp"
             set ProgressLine "0"
             update
-            TextEditorRunTrace "Process The Function Soft/bmp_process/create_rgb_file.exe" "k"
-            TextEditorRunTrace "Arguments: -ifb $FileInputBlue -ifg $FileInputGreen -ifr $FileInputRed -of $RGBFileOutput -inc $FinalNcol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
-            set f [ open "| Soft/bmp_process/create_rgb_file.exe -ifb $FileInputBlue -ifg $FileInputGreen -ifr $FileInputRed -of $RGBFileOutput -inc $FinalNcol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_rgb_file.exe" "k"
+            TextEditorRunTrace "Arguments: -ifb $FileInputBlue -ifg $FileInputGreen -ifr $FileInputRed -of $RGBFileOutput -inc $FinalNcol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
+            set f [ open "| Soft/bin/bmp_process/create_rgb_file.exe -ifb $FileInputBlue -ifg $FileInputGreen -ifr $FileInputRed -of $RGBFileOutput -inc $FinalNcol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
-            if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+            if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
 
             set FileInputBlue "$DecompDirOutput/MCSM_Hlx.bin"
             set FileInputGreen "$DecompDirOutput/MCSM_Vol.bin"
@@ -1300,13 +1340,13 @@ if {"$RGBPolarDecomp"=="1"} {
             set RGBFileOutput "$DecompDirOutput/MCSM_WVH_RGB.bmp"
             set ProgressLine "0"
             update
-            TextEditorRunTrace "Process The Function Soft/bmp_process/create_rgb_file.exe" "k"
-            TextEditorRunTrace "Arguments: -ifb $FileInputBlue -ifg $FileInputGreen -ifr $FileInputRed -of $RGBFileOutput -inc $FinalNcol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
-            set f [ open "| Soft/bmp_process/create_rgb_file.exe -ifb $FileInputBlue -ifg $FileInputGreen -ifr $FileInputRed -of $RGBFileOutput -inc $FinalNcol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_rgb_file.exe" "k"
+            TextEditorRunTrace "Arguments: -ifb $FileInputBlue -ifg $FileInputGreen -ifr $FileInputRed -of $RGBFileOutput -inc $FinalNcol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
+            set f [ open "| Soft/bin/bmp_process/create_rgb_file.exe -ifb $FileInputBlue -ifg $FileInputGreen -ifr $FileInputRed -of $RGBFileOutput -inc $FinalNcol -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
-            if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+            if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
 
             set BMPDirInput $DecompDirOutput
             WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
@@ -1690,6 +1730,65 @@ if {"$BMPPolarDecomp"=="1"} {
             set BMPFileOutput "$DecompDirOutput/MCSM_DblHlx_dB.bmp"
             PSPcreate_bmp_file black $BMPFileInput $BMPFileOutput float db10 gray $FinalNcol  $OffsetLig  $OffsetCol  $FinalNlig  $FinalNcol $MinMaxBMPDecomp $MinBMPDecomp $MaxBMPDecomp
             }
+        if {"$DecompFonction"=="Aghababaee"} {
+            set BMPFileInput "$DecompDirOutput/Aghababaee_Alphap_SM3.bin"
+            set BMPFileOutput "$DecompDirOutput/Aghababaee_Alphap_SM3.bmp"
+            PSPcreate_bmp_file black $BMPFileInput $BMPFileOutput float real jet $FinalNcol $OffsetLig  $OffsetCol  $FinalNlig  $FinalNcol 0 0 +90
+            set BMPFileInput "$DecompDirOutput/Aghababaee_Alphap_SM2.bin"
+            set BMPFileOutput "$DecompDirOutput/Aghababaee_Alphap_SM2.bmp"
+            PSPcreate_bmp_file black $BMPFileInput $BMPFileOutput float real jet $FinalNcol $OffsetLig  $OffsetCol  $FinalNlig  $FinalNcol 0 0 +90
+            set BMPFileInput "$DecompDirOutput/Aghababaee_Alphap_SM1.bin"
+            set BMPFileOutput "$DecompDirOutput/Aghababaee_Alphap_SM1.bmp"
+            PSPcreate_bmp_file black $BMPFileInput $BMPFileOutput float real jet $FinalNcol $OffsetLig  $OffsetCol  $FinalNlig  $FinalNcol 0 0 +90
+            set BMPFileInput "$DecompDirOutput/Aghababaee_Alphap_mean.bin"
+            set BMPFileOutput "$DecompDirOutput/Aghababaee_Alphap_mean.bmp"
+            PSPcreate_bmp_file black $BMPFileInput $BMPFileOutput float real jet $FinalNcol $OffsetLig  $OffsetCol  $FinalNlig  $FinalNcol 0 0 +90
+            set BMPFileInput "$DecompDirOutput/Aghababaee_Phip_SM3.bin"
+            set BMPFileOutput "$DecompDirOutput/Aghababaee_Phip_SM3.bmp"
+            PSPcreate_bmp_file black $BMPFileInput $BMPFileOutput float real hsv $FinalNcol $OffsetLig  $OffsetCol  $FinalNlig  $FinalNcol 0 -180 +180
+            set BMPFileInput "$DecompDirOutput/Aghababaee_Phip_SM2.bin"
+            set BMPFileOutput "$DecompDirOutput/Aghababaee_Phip_SM2.bmp"
+            PSPcreate_bmp_file black $BMPFileInput $BMPFileOutput float real hsv $FinalNcol $OffsetLig  $OffsetCol  $FinalNlig  $FinalNcol 0 -180 +180
+            set BMPFileInput "$DecompDirOutput/Aghababaee_Phip_SM1.bin"
+            set BMPFileOutput "$DecompDirOutput/Aghababaee_Phip_SM1.bmp"
+            PSPcreate_bmp_file black $BMPFileInput $BMPFileOutput float real hsv $FinalNcol $OffsetLig  $OffsetCol  $FinalNlig  $FinalNcol 0 -180 +180
+            set BMPFileInput "$DecompDirOutput/Aghababaee_Phip_mean.bin"
+            set BMPFileOutput "$DecompDirOutput/Aghababaee_Phip_mean.bmp"
+            PSPcreate_bmp_file black $BMPFileInput $BMPFileOutput float real hsv $FinalNcol $OffsetLig  $OffsetCol  $FinalNlig  $FinalNcol 0 -180 +180
+            set BMPFileInput "$DecompDirOutput/Aghababaee_Tawp_SM3.bin"
+            set BMPFileOutput "$DecompDirOutput/Aghababaee_Tawp_SM3.bmp"
+            PSPcreate_bmp_file black $BMPFileInput $BMPFileOutput float real jet $FinalNcol $OffsetLig  $OffsetCol  $FinalNlig  $FinalNcol 0 0 +45
+            set BMPFileInput "$DecompDirOutput/Aghababaee_Tawp_SM2.bin"
+            set BMPFileOutput "$DecompDirOutput/Aghababaee_Tawp_SM2.bmp"
+            PSPcreate_bmp_file black $BMPFileInput $BMPFileOutput float real jet $FinalNcol $OffsetLig  $OffsetCol  $FinalNlig  $FinalNcol 0 0 +45
+            set BMPFileInput "$DecompDirOutput/Aghababaee_Tawp_SM1.bin"
+            set BMPFileOutput "$DecompDirOutput/Aghababaee_Tawp_SM1.bmp"
+            PSPcreate_bmp_file black $BMPFileInput $BMPFileOutput float real jet $FinalNcol $OffsetLig  $OffsetCol  $FinalNlig  $FinalNcol 0 0 +45
+            set BMPFileInput "$DecompDirOutput/Aghababaee_Tawp_mean.bin"
+            set BMPFileOutput "$DecompDirOutput/Aghababaee_Tawp_mean.bmp"
+            PSPcreate_bmp_file black $BMPFileInput $BMPFileOutput float real jet $FinalNcol $OffsetLig  $OffsetCol  $FinalNlig  $FinalNcol 0 0 +45
+            set BMPFileInput "$DecompDirOutput/Aghababaee_Orientation_max_SM3.bin"
+            set BMPFileOutput "$DecompDirOutput/Aghababaee_Orientation_max_SM3.bmp"
+            PSPcreate_bmp_file black $BMPFileInput $BMPFileOutput float real hsv $FinalNcol $OffsetLig  $OffsetCol  $FinalNlig  $FinalNcol 0 -90 +90
+            set BMPFileInput "$DecompDirOutput/Aghababaee_Orientation_max_SM2.bin"
+            set BMPFileOutput "$DecompDirOutput/Aghababaee_Orientation_max_SM2.bmp"
+            PSPcreate_bmp_file black $BMPFileInput $BMPFileOutput float real hsv $FinalNcol $OffsetLig  $OffsetCol  $FinalNlig  $FinalNcol 0 -90 +90
+            set BMPFileInput "$DecompDirOutput/Aghababaee_Orientation_max_SM1.bin"
+            set BMPFileOutput "$DecompDirOutput/Aghababaee_Orientation_max_SM1.bmp"
+            PSPcreate_bmp_file black $BMPFileInput $BMPFileOutput float real hsv $FinalNcol $OffsetLig  $OffsetCol  $FinalNlig  $FinalNcol 0 -90 +90
+            set BMPFileInput "$DecompDirOutput/Aghababaee_Orientation_max_mean.bin"
+            set BMPFileOutput "$DecompDirOutput/Aghababaee_Orientation_max_mean.bmp"
+            PSPcreate_bmp_file black $BMPFileInput $BMPFileOutput float real hsv $FinalNcol $OffsetLig  $OffsetCol  $FinalNlig  $FinalNcol 0 -90 +90
+            set BMPFileInput "$DecompDirOutput/Aghababaee_M_SM3.bin"
+            set BMPFileOutput "$DecompDirOutput/Aghababaee_M_SM3_dB.bmp"
+            PSPcreate_bmp_file black $BMPFileInput $BMPFileOutput float db10 gray $FinalNcol  $OffsetLig  $OffsetCol  $FinalNlig  $FinalNcol $MinMaxBMPDecomp $MinBMPDecomp $MaxBMPDecomp
+            set BMPFileInput "$DecompDirOutput/Aghababaee_M_SM2.bin"
+            set BMPFileOutput "$DecompDirOutput/Aghababaee_M_SM2_dB.bmp"
+            PSPcreate_bmp_file black $BMPFileInput $BMPFileOutput float db10 gray $FinalNcol  $OffsetLig  $OffsetCol  $FinalNlig  $FinalNcol $MinMaxBMPDecomp $MinBMPDecomp $MaxBMPDecomp
+            set BMPFileInput "$DecompDirOutput/Aghababaee_M_SM1.bin"
+            set BMPFileOutput "$DecompDirOutput/Aghababaee_M_SM1_dB.bmp"
+            PSPcreate_bmp_file black $BMPFileInput $BMPFileOutput float db10 gray $FinalNcol  $OffsetLig  $OffsetCol  $FinalNlig  $FinalNcol $MinMaxBMPDecomp $MinBMPDecomp $MaxBMPDecomp
+            }
 
         set BMPDirInput $DecompDirOutput
 
@@ -1714,7 +1813,7 @@ global DecompDecompositionFonction DecompFonction
 global NwinDecompL NwinDecompC RGBPolarDecomp BMPPolarDecomp
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax 
 global Fonction Fonction2 VarFunction VarWarning WarningMessage WarningMessage2 VarError ErrorMessage ProgressLine 
-global NligInit NligFullSize NcolInit NcolFullSize NligEnd NcolEnd PSPMemory TMPMemoryAllocError
+global NligInit NligFullSize NcolInit NcolFullSize NligEnd NcolEnd TMPMemoryAllocError
 global OpenDirFile ConfigFile FinalNlig FinalNcol PolarCase PolarType PSPViewGimpBMP
 
 
@@ -1810,9 +1909,9 @@ if { $CreateDirDecomp == 3 } {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/data_process_sngl/huynen_decomposition.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput1\x22 -iodf $DecompDecompositionF -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_sngl/huynen_decomposition.exe -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput1\x22 -iodf $DecompDecompositionF -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/huynen_decomposition.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput1\x22 -iodf $DecompDecompositionF -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_sngl/huynen_decomposition.exe -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput1\x22 -iodf $DecompDecompositionF -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1827,15 +1926,15 @@ if { $CreateDirDecomp == 3 } {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/bmp_process/create_pauli_rgb_file.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
-            set f [ open "| Soft/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_pauli_rgb_file.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
+            set f [ open "| Soft/bin/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
             set BMPDirInput $RGBDirOutput
             WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-            if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+            if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
             }
 
         if {"$DecompFonction"=="Barnes1"} {
@@ -1843,9 +1942,9 @@ if { $CreateDirDecomp == 3 } {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/data_process_sngl/barnes1_decomposition.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput1\x22 -iodf $DecompDecompositionF -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_sngl/barnes1_decomposition.exe -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput1\x22 -iodf $DecompDecompositionF -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/barnes1_decomposition.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput1\x22 -iodf $DecompDecompositionF -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_sngl/barnes1_decomposition.exe -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput1\x22 -iodf $DecompDecompositionF -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1860,15 +1959,15 @@ if { $CreateDirDecomp == 3 } {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/bmp_process/create_pauli_rgb_file.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
-            set f [ open "| Soft/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_pauli_rgb_file.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
+            set f [ open "| Soft/bin/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
             set BMPDirInput $RGBDirOutput
             WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-            if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+            if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
             }
 
         if {"$DecompFonction"=="Barnes2"} {
@@ -1876,9 +1975,9 @@ if { $CreateDirDecomp == 3 } {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/data_process_sngl/barnes2_decomposition.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput1\x22 -iodf $DecompDecompositionF -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_sngl/barnes2_decomposition.exe -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput1\x22 -iodf $DecompDecompositionF -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/barnes2_decomposition.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput1\x22 -iodf $DecompDecompositionF -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_sngl/barnes2_decomposition.exe -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput1\x22 -iodf $DecompDecompositionF -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1893,15 +1992,15 @@ if { $CreateDirDecomp == 3 } {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/bmp_process/create_pauli_rgb_file.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
-            set f [ open "| Soft/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_pauli_rgb_file.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
+            set f [ open "| Soft/bin/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
             set BMPDirInput $RGBDirOutput
             WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-            if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+            if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
             }
 
         if {"$DecompFonction"=="Cloude"} {
@@ -1909,9 +2008,9 @@ if { $CreateDirDecomp == 3 } {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/data_process_sngl/cloude_decomposition.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput1\x22 -iodf $DecompDecompositionF -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_sngl/cloude_decomposition.exe -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput1\x22 -iodf $DecompDecompositionF -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/cloude_decomposition.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput1\x22 -iodf $DecompDecompositionF -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_sngl/cloude_decomposition.exe -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput1\x22 -iodf $DecompDecompositionF -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1926,15 +2025,15 @@ if { $CreateDirDecomp == 3 } {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/bmp_process/create_pauli_rgb_file.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
-            set f [ open "| Soft/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_pauli_rgb_file.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
+            set f [ open "| Soft/bin/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
             set BMPDirInput $RGBDirOutput
             WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-            if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+            if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
             }
 
         if {"$DecompFonction"=="Holm1"} {
@@ -1942,9 +2041,9 @@ if { $CreateDirDecomp == 3 } {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/data_process_sngl/holm1_decomposition.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput1\x22 -iodf $DecompDecompositionF -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_sngl/holm1_decomposition.exe -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput1\x22 -iodf $DecompDecompositionF -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/holm1_decomposition.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput1\x22 -iodf $DecompDecompositionF -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_sngl/holm1_decomposition.exe -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput1\x22 -iodf $DecompDecompositionF -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1959,15 +2058,15 @@ if { $CreateDirDecomp == 3 } {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/bmp_process/create_pauli_rgb_file.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
-            set f [ open "| Soft/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_pauli_rgb_file.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
+            set f [ open "| Soft/bin/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
             set BMPDirInput $RGBDirOutput
             WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-            if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+            if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
             }
 
         if {"$DecompFonction"=="Holm2"} {
@@ -1975,9 +2074,9 @@ if { $CreateDirDecomp == 3 } {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/data_process_sngl/holm2_decomposition.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput1\x22 -iodf $DecompDecompositionF -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_sngl/holm2_decomposition.exe -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput1\x22 -iodf $DecompDecompositionF -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/holm2_decomposition.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput1\x22 -iodf $DecompDecompositionF -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_sngl/holm2_decomposition.exe -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput1\x22 -iodf $DecompDecompositionF -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1992,15 +2091,15 @@ if { $CreateDirDecomp == 3 } {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/bmp_process/create_pauli_rgb_file.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
-            set f [ open "| Soft/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_pauli_rgb_file.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
+            set f [ open "| Soft/bin/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
             set BMPDirInput $RGBDirOutput
             WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-            if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+            if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
             }
 
         if {"$DecompFonction"=="HAAlpha"} {
@@ -2008,9 +2107,9 @@ if { $CreateDirDecomp == 3 } {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/data_process_sngl/haalpha_decomposition.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput1\x22 -iodf $DecompDecompositionF -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_sngl/haalpha_decomposition.exe -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput1\x22 -iodf $DecompDecompositionF -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/haalpha_decomposition.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput1\x22 -iodf $DecompDecompositionF -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_sngl/haalpha_decomposition.exe -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput1\x22 -iodf $DecompDecompositionF -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -2025,15 +2124,15 @@ if { $CreateDirDecomp == 3 } {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/bmp_process/create_pauli_rgb_file.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
-            set f [ open "| Soft/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_pauli_rgb_file.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
+            set f [ open "| Soft/bin/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
             set BMPDirInput $RGBDirOutput
             WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-            if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+            if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
             }
 
         if {"$DecompFonction"=="Freeman2"} {
@@ -2042,9 +2141,9 @@ if { $CreateDirDecomp == 3 } {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/data_process_sngl/freeman_2components_decomposition.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_sngl/freeman_2components_decomposition.exe -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/freeman_2components_decomposition.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_sngl/freeman_2components_decomposition.exe -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -2054,9 +2153,9 @@ if { $CreateDirDecomp == 3 } {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/data_process_sngl/freeman_2components_reconstruction.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od1 \x22$DecompDirOutput1\x22 -od2 \x22$DecompDirOutput2\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_sngl/freeman_2components_reconstruction.exe -id \x22$DecompDirInput\x22 -od1 \x22$DecompDirOutput1\x22 -od2 \x22$DecompDirOutput2\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/freeman_2components_reconstruction.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od1 \x22$DecompDirOutput1\x22 -od2 \x22$DecompDirOutput2\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_sngl/freeman_2components_reconstruction.exe -id \x22$DecompDirInput\x22 -od1 \x22$DecompDirOutput1\x22 -od2 \x22$DecompDirOutput2\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -2071,26 +2170,26 @@ if { $CreateDirDecomp == 3 } {
             update
             set RGBDirInput $DecompDirOutput1; set RGBDirOutput $DecompDirOutput1
             set RGBFileOutput "$RGBDirOutput/PauliRGB.bmp"
-            TextEditorRunTrace "Process The Function Soft/bmp_process/create_pauli_rgb_file.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
-            set f [ open "| Soft/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_pauli_rgb_file.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
+            set f [ open "| Soft/bin/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
-            if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+            if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
             set ProgressLine "0"
             update
             set RGBDirInput $DecompDirOutput2; set RGBDirOutput $DecompDirOutput2
             set RGBFileOutput "$RGBDirOutput/PauliRGB.bmp"
-            TextEditorRunTrace "Process The Function Soft/bmp_process/create_pauli_rgb_file.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
-            set f [ open "| Soft/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_pauli_rgb_file.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
+            set f [ open "| Soft/bin/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
             set BMPDirInput $DecompDirOutput1
             WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-            if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+            if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
             }
 
         if {"$DecompFonction"=="Freeman3"} {
@@ -2100,9 +2199,9 @@ if { $CreateDirDecomp == 3 } {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/data_process_sngl/freeman_decomposition.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_sngl/freeman_decomposition.exe -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/freeman_decomposition.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_sngl/freeman_decomposition.exe -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -2113,9 +2212,9 @@ if { $CreateDirDecomp == 3 } {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/data_process_sngl/freeman_reconstruction.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od1 \x22$DecompDirOutput1\x22 -od2 \x22$DecompDirOutput2\x22 -od3 \x22$DecompDirOutput3\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_sngl/freeman_reconstruction.exe -id \x22$DecompDirInput\x22 -od1 \x22$DecompDirOutput1\x22 -od2 \x22$DecompDirOutput2\x22 -od3 \x22$DecompDirOutput3\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/freeman_reconstruction.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od1 \x22$DecompDirOutput1\x22 -od2 \x22$DecompDirOutput2\x22 -od3 \x22$DecompDirOutput3\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_sngl/freeman_reconstruction.exe -id \x22$DecompDirInput\x22 -od1 \x22$DecompDirOutput1\x22 -od2 \x22$DecompDirOutput2\x22 -od3 \x22$DecompDirOutput3\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -2130,37 +2229,37 @@ if { $CreateDirDecomp == 3 } {
             update
             set RGBDirInput $DecompDirOutput1; set RGBDirOutput $DecompDirOutput1
             set RGBFileOutput "$RGBDirOutput/PauliRGB.bmp"
-            TextEditorRunTrace "Process The Function Soft/bmp_process/create_pauli_rgb_file.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
-            set f [ open "| Soft/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_pauli_rgb_file.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
+            set f [ open "| Soft/bin/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
-            if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+            if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
             set ProgressLine "0"
             update
             set RGBDirInput $DecompDirOutput2; set RGBDirOutput $DecompDirOutput2
             set RGBFileOutput "$RGBDirOutput/PauliRGB.bmp"
-            TextEditorRunTrace "Process The Function Soft/bmp_process/create_pauli_rgb_file.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
-            set f [ open "| Soft/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_pauli_rgb_file.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
+            set f [ open "| Soft/bin/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
-            if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+            if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
             set ProgressLine "0"
             update
             set RGBDirInput $DecompDirOutput3; set RGBDirOutput $DecompDirOutput3
             set RGBFileOutput "$RGBDirOutput/PauliRGB.bmp"
-            TextEditorRunTrace "Process The Function Soft/bmp_process/create_pauli_rgb_file.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
-            set f [ open "| Soft/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_pauli_rgb_file.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
+            set f [ open "| Soft/bin/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
             set BMPDirInput $DecompDirOutput1
             WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-            if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+            if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
             }
 
         if {"$DecompFonction"=="VanZyl3"} {
@@ -2170,9 +2269,9 @@ if { $CreateDirDecomp == 3 } {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/data_process_sngl/vanzyl92_3components_decomposition.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_sngl/vanzyl92_3components_decomposition.exe -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/vanzyl92_3components_decomposition.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_sngl/vanzyl92_3components_decomposition.exe -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -2183,9 +2282,9 @@ if { $CreateDirDecomp == 3 } {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/data_process_sngl/vanzyl92_3components_reconstruction.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od1 \x22$DecompDirOutput1\x22 -od2 \x22$DecompDirOutput2\x22 -od3 \x22$DecompDirOutput3\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_sngl/vanzyl92_3components_reconstruction.exe -id \x22$DecompDirInput\x22 -od1 \x22$DecompDirOutput1\x22 -od2 \x22$DecompDirOutput2\x22 -od3 \x22$DecompDirOutput3\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/vanzyl92_3components_reconstruction.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od1 \x22$DecompDirOutput1\x22 -od2 \x22$DecompDirOutput2\x22 -od3 \x22$DecompDirOutput3\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_sngl/vanzyl92_3components_reconstruction.exe -id \x22$DecompDirInput\x22 -od1 \x22$DecompDirOutput1\x22 -od2 \x22$DecompDirOutput2\x22 -od3 \x22$DecompDirOutput3\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -2200,37 +2299,37 @@ if { $CreateDirDecomp == 3 } {
             update
             set RGBDirInput $DecompDirOutput1; set RGBDirOutput $DecompDirOutput1
             set RGBFileOutput "$RGBDirOutput/PauliRGB.bmp"
-            TextEditorRunTrace "Process The Function Soft/bmp_process/create_pauli_rgb_file.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
-            set f [ open "| Soft/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_pauli_rgb_file.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
+            set f [ open "| Soft/bin/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
-            if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+            if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
             set ProgressLine "0"
             update
             set RGBDirInput $DecompDirOutput2; set RGBDirOutput $DecompDirOutput2
             set RGBFileOutput "$RGBDirOutput/PauliRGB.bmp"
-            TextEditorRunTrace "Process The Function Soft/bmp_process/create_pauli_rgb_file.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
-            set f [ open "| Soft/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_pauli_rgb_file.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
+            set f [ open "| Soft/bin/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
-            if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+            if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
             set ProgressLine "0"
             update
             set RGBDirInput $DecompDirOutput3; set RGBDirOutput $DecompDirOutput3
             set RGBFileOutput "$RGBDirOutput/PauliRGB.bmp"
-            TextEditorRunTrace "Process The Function Soft/bmp_process/create_pauli_rgb_file.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
-            set f [ open "| Soft/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_pauli_rgb_file.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
+            set f [ open "| Soft/bin/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
             set BMPDirInput $DecompDirOutput1
             WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-            if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+            if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
             }
 
         if {"$DecompFonction"=="AriiNNED3"} {
@@ -2240,9 +2339,9 @@ if { $CreateDirDecomp == 3 } {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/data_process_sngl/arii_nned_3components_decomposition.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_sngl/arii_nned_3components_decomposition.exe -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/arii_nned_3components_decomposition.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_sngl/arii_nned_3components_decomposition.exe -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -2253,9 +2352,9 @@ if { $CreateDirDecomp == 3 } {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/data_process_sngl/arii_nned_3components_reconstruction.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od1 \x22$DecompDirOutput1\x22 -od2 \x22$DecompDirOutput2\x22 -od3 \x22$DecompDirOutput3\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_sngl/arii_nned_3components_reconstruction.exe -id \x22$DecompDirInput\x22 -od1 \x22$DecompDirOutput1\x22 -od2 \x22$DecompDirOutput2\x22 -od3 \x22$DecompDirOutput3\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/arii_nned_3components_reconstruction.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od1 \x22$DecompDirOutput1\x22 -od2 \x22$DecompDirOutput2\x22 -od3 \x22$DecompDirOutput3\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_sngl/arii_nned_3components_reconstruction.exe -id \x22$DecompDirInput\x22 -od1 \x22$DecompDirOutput1\x22 -od2 \x22$DecompDirOutput2\x22 -od3 \x22$DecompDirOutput3\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -2270,37 +2369,37 @@ if { $CreateDirDecomp == 3 } {
             update
             set RGBDirInput $DecompDirOutput1; set RGBDirOutput $DecompDirOutput1
             set RGBFileOutput "$RGBDirOutput/PauliRGB.bmp"
-            TextEditorRunTrace "Process The Function Soft/bmp_process/create_pauli_rgb_file.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
-            set f [ open "| Soft/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_pauli_rgb_file.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
+            set f [ open "| Soft/bin/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
-            if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+            if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
             set ProgressLine "0"
             update
             set RGBDirInput $DecompDirOutput2; set RGBDirOutput $DecompDirOutput2
             set RGBFileOutput "$RGBDirOutput/PauliRGB.bmp"
-            TextEditorRunTrace "Process The Function Soft/bmp_process/create_pauli_rgb_file.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
-            set f [ open "| Soft/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_pauli_rgb_file.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
+            set f [ open "| Soft/bin/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
-            if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+            if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
             set ProgressLine "0"
             update
             set RGBDirInput $DecompDirOutput3; set RGBDirOutput $DecompDirOutput3
             set RGBFileOutput "$RGBDirOutput/PauliRGB.bmp"
-            TextEditorRunTrace "Process The Function Soft/bmp_process/create_pauli_rgb_file.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
-            set f [ open "| Soft/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_pauli_rgb_file.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
+            set f [ open "| Soft/bin/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
             set BMPDirInput $DecompDirOutput1
             WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-            if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+            if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
             }
 
         if {"$DecompFonction"=="AriiANNED3"} {
@@ -2310,9 +2409,9 @@ if { $CreateDirDecomp == 3 } {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/data_process_sngl/arii_anned_3components_decomposition.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_sngl/arii_anned_3components_decomposition.exe -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/arii_anned_3components_decomposition.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_sngl/arii_anned_3components_decomposition.exe -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -2323,9 +2422,9 @@ if { $CreateDirDecomp == 3 } {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/data_process_sngl/arii_anned_3components_reconstruction.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od1 \x22$DecompDirOutput1\x22 -od2 \x22$DecompDirOutput2\x22 -od3 \x22$DecompDirOutput3\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_sngl/arii_anned_3components_reconstruction.exe -id \x22$DecompDirInput\x22 -od1 \x22$DecompDirOutput1\x22 -od2 \x22$DecompDirOutput2\x22 -od3 \x22$DecompDirOutput3\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/arii_anned_3components_reconstruction.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od1 \x22$DecompDirOutput1\x22 -od2 \x22$DecompDirOutput2\x22 -od3 \x22$DecompDirOutput3\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_sngl/arii_anned_3components_reconstruction.exe -id \x22$DecompDirInput\x22 -od1 \x22$DecompDirOutput1\x22 -od2 \x22$DecompDirOutput2\x22 -od3 \x22$DecompDirOutput3\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -2340,37 +2439,37 @@ if { $CreateDirDecomp == 3 } {
             update
             set RGBDirInput $DecompDirOutput1; set RGBDirOutput $DecompDirOutput1
             set RGBFileOutput "$RGBDirOutput/PauliRGB.bmp"
-            TextEditorRunTrace "Process The Function Soft/bmp_process/create_pauli_rgb_file.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
-            set f [ open "| Soft/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_pauli_rgb_file.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
+            set f [ open "| Soft/bin/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
-            if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+            if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
             set ProgressLine "0"
             update
             set RGBDirInput $DecompDirOutput2; set RGBDirOutput $DecompDirOutput2
             set RGBFileOutput "$RGBDirOutput/PauliRGB.bmp"
-            TextEditorRunTrace "Process The Function Soft/bmp_process/create_pauli_rgb_file.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
-            set f [ open "| Soft/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_pauli_rgb_file.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
+            set f [ open "| Soft/bin/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
-            if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+            if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
             set ProgressLine "0"
             update
             set RGBDirInput $DecompDirOutput3; set RGBDirOutput $DecompDirOutput3
             set RGBFileOutput "$RGBDirOutput/PauliRGB.bmp"
-            TextEditorRunTrace "Process The Function Soft/bmp_process/create_pauli_rgb_file.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
-            set f [ open "| Soft/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_pauli_rgb_file.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
+            set f [ open "| Soft/bin/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
             set BMPDirInput $DecompDirOutput1
             WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-            if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+            if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
             }
 
         if {"$DecompFonction"=="Yamaguchi3"} {
@@ -2380,9 +2479,9 @@ if { $CreateDirDecomp == 3 } {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/data_process_sngl/yamaguchi_3components_decomposition.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_sngl/yamaguchi_3components_decomposition.exe -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/yamaguchi_3components_decomposition.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_sngl/yamaguchi_3components_decomposition.exe -id \x22$DecompDirInput\x22 -od \x22$DecompDirOutput\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -2393,9 +2492,9 @@ if { $CreateDirDecomp == 3 } {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/data_process_sngl/yamaguchi_3components_reconstruction.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od1 \x22$DecompDirOutput1\x22 -od2 \x22$DecompDirOutput2\x22 -od3 \x22$DecompDirOutput3\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_sngl/yamaguchi_3components_reconstruction.exe -id \x22$DecompDirInput\x22 -od1 \x22$DecompDirOutput1\x22 -od2 \x22$DecompDirOutput2\x22 -od3 \x22$DecompDirOutput3\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/yamaguchi_3components_reconstruction.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$DecompDirInput\x22 -od1 \x22$DecompDirOutput1\x22 -od2 \x22$DecompDirOutput2\x22 -od3 \x22$DecompDirOutput3\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_sngl/yamaguchi_3components_reconstruction.exe -id \x22$DecompDirInput\x22 -od1 \x22$DecompDirOutput1\x22 -od2 \x22$DecompDirOutput2\x22 -od3 \x22$DecompDirOutput3\x22 -iodf $DecompDecompositionFonction -nwr $NwinDecompL -nwc $NwinDecompC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -2410,37 +2509,37 @@ if { $CreateDirDecomp == 3 } {
             update
             set RGBDirInput $DecompDirOutput1; set RGBDirOutput $DecompDirOutput1
             set RGBFileOutput "$RGBDirOutput/PauliRGB.bmp"
-            TextEditorRunTrace "Process The Function Soft/bmp_process/create_pauli_rgb_file.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
-            set f [ open "| Soft/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_pauli_rgb_file.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
+            set f [ open "| Soft/bin/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
-            if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+            if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
             set ProgressLine "0"
             update
             set RGBDirInput $DecompDirOutput2; set RGBDirOutput $DecompDirOutput2
             set RGBFileOutput "$RGBDirOutput/PauliRGB.bmp"
-            TextEditorRunTrace "Process The Function Soft/bmp_process/create_pauli_rgb_file.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
-            set f [ open "| Soft/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_pauli_rgb_file.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
+            set f [ open "| Soft/bin/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
-            if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+            if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
             set ProgressLine "0"
             update
             set RGBDirInput $DecompDirOutput3; set RGBDirOutput $DecompDirOutput3
             set RGBFileOutput "$RGBDirOutput/PauliRGB.bmp"
-            TextEditorRunTrace "Process The Function Soft/bmp_process/create_pauli_rgb_file.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
-            set f [ open "| Soft/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_pauli_rgb_file.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" "k"
+            set f [ open "| Soft/bin/bmp_process/create_pauli_rgb_file.exe -id \x22$RGBDirInput\x22 -of \x22$RGBFileOutput\x22 -iodf $RGBiodf -ofr 0 -ofc 0 -fnr $NligFullSize -fnc $NcolFullSize  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd -auto 1" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
             set BMPDirInput $DecompDirOutput1
             WidgetHideTop28; TextEditorRunTrace "Close Window Message" "b"
-            if {$PSPViewGimpBMP == 1} { Gimp $RGBFileOutput }
+            if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $RGBFileOutput }
             }
 
         }
@@ -2494,7 +2593,7 @@ set widget_Radiobutton70_2 .top70.fra74.fra75.cpd77.cpd80
 
     set DecompOutputDir1 ""; set DecompOutputSubDir1 ""; set DecompOutputDir2 ""; set DecompOutputSubDir2 ""
     set DecompOutputDir3 ""; set DecompOutputSubDir3 ""; set DecompOutputDir4 ""; set DecompOutputSubDir4 ""
-    set DecompOutputSubDirTmp ""
+    set DecompOutputSubDirTmp " "
     $widget_Label70_4 configure -state disable
     $widget_Radiobutton70_1 configure -state disable
     $widget_Radiobutton70_2 configure -state disable
@@ -2732,7 +2831,7 @@ set widget_Radiobutton70_2 .top70.fra74.fra75.cpd77.cpd80
 
     set DecompOutputDir1 ""; set DecompOutputSubDir1 ""; set DecompOutputDir2 ""; set DecompOutputSubDir2 ""
     set DecompOutputDir3 ""; set DecompOutputSubDir3 ""; set DecompOutputDir4 ""; set DecompOutputSubDir4 ""
-    set DecompOutputSubDirTmp ""
+    set DecompOutputSubDirTmp " "
     $widget_Label70_4 configure -state disable
     $widget_Radiobutton70_1 configure -state disable
     $widget_Radiobutton70_2 configure -state disable

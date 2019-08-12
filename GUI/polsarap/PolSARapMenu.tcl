@@ -492,7 +492,7 @@ proc vTclWindow.top530 {base} {
     vTcl:toplevel $top -class Toplevel
     wm withdraw $top
     wm focusmodel $top passive
-    wm geometry $top 130x280+10+110; update
+    wm geometry $top 130x250+10+110; update
     wm maxsize $top 1604 1184
     wm minsize $top 116 1
     wm overrideredirect $top 0
@@ -592,7 +592,7 @@ if {$configformat == "true"} {
         set PolSARapAgriFonction "T3"
         }
 
-    set PolSARapAgriFonc ""
+    set PolSARapAgriFonc " "
 
     $widget(TitleFrame531_4) configure -text "Polarimetric Decomposition File"
     $widget(TitleFrame531_5) configure -text "Polarimetric Decomposition File"
@@ -665,7 +665,7 @@ if {$configformat == "true"} {
     set PolSARapAgriDcTrunkFile ""
     set PolSARapAgriNwinL ""
     set PolSARapAgriNwinC ""
-    set PolSARapAgriUnit ""
+    set PolSARapAgriUnit " "
     set PolSARapAgriSurfSoil ""
     set PolSARapAgriSurfLUT ""
     set PolSARapAgriDihedSoil ""
@@ -766,7 +766,7 @@ set PolSARapCryoMasterSlaveDirInput $MasterSlaveOutputDir
 set PolSARapCryoDirInput ""
 $widget(TitleFrame532_1) configure -text ""
 
-set PolSARapCryoFonc ""
+set PolSARapCryoFonc " "
 
 $widget(TitleFrame532_2) configure -state disable
 $widget(TitleFrame532_3) configure -state disable
@@ -837,10 +837,10 @@ set PolSARapCryoKappaFile ""
 set PolSARapCryoDepthFile ""
 set PolSARapCryoNwinL ""
 set PolSARapCryoNwinC ""
-set PolSARapCryoUnit ""
+set PolSARapCryoUnit " "
 set PolSARapCryoNwinMedian ""
 set PolSARapCryoIteration ""
-set PolSARapCryoChannel ""
+set PolSARapCryoChannel " "
 set PolSARapCryoDielectric ""
 set PolSARapCryoDr ""
 set PolSARapCryoThreshold ""

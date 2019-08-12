@@ -1120,7 +1120,7 @@ global FilterScattModelBasedSBFile FilterScattModelBasedDBFile FilterScattModelB
 global Fonction2 ProgressLine VarFunction VarWarning WarningMessage WarningMessage2
 global ConfigFile FinalNlig FinalNcol PolarCase PolarType FilterScattModelBasedNwinL
 global NligFullSize NcolFullSize TMPDirectory FilterScattModelBasedType
-global FilterScattModelBasedFonc PSPMemory TMPMemoryAllocError DataFormatActive
+global FilterScattModelBasedFonc TMPMemoryAllocError DataFormatActive
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
 
 if {$OpenDirFile == 0} {
@@ -1188,9 +1188,9 @@ if {"$VarWarning"=="ok"} {
 
             set FilterScattModelBasedColorMapFile "$COLORMAPDir/ColorMap_OCEAN.pal"
 
-            TextEditorRunTrace "Process The Function Soft/data_process_sngl/lee_scattering_model_based_classification.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$FilterScattModelBasedDirInput\x22 -od \x22$FilterScattModelBasedDirInput\x22 -isf \x22$FilterScattModelBasedSBFile\x22 -idf \x22$FilterScattModelBasedDBFile\x22 -irf \x22$FilterScattModelBasedRVFile\x22 -iodf $DataFormatActive -nwr $FilterScattModelBasedNwinL -nwc $FilterScattModelBasedNwinL -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -pct 10 -nit 10 -bmp 0 -ncl 30 -mct -1 -fscn $FilterScattModelBasedClusterFin -fdcn $FilterScattModelBasedClusterFin -fvcn $FilterScattModelBasedClusterFin -cms \x22$FilterScattModelBasedColorMapFile\x22 -cmd \x22$FilterScattModelBasedColorMapFile\x22 -cmr \x22$FilterScattModelBasedColorMapFile\x22 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_sngl/lee_scattering_model_based_classification.exe -id \x22$FilterScattModelBasedDirInput\x22 -od \x22$FilterScattModelBasedDirInput\x22 -isf \x22$FilterScattModelBasedSBFile\x22 -idf \x22$FilterScattModelBasedDBFile\x22 -irf \x22$FilterScattModelBasedRVFile\x22 -iodf $DataFormatActive -nwr $FilterScattModelBasedNwinL -nwc $FilterScattModelBasedNwinL -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -pct 10 -nit 10 -bmp 0 -ncl 30 -mct -1 -fscn $FilterScattModelBasedClusterFin -fdcn $FilterScattModelBasedClusterFin -fvcn $FilterScattModelBasedClusterFin -cms \x22$FilterScattModelBasedColorMapFile\x22 -cmd \x22$FilterScattModelBasedColorMapFile\x22 -cmr \x22$FilterScattModelBasedColorMapFile\x22 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/lee_scattering_model_based_classification.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$FilterScattModelBasedDirInput\x22 -od \x22$FilterScattModelBasedDirInput\x22 -isf \x22$FilterScattModelBasedSBFile\x22 -idf \x22$FilterScattModelBasedDBFile\x22 -irf \x22$FilterScattModelBasedRVFile\x22 -iodf $DataFormatActive -nwr $FilterScattModelBasedNwinL -nwc $FilterScattModelBasedNwinL -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -pct 10 -nit 10 -bmp 0 -ncl 30 -mct -1 -fscn $FilterScattModelBasedClusterFin -fdcn $FilterScattModelBasedClusterFin -fvcn $FilterScattModelBasedClusterFin -cms \x22$FilterScattModelBasedColorMapFile\x22 -cmd \x22$FilterScattModelBasedColorMapFile\x22 -cmr \x22$FilterScattModelBasedColorMapFile\x22  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_sngl/lee_scattering_model_based_classification.exe -id \x22$FilterScattModelBasedDirInput\x22 -od \x22$FilterScattModelBasedDirInput\x22 -isf \x22$FilterScattModelBasedSBFile\x22 -idf \x22$FilterScattModelBasedDBFile\x22 -irf \x22$FilterScattModelBasedRVFile\x22 -iodf $DataFormatActive -nwr $FilterScattModelBasedNwinL -nwc $FilterScattModelBasedNwinL -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -pct 10 -nit 10 -bmp 0 -ncl 30 -mct -1 -fscn $FilterScattModelBasedClusterFin -fdcn $FilterScattModelBasedClusterFin -fvcn $FilterScattModelBasedClusterFin -cms \x22$FilterScattModelBasedColorMapFile\x22 -cmd \x22$FilterScattModelBasedColorMapFile\x22 -cmr \x22$FilterScattModelBasedColorMapFile\x22  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1210,9 +1210,9 @@ if {"$VarWarning"=="ok"} {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/speckle_filter/lee_scattering_model_based_filter.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$FilterScattModelBasedDirInput\x22 -od \x22$FilterScattModelBasedDirOutput\x22 -icf \x22$ClassificationInputFile\x22 -iodf $FilterScattModelBasedFonc -typ $FilterScattModelBasedType -nc $FilterScattModelBasedClusterFin -nw $FilterScattModelBasedNwinL -nlk $Nlook -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/speckle_filter/lee_scattering_model_based_filter.exe -id \x22$FilterScattModelBasedDirInput\x22 -od \x22$FilterScattModelBasedDirOutput\x22 -icf \x22$ClassificationInputFile\x22 -iodf $FilterScattModelBasedFonc -typ $FilterScattModelBasedType -nc $FilterScattModelBasedClusterFin -nw $FilterScattModelBasedNwinL -nlk $Nlook -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/speckle_filter/lee_scattering_model_based_filter.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$FilterScattModelBasedDirInput\x22 -od \x22$FilterScattModelBasedDirOutput\x22 -icf \x22$ClassificationInputFile\x22 -iodf $FilterScattModelBasedFonc -typ $FilterScattModelBasedType -nc $FilterScattModelBasedClusterFin -nw $FilterScattModelBasedNwinL -nlk $Nlook -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/speckle_filter/lee_scattering_model_based_filter.exe -id \x22$FilterScattModelBasedDirInput\x22 -od \x22$FilterScattModelBasedDirOutput\x22 -icf \x22$ClassificationInputFile\x22 -iodf $FilterScattModelBasedFonc -typ $FilterScattModelBasedType -nc $FilterScattModelBasedClusterFin -nw $FilterScattModelBasedNwinL -nlk $Nlook -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError

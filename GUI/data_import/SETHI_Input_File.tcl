@@ -436,11 +436,83 @@ proc vTcl:project:info {} {
         array set save {-_tooltip 1 -command 1 -image 1 -pady 1 -text 1}
     }
     namespace eval ::widgets::$base.fra72 {
-        array set save {-borderwidth 1 -height 1 -width 1}
+        array set save {-height 1 -width 1}
     }
     set site_3_0 $base.fra72
     namespace eval ::widgets::$site_3_0.but73 {
         array set save {-background 1 -command 1 -padx 1 -pady 1 -text 1}
+    }
+    namespace eval ::widgets::$site_3_0.cpd70 {
+        array set save {-borderwidth 1 -height 1 -width 1}
+    }
+    set site_4_0 $site_3_0.cpd70
+    namespace eval ::widgets::$site_4_0.fra39 {
+        array set save {-borderwidth 1 -height 1 -width 1}
+    }
+    set site_5_0 $site_4_0.fra39
+    namespace eval ::widgets::$site_5_0.cpd67 {
+        array set save {-borderwidth 1 -height 1 -width 1}
+    }
+    set site_6_0 $site_5_0.cpd67
+    namespace eval ::widgets::$site_6_0.lab40 {
+        array set save {-text 1}
+    }
+    namespace eval ::widgets::$site_6_0.ent41 {
+        array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -justify 1 -state 1 -textvariable 1 -width 1}
+    }
+    namespace eval ::widgets::$site_5_0.cpd68 {
+        array set save {-borderwidth 1 -height 1 -width 1}
+    }
+    set site_6_0 $site_5_0.cpd68
+    namespace eval ::widgets::$site_6_0.lab42 {
+        array set save {-text 1}
+    }
+    namespace eval ::widgets::$site_6_0.ent43 {
+        array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -justify 1 -state 1 -textvariable 1 -width 1}
+    }
+    namespace eval ::widgets::$site_5_0.cpd66 {
+        array set save {-borderwidth 1 -height 1 -width 1}
+    }
+    set site_6_0 $site_5_0.cpd66
+    namespace eval ::widgets::$site_6_0.lab42 {
+        array set save {-text 1}
+    }
+    namespace eval ::widgets::$site_6_0.ent43 {
+        array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -justify 1 -state 1 -textvariable 1 -width 1}
+    }
+    namespace eval ::widgets::$site_4_0.cpd69 {
+        array set save {-borderwidth 1 -height 1 -width 1}
+    }
+    set site_5_0 $site_4_0.cpd69
+    namespace eval ::widgets::$site_5_0.cpd67 {
+        array set save {-borderwidth 1 -height 1 -width 1}
+    }
+    set site_6_0 $site_5_0.cpd67
+    namespace eval ::widgets::$site_6_0.lab40 {
+        array set save {-text 1}
+    }
+    namespace eval ::widgets::$site_6_0.ent41 {
+        array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -justify 1 -state 1 -textvariable 1 -width 1}
+    }
+    namespace eval ::widgets::$site_5_0.cpd68 {
+        array set save {-borderwidth 1 -height 1 -width 1}
+    }
+    set site_6_0 $site_5_0.cpd68
+    namespace eval ::widgets::$site_6_0.lab42 {
+        array set save {-text 1}
+    }
+    namespace eval ::widgets::$site_6_0.ent43 {
+        array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -justify 1 -state 1 -textvariable 1 -width 1}
+    }
+    namespace eval ::widgets::$site_5_0.cpd69 {
+        array set save {-borderwidth 1 -height 1 -width 1}
+    }
+    set site_6_0 $site_5_0.cpd69
+    namespace eval ::widgets::$site_6_0.lab42 {
+        array set save {-text 1}
+    }
+    namespace eval ::widgets::$site_6_0.ent43 {
+        array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -justify 1 -state 1 -textvariable 1 -width 1}
     }
     namespace eval ::widgets::$base.cpd80 {
         array set save {-height 1 -width 1}
@@ -519,24 +591,56 @@ proc vTcl:project:info {} {
         array set save {-_tooltip 1 -command 1 -image 1 -pady 1 -text 1}
     }
     namespace eval ::widgets::$base.fra23 {
-        array set save {-borderwidth 1 -height 1 -relief 1 -width 1}
+        array set save {-height 1 -width 1}
     }
     set site_3_0 $base.fra23
     namespace eval ::widgets::$site_3_0.fra39 {
         array set save {-borderwidth 1 -height 1 -width 1}
     }
     set site_4_0 $site_3_0.fra39
-    namespace eval ::widgets::$site_4_0.lab40 {
+    namespace eval ::widgets::$site_4_0.cpd67 {
+        array set save {-borderwidth 1 -height 1 -width 1}
+    }
+    set site_5_0 $site_4_0.cpd67
+    namespace eval ::widgets::$site_5_0.lab40 {
         array set save {-text 1}
     }
-    namespace eval ::widgets::$site_4_0.ent41 {
-        array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -justify 1 -textvariable 1 -width 1}
+    namespace eval ::widgets::$site_5_0.ent41 {
+        array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -justify 1 -state 1 -textvariable 1 -width 1}
     }
-    namespace eval ::widgets::$site_4_0.lab42 {
+    namespace eval ::widgets::$site_4_0.cpd68 {
+        array set save {-borderwidth 1 -height 1 -width 1}
+    }
+    set site_5_0 $site_4_0.cpd68
+    namespace eval ::widgets::$site_5_0.lab42 {
         array set save {-text 1}
     }
-    namespace eval ::widgets::$site_4_0.ent43 {
-        array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -justify 1 -textvariable 1 -width 1}
+    namespace eval ::widgets::$site_5_0.ent43 {
+        array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -justify 1 -state 1 -textvariable 1 -width 1}
+    }
+    namespace eval ::widgets::$site_3_0.cpd69 {
+        array set save {-borderwidth 1 -height 1 -width 1}
+    }
+    set site_4_0 $site_3_0.cpd69
+    namespace eval ::widgets::$site_4_0.cpd67 {
+        array set save {-borderwidth 1 -height 1 -width 1}
+    }
+    set site_5_0 $site_4_0.cpd67
+    namespace eval ::widgets::$site_5_0.lab40 {
+        array set save {-text 1}
+    }
+    namespace eval ::widgets::$site_5_0.ent41 {
+        array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -justify 1 -state 1 -textvariable 1 -width 1}
+    }
+    namespace eval ::widgets::$site_4_0.cpd68 {
+        array set save {-borderwidth 1 -height 1 -width 1}
+    }
+    set site_5_0 $site_4_0.cpd68
+    namespace eval ::widgets::$site_5_0.lab42 {
+        array set save {-text 1}
+    }
+    namespace eval ::widgets::$site_5_0.ent43 {
+        array set save {-background 1 -disabledbackground 1 -disabledforeground 1 -foreground 1 -justify 1 -state 1 -textvariable 1 -width 1}
     }
     namespace eval ::widgets::$base.cpd74 {
         array set save {-text 1 -variable 1}
@@ -611,9 +715,9 @@ proc vTclWindow. {base} {
     # CREATING WIDGETS
     ###################
     wm focusmodel $top passive
-    wm geometry $top 200x200+22+22; update
-    wm maxsize $top 1284 785
-    wm minsize $top 104 1
+    wm geometry $top 200x200+250+250; update
+    wm maxsize $top 3364 1032
+    wm minsize $top 116 1
     wm overrideredirect $top 0
     wm resizable $top 1 1
     wm withdraw $top
@@ -643,9 +747,9 @@ proc vTclWindow.top228 {base} {
     vTcl:toplevel $top -class Toplevel
     wm withdraw $top
     wm focusmodel $top passive
-    wm geometry $top 500x490+10+110; update
+    wm geometry $top 500x550+10+110; update
     wm maxsize $top 1604 1184
-    wm minsize $top 113 1
+    wm minsize $top 148 1
     wm overrideredirect $top 0
     wm resizable $top 1 1
     wm title $top "SETHI Input Data File"
@@ -692,7 +796,7 @@ proc vTclWindow.top228 {base} {
     pack $site_3_0.cpd97 \
         -in $site_3_0 -anchor center -expand 0 -fill x -side top 
     TitleFrame $top.cpd71 \
-        -ipad 0 -text {SETHI Header File} 
+        -ipad 0 -text {SETHI Header File (.ent)} 
     vTcl:DefineAlias "$top.cpd71" "TitleFrame11" vTcl:WidgetProc "Toplevel228" 1
     bind $top.cpd71 <Destroy> {
         Widget::destroy %W; rename %W {}
@@ -717,7 +821,11 @@ set types {
     }
 set FileName ""
 OpenFile $SETHIDirInput $types "SETHI HEADER FILE"
-set FileHeaderRamses $FileName} \
+if {$FileName != ""} {
+    set FileHeaderRamses $FileName
+    } else {
+    set FileHeaderRamses ""
+    }} \
         -image [vTcl:image:get_image [file join . GUI Images OpenFile.gif]] \
         -pady 0 -text button 
     vTcl:DefineAlias "$site_5_0.cpd119" "Button24" vTcl:WidgetProc "Toplevel228" 1
@@ -732,41 +840,198 @@ set FileHeaderRamses $FileName} \
     pack $site_4_0.cpd91 \
         -in $site_4_0 -anchor center -expand 0 -fill none -side top 
     frame $top.fra72 \
-        -borderwidth 2 -height 75 -width 125 
+        -height 75 -width 125 
     vTcl:DefineAlias "$top.fra72" "Frame3" vTcl:WidgetProc "Toplevel228" 1
     set site_3_0 $top.fra72
     button $site_3_0.but73 \
         -background #ffff00 \
-        -command {global FileHeaderRamses VarError ErrorMessage
+        -command {global FileHeaderRamses TMPSethiConfig VarError ErrorMessage
+global FileInputHH FileInputHV FileInputVH FileInputVV
+global SethiDepAng SethiAzResol SethiSrResol SethiPixSurf
+global SethiPixRow SethiPixCol NligFullSize NcolFullSize 
+global SethiRadDist SethiRadAlt
+
 #UTIL
 global Load_TextEdit PSPTopLevel
-if {$Load_TextEdit == 0} {
-    source "GUI/util/TextEdit.tcl"
-    set Load_TextEdit 1
-    WmTransient $widget(Toplevel95) $PSPTopLevel
-    }
+
+#if {$Load_TextEdit == 0} {
+#    source "GUI/util/TextEdit.tcl"
+#    set Load_TextEdit 1
+#    WmTransient $widget(Toplevel95) $PSPTopLevel
+#    }
+
+DeleteFile $TMPSethiConfig
 
 if [file exists $FileHeaderRamses] {
-    TextEditorRunTrace "Open Window Text Editor" "b"
-    TextEditorFromWidget .top228 $FileHeaderRamses
-    $widget(TitleFrame228_1) configure -state normal
-    $widget(Button228_1) configure -state normal
-    $widget(Entry228_1) configure -disabledbackground #FFFFFF
-    $widget(TitleFrame228_2) configure -state normal
-    $widget(Button228_2) configure -state normal
-    $widget(Entry228_2) configure -disabledbackground #FFFFFF
-    $widget(TitleFrame228_3) configure -state normal
-    $widget(Button228_3) configure -state normal
-    $widget(Entry228_3) configure -disabledbackground #FFFFFF
-    $widget(TitleFrame228_4) configure -state normal
-    $widget(Button228_4) configure -state normal
-    $widget(Entry228_4) configure -disabledbackground #FFFFFF
-    $widget(Button228_10) configure -state normal
+    TextEditorRunTrace "Process The Function Soft/bin/data_import/sethi_header.exe" "k"
+    TextEditorRunTrace "Arguments: -if \x22$FileHeaderRamses\x22 -of \x22$TMPSethiConfig\x22" "k"
+    set f [ open "| Soft/bin/data_import/sethi_header.exe -if \x22$FileHeaderRamses\x22 -of \x22$TMPSethiConfig\x22" r]
+    PsPprogressBar $f
+    TextEditorRunTrace "Check RunTime Errors" "r"
+    CheckRunTimeError
+    WaitUntilCreated $TMPSethiConfig
+    if [file exists $TMPSethiConfig] {
+        set f [open $TMPSethiConfig r]   
+        gets $f SethiDepAng
+        gets $f SethiAzResol
+        gets $f SethiSrResol
+        gets $f SethiPixRow
+        gets $f SethiPixCol
+        gets $f SethiPixSurf
+        gets $f NligFullSize
+        gets $f NcolFullSize
+        gets $f SethiRadDist
+        gets $f SethiRadAlt
+        close $f    
+        $widget(TitleFrame228_1) configure -state normal
+        $widget(Button228_1) configure -state normal
+        $widget(Entry228_1) configure -disabledbackground #FFFFFF
+        $widget(TitleFrame228_2) configure -state normal
+        $widget(Button228_2) configure -state normal
+        $widget(Entry228_2) configure -disabledbackground #FFFFFF
+        $widget(TitleFrame228_3) configure -state normal
+        $widget(Button228_3) configure -state normal
+        $widget(Entry228_3) configure -disabledbackground #FFFFFF
+        $widget(TitleFrame228_4) configure -state normal
+        $widget(Button228_4) configure -state normal
+        $widget(Entry228_4) configure -disabledbackground #FFFFFF
+        $widget(Button228_10) configure -state normal
+        set FileInputHH [string map {.ent .dat } $FileHeaderRamses]
+        set FileInputHV [string map {Hh Hv .ent .dat } $FileHeaderRamses]
+        set FileInputVH [string map {Hh Vh .ent .dat } $FileHeaderRamses]
+        set FileInputVV [string map {Hh Vv .ent .dat } $FileHeaderRamses]
+        }
     }} \
-        -padx 4 -pady 2 -text {Edit Header} 
+        -padx 4 -pady 2 -text {Check Header} 
     vTcl:DefineAlias "$site_3_0.but73" "Button1" vTcl:WidgetProc "Toplevel228" 1
+    frame $site_3_0.cpd70 \
+        -borderwidth 2 -height 76 -width 125 
+    vTcl:DefineAlias "$site_3_0.cpd70" "Frame66" vTcl:WidgetProc "Toplevel228" 1
+    set site_4_0 $site_3_0.cpd70
+    frame $site_4_0.fra39 \
+        -borderwidth 2 -height 75 -width 125 
+    vTcl:DefineAlias "$site_4_0.fra39" "Frame113" vTcl:WidgetProc "Toplevel228" 1
+    set site_5_0 $site_4_0.fra39
+    frame $site_5_0.cpd67 \
+        -borderwidth 2 -height 75 -width 125 
+    vTcl:DefineAlias "$site_5_0.cpd67" "Frame114" vTcl:WidgetProc "Toplevel228" 1
+    set site_6_0 $site_5_0.cpd67
+    label $site_6_0.lab40 \
+        -text {Depression Angle} 
+    vTcl:DefineAlias "$site_6_0.lab40" "Label53" vTcl:WidgetProc "Toplevel228" 1
+    entry $site_6_0.ent41 \
+        -background white -disabledbackground #ffffff \
+        -disabledforeground #0000ff -foreground #0000ff -justify center \
+        -state disabled -textvariable SethiDepAng -width 7 
+    vTcl:DefineAlias "$site_6_0.ent41" "Entry37" vTcl:WidgetProc "Toplevel228" 1
+    pack $site_6_0.lab40 \
+        -in $site_6_0 -anchor center -expand 1 -fill none -side left 
+    pack $site_6_0.ent41 \
+        -in $site_6_0 -anchor center -expand 0 -fill none -padx 5 -side right 
+    frame $site_5_0.cpd68 \
+        -borderwidth 2 -height 75 -width 125 
+    vTcl:DefineAlias "$site_5_0.cpd68" "Frame115" vTcl:WidgetProc "Toplevel228" 1
+    set site_6_0 $site_5_0.cpd68
+    label $site_6_0.lab42 \
+        -text {Pixel Surface (m2)} 
+    vTcl:DefineAlias "$site_6_0.lab42" "Label128" vTcl:WidgetProc "Toplevel228" 1
+    entry $site_6_0.ent43 \
+        -background white -disabledbackground #ffffff \
+        -disabledforeground #0000ff -foreground #0000ff -justify center \
+        -state disabled -textvariable SethiPixSurf -width 7 
+    vTcl:DefineAlias "$site_6_0.ent43" "Entry56" vTcl:WidgetProc "Toplevel228" 1
+    pack $site_6_0.lab42 \
+        -in $site_6_0 -anchor center -expand 1 -fill none -side left 
+    pack $site_6_0.ent43 \
+        -in $site_6_0 -anchor center -expand 0 -fill none -padx 5 -side right 
+    frame $site_5_0.cpd66 \
+        -borderwidth 2 -height 75 -width 125 
+    vTcl:DefineAlias "$site_5_0.cpd66" "Frame119" vTcl:WidgetProc "Toplevel228" 1
+    set site_6_0 $site_5_0.cpd66
+    label $site_6_0.lab42 \
+        -text {Radar Altitude} 
+    vTcl:DefineAlias "$site_6_0.lab42" "Label130" vTcl:WidgetProc "Toplevel228" 1
+    entry $site_6_0.ent43 \
+        -background white -disabledbackground #ffffff \
+        -disabledforeground #0000ff -foreground #0000ff -justify center \
+        -state disabled -textvariable SethiRadAlt -width 7 
+    vTcl:DefineAlias "$site_6_0.ent43" "Entry58" vTcl:WidgetProc "Toplevel228" 1
+    pack $site_6_0.lab42 \
+        -in $site_6_0 -anchor center -expand 0 -fill none -side left 
+    pack $site_6_0.ent43 \
+        -in $site_6_0 -anchor center -expand 0 -fill none -padx 5 -side right 
+    pack $site_5_0.cpd67 \
+        -in $site_5_0 -anchor center -expand 0 -fill x -side top 
+    pack $site_5_0.cpd68 \
+        -in $site_5_0 -anchor center -expand 0 -fill x -side top 
+    pack $site_5_0.cpd66 \
+        -in $site_5_0 -anchor center -expand 0 -fill x -side top 
+    frame $site_4_0.cpd69 \
+        -borderwidth 2 -height 75 -width 125 
+    vTcl:DefineAlias "$site_4_0.cpd69" "Frame116" vTcl:WidgetProc "Toplevel228" 1
+    set site_5_0 $site_4_0.cpd69
+    frame $site_5_0.cpd67 \
+        -borderwidth 2 -height 75 -width 125 
+    vTcl:DefineAlias "$site_5_0.cpd67" "Frame117" vTcl:WidgetProc "Toplevel228" 1
+    set site_6_0 $site_5_0.cpd67
+    label $site_6_0.lab40 \
+        -text {Range Resolution} 
+    vTcl:DefineAlias "$site_6_0.lab40" "Label54" vTcl:WidgetProc "Toplevel228" 1
+    entry $site_6_0.ent41 \
+        -background white -disabledbackground #ffffff \
+        -disabledforeground #0000ff -foreground #0000ff -justify center \
+        -state disabled -textvariable SethiSrResol -width 7 
+    vTcl:DefineAlias "$site_6_0.ent41" "Entry38" vTcl:WidgetProc "Toplevel228" 1
+    pack $site_6_0.lab40 \
+        -in $site_6_0 -anchor center -expand 1 -fill none -side left 
+    pack $site_6_0.ent41 \
+        -in $site_6_0 -anchor center -expand 0 -fill none -padx 5 -side right 
+    frame $site_5_0.cpd68 \
+        -borderwidth 2 -height 75 -width 125 
+    vTcl:DefineAlias "$site_5_0.cpd68" "Frame118" vTcl:WidgetProc "Toplevel228" 1
+    set site_6_0 $site_5_0.cpd68
+    label $site_6_0.lab42 \
+        -text {Azimuth Resolution} 
+    vTcl:DefineAlias "$site_6_0.lab42" "Label129" vTcl:WidgetProc "Toplevel228" 1
+    entry $site_6_0.ent43 \
+        -background white -disabledbackground #ffffff \
+        -disabledforeground #0000ff -foreground #0000ff -justify center \
+        -state disabled -textvariable SethiAzResol -width 7 
+    vTcl:DefineAlias "$site_6_0.ent43" "Entry57" vTcl:WidgetProc "Toplevel228" 1
+    pack $site_6_0.lab42 \
+        -in $site_6_0 -anchor center -expand 1 -fill none -side left 
+    pack $site_6_0.ent43 \
+        -in $site_6_0 -anchor center -expand 0 -fill none -padx 5 -side right 
+    frame $site_5_0.cpd69 \
+        -borderwidth 2 -height 75 -width 125 
+    vTcl:DefineAlias "$site_5_0.cpd69" "Frame120" vTcl:WidgetProc "Toplevel228" 1
+    set site_6_0 $site_5_0.cpd69
+    label $site_6_0.lab42 \
+        -text {Radar Dist 1st Pix} 
+    vTcl:DefineAlias "$site_6_0.lab42" "Label131" vTcl:WidgetProc "Toplevel228" 1
+    entry $site_6_0.ent43 \
+        -background white -disabledbackground #ffffff \
+        -disabledforeground #0000ff -foreground #0000ff -justify center \
+        -state disabled -textvariable SethiRadDist -width 7 
+    vTcl:DefineAlias "$site_6_0.ent43" "Entry59" vTcl:WidgetProc "Toplevel228" 1
+    pack $site_6_0.lab42 \
+        -in $site_6_0 -anchor center -expand 0 -fill none -side left 
+    pack $site_6_0.ent43 \
+        -in $site_6_0 -anchor center -expand 0 -fill none -padx 5 -side right 
+    pack $site_5_0.cpd67 \
+        -in $site_5_0 -anchor center -expand 0 -fill x -side top 
+    pack $site_5_0.cpd68 \
+        -in $site_5_0 -anchor center -expand 0 -fill x -side top 
+    pack $site_5_0.cpd69 \
+        -in $site_5_0 -anchor center -expand 0 -fill x -side top 
+    pack $site_4_0.fra39 \
+        -in $site_4_0 -anchor center -expand 1 -fill both -side left 
+    pack $site_4_0.cpd69 \
+        -in $site_4_0 -anchor center -expand 1 -fill none -side left 
     pack $site_3_0.but73 \
-        -in $site_3_0 -anchor center -expand 0 -fill none -side top 
+        -in $site_3_0 -anchor center -expand 1 -fill none -side left 
+    pack $site_3_0.cpd70 \
+        -in $site_3_0 -anchor center -expand 1 -fill none -side left 
     frame $top.cpd80 \
         -height 75 -width 125 
     vTcl:DefineAlias "$top.cpd80" "Frame2" vTcl:WidgetProc "Toplevel228" 1
@@ -940,39 +1205,97 @@ set FileInputVV $FileName} \
     pack $site_3_0.cpd118 \
         -in $site_3_0 -anchor center -expand 0 -fill x -side top 
     frame $top.fra23 \
-        -borderwidth 2 -relief groove -height 76 -width 125 
+        -height 76 -width 125 
     vTcl:DefineAlias "$top.fra23" "Frame65" vTcl:WidgetProc "Toplevel228" 1
     set site_3_0 $top.fra23
     frame $site_3_0.fra39 \
         -borderwidth 2 -height 75 -width 125 
     vTcl:DefineAlias "$site_3_0.fra39" "Frame107" vTcl:WidgetProc "Toplevel228" 1
     set site_4_0 $site_3_0.fra39
-    label $site_4_0.lab40 \
+    frame $site_4_0.cpd67 \
+        -borderwidth 2 -height 75 -width 125 
+    vTcl:DefineAlias "$site_4_0.cpd67" "Frame109" vTcl:WidgetProc "Toplevel228" 1
+    set site_5_0 $site_4_0.cpd67
+    label $site_5_0.lab40 \
         -text {Initial Number of Rows} 
-    vTcl:DefineAlias "$site_4_0.lab40" "Label49" vTcl:WidgetProc "Toplevel228" 1
-    entry $site_4_0.ent41 \
+    vTcl:DefineAlias "$site_5_0.lab40" "Label51" vTcl:WidgetProc "Toplevel228" 1
+    entry $site_5_0.ent41 \
         -background white -disabledbackground #ffffff \
-        -disabledforeground #ff0000 -foreground #ff0000 -justify center \
-        -textvariable NligFullSize -width 5 
-    vTcl:DefineAlias "$site_4_0.ent41" "Entry33" vTcl:WidgetProc "Toplevel228" 1
-    label $site_4_0.lab42 \
+        -disabledforeground #0000ff -foreground #0000ff -justify center \
+        -state disabled -textvariable NligFullSize -width 7 
+    vTcl:DefineAlias "$site_5_0.ent41" "Entry35" vTcl:WidgetProc "Toplevel228" 1
+    pack $site_5_0.lab40 \
+        -in $site_5_0 -anchor center -expand 1 -fill none -padx 10 -side left 
+    pack $site_5_0.ent41 \
+        -in $site_5_0 -anchor center -expand 0 -fill none -padx 10 \
+        -side right 
+    frame $site_4_0.cpd68 \
+        -borderwidth 2 -height 75 -width 125 
+    vTcl:DefineAlias "$site_4_0.cpd68" "Frame110" vTcl:WidgetProc "Toplevel228" 1
+    set site_5_0 $site_4_0.cpd68
+    label $site_5_0.lab42 \
+        -text {Row Pixel Spacing} 
+    vTcl:DefineAlias "$site_5_0.lab42" "Label126" vTcl:WidgetProc "Toplevel228" 1
+    entry $site_5_0.ent43 \
+        -background white -disabledbackground #ffffff \
+        -disabledforeground #0000ff -foreground #0000ff -justify center \
+        -state disabled -textvariable SethiPixRow -width 7 
+    vTcl:DefineAlias "$site_5_0.ent43" "Entry54" vTcl:WidgetProc "Toplevel228" 1
+    pack $site_5_0.lab42 \
+        -in $site_5_0 -anchor center -expand 1 -fill none -padx 10 -side left 
+    pack $site_5_0.ent43 \
+        -in $site_5_0 -anchor center -expand 0 -fill none -padx 10 \
+        -side right 
+    pack $site_4_0.cpd67 \
+        -in $site_4_0 -anchor center -expand 0 -fill x -side top 
+    pack $site_4_0.cpd68 \
+        -in $site_4_0 -anchor center -expand 0 -fill x -side top 
+    frame $site_3_0.cpd69 \
+        -borderwidth 2 -height 75 -width 125 
+    vTcl:DefineAlias "$site_3_0.cpd69" "Frame108" vTcl:WidgetProc "Toplevel228" 1
+    set site_4_0 $site_3_0.cpd69
+    frame $site_4_0.cpd67 \
+        -borderwidth 2 -height 75 -width 125 
+    vTcl:DefineAlias "$site_4_0.cpd67" "Frame111" vTcl:WidgetProc "Toplevel228" 1
+    set site_5_0 $site_4_0.cpd67
+    label $site_5_0.lab40 \
         -text {Initial Number of Cols} 
-    vTcl:DefineAlias "$site_4_0.lab42" "Label123" vTcl:WidgetProc "Toplevel228" 1
-    entry $site_4_0.ent43 \
+    vTcl:DefineAlias "$site_5_0.lab40" "Label52" vTcl:WidgetProc "Toplevel228" 1
+    entry $site_5_0.ent41 \
         -background white -disabledbackground #ffffff \
-        -disabledforeground #ff0000 -foreground #ff0000 -justify center \
-        -textvariable NcolFullSize -width 5 
-    vTcl:DefineAlias "$site_4_0.ent43" "Entry51" vTcl:WidgetProc "Toplevel228" 1
-    pack $site_4_0.lab40 \
-        -in $site_4_0 -anchor center -expand 1 -fill none -padx 10 -side left 
-    pack $site_4_0.ent41 \
-        -in $site_4_0 -anchor center -expand 1 -fill none -padx 10 -side left 
-    pack $site_4_0.lab42 \
-        -in $site_4_0 -anchor center -expand 1 -fill none -padx 10 -side left 
-    pack $site_4_0.ent43 \
-        -in $site_4_0 -anchor center -expand 1 -fill none -padx 10 -side left 
+        -disabledforeground #0000ff -foreground #0000ff -justify center \
+        -state disabled -textvariable NcolFullSize -width 7 
+    vTcl:DefineAlias "$site_5_0.ent41" "Entry36" vTcl:WidgetProc "Toplevel228" 1
+    pack $site_5_0.lab40 \
+        -in $site_5_0 -anchor center -expand 1 -fill none -padx 10 -side left 
+    pack $site_5_0.ent41 \
+        -in $site_5_0 -anchor center -expand 0 -fill none -padx 10 \
+        -side right 
+    frame $site_4_0.cpd68 \
+        -borderwidth 2 -height 75 -width 125 
+    vTcl:DefineAlias "$site_4_0.cpd68" "Frame112" vTcl:WidgetProc "Toplevel228" 1
+    set site_5_0 $site_4_0.cpd68
+    label $site_5_0.lab42 \
+        -text {Col Pixel Spacing} 
+    vTcl:DefineAlias "$site_5_0.lab42" "Label127" vTcl:WidgetProc "Toplevel228" 1
+    entry $site_5_0.ent43 \
+        -background white -disabledbackground #ffffff \
+        -disabledforeground #0000ff -foreground #0000ff -justify center \
+        -state disabled -textvariable SethiPixCol -width 7 
+    vTcl:DefineAlias "$site_5_0.ent43" "Entry55" vTcl:WidgetProc "Toplevel228" 1
+    pack $site_5_0.lab42 \
+        -in $site_5_0 -anchor center -expand 1 -fill none -padx 10 -side left 
+    pack $site_5_0.ent43 \
+        -in $site_5_0 -anchor center -expand 0 -fill none -padx 10 \
+        -side right 
+    pack $site_4_0.cpd67 \
+        -in $site_4_0 -anchor center -expand 0 -fill x -side top 
+    pack $site_4_0.cpd68 \
+        -in $site_4_0 -anchor center -expand 0 -fill x -side top 
     pack $site_3_0.fra39 \
-        -in $site_3_0 -anchor center -expand 1 -fill both -side bottom 
+        -in $site_3_0 -anchor center -expand 1 -fill both -side left 
+    pack $site_3_0.cpd69 \
+        -in $site_3_0 -anchor center -expand 1 -fill none -side left 
     checkbutton $top.cpd74 \
         -text {Convert Input IEEE binary Format (LE<->BE)} \
         -variable IEEEFormat 
@@ -1064,11 +1387,11 @@ Window hide $widget(Toplevel228); TextEditorRunTrace "Close Window SETHI Input F
     pack $top.cpd71 \
         -in $top -anchor center -expand 0 -fill x -side top 
     pack $top.fra72 \
-        -in $top -anchor center -expand 0 -fill x -pady 2 -side top 
+        -in $top -anchor center -expand 0 -fill x -side top 
     pack $top.cpd80 \
         -in $top -anchor center -expand 0 -fill x -side top 
     pack $top.fra23 \
-        -in $top -anchor center -expand 0 -fill none -pady 2 -side top 
+        -in $top -anchor center -expand 0 -fill x -side top 
     pack $top.cpd74 \
         -in $top -anchor center -expand 0 -fill none -side top 
     pack $top.fra71 \

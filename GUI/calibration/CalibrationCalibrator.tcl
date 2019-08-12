@@ -944,7 +944,7 @@ global GnuplotPipeFid GnuplotPipeCalib GnuOutputFormat GnuOutputFile
 global GnuCalibChannelId GnuCalibChannel GnuCalibFile
 global GnuXview GnuZview
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
-global ImageMagickMaker TMPGnuPlotTk1 TMPGnuPlot1Tk
+global TMPGnuPlotTk1 TMPGnuPlot1Tk
 
 set TestVarName(0) "Orientation Elevation (°)"; set TestVarType(0) "float"; set TestVarValue(0) $GnuXview; set TestVarMin(0) "0.0"; set TestVarMax(0) "180.0"
 set TestVarName(1) "Orientation Azimut (°)"; set TestVarType(1) "float"; set TestVarValue(1) $GnuZview; set TestVarMin(1) "0.0"; set TestVarMax(1) "360.0"
@@ -969,7 +969,7 @@ if {$GnuCalibChannelId == 1} {
             GnuPlotInit 0 0 1 1
             set GnuplotPipeCalib $GnuplotPipeFid
 	    }
-        PlotCalib3DThumb
+        #PlotCalib3DThumb
         set GnuOutputFile $TMPGnuPlotTk1
         set GnuOutputFormat "gif"
         GnuPlotTerm $GnuplotPipeCalib $GnuOutputFormat
@@ -984,7 +984,7 @@ if {$GnuCalibChannelId == 2} {
             GnuPlotInit 0 0 1 1
             set GnuplotPipeCalib $GnuplotPipeFid
 	    }
-        PlotCalib3DThumb
+        #PlotCalib3DThumb
         set GnuOutputFile $TMPGnuPlotTk1
         set GnuOutputFormat "gif"
         GnuPlotTerm $GnuplotPipeCalib $GnuOutputFormat
@@ -999,7 +999,7 @@ if {$GnuCalibChannelId == 3} {
             GnuPlotInit 0 0 1 1
             set GnuplotPipeCalib $GnuplotPipeFid
 	    }
-        PlotCalib3DThumb
+        #PlotCalib3DThumb
         set GnuOutputFile $TMPGnuPlotTk1
         set GnuOutputFormat "gif"
         GnuPlotTerm $GnuplotPipeCalib $GnuOutputFormat
@@ -1014,7 +1014,7 @@ if {$GnuCalibChannelId == 4} {
             GnuPlotInit 0 0 1 1
             set GnuplotPipeCalib $GnuplotPipeFid
 	    }
-        PlotCalib3DThumb
+        #PlotCalib3DThumb
         set GnuOutputFile $TMPGnuPlotTk1
         set GnuOutputFormat "gif"
         GnuPlotTerm $GnuplotPipeCalib $GnuOutputFormat
@@ -1033,7 +1033,8 @@ if {$GnuCalibChannelId == 4} {
     set GnuplotPipeCalib ""
 
     WaitUntilCreated $TMPGnuPlotTk1
-    ViewGnuPlotTK 1 .top245 "Normalized Calibrator Response"
+    Gimp $TMPGnuPlotTk1
+    #ViewGnuPlotTKThumb 1 .top245 "Normalized Calibrator Response"
     }
 }
 #############################################################################
@@ -1133,7 +1134,7 @@ global TMPCalibratorTxt TMPCalibratorBin TMPCalibratorValTxt
 global CalibOutputFormat CalibOutputUnit CalibOutputRepresentation
 global GnuplotPipeFid GnuplotPipeCalib GnuOutputFormat GnuOutputFile 
 global GnuCalibChannelId GnuCalibChannel GnuCalibFile
-global ImageMagickMaker TMPGnuPlotTk1 TMPGnuPlot1Tk PSPThumbnails
+global TMPGnuPlotTk1 TMPGnuPlot1Tk PSPThumbnails
 
 set xwindow [winfo x .top245]; set ywindow [winfo y .top245]
 
@@ -1145,7 +1146,7 @@ if {$GnuplotPipeCalib == ""} {
     set GnuplotPipeCalib $GnuplotPipeFid
     }
     
-PlotCalib1DThumb
+#PlotCalib1DThumb
 
 set GnuOutputFile $TMPGnuPlotTk1
 set GnuOutputFormat "gif"
@@ -1233,8 +1234,8 @@ catch "close $GnuplotPipeCalib"
 set GnuplotPipeCalib ""
 
 WaitUntilCreated $TMPGnuPlotTk1
-
-ViewGnuPlotTK 1 .top245 "Range Profile"
+Gimp $TMPGnuPlotTk1
+#ViewGnuPlotTKThumb 1 .top245 "Range Profile"
 }
 #############################################################################
 ## Procedure:  ClearCalibValue
@@ -1322,7 +1323,7 @@ global TMPCalibratorTxt TMPCalibratorBin TMPCalibratorValTxt
 global CalibOutputFormat CalibOutputUnit CalibOutputRepresentation
 global GnuplotPipeFid GnuplotPipeCalib GnuOutputFormat GnuOutputFile 
 global GnuCalibChannelId GnuCalibChannel GnuCalibFile
-global ImageMagickMaker TMPGnuPlotTk1 TMPGnuPlot1Tk PSPThumbnails
+global TMPGnuPlotTk1 TMPGnuPlot1Tk PSPThumbnails
 
 set xwindow [winfo x .top245]; set ywindow [winfo y .top245]
 
@@ -1422,7 +1423,7 @@ global GnuplotPipeFid GnuplotPipeCalib GnuOutputFormat GnuOutputFile
 global GnuCalibChannelId GnuCalibChannel GnuCalibFile
 global GnuXview GnuZview
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
-global ImageMagickMaker TMPGnuPlotTk1 TMPGnuPlot1Tk
+global TMPGnuPlotTk1 TMPGnuPlot1Tk
 
 set xwindow [winfo x .top245]; set ywindow [winfo y .top245]
 
@@ -1680,9 +1681,9 @@ if [file exists $TMPCalibratorValBin] {
     set TestVarName(1) "Pixel Size Y"; set TestVarType(1) "float"; set TestVarValue(1) $BMPCalibYSize; set TestVarMin(1) "0"; set TestVarMax(1) "100"
     TestVar 2
     if {$TestVarError == "ok"} {
-        TextEditorRunTrace "Launch The Process Soft/calibration/calibrator.exe" "k"
+        TextEditorRunTrace "Launch The Process Soft/bin/calibration/calibrator.exe" "k"
         TextEditorRunTrace "Arguments: \x22$TMPCalibratorValTxt\x22 \x22$TMPCalibratorValBin\x22 $BMPCalibXSize $BMPCalibYSize" "k"
-        set f [ open "| Soft/calibration/calibrator.exe \x22$TMPCalibratorValTxt\x22 \x22$TMPCalibratorValBin\x22 $BMPCalibXSize $BMPCalibYSize" r+]
+        set f [ open "| Soft/bin/calibration/calibrator.exe \x22$TMPCalibratorValTxt\x22 \x22$TMPCalibratorValBin\x22 $BMPCalibXSize $BMPCalibYSize" r+]
         catch "close $f"
         }
     }        

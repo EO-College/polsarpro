@@ -885,9 +885,9 @@ if {"$VarWarning"=="ok"} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/data_process_dual/forest_height_estimation_PP.exe" "k"
+        TextEditorRunTrace "Process The Function Soft/bin/data_process_dual/forest_height_estimation_PP.exe" "k"
         TextEditorRunTrace "Arguments: -id \x22$ForestHeightDirInput\x22 -od \x22$ForestHeightDirOutput\x22 -kz \x22$KzFile\x22 -nr $FinalNlig -nc $FinalNcol -avg $ForestHeightCohAvg" "k"
-        set f [ open "| Soft/data_process_dual/forest_height_estimation_PP.exe -id \x22$ForestHeightDirInput\x22 -od \x22$ForestHeightDirOutput\x22 -kz \x22$KzFile\x22 -nr $FinalNlig -nc $FinalNcol -avg $ForestHeightCohAvg" r]
+        set f [ open "| Soft/bin/data_process_dual/forest_height_estimation_PP.exe -id \x22$ForestHeightDirInput\x22 -od \x22$ForestHeightDirOutput\x22 -kz \x22$KzFile\x22 -nr $FinalNlig -nc $FinalNcol -avg $ForestHeightCohAvg" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError

@@ -1,0 +1,37 @@
+
+CC = gcc
+CPP = g++
+CCFLAGS = -w
+LDFLAGS = -lGLEW -lGL -lGLU -lglut -lfreeimage -lm -fopenmp -pthread
+SOURCES = $(wildcard *.c)
+OBJECTS = $(SOURCES:.c=.o)
+EXECUTABLE = map_algebra_psp.exe
+
+# Debug build flags
+ifeq ($(dbg),1)
+CCFLAGS += -g -G
+TARGET := debug
+else
+TARGET := map_algebra
+endif
+
+all: $(EXECUTABLE)
+	
+$(EXECUTABLE): $(OBJECTS) 
+	@mkdir -p ../../../../bin/$(TARGET)/linux/
+	@mkdir -p ../../../../bin/$(TARGET)/linux/shaders
+	@mkdir -p ../../../../bin/$(TARGET)/linux/colormaps
+	$(CPP) $(CCFLAGS) $(OBJECTS)  $(LDFLAGS) -o $@
+	mv $@ ../../../../bin/$(TARGET)/linux/	
+	cp  shaders/*  ../../../../bin/$(TARGET)/linux/shaders/
+	cp  colormaps/*  ../../../../bin/$(TARGET)/linux/colormaps/
+
+%.o : %.c
+	$(CPP) -c  $< $(CCFLAGS) $(LDFLAGS) -o $@
+    
+clean:
+	@echo "Cleaning..."
+	@rm -rf ../../../../bin/$(TARGET)/linux/
+	@rm -r $(OBJECTS)
+
+clobber: clean

@@ -1751,9 +1751,9 @@ if {"$VarWarning"=="ok"} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/data_process_sngl/tree_classifier.exe" "k"
+        TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/tree_classifier.exe" "k"
         TextEditorRunTrace "Arguments: -od \x22$HierarchicalDirOutput\x22 -irf \x22$TMPTreeClassRulesTxt\x22 -ipf \x22$TMPTreeClassPrmListTxt\x22 -fnr $FinalNlig -fnc $FinalNcol -nit $HIt -pct $HPo -col \x22$ColorMapHierarchical32\x22" "k"
-        set f [ open "| Soft/data_process_sngl/tree_classifier.exe -od \x22$HierarchicalDirOutput\x22 -irf \x22$TMPTreeClassRulesTxt\x22 -ipf \x22$TMPTreeClassPrmListTxt\x22 -fnr $FinalNlig -fnc $FinalNcol -nit $HIt -pct $HPo -col \x22$ColorMapHierarchical32\x22" r]
+        set f [ open "| Soft/bin/data_process_sngl/tree_classifier.exe -od \x22$HierarchicalDirOutput\x22 -irf \x22$TMPTreeClassRulesTxt\x22 -ipf \x22$TMPTreeClassPrmListTxt\x22 -fnr $FinalNlig -fnc $FinalNcol -nit $HIt -pct $HPo -col \x22$ColorMapHierarchical32\x22" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError

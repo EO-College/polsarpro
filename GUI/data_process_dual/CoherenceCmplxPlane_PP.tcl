@@ -1337,7 +1337,7 @@ global CmplxPlaneExtractVar
 global CmplxPlaneN TMPCmplxPlaneTxt
 global CmplxPlaneRepresentation
 global CONFIGDir
-global ImageMagickMaker TMPGnuPlotTk1 TMPGnuPlot1Tk
+global TMPGnuPlotTk1 TMPGnuPlot1Tk
 
 
 set CmplxPlaneLabel(0) ""; for {set i 0} {$i <= 20} {incr i} {set CmplxPlaneLabel($i) ""}
@@ -1356,7 +1356,9 @@ if {$CmplxPlaneExtractVar == "true"} {
         GnuPlotInit 0 0 1 1
         set GnuplotPipeCmplxPlane $GnuplotPipeFid
         }
-    CmplxPlaneExtractPPPlotThumb
+
+    #CmplxPlaneExtractPPPlotThumb
+
     set GnuOutputFile $TMPGnuPlotTk1
     set GnuOutputFormat "gif"
     GnuPlotTerm $GnuplotPipeCmplxPlane $GnuOutputFormat
@@ -1398,7 +1400,8 @@ if {$CmplxPlaneExtractVar == "true"} {
     .top330PP.fra71.fra72.fra79.but67 configure -state normal
 
     WaitUntilCreated $TMPGnuPlotTk1
-    ViewGnuPlotTK 1 .top330PP "Complex Plane"
+    Gimp $TMPGnuPlotTk1
+    #ViewGnuPlotTKThumb 1 .top330PP "Complex Plane"
     }
     
 }
@@ -1413,7 +1416,7 @@ global CmplxPlaneExtractVar
 global CmplxPlaneN TMPCmplxPlaneTxt
 global CmplxPlaneRepresentation
 global CONFIGDir
-global ImageMagickMaker TMPGnuPlotTk1 TMPGnuPlot1Tk
+global TMPGnuPlotTk1 TMPGnuPlot1Tk
 
     set xwindow [winfo x .top330PP]; set ywindow [winfo y .top330PP]
 
@@ -1596,7 +1599,6 @@ if [file exists "$CmplxPlaneDirInput/config.txt"] {
 
             if {$VarWarning == "ok"} {
                 ClosePSPViewer
-                Window hide $widget(Toplevel64); TextEditorRunTrace "Close Window PolSARpro Viewer" "b"
 
                 set types {
                     {{BMP Files}        {.bmp}        }
@@ -1605,6 +1607,32 @@ if [file exists "$CmplxPlaneDirInput/config.txt"] {
                 OpenFile $BMPDirInput $types "INPUT BMP FILE"
 
                 if {$FileName != ""} {
+
+                  set bmphdr "OK"
+                  set FileNameHdr "$FileName.hdr"
+                  if [file exists $FileNameHdr] {
+                    set f [open $FileNameHdr "r"]
+                    gets $f tmp
+                    gets $f tmp
+                    gets $f tmp
+                    if {[string first "PolSARpro" $tmp] != "-1"} {
+                      set bmphdr "OK"
+                      } else {
+                      set ErrorMessage "NOT A PolSARpro BMP FILE TYPE"
+                      Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
+                      tkwait variable VarError
+                      set bmphdr "KO"
+                      }    
+                    close $f
+                    } else {
+                    set ErrorMessage "THE HDR FILE $FileNameHdr DOES NOT EXIST"
+                    Window show $widget(Toplevel44); TextEditorRunTrace "Open Window Error" "b"
+                    tkwait variable VarError
+                    set bmphdr "KO"
+                    }    
+        
+                  if {$bmphdr == "OK"} {
+
                     set BMPImageOpen "1"
                     set BMPViewFileInput $FileName
 
@@ -1671,9 +1699,9 @@ if [file exists "$CmplxPlaneDirInput/config.txt"] {
                     load_bmp_lens_line $widget(Toplevel330PP) $widget(CANVASLENSCMPLXPLANEPP)
                     MouseActiveFunction "LensCMPLXPLANEPP"
                     WidgetShow $widget(Toplevel330PP); TextEditorRunTrace "Open Window Coherence - Complex Plane" "b"
-                    TextEditorRunTrace "Launch The Process Soft/data_process_dual/cmplx_plane_extract.exe" "k"
+                    TextEditorRunTrace "Launch The Process Soft/bin/data_process_dual/cmplx_plane_extract.exe" "k"
                     TextEditorRunTrace "Arguments: -id \x22$CmplxPlaneDirInput\x22 -of \x22$TMPCmplxPlaneTxt\x22" "k"
-                    set CmplxPlaneExecFid [ open "| Soft/data_process_dual/cmplx_plane_extract.exe -id \x22$CmplxPlaneDirInput\x22 -of \x22$TMPCmplxPlaneTxt\x22" r+]
+                    set CmplxPlaneExecFid [ open "| Soft/bin/data_process_dual/cmplx_plane_extract.exe -id \x22$CmplxPlaneDirInput\x22 -of \x22$TMPCmplxPlaneTxt\x22" r+]
                     set CmplxPlaneCh1 0; set CmplxPlaneHV 0; set CmplxPlaneCh2 0
                     set CmplxPlaneCh1pCh2 0; set CmplxPlaneCh1mCh2 0; set CmplxPlaneHVpVH 0
                     set CmplxPlaneOpt1 0; set CmplxPlaneOpt2 0; set CmplxPlaneOpt3 0
@@ -1687,6 +1715,7 @@ if [file exists "$CmplxPlaneDirInput/config.txt"] {
                     set CmplxPlaneGHigh 0; set CmplxPlaneGLow 0; set CmplxPlaneAvgCoh 0
                     CmplxPlaneOpenFilesPP
                     }
+                  }
                 }
             }
         } else {
@@ -2307,7 +2336,6 @@ if {$GnuplotPipeCmplxPlane != ""} {
 set GnuplotPipeFid ""
 Window hide .top401
 ClosePSPViewer
-Window hide $widget(Toplevel64); TextEditorRunTrace "Close Window PolSARpro Viewer" "b"
 Window hide $widget(Toplevel330PP); TextEditorRunTrace "Close Window Coherences - Complex Plane" "b"
 set ProgressLine "0"; update
 }} \

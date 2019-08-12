@@ -528,8 +528,8 @@ proc vTclWindow. {base} {
     # CREATING WIDGETS
     ###################
     wm focusmodel $top passive
-    wm geometry $top 200x200+22+22; update
-    wm maxsize $top 1284 785
+    wm geometry $top 200x200+154+154; update
+    wm maxsize $top 3604 1065
     wm minsize $top 104 1
     wm overrideredirect $top 0
     wm resizable $top 1 1
@@ -707,7 +707,7 @@ set FileInputBlue ""
 set FileInputGreen ""
 set FileInputRed ""
 set FileOutput ""
-set RGBFormat ""
+set RGBFormat " "
 set RGBCCCE "independant"
 WidgetShowFromMenuFix $widget(Toplevel308) $widget(Toplevel39); TextEditorRunTrace "Open Window Create RGB File" "b"} \
         -label {Create RGB File} 
@@ -755,7 +755,7 @@ set FileInputHue ""
 set FileInputSat ""
 set FileInputVal ""
 set FileOutput ""
-set HSVFormat ""
+set HSVFormat " "
 set HSVCCCE "independant"
 WidgetShowFromMenuFix $widget(Toplevel308) $widget(Toplevel69); TextEditorRunTrace "Open Window Create HSL File" "b"} \
         -label {Create HSL File} 
@@ -882,7 +882,7 @@ set FileInputBlue ""
 set FileInputGreen ""
 set FileInputRed ""
 set FileOutput ""
-set RGBFormat ""
+set RGBFormat " "
 set RGBCCCE "independant"
 WidgetShowFromMenuFix $widget(Toplevel308) $widget(Toplevel39); TextEditorRunTrace "Open Window Create RGB File" "b"} \
         -label {Create RGB File} 
@@ -930,7 +930,7 @@ set FileInputHue ""
 set FileInputSat ""
 set FileInputVal ""
 set FileOutput ""
-set HSVFormat ""
+set HSVFormat " "
 set HSVCCCE "independant"
 WidgetShowFromMenuFix $widget(Toplevel308) $widget(Toplevel69); TextEditorRunTrace "Open Window Create HSL File" "b"} \
         -label {Create HSL File} 
@@ -1044,7 +1044,7 @@ set FileInputBlue ""
 set FileInputGreen ""
 set FileInputRed ""
 set FileOutput ""
-set RGBFormat ""
+set RGBFormat " "
 set RGBCCCE "independant"
 $widget(Radiobutton201_1) configure -state normal
 $widget(Radiobutton201_2) configure -state normal
@@ -1196,7 +1196,7 @@ set FileInputBlue ""
 set FileInputGreen ""
 set FileInputRed ""
 set FileOutput ""
-set RGBFormat ""
+set RGBFormat " "
 set RGBCCCE "independant"
 $widget(Radiobutton201_1) configure -state normal
 $widget(Radiobutton201_2) configure -state normal
@@ -1374,7 +1374,7 @@ if {$config == "false"} {
     }
 set RGBFileOutputT1 ""
 set RGBFileOutputT2 ""
-set RGBFormat ""
+set RGBFormat " "
 WidgetShowFromMenuFix $widget(Toplevel308) $widget(Toplevel439); TextEditorRunTrace "Open Window Create RGB Dual Files" "b"} \
         -label {Create RGB File} 
     pack $site_4_0.men77 \
@@ -1499,7 +1499,7 @@ if {$config == "false"} {
     }
 set RGBFileOutputT1 ""
 set RGBFileOutputT2 ""
-set RGBFormat ""
+set RGBFormat " "
 WidgetShowFromMenuFix $widget(Toplevel308) $widget(Toplevel309); TextEditorRunTrace "Open Window Create RGB Dual Files" "b"} \
         -label {Create RGB File} 
     pack $site_4_0.men77 \
@@ -1514,16 +1514,16 @@ WidgetShowFromMenuFix $widget(Toplevel308) $widget(Toplevel309); TextEditorRunTr
     set site_3_0 $top.fra71
     button $site_3_0.but72 \
         \
-        -command {global PVShortcut
+        -command {global PVProcessShortcut
 
-if {$PVShortcut == 0} {
-    set PVShortcut 1
-    LoadPSPViewer
-    Window show $widget(Toplevel64); TextEditorRunTrace "Open Window PolSARpro Viewer" "b"
+if {$PVProcessShortcut == 0} {
+    set PVProcessShortcut 1
+    LoadPSPViewerProcess
+    Window show $widget(Toplevel64p); TextEditorRunTrace "Open Window PolSARpro Viewer - Process" "b"
     } else {
-    set PVShortcut 0
-    ClosePSPViewer
-    Window hide $widget(Toplevel64); TextEditorRunTrace "Close Window PolSARpro Viewer" "b"
+    set PVProcessShortcut 0
+    ClosePSPViewerProcess
+    Window hide $widget(Toplevel64p); TextEditorRunTrace "Close Window PolSARpro Viewer - Process" "b"
     }} \
         -image [vTcl:image:get_image [file join . GUI Images PVv3shortcut.gif]] \
         -pady 0 -relief flat -text button 
@@ -1534,16 +1534,16 @@ if {$PVShortcut == 0} {
     }
     button $site_3_0.but73 \
         \
-        -command {global PVShortcut
+        -command {global PVProcessShortcut
 
-if {$PVShortcut == 0} {
-    set PVShortcut 1
-    LoadPSPViewer
-    Window show $widget(Toplevel64); TextEditorRunTrace "Open Window PolSARpro Viewer" "b"
+if {$PVProcessShortcut == 0} {
+    set PVProcessShortcut 1
+    LoadPSPViewerProcess
+    Window show $widget(Toplevel64p); TextEditorRunTrace "Open Window PolSARpro Viewer - Process" "b"
     } else {
-    set PVShortcut 0
-    ClosePSPViewer
-    Window hide $widget(Toplevel64); TextEditorRunTrace "Close Window PolSARpro Viewer" "b"
+    set PVProcessShortcut 0
+    ClosePSPViewerProcess
+    Window hide $widget(Toplevel64p); TextEditorRunTrace "Close Window PolSARpro Viewer - Process" "b"
     }} \
         -pady 0 -relief flat -text {BMP Viewer} 
     vTcl:DefineAlias "$site_3_0.but73" "Button3" vTcl:WidgetProc "Toplevel308" 1
@@ -1560,8 +1560,7 @@ if {$PVShortcut == 0} {
     vTcl:DefineAlias "$top.fra26" "Frame413" vTcl:WidgetProc "Toplevel308" 1
     set site_3_0 $top.fra26
     button $site_3_0.but74 \
-        -background #ff8000 \
-        -command {HelpPdfEdit "Help/DisplayMenuDual.pdf"} \
+        -background #ff8000 -command {HelpPdfEdit "Help/DisplayMenuDual.pdf"} \
         -image [vTcl:image:get_image [file join . GUI Images help.gif]] \
         -pady 0 -width 20 
     vTcl:DefineAlias "$site_3_0.but74" "Button1" vTcl:WidgetProc "Toplevel308" 1
@@ -1573,6 +1572,7 @@ if {$PVShortcut == 0} {
         -background #ffff00 \
         -command {global Load_CreateBMPFile Load_CreateHSLFile Load_CreateRGBFile
 global Load_CreateRGBDualFile Load_CreateRGBDualFile_PP Load_CreateRGBFile_PP
+global PVMainMenu PVProcessShortcut BMPImageOpen OpenDirFile
 
 if {$Load_CreateBMPFile == 1} { Window hide $widget(Toplevel43) }
 if {$Load_CreateHSLFile == 1} { Window hide $widget(Toplevel69) }
@@ -1580,6 +1580,20 @@ if {$Load_CreateRGBFile == 1} { Window hide $widget(Toplevel39) }
 if {$Load_CreateRGBDualFile == 1} { Window hide $widget(Toplevel309) }
 if {$Load_CreateRGBDualFile_PP == 1} { Window hide $widget(Toplevel439) }
 if {$Load_CreateRGBFile_PP == 1} { Window hide $widget(Toplevel201) }
+
+if {$OpenDirFile == 0} {
+    if {$PVProcessShortcut == 1} {
+        set PVProcessShortcut 0
+        ClosePSPViewerProcess
+        if {$BMPImageOpen == 0} {
+            Window hide $widget(Toplevel64p); TextEditorRunTrace "Close Window PolSARpro Viewer - Process" "b"
+            if {$PVMainMenu == 1} {
+                set PVMainMenu 0
+                Window show $widget(Toplevel2)
+                }
+            }
+        }
+    }
 
 $widget(Menubutton308_1) configure -state normal
 $widget(Menubutton308_2) configure -state normal

@@ -849,7 +849,7 @@ set PolSARapOceanOutputMaskFile "$PolSARapOceanOutputDir/ocean_mask.bin"} \
         -background #ffff00 \
         -command {global PolSARapOceanDirInput PolSARapOceanDirOutput PolSARapOceanOutputDir PolSARapOceanOutputSubDir
 global PolSARapOceanNwinTrainL PolSARapOceanNwinTrainC PolSARapOceanNwinTestL PolSARapOceanNwinTestC
-global PSPMemory TMPMemoryAllocError TMPDirectory
+global TMPMemoryAllocError TMPDirectory
 global Fonction Fonction2 ProgressLine VarWarning WarningMessage WarningMessage2
 global OpenDirFile PolSARapOceanThreshold PolSARapOceanRedR PolSARapOceanFonction
 global PolSARapOceanOutputCohFile PolSARapOceanOutputMaskFile
@@ -894,9 +894,9 @@ if {"$VarWarning"=="ok"} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/PolSARap/PolSARap_Ocean.exe" "k"
-        TextEditorRunTrace "Arguments: -id \x22$PolSARapOceanDirInput\x22 -od \x22$PolSARapOceanDirOutput\x22 -td \x22$TMPDirectory\x22 -iodf $PolSARapOceanFonction -wrtr $PolSARapOceanNwinTrainL -wctr $PolSARapOceanNwinTrainC -wrte $PolSARapOceanNwinTestL -wcte $PolSARapOceanNwinTestC -thr $PolSARapOceanThreshold -redr $PolSARapOceanRedR -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-        set f [ open "| Soft/PolSARap/PolSARap_Ocean.exe -id \x22$PolSARapOceanDirInput\x22 -od \x22$PolSARapOceanDirOutput\x22 -td \x22$TMPDirectory\x22 -iodf $PolSARapOceanFonction -wrtr $PolSARapOceanNwinTrainL -wctr $PolSARapOceanNwinTrainC -wrte $PolSARapOceanNwinTestL -wcte $PolSARapOceanNwinTestC -thr $PolSARapOceanThreshold -redr $PolSARapOceanRedR -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+        TextEditorRunTrace "Process The Function Soft/bin/PolSARap/PolSARap_Ocean.exe" "k"
+        TextEditorRunTrace "Arguments: -id \x22$PolSARapOceanDirInput\x22 -od \x22$PolSARapOceanDirOutput\x22 -td \x22$TMPDirectory\x22 -iodf $PolSARapOceanFonction -wrtr $PolSARapOceanNwinTrainL -wctr $PolSARapOceanNwinTrainC -wrte $PolSARapOceanNwinTestL -wcte $PolSARapOceanNwinTestC -thr $PolSARapOceanThreshold -redr $PolSARapOceanRedR -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+        set f [ open "| Soft/bin/PolSARap/PolSARap_Ocean.exe -id \x22$PolSARapOceanDirInput\x22 -od \x22$PolSARapOceanDirOutput\x22 -td \x22$TMPDirectory\x22 -iodf $PolSARapOceanFonction -wrtr $PolSARapOceanNwinTrainL -wctr $PolSARapOceanNwinTrainC -wrte $PolSARapOceanNwinTestL -wcte $PolSARapOceanNwinTestC -thr $PolSARapOceanThreshold -redr $PolSARapOceanRedR -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError

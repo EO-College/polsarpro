@@ -645,9 +645,9 @@ global MapInfoMaskPolFormat MapInfoPolarType
 global MapInfoActive MapInfoMapInfo MapInfoProjInfo MapInfoUnit
 global ConfigFile VarError ErrorMessage Fonction
 
-TextEditorRunTrace "Process The Function Soft/tools/mapinfo_config_file.exe" "k"
+TextEditorRunTrace "Process The Function Soft/bin/tools/mapinfo_config_file.exe" "k"
 TextEditorRunTrace "Arguments: -id \x22$MapInfoDirOutput\x22 -if \x22$MapInfoHdrFile\x22 -ss $MapInfoSensor -pp $MapInfoPolarType" "k"
-set f [ open "| Soft/tools/mapinfo_config_file.exe -id \x22$MapInfoDirOutput\x22 -if \x22$MapInfoHdrFile\x22 -ss $MapInfoSensor -pp $MapInfoPolarType" r]
+set f [ open "| Soft/bin/tools/mapinfo_config_file.exe -id \x22$MapInfoDirOutput\x22 -if \x22$MapInfoHdrFile\x22 -ss $MapInfoSensor -pp $MapInfoPolarType" r]
 TextEditorRunTrace "Check RunTime Errors" "r"
 CheckRunTimeError
            

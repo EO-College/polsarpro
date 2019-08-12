@@ -735,9 +735,9 @@ if {$OpenDirFile == 0} {
 DeleteFile $TMPGoogle
 
 if {$GoogleInputFile != ""} {
-    TextEditorRunTrace "Process The Function Soft/data_import/read_gearth_poly.exe" "k"
+    TextEditorRunTrace "Process The Function Soft/bin/data_import/read_gearth_poly.exe" "k"
     TextEditorRunTrace "Arguments: -if \x22$GoogleInputFile\x22 -of \x22$TMPGoogle\x22" "k"
-    set f [ open "| Soft/data_import/read_gearth_poly.exe -if \x22$GoogleInputFile\x22 -of \x22$TMPGoogle\x22" r]
+    set f [ open "| Soft/bin/data_import/read_gearth_poly.exe -if \x22$GoogleInputFile\x22 -of \x22$TMPGoogle\x22" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError

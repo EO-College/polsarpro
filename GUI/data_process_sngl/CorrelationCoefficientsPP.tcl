@@ -915,7 +915,7 @@ $widget(Checkbutton237_3) configure -state disable} \
         -background #ffff00 \
         -command {global RoDirInput RoDirOutput RoOutputDir RoOutputSubDir NwinRoL NwinRoC
 global Fonction Fonction2 ProgressLine VarWarning WarningMessage WarningMessage2
-global BMPDirInput OpenDirFile PSPMemory TMPMemoryAllocError
+global BMPDirInput OpenDirFile TMPMemoryAllocError
 global TestVarError TestVarName TestVarType TestVarValue TestVarMin TestVarMax
 
 if {$OpenDirFile == 0} {
@@ -966,9 +966,9 @@ if {"$VarWarning"=="ok"} {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/data_process_sngl/process_corr.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$RoDirInput\x22 -od \x22$RoDirOutput\x22 -iodf SPP -elt 12 -nwr $NwinRoL -nwc $NwinRoC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_sngl/process_corr.exe -id \x22$RoDirInput\x22 -od \x22$RoDirOutput\x22 -iodf SPP -elt 12 -nwr $NwinRoL -nwc $NwinRoC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/process_corr.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$RoDirInput\x22 -od \x22$RoDirOutput\x22 -iodf SPP -elt 12 -nwr $NwinRoL -nwc $NwinRoC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_sngl/process_corr.exe -id \x22$RoDirInput\x22 -od \x22$RoDirOutput\x22 -iodf SPP -elt 12 -nwr $NwinRoL -nwc $NwinRoC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError

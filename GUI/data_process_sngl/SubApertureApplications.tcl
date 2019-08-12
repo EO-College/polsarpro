@@ -1020,7 +1020,7 @@ if {$DirName != "" } {
     entry $site_5_0.ent24 \
         -background white -disabledbackground #ffffff \
         -disabledforeground #0000ff -foreground #0000ff -justify center \
-        -state disabled -textvariable SubAptSubIm -width 3 
+        -state disabled -textvariable SubAptSubIm -width 5 
     vTcl:DefineAlias "$site_5_0.ent24" "Entry248_5" vTcl:WidgetProc "Toplevel248" 1
     pack $site_5_0.lab23 \
         -in $site_5_0 -anchor center -expand 0 -fill none -padx 10 -side left 
@@ -1036,7 +1036,7 @@ if {$DirName != "" } {
     entry $site_5_0.ent24 \
         -background white -disabledbackground #ffffff \
         -disabledforeground #ff0000 -foreground #ff0000 -justify center \
-        -textvariable SubAptInit -width 3 
+        -textvariable SubAptInit -width 5 
     vTcl:DefineAlias "$site_5_0.ent24" "Entry248_6" vTcl:WidgetProc "Toplevel248" 1
     pack $site_5_0.lab23 \
         -in $site_5_0 -anchor center -expand 0 -fill none -padx 10 -side left 
@@ -1052,7 +1052,7 @@ if {$DirName != "" } {
     entry $site_5_0.ent24 \
         -background white -disabledbackground #ffffff \
         -disabledforeground #ff0000 -foreground #ff0000 -justify center \
-        -textvariable SubAptFin -width 3 
+        -textvariable SubAptFin -width 5 
     vTcl:DefineAlias "$site_5_0.ent24" "Entry248_7" vTcl:WidgetProc "Toplevel248" 1
     pack $site_5_0.lab23 \
         -in $site_5_0 -anchor center -expand 0 -fill none -padx 10 -side left 
@@ -1213,10 +1213,10 @@ if {"$SubAptHAAlp"=="0"} {
     vTcl:DefineAlias "$site_4_0.lab23" "Label248_7b" vTcl:WidgetProc "Toplevel248" 1
     entry $site_4_0.ent24 \
         -background white -foreground #ff0000 -justify center \
-        -textvariable SubAptHAAlpNwinC -width 3 
+        -textvariable SubAptHAAlpNwinC -width 5 
     vTcl:DefineAlias "$site_4_0.ent24" "Entry248_1b" vTcl:WidgetProc "Toplevel248" 1
     pack $site_4_0.lab23 \
-        -in $site_4_0 -anchor center -expand 0 -fill none -side left 
+        -in $site_4_0 -anchor center -expand 0 -fill none -padx 2 -side left 
     pack $site_4_0.ent24 \
         -in $site_4_0 -anchor center -expand 0 -fill none -side left 
     frame $site_3_0.cpd66 \
@@ -1228,10 +1228,10 @@ if {"$SubAptHAAlp"=="0"} {
     vTcl:DefineAlias "$site_4_0.lab23" "Label248_7a" vTcl:WidgetProc "Toplevel248" 1
     entry $site_4_0.ent24 \
         -background white -foreground #ff0000 -justify center \
-        -textvariable SubAptHAAlpNwinL -width 3 
+        -textvariable SubAptHAAlpNwinL -width 5 
     vTcl:DefineAlias "$site_4_0.ent24" "Entry248_1a" vTcl:WidgetProc "Toplevel248" 1
     pack $site_4_0.lab23 \
-        -in $site_4_0 -anchor center -expand 0 -fill none -side left 
+        -in $site_4_0 -anchor center -expand 0 -fill none -padx 2 -side left 
     pack $site_4_0.ent24 \
         -in $site_4_0 -anchor center -expand 0 -fill none -side left 
     pack $site_3_0.che83 \
@@ -1380,10 +1380,10 @@ if {"$SubAptCVSpan"=="1"} {
     vTcl:DefineAlias "$site_6_0.lab23" "Label248_8a" vTcl:WidgetProc "Toplevel248" 1
     entry $site_6_0.ent24 \
         -background white -foreground #ff0000 -justify center \
-        -textvariable SubAptCVNwinL -width 3 
+        -textvariable SubAptCVNwinL -width 5 
     vTcl:DefineAlias "$site_6_0.ent24" "Entry248_2a" vTcl:WidgetProc "Toplevel248" 1
     pack $site_6_0.lab23 \
-        -in $site_6_0 -anchor center -expand 0 -fill none -side left 
+        -in $site_6_0 -anchor center -expand 0 -fill none -padx 2 -side left 
     pack $site_6_0.ent24 \
         -in $site_6_0 -anchor center -expand 0 -fill none -side left 
     frame $site_5_0.cpd68 \
@@ -1395,10 +1395,10 @@ if {"$SubAptCVSpan"=="1"} {
     vTcl:DefineAlias "$site_6_0.lab23" "Label248_8b" vTcl:WidgetProc "Toplevel248" 1
     entry $site_6_0.ent24 \
         -background white -foreground #ff0000 -justify center \
-        -textvariable SubAptCVNwinC -width 3 
+        -textvariable SubAptCVNwinC -width 5 
     vTcl:DefineAlias "$site_6_0.ent24" "Entry248_2b" vTcl:WidgetProc "Toplevel248" 1
     pack $site_6_0.lab23 \
-        -in $site_6_0 -anchor center -expand 0 -fill none -side left 
+        -in $site_6_0 -anchor center -expand 0 -fill none -padx 2 -side left 
     pack $site_6_0.ent24 \
         -in $site_6_0 -anchor center -expand 0 -fill none -side left 
     pack $site_5_0.cpd75 \
@@ -1449,10 +1449,10 @@ if {"$SubAptNSM"=="0"} {
     vTcl:DefineAlias "$site_4_0.lab23" "Label248_9b" vTcl:WidgetProc "Toplevel248" 1
     entry $site_4_0.ent24 \
         -background white -foreground #ff0000 -justify center \
-        -textvariable SubAptNSMNwinC -width 3 
+        -textvariable SubAptNSMNwinC -width 5 
     vTcl:DefineAlias "$site_4_0.ent24" "Entry248_3b" vTcl:WidgetProc "Toplevel248" 1
     pack $site_4_0.lab23 \
-        -in $site_4_0 -anchor center -expand 0 -fill none -side left 
+        -in $site_4_0 -anchor center -expand 0 -fill none -padx 2 -side left 
     pack $site_4_0.ent24 \
         -in $site_4_0 -anchor center -expand 0 -fill none -side left 
     frame $site_3_0.cpd71 \
@@ -1464,10 +1464,10 @@ if {"$SubAptNSM"=="0"} {
     vTcl:DefineAlias "$site_4_0.lab23" "Label248_10" vTcl:WidgetProc "Toplevel248" 1
     entry $site_4_0.ent24 \
         -background white -foreground #ff0000 -justify center \
-        -textvariable SubAptNSMNlook -width 3 
+        -textvariable SubAptNSMNlook -width 5 
     vTcl:DefineAlias "$site_4_0.ent24" "Entry248_4" vTcl:WidgetProc "Toplevel248" 1
     pack $site_4_0.lab23 \
-        -in $site_4_0 -anchor center -expand 0 -fill none -padx 10 -side left 
+        -in $site_4_0 -anchor center -expand 0 -fill none -padx 2 -side left 
     pack $site_4_0.ent24 \
         -in $site_4_0 -anchor center -expand 0 -fill none -side left 
     frame $site_3_0.cpd69 \
@@ -1479,10 +1479,10 @@ if {"$SubAptNSM"=="0"} {
     vTcl:DefineAlias "$site_4_0.lab23" "Label248_9a" vTcl:WidgetProc "Toplevel248" 1
     entry $site_4_0.ent24 \
         -background white -foreground #ff0000 -justify center \
-        -textvariable SubAptNSMNwinL -width 3 
+        -textvariable SubAptNSMNwinL -width 5 
     vTcl:DefineAlias "$site_4_0.ent24" "Entry248_3a" vTcl:WidgetProc "Toplevel248" 1
     pack $site_4_0.lab23 \
-        -in $site_4_0 -anchor center -expand 0 -fill none -side left 
+        -in $site_4_0 -anchor center -expand 0 -fill none -padx 2 -side left 
     pack $site_4_0.ent24 \
         -in $site_4_0 -anchor center -expand 0 -fill none -side left 
     pack $site_3_0.che83 \
@@ -1492,7 +1492,7 @@ if {"$SubAptNSM"=="0"} {
     pack $site_3_0.cpd71 \
         -in $site_3_0 -anchor center -expand 1 -fill none -side left 
     pack $site_3_0.cpd69 \
-        -in $site_3_0 -anchor center -expand 0 -fill none -side right 
+        -in $site_3_0 -anchor center -expand 1 -fill none -side left 
     frame $top.fra83 \
         -relief groove -height 35 -width 125 
     vTcl:DefineAlias "$top.fra83" "Frame20" vTcl:WidgetProc "Toplevel248" 1
@@ -1503,7 +1503,7 @@ if {"$SubAptNSM"=="0"} {
 global SubAptDirInput SubAptInputDir
 global SubAptDirOutput SubAptOutputDir SubAptSubDir
 global SubAptOutputDirSub SubAptSubNum
-global BMPDirInput OpenDirFile PSPMemory TMPMemoryAllocError
+global BMPDirInput OpenDirFile TMPMemoryAllocError
 global ConfigFile VarError ErrorMessage Fonction PSPViewGimpBMP
 global VarWarning WarningMesage WarningMessage2
 global SubAptInit SubAptFin SubAptNSubIm SubAptSubIm
@@ -1604,13 +1604,13 @@ for {set j 0} {$j < $SubAptSubIm} {incr j} {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/bmp_process/create_pauli_rgb_file.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$SubAptDirInput\x22 -of \x22$SubAptFileOutput\x22 -iodf S2 -ofr 0 -ofc 0 -fnr $FinalNlig  -fnc $FinalNcol -auto 1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/bmp_process/create_pauli_rgb_file.exe -id \x22$SubAptDirInput\x22 -of \x22$SubAptFileOutput\x22 -iodf S2 -ofr 0 -ofc 0 -fnr $FinalNlig  -fnc $FinalNcol -auto 1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_pauli_rgb_file.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$SubAptDirInput\x22 -of \x22$SubAptFileOutput\x22 -iodf S2 -ofr 0 -ofc 0 -fnr $FinalNlig  -fnc $FinalNcol -auto 1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/bmp_process/create_pauli_rgb_file.exe -id \x22$SubAptDirInput\x22 -of \x22$SubAptFileOutput\x22 -iodf S2 -ofr 0 -ofc 0 -fnr $FinalNlig  -fnc $FinalNcol -auto 1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
-            if {$PSPViewGimpBMP == 1} { Gimp $SubAptFileOutput }
+            if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $SubAptFileOutput }
             }
         if {$SubAptSinclair == "1"} {
             set SubAptFileOutput "$SubAptDirOutput/SinclairRGB.bmp" 
@@ -1622,13 +1622,13 @@ for {set j 0} {$j < $SubAptSubIm} {incr j} {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/bmp_process/create_sinclair_rgb_file.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$SubAptDirInput\x22 -of \x22$SubAptFileOutput\x22 -iodf S2 -ofr 0 -ofc 0 -fnr $FinalNlig  -fnc $FinalNcol -auto 1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/bmp_process/create_sinclair_rgb_file.exe -id \x22$SubAptDirInput\x22 -of \x22$SubAptFileOutput\x22 -iodf S2 -ofr 0 -ofc 0 -fnr $FinalNlig  -fnc $FinalNcol -auto 1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_sinclair_rgb_file.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$SubAptDirInput\x22 -of \x22$SubAptFileOutput\x22 -iodf S2 -ofr 0 -ofc 0 -fnr $FinalNlig  -fnc $FinalNcol -auto 1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/bmp_process/create_sinclair_rgb_file.exe -id \x22$SubAptDirInput\x22 -of \x22$SubAptFileOutput\x22 -iodf S2 -ofr 0 -ofc 0 -fnr $FinalNlig  -fnc $FinalNcol -auto 1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
-            if {$PSPViewGimpBMP == 1} { Gimp $SubAptFileOutput }
+            if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $SubAptFileOutput }
             }
         if {$SubAptSpan == "1"} {
             set Fonction "Creation of the Binary Data File :"
@@ -1639,9 +1639,9 @@ for {set j 0} {$j < $SubAptSubIm} {incr j} {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/data_process_sngl/process_span.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$SubAptDirInput\x22 -od \x22$SubAptDirOutput\x22 -iodf S2 -fmt db -nwr 1 -nwc 1 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_sngl/process_span.exe -id \x22$SubAptDirInput\x22 -od \x22$SubAptDirOutput\x22 -iodf S2 -fmt db -nwr 1 -nwc 1 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/process_span.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$SubAptDirInput\x22 -od \x22$SubAptDirOutput\x22 -iodf S2 -fmt db -nwr 1 -nwc 1 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_sngl/process_span.exe -id \x22$SubAptDirInput\x22 -od \x22$SubAptDirOutput\x22 -iodf S2 -fmt db -nwr 1 -nwc 1 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1662,13 +1662,13 @@ for {set j 0} {$j < $SubAptSubIm} {incr j} {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/bmp_process/create_pauli_rgb_file.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$SubAptDirInput\x22 -of \x22$SubAptFileOutput\x22 -iodf T3 -ofr 0 -ofc 0 -fnr $FinalNlig  -fnc $FinalNcol -auto 1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/bmp_process/create_pauli_rgb_file.exe -id \x22$SubAptDirInput\x22 -of \x22$SubAptFileOutput\x22 -iodf T3 -ofr 0 -ofc 0 -fnr $FinalNlig  -fnc $FinalNcol -auto 1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_pauli_rgb_file.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$SubAptDirInput\x22 -of \x22$SubAptFileOutput\x22 -iodf T3 -ofr 0 -ofc 0 -fnr $FinalNlig  -fnc $FinalNcol -auto 1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/bmp_process/create_pauli_rgb_file.exe -id \x22$SubAptDirInput\x22 -of \x22$SubAptFileOutput\x22 -iodf T3 -ofr 0 -ofc 0 -fnr $FinalNlig  -fnc $FinalNcol -auto 1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
-            if {$PSPViewGimpBMP == 1} { Gimp $SubAptFileOutput }
+            if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $SubAptFileOutput }
             }
         if {$SubAptSinclair == "1"} {
             set SubAptFileOutput "$SubAptDirOutput/SinclairRGB.bmp" 
@@ -1680,13 +1680,13 @@ for {set j 0} {$j < $SubAptSubIm} {incr j} {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/bmp_process/create_sinclair_rgb_file.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$SubAptDirInput\x22 -of \x22$SubAptFileOutput\x22 -iodf T3 -ofr 0 -ofc 0 -fnr $FinalNlig  -fnc $FinalNcol -auto 1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/bmp_process/create_sinclair_rgb_file.exe -id \x22$SubAptDirInput\x22 -of \x22$SubAptFileOutput\x22 -iodf T3 -ofr 0 -ofc 0 -fnr $FinalNlig  -fnc $FinalNcol -auto 1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_sinclair_rgb_file.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$SubAptDirInput\x22 -of \x22$SubAptFileOutput\x22 -iodf T3 -ofr 0 -ofc 0 -fnr $FinalNlig  -fnc $FinalNcol -auto 1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/bmp_process/create_sinclair_rgb_file.exe -id \x22$SubAptDirInput\x22 -of \x22$SubAptFileOutput\x22 -iodf T3 -ofr 0 -ofc 0 -fnr $FinalNlig  -fnc $FinalNcol -auto 1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
-            if {$PSPViewGimpBMP == 1} { Gimp $SubAptFileOutput }
+            if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $SubAptFileOutput }
             }
         if {$SubAptSpan == "1"} {
             set Fonction "Creation of the Binary Data File :"
@@ -1697,9 +1697,9 @@ for {set j 0} {$j < $SubAptSubIm} {incr j} {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/data_process_sngl/process_span.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$SubAptDirInput\x22 -od \x22$SubAptDirOutput\x22 -iodf T3 -fmt db -nwr 1 -nwc 1 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_sngl/process_span.exe -id \x22$SubAptDirInput\x22 -od \x22$SubAptDirOutput\x22 -iodf T3 -fmt db -nwr 1 -nwc 1 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/process_span.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$SubAptDirInput\x22 -od \x22$SubAptDirOutput\x22 -iodf T3 -fmt db -nwr 1 -nwc 1 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_sngl/process_span.exe -id \x22$SubAptDirInput\x22 -od \x22$SubAptDirOutput\x22 -iodf T3 -fmt db -nwr 1 -nwc 1 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1720,13 +1720,13 @@ for {set j 0} {$j < $SubAptSubIm} {incr j} {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/bmp_process/create_pauli_rgb_file.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$SubAptDirInput\x22 -of \x22$SubAptFileOutput\x22 -iodf C3 -ofr 0 -ofc 0 -fnr $FinalNlig  -fnc $FinalNcol -auto 1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/bmp_process/create_pauli_rgb_file.exe -id \x22$SubAptDirInput\x22 -of \x22$SubAptFileOutput\x22 -iodf C3 -ofr 0 -ofc 0 -fnr $FinalNlig  -fnc $FinalNcol -auto 1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_pauli_rgb_file.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$SubAptDirInput\x22 -of \x22$SubAptFileOutput\x22 -iodf C3 -ofr 0 -ofc 0 -fnr $FinalNlig  -fnc $FinalNcol -auto 1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/bmp_process/create_pauli_rgb_file.exe -id \x22$SubAptDirInput\x22 -of \x22$SubAptFileOutput\x22 -iodf C3 -ofr 0 -ofc 0 -fnr $FinalNlig  -fnc $FinalNcol -auto 1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
-            if {$PSPViewGimpBMP == 1} { Gimp $SubAptFileOutput }
+            if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $SubAptFileOutput }
             }
         if {$SubAptSinclair == "1"} {
             set SubAptFileOutput "$SubAptDirOutput/SinclairRGB.bmp" 
@@ -1738,13 +1738,13 @@ for {set j 0} {$j < $SubAptSubIm} {incr j} {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/bmp_process/create_sinclair_rgb_file.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$SubAptDirInput\x22 -of \x22$SubAptFileOutput\x22 -iodf C3 -ofr 0 -ofc 0 -fnr $FinalNlig  -fnc $FinalNcol -auto 1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/bmp_process/create_sinclair_rgb_file.exe -id \x22$SubAptDirInput\x22 -of \x22$SubAptFileOutput\x22 -iodf C3 -ofr 0 -ofc 0 -fnr $FinalNlig  -fnc $FinalNcol -auto 1 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/bmp_process/create_sinclair_rgb_file.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$SubAptDirInput\x22 -of \x22$SubAptFileOutput\x22 -iodf C3 -ofr 0 -ofc 0 -fnr $FinalNlig  -fnc $FinalNcol -auto 1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/bmp_process/create_sinclair_rgb_file.exe -id \x22$SubAptDirInput\x22 -of \x22$SubAptFileOutput\x22 -iodf C3 -ofr 0 -ofc 0 -fnr $FinalNlig  -fnc $FinalNcol -auto 1  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
-            if {$PSPViewGimpBMP == 1} { Gimp $SubAptFileOutput }
+            if {$PSPViewGimpBMP != 0} { GimpMapAlgebra $SubAptFileOutput }
             }                                 
         if {$SubAptSpan == "1"} {
             set Fonction "Creation of the Binary Data File :"
@@ -1755,9 +1755,9 @@ for {set j 0} {$j < $SubAptSubIm} {incr j} {
             set ProgressLine "0"
             WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
             update
-            TextEditorRunTrace "Process The Function Soft/data_process_sngl/process_span.exe" "k"
-            TextEditorRunTrace "Arguments: -id \x22$SubAptDirInput\x22 -od \x22$SubAptDirOutput\x22 -iodf C3 -fmt db -nwr 1 -nwc 1 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-            set f [ open "| Soft/data_process_sngl/process_span.exe -id \x22$SubAptDirInput\x22 -od \x22$SubAptDirOutput\x22 -iodf C3 -fmt db -nwr 1 -nwc 1 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+            TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/process_span.exe" "k"
+            TextEditorRunTrace "Arguments: -id \x22$SubAptDirInput\x22 -od \x22$SubAptDirOutput\x22 -iodf C3 -fmt db -nwr 1 -nwc 1 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+            set f [ open "| Soft/bin/data_process_sngl/process_span.exe -id \x22$SubAptDirInput\x22 -od \x22$SubAptDirOutput\x22 -iodf C3 -fmt db -nwr 1 -nwc 1 -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
             PsPprogressBar $f
             TextEditorRunTrace "Check RunTime Errors" "r"
             CheckRunTimeError
@@ -1825,9 +1825,9 @@ if {$config == "false"} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/data_process_sngl/h_a_alpha_decomposition.exe" "k"
-        TextEditorRunTrace "Arguments: -id \x22$SubAptDirInput\x22 -od \x22$SubAptDirOutput\x22 -iodf $SubAptF -nwr $SubAptHAAlpNwinL -nwc $SubAptHAAlpNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -fl1 0 -fl2 0 -fl3 1 -fl4 1 -fl5 1 -fl6 0 -fl7 0 -fl8 0 -fl9 0 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-        set f [ open "| Soft/data_process_sngl/h_a_alpha_decomposition.exe -id \x22$SubAptDirInput\x22 -od \x22$SubAptDirOutput\x22 -iodf $SubAptF -nwr $SubAptHAAlpNwinL -nwc $SubAptHAAlpNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -fl1 0 -fl2 0 -fl3 1 -fl4 1 -fl5 1 -fl6 0 -fl7 0 -fl8 0 -fl9 0 -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+        TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/h_a_alpha_decomposition.exe" "k"
+        TextEditorRunTrace "Arguments: -id \x22$SubAptDirInput\x22 -od \x22$SubAptDirOutput\x22 -iodf $SubAptF -nwr $SubAptHAAlpNwinL -nwc $SubAptHAAlpNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -fl1 0 -fl2 0 -fl3 1 -fl4 1 -fl5 1 -fl6 0 -fl7 0 -fl8 0 -fl9 0  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+        set f [ open "| Soft/bin/data_process_sngl/h_a_alpha_decomposition.exe -id \x22$SubAptDirInput\x22 -od \x22$SubAptDirOutput\x22 -iodf $SubAptF -nwr $SubAptHAAlpNwinL -nwc $SubAptHAAlpNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -fl1 0 -fl2 0 -fl3 1 -fl4 1 -fl5 1 -fl6 0 -fl7 0 -fl8 0 -fl9 0  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError
@@ -1881,9 +1881,9 @@ if {$config == "false"} {
         if {$SubAptSubDir == ""} { set SubAptF "S2" }
         if {$SubAptSubDir == "T3"} { set SubAptF "T3" }
         if {$SubAptSubDir == "C3"} { set SubAptF "C3" }
-        TextEditorRunTrace "Process The Function Soft/data_process_sngl/process_span.exe" "k"
-        TextEditorRunTrace "Arguments: -id \x22$SubAptDirInput\x22 -od \x22$SubAptDirOutput\x22 -iodf $SubAptF -fmt lin -nwr $SubAptHAAlpNwinL -nwc $SubAptHAAlpNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-        set f [ open "| Soft/data_process_sngl/process_span.exe -id \x22$SubAptDirInput\x22 -od \x22$SubAptDirOutput\x22 -iodf $SubAptF -fmt lin -nwr $SubAptHAAlpNwinL -nwc $SubAptHAAlpNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+        TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/process_span.exe" "k"
+        TextEditorRunTrace "Arguments: -id \x22$SubAptDirInput\x22 -od \x22$SubAptDirOutput\x22 -iodf $SubAptF -fmt lin -nwr $SubAptHAAlpNwinL -nwc $SubAptHAAlpNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+        set f [ open "| Soft/bin/data_process_sngl/process_span.exe -id \x22$SubAptDirInput\x22 -od \x22$SubAptDirOutput\x22 -iodf $SubAptF -fmt lin -nwr $SubAptHAAlpNwinL -nwc $SubAptHAAlpNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError
@@ -1961,9 +1961,9 @@ if {$config == "false"} {
     if {$SubAptSubDir == ""} { set SubAptVal 0}
     if {$SubAptSubDir == "T3"} { set SubAptVal 1}
     if {$SubAptSubDir == "C3"} { set SubAptVal 2}
-    TextEditorRunTrace "Process The Function Soft/data_process_sngl/sub_aperture_CV.exe" "k"
-    TextEditorRunTrace "Arguments: -id \x22$SubAptDirInput\x22 -od \x22$SubAptDirOutput\x22 -iodf $SubAptF -subi $SubAptInit -subn $SubAptSubIm -nwr $SubAptCVNwinL -nwc $SubAptCVNwinC -fnr $FinalNlig -fnc $FinalNcol -fh $SubAptCVH -fa $SubAptCVA -fal $SubAptCVAlp -fs $SubAptCVSpan -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-    set f [ open "| Soft/data_process_sngl/sub_aperture_CV.exe -id \x22$SubAptDirInput\x22 -od \x22$SubAptDirOutput\x22 -iodf $SubAptF -subi $SubAptInit -subn $SubAptSubIm -nwr $SubAptCVNwinL -nwc $SubAptCVNwinC -fnr $FinalNlig -fnc $FinalNcol -fh $SubAptCVH -fa $SubAptCVA -fal $SubAptCVAlp -fs $SubAptCVSpan -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+    TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/sub_aperture_CV.exe" "k"
+    TextEditorRunTrace "Arguments: -id \x22$SubAptDirInput\x22 -od \x22$SubAptDirOutput\x22 -iodf $SubAptF -subi $SubAptInit -subn $SubAptSubIm -nwr $SubAptCVNwinL -nwc $SubAptCVNwinC -fnr $FinalNlig -fnc $FinalNcol -fh $SubAptCVH -fa $SubAptCVA -fal $SubAptCVAlp -fs $SubAptCVSpan  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+    set f [ open "| Soft/bin/data_process_sngl/sub_aperture_CV.exe -id \x22$SubAptDirInput\x22 -od \x22$SubAptDirOutput\x22 -iodf $SubAptF -subi $SubAptInit -subn $SubAptSubIm -nwr $SubAptCVNwinL -nwc $SubAptCVNwinC -fnr $FinalNlig -fnc $FinalNcol -fh $SubAptCVH -fa $SubAptCVA -fal $SubAptCVAlp -fs $SubAptCVSpan  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError
@@ -2094,9 +2094,9 @@ if {$config == "true"} {
     set ProgressLine "0"
     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
     update
-    TextEditorRunTrace "Process The Function Soft/data_process_sngl/sub_aperture_anisotropy.exe" "k"
-    TextEditorRunTrace "Arguments: -id \x22$SubAptDirInput\x22 -od \x22$SubAptDirOutput\x22 -iodf $SubAptF -subi $SubAptInit -subn $SubAptSubIm -nwr $SubAptNSMNwinL -nwc $SubAptNSMNwinC -nlk $SubAptNSMNlook -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-    set f [ open "| Soft/data_process_sngl/sub_aperture_anisotropy.exe -id \x22$SubAptDirInput\x22 -od \x22$SubAptDirOutput\x22 -iodf $SubAptF -subi $SubAptInit -subn $SubAptSubIm -nwr $SubAptNSMNwinL -nwc $SubAptNSMNwinC -nlk $SubAptNSMNlook -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+    TextEditorRunTrace "Process The Function Soft/bin/data_process_sngl/sub_aperture_anisotropy.exe" "k"
+    TextEditorRunTrace "Arguments: -id \x22$SubAptDirInput\x22 -od \x22$SubAptDirOutput\x22 -iodf $SubAptF -subi $SubAptInit -subn $SubAptSubIm -nwr $SubAptNSMNwinL -nwc $SubAptNSMNwinC -nlk $SubAptNSMNlook -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+    set f [ open "| Soft/bin/data_process_sngl/sub_aperture_anisotropy.exe -id \x22$SubAptDirInput\x22 -od \x22$SubAptDirOutput\x22 -iodf $SubAptF -subi $SubAptInit -subn $SubAptSubIm -nwr $SubAptNSMNwinL -nwc $SubAptNSMNwinC -nlk $SubAptNSMNlook -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError

@@ -755,7 +755,7 @@ if {$DirName != "" } {
     vTcl:DefineAlias "$top.che71" "Checkbutton1" vTcl:WidgetProc "Toplevel313" 1
     label $top.lab66 \
         \
-        -text {( Complex Coherences : Opt1, Opt2, Opt3, HH, HV, VV, LL, LR, RR, HHpVV, HHmVV )} 
+        -text {( Complex Coherences : Opt1, Opt2, Opt3, HH, HV, VV, LL, LR, RR, HHpVV, HHmVV, HHVV* )} 
     vTcl:DefineAlias "$top.lab66" "Label2" vTcl:WidgetProc "Toplevel313" 1
     TitleFrame $top.tit92 \
         -ipad 2 -text {2D Kz File} 
@@ -845,6 +845,7 @@ if {$ForestHeightCohAvg == "0"} {
     if [file exists "$ForestHeightDirInput/cmplx_coh_RR.bin"] { } else { set config "false" }
     if [file exists "$ForestHeightDirInput/cmplx_coh_HHpVV.bin"] { } else { set config "false" }
     if [file exists "$ForestHeightDirInput/cmplx_coh_HHmVV.bin"] { } else { set config "false" }
+    if [file exists "$ForestHeightDirInput/cmplx_coh_HHVV.bin"] { } else { set config "false" }
     }
 if {$ForestHeightCohAvg == "1"} {
     if [file exists "$ForestHeightDirInput/cmplx_coh_avg_Opt1.bin"] { } else { set config "false" }
@@ -858,6 +859,7 @@ if {$ForestHeightCohAvg == "1"} {
     if [file exists "$ForestHeightDirInput/cmplx_coh_avg_RR.bin"] { } else { set config "false" }
     if [file exists "$ForestHeightDirInput/cmplx_coh_avg_HHpVV.bin"] { } else { set config "false" }
     if [file exists "$ForestHeightDirInput/cmplx_coh_avg_HHmVV.bin"] { } else { set config "false" }
+    if [file exists "$ForestHeightDirInput/cmplx_coh_avg_HHVV.bin"] { } else { set config "false" }
     }
 
 if {$config == "false"} {
@@ -895,9 +897,9 @@ if {"$VarWarning"=="ok"} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/data_process_dual/forest_height_estimation.exe" "k"
+        TextEditorRunTrace "Process The Function Soft/bin/data_process_dual/forest_height_estimation.exe" "k"
         TextEditorRunTrace "Arguments: -id \x22$ForestHeightDirInput\x22 -od \x22$ForestHeightDirOutput\x22 -kz \x22$KzFile\x22 -nr $FinalNlig -nc $FinalNcol -avg $ForestHeightCohAvg" "k"
-        set f [ open "| Soft/data_process_dual/forest_height_estimation.exe -id \x22$ForestHeightDirInput\x22 -od \x22$ForestHeightDirOutput\x22 -kz \x22$KzFile\x22 -nr $FinalNlig -nc $FinalNcol -avg $ForestHeightCohAvg" r]
+        set f [ open "| Soft/bin/data_process_dual/forest_height_estimation.exe -id \x22$ForestHeightDirInput\x22 -od \x22$ForestHeightDirOutput\x22 -kz \x22$KzFile\x22 -nr $FinalNlig -nc $FinalNcol -avg $ForestHeightCohAvg" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError

@@ -1035,12 +1035,12 @@ if {$config == "true"} {
 
 set UAVSARFileInputFlag 0
 if [file exists $UAVSARAnnotationFile] {
-    TextEditorRunTrace "Process The Function Soft/data_import/uavsar_header.exe" "k"
+    TextEditorRunTrace "Process The Function Soft/bin/data_import/uavsar_header.exe" "k"
     if {$UAVSARDataFormat == "SLC"} { set UAVSARDF "slc"}
     if {$UAVSARDataFormat == "MLC"} { set UAVSARDF "mlc"}
     if {$UAVSARDataFormat == "GRD"} { set UAVSARDF "grd"}
     TextEditorRunTrace "Arguments: -hf \x22$UAVSARAnnotationFile\x22 -id \x22$UAVSARDirInput\x22 -od \x22$UAVSARDirOutput\x22 -df $UAVSARDF -tf \x22$TMPUavsarConfig\x22" "k"
-    set f [ open "| Soft/data_import/uavsar_header.exe -hf \x22$UAVSARAnnotationFile\x22 -id \x22$UAVSARDirInput\x22 -od \x22$UAVSARDirOutput\x22 -df $UAVSARDF -tf \x22$TMPUavsarConfig\x22" r]
+    set f [ open "| Soft/bin/data_import/uavsar_header.exe -hf \x22$UAVSARAnnotationFile\x22 -id \x22$UAVSARDirInput\x22 -od \x22$UAVSARDirOutput\x22 -df $UAVSARDF -tf \x22$TMPUavsarConfig\x22" r]
     PsPprogressBar $f
     TextEditorRunTrace "Check RunTime Errors" "r"
     CheckRunTimeError

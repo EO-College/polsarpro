@@ -847,7 +847,7 @@ global PolSARapCryoDirInput PolSARapCryoDirOutput PolSARapCryoOutputDir PolSARap
 global PolSARapCryoKzFile PolSARapCryoIncAngFile PolSARapCryoCohSNRFile PolSARapCryoCmplxCohFile PolSARapCryoSurfVolFile PolSARapCryoKappaFile PolSARapCryoDepthFile
 global PolSARapCryoNwinL PolSARapCryoNwinC PolSARapCryoUnit PolSARapCryoNwinMedian PolSARapCryoIteration
 global PolSARapCryoChannel PolSARapCryoDielectric PolSARapCryoDr PolSARapCryoThreshold
-global PSPMemory TMPMemoryAllocError
+global TMPMemoryAllocError
 global NligInit NcolInit NligEnd NcolEnd NligFullSize NcolFullSize
 global Fonction Fonction2 ProgressLine VarWarning WarningMessage WarningMessage2
 global TestVarName TestVarType TestVarValue TestVarMin TestVarMax TestVarError
@@ -882,9 +882,9 @@ if {$OpenDirFile == 0} {
                     set ProgressLine "0"
                     WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
                     update
-                    TextEditorRunTrace "Process The Function Soft/calculator/file_operand_file.exe" "k"
+                    TextEditorRunTrace "Process The Function Soft/bin/calculator/file_operand_file.exe" "k"
                     TextEditorRunTrace "Arguments: -if1 \x22$MaskFile1\x22 -it1 float -if2 \x22$MaskFile2\x22 -it2 float -of \x22$MaskFileOut\x22 -ot float -op mulfile -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" "k"
-                    set f [ open "| Soft/calculator/file_operand_file.exe -if1 \x22$MaskFile1\x22 -it1 float -if2 \x22$MaskFile2\x22 -it2 float -of \x22$MaskFileOut\x22 -ot float -op mulfile -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
+                    set f [ open "| Soft/bin/calculator/file_operand_file.exe -if1 \x22$MaskFile1\x22 -it1 float -if2 \x22$MaskFile2\x22 -it2 float -of \x22$MaskFileOut\x22 -ot float -op mulfile -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol" r]
                     PsPprogressBar $f
                     TextEditorRunTrace "Check RunTime Errors" "r"
                     CheckRunTimeError
@@ -904,9 +904,9 @@ if {$OpenDirFile == 0} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/PolSARap/PolSARap_Cryosphere_Decomposition.exe" "k"
-        TextEditorRunTrace "Arguments: -id \x22$PolSARapCryoDirInput\x22 -od \x22$PolSARapCryoDirOutput\x22 -ang \x22$PolSARapCryoIncAngFile\x22 -un $PolSARapCryoUnit -nwr $PolSARapCryoNwinL -nwc $PolSARapCryoNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
-        set f [ open "| Soft/PolSARap/PolSARap_Cryosphere_Decomposition.exe -id \x22$PolSARapCryoDirInput\x22 -od \x22$PolSARapCryoDirOutput\x22 -ang \x22$PolSARapCryoIncAngFile\x22 -un $PolSARapCryoUnit -nwr $PolSARapCryoNwinL -nwc $PolSARapCryoNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
+        TextEditorRunTrace "Process The Function Soft/bin/PolSARap/PolSARap_Cryosphere_Decomposition.exe" "k"
+        TextEditorRunTrace "Arguments: -id \x22$PolSARapCryoDirInput\x22 -od \x22$PolSARapCryoDirOutput\x22 -ang \x22$PolSARapCryoIncAngFile\x22 -un $PolSARapCryoUnit -nwr $PolSARapCryoNwinL -nwc $PolSARapCryoNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" "k"
+        set f [ open "| Soft/bin/PolSARap/PolSARap_Cryosphere_Decomposition.exe -id \x22$PolSARapCryoDirInput\x22 -od \x22$PolSARapCryoDirOutput\x22 -ang \x22$PolSARapCryoIncAngFile\x22 -un $PolSARapCryoUnit -nwr $PolSARapCryoNwinL -nwc $PolSARapCryoNwinC -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError
@@ -961,7 +961,7 @@ global PolSARapCryoDirInput PolSARapCryoDirOutput PolSARapCryoOutputDir PolSARap
 global PolSARapCryoKzFile PolSARapCryoIncAngFile PolSARapCryoCohSNRFile PolSARapCryoCmplxCohFile PolSARapCryoSurfVolFile PolSARapCryoKappaFile PolSARapCryoDepthFile
 global PolSARapCryoNwinL PolSARapCryoNwinC PolSARapCryoUnit PolSARapCryoNwinMedian PolSARapCryoIteration
 global PolSARapCryoChannel PolSARapCryoDielectric PolSARapCryoDr PolSARapCryoThreshold
-global PSPMemory TMPMemoryAllocError
+global TMPMemoryAllocError
 global NligInit NcolInit NligEnd NcolEnd NligFullSize NcolFullSize
 global Fonction Fonction2 ProgressLine VarWarning WarningMessage WarningMessage2
 global OpenDirFile TestVarName TestVarType TestVarValue TestVarMin TestVarMax TestVarError
@@ -991,12 +991,12 @@ if {$OpenDirFile == 0} {
         set ProgressLine "0"
         WidgetShowTop28; TextEditorRunTrace "Open Window Message" "b"
         update
-        TextEditorRunTrace "Process The Function Soft/PolSARap/PolSARap_Cryosphere_Inversion.exe" "k"
-        set PolSARapArguments "-ikz \x22$PolSARapCryoKzFile\x22 -itt \x22$PolSARapCryoIncAngFile\x22 -ico \x22$PolSARapCryoCmplxCohFile\x22 -isv \x22$PolSARapCryoSurfVolFile\x22 -od \x22$PolSARapCryoDirOutput\x22 -ch $PolSARapCryoChannel -nw $PolSARapCryoNwinMedian -un $PolSARapCryoUnit -die $PolSARapCryoDielectric -thr $PolSARapCryoThreshold -it $PolSARapCryoIteration -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol -mem $PSPMemory -errf \x22$TMPMemoryAllocError\x22 $MaskCmd"
+        TextEditorRunTrace "Process The Function Soft/bin/PolSARap/PolSARap_Cryosphere_Inversion.exe" "k"
+        set PolSARapArguments "-ikz \x22$PolSARapCryoKzFile\x22 -itt \x22$PolSARapCryoIncAngFile\x22 -ico \x22$PolSARapCryoCmplxCohFile\x22 -isv \x22$PolSARapCryoSurfVolFile\x22 -od \x22$PolSARapCryoDirOutput\x22 -ch $PolSARapCryoChannel -nw $PolSARapCryoNwinMedian -un $PolSARapCryoUnit -die $PolSARapCryoDielectric -thr $PolSARapCryoThreshold -it $PolSARapCryoIteration -inc $NcolFullSize -ofr $OffsetLig -ofc $OffsetCol -fnr $FinalNlig -fnc $FinalNcol  -errf \x22$TMPMemoryAllocError\x22 $MaskCmd"
         if {$PolSARapCryoDr != "opt"} { append PolSARapArguments " -dr $PolSARapCryoDr" } else { append PolSARapArguments " -dr -1" }
         if [file exists $PolSARapCryoCohSNRFile] { append PolSARapArguments " -snr \x22$PolSARapCryoCohSNRFile\x22" }
         TextEditorRunTrace "Arguments: $PolSARapArguments" "k"
-        set f [ open "| Soft/PolSARap/PolSARap_Cryosphere_Inversion.exe $PolSARapArguments" r]
+        set f [ open "| Soft/bin/PolSARap/PolSARap_Cryosphere_Inversion.exe $PolSARapArguments" r]
         PsPprogressBar $f
         TextEditorRunTrace "Check RunTime Errors" "r"
         CheckRunTimeError
@@ -1330,7 +1330,7 @@ set PolSARapCryoNwinC "7"
 set PolSARapCryoUnit "1"
 set PolSARapCryoNwinMedian ""
 set PolSARapCryoIteration ""
-set PolSARapCryoChannel ""
+set PolSARapCryoChannel " "
 set PolSARapCryoDielectric ""
 set PolSARapCryoDr ""
 set PolSARapCryoThreshold ""} \
@@ -2024,7 +2024,7 @@ if {$FileName != ""} {
     button $site_3_0.but93 \
         -background #ffff00 \
         -command {global PolSARapCryoDirOutput PolSARapCryoOutputDir PolSARapCryoOutputSubDir PolSARapCryoDirInput
-global PSPMemory TMPMemoryAllocError
+global TMPMemoryAllocError
 global Fonction Fonction2 ProgressLine VarWarning WarningMessage WarningMessage2
 global OpenDirFile PolSARapCryoFonc
 
